@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+Used to determine Browser Capabilities by the Browsers UserAgent String and related
+Browser supplied Headers.
+Copyright (C) 2002-Present  Owen Brady (Ocean at owenbrady dot net)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy 
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights 
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom the Software is furnished
+to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION 
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+<browsers>
+  <!--Mobile Devices Not Detected by the default MS Browser Files -->
+  <gateway id="OceanDefaultMobile" parentID="Default">
+    <sampleHeaders>
+      <header name="Via" value="WSP/1.0 msp2-int:9201 (WAP Gateway 2.1.1-su22), HTTP/1.1 Siemens" />
+      <header name="Accept" value="application/vnd.wap.wmlc,application/vnd.wap.wmlscriptc,application/vnd.wap.wbxml,image/gif,image/vnd.wap.wbmp,application/vnd.wap.sic,image/jpeg,text/vnd.sun.j2me.app-descriptor,application/java-archive,application/vnd.smaf,application/x-midi,audio/midi,audio/x-mid,audio/x-midi,text/x-imelody,text/x-iMelody,application/vnd.wap.mms-message,application/vnd.oma.drm.message,application/*,text/vnd.wap.wml,text/vnd.wap.wmlscript" />
+      <header name="Accept-Charset" value="iso-8859-1,us-ascii,utf-8;q=0.8,iso-10646-ucs-2;q=0.6" />
+      <header name="Accept-Language" value="fr" />
+      <header name="User-Agent" value="SEC-SGHC200" />
+      <header name="x-wap-profile" value="http://wap.samsungmobile.com/uaprof/c200.xml" />
+      <header name="X-MSP-RequestBytes" value="0" />
+      <header name="X-WAP-PORT" value="9201" />
+      <header name="X-MSP-CLID" value="21350243536" />
+    </sampleHeaders>
+    <identification>
+      <header name="x-wap-profile" match="." />
+    </identification>
+    <capabilities>
+      <capability name="ismobiledevice" value="true" />
+    </capabilities>
+  </gateway>
+  <browser id="OceanNetFront" parentID="Default">
+    <sampleHeaders>
+      <header name="User-Agent" value="SAMSUNG-SGH-L760/CYGH1 SHP/VPP/R5 NetFront/3.4 SMM-MMS/1.2.0 profile/MIDP-2.0 configuration/CLDC-1.1" />
+    </sampleHeaders>
+    <identification>
+      <userAgent match="NetFront/(?'versionString'(?'browserMajorVersion'\d+)(?'browserMinorVersion'\.\d+))" />
+    </identification>
+    <capture>
+    </capture>
+    <capabilities>
+      <capability name="browser"                 value="Compact NetFront" />
+      <capability name="majorVersion"            value="${browserMajorVersion}" />
+      <capability name="minorVersion"            value="${browserMinorVersion}" />
+      <capability name="version"                 value="${versionString}" />
+      <capability name="OS"                      value="" />
+      <capability name="tagwriter"               value="System.Web.UI.HtmlTextWriter" />
+      <capability name="frames"                  value="true" />
+      <capability name="tables"                  value="true" />
+      <capability name="xml"                     value="true" />
+      <capability name="javascript"              value="true" />
+      <capability name="isMobileDevice"          value="true" />      
+    </capabilities>
+  </browser>
+  <!-- This is just to keep the name consistant with the name I have been using for years.-->
+  <browser id="Oceanblackberry" parentID="blackberry">
+    <capabilities>
+      <capability name="browser"                 value="RIM Browser" />
+    </capabilities>
+  </browser>
+  <browser id="Ericsson" parentID="Default">
+    <sampleHeaders>
+      <header name="User-Agent" value="SonyEricssonK750i/R1L Browser/SEMC-Browser/4.2 Profile/MIDP-2.0 Configuration/CLDC-1.1" />
+    </sampleHeaders>
+    <identification>
+      <userAgent match="Ericsson(?'deviceID'[^/]+)/(?'deviceVer'.*)" />
+    </identification>
+    <capabilities>
+      <capability name="browser"                         value="Ericsson" />
+      <capability name="canInitiateVoiceCall"            value="true" />
+      <capability name="cookies"                         value="false" />
+      <capability name="defaultScreenCharactersHeight"   value="4" />
+      <capability name="defaultScreenCharactersWidth"    value="20" />
+      <capability name="defaultScreenPixelsHeight"       value="52" />
+      <capability name="defaultScreenPixelsWidth"        value="101" />
+      <capability name="inputType"                       value="telephoneKeypad" />
+      <capability name="isColor"                         value="false" />
+      <capability name="isMobileDevice"                  value="true" />
+      <capability name="maximumRenderedPageSize"         value="1600" />
+      <capability name="mobileDeviceManufacturer"        value="Ericsson" />
+      <capability name="mobileDeviceModel"               value="${deviceID}" />
+      <capability name="mobileDeviceVersion"             value="${deviceVer}" />
+      <capability name="numberOfSoftkeys"                value="2" />
+      <capability name="preferredImageMime"              value="image/vnd.wap.wbmp" />
+      <capability name="preferredRenderingMime"          value="text/vnd.wap.wml" />
+      <capability name="preferredRenderingType"          value="wml11" />
+      <capability name="requiresAdaptiveErrorReporting"  value="true" />
+      <capability name="screenBitDepth"                  value="1" />
+      <capability name="type"                            value="Ericsson ${deviceID}" />
+    </capabilities>
+  </browser>
+  <gateway id="SonyEricsson" parentID="Ericsson">
+    <identification>
+      <userAgent match="^SonyEricsson" />
+    </identification>
+    <capabilities>
+      <capability name="browser"                     value="Sony Ericsson" />
+      <capability name="mobileDeviceManufacturer"    value="Sony Ericsson" />
+      <capability name="type"                        value="Sony Ericsson ${mobileDeviceModel}" />
+    </capabilities>
+  </gateway>
+  <gateway id="OceanOperaMini" parentID="opera">
+    <sampleHeaders>
+      <header name="connection" value="Keep-Alive" />
+      <header name="accept" value="text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1" />
+      <header name="accept-charset" value="iso-8859-1, utf-8, utf-16, *;q=0.1" />
+      <header name="accept-encoding" value="deflate, gzip, x-gzip, identity, *;q=0" />
+      <header name="accept-language" value="en-US,en;q=0.9" />
+      <header name="user-agent" value="Opera/8.01 (J2ME/MIDP; Opera Mini/2.0.4459/1724; en; U; ssr)" />
+      <header name="x-operamini-features" value="advanced, download, inputhints" />
+      <header name="x-operamini-phone-ua" value="SonyEricssonK750i/R1CA/SN353785015796807 Java/SEMC-Java/2.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UNTRUSTED/1.0" />
+      <header name="x-operamini-phone" value="SonyEricsson # K750i" />
+    </sampleHeaders>
+    <identification>
+      <userAgent match="Opera\sMini[ /](?'versionString'(?'browserMajorVersion'\d+)(?'browserMinorVersion'\.\d+))" />
+    </identification>
+    <capture>
+      <header name="x-operamini-phone" match="(?'Manufacturer'.+)\s\#\s(?'deviceID'.+)" />
+    </capture>
+    <capabilities>
+      <capability name="isMobileDevice"          value="true" />
+      <capability name="browser"                 value="Opera Mini" />
+      <capability name="majorVersion"            value="${browserMajorVersion}" />
+      <capability name="minorVersion"            value="${browserMinorVersion}" />
+      <capability name="version"                 value="${versionString}" />
+      <capability name="mobileDeviceManufacturer"        value="${Manufacturer}" />
+      <capability name="mobileDeviceModel"               value="${deviceID}" />
+      <capability name="type"                            value="${Manufacturer} ${deviceID}" />
+    </capabilities>
+  </gateway>
+  <browser id="PlayStationPortable" parentID="netscape4">
+    <identification>
+      <userAgent match="\(PSP\s\(PlayStation\sPortable\);\s(?'versionString'(?'browserMajorVersion'\d+)(?'browserMinorVersion'\.\d+))\)" />
+    </identification>
+    <capabilities>
+      <capability name="browser"                  value="PlayStation Portable" />
+      <capability name="majorVersion"             value="${browserMajorVersion}" />
+      <capability name="minorVersion"             value="${browserMinorVersion}" />
+      <capability name="version"                  value="${versionString}" />
+      <capability name="xml"                      value="true" />
+      <capability name="tagWriter"								value="System.Web.UI.HtmlTextWriter" />
+      <capability name="mobileDeviceManufacturer" value="Sony" />
+      <capability name="crawler"									value="false" />
+      <capability name="ismobiledevice"           value="true" />
+    </capabilities>
+  </browser>
+  <!-- 01-22-10 Thanks to John Boers for pointing out the new Models of Samsung were not always being properly identified.-->
+  <browser id="SAMSUNGIEMobile" parentID="Default">
+    <sampleHeaders>
+      <header name="User-Agent" value="SAMSUNG-SGH-I617/1.0 Mozilla/4.0 (Compatible; MSIE 6.0; Windows CE; IEMobile 7.6) UP.Link/6.3.1.17.0" />
+      <header name="Accept" value="text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5" />
+      <header name="Accept-Charset" value="ISO-8859-1,utf-8;q=0.7,*;q=0.7" />
+      <header name="Accept-Encoding" value="gzip,deflate" />
+    </sampleHeaders>
+    <identification>
+      <userAgent match="^SAMSUNG-(?'mobileDeviceModel'[a-zA-Z]{2,3}-\w*)/" />
+      <userAgent match="IEMobile (?'versionString'(?'browserMajorVersion'\d+)(?'browserMinorVersion'\.\d+))" />
+    </identification>
+    <capabilities>
+      <capability name="mobileDeviceManufacturer" value="Samsung" />
+      <capability name="mobileDeviceModel" value="${mobileDeviceModel}" />
+      <capability name="browser" value="IEMobile" />
+      <capability name="majorVersion"            value="${browserMajorVersion}" />
+      <capability name="minorVersion"            value="${browserMinorVersion}" />
+      <capability name="version"                 value="${versionString}" />
+      <capability name="w3cdomversion" value="1.0" />
+      <capability name="isMobileDevice" value="true" />
+      <capability name="tagwriter" value="System.Web.UI.HtmlTextWriter" />
+    </capabilities>
+  </browser>
+  <browser id="AppleWebKitSymbianOS" parentID="safari">
+    <identification>
+      <userAgent match="SymbianOS" />
+      <userAgent match="AppleWebKit/413" />
+    </identification>
+
+    <capabilities>
+      <capability name="browser"                         value="Nokia" />
+      <capability name="majorversion"                    value="0" />
+      <capability name="minorversion"                    value=".0" />
+      <capability name="version"                         value="0.0" />
+      <capability name="mobileDeviceManufacturer"        value="Nokia" />
+      <capability name="isMobileDevice"                  value="true" />
+    </capabilities>
+  </browser>
+  <browser id="AppleWebKitNokia" parentID="AppleWebKitSymbianOS">
+    <sampleHeaders>
+      <header name="User-Agent" value="Mozilla/5.0 (SymbianOS/9.2; U; Series60/3.1 Nokia6120c/3.70; Profile/MIDP-2.0 Configuration/CLDC-1.1 ) AppleWebKit/413 (KHTML, like Gecko) Safari/413 UP.Link/6.5.1.3.0" />
+    </sampleHeaders>
+    <identification>
+      <userAgent match="Nokia\s?(?'deviceID'\d{4}[a-zA-Z]?)|Nokia(?'deviceID'[a-zA-Z]\d{2})" />
+    </identification>
+    <capture>
+      <userAgent match="Nokia\s?(?'deviceID'\d{4}[a-zA-Z]?)/(?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))" />
+      <userAgent match="Nokia(?'deviceID'[a-zA-Z]\d{2})/(?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))" />
+      <userAgent match="Nokia\s?(?'deviceID'\d{4}[a-zA-Z]?)/\d\.\d\s\((?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))\)" />
+      <userAgent match="Nokia(?'deviceID'[a-zA-Z]\d{2})/\d\.\d\s\((?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))\)" />
+    </capture>
+    <capabilities>
+      <capability name="majorVersion"            value="${browserMajorVersion}" />
+      <capability name="minorVersion"            value="${browserMinorVersion}" />
+      <capability name="mobileDeviceModel"       value="${deviceID}" />
+      <capability name="type"                    value="Nokia ${deviceID}" />
+      <capability name="version"                 value="${versionString}" />
+    </capabilities>
+  </browser>
+  <gateway id="ieSymbianOS" parentID="ie">
+    <identification>
+      <userAgent match="SymbianOS" />
+      <userAgent match="AppleWebKit/413" />
+    </identification>
+
+    <capabilities>
+      <capability name="browser"                         value="Nokia" />
+      <capability name="majorversion"                    value="0" />
+      <capability name="minorversion"                    value=".0" />
+      <capability name="version"                         value="0.0" />
+      <capability name="mobileDeviceManufacturer"        value="Nokia" />
+      <capability name="isMobileDevice"                  value="true" />
+    </capabilities>
+  </gateway>
+  <browser id="ieNokia" parentID="ieSymbianOS">
+    <sampleHeaders>
+      <header name="User-Agent" value="Mozilla/5.0 (SymbianOS/9.2; U; Series60/3.1 Nokia6120c/3.70; Profile/MIDP-2.0 Configuration/CLDC-1.1 ) AppleWebKit/413 (KHTML, like Gecko) Safari/413 UP.Link/6.5.1.3.0" />
+    </sampleHeaders>
+    <identification>
+      <userAgent match="Nokia\s?(?'deviceID'\d{4}[a-zA-Z]?)|Nokia(?'deviceID'[a-zA-Z]\d{2})" />
+    </identification>
+    <capture>
+      <userAgent match="Nokia\s?(?'deviceID'\d{4}[a-zA-Z]?)/(?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))" />
+      <userAgent match="Nokia(?'deviceID'[a-zA-Z]\d{2})/(?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))" />
+      <userAgent match="Nokia\s?(?'deviceID'\d{4}[a-zA-Z]?)/\d\.\d\s\((?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))\)" />
+      <userAgent match="Nokia(?'deviceID'[a-zA-Z]\d{2})/\d\.\d\s\((?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))\)" />
+    </capture>
+    <capabilities>
+      <capability name="majorVersion"            value="${browserMajorVersion}" />
+      <capability name="minorVersion"            value="${browserMinorVersion}" />
+      <capability name="mobileDeviceModel"       value="${deviceID}" />
+      <capability name="type"                    value="Nokia ${deviceID}" />
+      <capability name="version"                 value="${versionString}" />
+    </capabilities>
+  </browser>
+  <browser id="Nokia" parentID="Default">
+    <identification>
+      <userAgent match="Nokia\s?(?'deviceID'\d{4}[a-zA-Z]?)|Nokia(?'deviceID'[a-zA-Z]\d{2})" />
+    </identification>
+    <capture>
+      <userAgent match="Nokia\s?(?'deviceID'\d{4}[a-zA-Z]?)/(?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))" />
+      <userAgent match="Nokia(?'deviceID'[a-zA-Z]\d{2})/(?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))" />
+      <userAgent match="Nokia\s?(?'deviceID'\d{4}[a-zA-Z]?)/\d\.\d\s\((?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))\)" />
+      <userAgent match="Nokia(?'deviceID'[a-zA-Z]\d{2})/\d\.\d\s\((?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*))\)" />
+    </capture>
+
+    <capabilities>
+      <capability name="browser"                 value="Nokia" />
+      <capability name="majorVersion"            value="${browserMajorVersion}" />
+      <capability name="minorVersion"            value="${browserMinorVersion}" />
+      <capability name="mobileDeviceModel"       value="${deviceID}" />
+      <capability name="type"                    value="Nokia ${deviceID}" />
+      <capability name="version"                 value="${versionString}" />
+      <capability name="isMobileDevice"          value="true" />
+    </capabilities>
+  </browser>
+  <browser id="PalmBlazerie6to9" parentID="ie6to9">
+    <sampleHeaders>
+      <header name="User-Agent" value="Palm680/RC1 Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; PalmSource/Palm-D053; Blazer/4.5) 16;320x320 UP.Link/6.3.0.0.0" />
+    </sampleHeaders>
+    <identification>
+      <userAgent match="; Blazer/(?'version'(?'major'\d+)(?'minor'\.\d+))" />
+    </identification>
+    <capture>
+      <userAgent match="PalmSource/(?'deviceModel'[^;]+)" />
+      <userAgent match="(?'colorDepth'\d+);(?'screenWidth'\d+)x(?'screenHeight'\d+)" />
+    </capture>
+    <capabilities>
+      <capability name="mobileDeviceManufacturer" value="PalmOS-licensee" />
+      <capability name="browser" value="Handspring Blazer" />
+      <capability name="isMobileDevice" value="true" />
+      <capability name="version" value="${version}" />
+      <capability name="majorversion" value="${major}" />
+      <capability name="minorversion" value="${minor}" />
+      <capability name="mobileDeviceModel" value="${deviceModel}" />
+      <capability name="screenPixelsHeight"  value="${screenHeight}" />
+      <capability name="screenPixelsWidth"   value="${screenWidth}" />
+      <capability name="isColor"         value="true" />
+      <capability name="screenBitDepth"  value="${colorDepth}" />
+      <capability name="type"                    value="PalmSource ${deviceID}" />
+    </capabilities>
+  </browser>
+  <browser id="PocketIE" parentID="ie">
+    <sampleHeaders>
+      <header name="User-Agent" value="HTC-Touch/Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 7.6)" />
+    </sampleHeaders>
+    <identification>
+      <userAgent match="; MSIE (?'versionString'(?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*));\D* Windows CE(;(?'deviceID' \D\w*))?(; (?'screenWidth'\d+)x(?'screenHeight'\d+))?" />
+    </identification>
+    <capabilities>
+      <capability name="mobileDeviceModel" value="${deviceID}" />
+      <capability name="isMobileDevice" value="true" />
+      <capability name="browser" value = "Pocket IE"/>
+      <capability name="version" value="${versionString}"/>
+      <capability name="majorversion" value="${browserMajorVersion}"/>
+      <capability name="minorversion" value="${browserMinorVersion}"/>
+      <capability name="tagwriter" value="System.Web.UI.HtmlTextWriter"/>
+    </capabilities>
+  </browser>
+  <!-- Date: 03-21-2010 -->
+  <!-- Thanks to Chris Bristow for the supplied Headers-->
+  <browser id="IEBlackBerryDevice2" parentID="ie6to9">
+    <sampleHeaders>
+      <header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)" />
+      <header name="profile" value="http://www.blackberry.net/go/mobile/profiles/uaprof/8320/4.5.0.rdf" />
+    </sampleHeaders>
+    <identification>
+      <header name="profile" match="http://www.blackberry.net" />
+    </identification>
+    <capture>
+    </capture>
+    <capabilities>
+      <capability name="browser"                 value="RIM Browser" />
+      <capability name="isMobileDevice"          value="true" />
+      <capability name="majorVersion"            value="0" />
+      <capability name="minorVersion"            value=".0" />
+      <capability name="mobileDeviceModel"       value="" />
+      <capability name="type"                    value="BlackBerry" />
+      <capability name="version"                 value="0.0" />
+      <capability name="OS"                      value="" />
+    </capabilities>
+  </browser>
+
+</browsers>

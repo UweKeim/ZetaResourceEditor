@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="SR_MainForm_DoSaveFiles_SaveChangesToTheResourceFiles" xml:space="preserve">
+    <value>Do you want to save changes to the resource files?</value>
+    <comment>1234.</comment>
+  </data>
+	<data name="SR_MainForm_openToolStripMenuItemClick_ResourceFiles" xml:space="preserve">
+    <value>Resource files</value>
+  </data>
+	<data name="SR_MainForm_deleteTagToolStripMenuItemClick_DoYouReallyWantToDeleteTheTagAndAllOfItsTranslations" xml:space="preserve">
+    <value>Do you really want to delete the tag and all of its translations?</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_DoSaveFile_SaveChangesToTheProjectFile" xml:space="preserve">
+    <value>Do you want to save changes to the project file?</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_OpenWithDialog_EditorProjectFiles" xml:space="preserve">
+    <value>Zeta Resource Editor project files</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_RemoveFileFromFileGroupWithDialog_FromTheFileGroup" xml:space="preserve">
+    <value>Do you really want to remove the selected file from the file group?</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_AddFilesToFileGroupWithDialog_AlreadyPresent" xml:space="preserve">
+    <value>You can only add files that are from the same folder as the files that are already present.</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_RemoveResourceFilesWithDialog_FromTheProject" xml:space="preserve">
+    <value>Do you really want to remove the selected file group from the project?</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_OfFilesWereAdded" xml:space="preserve">
+    <value>Finished processing. {0} file groups with a total of {1} files were added.</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WereAdded" xml:space="preserve">
+    <value>Finished processing. No file groups were added.</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WillBeAdded" xml:space="preserve">
+    <value>Please wait while the files will be added...</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_AddedAutomatically" xml:space="preserve">
+    <value>Please select the base folder to add from. Resources in child folders will be added automatically.</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_AddResourceFilesWithDialog_ExistsInTheProject" xml:space="preserve">
+    <value>The files you try to add already exists in the project.</value>
+  </data>
+	<data name="SR_ImportExportWizard_buttonBrowseFileClick_ExcelFilesXls" xml:space="preserve">
+    <value>Microsoft Office Excel documents (*.xls)</value>
+  </data>
+	<data name="SR_EnumComboBox_Initialize_TMustBeAnEnum" xml:space="preserve">
+    <value>T must be an enumeration.</value>
+  </data>
+	<data name="SR_Host_Main_ZetaResourceEditorProjectFile" xml:space="preserve">
+    <value>Zeta Resource Editor project file</value>
+  </data>
+	<data name="SR_CreateNewProjectForm_CreateNewProjectFormLoad_ZetaResourceEditorProjects" xml:space="preserve">
+    <value>Zeta Resource Editor projects</value>
+  </data>
+	<data name="SR_CreateNewProjectForm_browseToolStripMenuItemClick_TheProjectTo" xml:space="preserve">
+    <value>Please select a folder to store the project to.</value>
+  </data>
+	<data name="SR_ReportItemsForm_buttonOKClick_ThankYou" xml:space="preserve">
+    <value>The items were sent successfully to Zeta Software. Thank you!</value>
+  </data>
+	<data name="SR_ErrorForm_button2Click_QuitTheApplication" xml:space="preserve">
+    <value>Do you really want to quit the application?</value>
+  </data>
+	<data name="SR_ErrorForm_inspectTheUnderlyingExceptionToolStripMenuItemClick_ExceptionDetails" xml:space="preserve">
+    <value>Exception details</value>
+  </data>
+	<data name="SR_BackgroundWorkerLongProgressGui_DefaultRunWorkerCompleted_ErrorDuringProcessing" xml:space="preserve">
+    <value>Error during processing.</value>
+  </data>
+	<data name="SR_BackgroundWorkerLongProgressForm_cancelGuardTimerTick_NotResponding" xml:space="preserve">
+    <value>The background processing did not respond within the given time-frame.</value>
+  </data>
+	<data name="SR_ImportExportWizard_printDescriptionText_Translation" xml:space="preserve">
+    <value>Export translation files into a Microsoft Office Excel document for external translation.</value>
+  </data>
+	<data name="SR_ImportExportWizard_wizardFinishButtonClick_ExcelDocumentNow" xml:space="preserve">
+    <value>The Excel document was successfully created.
+
+Do you want to open the Excel document now?</value>
+  </data>
+	<data name="SR_AboutForm_linkLabel1LinkClicked_Httpwwwzetasoftwaredelinkszrehome" xml:space="preserve">
+    <value>http://zeta.li/zre-ENU-home</value>
+  </data>
+	<data name="SR_Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+	<data name="SR_AutoTranslateForm_buttonTranslateClick_TranslatingTranslatedTexts" xml:space="preserve">
+    <value>Finished translating. Translated {0} texts. {1} translations successful, {2} translations failed.</value>
+  </data>
+	<data name="SR_MainFormNew_loadMruFileProjects_ClearRecentProjectsList" xml:space="preserve">
+    <value>Clear recent projects list</value>
+  </data>
+	<data name="SR_MainFormNew_loadMruFileFiles_ClearRecentFilesList" xml:space="preserve">
+    <value>Clear recent files list</value>
+  </data>
+	<data name="SR_MainFormNew_loadMruFileProjects_RemovesAllItemsFromTheListAbove" xml:space="preserve">
+    <value>Removes all items from the list above</value>
+  </data>
+	<data name="SR_InlineNewsUrl" xml:space="preserve">
+    <value>http://www.zeta-resource-editor.com/inline-news.html</value>
+  </data>
+	<data name="SR_ExportWizard_buttonBrowseClick_ExcelFilesXlsxls" xml:space="preserve">
+    <value>Excel documents (*.xls)|*.xls</value>
+  </data>
+	<data name="SR_ResourceEditorUserControl_Find_TheTextWasNotFound" xml:space="preserve">
+    <value>The text was not found.</value>
+  </data>
+	<data name="SR_ConfirmCancelImport" xml:space="preserve">
+    <value>Do you really want to cancel the import?</value>
+  </data>
+	<data name="SR_ConfirmCancelExport" xml:space="preserve">
+    <value>Do you really want to cancel the export?</value>
+  </data>
+	<data name="SR_ProjectFolder_RootName_Root" xml:space="preserve">
+    <value>Root</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_buttonAddProjectFolderItemClick_NewProjectFolder" xml:space="preserve">
+    <value>New project folder</value>
+  </data>
+	<data name="SR_MainForm_UpdateUI_HideProjectPanel" xml:space="preserve">
+    <value>Hide project panel</value>
+  </data>
+	<data name="SR_MainForm_UpdateUI_ShowProjectPanel" xml:space="preserve">
+    <value>Show project panel</value>
+  </data>
+	<data name="SR_CreateNewFilesForm_Creating" xml:space="preserve">
+    <value>Creating new files...</value>
+  </data>
+	<data name="SR_CreateNewFilesForm_Finished01" xml:space="preserve">
+    <value>The operation finished successfully, however no files were created, because the language already exists for all affected file groups.</value>
+  </data>
+	<data name="SR_CreateNewFilesForm_Finished02" xml:space="preserve">
+    <value>The operation finished successfully. {0} new files were created, {1} new files were not created (because the language already exists for all affected file groups).</value>
+  </data>
+	<data name="SR_CreateNewFilesForm_Finished03" xml:space="preserve">
+    <value>The operation finished successfully. {0} new files were created.</value>
+  </data>
+	<data name="SR_OptionsForm_updateLicenseInfo__Invalid_license_key_" xml:space="preserve">
+    <value>(Invalid license key)</value>
+  </data>
+	<data name="SR_OptionsForm_purchaseLicenseButton_Click" xml:space="preserve">
+    <value>http://zeta.li/zre-ENU-purchase-license</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_buttonRemoveProjectFolder_ItemClick" xml:space="preserve">
+    <value>Do you really want to remove the select project folder and all contained file groups from the project?</value>
+  </data>
+	<data name="SR_ProjectFilesUserControl_removeNodeAndchilds_Unexpected_node_type" xml:space="preserve">
+    <value>Unexpected node type '{0}' while removing.</value>
+  </data>
+	<data name="SR_MainForm_dataProcessing_CanOverwrite_Do_you_want_to_overwrite_the_read_only_file___0___" xml:space="preserve">
+    <value>Do you want to overwrite the read-only file '{0}'?</value>
+  </data>
+	<data name="Str_404EMailMessageSubject" xml:space="preserve">
+    <value>[Zeta Resource Editor] 404 Error occurred</value>
+  </data>
+	<data name="SR_AdService_stockResponses_ZetaTest" xml:space="preserve">
+    <value>Test Management Software - For Test Cases and Test Plan Templates</value>
+  </data>
+	<data name="SR_AdService_stockResponses_ZetaUploader" xml:space="preserve">
+    <value>Easily send large files to your contacts - Zeta Uploader</value>
+  </data>
+	<data name="SR_AdService_stockResponses_ZetaProducer" xml:space="preserve">
+    <value>Your own Website in 10 Minutes - Zeta Producer CMS</value>
+  </data>
+	<data name="SR_Language_Auto" xml:space="preserve">
+    <value>(Auto detect)</value>
+  </data>
+	<data name="SR_SlnNames" xml:space="preserve">
+    <value>Visual Studio solutions, C# projects</value>
+  </data>
+	<data name="SR_VSDialogTitle" xml:space="preserve">
+    <value>Please select a Visual Studio solution or project file</value>
+  </data>
+	<data name="SR_MainForm_buttonDonateOne_ItemClick_zre_donate_one_currency" xml:space="preserve">
+    <value>zre-donate-one-usd</value>
+  </data>
+	<data name="SR_toolTipTitleItem4Text" xml:space="preserve">
+    <value>Define the allowed optional default types.</value>
+  </data>
+	<data name="SR_toolTipTitleItem5Text" xml:space="preserve">
+    <value>Defines the file name pattern for non-neutral languages.</value>
+  </data>
+	<data name="SR_toolTipTitleItem6Text" xml:space="preserve">
+    <value>Defines the file name pattern for the neutral language.</value>
+  </data>
+	<data name="SR_toolTipItem4Text" xml:space="preserve">
+    <value>Define a semicolon separated list of optional default types that can be used for the "[optionaldefaulttypes]" placeholder.
+
+The default types will be ignores during file type parsing for generating new files and language detection.
+
+E.g. ".aspx;.ascx;.asmx;.master"
+
+Always include the dot for each type.</value>
+  </data>
+	<data name="SR_toolTipItem5Text" xml:space="preserve">
+    <value>Use the fowllowing (optional) placeholders:
+
+- "[basename]" (no dot)
+- "[languagecode]" (no dot)
+- "[extension]" (dot excluded)
+- "[optionaldefaulttypes]" (dot included)
+
+e.g. "[basename][optionaldefaulttypes].[languagecode].[extension]"</value>
+  </data>
+	<data name="SR_toolTipItem6Text" xml:space="preserve">
+    <value>Use the fowllowing (optional) placeholders:
+
+- "[basename]" (no dot)
+- "[languagecode]" (no dot)
+- "[extension]" (dot excluded)
+- "[optionaldefaulttypes]" (dot included)
+
+e.g. "[basename][optionaldefaulttypes].[extension]"</value>
+  </data>
+	<data name="SR_ExportWizardForm_buttonDecorateAutomatically_Click_Unexpected_condition" xml:space="preserve">
+    <value>Unexpected condition during Excel export file path suggestion.</value>
+  </data>
+	<data name="SR_ImportWizardForm_progressBackgroundWorker_RunWorkerCompleted_Result" xml:space="preserve">
+    <value>A total of {0} rows were imported.</value>
+  </data>
+	<data name="ExcelExportWizardForm_progressBackgroundWorker_RunWorkerCompleted_Warnings_occurred_" xml:space="preserve">
+    <value>Warnings occurred.</value>
+  </data>
+	<data name="SR_TranslationHelper_GetSourceLanguages_AutoDetect" xml:space="preserve">
+    <value>(Auto detect)</value>
+  </data>
+	<data name="SR_ColumnCaption_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+	<data name="ResourceEditorUserControl_DoSaveFiles_Saving_files__please_wait___" xml:space="preserve">
+    <value>Saving files, please wait...</value>
+  </data>
+	<data name="AddNewFileGroupForm_baseFolderSelectButton_Click_Please_select_the_base_folder_where_to_create_the_files_" xml:space="preserve">
+    <value>Please select the base folder where to create the files.</value>
+  </data>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="SR_EmptyResourceFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\SR_EmptyResourceFile.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+	</data>
+	<data name="AutoTranslateForm_CheckShowNewTranslationInfos_Google_changed_their_translation_settings__Do_you_want_to_read_how_you_can_continue_using_Google_Translate_" xml:space="preserve">
+    <value>Google and Microsoft Bing changed their translation services. Do you want to read how you can continue using Google Translate and Bing Translate?</value>
+  </data>
+	<data name="AutoTranslateForm_CheckShowAppIDsMissing" xml:space="preserve">
+    <value>Your translation API keys are not yet set. In order to use the translation feature, please fill them first.
+
+Do you want to fill them now?</value>
+  </data>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="sign_warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+		<value>..\Resources\sign_warning.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+	</data>
+	<data name="CreateNewFileForm_buttonOK_Click_The_resource_file_for_the_language_you_selected_was_already_present_and_simply_was_added__but_not_created_">
+		<value xml:space="preserve">The resource file for the language you selected was already present and simply was added, but not created.</value>
+	</data>
+	<data name="SR_CreateNewFilesForm_Finished04">
+		<value xml:space="preserve">The operation finished successfully. {0} new files were created, of which {1} files were already present and were simple added, but not created.</value>
+	</data>
+	<data name="SetupDownloadController_DownloadAndRunSetup_Downloading_update__please_wait___">
+		<value xml:space="preserve">Downloading update, please wait...</value>
+	</data>
+</root>

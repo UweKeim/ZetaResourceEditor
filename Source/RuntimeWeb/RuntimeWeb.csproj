@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4581925F-313D-4C3C-8DED-974BF2FBAC21}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZetaResourceEditorWebsite.RuntimeWeb</RootNamespace>
+    <AssemblyName>ZetaResourceEditorWebsite.RuntimeWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Intelligencia.UrlRewriter, Version=2.0.0.6, Culture=neutral, PublicKeyToken=0573f3650687980d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Direct\Intelligencia.UrlRewriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zeta.EnterpriseLibrary.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.EnterpriseLibrary.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2b1a401181836fde, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.EnterpriseLibrary.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ec9fabac075fa4cc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.EnterpriseLibrary.Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=76bfe3d175ed36e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.EnterpriseLibrary.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0fcb4b1a682ce648, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\BusinessObjects\Base\DBObjectBase.cs" />
+    <Compile Include="Code\BusinessObjects\Base\DBObjectCollectionBase.cs" />
+    <Compile Include="Code\BusinessObjects\Base\DBObjectsManagerBase.cs" />
+    <Compile Include="Code\BusinessObjects\Base\ValidationException.cs" />
+    <Compile Include="Code\BusinessObjects\ElementManager.cs" />
+    <Compile Include="Code\BusinessObjects\FourZeroFour\FourZeroFourEMailNotifyIgnore.cs" />
+    <Compile Include="Code\BusinessObjects\FourZeroFour\FourZeroFourEMailNotifyIgnoreCollection.cs" />
+    <Compile Include="Code\BusinessObjects\FourZeroFour\FourZeroFourManager.cs" />
+    <Compile Include="Code\BusinessObjects\FourZeroFour\FourZeroFourRedirect.cs" />
+    <Compile Include="Code\BusinessObjects\FourZeroFour\FourZeroFourRedirectCollection.cs" />
+    <Compile Include="Code\Sys\FastSmartWeakEvent.cs" />
+    <Compile Include="Code\Sys\MailHelper.cs" />
+    <Compile Include="Code\Sys\WeakEventHandler.cs" />
+    <Compile Include="Code\UrlRewrite\Log4NetRewriteLogger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

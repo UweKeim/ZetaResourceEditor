@@ -1,0 +1,203 @@
+﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.SpecificResourceAccess
+{
+	#region Using directives.
+	// ----------------------------------------------------------------------
+	using System;
+	using System.Collections.Generic;
+	using System.Reflection;
+	using Zeta.EnterpriseLibrary.Logging;
+	using ZetaLongPaths;
+
+	// ----------------------------------------------------------------------
+	#endregion
+
+	/////////////////////////////////////////////////////////////////////////
+
+	/// <summary>
+	/// Helper routines for dealing with resource files.
+	/// </summary>
+	internal class ResourceFileHelper
+	{
+		#region Public properties.
+		// ------------------------------------------------------------------
+
+		/// <summary>
+		/// Gets all available resource file accessors.
+		/// </summary>
+		/// <value>All available resource file accessors.</value>
+		public static IResourceFileAccessor[] AllAvailableResourceFileAccessors
+		{
+			get
+			{
+				if ( _cacheForAllAvailableResourceFileAccessors == null )
+				{
+					_cacheForAllAvailableResourceFileAccessors =
+						new List<IResourceFileAccessor>();
+
+					doGetAllTypes(
+						_cacheForAllAvailableResourceFileAccessors,
+						Assembly.GetEntryAssembly() );
+				}
+
+				return _cacheForAllAvailableResourceFileAccessors.ToArray();
+			}
+		}
+
+		// ------------------------------------------------------------------
+		#endregion
+
+		#region Public methods.
+		// ------------------------------------------------------------------
+
+		/// <summary>
+		/// Gets the <c>accessor</c> for file.
+		/// </summary>
+		/// <param name="filePath">The file path.</param>
+		/// <returns>Returns NULL if none found.</returns>
+		public static IResourceFileAccessor GetAccessorForFile(
+			ZlpFileInfo filePath)
+		{
+			var all = AllAvailableResourceFileAccessors;
+
+			if ( all == null || all.Length <= 0 )
+			{
+				return null;
+			}
+			else
+			{
+				var normalizedExtension =
+					normalizeExtension( filePath.Extension );
+
+				foreach ( var accessor in all )
+				{
+					var supportedExtensions =
+						accessor.SupportedFileExtensions;
+
+					if ( supportedExtensions != null &&
+						supportedExtensions.Length > 0 )
+					{
+						foreach ( var supportedExtension in supportedExtensions )
+						{
+							if ( normalizeExtension( supportedExtension ) ==
+								normalizedExtension )
+							{
+								return accessor;
+							}
+						}
+					}
+				}
+
+				// Not found.
+				return null;
+			}
+		}
+
+		// ------------------------------------------------------------------
+		#endregion
+	
+		#region Private variables.
+		// ----------------------------------------------------------------------
+
+		private static List<IResourceFileAccessor>
+			_cacheForAllAvailableResourceFileAccessors;
+
+		// ----------------------------------------------------------------------
+		#endregion
+
+		#region Private helper.
+		// ------------------------------------------------------------------
+
+		/// <summary>
+		/// Normalizes the extension.
+		/// </summary>
+		/// <param name="extension">The extension.</param>
+		/// <returns></returns>
+		private static string normalizeExtension(
+			string extension )
+		{
+			if ( string.IsNullOrEmpty( extension ) )
+			{
+				return string.Empty;
+			}
+			else
+			{
+				return extension.Trim( ' ', '.' ).ToLowerInvariant();
+			}
+		}
+
+		/// <summary>
+		/// Helper.
+		/// </summary>
+		/// <param name="list">The list.</param>
+		/// <param name="a">A.</param>
+		private static void doGetAllTypes<T>(
+			ICollection<T> list, 
+			Assembly a)
+		{
+			if ( a != null )
+			{
+				LogCentral.Current.LogDebug(
+					string.Format(
+						@"doGetAllTypes(): Searching assembly '{0}'...",
+						a.GetName().Name ) );
+
+				try
+				{
+					var types = a.GetTypes();
+
+					foreach ( var t in types )
+					{
+						var interfaceTypes = t.GetInterfaces();
+
+						foreach ( var interfaceType in interfaceTypes )
+						{
+							if ( interfaceType == typeof( T ) && !t.IsAbstract )
+							{
+								// Create instance.
+								var b = (T)Activator.CreateInstance( t );
+
+								// Don't insert duplicates.
+								var found = false;
+								foreach (T c in list)
+								{
+									if (c.GetType() == b.GetType())
+									{
+										found = true;
+										break;
+									}
+								}
+
+								if ( !found )
+								{
+									LogCentral.Current.LogDebug(
+										string.Format(
+											@"Found plug-in type '{0}'.",
+											t ) );
+
+									list.Add( b );
+								}
+
+								break;
+							}
+						}
+					}
+				}
+				catch ( ReflectionTypeLoadException tle )
+				{
+					LogCentral.Current.LogInfo(
+						string.Format(
+							@"Ignoring type load exception for assembly '{0}'. " +
+								@"This usually occurs inside a web application for " +
+									@"plug-ins that are only intended for the main Windows application.",
+							a.GetName().Name ),
+						tle );
+				}
+			}
+		}
+
+		// ------------------------------------------------------------------
+		#endregion
+	}
+
+	/////////////////////////////////////////////////////////////////////////
+}

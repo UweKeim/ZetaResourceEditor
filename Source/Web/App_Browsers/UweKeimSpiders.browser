@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<browsers>
+
+  <!-- This is just ment to short Circute alot lookups when it can be detected as a spider. -->
+  <browser id="UweKeimSpiders" parentID="Default">
+    <identification>
+      <userAgent match="\+http://|\+https://" />
+    </identification>
+
+    <capture>
+      <userAgent match="\+http://|\+https://" />
+    </capture>
+
+    <capabilities>
+      <capability name="browser" value="${browser}" />
+      <capability name="majorversion" value="${major}" />
+      <capability name="minorversion" value="${minor}" />
+      <capability name="version" value="${version}" />      
+      <capability name="crawler" value="true" />
+      <capability name="isMobileDevice" value="false" />
+      <capability name="IsSyndicationReader" value="false" />
+    </capabilities>
+  </browser>
+</browsers>

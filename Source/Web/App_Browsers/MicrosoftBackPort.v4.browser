@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<browsers>
+<browser id="Up" parentID="Default">
+  <sampleHeaders>
+    <header name="User-Agent" value="LGE-VX8100/1.0 UP.Browser/6.2.3.2 (GUI) MMP/2.0" />
+  </sampleHeaders>
+  <identification>
+    <userAgent match="(UP\.Browser)|(UP/)" />
+    <userAgent nonMatch="Go\.Web" />
+  </identification>
+
+  <capture>
+    <userAgent match="((?'deviceID'\S*) UP/\S* UP\.Browser/((?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*)\S*) UP\.Link/)|((?'deviceID'\S*)/\S* UP(\.Browser)*/((?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*)\S*))|(UP\.Browser/((?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*)\S*)-(?'deviceID'\S*) UP\.Link/)|((?'deviceID'\S*) UP\.Browser/((?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*)\S*) UP\.Link/)|((?'deviceID'\S*)/(?'DeviceVersion'\S*) UP/((?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*)\S*))|((?'deviceID'\S*)/(?'DeviceVersion'\S*) UP.Browser/((?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*)\S*))|((?'deviceID'\S*) UP.Browser/((?'browserMajorVersion'\d*)(?'browserMinorVersion'\.\d*)\S*))" />
+  </capture>
+
+  <capabilities>
+    <capability name="browser"                             value="Phone.com" />
+    <capability name="canInitiateVoiceCall"                value="true" />
+    <capability name="canSendMail"                         value="false" />
+    <capability name="deviceID"                            value="${deviceID}" />
+    <capability name="deviceVersion"                       value="${deviceVersion}" />
+    <capability name="inputType"                           value="telephoneKeypad" />
+    <capability name="isMobileDevice"                      value="true" />
+    <capability name="majorVersion"                        value="${browserMajorVersion}" />
+    <capability name="maximumRenderedPageSize"             value="1492" />
+    <capability name="minorVersion"                        value="${browserMinorVersion}" />
+    <capability name="numberOfSoftkeys"                    value="2" />
+    <capability name="optimumPageWeight"                   value="700" />
+    <capability name="preferredImageMime"                  value="image/vnd.wap.wbmp" />
+    <capability name="preferredRenderingMime"              value="text/vnd.wap.wml" />
+    <capability name="preferredRenderingType"              value="wml11" />
+    <capability name="requiresAdaptiveErrorReporting"      value="true" />
+    <capability name="rendersBreakBeforeWmlSelectAndInput" value="true" />
+    <capability name="rendersWmlDoAcceptsInline"           value="false" />
+    <capability name="rendersWmlSelectsAsMenuCards"        value="true" />
+    <capability name="requiresFullyQualifiedRedirectUrl"   value="true" />
+    <capability name="requiresNoescapedPostUrl"            value="true" />
+    <capability name="requiresPostRedirectionHandling"     value="true" />
+    <capability name="supportsRedirectWithCookie"          value="false" />
+    <capability name="type"                                value="Phone.com${browserMajorVersion}" />
+    <capability name="version"                             value="${browserMajorVersion}${browserMinorVersion}" />
+  </capabilities>
+</browser>
+<browser id="Docomo" parentID="Default">
+  <identification>
+    <userAgent match="^DoCoMo/" />
+  </identification>
+
+  <capture>
+    <userAgent match="^DoCoMo/(?'httpVersion'[^/ ]*)[/ ](?'deviceID'[^/\x28]*)" />
+  </capture>
+
+  <capabilities>
+    <capability name="browser"                             value="i-mode" />
+    <capability name="canInitiateVoiceCall"                value="true" />
+    <capability name="cookies"                             value="false" />
+    <capability name="defaultScreenCharactersHeight"       value="6" />
+    <capability name="defaultScreenCharactersWidth"        value="16" />
+    <capability name="defaultScreenPixelsHeight"           value="70" />
+    <capability name="defaultScreenPixelsWidth"            value="90" />
+    <capability name="deviceID"                            value="${deviceID}" />
+    <capability name="inputType"                           value="telephoneKeypad" />
+    <capability name="isColor"                             value="false" />
+    <capability name="isMobileDevice"                      value="true" />
+    <capability name="javaapplets"                         value="false" />
+    <capability name="javascript"                          value="false" />
+    <capability name="maximumHrefLength"                   value="524" />
+    <capability name="maximumRenderedPageSize"             value="5120" />
+    <capability name="mobileDeviceModel"                   value="${deviceID}" />
+    <capability name="optimumPageWeight"                   value="700" />
+    <capability name="preferredRenderingType"              value="chtml10" />
+    <capability name="preferredRequestEncoding"            value="shift_jis" />
+    <capability name="preferredResponseEncoding"           value="shift_jis" />
+    <capability name="requiresAdaptiveErrorReporting"      value="true" />
+    <capability name="requiresFullyQualifiedRedirectUrl"   value="true" />
+    <capability name="requiresHtmlAdaptiveErrorReporting"  value="true" />
+    <capability name="requiresOutputOptimization"          value="true" />
+    <capability name="screenBitDepth"                      value="1" />
+    <capability name="supportsAccesskeyAttribute"          value="true" />
+    <capability name="supportsCharacterEntityEncoding"     value="false" />
+    <capability name="supportsEmptyStringInCookieValue"    value="false" />
+    <capability name="supportsIModeSymbols"                value="true" />
+    <capability name="supportsInputIStyle"                 value="true" />
+    <capability name="supportsRedirectWithCookie"          value="false" />
+    <capability name="tables"                              value="false" />
+    <capability name="type"                                value="i-mode" />
+    <capability name="vbscript"                            value="false" />
+  </capabilities>
+
+  <controlAdapters markupTextWriterType="System.Web.UI.ChtmlTextWriter" />
+</browser>
+</browsers>

@@ -1,0 +1,765 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{367758E7-0435-440A-AC76-1F30ABBA3ED8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZetaResourceEditor</RootNamespace>
+    <AssemblyName>ZetaResourceEditor</AssemblyName>
+    <ApplicationIcon>paint_brush2.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=4.4.0.0, Culture=neutral, PublicKeyToken=9a40d5a4b59e5256, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Direct\Aspose\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v11.1.Core, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.SpellChecker.v11.1.Core, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v11.1.Design, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zeta.EnterpriseLibrary.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.EnterpriseLibrary.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ec9fabac075fa4cc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.EnterpriseLibrary.Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=76bfe3d175ed36e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.EnterpriseLibrary.Windows, Version=2.0.0.0, Culture=neutral, PublicKeyToken=ccd25a13504b7fe2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="ZetaLongPaths, Version=1.0.0.1, Culture=neutral, PublicKeyToken=b764f59068f31f38, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\ZetaLongPaths.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\HostSettings.cs" />
+    <Compile Include="Code\SetupDownloadController.cs" />
+    <Compile Include="UI\ExportImportExcel\ExcelImportFormatInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExportImportExcel\ExcelImportFormatInformationForm.Designer.cs">
+      <DependentUpon>ExcelImportFormatInformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FileGroups\AddNewFileGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FileGroups\AddNewFileGroupForm.Designer.cs">
+      <DependentUpon>AddNewFileGroupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FileGroups\CreateNewFilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FileGroups\CreateNewFilesForm.Designer.cs">
+      <DependentUpon>CreateNewFilesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FileGroups\CreateNewFileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FileGroups\CreateNewFileForm.Designer.cs">
+      <DependentUpon>CreateNewFileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\Base\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\Base\FormBase.designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\Base\RibbonFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\Base\RibbonFormBase.Designer.cs">
+      <DependentUpon>RibbonFormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\Base\UserControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\Base\UserControlBase.designer.cs">
+      <DependentUpon>UserControlBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\DevExpressExtensionMethods.cs" />
+    <Compile Include="UI\Helper\ErrorHandling\ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\ErrorHandling\ErrorForm.designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\ErrorHandling\MemoEditScrollbarAdjuster.cs" />
+    <Compile Include="UI\Helper\ExpandDynamicChildrenEventArgs.cs" />
+    <Compile Include="UI\Helper\ExtendedControls\LinearGradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\ExtendedControls\LinearGradientPanel.designer.cs">
+      <DependentUpon>LinearGradientPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\ExtendedWebBrowser\AppCommandEventArgs.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\AppCommandEventHandler.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\BrowserExtendedNavigateErrorEventArgs.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\BrowserExtendedNavigatingEventArgs.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\EventHandled.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserUserControl.designer.cs">
+      <DependentUpon>ExtendedWebBrowserUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\ExtendedWebBrowser\HtmlEditControlNotifySinkPersistTemporaryFileArgs.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\IExtendedWebBrowserEventSink.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\NativeMethods.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\NavigateErrorStatusCode.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\PersistMapItem.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\ScriptValueGetEventArgs.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\ScriptValueSetEventArgs.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\UnsafeNativeMethods.cs" />
+    <Compile Include="UI\Helper\ExtendedWebBrowser\UrlContexts.cs" />
+    <Compile Include="UI\Helper\Grid\AllLayoutSerializer.cs" />
+    <Compile Include="UI\Helper\Grid\Deserializer.cs" />
+    <Compile Include="UI\Helper\Grid\FilterSerializer.cs" />
+    <Compile Include="UI\Helper\Grid\LayoutSerializerBase.cs" />
+    <Compile Include="UI\Helper\Grid\SortSerializer.cs" />
+    <Compile Include="UI\Helper\InformationLightUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\InformationLightUserControl.designer.cs">
+      <DependentUpon>InformationLightUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\Grid\XtraGridState.cs" />
+    <Compile Include="UI\Helper\ErrorHandling\MessageBoxException.cs" />
+    <Compile Include="UI\Helper\ErrorHandling\ObjectInspectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\ErrorHandling\ObjectInspectorForm.designer.cs">
+      <DependentUpon>ObjectInspectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\LineUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\LineUserControl.Designer.cs">
+      <DependentUpon>LineUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\Progress\BackgroundWorkerLongProgress.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\Progress\BackgroundWorkerLongProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\Progress\BackgroundWorkerLongProgressForm.designer.cs">
+      <DependentUpon>BackgroundWorkerLongProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\Progress\BackgroundWorkerLongProgressGui.cs" />
+    <Compile Include="UI\Helper\ErrorHandling\ReportItemsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\ErrorHandling\ReportItemsForm.designer.cs">
+      <DependentUpon>ReportItemsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\ScreenCapture.cs" />
+    <Compile Include="UI\Helper\SupportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\SupportUserControl.Designer.cs">
+      <DependentUpon>SupportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\TemporaryRedrawPauser.cs" />
+    <Compile Include="UI\Helper\ErrorHandling\TextBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\ErrorHandling\TextBoxForm.designer.cs">
+      <DependentUpon>TextBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\ZetaResourceEditorTreeListControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Helper\ZetaResourceEditorTreeListControl.Designer.cs">
+      <DependentUpon>ZetaResourceEditorTreeListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Helper\TreeListViewState.cs" />
+    <Compile Include="UI\Main\ExitAdvertisementFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Main\ExitAdvertisementFormNew.Designer.cs">
+      <DependentUpon>ExitAdvertisementFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\RightContent\ConfigureLanguageColumnsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Main\RightContent\ConfigureLanguageColumnsForm.Designer.cs">
+      <DependentUpon>ConfigureLanguageColumnsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\RightContent\DeleteRowContentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Main\RightContent\DeleteRowContentsForm.Designer.cs">
+      <DependentUpon>DeleteRowContentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\RightContent\RtlMemoEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Main\WebProxySettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Main\WebProxySettingsForm.Designer.cs">
+      <DependentUpon>WebProxySettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProjectFolders\ProjectFolderEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ProjectFolders\ProjectFolderEditForm.Designer.cs">
+      <DependentUpon>ProjectFolderEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Projects\SendProjectWizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Projects\SendProjectWizardForm.Designer.cs">
+      <DependentUpon>SendProjectWizardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Tools\ReplaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\ReplaceForm.Designer.cs">
+      <DependentUpon>ReplaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Translation\AutoTranslateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Translation\AutoTranslateForm.Designer.cs">
+      <DependentUpon>AutoTranslateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\LeftTree\FileGroupStateChangedEventArgs.cs" />
+    <Compile Include="UI\Main\LeftTree\ProjectFilesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\LeftTree\ProjectFilesUserControl.Designer.cs">
+      <DependentUpon>ProjectFilesUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\LeftTree\StepwiseTreeIterator.cs" />
+    <Compile Include="UI\Main\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Main\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\RightContent\GridViewHelper.cs" />
+    <Compile Include="UI\Main\RightContent\GroupFilesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\RightContent\GroupFilesUserControl.Designer.cs">
+      <DependentUpon>GroupFilesUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\RightContent\ResourceEditorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\RightContent\ResourceEditorUserControl.Designer.cs">
+      <DependentUpon>ResourceEditorUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\SaveOptions.cs" />
+    <Compile Include="UI\Projects\CreateNewProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Projects\CreateNewProjectForm.Designer.cs">
+      <DependentUpon>CreateNewProjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FileGroups\FileGroupSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FileGroups\FileGroupSettingsForm.Designer.cs">
+      <DependentUpon>FileGroupSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Projects\ProjectSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Projects\ProjectSettingsForm.Designer.cs">
+      <DependentUpon>ProjectSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Tools\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Tools\FindForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\FindForm.Designer.cs">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Tools\HeaderStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Main\OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Main\OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Host.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.de.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExportImportExcel\ExcelExportWizardForm.de.resx">
+      <DependentUpon>ExcelExportWizardForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExportImportExcel\ExcelImportFormatInformationForm.de.resx">
+      <DependentUpon>ExcelImportFormatInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExportImportExcel\ExcelImportFormatInformationForm.resx">
+      <DependentUpon>ExcelImportFormatInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExportImportExcel\ExcelImportWizardForm.de.resx">
+      <DependentUpon>ExcelImportWizardForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FileGroups\AddNewFileGroupForm.de.resx">
+      <DependentUpon>AddNewFileGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FileGroups\AddNewFileGroupForm.resx">
+      <DependentUpon>AddNewFileGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FileGroups\CreateNewFilesForm.de.resx">
+      <DependentUpon>CreateNewFilesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FileGroups\CreateNewFilesForm.resx">
+      <DependentUpon>CreateNewFilesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FileGroups\CreateNewFileForm.de.resx">
+      <DependentUpon>CreateNewFileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FileGroups\CreateNewFileForm.resx">
+      <DependentUpon>CreateNewFileForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\Base\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\Base\RibbonFormBase.resx">
+      <DependentUpon>RibbonFormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\Base\UserControlBase.resx">
+      <DependentUpon>UserControlBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\ErrorHandling\ErrorForm.de.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\ErrorHandling\ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserControl.resx">
+      <DependentUpon>ExtendedWebBrowserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserUserControl.resx">
+      <DependentUpon>ExtendedWebBrowserUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\InformationLightUserControl.resx">
+      <DependentUpon>InformationLightUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\ErrorHandling\ObjectInspectorForm.de.resx">
+      <DependentUpon>ObjectInspectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\ErrorHandling\ObjectInspectorForm.resx">
+      <DependentUpon>ObjectInspectorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\LineUserControl.resx">
+      <DependentUpon>LineUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\Progress\BackgroundWorkerLongProgressForm.de.resx">
+      <DependentUpon>BackgroundWorkerLongProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\Progress\BackgroundWorkerLongProgressForm.resx">
+      <DependentUpon>BackgroundWorkerLongProgressForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\ErrorHandling\ReportItemsForm.de.resx">
+      <DependentUpon>ReportItemsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\ErrorHandling\ReportItemsForm.resx">
+      <DependentUpon>ReportItemsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\SupportUserControl.de.resx">
+      <DependentUpon>SupportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\SupportUserControl.resx">
+      <DependentUpon>SupportUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\ErrorHandling\TextBoxForm.de.resx">
+      <DependentUpon>TextBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Helper\ErrorHandling\TextBoxForm.resx">
+      <DependentUpon>TextBoxForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\ExitAdvertisementFormNew.de.resx">
+      <DependentUpon>ExitAdvertisementFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\ExitAdvertisementFormNew.resx">
+      <DependentUpon>ExitAdvertisementFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\RightContent\ConfigureLanguageColumnsForm.de.resx">
+      <DependentUpon>ConfigureLanguageColumnsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\RightContent\ConfigureLanguageColumnsForm.resx">
+      <DependentUpon>ConfigureLanguageColumnsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\RightContent\DeleteRowContentsForm.de.resx">
+      <DependentUpon>DeleteRowContentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\RightContent\DeleteRowContentsForm.resx">
+      <DependentUpon>DeleteRowContentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\WebProxySettingsForm.de.resx">
+      <DependentUpon>WebProxySettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\WebProxySettingsForm.resx">
+      <DependentUpon>WebProxySettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProjectFolders\ProjectFolderEditForm.de.resx">
+      <DependentUpon>ProjectFolderEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProjectFolders\ProjectFolderEditForm.resx">
+      <DependentUpon>ProjectFolderEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Projects\SendProjectWizardForm.de.resx">
+      <DependentUpon>SendProjectWizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Projects\SendProjectWizardForm.resx">
+      <DependentUpon>SendProjectWizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Tools\ReplaceForm.de.resx">
+      <DependentUpon>ReplaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Tools\ReplaceForm.resx">
+      <DependentUpon>ReplaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Translation\AutoTranslateForm.de.resx">
+      <DependentUpon>AutoTranslateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Translation\AutoTranslateForm.resx">
+      <DependentUpon>AutoTranslateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\LeftTree\ProjectFilesUserControl.de.resx">
+      <DependentUpon>ProjectFilesUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\LeftTree\ProjectFilesUserControl.resx">
+      <DependentUpon>ProjectFilesUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\MainForm.de.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\OptionsForm.de.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\RightContent\GroupFilesUserControl.de.resx">
+      <DependentUpon>GroupFilesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\RightContent\GroupFilesUserControl.resx">
+      <DependentUpon>GroupFilesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\RightContent\ResourceEditorUserControl.de.resx">
+      <DependentUpon>ResourceEditorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\RightContent\ResourceEditorUserControl.resx">
+      <DependentUpon>ResourceEditorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Projects\CreateNewProjectForm.de.resx">
+      <DependentUpon>CreateNewProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Projects\CreateNewProjectForm.resx">
+      <DependentUpon>CreateNewProjectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FileGroups\FileGroupSettingsForm.de.resx">
+      <DependentUpon>FileGroupSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FileGroups\FileGroupSettingsForm.resx">
+      <DependentUpon>FileGroupSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Projects\ProjectSettingsForm.de.resx">
+      <DependentUpon>ProjectSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Projects\ProjectSettingsForm.resx">
+      <DependentUpon>ProjectSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TagOperations\AddTagForm.de.resx">
+      <DependentUpon>AddTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TagOperations\RenameTagForm.de.resx">
+      <DependentUpon>RenameTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Tools\AboutForm.de.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Tools\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Tools\FindForm.de.resx">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Tools\FindForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\OptionsForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TagOperations\AddTagForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AddTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TagOperations\RenameTagForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RenameTagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExportImportExcel\ExcelImportWizardForm.resx">
+      <DependentUpon>ExcelImportWizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExportImportExcel\ExcelExportWizardForm.resx">
+      <DependentUpon>ExcelExportWizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Translation\TranslateOptionsForm.de.resx">
+      <DependentUpon>TranslateOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Translation\TranslateOptionsForm.resx">
+      <DependentUpon>TranslateOptionsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Translation\QuickTranslationForm.de.resx">
+      <DependentUpon>QuickTranslationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Translation\QuickTranslationForm.resx">
+      <DependentUpon>QuickTranslationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UI\TagOperations\AddTagForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TagOperations\AddTagForm.Designer.cs">
+      <DependentUpon>AddTagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TagOperations\RenameTagForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TagOperations\RenameTagForm.Designer.cs">
+      <DependentUpon>RenameTagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExportImportExcel\ExcelImportWizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExportImportExcel\ExcelImportWizardForm.Designer.cs">
+      <DependentUpon>ExcelImportWizardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExportImportExcel\ExcelExportWizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExportImportExcel\ExcelExportWizardForm.Designer.cs">
+      <DependentUpon>ExcelExportWizardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Translation\TranslateOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Translation\TranslateOptionsForm.Designer.cs">
+      <DependentUpon>TranslateOptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Translation\QuickTranslationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Translation\QuickTranslationForm.Designer.cs">
+      <DependentUpon>QuickTranslationForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="devenv_1200.ico" />
+    <Content Include="paint_brush2.ico" />
+    <None Include="Resources\sign_warning.png" />
+    <None Include="Resources\SR_EmptyResourceFile.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RuntimeBusinessLogic\RuntimeBusinessLogic.csproj">
+      <Project>{0DA480E1-6852-40FB-95B4-9FCA0BDDB6A9}</Project>
+      <Name>RuntimeBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RuntimeUserInterface\RuntimeUserInterface.csproj">
+      <Project>{FA8763A2-F7D7-4AF0-9C91-768F35B665A7}</Project>
+      <Name>RuntimeUserInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Runtime\Runtime.csproj">
+      <Project>{CE8CAFC3-3D84-41CC-AA36-D9DDEAB87756}</Project>
+      <Name>Runtime</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

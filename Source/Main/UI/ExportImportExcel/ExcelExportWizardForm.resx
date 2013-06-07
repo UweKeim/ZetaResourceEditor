@@ -1,0 +1,2320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="invertFileGroupsButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="invertFileGroupsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>174, 401</value>
+  </data>
+  <data name="invertFileGroupsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="invertFileGroupsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="invertFileGroupsButton.Text" xml:space="preserve">
+    <value>Flip</value>
+  </data>
+  <data name="&gt;&gt;invertFileGroupsButton.Name" xml:space="preserve">
+    <value>invertFileGroupsButton</value>
+  </data>
+  <data name="&gt;&gt;invertFileGroupsButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;invertFileGroupsButton.Parent" xml:space="preserve">
+    <value>fileGroupSelectionWizardPage</value>
+  </data>
+  <data name="&gt;&gt;invertFileGroupsButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="selectNoFileGroupsButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="selectNoFileGroupsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 401</value>
+  </data>
+  <data name="selectNoFileGroupsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="selectNoFileGroupsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="selectNoFileGroupsButton.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;selectNoFileGroupsButton.Name" xml:space="preserve">
+    <value>selectNoFileGroupsButton</value>
+  </data>
+  <data name="&gt;&gt;selectNoFileGroupsButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;selectNoFileGroupsButton.Parent" xml:space="preserve">
+    <value>fileGroupSelectionWizardPage</value>
+  </data>
+  <data name="&gt;&gt;selectNoFileGroupsButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="selectAllFileGroupsButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="selectAllFileGroupsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 401</value>
+  </data>
+  <data name="selectAllFileGroupsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="selectAllFileGroupsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="selectAllFileGroupsButton.Text" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="&gt;&gt;selectAllFileGroupsButton.Name" xml:space="preserve">
+    <value>selectAllFileGroupsButton</value>
+  </data>
+  <data name="&gt;&gt;selectAllFileGroupsButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;selectAllFileGroupsButton.Parent" xml:space="preserve">
+    <value>fileGroupSelectionWizardPage</value>
+  </data>
+  <data name="&gt;&gt;selectAllFileGroupsButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="fileGroupsListBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="fileGroupsListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 31</value>
+  </data>
+  <data name="fileGroupsListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 364</value>
+  </data>
+  <data name="fileGroupsListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;fileGroupsListBox.Name" xml:space="preserve">
+    <value>fileGroupsListBox</value>
+  </data>
+  <data name="&gt;&gt;fileGroupsListBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckedListBoxControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;fileGroupsListBox.Parent" xml:space="preserve">
+    <value>fileGroupSelectionWizardPage</value>
+  </data>
+  <data name="&gt;&gt;fileGroupsListBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="labelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="labelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="labelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelControl2.Text" xml:space="preserve">
+    <value>File groups:</value>
+  </data>
+  <data name="&gt;&gt;labelControl2.Name" xml:space="preserve">
+    <value>labelControl2</value>
+  </data>
+  <data name="&gt;&gt;labelControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl2.Parent" xml:space="preserve">
+    <value>fileGroupSelectionWizardPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="fileGroupSelectionWizardPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="fileGroupSelectionWizardPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>551, 439</value>
+  </data>
+  <data name="fileGroupSelectionWizardPage.Text" xml:space="preserve">
+    <value>Select file groups to export to Microsoft Excel</value>
+  </data>
+  <data name="&gt;&gt;fileGroupSelectionWizardPage.Name" xml:space="preserve">
+    <value>fileGroupSelectionWizardPage</value>
+  </data>
+  <data name="&gt;&gt;fileGroupSelectionWizardPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraWizard.WelcomeWizardPage, DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;fileGroupSelectionWizardPage.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;fileGroupSelectionWizardPage.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buttonDecorateSimpleAutomatically.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonDecorateSimpleAutomatically.Location" type="System.Drawing.Point, System.Drawing">
+    <value>384, 77</value>
+  </data>
+  <data name="buttonDecorateSimpleAutomatically.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 26</value>
+  </data>
+  <data name="buttonDecorateSimpleAutomatically.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="buttonDecorateSimpleAutomatically.Text" xml:space="preserve">
+    <value>Suggest</value>
+  </data>
+  <data name="&gt;&gt;buttonDecorateSimpleAutomatically.Name" xml:space="preserve">
+    <value>buttonDecorateSimpleAutomatically</value>
+  </data>
+  <data name="&gt;&gt;buttonDecorateSimpleAutomatically.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;buttonDecorateSimpleAutomatically.Parent" xml:space="preserve">
+    <value>destinationFileWizardPage</value>
+  </data>
+  <data name="&gt;&gt;buttonDecorateSimpleAutomatically.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="multipleFilesGroupControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="buttonDecorateAutomatically.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonDecorateAutomatically.Location" type="System.Drawing.Point, System.Drawing">
+    <value>439, 116</value>
+  </data>
+  <data name="buttonDecorateAutomatically.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 26</value>
+  </data>
+  <data name="buttonDecorateAutomatically.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonDecorateAutomatically.Text" xml:space="preserve">
+    <value>Suggest</value>
+  </data>
+  <data name="&gt;&gt;buttonDecorateAutomatically.Name" xml:space="preserve">
+    <value>buttonDecorateAutomatically</value>
+  </data>
+  <data name="&gt;&gt;buttonDecorateAutomatically.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;buttonDecorateAutomatically.Parent" xml:space="preserve">
+    <value>multipleFilesGroupControl</value>
+  </data>
+  <data name="&gt;&gt;buttonDecorateAutomatically.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelControl9.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v11.1" name="DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="labelControl9.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v11.1">
+    <value>None</value>
+  </data>
+  <data name="labelControl9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 34</value>
+  </data>
+  <data name="labelControl9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>499, 108</value>
+  </data>
+  <data name="labelControl9.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelControl9.Text" xml:space="preserve">
+    <value>You have chosen to generate multiple Excel documents. Therefore you can specify placeholders to control the file name generation. 
+
+The following placeholders are available:
+
+- "{FileGroupName}" - The name of the file group
+- "{FileGroupNumber}" - The unique number of the file group
+- "{LanguageName}" - The name of the language</value>
+  </data>
+  <data name="&gt;&gt;labelControl9.Name" xml:space="preserve">
+    <value>labelControl9</value>
+  </data>
+  <data name="&gt;&gt;labelControl9.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl9.Parent" xml:space="preserve">
+    <value>multipleFilesGroupControl</value>
+  </data>
+  <data name="&gt;&gt;labelControl9.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="multipleFilesGroupControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 271</value>
+  </data>
+  <data name="multipleFilesGroupControl.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="multipleFilesGroupControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 156</value>
+  </data>
+  <data name="multipleFilesGroupControl.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="multipleFilesGroupControl.Text" xml:space="preserve">
+    <value>Placeholders</value>
+  </data>
+  <data name="&gt;&gt;multipleFilesGroupControl.Name" xml:space="preserve">
+    <value>multipleFilesGroupControl</value>
+  </data>
+  <data name="&gt;&gt;multipleFilesGroupControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;multipleFilesGroupControl.Parent" xml:space="preserve">
+    <value>destinationFileWizardPage</value>
+  </data>
+  <data name="&gt;&gt;multipleFilesGroupControl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="destinationFileTextEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="destinationFileTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 31</value>
+  </data>
+  <metadata name="barManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>381, 17</value>
+  </metadata>
+  <data name="barDockControlTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="barDockControlTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 9</value>
+  </data>
+  <data name="barDockControlTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>533, 0</value>
+  </data>
+  <data name="&gt;&gt;barDockControlTop.Name" xml:space="preserve">
+    <value>barDockControlTop</value>
+  </data>
+  <data name="&gt;&gt;barDockControlTop.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;barDockControlTop.Parent" xml:space="preserve">
+    <value>errorOccurredWizardPage</value>
+  </data>
+  <data name="&gt;&gt;barDockControlTop.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="barDockControlBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="barDockControlBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 430</value>
+  </data>
+  <data name="barDockControlBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>533, 0</value>
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.Name" xml:space="preserve">
+    <value>barDockControlBottom</value>
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.Parent" xml:space="preserve">
+    <value>errorOccurredWizardPage</value>
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="barDockControlLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="barDockControlLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 9</value>
+  </data>
+  <data name="barDockControlLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 421</value>
+  </data>
+  <data name="&gt;&gt;barDockControlLeft.Name" xml:space="preserve">
+    <value>barDockControlLeft</value>
+  </data>
+  <data name="&gt;&gt;barDockControlLeft.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;barDockControlLeft.Parent" xml:space="preserve">
+    <value>errorOccurredWizardPage</value>
+  </data>
+  <data name="&gt;&gt;barDockControlLeft.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="barDockControlRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="barDockControlRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>542, 9</value>
+  </data>
+  <data name="barDockControlRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 421</value>
+  </data>
+  <data name="&gt;&gt;barDockControlRight.Name" xml:space="preserve">
+    <value>barDockControlRight</value>
+  </data>
+  <data name="&gt;&gt;barDockControlRight.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;barDockControlRight.Parent" xml:space="preserve">
+    <value>errorOccurredWizardPage</value>
+  </data>
+  <data name="&gt;&gt;barDockControlRight.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        RK5CYII=
+</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>errorOccurredWizardPage</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>75, 12</value>
+  </data>
+  <data name="labelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 13</value>
+  </data>
+  <data name="labelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelControl3.Text" xml:space="preserve">
+    <value>&amp;Error text:</value>
+  </data>
+  <data name="&gt;&gt;labelControl3.Name" xml:space="preserve">
+    <value>labelControl3</value>
+  </data>
+  <data name="&gt;&gt;labelControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl3.Parent" xml:space="preserve">
+    <value>errorOccurredWizardPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="optionsButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="optionsButton.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11px</value>
+  </data>
+  <metadata name="optionsPopupMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>221, 17</value>
+  </metadata>
+  <data name="detailedErrorsButton.Caption" xml:space="preserve">
+    <value>Details...</value>
+  </data>
+  <data name="optionsButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK9gAA
+        CvYBwq9wAwAAADpJREFUOE9j+M9AGaRQ+3+GUQOwhAEDKFhwYGzxhTUQsRmAK7JxxgKyIfhSCt5oBBlC
+        KJmNpoPBkBcA/wnuIJjfoT0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="optionsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>75, 401</value>
+  </data>
+  <data name="optionsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 26</value>
+  </data>
+  <data name="optionsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="optionsButton.Text" xml:space="preserve">
+    <value>&amp;Options</value>
+  </data>
+  <data name="&gt;&gt;optionsButton.Name" xml:space="preserve">
+    <value>optionsButton</value>
+  </data>
+  <data name="&gt;&gt;optionsButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DropDownButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;optionsButton.Parent" xml:space="preserve">
+    <value>errorOccurredWizardPage</value>
+  </data>
+  <data name="&gt;&gt;optionsButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="errorTextMemoEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="errorTextMemoEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>75, 31</value>
+  </data>
+  <data name="errorTextMemoEdit.Properties.NullValuePrompt" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="errorTextMemoEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>464, 364</value>
+  </data>
+  <data name="errorTextMemoEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;errorTextMemoEdit.Name" xml:space="preserve">
+    <value>errorTextMemoEdit</value>
+  </data>
+  <data name="&gt;&gt;errorTextMemoEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;errorTextMemoEdit.Parent" xml:space="preserve">
+    <value>errorOccurredWizardPage</value>
+  </data>
+  <data name="&gt;&gt;errorTextMemoEdit.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="errorOccurredWizardPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="errorOccurredWizardPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>551, 439</value>
+  </data>
+  <data name="errorOccurredWizardPage.Text" xml:space="preserve">
+    <value>An error has occurred</value>
+  </data>
+  <data name="&gt;&gt;errorOccurredWizardPage.Name" xml:space="preserve">
+    <value>errorOccurredWizardPage</value>
+  </data>
+  <data name="&gt;&gt;errorOccurredWizardPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;errorOccurredWizardPage.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;errorOccurredWizardPage.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="destinationFileTextEdit.Properties.NullValuePrompt" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="destinationFileTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 40</value>
+  </data>
+  <data name="destinationFileTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;destinationFileTextEdit.Name" xml:space="preserve">
+    <value>destinationFileTextEdit</value>
+  </data>
+  <data name="&gt;&gt;destinationFileTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;destinationFileTextEdit.Parent" xml:space="preserve">
+    <value>destinationFileWizardPage</value>
+  </data>
+  <data name="&gt;&gt;destinationFileTextEdit.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="openFolderAfterGeneratingCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 137</value>
+  </data>
+  <data name="openFolderAfterGeneratingCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="openFolderAfterGeneratingCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Open containing folder(s) after exporting</value>
+  </data>
+  <data name="openFolderAfterGeneratingCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 19</value>
+  </data>
+  <data name="openFolderAfterGeneratingCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;openFolderAfterGeneratingCheckEdit.Name" xml:space="preserve">
+    <value>openFolderAfterGeneratingCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;openFolderAfterGeneratingCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;openFolderAfterGeneratingCheckEdit.Parent" xml:space="preserve">
+    <value>destinationFileWizardPage</value>
+  </data>
+  <data name="&gt;&gt;openFolderAfterGeneratingCheckEdit.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="openFileAfterGeneratingCheckEdit.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="openFileAfterGeneratingCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 112</value>
+  </data>
+  <data name="openFileAfterGeneratingCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="openFileAfterGeneratingCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Open file(s) after exporting</value>
+  </data>
+  <data name="openFileAfterGeneratingCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 19</value>
+  </data>
+  <data name="openFileAfterGeneratingCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;openFileAfterGeneratingCheckEdit.Name" xml:space="preserve">
+    <value>openFileAfterGeneratingCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;openFileAfterGeneratingCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;openFileAfterGeneratingCheckEdit.Parent" xml:space="preserve">
+    <value>destinationFileWizardPage</value>
+  </data>
+  <data name="&gt;&gt;openFileAfterGeneratingCheckEdit.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buttonBrowse.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonBrowse.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 77</value>
+  </data>
+  <data name="buttonBrowse.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="buttonBrowse.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonBrowse.Text" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
+  <data name="&gt;&gt;buttonBrowse.Name" xml:space="preserve">
+    <value>buttonBrowse</value>
+  </data>
+  <data name="&gt;&gt;buttonBrowse.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;buttonBrowse.Parent" xml:space="preserve">
+    <value>destinationFileWizardPage</value>
+  </data>
+  <data name="&gt;&gt;buttonBrowse.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="labelControl6.Appearance.ForeColor" type="System.Drawing.Color, System.Drawing">
+    <value>GrayText</value>
+  </data>
+  <data name="labelControl6.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 77</value>
+  </data>
+  <data name="labelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 13</value>
+  </data>
+  <data name="labelControl6.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="labelControl6.Text" xml:space="preserve">
+    <value>(Will be overwritten if exists)</value>
+  </data>
+  <data name="&gt;&gt;labelControl6.Name" xml:space="preserve">
+    <value>labelControl6</value>
+  </data>
+  <data name="&gt;&gt;labelControl6.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl6.Parent" xml:space="preserve">
+    <value>destinationFileWizardPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl6.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="labelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="labelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 13</value>
+  </data>
+  <data name="labelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelControl1.Text" xml:space="preserve">
+    <value>Microsoft Office Excel document to export into:</value>
+  </data>
+  <data name="&gt;&gt;labelControl1.Name" xml:space="preserve">
+    <value>labelControl1</value>
+  </data>
+  <data name="&gt;&gt;labelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl1.Parent" xml:space="preserve">
+    <value>destinationFileWizardPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="destinationFileWizardPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="destinationFileWizardPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>551, 439</value>
+  </data>
+  <data name="destinationFileWizardPage.Text" xml:space="preserve">
+    <value>Specify export files</value>
+  </data>
+  <data name="&gt;&gt;destinationFileWizardPage.Name" xml:space="preserve">
+    <value>destinationFileWizardPage</value>
+  </data>
+  <data name="&gt;&gt;destinationFileWizardPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;destinationFileWizardPage.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;destinationFileWizardPage.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 67</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>L&amp;anguages to export:</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>languagesWizardPage</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="referenceLanguageGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="referenceLanguageGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 31</value>
+  </data>
+  <data name="referenceLanguageGroupBox.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v11.1" name="DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="referenceLanguageGroupBox.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v11.1">
+    <value>Combo</value>
+  </data>
+  <data name="referenceLanguageGroupBox.Properties.NullValuePrompt" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="referenceLanguageGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 20</value>
+  </data>
+  <data name="referenceLanguageGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;referenceLanguageGroupBox.Name" xml:space="preserve">
+    <value>referenceLanguageGroupBox</value>
+  </data>
+  <data name="&gt;&gt;referenceLanguageGroupBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;referenceLanguageGroupBox.Parent" xml:space="preserve">
+    <value>languagesWizardPage</value>
+  </data>
+  <data name="&gt;&gt;referenceLanguageGroupBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>&amp;Reference language:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>languagesWizardPage</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="selectAllLanguagesToExportButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="selectAllLanguagesToExportButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 401</value>
+  </data>
+  <data name="selectAllLanguagesToExportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="selectAllLanguagesToExportButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="selectAllLanguagesToExportButton.Text" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="&gt;&gt;selectAllLanguagesToExportButton.Name" xml:space="preserve">
+    <value>selectAllLanguagesToExportButton</value>
+  </data>
+  <data name="&gt;&gt;selectAllLanguagesToExportButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;selectAllLanguagesToExportButton.Parent" xml:space="preserve">
+    <value>languagesWizardPage</value>
+  </data>
+  <data name="&gt;&gt;selectAllLanguagesToExportButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="invertLanguagesToExportButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="invertLanguagesToExportButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>174, 401</value>
+  </data>
+  <data name="invertLanguagesToExportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="invertLanguagesToExportButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="invertLanguagesToExportButton.Text" xml:space="preserve">
+    <value>Flip</value>
+  </data>
+  <data name="&gt;&gt;invertLanguagesToExportButton.Name" xml:space="preserve">
+    <value>invertLanguagesToExportButton</value>
+  </data>
+  <data name="&gt;&gt;invertLanguagesToExportButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;invertLanguagesToExportButton.Parent" xml:space="preserve">
+    <value>languagesWizardPage</value>
+  </data>
+  <data name="&gt;&gt;invertLanguagesToExportButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="selectNoLanguagesToExportButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="selectNoLanguagesToExportButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 401</value>
+  </data>
+  <data name="selectNoLanguagesToExportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="selectNoLanguagesToExportButton.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="selectNoLanguagesToExportButton.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;selectNoLanguagesToExportButton.Name" xml:space="preserve">
+    <value>selectNoLanguagesToExportButton</value>
+  </data>
+  <data name="&gt;&gt;selectNoLanguagesToExportButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;selectNoLanguagesToExportButton.Parent" xml:space="preserve">
+    <value>languagesWizardPage</value>
+  </data>
+  <data name="&gt;&gt;selectNoLanguagesToExportButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="languagesToExportCheckListBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="languagesToExportCheckListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 86</value>
+  </data>
+  <data name="languagesToExportCheckListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 309</value>
+  </data>
+  <data name="languagesToExportCheckListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;languagesToExportCheckListBox.Name" xml:space="preserve">
+    <value>languagesToExportCheckListBox</value>
+  </data>
+  <data name="&gt;&gt;languagesToExportCheckListBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckedListBoxControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;languagesToExportCheckListBox.Parent" xml:space="preserve">
+    <value>languagesWizardPage</value>
+  </data>
+  <data name="&gt;&gt;languagesToExportCheckListBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="languagesWizardPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="languagesWizardPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>551, 439</value>
+  </data>
+  <data name="languagesWizardPage.Text" xml:space="preserve">
+    <value>Specify languages to export</value>
+  </data>
+  <data name="&gt;&gt;languagesWizardPage.Name" xml:space="preserve">
+    <value>languagesWizardPage</value>
+  </data>
+  <data name="&gt;&gt;languagesWizardPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;languagesWizardPage.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;languagesWizardPage.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="buttonResetOptions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonResetOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 401</value>
+  </data>
+  <data name="buttonResetOptions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 26</value>
+  </data>
+  <data name="buttonResetOptions.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="buttonResetOptions.Text" xml:space="preserve">
+    <value>Reset to default values</value>
+  </data>
+  <data name="&gt;&gt;buttonResetOptions.Name" xml:space="preserve">
+    <value>buttonResetOptions</value>
+  </data>
+  <data name="&gt;&gt;buttonResetOptions.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;buttonResetOptions.Parent" xml:space="preserve">
+    <value>optionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;buttonResetOptions.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="exportEachLanguageIntoSeparateExcelFileCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 116</value>
+  </data>
+  <data name="exportEachLanguageIntoSeparateExcelFileCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportEachLanguageIntoSeparateExcelFileCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export each language into a separate Excel file</value>
+  </data>
+  <data name="exportEachLanguageIntoSeparateExcelFileCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 19</value>
+  </data>
+  <data name="exportEachLanguageIntoSeparateExcelFileCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;exportEachLanguageIntoSeparateExcelFileCheckEdit.Name" xml:space="preserve">
+    <value>exportEachLanguageIntoSeparateExcelFileCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportEachLanguageIntoSeparateExcelFileCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportEachLanguageIntoSeparateExcelFileCheckEdit.Parent" xml:space="preserve">
+    <value>optionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;exportEachLanguageIntoSeparateExcelFileCheckEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="exportGroupsAsOneWorkSheetCheckEdit.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="exportGroupsAsOneWorkSheetCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 32</value>
+  </data>
+  <data name="exportGroupsAsOneWorkSheetCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportGroupsAsOneWorkSheetCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export all file groups together into one work sheet</value>
+  </data>
+  <data name="exportGroupsAsOneWorkSheetCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 19</value>
+  </data>
+  <data name="exportGroupsAsOneWorkSheetCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsOneWorkSheetCheckEdit.Name" xml:space="preserve">
+    <value>exportGroupsAsOneWorkSheetCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsOneWorkSheetCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsOneWorkSheetCheckEdit.Parent" xml:space="preserve">
+    <value>optionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsOneWorkSheetCheckEdit.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelControl7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="labelControl7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 13</value>
+  </data>
+  <data name="labelControl7.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelControl7.Text" xml:space="preserve">
+    <value>Excel document structure:</value>
+  </data>
+  <data name="&gt;&gt;labelControl7.Name" xml:space="preserve">
+    <value>labelControl7</value>
+  </data>
+  <data name="&gt;&gt;labelControl7.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl7.Parent" xml:space="preserve">
+    <value>optionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl7.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="exportGroupsAsExcelFilesCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 82</value>
+  </data>
+  <data name="exportGroupsAsExcelFilesCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportGroupsAsExcelFilesCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export each file group into a separate Excel document</value>
+  </data>
+  <data name="exportGroupsAsExcelFilesCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 19</value>
+  </data>
+  <data name="exportGroupsAsExcelFilesCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsExcelFilesCheckEdit.Name" xml:space="preserve">
+    <value>exportGroupsAsExcelFilesCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsExcelFilesCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsExcelFilesCheckEdit.Parent" xml:space="preserve">
+    <value>optionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsExcelFilesCheckEdit.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="exportGroupsAsWorkSheetsCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 57</value>
+  </data>
+  <data name="exportGroupsAsWorkSheetsCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportGroupsAsWorkSheetsCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export each file group into a separate work sheet</value>
+  </data>
+  <data name="exportGroupsAsWorkSheetsCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 19</value>
+  </data>
+  <data name="exportGroupsAsWorkSheetsCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsWorkSheetsCheckEdit.Name" xml:space="preserve">
+    <value>exportGroupsAsWorkSheetsCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsWorkSheetsCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsWorkSheetsCheckEdit.Parent" xml:space="preserve">
+    <value>optionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;exportGroupsAsWorkSheetsCheckEdit.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="optionsWizardPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="optionsWizardPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>551, 439</value>
+  </data>
+  <data name="optionsWizardPage.Text" xml:space="preserve">
+    <value>Specify export options</value>
+  </data>
+  <data name="&gt;&gt;optionsWizardPage.Name" xml:space="preserve">
+    <value>optionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;optionsWizardPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;optionsWizardPage.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;optionsWizardPage.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="progressBarControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="progressBarControl.EditValue" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="progressBarControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="progressBarControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 18</value>
+  </data>
+  <data name="progressBarControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;progressBarControl.Name" xml:space="preserve">
+    <value>progressBarControl</value>
+  </data>
+  <data name="&gt;&gt;progressBarControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MarqueeProgressBarControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;progressBarControl.Parent" xml:space="preserve">
+    <value>progressWizardPage</value>
+  </data>
+  <data name="&gt;&gt;progressBarControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="progressLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 36</value>
+  </data>
+  <data name="progressLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 13</value>
+  </data>
+  <data name="progressLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="progressLabel.Text" xml:space="preserve">
+    <value>&lt;Progress information, if any&gt;</value>
+  </data>
+  <data name="progressLabel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;progressLabel.Name" xml:space="preserve">
+    <value>progressLabel</value>
+  </data>
+  <data name="&gt;&gt;progressLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;progressLabel.Parent" xml:space="preserve">
+    <value>progressWizardPage</value>
+  </data>
+  <data name="&gt;&gt;progressLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="progressWizardPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="progressWizardPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>551, 439</value>
+  </data>
+  <data name="progressWizardPage.Text" xml:space="preserve">
+    <value>Data is being exported. Please wait...</value>
+  </data>
+  <data name="&gt;&gt;progressWizardPage.Name" xml:space="preserve">
+    <value>progressWizardPage</value>
+  </data>
+  <data name="&gt;&gt;progressWizardPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;progressWizardPage.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;progressWizardPage.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="pleaseWaitFinishLabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="pleaseWaitFinishLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>75, 49</value>
+  </data>
+  <data name="pleaseWaitFinishLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 13</value>
+  </data>
+  <data name="pleaseWaitFinishLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="pleaseWaitFinishLabel.Text" xml:space="preserve">
+    <value>Folder/file will be opened. Please wait...</value>
+  </data>
+  <data name="&gt;&gt;pleaseWaitFinishLabel.Name" xml:space="preserve">
+    <value>pleaseWaitFinishLabel</value>
+  </data>
+  <data name="&gt;&gt;pleaseWaitFinishLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;pleaseWaitFinishLabel.Parent" xml:space="preserve">
+    <value>successWizardPage</value>
+  </data>
+  <data name="&gt;&gt;pleaseWaitFinishLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        OdRfAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="pictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
+    <value>pictureBox2</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
+    <value>successWizardPage</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="warningTextLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="warningTextLabel.Appearance.ForeColor" type="System.Drawing.Color, System.Drawing">
+    <value>DarkOrange</value>
+  </data>
+  <data name="warningTextLabel.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v11.1">
+    <value>None</value>
+  </data>
+  <data name="warningTextLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>75, 88</value>
+  </data>
+  <data name="warningTextLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>464, 339</value>
+  </data>
+  <data name="warningTextLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="warningTextLabel.Text" xml:space="preserve">
+    <value>&lt;WARNING TEXT, IF ANY&gt;</value>
+  </data>
+  <data name="&gt;&gt;warningTextLabel.Name" xml:space="preserve">
+    <value>warningTextLabel</value>
+  </data>
+  <data name="&gt;&gt;warningTextLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;warningTextLabel.Parent" xml:space="preserve">
+    <value>successWizardPage</value>
+  </data>
+  <data name="&gt;&gt;warningTextLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelControl5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="labelControl5.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v11.1">
+    <value>None</value>
+  </data>
+  <data name="labelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>75, 12</value>
+  </data>
+  <data name="labelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>464, 31</value>
+  </data>
+  <data name="labelControl5.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelControl5.Text" xml:space="preserve">
+    <value>Your data was successfully exported to the Microsoft Office Excel document you specified.</value>
+  </data>
+  <data name="&gt;&gt;labelControl5.Name" xml:space="preserve">
+    <value>labelControl5</value>
+  </data>
+  <data name="&gt;&gt;labelControl5.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl5.Parent" xml:space="preserve">
+    <value>successWizardPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl5.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="successWizardPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="successWizardPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>551, 439</value>
+  </data>
+  <data name="successWizardPage.Text" xml:space="preserve">
+    <value>Export finished successfully</value>
+  </data>
+  <data name="&gt;&gt;successWizardPage.Name" xml:space="preserve">
+    <value>successWizardPage</value>
+  </data>
+  <data name="&gt;&gt;successWizardPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraWizard.CompletionWizardPage, DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;successWizardPage.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;successWizardPage.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="buttonResetAdvancedOptions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonResetAdvancedOptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 401</value>
+  </data>
+  <data name="buttonResetAdvancedOptions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 26</value>
+  </data>
+  <data name="buttonResetAdvancedOptions.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonResetAdvancedOptions.Text" xml:space="preserve">
+    <value>Reset to default values</value>
+  </data>
+  <data name="&gt;&gt;buttonResetAdvancedOptions.Name" xml:space="preserve">
+    <value>buttonResetAdvancedOptions</value>
+  </data>
+  <data name="&gt;&gt;buttonResetAdvancedOptions.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;buttonResetAdvancedOptions.Parent" xml:space="preserve">
+    <value>advancedOptionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;buttonResetAdvancedOptions.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="advancedOptionsPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="advancedOptionsPanel.Appearance.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="useCrypticExcelExportSheetNamesCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 139</value>
+  </data>
+  <data name="useCrypticExcelExportSheetNamesCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="useCrypticExcelExportSheetNamesCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Use unique (but cryptic) Microsoft Office Excel sheet names</value>
+  </data>
+  <data name="useCrypticExcelExportSheetNamesCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>309, 19</value>
+  </data>
+  <data name="useCrypticExcelExportSheetNamesCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;useCrypticExcelExportSheetNamesCheckEdit.Name" xml:space="preserve">
+    <value>useCrypticExcelExportSheetNamesCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;useCrypticExcelExportSheetNamesCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;useCrypticExcelExportSheetNamesCheckEdit.Parent" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;useCrypticExcelExportSheetNamesCheckEdit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="exportFileGroupColumnCheckEdit.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="exportFileGroupColumnCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 14</value>
+  </data>
+  <data name="exportFileGroupColumnCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportFileGroupColumnCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export file group column</value>
+  </data>
+  <data name="exportFileGroupColumnCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 19</value>
+  </data>
+  <data name="exportFileGroupColumnCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;exportFileGroupColumnCheckEdit.Name" xml:space="preserve">
+    <value>exportFileGroupColumnCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportFileGroupColumnCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportFileGroupColumnCheckEdit.Parent" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;exportFileGroupColumnCheckEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="exportReferenceLanguageColumnCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 89</value>
+  </data>
+  <data name="exportReferenceLanguageColumnCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportReferenceLanguageColumnCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export reference language column</value>
+  </data>
+  <data name="exportReferenceLanguageColumnCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 19</value>
+  </data>
+  <data name="exportReferenceLanguageColumnCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;exportReferenceLanguageColumnCheckEdit.Name" xml:space="preserve">
+    <value>exportReferenceLanguageColumnCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportReferenceLanguageColumnCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportReferenceLanguageColumnCheckEdit.Parent" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;exportReferenceLanguageColumnCheckEdit.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="exportCommentColumnCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 64</value>
+  </data>
+  <data name="exportCommentColumnCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportCommentColumnCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export comment column</value>
+  </data>
+  <data name="exportCommentColumnCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 19</value>
+  </data>
+  <data name="exportCommentColumnCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;exportCommentColumnCheckEdit.Name" xml:space="preserve">
+    <value>exportCommentColumnCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportCommentColumnCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportCommentColumnCheckEdit.Parent" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;exportCommentColumnCheckEdit.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="exportNameColumnCheckEdit.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="exportNameColumnCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 39</value>
+  </data>
+  <data name="exportNameColumnCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportNameColumnCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export name column</value>
+  </data>
+  <data name="exportNameColumnCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 19</value>
+  </data>
+  <data name="exportNameColumnCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;exportNameColumnCheckEdit.Name" xml:space="preserve">
+    <value>exportNameColumnCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportNameColumnCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportNameColumnCheckEdit.Parent" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;exportNameColumnCheckEdit.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="eliminateDuplicateRowsCheckEdit.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="eliminateDuplicateRowsCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 114</value>
+  </data>
+  <data name="eliminateDuplicateRowsCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="eliminateDuplicateRowsCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Eliminate duplicate rows</value>
+  </data>
+  <data name="eliminateDuplicateRowsCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 19</value>
+  </data>
+  <data name="eliminateDuplicateRowsCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;eliminateDuplicateRowsCheckEdit.Name" xml:space="preserve">
+    <value>eliminateDuplicateRowsCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;eliminateDuplicateRowsCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;eliminateDuplicateRowsCheckEdit.Parent" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;eliminateDuplicateRowsCheckEdit.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="exportOnlyRowsWithChangedTextsCheckEdit.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="exportOnlyRowsWithChangedTextsCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 228</value>
+  </data>
+  <data name="exportOnlyRowsWithChangedTextsCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportOnlyRowsWithChangedTextsCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export only texts that were modified (in the reference language) since the last export</value>
+  </data>
+  <data name="exportOnlyRowsWithChangedTextsCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>435, 19</value>
+  </data>
+  <data name="exportOnlyRowsWithChangedTextsCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;exportOnlyRowsWithChangedTextsCheckEdit.Name" xml:space="preserve">
+    <value>exportOnlyRowsWithChangedTextsCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportOnlyRowsWithChangedTextsCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportOnlyRowsWithChangedTextsCheckEdit.Parent" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;exportOnlyRowsWithChangedTextsCheckEdit.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="exportCompletelyEmptyRowsCheckEdit.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="exportCompletelyEmptyRowsCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 203</value>
+  </data>
+  <data name="exportCompletelyEmptyRowsCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportCompletelyEmptyRowsCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export rows that are currently completely empty</value>
+  </data>
+  <data name="exportCompletelyEmptyRowsCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 19</value>
+  </data>
+  <data name="exportCompletelyEmptyRowsCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;exportCompletelyEmptyRowsCheckEdit.Name" xml:space="preserve">
+    <value>exportCompletelyEmptyRowsCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportCompletelyEmptyRowsCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportCompletelyEmptyRowsCheckEdit.Parent" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;exportCompletelyEmptyRowsCheckEdit.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="exportWithoutDestinationTranslationOnlyCheckEdit.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="exportWithoutDestinationTranslationOnlyCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 178</value>
+  </data>
+  <data name="exportWithoutDestinationTranslationOnlyCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="exportWithoutDestinationTranslationOnlyCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Export only rows with no existing translation</value>
+  </data>
+  <data name="exportWithoutDestinationTranslationOnlyCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 19</value>
+  </data>
+  <data name="exportWithoutDestinationTranslationOnlyCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;exportWithoutDestinationTranslationOnlyCheckEdit.Name" xml:space="preserve">
+    <value>exportWithoutDestinationTranslationOnlyCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;exportWithoutDestinationTranslationOnlyCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;exportWithoutDestinationTranslationOnlyCheckEdit.Parent" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;exportWithoutDestinationTranslationOnlyCheckEdit.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="labelControl4.Appearance.ForeColor" type="System.Drawing.Color, System.Drawing">
+    <value>GrayText</value>
+  </data>
+  <data name="labelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 253</value>
+  </data>
+  <data name="labelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>431, 13</value>
+  </data>
+  <data name="labelControl4.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="labelControl4.Text" xml:space="preserve">
+    <value>(This may result in an empty or no document at all, if all languages are already translated)</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.Name" xml:space="preserve">
+    <value>labelControl4</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.Parent" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="advancedOptionsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 36</value>
+  </data>
+  <data name="advancedOptionsPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="advancedOptionsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 283</value>
+  </data>
+  <data name="advancedOptionsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="advancedOptionsPanel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;advancedOptionsPanel.Name" xml:space="preserve">
+    <value>advancedOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;advancedOptionsPanel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;advancedOptionsPanel.Parent" xml:space="preserve">
+    <value>advancedOptionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;advancedOptionsPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelControl8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 14</value>
+  </data>
+  <data name="labelControl8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 13</value>
+  </data>
+  <data name="labelControl8.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="labelControl8.Text" xml:space="preserve">
+    <value>Advanced options</value>
+  </data>
+  <data name="&gt;&gt;labelControl8.Name" xml:space="preserve">
+    <value>labelControl8</value>
+  </data>
+  <data name="&gt;&gt;labelControl8.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl8.Parent" xml:space="preserve">
+    <value>advancedOptionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl8.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnConnectionStringExpander.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 6.75pt</value>
+  </data>
+  <data name="btnConnectionStringExpander.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="btnConnectionStringExpander.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 18</value>
+  </data>
+  <data name="btnConnectionStringExpander.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnConnectionStringExpander.Text" xml:space="preserve">
+    <value>+</value>
+  </data>
+  <data name="&gt;&gt;btnConnectionStringExpander.Name" xml:space="preserve">
+    <value>btnConnectionStringExpander</value>
+  </data>
+  <data name="&gt;&gt;btnConnectionStringExpander.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnConnectionStringExpander.Parent" xml:space="preserve">
+    <value>advancedOptionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;btnConnectionStringExpander.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="advancedOptionsWizardPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="advancedOptionsWizardPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>551, 439</value>
+  </data>
+  <data name="advancedOptionsWizardPage.Text" xml:space="preserve">
+    <value>Advanced options</value>
+  </data>
+  <data name="&gt;&gt;advancedOptionsWizardPage.Name" xml:space="preserve">
+    <value>advancedOptionsWizardPage</value>
+  </data>
+  <data name="&gt;&gt;advancedOptionsWizardPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;advancedOptionsWizardPage.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;advancedOptionsWizardPage.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="buttonZulReset.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonZulReset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 401</value>
+  </data>
+  <data name="buttonZulReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 26</value>
+  </data>
+  <data name="buttonZulReset.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="buttonZulReset.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="&gt;&gt;buttonZulReset.Name" xml:space="preserve">
+    <value>buttonZulReset</value>
+  </data>
+  <data name="&gt;&gt;buttonZulReset.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;buttonZulReset.Parent" xml:space="preserve">
+    <value>sendWithZetaUploaderWizardPage</value>
+  </data>
+  <data name="&gt;&gt;buttonZulReset.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="hyperLinkEdit1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="hyperLinkEdit1.EditValue" xml:space="preserve">
+    <value>The files are transfered through the free Zeta Uploader service</value>
+  </data>
+  <data name="hyperLinkEdit1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 405</value>
+  </data>
+  <data name="hyperLinkEdit1.Properties.Appearance.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="hyperLinkEdit1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 18</value>
+  </data>
+  <data name="hyperLinkEdit1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;hyperLinkEdit1.Name" xml:space="preserve">
+    <value>hyperLinkEdit1</value>
+  </data>
+  <data name="&gt;&gt;hyperLinkEdit1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.HyperLinkEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;hyperLinkEdit1.Parent" xml:space="preserve">
+    <value>sendWithZetaUploaderWizardPage</value>
+  </data>
+  <data name="&gt;&gt;hyperLinkEdit1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelControl10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 76</value>
+  </data>
+  <data name="labelControl10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 13</value>
+  </data>
+  <data name="labelControl10.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="labelControl10.Text" xml:space="preserve">
+    <value>E-mail subject and message:</value>
+  </data>
+  <data name="&gt;&gt;labelControl10.Name" xml:space="preserve">
+    <value>labelControl10</value>
+  </data>
+  <data name="&gt;&gt;labelControl10.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl10.Parent" xml:space="preserve">
+    <value>sendWithZetaUploaderWizardPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl10.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="zulBodyTextEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="zulBodyTextEdit.EditValue" xml:space="preserve">
+    <value>Please download the Excel documents in the link to translate the project "{ProjectName}".
+
+To send me the translated files back, simply use https://www.zeta-uploader.com
+
+Kind regards</value>
+  </data>
+  <data name="zulBodyTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 121</value>
+  </data>
+  <data name="zulBodyTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 274</value>
+  </data>
+  <data name="zulBodyTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;zulBodyTextEdit.Name" xml:space="preserve">
+    <value>zulBodyTextEdit</value>
+  </data>
+  <data name="&gt;&gt;zulBodyTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;zulBodyTextEdit.Parent" xml:space="preserve">
+    <value>sendWithZetaUploaderWizardPage</value>
+  </data>
+  <data name="&gt;&gt;zulBodyTextEdit.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="zulSubjectTextEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="zulSubjectTextEdit.EditValue" xml:space="preserve">
+    <value>[ZRE] Excel files for translating project "{ProjectName}"</value>
+  </data>
+  <data name="zulSubjectTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 95</value>
+  </data>
+  <data name="zulSubjectTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 20</value>
+  </data>
+  <data name="zulSubjectTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;zulSubjectTextEdit.Name" xml:space="preserve">
+    <value>zulSubjectTextEdit</value>
+  </data>
+  <data name="&gt;&gt;zulSubjectTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;zulSubjectTextEdit.Parent" xml:space="preserve">
+    <value>sendWithZetaUploaderWizardPage</value>
+  </data>
+  <data name="&gt;&gt;zulSubjectTextEdit.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="zulReceiversTextEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="zulReceiversTextEdit.EditValue" xml:space="preserve">
+    <value>someone@example.org, someone-other@example.org</value>
+  </data>
+  <data name="zulReceiversTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 37</value>
+  </data>
+  <data name="zulReceiversTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 20</value>
+  </data>
+  <data name="zulReceiversTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;zulReceiversTextEdit.Name" xml:space="preserve">
+    <value>zulReceiversTextEdit</value>
+  </data>
+  <data name="&gt;&gt;zulReceiversTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;zulReceiversTextEdit.Parent" xml:space="preserve">
+    <value>sendWithZetaUploaderWizardPage</value>
+  </data>
+  <data name="&gt;&gt;zulReceiversTextEdit.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="sendFilesToEMailReceiversCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 12</value>
+  </data>
+  <data name="sendFilesToEMailReceiversCheckEdit.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="sendFilesToEMailReceiversCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Send exported files to the following e-mail receivers:</value>
+  </data>
+  <data name="sendFilesToEMailReceiversCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 19</value>
+  </data>
+  <data name="sendFilesToEMailReceiversCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;sendFilesToEMailReceiversCheckEdit.Name" xml:space="preserve">
+    <value>sendFilesToEMailReceiversCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;sendFilesToEMailReceiversCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;sendFilesToEMailReceiversCheckEdit.Parent" xml:space="preserve">
+    <value>sendWithZetaUploaderWizardPage</value>
+  </data>
+  <data name="&gt;&gt;sendFilesToEMailReceiversCheckEdit.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="sendWithZetaUploaderWizardPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="sendWithZetaUploaderWizardPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>551, 439</value>
+  </data>
+  <data name="sendWithZetaUploaderWizardPage.Text" xml:space="preserve">
+    <value>Send file to e-mail receivers</value>
+  </data>
+  <data name="&gt;&gt;sendWithZetaUploaderWizardPage.Name" xml:space="preserve">
+    <value>sendWithZetaUploaderWizardPage</value>
+  </data>
+  <data name="&gt;&gt;sendWithZetaUploaderWizardPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;sendWithZetaUploaderWizardPage.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;sendWithZetaUploaderWizardPage.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="wizardControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="wizardControl.FinishText" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="wizardControl.HelpText" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="wizardControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="wizardControl.NextText" xml:space="preserve">
+    <value>Next &gt;</value>
+  </data>
+  <data name="wizardControl.PreviousText" xml:space="preserve">
+    <value>&lt; Back</value>
+  </data>
+  <data name="wizardControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>611, 601</value>
+  </data>
+  <data name="wizardControl.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;wizardControl.Name" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;wizardControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraWizard.WizardControl, DevExpress.XtraWizard.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;wizardControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;wizardControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="progressBackgroundWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>58</value>
+  </metadata>
+  <data name="ExcelExportWizardForm.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11px</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>611, 601</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>627, 639</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Export data to Microsoft Excel</value>
+  </data>
+  <data name="&gt;&gt;barManager.Name" xml:space="preserve">
+    <value>barManager</value>
+  </data>
+  <data name="&gt;&gt;barManager.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarManager, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;optionsPopupMenu.Name" xml:space="preserve">
+    <value>optionsPopupMenu</value>
+  </data>
+  <data name="&gt;&gt;optionsPopupMenu.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.PopupMenu, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;detailedErrorsButton.Name" xml:space="preserve">
+    <value>detailedErrorsButton</value>
+  </data>
+  <data name="&gt;&gt;detailedErrorsButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;progressBackgroundWorker.Name" xml:space="preserve">
+    <value>progressBackgroundWorker</value>
+  </data>
+  <data name="&gt;&gt;progressBackgroundWorker.Type" xml:space="preserve">
+    <value>System.ComponentModel.BackgroundWorker, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ExcelExportWizardForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>ZetaResourceEditor.UI.Helper.Base.FormBase, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+</root>

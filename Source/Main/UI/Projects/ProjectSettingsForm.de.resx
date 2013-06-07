@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="readOnlySaveBehaviourComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 74</value>
+  </data>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="buttonSendProject.Text" xml:space="preserve">
+    <value>Projekt senden...</value>
+  </data>
+  <data name="enableExcelExportSnapshotsCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Momentaufnahmen für Excel-Exporte aktivieren</value>
+  </data>
+  <data name="enableExcelExportSnapshotsCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 19</value>
+  </data>
+  <data name="ignoreWindowsFormsDesignerFiles.Properties.Caption" xml:space="preserve">
+    <value>Windows-Forms-Ressourcendateien mit "*.Designer.*"-Dateien ignorieren</value>
+  </data>
+  <data name="ignoreWindowsFormsDesignerFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 19</value>
+  </data>
+  <data name="locationTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 12</value>
+  </data>
+  <data name="locationTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>369, 20</value>
+  </data>
+  <data name="openButton.Caption" xml:space="preserve">
+    <value>&amp;Ordner öffnen</value>
+  </data>
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK9gAA
+        CvYBwq9wAwAAADpJREFUOE9j+M9AGaRQ+3+GUQOwhAEDKFhwYGzxhTUQsRmAK7JxxgKyIfhSCt5oBBlC
+        KJmNpoPBkBcA/wnuIJjfoT0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 15</value>
+  </data>
+  <data name="omitEmptyItemsCheckBox.Properties.Caption" xml:space="preserve">
+    <value>&amp;Leere Zeichenfolgen nicht in die Ressourcen-Datei schreiben</value>
+  </data>
+  <data name="omitEmptyItemsCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 19</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 42</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>&amp;Speicherort:</value>
+  </data>
+  <data name="createBackupsCheckBox.Properties.Caption" xml:space="preserve">
+    <value>&amp;Automatische Sicherheitskopien erstellen</value>
+  </data>
+  <data name="createBackupsCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 19</value>
+  </data>
+  <data name="labelControl7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 77</value>
+  </data>
+  <data name="labelControl7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 13</value>
+  </data>
+  <data name="labelControl7.Text" xml:space="preserve">
+    <value>Speichververhalten:</value>
+  </data>
+  <data name="nameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 39</value>
+  </data>
+  <data name="nameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>338, 20</value>
+  </data>
+  <data name="xtraTabPage1.Text" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="labelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 13</value>
+  </data>
+  <data name="labelControl3.Text" xml:space="preserve">
+    <value>Laden Sie weitere Wörterbücher kostenlos herunter von:</value>
+  </data>
+  <data name="labelControl4.Text" xml:space="preserve">
+    <value>Nach dem Herunterladen, kopieren Sie die "*.dic"- und "*.aff"-Dateien in den "Dictionaries"-Unterordner Ihrer Zeta-Resource-Editor-Installation.</value>
+  </data>
+  <data name="useSpellCheckingCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Rechtschreibprüfung verwenden</value>
+  </data>
+  <data name="useSpellCheckingCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 19</value>
+  </data>
+  <data name="labelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 13</value>
+  </data>
+  <data name="labelControl1.Text" xml:space="preserve">
+    <value>&amp;Neutrale Sprache:</value>
+  </data>
+  <data name="labelControl2.Text" xml:space="preserve">
+    <value>Z.B. "en-US"</value>
+  </data>
+  <data name="xtraTabPage2.Text" xml:space="preserve">
+    <value>Rechtschreibprüfung</value>
+  </data>
+  <data name="showCommentsColumnInGridCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Kommentarspalte im Datenraster anzeigen</value>
+  </data>
+  <data name="showCommentsColumnInGridCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 19</value>
+  </data>
+  <data name="hideEmptyRowsCheck.Properties.Caption" xml:space="preserve">
+    <value>Leere Zeilen ausblenden</value>
+  </data>
+  <data name="hideEmptyRowsCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 19</value>
+  </data>
+  <data name="hideFileGroupFilesInTreeCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Dateigruppen im Baum ausblenden</value>
+  </data>
+  <data name="hideFileGroupFilesInTreeCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 19</value>
+  </data>
+  <data name="hideInternalDesignerRowsCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Zeilen die mit "&gt;&gt;" beginnen ausblenden (interne Resourcen)</value>
+  </data>
+  <data name="hideInternalDesignerRowsCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>316, 19</value>
+  </data>
+  <data name="colorifyNullCellsCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Zellen mit NULL-Zeichenfolgen hervorheben</value>
+  </data>
+  <data name="colorifyNullCellsCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 19</value>
+  </data>
+  <data name="hideTranslatedRowsCheck.Properties.Caption" xml:space="preserve">
+    <value>Komplett übersetzte Zeilen ausblenden</value>
+  </data>
+  <data name="hideTranslatedRowsCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 19</value>
+  </data>
+  <data name="persistGridSettingsCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Sortierung und Filter im Datenraster speichern und wiederherstellen</value>
+  </data>
+  <data name="persistGridSettingsCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>347, 19</value>
+  </data>
+  <data name="shallowCumulationCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Flache Kumulation von Resourcendateien im Datenraster</value>
+  </data>
+  <data name="shallowCumulationCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 19</value>
+  </data>
+  <data name="xtraTabPage3.Text" xml:space="preserve">
+    <value>Datenraster und GUI</value>
+  </data>
+  <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK/wAA
+        Cv8BNGKaggAAA1xJREFUOE91k/1P01cYxfsX8F+YOZbKxotoGRBgSLbIAMMQBUZpBaSALa8FpWO8rIVK
+        mSAgFDDQMgQpaCkgL04BrchgDCFKdGwLSTPCXLOxsR/A7PtZv5iY6bKbnOTce8859+bJ80gkb6xz5dUh
+        6ipjz8UOi6vlq36hpee6UNdpcWmqjdZCw8WgN/Wv9kqt1qvY1NDfNTgs6OtrKdRpUKhTkecmoSnNpsZk
+        pGvQIWjrL/eJ2teCxIOyhuaF3iE7BfpcGob0DCx0YV/qpW++k+ZJA9rOLFTlaVy76aDsy5aFMyX/ChFf
+        vjY8SsElFe2zJlqmDbTdN3LlXi2N0xXUTBWjs6uosKtR6hPpd4xRVN/Yt/+LHJ0+9OqNUaHMXEzF2DmM
+        X2tpclay9ssjdna3+dODJ1vL1M2UUnAzhczeOPKbcrh6Y0woEmuirqrp6R62UzQkRzeRyRezeTzammdn
+        7w+sS5dpdJZ7+DZP3asUTSajGopDbolC9Giqa62SSnO3y3TdhGbkJGUzSiofqvj5rw2299wkTgSQMO7H
+        b7vP2dh5hnIqkuzxGBS2KAx9eirNFpfEZBkQygdKUE+doORhMikzMuJGDhE/9h7yufdxPh/n971fsa13
+        kHD7XU7cknJmNIri3hxMVpsgMbRbhc/tJajuRnNqNoCkB4f5dP4IikUZTvcttl+4GXf1k3JXxmmnv0fj
+        S+p4MIUD2YheSX51rat+rI5Td/w4PeeP/NujZKwGc/ZJGJu7G7hfbJExF458MYjUxSNkfhNByvRRDI5q
+        8quMLsnJ9Kwe64iD6IkDJM8fRrEcRNbTMHLWI8j8Lpz0xTCyPGEZj0M5uxJO3nIscZPeWDyexAyVVRKb
+        nByiKa0QPrutJmnBF+XKy4DcHyLZ/tu9D5Frvv8I7Vo86Uuh6KZyPd1ZIcQrFC9b+4PjMYPN5m4uzClR
+        rMpQPYvwmI7Rv9mEbfMKF35K4PyPiageR3B+Lo3mtm4io2Ntr9pZJpN5BQaHLF9qaMX4oJh0Tw0K1o9T
+        sBZL/trH5K1/SNpKIDXOQkSNqBU9r83DgaAgL1//wMHYmE+E1vY2zPdNdKzU7EPkrR1mxDu/gECbqP3f
+        qZRKpSFve7/TI/U+5AqRhQoiRH7wrYNWHx+f/4zzP6QOMz4BKlIFAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK/wAA
+        Cv8BNGKaggAAA1xJREFUOE91k/1P01cYxfsX8F+YOZbKxotoGRBgSLbIAMMQBUZpBaSALa8FpWO8rIVK
+        mSAgFDDQMgQpaCkgL04BrchgDCFKdGwLSTPCXLOxsR/A7PtZv5iY6bKbnOTce8859+bJ80gkb6xz5dUh
+        6ipjz8UOi6vlq36hpee6UNdpcWmqjdZCw8WgN/Wv9kqt1qvY1NDfNTgs6OtrKdRpUKhTkecmoSnNpsZk
+        pGvQIWjrL/eJ2teCxIOyhuaF3iE7BfpcGob0DCx0YV/qpW++k+ZJA9rOLFTlaVy76aDsy5aFMyX/ChFf
+        vjY8SsElFe2zJlqmDbTdN3LlXi2N0xXUTBWjs6uosKtR6hPpd4xRVN/Yt/+LHJ0+9OqNUaHMXEzF2DmM
+        X2tpclay9ssjdna3+dODJ1vL1M2UUnAzhczeOPKbcrh6Y0woEmuirqrp6R62UzQkRzeRyRezeTzammdn
+        7w+sS5dpdJZ7+DZP3asUTSajGopDbolC9Giqa62SSnO3y3TdhGbkJGUzSiofqvj5rw2299wkTgSQMO7H
+        b7vP2dh5hnIqkuzxGBS2KAx9eirNFpfEZBkQygdKUE+doORhMikzMuJGDhE/9h7yufdxPh/n971fsa13
+        kHD7XU7cknJmNIri3hxMVpsgMbRbhc/tJajuRnNqNoCkB4f5dP4IikUZTvcttl+4GXf1k3JXxmmnv0fj
+        S+p4MIUD2YheSX51rat+rI5Td/w4PeeP/NujZKwGc/ZJGJu7G7hfbJExF458MYjUxSNkfhNByvRRDI5q
+        8quMLsnJ9Kwe64iD6IkDJM8fRrEcRNbTMHLWI8j8Lpz0xTCyPGEZj0M5uxJO3nIscZPeWDyexAyVVRKb
+        nByiKa0QPrutJmnBF+XKy4DcHyLZ/tu9D5Frvv8I7Vo86Uuh6KZyPd1ZIcQrFC9b+4PjMYPN5m4uzClR
+        rMpQPYvwmI7Rv9mEbfMKF35K4PyPiageR3B+Lo3mtm4io2Ntr9pZJpN5BQaHLF9qaMX4oJh0Tw0K1o9T
+        sBZL/trH5K1/SNpKIDXOQkSNqBU9r83DgaAgL1//wMHYmE+E1vY2zPdNdKzU7EPkrR1mxDu/gECbqP3f
+        qZRKpSFve7/TI/U+5AqRhQoiRH7wrYNWHx+f/4zzP6QOMz4BKlIFAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="labelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 13</value>
+  </data>
+  <data name="labelControl5.Text" xml:space="preserve">
+    <value>Dateinamen-Muster für neutrale Sprache:</value>
+  </data>
+  <data name="pictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAK/wAA
+        Cv8BNGKaggAAA1xJREFUOE91k/1P01cYxfsX8F+YOZbKxotoGRBgSLbIAMMQBUZpBaSALa8FpWO8rIVK
+        mSAgFDDQMgQpaCkgL04BrchgDCFKdGwLSTPCXLOxsR/A7PtZv5iY6bKbnOTce8859+bJ80gkb6xz5dUh
+        6ipjz8UOi6vlq36hpee6UNdpcWmqjdZCw8WgN/Wv9kqt1qvY1NDfNTgs6OtrKdRpUKhTkecmoSnNpsZk
+        pGvQIWjrL/eJ2teCxIOyhuaF3iE7BfpcGob0DCx0YV/qpW++k+ZJA9rOLFTlaVy76aDsy5aFMyX/ChFf
+        vjY8SsElFe2zJlqmDbTdN3LlXi2N0xXUTBWjs6uosKtR6hPpd4xRVN/Yt/+LHJ0+9OqNUaHMXEzF2DmM
+        X2tpclay9ssjdna3+dODJ1vL1M2UUnAzhczeOPKbcrh6Y0woEmuirqrp6R62UzQkRzeRyRezeTzammdn
+        7w+sS5dpdJZ7+DZP3asUTSajGopDbolC9Giqa62SSnO3y3TdhGbkJGUzSiofqvj5rw2299wkTgSQMO7H
+        b7vP2dh5hnIqkuzxGBS2KAx9eirNFpfEZBkQygdKUE+doORhMikzMuJGDhE/9h7yufdxPh/n971fsa13
+        kHD7XU7cknJmNIri3hxMVpsgMbRbhc/tJajuRnNqNoCkB4f5dP4IikUZTvcttl+4GXf1k3JXxmmnv0fj
+        S+p4MIUD2YheSX51rat+rI5Td/w4PeeP/NujZKwGc/ZJGJu7G7hfbJExF458MYjUxSNkfhNByvRRDI5q
+        8quMLsnJ9Kwe64iD6IkDJM8fRrEcRNbTMHLWI8j8Lpz0xTCyPGEZj0M5uxJO3nIscZPeWDyexAyVVRKb
+        nByiKa0QPrutJmnBF+XKy4DcHyLZ/tu9D5Frvv8I7Vo86Uuh6KZyPd1ZIcQrFC9b+4PjMYPN5m4uzClR
+        rMpQPYvwmI7Rv9mEbfMKF35K4PyPiageR3B+Lo3mtm4io2Ntr9pZJpN5BQaHLF9qaMX4oJh0Tw0K1o9T
+        sBZL/trH5K1/SNpKIDXOQkSNqBU9r83DgaAgL1//wMHYmE+E1vY2zPdNdKzU7EPkrR1mxDu/gECbqP3f
+        qZRKpSFve7/TI/U+5AqRhQoiRH7wrYNWHx+f/4zzP6QOMz4BKlIFAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="labelControl8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 13</value>
+  </data>
+  <data name="labelControl8.Text" xml:space="preserve">
+    <value>Dateinamen-Muster für nicht-neutrale Sprache:</value>
+  </data>
+  <data name="baseNameDotCountSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 111</value>
+  </data>
+  <data name="labelControl9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 13</value>
+  </data>
+  <data name="labelControl9.Text" xml:space="preserve">
+    <value>&amp;Basisname enthält</value>
+  </data>
+  <data name="labelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 13</value>
+  </data>
+  <data name="labelControl6.Text" xml:space="preserve">
+    <value>Optionale Standard-Typen:</value>
+  </data>
+  <data name="labelControl10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 114</value>
+  </data>
+  <data name="labelControl10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
+  </data>
+  <data name="labelControl10.Text" xml:space="preserve">
+    <value>Punkte</value>
+  </data>
+  <data name="xtraTabPage4.Text" xml:space="preserve">
+    <value>Dateinamen-Muster</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Projekteinstellungen bearbeiten</value>
+  </data>
+  <data name="readOnlySaveBehaviourComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>369, 20</value>
+  </data>
+</root>

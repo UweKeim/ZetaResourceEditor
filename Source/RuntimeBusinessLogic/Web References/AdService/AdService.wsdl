@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://zeta-resource-editor.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://zeta-resource-editor.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://zeta-resource-editor.com/">
+      <s:element name="GetNextAdSimple">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNextAdSimpleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNextAdSimpleResult" type="tns:AdResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AdResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetNextAd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="request" type="tns:AdRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AdRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Culture" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetNextAdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNextAdResult" type="tns:AdResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNextAdSimpleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNextAdSimple" />
+  </wsdl:message>
+  <wsdl:message name="GetNextAdSimpleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNextAdSimpleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNextAdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNextAd" />
+  </wsdl:message>
+  <wsdl:message name="GetNextAdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNextAdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AdServiceSoap">
+    <wsdl:operation name="GetNextAdSimple">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an ad to display inside the Zeta Resource Editor. Simple version.</wsdl:documentation>
+      <wsdl:input message="tns:GetNextAdSimpleSoapIn" />
+      <wsdl:output message="tns:GetNextAdSimpleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextAd">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an ad to display inside the Zeta Resource Editor. Extended version.</wsdl:documentation>
+      <wsdl:input message="tns:GetNextAdSoapIn" />
+      <wsdl:output message="tns:GetNextAdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AdServiceSoap" type="tns:AdServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNextAdSimple">
+      <soap:operation soapAction="http://zeta-resource-editor.com/GetNextAdSimple" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextAd">
+      <soap:operation soapAction="http://zeta-resource-editor.com/GetNextAd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AdServiceSoap12" type="tns:AdServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNextAdSimple">
+      <soap12:operation soapAction="http://zeta-resource-editor.com/GetNextAdSimple" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextAd">
+      <soap12:operation soapAction="http://zeta-resource-editor.com/GetNextAd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdService">
+    <wsdl:port name="AdServiceSoap" binding="tns:AdServiceSoap">
+      <soap:address location="http://www.zeta-resource-editor.com/backend/AdService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AdServiceSoap12" binding="tns:AdServiceSoap12">
+      <soap12:address location="http://www.zeta-resource-editor.com/backend/AdService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

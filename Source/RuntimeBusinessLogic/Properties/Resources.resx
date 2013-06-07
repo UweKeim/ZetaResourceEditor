@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="SR_CommandProcessorSend_Process_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+	<data name="SR_CommandProcessorSend_Process_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+	<data name="SR_CommandProcessorSend_Process_ProcessingFileGroupOfRowOf" xml:space="preserve">
+    <value>Processing file group {0} of {1}, row {2} of {3} ({4}%).</value>
+  </data>
+	<data name="SR_CommandProcessorSend_Process_SavingMicrosoftOfficeExcelDocument" xml:space="preserve">
+    <value>Saving Microsoft Office Excel document...</value>
+  </data>
+	<data name="SR_CommandProcessorReceive_Process_ProcessingWorkSheetOfRowOf" xml:space="preserve">
+    <value>Processing work sheet {0} of {1}, row {2} of {3} ({4}%).</value>
+  </data>
+	<data name="SR_TranslationHelper_GetSourceLanguages_AutoDetect" xml:space="preserve">
+    <value>(Auto detect)</value>
+  </data>
+	<data name="SR_TranslationHelper_parseRawPageContent_GoogleCodeChanged" xml:space="preserve">
+    <value>The HTML code returned from Google appears to have changed. Please check for an updated version of Zeta Resource Editor.</value>
+  </data>
+	<data name="SR_CommandProcessorReceive_getTableRows_Reference_language_value" xml:space="preserve">
+    <value>Reference language value must be provided but is currently NULL or empty.</value>
+  </data>
+	<data name="SR_CommandProcessorSend_ensureFileNamesUnique_Failed_to_generate_unique_file_names_" xml:space="preserve">
+    <value>Failed to generate unique file names.</value>
+  </data>
+	<data name="SR_CommandProcessorSend_Process_Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+	<data name="SR_CommandProcessorSend_Process_ZRE_Export" xml:space="preserve">
+    <value>ZRE Export</value>
+  </data>
+	<data name="SR_LanguageCodeDetection_extractBlock_PatternDoesNotMatch" xml:space="preserve">
+    <value>Pattern '{0}'/'{1}' doesn't match '{2}'.</value>
+  </data>
+	<data name="ExcelExportController_doProcess_Skipping_Excel_document___0___because_it_contains_no_work_sheets_" xml:space="preserve">
+    <value>Skipping Excel document '{0}' because it contains no work sheets.</value>
+  </data>
+	<data name="ExcelExportController_doProcess_Skipping_Microsoft_Office_Excel_document_" xml:space="preserve">
+    <value>Skipping Microsoft Office Excel document.</value>
+  </data>
+	<data name="SR_FileGroup_CreateAndAddNewFile_New_file_name_does_not_match" xml:space="preserve">
+    <value>New file name does not match required pattern for this file group. Needs '{0}' as the base name and '{1}' as the base extension.</value>
+  </data>
+	<data name="SR_FileGroup_NameIntelli_Unnamed" xml:space="preserve">
+    <value>(unnamed)</value>
+  </data>
+	<data name="SR_ZreLicenseType_LicenseType_Category" xml:space="preserve">
+    <value>Common</value>
+  </data>
+	<data name="SR_ZreLicenseType_LicenseType_Description" xml:space="preserve">
+    <value>Specify the type of the license.</value>
+  </data>
+	<data name="SR_ZreLicenseType_LicenseType_DisplayName" xml:space="preserve">
+    <value>License type</value>
+  </data>
+	<data name="SR_ReadOnlyFileOverwriteBehaviour_Ask" xml:space="preserve">
+    <value>Ask whether to overwrite read-only files</value>
+  </data>
+	<data name="SR_ReadOnlyFileOverwriteBehaviour_Fail" xml:space="preserve">
+    <value>Fail when trying to overwrite read-only files</value>
+  </data>
+	<data name="SR_ReadOnlyFileOverwriteBehaviour_Overwrite" xml:space="preserve">
+    <value>Overwrite read-only files</value>
+  </data>
+	<data name="SR_ReadOnlyFileOverwriteBehaviour_Skip" xml:space="preserve">
+    <value>Skip read-only files</value>
+  </data>
+	<data name="FileGroupStates_AutomaticTranslationsExist" xml:space="preserve">
+    <value>Automatic translation exists</value>
+  </data>
+	<data name="FileGroupStates_CompletelyTranslated" xml:space="preserve">
+    <value>Completely translated</value>
+  </data>
+	<data name="FileGroupStates_Empty" xml:space="preserve">
+    <value>No strings</value>
+  </data>
+	<data name="FileGroupStates_EmptyRows" xml:space="preserve">
+    <value>(Some) completely empty rows</value>
+  </data>
+	<data name="FileGroupStates_FormatParameterMismatches" xml:space="preserve">
+    <value>Different number of format parameters</value>
+  </data>
+	<data name="FileGroupStates_TranslationsMissing" xml:space="preserve">
+    <value>Translations are missing</value>
+  </data>
+	<data name="SR_LicenseType_Freeware" xml:space="preserve">
+    <value>Freeware license</value>
+  </data>
+	<data name="SR_ColumnCaption_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+	<data name="SR_ColumnCaption_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+	<data name="SR_DataProcessing_storeFiles_Save_operation_was_cancelled_at_file" xml:space="preserve">
+    <value>Save operation was cancelled at file '{0}'.</value>
+  </data>
+	<data name="SR_DataProcessing_storeFiles_Saving_failed_because_of_read_only_file" xml:space="preserve">
+    <value>Saving failed because of read-only file '{0}'.</value>
+  </data>
+	<data name="SR_NetResourceFileAccessor_Name_NETResourceFiles" xml:space="preserve">
+    <value>.NET resource files</value>
+  </data>
+	<data name="SR_QTResourceFileAccessor_Name_QTResourceFiles" xml:space="preserve">
+    <value>QT resource files</value>
+  </data>
+	<data name="BingSoapTranslationEngine_UserReadableName_Microsoft_Translator__Bing_">
+		<value xml:space="preserve">Microsoft Translator (Bing)</value>
+	</data>
+	<data name="GoogleRestfulTranslationEngine_UserReadableName_Google_Translate">
+		<value xml:space="preserve">Google Translate</value>
+	</data>
+	<data name="ExcelImportController_processWorkSheetFileIntelligent_Neither_name_column_nor_reference_language_column_present_">
+		<value xml:space="preserve">Neither name column nor reference language column present.</value>
+	</data>
+	<data name="ExcelImportController_getDestinationTableRowsByTagName_Reference_tag_name_must_be_provided_but_is_currently_NULL_or_empty_">
+		<value xml:space="preserve">Reference tag name must be provided but is currently NULL or empty.</value>
+	</data>
+	<data name="ExcelImportController_processWorkSheetFileIntelligent_Saving_file__0__of__1____">
+		<value xml:space="preserve">Saving file {0} of {1}...</value>
+	</data>
+	<data name="SR_ColumnCaption_FileGroup">
+		<value xml:space="preserve">File group</value>
+	</data>
+	<data name="SnapshotController_TakeFullSnapshot_Taking_snapshots_">
+		<value xml:space="preserve">Taking snapshots.</value>
+	</data>
+	<data name="SnapshotController_TakeFullSnapshot_Taking_snapshot__0__of__1__for_file_group___2_____">
+		<value>Taking snapshot {0} of {1} for file group '{2}'...</value>
+	</data>
+	<data name="GoogleScreenScrapingTranslationEngine_UserReadableName_Google_Translate">
+		<value xml:space="preserve">Google Translate</value>
+	</data>
+	<data name="ExcelExportController_doSendFilesWithZetaUploader_Sending__0__files_through_Zeta_Uploader___">
+		<value xml:space="preserve">Sending {0} files through Zeta Uploader...</value>
+	</data>
+	<data name="LanguageCodeDetection_MakeValidCulture_No_culture_for_culture_name___0___available_">
+		<value xml:space="preserve">No culture for culture name '{0}' available.</value>
+	</data>
+	<data name="BingSoapTranslationEngine_doMapCultureToLanguageCode_Microsoft_Translator__Bing__does_not_provide_a_language_code_for_the_culture___0___to_translate_">
+		<value xml:space="preserve">Microsoft Translator (Bing) does not provide a language code for the culture '{0}' to translate.</value>
+	</data>
+	<data name="GoogleTranslationHelper_doMapCultureToLanguageCode_Google_does_not_provide_a_language_code_for_the_culture___0___to_translate_">
+		<value xml:space="preserve">Google does not provide a language code for the culture '{0}' to translate.</value>
+	</data>
+	<data name="GoogleRestfulTranslationEngine_AppID1Name_App_ID">
+		<value xml:space="preserve">App ID</value>
+	</data>
+	<data name="BingSoapTranslationEngine_AppID1Name_Client_ID">
+		<value xml:space="preserve">Client ID</value>
+	</data>
+	<data name="BingSoapTranslationEngine_AppID2Name_Client_secret">
+		<value xml:space="preserve">Client secret</value>
+	</data>
+	<data name="BingTranslationHelper_GetAccessToken_No_access_token_value_can_be_read_from_access_token_">
+		<value xml:space="preserve">No access token value can be read from access token.</value>
+	</data>
+	<data name="BingTranslationHelper_GetAccessToken_No_expiration_date_can_be_read_from_access_token_">
+		<value xml:space="preserve">No expiration date can be read from access token.</value>
+	</data>
+	<data name="SendProjectController_VendorReceiverGuiName_Zeta_Resource_Editor_support">
+		<value xml:space="preserve">Zeta Resource Editor support</value>
+	</data>
+	<data name="SendProjectController_doSendFilesWithZetaUploader_No_files_to_send_">
+		<value xml:space="preserve">No files to send.</value>
+	</data>
+</root>
