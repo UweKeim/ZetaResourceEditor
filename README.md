@@ -32,17 +32,20 @@ Add a resource file for each language you want to support and place them in the 
 Keep the naming schema "Resources.<language>.resx", e.g. "Resources.fr-ch.resx" for Swiss with French language. The following screenshot is an example for English and German.
 
 ![Alt text](http://i.imgur.com/deK562L.png)
+
 _English and German language resources_
 
 ### 2.) Start Zeta Resource Editor and open the resource files
 Next, simply start Zeta Resource Editor and open the files you want to edit in parallel.
 
 ![Alt text](http://i.imgur.com/xZHL7ml.png)
+
 _Opening two resource files and load them into Zeta Resource Editor_
 
 ### 3.) Edit the resources and save them
 
 ![Alt text](http://i.imgur.com/5ij2Dly.png)
+
 _The main window of Zeta Resource Editor_
 
 You could either edit the cells in the grid directly by selecting and pressing F2 or, for a better overview, select a cell in the grid and then edit the details in the details view at the bottom of the window.
@@ -62,16 +65,19 @@ Later you simple open the Zeta Resource Editor project and double click the indi
 To use projects, simply select *Create New Project* from the *Projects* main menu.
 
 ![Alt text](http://i.imgur.com/iPuLymO.png)
+
 _Dialog to create a new project_
 
 Once you have created a new project, it is being displayed in the main window on the left side. Right click the root node and select *Add file group to project* to add a new file group with multiple RESX files to the project:
 
 ![Alt text](http://i.imgur.com/tO71eF0.png)
+
 _Right-clicking the project to add files_
 
 Then select the apropriate files and they will appear in the project list:
 
 ![Alt text](http://i.imgur.com/ODmCY7o.png)
+
 _Project list with one added file group with two individual files_
 
 Simply double click the file group to edit the files inside the grid in Zeta Resource Editor.
