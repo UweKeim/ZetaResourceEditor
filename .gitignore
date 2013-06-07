@@ -8,6 +8,12 @@ Etc/
 Bin-LicenseGenerator/
 Source/UpdateChecker/App_Data/ZetaResourceEditor.exe
 
+/Bin/
+
+Source/UpdateChecker/Bin/*.dll
+Source/UpdateChecker/Bin/de/*.dll
+Source/Web/Bin/*.dll
+Source/Web/Bin/de/*.dll
 
 #################
 ## Visual Studio
@@ -27,7 +33,7 @@ Source/UpdateChecker/App_Data/ZetaResourceEditor.exe
 [Rr]elease/
 x64/
 build/
-[Bb]in/
+#[Bb]in/
 [Oo]bj/
 
 # MSTest test Results
