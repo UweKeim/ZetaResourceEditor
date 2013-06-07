@@ -797,6 +797,7 @@
 			{
 				foreach (DataRow row in table.Rows)
 				{
+					items.Clear();
 					if (row != null)
 					{
 						if (bw.CancellationPending)
