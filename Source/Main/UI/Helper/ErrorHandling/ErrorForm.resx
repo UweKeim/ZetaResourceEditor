@@ -148,7 +148,7 @@
     <value>linearGradientPanel1</value>
   </data>
   <data name="&gt;&gt;linearGradientPanel1.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Helper.ExtendedControls.LinearGradientPanel, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+    <value>ZetaResourceEditor.UI.Helper.ExtendedControls.LinearGradientPanel, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;linearGradientPanel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -346,7 +346,7 @@
     <value>lineUserControl1</value>
   </data>
   <data name="&gt;&gt;lineUserControl1.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Helper.LineUserControl, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+    <value>ZetaResourceEditor.UI.Helper.LineUserControl, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lineUserControl1.Parent" xml:space="preserve">
     <value>panelControl1</value>
@@ -2379,7 +2379,7 @@
     <value>ErrorForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Helper.Base.FormBase, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+    <value>ZetaResourceEditor.UI.Helper.Base.FormBase, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <metadata name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>295, 17</value>

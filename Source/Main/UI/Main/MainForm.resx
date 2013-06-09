@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,187 +59,187 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="mainFormMainSplitContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="mainFormMainSplitContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="projectFilesUserControl.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 11px</value>
-  </data>
-  <data name="projectFilesUserControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="projectFilesUserControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="projectFilesUserControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 377</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="projectFilesUserControl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;projectFilesUserControl.Name" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="mainFormMainSplitContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+		<value>Fill</value>
+	</data>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="mainFormMainSplitContainer.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 0</value>
+	</data>
+	<data name="projectFilesUserControl.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+		<value>Tahoma, 11px</value>
+	</data>
+	<data name="projectFilesUserControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+		<value>Fill</value>
+	</data>
+	<data name="projectFilesUserControl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 0</value>
+	</data>
+	<data name="projectFilesUserControl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>250, 377</value>
+	</data>
+	<assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<data name="projectFilesUserControl.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;projectFilesUserControl.Name" xml:space="preserve">
     <value>projectFilesUserControl</value>
   </data>
-  <data name="&gt;&gt;projectFilesUserControl.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Main.LeftTree.ProjectFilesUserControl, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+	<data name="&gt;&gt;projectFilesUserControl.Type" xml:space="preserve">
+    <value>ZetaResourceEditor.UI.Main.LeftTree.ProjectFilesUserControl, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;projectFilesUserControl.Parent" xml:space="preserve">
+	<data name="&gt;&gt;projectFilesUserControl.Parent" xml:space="preserve">
     <value>mainFormMainSplitContainer.Panel1</value>
   </data>
-  <data name="&gt;&gt;projectFilesUserControl.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;projectFilesUserControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="mainFormMainSplitContainer.Panel1.Text" xml:space="preserve">
+	<data name="mainFormMainSplitContainer.Panel1.Text" xml:space="preserve">
     <value>Panel1</value>
   </data>
-  <data name="groupFilesControl.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 11px</value>
-  </data>
-  <data name="groupFilesControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="groupFilesControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="groupFilesControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>497, 377</value>
-  </data>
-  <data name="groupFilesControl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;groupFilesControl.Name" xml:space="preserve">
+	<data name="groupFilesControl.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+		<value>Tahoma, 11px</value>
+	</data>
+	<data name="groupFilesControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+		<value>Fill</value>
+	</data>
+	<data name="groupFilesControl.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 0</value>
+	</data>
+	<data name="groupFilesControl.Size" type="System.Drawing.Size, System.Drawing">
+		<value>497, 377</value>
+	</data>
+	<data name="groupFilesControl.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="&gt;&gt;groupFilesControl.Name" xml:space="preserve">
     <value>groupFilesControl</value>
   </data>
-  <data name="&gt;&gt;groupFilesControl.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Main.RightContent.GroupFilesUserControl, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+	<data name="&gt;&gt;groupFilesControl.Type" xml:space="preserve">
+    <value>ZetaResourceEditor.UI.Main.RightContent.GroupFilesUserControl, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;groupFilesControl.Parent" xml:space="preserve">
+	<data name="&gt;&gt;groupFilesControl.Parent" xml:space="preserve">
     <value>mainFormMainSplitContainer.Panel2</value>
   </data>
-  <data name="&gt;&gt;groupFilesControl.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;groupFilesControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="mainFormMainSplitContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>752, 377</value>
-  </data>
-  <data name="mainFormMainSplitContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="mainFormMainSplitContainer.Text" xml:space="preserve">
+	<data name="mainFormMainSplitContainer.Size" type="System.Drawing.Size, System.Drawing">
+		<value>752, 377</value>
+	</data>
+	<data name="mainFormMainSplitContainer.TabIndex" type="System.Int32, mscorlib">
+		<value>0</value>
+	</data>
+	<data name="mainFormMainSplitContainer.Text" xml:space="preserve">
     <value>splitContainerControl1</value>
   </data>
-  <data name="&gt;&gt;mainFormMainSplitContainer.Name" xml:space="preserve">
+	<data name="&gt;&gt;mainFormMainSplitContainer.Name" xml:space="preserve">
     <value>mainFormMainSplitContainer</value>
   </data>
-  <data name="&gt;&gt;mainFormMainSplitContainer.Type" xml:space="preserve">
+	<data name="&gt;&gt;mainFormMainSplitContainer.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;mainFormMainSplitContainer.Parent" xml:space="preserve">
+	<data name="&gt;&gt;mainFormMainSplitContainer.Parent" xml:space="preserve">
     <value>clientPanel</value>
   </data>
-  <data name="&gt;&gt;mainFormMainSplitContainer.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;mainFormMainSplitContainer.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="applicationMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="barSubRecentFiles.Caption" xml:space="preserve">
+	<metadata name="applicationMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>17, 17</value>
+	</metadata>
+	<data name="barSubRecentFiles.Caption" xml:space="preserve">
     <value>Recent resource files</value>
   </data>
-  <data name="barSubRecentFiles.Description" xml:space="preserve">
+	<data name="barSubRecentFiles.Description" xml:space="preserve">
     <value>Loads recently opened resource files</value>
   </data>
-  <data name="barSubRecentProjects.Caption" xml:space="preserve">
+	<data name="barSubRecentProjects.Caption" xml:space="preserve">
     <value>Recent projects</value>
   </data>
-  <data name="barSubRecentProjects.Description" xml:space="preserve">
+	<data name="barSubRecentProjects.Description" xml:space="preserve">
     <value>Loads a recently opened project</value>
   </data>
-  <data name="infoButton.Caption" xml:space="preserve">
+	<data name="infoButton.Caption" xml:space="preserve">
     <value>Info</value>
   </data>
-  <data name="infoButton.Description" xml:space="preserve">
+	<data name="infoButton.Description" xml:space="preserve">
     <value>Displays application and version information</value>
   </data>
-  <data name="buttonExit.Caption" xml:space="preserve">
+	<data name="buttonExit.Caption" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="buttonExit.Description" xml:space="preserve">
+	<data name="buttonExit.Description" xml:space="preserve">
     <value>Exits the application</value>
   </data>
-  <data name="ribbon.ApplicationButtonText" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <metadata name="images16Collection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>325, 17</value>
-  </metadata>
-  <assembly alias="DevExpress.Utils.v11.1" name="DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="images16Collection.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v11.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="ribbon.ApplicationButtonText" type="System.Resources.ResXNullRef, System.Windows.Forms">
+		<value />
+	</data>
+	<metadata name="images16Collection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>325, 17</value>
+	</metadata>
+	<assembly alias="DevExpress.Utils.v11.1" name="DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+	<data name="images16Collection.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v11.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMS4xLCBWZXJzaW9uPTExLjEu
         OC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
         eXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
@@ -1220,18 +1220,18 @@
         4syJrEJcWN9PK+o73XCZEVrFddb29PO1S0eHqj7atX18EWrr7KVVqKVDqLOPTy3ayNEu/AOlk7QVdlN6
         cQAAAABJRU5ErkJgggs=
 </value>
-  </data>
-  <data name="buttonOnlineManual.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonOnlineManual.Caption" xml:space="preserve">
     <value>Online manual</value>
   </data>
-  <data name="buttonOnlineManual.Hint" xml:space="preserve">
+	<data name="buttonOnlineManual.Hint" xml:space="preserve">
     <value>Shows the online manual</value>
   </data>
-  <data name="buttonWebsite.Caption" xml:space="preserve">
+	<data name="buttonWebsite.Caption" xml:space="preserve">
     <value>Website</value>
   </data>
-  <data name="buttonWebsite.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonWebsite.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAArdEVYdENvcHlyaWdodABDb3B5cmlnaHQgqSAyMDA4LTIwMTEgSU5DT1JTIEdtYkgQjiFPAAAK
         0ElEQVRYR9WXaVCUV7qAexw1JhMT1FExyE6DIKssoiCLsjaLyCr7Kosgq0YIICi07MrSsimrhCC4jktU
@@ -1282,12 +1282,12 @@
         RIl7mCBA4CVwFti+fE8VWDUQ1W+p/k1TTYMqu7/4UpmqXnpVoEqfmkCVyjkvUY1K9Xm2YObLv6vmXPX8
         VMFkwY/O+78Bh89SByw9IK0AAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="buttonDonate.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonDonate.Caption" xml:space="preserve">
     <value>Donate</value>
   </data>
-  <data name="buttonDonate.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonDonate.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAArdEVYdENvcHlyaWdodABDb3B5cmlnaHQgqSAyMDA4LTIwMTEgSU5DT1JTIEdtYkgQjiFPAAAK
         aElEQVRYR+2WaVCb1xWGnSZxW2drJ51pk5lmWmdztjotSRvHqbHB2JjNYjNgIREhkJAEkkAgBIhFAgmB
@@ -1336,18 +1336,18 @@
         PIQ08qWztnoRx90cESEKQ2yc3OLq7tFGDF8h2v69jf9xgf379z9k63SEymYHtmdnKG9kqmUWqoeT5aWd
         v7i3+5UXPtizd0+9tfVeOzLn64/N//L4KwNnD4WfidLQAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonOpenResourceFiles.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonOpenResourceFiles.Caption" xml:space="preserve">
     <value>Open resource files</value>
   </data>
-  <data name="buttonOpenResourceFiles.Hint" xml:space="preserve">
+	<data name="buttonOpenResourceFiles.Hint" xml:space="preserve">
     <value>Opens existing resource files</value>
   </data>
-  <data name="buttonSaveResourceFiles.Caption" xml:space="preserve">
+	<data name="buttonSaveResourceFiles.Caption" xml:space="preserve">
     <value>Save files</value>
   </data>
-  <data name="buttonSaveResourceFiles.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonSaveResourceFiles.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0NKWCe9wYAAAM2SURBVDhPlZBbSJNhHMa/CymCLjphiocOmmXq
         SKYzN9dcntrS6Zi6zTndsumWJR1EC7NcXUR10YmZHbDELBVNRfNUmdoqKb2wgggLk45Q6txXzq3Pnl6/
@@ -1365,12 +1365,12 @@
         CTw2aUgFFRaFpWDeXIIlayIWLFvP3xEQmTAStjnxXdH+g9hbWIz8gj3QbzdCpdEhWaGCVKYAXxQ76x4s
         GHcPjBx38+aMuHkGnf0JdCCQZIwOEaQAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="buttonSaveResourceFiles.Hint" xml:space="preserve">
+	</data>
+	<data name="buttonSaveResourceFiles.Hint" xml:space="preserve">
     <value>Saves the currently opened resource file group</value>
   </data>
-  <data name="buttonSaveResourceFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonSaveResourceFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0gLt7QOEoAAAkXSURBVFhH7Zd5WM17Hsfv3OdxZ+7MnTHXGFxL
         ucnSTbuUQtK+SNoX7SstilKUmyQpKopchXLDFUJF+yYqqVQUSpujaKdUp/X3ns85Jcw8Z/6d+8f8nudd
@@ -1413,12 +1413,12 @@
         brC2c4KZhS1MTK2xzcgUOrqGUNfaBmV1LWzarA55BWXIyCtASkYOK0WlugTEZeuWisnU8glL186av7zx
         63mkuQKXaJ25pK9/L98I//cc/wLTyHhot/FzsgAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="buttonSaveAllFiles.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonSaveAllFiles.Caption" xml:space="preserve">
     <value>Save all files</value>
   </data>
-  <data name="buttonSaveAllFiles.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonSaveAllFiles.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0NKvmXprwAAAKJSURBVDhPlZPdS1NhHMfPXzDwQkGUJdscbXPO
         6eZmDIMWK3MdmNreOl4NtovKiwWZK7fqrhdCg6CbCOyiCFJpTcv5spJeLuwikiKiF6Xle6lTj9t03549
@@ -1433,12 +1433,12 @@
         xuIIngtRgOAsBpBlyJCXRpeif2AQHi+Hq9dvIjYygUfk0XQEOylAcBYDysrKuPLy8l8KReWCy8Pl2pxe
         2NkWHD5yDJaDVlTrDbuk+5zgLAL8BV62FWWdiIxvAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonSaveAllFiles.Hint" xml:space="preserve">
+	</data>
+	<data name="buttonSaveAllFiles.Hint" xml:space="preserve">
     <value>Saves all modified resource files and the project itself</value>
   </data>
-  <data name="buttonSaveAllFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonSaveAllFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0gL6nXCNwAAAkSSURBVFhHzVdrUJTXGc70R3+kU60XvAByEVhx
         gd2l3kAEiiC7cpEoJhG8BBEUkXJXatQ4GhWjVCXTONYm7eRH27TRFNSIqCCoeOcSQFaQ63JVRGCXhYUF
@@ -1481,48 +1481,48 @@
         RaWOjU82xiWkYvvOeGylM97Gj6Lw/obNeC90AwLWhMJXFQwvXxWWe9Phw1nWRcCr6R/QZ5TzzWS1lilT
         puTQpDPfuvq3Iftf//5vgI+ucilWjpkAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="buttonCloseResourceFiles.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonCloseResourceFiles.Caption" xml:space="preserve">
     <value>Close resource files</value>
   </data>
-  <data name="buttonCloseResourceFiles.Hint" xml:space="preserve">
+	<data name="buttonCloseResourceFiles.Hint" xml:space="preserve">
     <value>Close the currently open resource file data grid</value>
   </data>
-  <data name="buttonCloseAllDocuments.Caption" xml:space="preserve">
+	<data name="buttonCloseAllDocuments.Caption" xml:space="preserve">
     <value>Close all documents</value>
   </data>
-  <data name="buttonCloseAllDocuments.Hint" xml:space="preserve">
+	<data name="buttonCloseAllDocuments.Hint" xml:space="preserve">
     <value>Closes all open resource file group editor windows</value>
   </data>
-  <data name="buttonOpenProjectFile.Caption" xml:space="preserve">
+	<data name="buttonOpenProjectFile.Caption" xml:space="preserve">
     <value>Open project file</value>
   </data>
-  <data name="buttonOpenProjectFile.Hint" xml:space="preserve">
+	<data name="buttonOpenProjectFile.Hint" xml:space="preserve">
     <value>Opens an existing project file</value>
   </data>
-  <data name="buttonSaveProjectFile.Caption" xml:space="preserve">
+	<data name="buttonSaveProjectFile.Caption" xml:space="preserve">
     <value>Save project file</value>
   </data>
-  <data name="buttonCloseProject.Caption" xml:space="preserve">
+	<data name="buttonCloseProject.Caption" xml:space="preserve">
     <value>Close project</value>
   </data>
-  <data name="buttonFind.Caption" xml:space="preserve">
+	<data name="buttonFind.Caption" xml:space="preserve">
     <value>Find</value>
   </data>
-  <data name="buttonFind.Hint" xml:space="preserve">
+	<data name="buttonFind.Hint" xml:space="preserve">
     <value>Searches for text in the currently opened resource file group data grid</value>
   </data>
-  <data name="buttonFindNext.Caption" xml:space="preserve">
+	<data name="buttonFindNext.Caption" xml:space="preserve">
     <value>Find next</value>
   </data>
-  <data name="buttonFindNext.Hint" xml:space="preserve">
+	<data name="buttonFindNext.Hint" xml:space="preserve">
     <value>Continues a previously started search</value>
   </data>
-  <data name="buttonTranslateMissingLanguages.Caption" xml:space="preserve">
+	<data name="buttonTranslateMissingLanguages.Caption" xml:space="preserve">
     <value>Translate missing languages</value>
   </data>
-  <data name="buttonTranslateMissingLanguages.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonTranslateMissingLanguages.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw8iBDTZR3AAAANySURBVDhPjZNrTJNnFMcflSiUKrcA4hDal6HI
         bVY6rLYTW6FAXxTaolCUgAXFFqm1mgJGJ3cZNNyrUOWiclFiWCcqKmwjWBcxmzNrmBpNMMsmw2x+WcjE
@@ -1541,30 +1541,30 @@
         CtwgussANO8F/ftnefoEKNzYvi+2JCuQnl2AvP2HUWgowefD1/4fwAlk+7I9/Kv8Ayk7JzRqPiw6dm5n
         jtrG2cuUzWTnMv79xG8BAc/U7vHq8IwAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="buttonAddNewTag.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonAddNewTag.Caption" xml:space="preserve">
     <value>Add new tag</value>
   </data>
-  <data name="buttonAddNewTag.Hint" xml:space="preserve">
+	<data name="buttonAddNewTag.Hint" xml:space="preserve">
     <value>Adds a new tag to the currently open resource file group data grid</value>
   </data>
-  <data name="buttonDeleteTag.Caption" xml:space="preserve">
+	<data name="buttonDeleteTag.Caption" xml:space="preserve">
     <value>Delete tag</value>
   </data>
-  <data name="buttonDeleteTag.Hint" xml:space="preserve">
+	<data name="buttonDeleteTag.Hint" xml:space="preserve">
     <value>Deletes the currently selected row</value>
   </data>
-  <data name="buttonRenameTag.Caption" xml:space="preserve">
+	<data name="buttonRenameTag.Caption" xml:space="preserve">
     <value>Rename tag</value>
   </data>
-  <data name="buttonRenameTag.Hint" xml:space="preserve">
+	<data name="buttonRenameTag.Hint" xml:space="preserve">
     <value>Renames the currently selected tag</value>
   </data>
-  <data name="buttonQuickTranslate.Caption" xml:space="preserve">
+	<data name="buttonQuickTranslate.Caption" xml:space="preserve">
     <value>Quick translate</value>
   </data>
-  <data name="buttonQuickTranslate.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonQuickTranslate.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw8iBDTZR3AAAAN0SURBVDhPfZNrTNNXGMaPQhChs4IpWJUyCmSl
         XGoHtJ0tjBZKL7S0tMW2SMVSQRGszkEBp8uoBdlARaWusDAUBZWYBhHvqATr7YOXrGHTaKJfFqfZ/GLQ
@@ -1583,21 +1583,21 @@
         4nI7WBzetv8MFj16oWEujfEsX2WAybYGjrp61G5qwr5v+mFbUweeKOcQNRzyv8kkhMaIpMd6Ypewg+8n
         p89wMgTTAnFeQCJTrnjX4B/hdrLEbEO/vQAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="buttonQuickTranslate.Hint" xml:space="preserve">
+	</data>
+	<data name="buttonQuickTranslate.Hint" xml:space="preserve">
     <value>Opens the Quick translate window</value>
   </data>
-  <data name="buttonRefresh.Caption" xml:space="preserve">
+	<data name="buttonRefresh.Caption" xml:space="preserve">
     <value>Refresh file list</value>
   </data>
-  <data name="buttonRefresh.Hint" xml:space="preserve">
+	<data name="buttonRefresh.Hint" xml:space="preserve">
     <value>Refreshes the project file list</value>
   </data>
-  <data name="buttonOptions.Caption" xml:space="preserve">
+	<data name="buttonOptions.Caption" xml:space="preserve">
     <value>Options</value>
   </data>
-  <data name="buttonOptions.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonOptions.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAArdEVYdENvcHlyaWdodABDb3B5cmlnaHQgqSAyMDA4LTIwMTEgSU5DT1JTIEdtYkgQjiFPAAAH
         qUlEQVRYR9WXe1hT9xnH3WxLnQ6hVqns2Va1T12VwNQKShVt1WoJEqAgKhcdKnIVEYFAQFMkkZIqNzHc
@@ -1635,48 +1635,48 @@
         FuxIkc5x5XUazZ6fQvNrSCbjvejPWce4xDTbAhLT+cxrmQWJabr/Of4JeCcVbSXG5RgAAAAASUVORK5C
         YII=
 </value>
-  </data>
-  <data name="buttonCreateNewProject.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonCreateNewProject.Caption" xml:space="preserve">
     <value>Create new project</value>
   </data>
-  <data name="buttonCreateNewProject.Hint" xml:space="preserve">
+	<data name="buttonCreateNewProject.Hint" xml:space="preserve">
     <value>Creates a new project</value>
   </data>
-  <data name="buttonAutomaticallyAddFileGroupsToProject.Caption" xml:space="preserve">
+	<data name="buttonAutomaticallyAddFileGroupsToProject.Caption" xml:space="preserve">
     <value>Automatically add multiple files</value>
   </data>
-  <data name="buttonAddFileGroupToProject.Caption" xml:space="preserve">
+	<data name="buttonAddFileGroupToProject.Caption" xml:space="preserve">
     <value>Add file group to project</value>
   </data>
-  <data name="buttonRemoveFileGroupFromProject.Caption" xml:space="preserve">
+	<data name="buttonRemoveFileGroupFromProject.Caption" xml:space="preserve">
     <value>Remove file group from project</value>
   </data>
-  <data name="buttonEditFileGroupSettings.Caption" xml:space="preserve">
+	<data name="buttonEditFileGroupSettings.Caption" xml:space="preserve">
     <value>Edit file group settings</value>
   </data>
-  <data name="buttonAddFilesToFileGroup.Caption" xml:space="preserve">
+	<data name="buttonAddFilesToFileGroup.Caption" xml:space="preserve">
     <value>Add files to file group</value>
   </data>
-  <data name="buttonRemoveFileFromGroup.Caption" xml:space="preserve">
+	<data name="buttonRemoveFileFromGroup.Caption" xml:space="preserve">
     <value>Remove file from group</value>
   </data>
-  <data name="buttonEditProjectSettings.Caption" xml:space="preserve">
+	<data name="buttonEditProjectSettings.Caption" xml:space="preserve">
     <value>Edit project settings</value>
   </data>
-  <data name="barMdiChildrenListItem1.Caption" xml:space="preserve">
+	<data name="barMdiChildrenListItem1.Caption" xml:space="preserve">
     <value>Recent projects</value>
   </data>
-  <data name="barMdiChildrenListItem2.Caption" xml:space="preserve">
+	<data name="barMdiChildrenListItem2.Caption" xml:space="preserve">
     <value>Recent files</value>
   </data>
-  <data name="barListItem1.Caption" xml:space="preserve">
+	<data name="barListItem1.Caption" xml:space="preserve">
     <value>barListItem1</value>
   </data>
-  <data name="buttonUpdateAvailable.Caption" xml:space="preserve">
+	<data name="buttonUpdateAvailable.Caption" xml:space="preserve">
     <value>An update is available!</value>
   </data>
-  <data name="buttonUpdateAvailable.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonUpdateAvailable.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0gNs28oBwAAAhHSURBVFhHzVdpVJTXGX6BGbZh2PdhR6PBGJZY
         DVEjVlOXRj3G6mklLiiaLlEbqtDG44k1JrWeqLWxcQcSrUvVKFoEqxFMXHE3UVEEFSWIgiyCYRnm6XM/
@@ -1716,24 +1716,24 @@
         P84iUom3iSSCPStsCWH/SrSVXDngSqhSqDI8kyvWSkRT2jKlJs1u9d/v6ax+JhL/34P8G9nTHeczdd0k
         AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonOpenFileGroupFolder.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonOpenFileGroupFolder.Caption" xml:space="preserve">
     <value>Open folder</value>
   </data>
-  <data name="barStaticItem1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 11px, style=Bold, Underline</value>
-  </data>
-  <data name="barStaticItem1.Appearance.ForeColor" type="System.Drawing.Color, System.Drawing">
-    <value>0, 0, 204</value>
-  </data>
-  <data name="barStaticItem1.Caption" xml:space="preserve">
+	<data name="barStaticItem1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+		<value>Tahoma, 11px, style=Bold, Underline</value>
+	</data>
+	<data name="barStaticItem1.Appearance.ForeColor" type="System.Drawing.Color, System.Drawing">
+		<value>0, 0, 204</value>
+	</data>
+	<data name="barStaticItem1.Caption" xml:space="preserve">
     <value>Test Management Software - For Test Cases and Test Plan Templates</value>
   </data>
-  <data name="buttonExport.Caption" xml:space="preserve">
+	<data name="buttonExport.Caption" xml:space="preserve">
     <value>Export to Microsoft Excel</value>
   </data>
-  <data name="buttonExport.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonExport.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAArdEVYdENvcHlyaWdodABDb3B5cmlnaHQgqSAyMDA4LTIwMTEgSU5DT1JTIEdtYkgQjiFPAAAI
         Q0lEQVRYR62XCVRTVxrHoxyFam2VGW21jqij1gUVqLiUqlhcSosrCo5UQYOAIrKELQlLwhKWhCUgInGB
@@ -1773,12 +1773,12 @@
         /51R/5nT1EgWKCkp7Zgzf7FwhY5u/veGe2WHHVjyXQesnn/+xSwx+f8AYTk1s8Mp+Z8R/+++1GcXNa/L
         CEYEMwL1uKX2ODWVf/j7NzSUTknKbwHVAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonImport.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonImport.Caption" xml:space="preserve">
     <value>Import from Microsoft Excel</value>
   </data>
-  <data name="buttonImport.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonImport.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAArdEVYdENvcHlyaWdodABDb3B5cmlnaHQgqSAyMDA4LTIwMTEgSU5DT1JTIEdtYkgQjiFPAAAI
         XElEQVRYR7WXCVBTdx7H7W73mFk721l11rVYQDyxXuuBUlHQ2uq4bZWKrlbuI9xHIBDAQDAnSSAkHAES
@@ -1819,30 +1819,30 @@
         8DXVes/GjbrhiBXF76iVQ7m9J/3REUunCZ0V+u7k++ql1y89/oZy/xvRvqOlKj3XqwAAAABJRU5ErkJg
         gg==
 </value>
-  </data>
-  <data name="buttonMoveDown.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonMoveDown.Caption" xml:space="preserve">
     <value>Move down</value>
   </data>
-  <data name="buttonMoveDown.Hint" xml:space="preserve">
+	<data name="buttonMoveDown.Hint" xml:space="preserve">
     <value>Move the selected item in the project files tree down by one</value>
   </data>
-  <data name="buttonMoveUp.Caption" xml:space="preserve">
+	<data name="buttonMoveUp.Caption" xml:space="preserve">
     <value>Move up</value>
   </data>
-  <data name="buttonMoveUp.Hint" xml:space="preserve">
+	<data name="buttonMoveUp.Hint" xml:space="preserve">
     <value>Move the selected item in the project files tree up by one</value>
   </data>
-  <data name="buttonShowHideProjectPanel.Caption" xml:space="preserve">
+	<data name="buttonShowHideProjectPanel.Caption" xml:space="preserve">
     <value>Show project panel</value>
   </data>
-  <data name="buttonCreateNewFile.Caption" xml:space="preserve">
+	<data name="buttonCreateNewFile.Caption" xml:space="preserve">
     <value>Create new file for language</value>
   </data>
-  <data name="buttonCreateNewFiles.Caption" xml:space="preserve">
+	<data name="buttonCreateNewFiles.Caption" xml:space="preserve">
     <value>Create new files for language</value>
   </data>
-  <data name="buttonCreateNewFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonCreateNewFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0gLDDeWWYAAAcTSURBVFhHpVdrjFTlGV52+dHYhm36oyXpH5L+
         U2NrtEq0xUZj0h9VahMxaUPirbaNlxJp2lBaG4i0Gm0ti+7A3uY+OztNBWK9xEQRUYEtUOW+uyAUtoV1
@@ -1877,12 +1877,12 @@
         036/RCzjbwmij/f/tOG5o3zft6+UgKhSfijcGthHLPR5Qv5f/D3LYvNV4FNsVjjgFSUN7AAAAABJRU5E
         rkJggg==
 </value>
-  </data>
-  <data name="buttonLicensing.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonLicensing.Caption" xml:space="preserve">
     <value>Licensing</value>
   </data>
-  <data name="buttonLicensing.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonLicensing.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAArdEVYdENvcHlyaWdodABDb3B5cmlnaHQgqSAyMDA4LTIwMTEgSU5DT1JTIEdtYkgQjiFPAAAG
         OElEQVRYR7WWDVRMaRjHp3ynqFSS5KOkLY2SPrSjwiSJmEoqyRqEUslMMqKZCNWWpF2VcLDEsWR3WxwT
@@ -1913,12 +1913,12 @@
         hkiXSLsHhDanuyOdPW38ccaflvtbR/N0WEquo7V/XWsynrq+ywvhnuzWIUp9XMj7lkQGPdnTpvRn+O8S
         f6vxZ88puI4fvtvHTK+NY6QlIPdMiIYT0SWmJ9T/Pv4CvwohNrkNPaMAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="resetLayoutButton.Caption" xml:space="preserve">
+	</data>
+	<data name="resetLayoutButton.Caption" xml:space="preserve">
     <value>Reset layout</value>
   </data>
-  <data name="resetLayoutButton.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="resetLayoutButton.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0NH68kYp8AAAIUSURBVDhPY2AYEiBeVoGjylh26iQruU8lGqIF
         pTIMnEQ7vCtQT2+Ch/btaxk2/18mGf+/EKD1v0df8kmNupAziiH9pb5iNU566TDBqjg7zmYvw5nLoq3+
@@ -1931,12 +1931,12 @@
         f5sc7/+dWqL/95hJ/d9tr/B/l4fK/zlOSv+b3eWVsBqQzcBwvp6F6WcNF8vbKn6OR6XCXNeKRLnP5Irz
         HMiR4tuWLcu/KkuOb04YAwMz0Slw6CgEAEB6/3Jbk0ByAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonAddFromVisualStudio.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonAddFromVisualStudio.Caption" xml:space="preserve">
     <value>Automatically add from Visual Studio solution</value>
   </data>
-  <data name="buttonAddFromVisualStudio.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonAddFromVisualStudio.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAHlSURBVDhPY2AYBdQJgdCpu30T15w7VbLj5rWCdacWBBRWyiCb3OQ0z6/Seta2csuZ/yssZv0v
         M52x10E+ygmsxqdrQ4VD46rXDn37/uslrPyvG7Lwv1fpxufOiWX51lZx+jWOizbl6E/578HT+D+Ar+d/
@@ -1948,9 +1948,9 @@
         Th7rfnr4rv1vZV13UVBQxZsJCJBii5GLiYlNnZ1N1JqNhRdkMh9MUljUgY2VmUuOm1PemZ1N0JKbR1aY
         h0+ZkTqJaMBNAQC9XcDsO2LK7gAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="buttonAddFromVisualStudio.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="buttonAddFromVisualStudio.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAblSURBVFhH7ZZ5UJNnHscJ7ToFL+RMgASQGCLHSkIQiCGQQEjCIRaRUxS56cpRIudyn+FQVCgg
         Z0I5KlpKtVZX7EqdCivdtjq167arXbqwdZh2ptjt1irHd5+XjR2ddv/r7B8d3pnv5Mk8x+/z+77P73le
@@ -1983,12 +1983,12 @@
         jvzZxCSyxcDAMVJnO5X5T4I/TULtYuqiMCKiSspMF5Q6F6jy+rmrlFqQqgArIi4Rj8hNJ6qs2bqsqXf+
         y38TPEVP3ZbUGULBbtRp/VOOPev52r81B9YcIA78BwvEKJ6aWfwKAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonDonateOne.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonDonateOne.Caption" xml:space="preserve">
     <value>Donate 1 USD</value>
   </data>
-  <data name="buttonDonateOne.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonDonateOne.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAAZdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjQ+jcx2
         AAAJRUlEQVRYR61XaVSU5xmd02rtjxDN6Tk9SVsbjyubMSq4RaMooiyCjTsaRSSAxrqkdW8U1GIBMYi4
@@ -2032,12 +2032,12 @@
         6AlRSgtYTIo5C8gXsxMyxYTK6yk0Na+FLDxnbcyp9n9/mj0/Mvd9nHKGKwgaCNXhIWg8/ltoY8bAeM4W
         xvNjoeWE03h8KFQhQ8wV7rV8nP7nJ1T6X/r/eS7W9us7kIv+CR8rckKaqYlXAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonConfigureLanguageColumns.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonConfigureLanguageColumns.Caption" xml:space="preserve">
     <value>Configure language columns</value>
   </data>
-  <data name="buttonConfigureLanguageColumns.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonConfigureLanguageColumns.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0qFgw9aF4AAAKKSURBVDhPpVNbU1JRFD6/pV/QTNM0WE2X4aGi
         hx6anpumnurBEmtGoWmyMNApEVDgcFM8mpiXTKkMIRGU20FuSlT2kN0wLa8RIH7tc8TDND66zuyz9tl7
@@ -2052,9 +2052,9 @@
         wVouR/iUGUiVlYM0Fa+08TI9jSPGLA7rv+As6cKueQjDXeNr0GDo/SbTdqFeY4dcx/BeprXjgaEbj4wM
         lDQDBd1L1nZi7rYx/D73zeXu9zJT/wDThcex5P18egAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="buttonConfigureLanguageColumns.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="buttonConfigureLanguageColumns.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0wHFzFe5sAAAl5SURBVFhH5VdpcxTXFVVVvuVDUpU/YBwnwaxG
         GwJJgAFh1uBUsKGg4kqZOHEcEzvGbEEmgNgXAdqXGc2i2We0jyS0jDYkJLaQwlUhcVLGZjNitEujWSWd
@@ -2099,12 +2099,12 @@
         aFZmfApeXpyIOfPj8fLCBMynvblLEroIYKH8bzyPM5VzxXc4xd4Czh8IgO9Hb37I63c1xbDY/d5/ALY2
         5ix4qrf3AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonReplace.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonReplace.Caption" xml:space="preserve">
     <value>Replace</value>
   </data>
-  <data name="buttonReplace.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonReplace.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0NM538DnwAAALcSURBVDhPhZNbSJNRAMf30FMwEVIpcHObpNvc
         t+n3bXM3p9/UecvbLl3mpm6KpvO2vM9NRdMuS6IULSyUICTyQbeHkHrpaUoPvvgQWC8F+RA+BF1I0n/f
@@ -2121,15 +2121,15 @@
         +rFI/aYa1jUldFMCkO5UcMrZqyd+tD8jkRsxfGLY5pSx/SfKsQOxSEQ8TvoNjxR30tDOeooAAAAASUVO
         RK5CYII=
 </value>
-  </data>
-  <metadata name="images32Collection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>167, 17</value>
-  </metadata>
-  <data name="images32Collection.ImageSize" type="System.Drawing.Size, System.Drawing">
-    <value>32, 32</value>
-  </data>
-  <data name="images32Collection.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v11.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<metadata name="images32Collection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>167, 17</value>
+	</metadata>
+	<data name="images32Collection.ImageSize" type="System.Drawing.Size, System.Drawing">
+		<value>32, 32</value>
+	</data>
+	<data name="images32Collection.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v11.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMS4xLCBWZXJzaW9uPTExLjEu
         OC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
         eXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
@@ -3802,135 +3802,135 @@
         hH9e6Q/Jh6mGRDRjhG4HI7pxwrgDrZGT7QHke1IGzXVisI0BjQGC/hEDrhEDoyZ+N/4V4jB6Yb9Xsif4
         8DniZeLV/xjyfz5PnNhN4B9qIM8iOEn/dwAAAABJRU5ErkJgggs=
 </value>
-  </data>
-  <data name="ribbon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="updateRibbonPageGroup.Text" xml:space="preserve">
+	</data>
+	<data name="ribbon.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 0</value>
+	</data>
+	<data name="updateRibbonPageGroup.Text" xml:space="preserve">
     <value>Update</value>
   </data>
-  <data name="ribbonPageGroup2.Text" xml:space="preserve">
+	<data name="ribbonPageGroup2.Text" xml:space="preserve">
     <value>Project files</value>
   </data>
-  <data name="ribbonPageGroup10.Text" xml:space="preserve">
+	<data name="ribbonPageGroup10.Text" xml:space="preserve">
     <value>Import/export</value>
   </data>
-  <data name="ribbonPageGroup1.Text" xml:space="preserve">
+	<data name="ribbonPageGroup1.Text" xml:space="preserve">
     <value>Resource files</value>
   </data>
-  <data name="ribbonPageGroup5.Text" xml:space="preserve">
+	<data name="ribbonPageGroup5.Text" xml:space="preserve">
     <value>View</value>
   </data>
-  <data name="ribbonPageGroup3.Text" xml:space="preserve">
+	<data name="ribbonPageGroup3.Text" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="ribbonPage1.Text" xml:space="preserve">
+	<data name="ribbonPage1.Text" xml:space="preserve">
     <value>Start</value>
   </data>
-  <data name="ribbonPage4.Text" xml:space="preserve">
+	<data name="ribbonPage4.Text" xml:space="preserve">
     <value>File groups and tags</value>
   </data>
-  <data name="ribbonPage3.Text" xml:space="preserve">
+	<data name="ribbonPage3.Text" xml:space="preserve">
     <value>Extras</value>
   </data>
-  <data name="repositoryItemHyperLinkEdit1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt, style=Bold</value>
-  </data>
-  <data name="repositoryItemHyperLinkEdit1.AutoHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ribbon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>752, 147</value>
-  </data>
-  <data name="ribbonStatusBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 524</value>
-  </data>
-  <data name="ribbonStatusBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>752, 31</value>
-  </data>
-  <data name="ribbonStatusBar.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;ribbonStatusBar.Name" xml:space="preserve">
+	<data name="repositoryItemHyperLinkEdit1.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+		<value>Tahoma, 8.25pt, style=Bold</value>
+	</data>
+	<data name="repositoryItemHyperLinkEdit1.AutoHeight" type="System.Boolean, mscorlib">
+		<value>False</value>
+	</data>
+	<data name="ribbon.Size" type="System.Drawing.Size, System.Drawing">
+		<value>752, 147</value>
+	</data>
+	<data name="ribbonStatusBar.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 524</value>
+	</data>
+	<data name="ribbonStatusBar.Size" type="System.Drawing.Size, System.Drawing">
+		<value>752, 31</value>
+	</data>
+	<data name="ribbonStatusBar.Visible" type="System.Boolean, mscorlib">
+		<value>False</value>
+	</data>
+	<data name="&gt;&gt;ribbonStatusBar.Name" xml:space="preserve">
     <value>ribbonStatusBar</value>
   </data>
-  <data name="&gt;&gt;ribbonStatusBar.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonStatusBar.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonStatusBar, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonStatusBar.Parent" xml:space="preserve">
+	<data name="&gt;&gt;ribbonStatusBar.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;ribbonStatusBar.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;ribbonStatusBar.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;ribbon.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbon.Name" xml:space="preserve">
     <value>ribbon</value>
   </data>
-  <data name="&gt;&gt;ribbon.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbon.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonControl, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbon.Parent" xml:space="preserve">
+	<data name="&gt;&gt;ribbon.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;ribbon.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;ribbon.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="ribbonPageGroup8.Text" xml:space="preserve">
+	<data name="ribbonPageGroup8.Text" xml:space="preserve">
     <value>File groups</value>
   </data>
-  <data name="ribbonPageGroup9.Text" xml:space="preserve">
+	<data name="ribbonPageGroup9.Text" xml:space="preserve">
     <value>Files</value>
   </data>
-  <data name="ribbonPageGroup4.Text" xml:space="preserve">
+	<data name="ribbonPageGroup4.Text" xml:space="preserve">
     <value>Tags</value>
   </data>
-  <data name="ribbonPageGroup7.Text" xml:space="preserve">
+	<data name="ribbonPageGroup7.Text" xml:space="preserve">
     <value>Extras</value>
   </data>
-  <data name="ribbonPageGroup6.Text" xml:space="preserve">
+	<data name="ribbonPageGroup6.Text" xml:space="preserve">
     <value>Help</value>
   </data>
-  <data name="clientPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="clientPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 147</value>
-  </data>
-  <data name="clientPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>752, 377</value>
-  </data>
-  <data name="clientPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;clientPanel.Name" xml:space="preserve">
+	<data name="clientPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+		<value>Fill</value>
+	</data>
+	<data name="clientPanel.Location" type="System.Drawing.Point, System.Drawing">
+		<value>0, 147</value>
+	</data>
+	<data name="clientPanel.Size" type="System.Drawing.Size, System.Drawing">
+		<value>752, 377</value>
+	</data>
+	<data name="clientPanel.TabIndex" type="System.Int32, mscorlib">
+		<value>2</value>
+	</data>
+	<data name="&gt;&gt;clientPanel.Name" xml:space="preserve">
     <value>clientPanel</value>
   </data>
-  <data name="&gt;&gt;clientPanel.Type" xml:space="preserve">
+	<data name="&gt;&gt;clientPanel.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;clientPanel.Parent" xml:space="preserve">
+	<data name="&gt;&gt;clientPanel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;clientPanel.ZOrder" xml:space="preserve">
+	<data name="&gt;&gt;clientPanel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="updateAvailableCheckerBackgroundWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>483, 17</value>
-  </metadata>
-  <metadata name="adFetchTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>771, 17</value>
-  </metadata>
-  <metadata name="updateAvailableBlinkTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="blinkImageCollection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>213, 56</value>
-  </metadata>
-  <data name="blinkImageCollection.ImageSize" type="System.Drawing.Size, System.Drawing">
-    <value>32, 32</value>
-  </data>
-  <data name="blinkImageCollection.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v11.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<metadata name="updateAvailableCheckerBackgroundWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>483, 17</value>
+	</metadata>
+	<metadata name="adFetchTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>771, 17</value>
+	</metadata>
+	<metadata name="updateAvailableBlinkTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>17, 56</value>
+	</metadata>
+	<metadata name="blinkImageCollection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+		<value>213, 56</value>
+	</metadata>
+	<data name="blinkImageCollection.ImageSize" type="System.Drawing.Size, System.Drawing">
+		<value>32, 32</value>
+	</data>
+	<data name="blinkImageCollection.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v11.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMS4xLCBWZXJzaW9uPTExLjEu
         OC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
         eXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
@@ -4011,21 +4011,21 @@
         bAlh/0q0lVw54EqoUqgyPJMr1kpEU9oypSbNbvXf7+msfiYS/9+D/BvZ0x3nM3XdJAAAAABJRU5ErkJg
         ggs=
 </value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>110</value>
-  </metadata>
-  <data name="MainForm.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 11px</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>752, 555</value>
-  </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>True</value>
+	</metadata>
+	<metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+		<value>110</value>
+	</metadata>
+	<data name="MainForm.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+		<value>Tahoma, 11px</value>
+	</data>
+	<data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+		<value>752, 555</value>
+	</data>
+	<data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAABAA8AAAAAAAEABABiIAAA9gAAADAwAAABAAQAaAYAAFghAAAgIAAAAQAEAOgCAADAJwAAGBgAAAEA
         BADoAQAAqCoAABAQAAABAAQAKAEAAJAsAAAAAAAAAQAIAEY6AAC4LQAAMDAAAAEACACoDgAA/mcAACAg
         AAABAAgAqAgAAKZ2AAAYGAAAAQAIAMgGAABOfwAAEBAAAAEACABoBQAAFoYAAAAAAAABACAASKQAAH6L
@@ -5615,455 +5615,455 @@
         U15ZWVnQdXV1/UZGRqDz/wAA4f8AAMD/AACAfwAAAD8AAAA/AACAPwAAwD8AAOAfAADwBwAA/wMAAP+B
         AAD/wAAA/8AAAP/gAAD/+AAA
 </value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
+	</data>
+	<data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+		<value>CenterScreen</value>
+	</data>
+	<data name="$this.Text" xml:space="preserve">
     <value>Zeta Resource Editor</value>
   </data>
-  <data name="&gt;&gt;applicationMenu1.Name" xml:space="preserve">
+	<data name="&gt;&gt;applicationMenu1.Name" xml:space="preserve">
     <value>applicationMenu1</value>
   </data>
-  <data name="&gt;&gt;applicationMenu1.Type" xml:space="preserve">
+	<data name="&gt;&gt;applicationMenu1.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.ApplicationMenu, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barSubRecentFiles.Name" xml:space="preserve">
+	<data name="&gt;&gt;barSubRecentFiles.Name" xml:space="preserve">
     <value>barSubRecentFiles</value>
   </data>
-  <data name="&gt;&gt;barSubRecentFiles.Type" xml:space="preserve">
+	<data name="&gt;&gt;barSubRecentFiles.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barSubRecentProjects.Name" xml:space="preserve">
+	<data name="&gt;&gt;barSubRecentProjects.Name" xml:space="preserve">
     <value>barSubRecentProjects</value>
   </data>
-  <data name="&gt;&gt;barSubRecentProjects.Type" xml:space="preserve">
+	<data name="&gt;&gt;barSubRecentProjects.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;infoButton.Name" xml:space="preserve">
+	<data name="&gt;&gt;infoButton.Name" xml:space="preserve">
     <value>infoButton</value>
   </data>
-  <data name="&gt;&gt;infoButton.Type" xml:space="preserve">
+	<data name="&gt;&gt;infoButton.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonExit.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonExit.Name" xml:space="preserve">
     <value>buttonExit</value>
   </data>
-  <data name="&gt;&gt;buttonExit.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonExit.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;images16Collection.Name" xml:space="preserve">
+	<data name="&gt;&gt;images16Collection.Name" xml:space="preserve">
     <value>images16Collection</value>
   </data>
-  <data name="&gt;&gt;images16Collection.Type" xml:space="preserve">
+	<data name="&gt;&gt;images16Collection.Type" xml:space="preserve">
     <value>DevExpress.Utils.ImageCollection, DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonOnlineManual.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonOnlineManual.Name" xml:space="preserve">
     <value>buttonOnlineManual</value>
   </data>
-  <data name="&gt;&gt;buttonOnlineManual.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonOnlineManual.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonWebsite.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonWebsite.Name" xml:space="preserve">
     <value>buttonWebsite</value>
   </data>
-  <data name="&gt;&gt;buttonWebsite.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonWebsite.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonDonate.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonDonate.Name" xml:space="preserve">
     <value>buttonDonate</value>
   </data>
-  <data name="&gt;&gt;buttonDonate.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonDonate.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonOpenResourceFiles.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonOpenResourceFiles.Name" xml:space="preserve">
     <value>buttonOpenResourceFiles</value>
   </data>
-  <data name="&gt;&gt;buttonOpenResourceFiles.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonOpenResourceFiles.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonSaveResourceFiles.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonSaveResourceFiles.Name" xml:space="preserve">
     <value>buttonSaveResourceFiles</value>
   </data>
-  <data name="&gt;&gt;buttonSaveResourceFiles.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonSaveResourceFiles.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonSaveAllFiles.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonSaveAllFiles.Name" xml:space="preserve">
     <value>buttonSaveAllFiles</value>
   </data>
-  <data name="&gt;&gt;buttonSaveAllFiles.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonSaveAllFiles.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonCloseResourceFiles.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonCloseResourceFiles.Name" xml:space="preserve">
     <value>buttonCloseResourceFiles</value>
   </data>
-  <data name="&gt;&gt;buttonCloseResourceFiles.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonCloseResourceFiles.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonCloseAllDocuments.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonCloseAllDocuments.Name" xml:space="preserve">
     <value>buttonCloseAllDocuments</value>
   </data>
-  <data name="&gt;&gt;buttonCloseAllDocuments.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonCloseAllDocuments.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonOpenProjectFile.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonOpenProjectFile.Name" xml:space="preserve">
     <value>buttonOpenProjectFile</value>
   </data>
-  <data name="&gt;&gt;buttonOpenProjectFile.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonOpenProjectFile.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonSaveProjectFile.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonSaveProjectFile.Name" xml:space="preserve">
     <value>buttonSaveProjectFile</value>
   </data>
-  <data name="&gt;&gt;buttonSaveProjectFile.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonSaveProjectFile.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonCloseProject.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonCloseProject.Name" xml:space="preserve">
     <value>buttonCloseProject</value>
   </data>
-  <data name="&gt;&gt;buttonCloseProject.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonCloseProject.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonFind.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonFind.Name" xml:space="preserve">
     <value>buttonFind</value>
   </data>
-  <data name="&gt;&gt;buttonFind.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonFind.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonFindNext.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonFindNext.Name" xml:space="preserve">
     <value>buttonFindNext</value>
   </data>
-  <data name="&gt;&gt;buttonFindNext.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonFindNext.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonTranslateMissingLanguages.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonTranslateMissingLanguages.Name" xml:space="preserve">
     <value>buttonTranslateMissingLanguages</value>
   </data>
-  <data name="&gt;&gt;buttonTranslateMissingLanguages.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonTranslateMissingLanguages.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonAddNewTag.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonAddNewTag.Name" xml:space="preserve">
     <value>buttonAddNewTag</value>
   </data>
-  <data name="&gt;&gt;buttonAddNewTag.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonAddNewTag.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonDeleteTag.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonDeleteTag.Name" xml:space="preserve">
     <value>buttonDeleteTag</value>
   </data>
-  <data name="&gt;&gt;buttonDeleteTag.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonDeleteTag.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonRenameTag.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonRenameTag.Name" xml:space="preserve">
     <value>buttonRenameTag</value>
   </data>
-  <data name="&gt;&gt;buttonRenameTag.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonRenameTag.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonQuickTranslate.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonQuickTranslate.Name" xml:space="preserve">
     <value>buttonQuickTranslate</value>
   </data>
-  <data name="&gt;&gt;buttonQuickTranslate.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonQuickTranslate.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonRefresh.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonRefresh.Name" xml:space="preserve">
     <value>buttonRefresh</value>
   </data>
-  <data name="&gt;&gt;buttonRefresh.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonRefresh.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonOptions.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonOptions.Name" xml:space="preserve">
     <value>buttonOptions</value>
   </data>
-  <data name="&gt;&gt;buttonOptions.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonOptions.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonCreateNewProject.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonCreateNewProject.Name" xml:space="preserve">
     <value>buttonCreateNewProject</value>
   </data>
-  <data name="&gt;&gt;buttonCreateNewProject.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonCreateNewProject.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonAutomaticallyAddFileGroupsToProject.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonAutomaticallyAddFileGroupsToProject.Name" xml:space="preserve">
     <value>buttonAutomaticallyAddFileGroupsToProject</value>
   </data>
-  <data name="&gt;&gt;buttonAutomaticallyAddFileGroupsToProject.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonAutomaticallyAddFileGroupsToProject.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonAddFileGroupToProject.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonAddFileGroupToProject.Name" xml:space="preserve">
     <value>buttonAddFileGroupToProject</value>
   </data>
-  <data name="&gt;&gt;buttonAddFileGroupToProject.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonAddFileGroupToProject.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonRemoveFileGroupFromProject.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonRemoveFileGroupFromProject.Name" xml:space="preserve">
     <value>buttonRemoveFileGroupFromProject</value>
   </data>
-  <data name="&gt;&gt;buttonRemoveFileGroupFromProject.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonRemoveFileGroupFromProject.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonEditFileGroupSettings.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonEditFileGroupSettings.Name" xml:space="preserve">
     <value>buttonEditFileGroupSettings</value>
   </data>
-  <data name="&gt;&gt;buttonEditFileGroupSettings.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonEditFileGroupSettings.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonAddFilesToFileGroup.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonAddFilesToFileGroup.Name" xml:space="preserve">
     <value>buttonAddFilesToFileGroup</value>
   </data>
-  <data name="&gt;&gt;buttonAddFilesToFileGroup.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonAddFilesToFileGroup.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonRemoveFileFromGroup.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonRemoveFileFromGroup.Name" xml:space="preserve">
     <value>buttonRemoveFileFromGroup</value>
   </data>
-  <data name="&gt;&gt;buttonRemoveFileFromGroup.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonRemoveFileFromGroup.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonEditProjectSettings.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonEditProjectSettings.Name" xml:space="preserve">
     <value>buttonEditProjectSettings</value>
   </data>
-  <data name="&gt;&gt;buttonEditProjectSettings.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonEditProjectSettings.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barMdiChildrenListItem1.Name" xml:space="preserve">
+	<data name="&gt;&gt;barMdiChildrenListItem1.Name" xml:space="preserve">
     <value>barMdiChildrenListItem1</value>
   </data>
-  <data name="&gt;&gt;barMdiChildrenListItem1.Type" xml:space="preserve">
+	<data name="&gt;&gt;barMdiChildrenListItem1.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarMdiChildrenListItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barMdiChildrenListItem2.Name" xml:space="preserve">
+	<data name="&gt;&gt;barMdiChildrenListItem2.Name" xml:space="preserve">
     <value>barMdiChildrenListItem2</value>
   </data>
-  <data name="&gt;&gt;barMdiChildrenListItem2.Type" xml:space="preserve">
+	<data name="&gt;&gt;barMdiChildrenListItem2.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarMdiChildrenListItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barListItem1.Name" xml:space="preserve">
+	<data name="&gt;&gt;barListItem1.Name" xml:space="preserve">
     <value>barListItem1</value>
   </data>
-  <data name="&gt;&gt;barListItem1.Type" xml:space="preserve">
+	<data name="&gt;&gt;barListItem1.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarListItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonUpdateAvailable.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonUpdateAvailable.Name" xml:space="preserve">
     <value>buttonUpdateAvailable</value>
   </data>
-  <data name="&gt;&gt;buttonUpdateAvailable.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonUpdateAvailable.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonOpenFileGroupFolder.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonOpenFileGroupFolder.Name" xml:space="preserve">
     <value>buttonOpenFileGroupFolder</value>
   </data>
-  <data name="&gt;&gt;buttonOpenFileGroupFolder.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonOpenFileGroupFolder.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barStaticItem1.Name" xml:space="preserve">
+	<data name="&gt;&gt;barStaticItem1.Name" xml:space="preserve">
     <value>barStaticItem1</value>
   </data>
-  <data name="&gt;&gt;barStaticItem1.Type" xml:space="preserve">
+	<data name="&gt;&gt;barStaticItem1.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarStaticItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonExport.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonExport.Name" xml:space="preserve">
     <value>buttonExport</value>
   </data>
-  <data name="&gt;&gt;buttonExport.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonExport.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonImport.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonImport.Name" xml:space="preserve">
     <value>buttonImport</value>
   </data>
-  <data name="&gt;&gt;buttonImport.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonImport.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonMoveDown.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonMoveDown.Name" xml:space="preserve">
     <value>buttonMoveDown</value>
   </data>
-  <data name="&gt;&gt;buttonMoveDown.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonMoveDown.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonMoveUp.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonMoveUp.Name" xml:space="preserve">
     <value>buttonMoveUp</value>
   </data>
-  <data name="&gt;&gt;buttonMoveUp.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonMoveUp.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonShowHideProjectPanel.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonShowHideProjectPanel.Name" xml:space="preserve">
     <value>buttonShowHideProjectPanel</value>
   </data>
-  <data name="&gt;&gt;buttonShowHideProjectPanel.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonShowHideProjectPanel.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonCreateNewFile.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonCreateNewFile.Name" xml:space="preserve">
     <value>buttonCreateNewFile</value>
   </data>
-  <data name="&gt;&gt;buttonCreateNewFile.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonCreateNewFile.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonCreateNewFiles.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonCreateNewFiles.Name" xml:space="preserve">
     <value>buttonCreateNewFiles</value>
   </data>
-  <data name="&gt;&gt;buttonCreateNewFiles.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonCreateNewFiles.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonLicensing.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonLicensing.Name" xml:space="preserve">
     <value>buttonLicensing</value>
   </data>
-  <data name="&gt;&gt;buttonLicensing.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonLicensing.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;resetLayoutButton.Name" xml:space="preserve">
+	<data name="&gt;&gt;resetLayoutButton.Name" xml:space="preserve">
     <value>resetLayoutButton</value>
   </data>
-  <data name="&gt;&gt;resetLayoutButton.Type" xml:space="preserve">
+	<data name="&gt;&gt;resetLayoutButton.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonAddFromVisualStudio.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonAddFromVisualStudio.Name" xml:space="preserve">
     <value>buttonAddFromVisualStudio</value>
   </data>
-  <data name="&gt;&gt;buttonAddFromVisualStudio.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonAddFromVisualStudio.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonDonateOne.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonDonateOne.Name" xml:space="preserve">
     <value>buttonDonateOne</value>
   </data>
-  <data name="&gt;&gt;buttonDonateOne.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonDonateOne.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonConfigureLanguageColumns.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonConfigureLanguageColumns.Name" xml:space="preserve">
     <value>buttonConfigureLanguageColumns</value>
   </data>
-  <data name="&gt;&gt;buttonConfigureLanguageColumns.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonConfigureLanguageColumns.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;buttonReplace.Name" xml:space="preserve">
+	<data name="&gt;&gt;buttonReplace.Name" xml:space="preserve">
     <value>buttonReplace</value>
   </data>
-  <data name="&gt;&gt;buttonReplace.Type" xml:space="preserve">
+	<data name="&gt;&gt;buttonReplace.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;images32Collection.Name" xml:space="preserve">
+	<data name="&gt;&gt;images32Collection.Name" xml:space="preserve">
     <value>images32Collection</value>
   </data>
-  <data name="&gt;&gt;images32Collection.Type" xml:space="preserve">
+	<data name="&gt;&gt;images32Collection.Type" xml:space="preserve">
     <value>DevExpress.Utils.ImageCollection, DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPage1.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPage1.Name" xml:space="preserve">
     <value>ribbonPage1</value>
   </data>
-  <data name="&gt;&gt;ribbonPage1.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPage1.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPage, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;updateRibbonPageGroup.Name" xml:space="preserve">
+	<data name="&gt;&gt;updateRibbonPageGroup.Name" xml:space="preserve">
     <value>updateRibbonPageGroup</value>
   </data>
-  <data name="&gt;&gt;updateRibbonPageGroup.Type" xml:space="preserve">
+	<data name="&gt;&gt;updateRibbonPageGroup.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup2.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup2.Name" xml:space="preserve">
     <value>ribbonPageGroup2</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup2.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup2.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup10.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup10.Name" xml:space="preserve">
     <value>ribbonPageGroup10</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup10.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup10.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup1.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup1.Name" xml:space="preserve">
     <value>ribbonPageGroup1</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup1.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup1.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup5.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup5.Name" xml:space="preserve">
     <value>ribbonPageGroup5</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup5.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup5.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup3.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup3.Name" xml:space="preserve">
     <value>ribbonPageGroup3</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup3.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup3.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPage4.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPage4.Name" xml:space="preserve">
     <value>ribbonPage4</value>
   </data>
-  <data name="&gt;&gt;ribbonPage4.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPage4.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPage, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup8.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup8.Name" xml:space="preserve">
     <value>ribbonPageGroup8</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup8.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup8.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup9.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup9.Name" xml:space="preserve">
     <value>ribbonPageGroup9</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup9.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup9.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup4.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup4.Name" xml:space="preserve">
     <value>ribbonPageGroup4</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup4.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup4.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPage3.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPage3.Name" xml:space="preserve">
     <value>ribbonPage3</value>
   </data>
-  <data name="&gt;&gt;ribbonPage3.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPage3.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPage, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup7.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup7.Name" xml:space="preserve">
     <value>ribbonPageGroup7</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup7.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup7.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup6.Name" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup6.Name" xml:space="preserve">
     <value>ribbonPageGroup6</value>
   </data>
-  <data name="&gt;&gt;ribbonPageGroup6.Type" xml:space="preserve">
+	<data name="&gt;&gt;ribbonPageGroup6.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Ribbon.RibbonPageGroup, DevExpress.XtraBars.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;repositoryItemHyperLinkEdit1.Name" xml:space="preserve">
+	<data name="&gt;&gt;repositoryItemHyperLinkEdit1.Name" xml:space="preserve">
     <value>repositoryItemHyperLinkEdit1</value>
   </data>
-  <data name="&gt;&gt;repositoryItemHyperLinkEdit1.Type" xml:space="preserve">
+	<data name="&gt;&gt;repositoryItemHyperLinkEdit1.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;updateAvailableCheckerBackgroundWorker.Name" xml:space="preserve">
+	<data name="&gt;&gt;updateAvailableCheckerBackgroundWorker.Name" xml:space="preserve">
     <value>updateAvailableCheckerBackgroundWorker</value>
   </data>
-  <data name="&gt;&gt;updateAvailableCheckerBackgroundWorker.Type" xml:space="preserve">
+	<data name="&gt;&gt;updateAvailableCheckerBackgroundWorker.Type" xml:space="preserve">
     <value>System.ComponentModel.BackgroundWorker, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;adFetchTimer.Name" xml:space="preserve">
+	<data name="&gt;&gt;adFetchTimer.Name" xml:space="preserve">
     <value>adFetchTimer</value>
   </data>
-  <data name="&gt;&gt;adFetchTimer.Type" xml:space="preserve">
+	<data name="&gt;&gt;adFetchTimer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;updateAvailableBlinkTimer.Name" xml:space="preserve">
+	<data name="&gt;&gt;updateAvailableBlinkTimer.Name" xml:space="preserve">
     <value>updateAvailableBlinkTimer</value>
   </data>
-  <data name="&gt;&gt;updateAvailableBlinkTimer.Type" xml:space="preserve">
+	<data name="&gt;&gt;updateAvailableBlinkTimer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;blinkImageCollection.Name" xml:space="preserve">
+	<data name="&gt;&gt;blinkImageCollection.Name" xml:space="preserve">
     <value>blinkImageCollection</value>
   </data>
-  <data name="&gt;&gt;blinkImageCollection.Type" xml:space="preserve">
+	<data name="&gt;&gt;blinkImageCollection.Type" xml:space="preserve">
     <value>DevExpress.Utils.ImageCollection, DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+	<data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Helper.Base.RibbonFormBase, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+	<data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>ZetaResourceEditor.UI.Helper.Base.RibbonFormBase, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

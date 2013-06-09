@@ -337,7 +337,7 @@
     <value>ResourceEditorUserControl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Helper.Base.UserControlBase, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+    <value>ZetaResourceEditor.UI.Helper.Base.UserControlBase, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <metadata name="popupImageCollection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>295, 17</value>

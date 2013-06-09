@@ -392,10 +392,6 @@ Do you want to open the Excel document now?</value>
 	<data name="SR_toolTipTitleItem6Text" xml:space="preserve">
     <value>Defines the file name pattern for the neutral language.</value>
   </data>
-	<assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-	<data name="SR_Aspose_Cells_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
-		<value>..\Resources\Aspose_Cells_License.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-	</data>
 	<data name="SR_toolTipItem4Text" xml:space="preserve">
     <value>Define a semicolon separated list of optional default types that can be used for the "[optionaldefaulttypes]" placeholder.
 

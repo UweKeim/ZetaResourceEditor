@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Zeta Software GmbH")]
 [assembly: AssemblyProduct("Zeta Resource Editor")]
-[assembly: AssemblyCopyright("Copyright © 2006-2012 Zeta Software GmbH")]
+[assembly: AssemblyCopyright("Copyright © 2006-2013 Zeta Software GmbH")]
 [assembly: AssemblyTrademark("http://www.zeta-resource-editor.com")]
 [assembly: AssemblyCulture("")]
 

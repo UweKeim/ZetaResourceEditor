@@ -20,7 +20,6 @@
 	using Zeta.EnterpriseLibrary.Common;
 	using Zeta.EnterpriseLibrary.Common.Collections;
 	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
 	using ZetaLongPaths;
 
 	// ----------------------------------------------------------------------

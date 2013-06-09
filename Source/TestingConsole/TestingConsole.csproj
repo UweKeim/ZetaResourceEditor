@@ -38,22 +38,10 @@
       <HintPath>..\References\Direct\NewtonsoftJson\net20\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="Zeta.EnterpriseLibrary.Common">
       <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeta.EnterpriseLibrary.Logging">
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeta.EnterpriseLibrary.Tools">
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Tools.dll</HintPath>
-    </Reference>
-    <Reference Include="ZetaLongPaths">
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\ZetaLongPaths.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

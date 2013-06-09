@@ -277,7 +277,7 @@
     <value>8</value>
   </data>
   <data name="&gt;&gt;lineUserControl1.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Helper.LineUserControl, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+    <value>ZetaResourceEditor.UI.Helper.LineUserControl, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="nameTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -670,7 +670,7 @@
     <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Helper.Base.FormBase, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+    <value>ZetaResourceEditor.UI.Helper.Base.FormBase, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="nameTextBox.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v11.1">
     <value>None</value>

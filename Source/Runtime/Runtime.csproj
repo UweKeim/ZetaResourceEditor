@@ -28,21 +28,10 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.Cells">
-      <HintPath>..\References\Direct\Aspose\Aspose.Cells.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml" />
     <Reference Include="Zeta.EnterpriseLibrary.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeta.EnterpriseLibrary.Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=76bfe3d175ed36e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Tools.dll</HintPath>
     </Reference>
     <Reference Include="ZetaLongPaths, Version=1.0.0.3, Culture=neutral, PublicKeyToken=b764f59068f31f38, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -52,9 +41,6 @@
   <ItemGroup>
     <Compile Include="Events\FastSmartWeakEvent.cs" />
     <Compile Include="Events\WeakEventHandler.cs" />
-    <Compile Include="Excel\AsposeHelper.cs" />
-    <Compile Include="Excel\AsposeLicenseHelper.cs" />
-    <Compile Include="Excel\ExcelHelper.cs" />
     <Compile Include="FileAccess\TemporaryFileCloner.cs" />
     <Compile Include="FileAccess\ZrePathHelper.cs" />
     <Compile Include="Localization\LocalizableCategoryAttribute.cs" />
@@ -75,9 +61,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Aspose_Cells_License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

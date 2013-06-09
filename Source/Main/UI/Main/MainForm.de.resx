@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,88 +59,88 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="barSubRecentFiles.Caption" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="barSubRecentFiles.Caption" xml:space="preserve">
     <value>Zuletzt geöffnete Ressourcendateien</value>
   </data>
-  <data name="barSubRecentFiles.Description" xml:space="preserve">
+	<data name="barSubRecentFiles.Description" xml:space="preserve">
     <value>Lädt zuletzt geöffenete Ressourcendateien</value>
   </data>
-  <data name="barSubRecentProjects.Caption" xml:space="preserve">
+	<data name="barSubRecentProjects.Caption" xml:space="preserve">
     <value>Zuletzt geöffnete Projekte</value>
   </data>
-  <data name="barSubRecentProjects.Description" xml:space="preserve">
+	<data name="barSubRecentProjects.Description" xml:space="preserve">
     <value>Lädt ein zuletzt geöffnetes Projekt</value>
   </data>
-  <data name="infoButton.Description" xml:space="preserve">
+	<data name="infoButton.Description" xml:space="preserve">
     <value>Zeigt Anwendungs- und Versions-Informationen an</value>
   </data>
-  <data name="buttonExit.Caption" xml:space="preserve">
+	<data name="buttonExit.Caption" xml:space="preserve">
     <value>Beenden</value>
   </data>
-  <data name="buttonExit.Description" xml:space="preserve">
+	<data name="buttonExit.Description" xml:space="preserve">
     <value>Beendet die Anwendung</value>
   </data>
-  <assembly alias="DevExpress.Utils.v11.1" name="DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="images16Collection.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v11.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<assembly alias="DevExpress.Utils.v11.1" name="DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+	<data name="images16Collection.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v11.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMS4xLCBWZXJzaW9uPTExLjEu
         OC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
         eXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
@@ -1121,28 +1121,28 @@
         4syJrEJcWN9PK+o73XCZEVrFddb29PO1S0eHqj7atX18EWrr7KVVqKVDqLOPTy3ayNEu/AOlk7QVdlN6
         cQAAAABJRU5ErkJgggs=
 </value>
-  </data>
-  <data name="buttonOnlineManual.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonOnlineManual.Caption" xml:space="preserve">
     <value>Onlinehandbuch</value>
   </data>
-  <data name="buttonOnlineManual.Hint" xml:space="preserve">
+	<data name="buttonOnlineManual.Hint" xml:space="preserve">
     <value>Öffnet die Online-Dokumentation</value>
   </data>
-  <data name="buttonDonate.Caption" xml:space="preserve">
+	<data name="buttonDonate.Caption" xml:space="preserve">
     <value>Spenden</value>
   </data>
-  <data name="buttonOpenResourceFiles.Caption" xml:space="preserve">
+	<data name="buttonOpenResourceFiles.Caption" xml:space="preserve">
     <value>Ressourcendateien öffnen</value>
   </data>
-  <data name="buttonOpenResourceFiles.Hint" xml:space="preserve">
+	<data name="buttonOpenResourceFiles.Hint" xml:space="preserve">
     <value>Öffnet vorhandene Ressourcendateien</value>
   </data>
-  <data name="buttonSaveResourceFiles.Caption" xml:space="preserve">
+	<data name="buttonSaveResourceFiles.Caption" xml:space="preserve">
     <value>Dateien speichern</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonSaveResourceFiles.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+	<data name="buttonSaveResourceFiles.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0NKWCe9wYAAAM2SURBVDhPlZBbSJNhHMa/CymCLjphiocOmmXq
         SKYzN9dcntrS6Zi6zTndsumWJR1EC7NcXUR10YmZHbDELBVNRfNUmdoqKb2wgggLk45Q6txXzq3Pnl6/
@@ -1160,12 +1160,12 @@
         CTw2aUgFFRaFpWDeXIIlayIWLFvP3xEQmTAStjnxXdH+g9hbWIz8gj3QbzdCpdEhWaGCVKYAXxQ76x4s
         GHcPjBx38+aMuHkGnf0JdCCQZIwOEaQAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="buttonSaveResourceFiles.Hint" xml:space="preserve">
+	</data>
+	<data name="buttonSaveResourceFiles.Hint" xml:space="preserve">
     <value>Speichert das aktuell geöffnete Ressourcen-Gitter</value>
   </data>
-  <data name="buttonSaveResourceFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonSaveResourceFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0gLt7QOEoAAAkXSURBVFhH7Zd5WM17Hsfv3OdxZ+7MnTHXGFxL
         ucnSTbuUQtK+SNoX7SstilKUmyQpKopchXLDFUJF+yYqqVQUSpujaKdUp/X3ns85Jcw8Z/6d+8f8nudd
@@ -1208,12 +1208,12 @@
         brC2c4KZhS1MTK2xzcgUOrqGUNfaBmV1LWzarA55BWXIyCtASkYOK0WlugTEZeuWisnU8glL186av7zx
         63mkuQKXaJ25pK9/L98I//cc/wLTyHhot/FzsgAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="buttonSaveAllFiles.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonSaveAllFiles.Caption" xml:space="preserve">
     <value>Alle Dateien speichern</value>
   </data>
-  <data name="buttonSaveAllFiles.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonSaveAllFiles.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0NKvmXprwAAAKJSURBVDhPlZPdS1NhHMfPXzDwQkGUJdscbXPO
         6eZmDIMWK3MdmNreOl4NtovKiwWZK7fqrhdCg6CbCOyiCFJpTcv5spJeLuwikiKiF6Xle6lTj9t03549
@@ -1228,12 +1228,12 @@
         xuIIngtRgOAsBpBlyJCXRpeif2AQHi+Hq9dvIjYygUfk0XQEOylAcBYDysrKuPLy8l8KReWCy8Pl2pxe
         2NkWHD5yDJaDVlTrDbuk+5zgLAL8BV62FWWdiIxvAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonSaveAllFiles.Hint" xml:space="preserve">
+	</data>
+	<data name="buttonSaveAllFiles.Hint" xml:space="preserve">
     <value>Speichert alle geöffneten Dateien und das Projekt</value>
   </data>
-  <data name="buttonSaveAllFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonSaveAllFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0gL6nXCNwAAAkSSURBVFhHzVdrUJTXGc70R3+kU60XvAByEVhx
         gd2l3kAEiiC7cpEoJhG8BBEUkXJXatQ4GhWjVCXTONYm7eRH27TRFNSIqCCoeOcSQFaQ63JVRGCXhYUF
@@ -1276,48 +1276,48 @@
         RaWOjU82xiWkYvvOeGylM97Gj6Lw/obNeC90AwLWhMJXFQwvXxWWe9Phw1nWRcCr6R/QZ5TzzWS1lilT
         puTQpDPfuvq3Iftf//5vgI+ucilWjpkAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="buttonCloseResourceFiles.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonCloseResourceFiles.Caption" xml:space="preserve">
     <value>Ressourcendateien schließen</value>
   </data>
-  <data name="buttonCloseResourceFiles.Hint" xml:space="preserve">
+	<data name="buttonCloseResourceFiles.Hint" xml:space="preserve">
     <value>Schließt das aktuelle Ressourcen-Gitter-Fenster</value>
   </data>
-  <data name="buttonCloseAllDocuments.Caption" xml:space="preserve">
+	<data name="buttonCloseAllDocuments.Caption" xml:space="preserve">
     <value>Alle Dokumente schließen</value>
   </data>
-  <data name="buttonCloseAllDocuments.Hint" xml:space="preserve">
+	<data name="buttonCloseAllDocuments.Hint" xml:space="preserve">
     <value>Schließt alle geöffneten Ressourcen-Gitter-Fenster</value>
   </data>
-  <data name="buttonOpenProjectFile.Caption" xml:space="preserve">
+	<data name="buttonOpenProjectFile.Caption" xml:space="preserve">
     <value>Projektdatei öffnen</value>
   </data>
-  <data name="buttonOpenProjectFile.Hint" xml:space="preserve">
+	<data name="buttonOpenProjectFile.Hint" xml:space="preserve">
     <value>Öffnet eine vorhandene Projektdatei</value>
   </data>
-  <data name="buttonSaveProjectFile.Caption" xml:space="preserve">
+	<data name="buttonSaveProjectFile.Caption" xml:space="preserve">
     <value>Projektdatei speichern</value>
   </data>
-  <data name="buttonCloseProject.Caption" xml:space="preserve">
+	<data name="buttonCloseProject.Caption" xml:space="preserve">
     <value>Projekt schließen</value>
   </data>
-  <data name="buttonFind.Caption" xml:space="preserve">
+	<data name="buttonFind.Caption" xml:space="preserve">
     <value>Suchen</value>
   </data>
-  <data name="buttonFind.Hint" xml:space="preserve">
+	<data name="buttonFind.Hint" xml:space="preserve">
     <value>Sucht nach einem Suchbegriff im aktuell geöffneten Ressourcen-Gitter-Fenster</value>
   </data>
-  <data name="buttonFindNext.Caption" xml:space="preserve">
+	<data name="buttonFindNext.Caption" xml:space="preserve">
     <value>Weitersuchen</value>
   </data>
-  <data name="buttonFindNext.Hint" xml:space="preserve">
+	<data name="buttonFindNext.Hint" xml:space="preserve">
     <value>Setzt die zuletzt gestartete Suche fort</value>
   </data>
-  <data name="buttonTranslateMissingLanguages.Caption" xml:space="preserve">
+	<data name="buttonTranslateMissingLanguages.Caption" xml:space="preserve">
     <value>Fehlende Sprachen übersetzen</value>
   </data>
-  <data name="buttonTranslateMissingLanguages.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonTranslateMissingLanguages.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw8iBDTZR3AAAANySURBVDhPjZNrTJNnFMcflSiUKrcA4hDal6HI
         bVY6rLYTW6FAXxTaolCUgAXFFqm1mgJGJ3cZNNyrUOWiclFiWCcqKmwjWBcxmzNrmBpNMMsmw2x+WcjE
@@ -1336,30 +1336,30 @@
         CtwgussANO8F/ftnefoEKNzYvi+2JCuQnl2AvP2HUWgowefD1/4fwAlk+7I9/Kv8Ayk7JzRqPiw6dm5n
         jtrG2cuUzWTnMv79xG8BAc/U7vHq8IwAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="buttonAddNewTag.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonAddNewTag.Caption" xml:space="preserve">
     <value>Neues Tag hinzufügen</value>
   </data>
-  <data name="buttonAddNewTag.Hint" xml:space="preserve">
+	<data name="buttonAddNewTag.Hint" xml:space="preserve">
     <value>Fügt ein neues Tag zum aktuell geöffneten Ressourcen-Gitter-Fenster hinzu.</value>
   </data>
-  <data name="buttonDeleteTag.Caption" xml:space="preserve">
+	<data name="buttonDeleteTag.Caption" xml:space="preserve">
     <value>Tag löschen</value>
   </data>
-  <data name="buttonDeleteTag.Hint" xml:space="preserve">
+	<data name="buttonDeleteTag.Hint" xml:space="preserve">
     <value>Löscht die aktuell ausgewählte Zeile</value>
   </data>
-  <data name="buttonRenameTag.Caption" xml:space="preserve">
+	<data name="buttonRenameTag.Caption" xml:space="preserve">
     <value>Tag umbenennen</value>
   </data>
-  <data name="buttonRenameTag.Hint" xml:space="preserve">
+	<data name="buttonRenameTag.Hint" xml:space="preserve">
     <value>Benennt das aktuell ausgewählte Tag um</value>
   </data>
-  <data name="buttonQuickTranslate.Caption" xml:space="preserve">
+	<data name="buttonQuickTranslate.Caption" xml:space="preserve">
     <value>Schnellübersetzung</value>
   </data>
-  <data name="buttonQuickTranslate.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonQuickTranslate.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw8iBDTZR3AAAAN0SURBVDhPfZNrTNNXGMaPQhChs4IpWJUyCmSl
         XGoHtJ0tjBZKL7S0tMW2SMVSQRGszkEBp8uoBdlARaWusDAUBZWYBhHvqATr7YOXrGHTaKJfFqfZ/GLQ
@@ -1378,57 +1378,57 @@
         4nI7WBzetv8MFj16oWEujfEsX2WAybYGjrp61G5qwr5v+mFbUweeKOcQNRzyv8kkhMaIpMd6Ypewg+8n
         p89wMgTTAnFeQCJTrnjX4B/hdrLEbEO/vQAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="buttonQuickTranslate.Hint" xml:space="preserve">
+	</data>
+	<data name="buttonQuickTranslate.Hint" xml:space="preserve">
     <value>Öffnet das Schnellübersetzungs-Fenster</value>
   </data>
-  <data name="buttonRefresh.Caption" xml:space="preserve">
+	<data name="buttonRefresh.Caption" xml:space="preserve">
     <value>Dateiliste aktualisieren</value>
   </data>
-  <data name="buttonRefresh.Hint" xml:space="preserve">
+	<data name="buttonRefresh.Hint" xml:space="preserve">
     <value>Aktualisiert die Ansicht der Projekt-Dateiliste</value>
   </data>
-  <data name="buttonOptions.Caption" xml:space="preserve">
+	<data name="buttonOptions.Caption" xml:space="preserve">
     <value>Optionen</value>
   </data>
-  <data name="buttonCreateNewProject.Caption" xml:space="preserve">
+	<data name="buttonCreateNewProject.Caption" xml:space="preserve">
     <value>Neues Projekt erstellen</value>
   </data>
-  <data name="buttonCreateNewProject.Hint" xml:space="preserve">
+	<data name="buttonCreateNewProject.Hint" xml:space="preserve">
     <value>Erstellt ein neues Projekt</value>
   </data>
-  <data name="buttonAutomaticallyAddFileGroupsToProject.Caption" xml:space="preserve">
+	<data name="buttonAutomaticallyAddFileGroupsToProject.Caption" xml:space="preserve">
     <value>Automatisch mehrere Dateien hinzufügen</value>
   </data>
-  <data name="buttonAddFileGroupToProject.Caption" xml:space="preserve">
+	<data name="buttonAddFileGroupToProject.Caption" xml:space="preserve">
     <value>Dateigruppe zum Projekt hinzufügen</value>
   </data>
-  <data name="buttonRemoveFileGroupFromProject.Caption" xml:space="preserve">
+	<data name="buttonRemoveFileGroupFromProject.Caption" xml:space="preserve">
     <value>Dateigruppe aus dem Projekt entfernen</value>
   </data>
-  <data name="buttonEditFileGroupSettings.Caption" xml:space="preserve">
+	<data name="buttonEditFileGroupSettings.Caption" xml:space="preserve">
     <value>Dateigruppen-Einstellungen bearbeiten</value>
   </data>
-  <data name="buttonAddFilesToFileGroup.Caption" xml:space="preserve">
+	<data name="buttonAddFilesToFileGroup.Caption" xml:space="preserve">
     <value>Dateien zu Dateigruppe hinzufügen</value>
   </data>
-  <data name="buttonRemoveFileFromGroup.Caption" xml:space="preserve">
+	<data name="buttonRemoveFileFromGroup.Caption" xml:space="preserve">
     <value>Dateien aus Dateigruppe entfernen</value>
   </data>
-  <data name="buttonEditProjectSettings.Caption" xml:space="preserve">
+	<data name="buttonEditProjectSettings.Caption" xml:space="preserve">
     <value>Projekteinstellungen</value>
   </data>
-  <data name="barMdiChildrenListItem1.Caption" xml:space="preserve">
+	<data name="barMdiChildrenListItem1.Caption" xml:space="preserve">
     <value>Letzte Projekte</value>
   </data>
-  <data name="barMdiChildrenListItem2.Caption" xml:space="preserve">
+	<data name="barMdiChildrenListItem2.Caption" xml:space="preserve">
     <value>Letzte Dateien</value>
   </data>
-  <data name="buttonUpdateAvailable.Caption" xml:space="preserve">
+	<data name="buttonUpdateAvailable.Caption" xml:space="preserve">
     <value>Ein Update ist verfügbar!</value>
   </data>
-  <data name="buttonUpdateAvailable.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonUpdateAvailable.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0gNs28oBwAAAhHSURBVFhHzVdpVJTXGX6BGbZh2PdhR6PBGJZY
         DVEjVlOXRj3G6mklLiiaLlEbqtDG44k1JrWeqLWxcQcSrUvVKFoEqxFMXHE3UVEEFSWIgiyCYRnm6XM/
@@ -1468,18 +1468,18 @@
         P84iUom3iSSCPStsCWH/SrSVXDngSqhSqDI8kyvWSkRT2jKlJs1u9d/v6ax+JhL/34P8G9nTHeczdd0k
         AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonOpenFileGroupFolder.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonOpenFileGroupFolder.Caption" xml:space="preserve">
     <value>Ordner öffnen</value>
   </data>
-  <data name="barStaticItem1.Caption" xml:space="preserve">
+	<data name="barStaticItem1.Caption" xml:space="preserve">
     <value>Test Management Software - Für Testfälle, Testpläne und Vorlagen</value>
   </data>
-  <data name="buttonExport.Caption" xml:space="preserve">
+	<data name="buttonExport.Caption" xml:space="preserve">
     <value>Exportieren nach Microsoft Excel</value>
   </data>
-  <data name="buttonExport.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonExport.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAArdEVYdENvcHlyaWdodABDb3B5cmlnaHQgqSAyMDA4LTIwMTEgSU5DT1JTIEdtYkgQjiFPAAAI
         Q0lEQVRYR62XCVRTVxrHoxyFam2VGW21jqij1gUVqLiUqlhcSosrCo5UQYOAIrKELQlLwhKWhCUgInGB
@@ -1519,12 +1519,12 @@
         /51R/5nT1EgWKCkp7Zgzf7FwhY5u/veGe2WHHVjyXQesnn/+xSwx+f8AYTk1s8Mp+Z8R/+++1GcXNa/L
         CEYEMwL1uKX2ODWVf/j7NzSUTknKbwHVAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonImport.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonImport.Caption" xml:space="preserve">
     <value>Importieren aus Microsoft Excel</value>
   </data>
-  <data name="buttonImport.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonImport.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAArdEVYdENvcHlyaWdodABDb3B5cmlnaHQgqSAyMDA4LTIwMTEgSU5DT1JTIEdtYkgQjiFPAAAI
         XElEQVRYR7WXCVBTdx7H7W73mFk721l11rVYQDyxXuuBUlHQ2uq4bZWKrlbuI9xHIBDAQDAnSSAkHAES
@@ -1565,30 +1565,30 @@
         8DXVes/GjbrhiBXF76iVQ7m9J/3REUunCZ0V+u7k++ql1y89/oZy/xvRvqOlKj3XqwAAAABJRU5ErkJg
         gg==
 </value>
-  </data>
-  <data name="buttonMoveDown.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonMoveDown.Caption" xml:space="preserve">
     <value>Nach unten</value>
   </data>
-  <data name="buttonMoveDown.Hint" xml:space="preserve">
+	<data name="buttonMoveDown.Hint" xml:space="preserve">
     <value>Verschiebt das im Projektdateien-Baum ausgewählte Element um eins nach unten</value>
   </data>
-  <data name="buttonMoveUp.Caption" xml:space="preserve">
+	<data name="buttonMoveUp.Caption" xml:space="preserve">
     <value>Nach oben</value>
   </data>
-  <data name="buttonMoveUp.Hint" xml:space="preserve">
+	<data name="buttonMoveUp.Hint" xml:space="preserve">
     <value>Verschiebt das im Projektdateien-Baum ausgewählte Element um eins nach oben</value>
   </data>
-  <data name="buttonShowHideProjectPanel.Caption" xml:space="preserve">
-    <value>Projektbereich anzeigen</value>
+	<data name="buttonShowHideProjectPanel.Caption" xml:space="preserve">
+    <value>Projektbereich einblenden</value>
   </data>
-  <data name="buttonCreateNewFile.Caption" xml:space="preserve">
+	<data name="buttonCreateNewFile.Caption" xml:space="preserve">
     <value>Neue Datei für Sprache erstellen</value>
   </data>
-  <data name="buttonCreateNewFiles.Caption" xml:space="preserve">
+	<data name="buttonCreateNewFiles.Caption" xml:space="preserve">
     <value>Neue Dateien für Sprache erstellen</value>
   </data>
-  <data name="buttonCreateNewFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonCreateNewFiles.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0gLDDeWWYAAAcTSURBVFhHpVdrjFTlGV52+dHYhm36oyXpH5L+
         U2NrtEq0xUZj0h9VahMxaUPirbaNlxJp2lBaG4i0Gm0ti+7A3uY+OztNBWK9xEQRUYEtUOW+uyAUtoV1
@@ -1623,12 +1623,12 @@
         036/RCzjbwmij/f/tOG5o3zft6+UgKhSfijcGthHLPR5Qv5f/D3LYvNV4FNsVjjgFSUN7AAAAABJRU5E
         rkJggg==
 </value>
-  </data>
-  <data name="buttonLicensing.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonLicensing.Caption" xml:space="preserve">
     <value>Lizenzierung</value>
   </data>
-  <data name="buttonLicensing.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonLicensing.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw4OL6CWv6kAAAGBSURBVDhPY2AgAtSkGc1rSzX53ldg9bu/yX0z
         EVoQSupi9T/c3h79/8f99v//X/X9v7wr+f+sOqc/RBlSFqq19NqmmP8fb7T/n13s9L871fL/+8tt/8+v
@@ -1639,12 +1639,12 @@
         8+y0/nckWBJOLFAnMmY4KMnGmyga5uip/r291Pt/bbLzk1g3RSGivICsKEJdWi1OV/5jupOqETGaATBh
         1bvdqnmZAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="resetLayoutButton.Caption" xml:space="preserve">
+	</data>
+	<data name="resetLayoutButton.Caption" xml:space="preserve">
     <value>Layout zurücksetzen</value>
   </data>
-  <data name="resetLayoutButton.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="resetLayoutButton.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0NH68kYp8AAAIUSURBVDhPY2AYEiBeVoGjylh26iQruU8lGqIF
         pTIMnEQ7vCtQT2+Ch/btaxk2/18mGf+/EKD1v0df8kmNupAziiH9pb5iNU566TDBqjg7zmYvw5nLoq3+
@@ -1657,12 +1657,12 @@
         f5sc7/+dWqL/95hJ/d9tr/B/l4fK/zlOSv+b3eWVsBqQzcBwvp6F6WcNF8vbKn6OR6XCXNeKRLnP5Irz
         HMiR4tuWLcu/KkuOb04YAwMz0Slw6CgEAEB6/3Jbk0ByAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonAddFromVisualStudio.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonAddFromVisualStudio.Caption" xml:space="preserve">
     <value>Automatisch aus Visual-Studio- Projektmappe hinzufügen</value>
   </data>
-  <data name="buttonAddFromVisualStudio.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonAddFromVisualStudio.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAHlSURBVDhPY2AYBdQJgdCpu30T15w7VbLj5rWCdacWBBRWyiCb3OQ0z6/Seta2csuZ/yssZv0v
         M52x10E+ygmsxqdrQ4VD46rXDn37/uslrPyvG7Lwv1fpxufOiWX51lZx+jWOizbl6E/578HT+D+Ar+d/
@@ -1674,9 +1674,9 @@
         Th7rfnr4rv1vZV13UVBQxZsJCJBii5GLiYlNnZ1N1JqNhRdkMh9MUljUgY2VmUuOm1PemZ1N0JKbR1aY
         h0+ZkTqJaMBNAQC9XcDsO2LK7gAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="buttonAddFromVisualStudio.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="buttonAddFromVisualStudio.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAblSURBVFhH7ZZ5UJNnHscJ7ToFL+RMgASQGCLHSkIQiCGQQEjCIRaRUxS56cpRIudyn+FQVCgg
         Z0I5KlpKtVZX7EqdCivdtjq167arXbqwdZh2ptjt1irHd5+XjR2ddv/r7B8d3pnv5Mk8x+/z+77P73le
@@ -1709,12 +1709,12 @@
         jvzZxCSyxcDAMVJnO5X5T4I/TULtYuqiMCKiSspMF5Q6F6jy+rmrlFqQqgArIi4Rj8hNJ6qs2bqsqXf+
         y38TPEVP3ZbUGULBbtRp/VOOPev52r81B9YcIA78BwvEKJ6aWfwKAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonDonateOne.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonDonateOne.Caption" xml:space="preserve">
     <value>1 EUR spenden</value>
   </data>
-  <data name="buttonDonateOne.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonDonateOne.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAAZdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjQ+jcx2
         AAAJRUlEQVRYR61XaVSU5xmd02rtjxDN6Tk9SVsbjyubMSq4RaMooiyCjTsaRSSAxrqkdW8U1GIBMYi4
@@ -1758,12 +1758,12 @@
         6AlRSgtYTIo5C8gXsxMyxYTK6yk0Na+FLDxnbcyp9n9/mj0/Mvd9nHKGKwgaCNXhIWg8/ltoY8bAeM4W
         xvNjoeWE03h8KFQhQ8wV7rV8nP7nJ1T6X/r/eS7W9us7kIv+CR8rckKaqYlXAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonConfigureLanguageColumns.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonConfigureLanguageColumns.Caption" xml:space="preserve">
     <value>Sprachspalten konfigurieren</value>
   </data>
-  <data name="buttonConfigureLanguageColumns.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonConfigureLanguageColumns.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0qFgw9aF4AAAKKSURBVDhPpVNbU1JRFD6/pV/QTNM0WE2X4aGi
         hx6anpumnurBEmtGoWmyMNApEVDgcFM8mpiXTKkMIRGU20FuSlT2kN0wLa8RIH7tc8TDND66zuyz9tl7
@@ -1778,9 +1778,9 @@
         wVouR/iUGUiVlYM0Fa+08TI9jSPGLA7rv+As6cKueQjDXeNr0GDo/SbTdqFeY4dcx/BeprXjgaEbj4wM
         lDQDBd1L1nZi7rYx/D73zeXu9zJT/wDThcex5P18egAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="buttonConfigureLanguageColumns.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="buttonConfigureLanguageColumns.LargeGlyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0wHFzFe5sAAAl5SURBVFhH5VdpcxTXFVVVvuVDUpU/YBwnwaxG
         GwJJgAFh1uBUsKGg4kqZOHEcEzvGbEEmgNgXAdqXGc2i2We0jyS0jDYkJLaQwlUhcVLGZjNitEujWSWd
@@ -1825,12 +1825,12 @@
         aFZmfApeXpyIOfPj8fLCBMynvblLEroIYKH8bzyPM5VzxXc4xd4Czh8IgO9Hb37I63c1xbDY/d5/ALY2
         5ix4qrf3AAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="buttonReplace.Caption" xml:space="preserve">
+	</data>
+	<data name="buttonReplace.Caption" xml:space="preserve">
     <value>Ersetzen</value>
   </data>
-  <data name="buttonReplace.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="buttonReplace.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAAd0SU1FB9gEDw0NM538DnwAAALcSURBVDhPhZNbSJNRAMf30FMwEVIpcHObpNvc
         t+n3bXM3p9/UecvbLl3mpm6KpvO2vM9NRdMuS6IULSyUICTyQbeHkHrpaUoPvvgQWC8F+RA+BF1I0n/f
@@ -1847,9 +1847,9 @@
         +rFI/aYa1jUldFMCkO5UcMrZqyd+tD8jkRsxfGLY5pSx/SfKsQOxSEQ8TvoNjxR30tDOeooAAAAASUVO
         RK5CYII=
 </value>
-  </data>
-  <data name="images32Collection.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v11.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	</data>
+	<data name="images32Collection.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v11.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMS4xLCBWZXJzaW9uPTExLjEu
         OC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
         eXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
@@ -3522,39 +3522,39 @@
         hH9e6Q/Jh6mGRDRjhG4HI7pxwrgDrZGT7QHke1IGzXVisI0BjQGC/hEDrhEDoyZ+N/4V4jB6Yb9Xsif4
         8DniZeLV/xjyfz5PnNhN4B9qIM8iOEn/dwAAAABJRU5ErkJgggs=
 </value>
-  </data>
-  <data name="ribbonPage4.Text" xml:space="preserve">
+	</data>
+	<data name="ribbonPage4.Text" xml:space="preserve">
     <value>Dateigruppen und Tags</value>
   </data>
-  <data name="updateRibbonPageGroup.Text" xml:space="preserve">
+	<data name="updateRibbonPageGroup.Text" xml:space="preserve">
     <value>Aktualisieren</value>
   </data>
-  <data name="ribbonPageGroup2.Text" xml:space="preserve">
+	<data name="ribbonPageGroup2.Text" xml:space="preserve">
     <value>Projektdateien</value>
   </data>
-  <data name="ribbonPageGroup10.Text" xml:space="preserve">
+	<data name="ribbonPageGroup10.Text" xml:space="preserve">
     <value>Import/Export</value>
   </data>
-  <data name="ribbonPageGroup1.Text" xml:space="preserve">
-    <value>Ressourcendateien</value>
+	<data name="ribbonPageGroup1.Text" xml:space="preserve">
+    <value>Ressourcen-Dateien</value>
   </data>
-  <data name="ribbonPageGroup5.Text" xml:space="preserve">
+	<data name="ribbonPageGroup5.Text" xml:space="preserve">
     <value>Ansicht</value>
   </data>
-  <data name="ribbonPageGroup3.Text" xml:space="preserve">
+	<data name="ribbonPageGroup3.Text" xml:space="preserve">
     <value>Bearbeiten</value>
   </data>
-  <data name="ribbonPageGroup8.Text" xml:space="preserve">
+	<data name="ribbonPageGroup8.Text" xml:space="preserve">
     <value>Dateigruppen</value>
   </data>
-  <data name="ribbonPageGroup9.Text" xml:space="preserve">
+	<data name="ribbonPageGroup9.Text" xml:space="preserve">
     <value>Dateien</value>
   </data>
-  <data name="ribbonPageGroup6.Text" xml:space="preserve">
+	<data name="ribbonPageGroup6.Text" xml:space="preserve">
     <value>Hilfe</value>
   </data>
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
+	<data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+		<value>
         AAABAA8AAAAAAAEABABiIAAA9gAAADAwAAABAAQAaAYAAFghAAAgIAAAAQAEAOgCAADAJwAAGBgAAAEA
         BADoAQAAqCoAABAQAAABAAQAKAEAAJAsAAAAAAAAAQAIAEY6AAC4LQAAMDAAAAEACACoDgAA/mcAACAg
         AAABAAgAqAgAAKZ2AAAYGAAAAQAIAMgGAABOfwAAEBAAAAEACABoBQAAFoYAAAAAAAABACAASKQAAH6L
@@ -5144,5 +5144,5 @@
         U15ZWVnQdXV1/UZGRqDz/wAA4f8AAMD/AACAfwAAAD8AAAA/AACAPwAAwD8AAOAfAADwBwAA/wMAAP+B
         AAD/wAAA/8AAAP/gAAD/+AAA
 </value>
-  </data>
+	</data>
 </root>

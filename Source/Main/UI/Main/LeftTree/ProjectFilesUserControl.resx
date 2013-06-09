@@ -284,7 +284,7 @@
     <value>treeView</value>
   </data>
   <data name="&gt;&gt;treeView.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Helper.ZetaResourceEditorTreeListControl, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+    <value>ZetaResourceEditor.UI.Helper.ZetaResourceEditorTreeListControl, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;treeView.Parent" xml:space="preserve">
     <value>resourceEditorProjectFilesSplitContainer.Panel1</value>
@@ -314,7 +314,7 @@
     <value>newsBrowserControl</value>
   </data>
   <data name="&gt;&gt;newsBrowserControl.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Helper.ExtendedWebBrowser.ExtendedWebBrowserUserControl, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+    <value>ZetaResourceEditor.UI.Helper.ExtendedWebBrowser.ExtendedWebBrowserUserControl, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;newsBrowserControl.Parent" xml:space="preserve">
     <value>resourceEditorProjectFilesSplitContainer.Panel2</value>
@@ -650,7 +650,7 @@
     <value>ProjectFilesUserControl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>ZetaResourceEditor.UI.Helper.Base.UserControlBase, ZetaResourceEditor, Version=2.2.0.27, Culture=neutral, PublicKeyToken=null</value>
+    <value>ZetaResourceEditor.UI.Helper.Base.UserControlBase, ZetaResourceEditor, Version=2.2.0.28, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <metadata name="popupBarImageCollection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>530, 17</value>

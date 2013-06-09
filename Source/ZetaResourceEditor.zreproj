@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project>
   <configuration createBackupFiles="False" hideEmptyRows="True" hideTranslatedRows="False" useSpellChecker="True" neutralLanguageCode="en-us" languagesToDisplay="">
-    <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.Text">C:\P\Zeta Resource Editor\Source\ZetaResourceEditor.xls</globalSetting>
-    <globalSetting name="sendFileToTranslator.fileGroupsListBox">LicenseGenerator\Properties\Resources###{{{}}}###LicenseGenerator\UI\MainForm###{{{}}}###Main\Properties\Resources###{{{}}}###Main\TestData\TestResources###{{{}}}###Main\UI\ExportImportExcel\ExcelExportWizardForm###{{{}}}###Main\UI\ExportImportExcel\ExcelImportFormatInformationForm###{{{}}}###Main\UI\ExportImportExcel\ExcelImportWizardForm###{{{}}}###Main\UI\ExportImportExcel\ExportWizardForm###{{{}}}###Main\UI\ExportImportExcel\ImportWizardForm###{{{}}}###Main\UI\FileGroups\AddNewFileGroupForm###{{{}}}###Main\UI\FileGroups\CreateNewFileForm###{{{}}}###Main\UI\FileGroups\CreateNewFilesForm###{{{}}}###Main\UI\FileGroups\FileGroupSettingsForm###{{{}}}###Main\UI\Helper\Base\FormBase###{{{}}}###Main\UI\Helper\Base\RibbonFormBase###{{{}}}###Main\UI\Helper\Base\UserControlBase###{{{}}}###Main\UI\Helper\ErrorHandling\ErrorForm###{{{}}}###Main\UI\Helper\ErrorHandling\ObjectInspectorForm###{{{}}}###Main\UI\Helper\ErrorHandling\ReportItemsForm###{{{}}}###Main\UI\Helper\ErrorHandling\TextBoxForm###{{{}}}###Main\UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserControl###{{{}}}###Main\UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserUserControl###{{{}}}###Main\UI\Helper\InformationLightUserControl###{{{}}}###Main\UI\Helper\LineUserControl###{{{}}}###Main\UI\Helper\Progress\BackgroundWorkerLongProgressForm###{{{}}}###Main\UI\Helper\SupportUserControl###{{{}}}###Main\UI\Main\ExitAdvertisementForm###{{{}}}###Main\UI\Main\ExitAdvertisementFormNew###{{{}}}###Main\UI\Main\LeftTree\ProjectFilesUserControl###{{{}}}###Main\UI\Main\MainForm###{{{}}}###Main\UI\Main\OptionsForm###{{{}}}###Main\UI\Main\RightContent\ConfigureLanguageColumnsForm###{{{}}}###Main\UI\Main\RightContent\DeleteRowContentsForm###{{{}}}###Main\UI\Main\RightContent\GroupFilesUserControl###{{{}}}###Main\UI\Main\RightContent\ResourceEditorUserControl###{{{}}}###Main\UI\Main\WebProxySettingsForm###{{{}}}###Main\UI\ProjectFolders\ProjectFolderEditForm###{{{}}}###Main\UI\Projects\CreateNewProjectForm###{{{}}}###Main\UI\Projects\ProjectSettingsForm###{{{}}}###Main\UI\TagOperations\AddTagForm###{{{}}}###Main\UI\TagOperations\RenameTagForm###{{{}}}###Main\UI\Tools\AboutForm###{{{}}}###Main\UI\Tools\FindForm###{{{}}}###Main\UI\Tools\ImportExportWizard###{{{}}}###Main\UI\Tools\ReplaceForm###{{{}}}###Main\UI\Translation\AutoTranslateForm###{{{}}}###Main\UI\Translation\QuickTranslationForm###{{{}}}###Main\UI\Translation\TranslateOptionsForm###{{{}}}###RuntimeBusinessLogic\Properties\Resources###{{{}}}###Runtime\Properties\Resources###{{{}}}###UpdateChecker\App_GlobalResources\Resources###{{{}}}###Web\App_GlobalResources\Resources</globalSetting>
-    <globalSetting name="sendFileToTranslator.languagesToExportCheckListBox">German (de)</globalSetting>
+    <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.Text">C:\P\ZetaResourceEditor\Source\ZetaResourceEditor.xls</globalSetting>
+    <globalSetting name="sendFileToTranslator.fileGroupsListBox">Main\Properties\Resources</globalSetting>
+    <globalSetting name="sendFileToTranslator.languagesToExportCheckListBox">Deutsch (de)</globalSetting>
     <globalSetting name="sendFileToTranslator.referenceLanguageComboBoxEdit.SelectedIndex">1</globalSetting>
     <globalSetting name="sendFileToTranslator.openFileAfterGeneratingCheckEdit.Checked">True</globalSetting>
     <globalSetting name="sendFileToTranslator.openAfterGeneratingCheckEdit.Checked">False</globalSetting>
@@ -15,7 +15,7 @@
     <globalSetting name="autoTranslateForm.prefixCheckBox.Checked">True</globalSetting>
     <globalSetting name="autoTranslateForm.referenceLanguageComboBoxEdit.SelectedIndex">1</globalSetting>
     <globalSetting name="autoTranslateForm.languagesToTranslateCheckListBox">1</globalSetting>
-    <globalSetting name="sendFileToTranslator.eliminateDuplicateRowsCheckEdit.Checked">True</globalSetting>
+    <globalSetting name="sendFileToTranslator.eliminateDuplicateRowsCheckEdit.Checked">False</globalSetting>
     <globalSetting name="sendFileToTranslator.exportLanguageColumnsOnlyCheckEdit.Checked">True</globalSetting>
     <globalSetting name="OmitEmptyItems">True</globalSetting>
     <globalSetting name="ShowCommentsColumnInGrid">False</globalSetting>
@@ -25,16 +25,15 @@
     <globalSetting name="NonNeutralLanguageFileNamePattern">[basename][optionaldefaulttypes].[languagecode].[extension]</globalSetting>
     <globalSetting name="BaseNameDotCount">0</globalSetting>
     <globalSetting name="DefaultFileTypesToIgnore">.aspx;.ascx;.asmx;.master</globalSetting>
-    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items /&gt;</globalSetting>
+    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items&gt;&lt;item type="2" checksum="2427201027" /&gt;&lt;/items&gt;</globalSetting>
     <globalSetting name="ReadOnlyFileOverwriteBehaviour">0</globalSetting>
     <globalSetting name="UseShallowGridDataCumulation">False</globalSetting>
     <globalSetting name="Project-UseCrypticWorkSheetNamesForExcelExport">True</globalSetting>
     <globalSetting name="advancedOptionsPanel.Visible">True</globalSetting>
-    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">C:\Ablage\ZetaResourceEditor.xls</globalSetting>
+    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">C:\P\ZetaResourceEditor\Source\ZetaResourceEditor.xls</globalSetting>
     <globalSetting name="receiveFileFromTranslator.fileGroupsListBox">
     </globalSetting>
-    <globalSetting name="receiveFileFromTranslator.languagesToImportCheckListBox">
-    </globalSetting>
+    <globalSetting name="receiveFileFromTranslator.languagesToImportCheckListBox">0;1</globalSetting>
     <globalSetting name="Project-PersistGridSettings">True</globalSetting>
     <globalSetting name="Filter-ResourceEditorGrid">&lt;XtraSerializer version="1.0" application="View"&gt;
   &lt;property name="#LayoutVersion" /&gt;
@@ -42,7 +41,7 @@
 &lt;/XtraSerializer&gt;</globalSetting>
     <globalSetting name="Sort-ResourceEditorGrid">&lt;XtraSerializer version="1.0" application="View"&gt;
   &lt;property name="#LayoutVersion" /&gt;
-  &lt;property name="SortInfo"&gt;~Xtra#Base64AAEAAAD/////AQAAAAAAAAAMAgAAAF1EZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xLCBWZXJzaW9uPTExLjEuOC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEFAQAAADhEZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvQ29sbGVjdGlvbgQAAAAKZ3JvdXBDb3VudAVjbG9uZQ9jbG9uZUdyb3VwQ291bnQTQ29sbGVjdGlvbkJhc2UrbGlzdAADAAMIsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjExLjEsIFZlcnNpb249MTEuMS44LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dCBxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AgAAAAAAAAAJAwAAAAAAAAAJBAAAAAQDAAAAsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjExLjEsIFZlcnNpb249MTEuMS44LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAwRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mb1tdAgAAAAgICQUAAAAAAAAAAAAAAAQEAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QDAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgUAAAgICQYAAAABAAAABAAAAAcFAAAAAAEAAAAAAAAABC5EZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvAgAAABAGAAAABAAAAAkHAAAADQMMCAAAABlEZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xBQcAAAAuRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mbwIAAAAJU29ydE9yZGVyCkNvbHVtbk5hbWUAAQgIAAAAAQAAAAYJAAAABWNvbGRlCw==&lt;/property&gt;
+  &lt;property name="SortInfo"&gt;~Xtra#Base64AAEAAAD/////AQAAAAAAAAAMAgAAAF5EZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xLCBWZXJzaW9uPTExLjEuMTIuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iODhkMTc1NGQ3MDBlNDlhBQEAAAA4RGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mb0NvbGxlY3Rpb24EAAAACmdyb3VwQ291bnQFY2xvbmUPY2xvbmVHcm91cENvdW50E0NvbGxlY3Rpb25CYXNlK2xpc3QAAwADCLMBU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tEZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvLCBEZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xLCBWZXJzaW9uPTExLjEuMTIuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iODhkMTc1NGQ3MDBlNDlhXV0IHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QCAAAAAAAAAAkDAAAAAAAAAAkEAAAABAMAAACzAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mbywgRGV2RXhwcmVzcy5YdHJhR3JpZC52MTEuMSwgVmVyc2lvbj0xMS4xLjEyLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAwRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mb1tdAgAAAAgICQUAAAAAAAAAAAAAAAQEAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QDAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgUAAAgICQYAAAABAAAABAAAAAcFAAAAAAEAAAAAAAAABC5EZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvAgAAABAGAAAABAAAAAkHAAAADQMMCAAAABlEZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xBQcAAAAuRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mbwIAAAAJU29ydE9yZGVyCkNvbHVtbk5hbWUAAQgIAAAAAQAAAAYJAAAABWNvbGRlCw==&lt;/property&gt;
 &lt;/XtraSerializer&gt;</globalSetting>
     <globalSetting name="sendFileToTranslator.exportNameColumnCheckEdit.Checked">False</globalSetting>
     <globalSetting name="sendFileToTranslator.exportCommentColumnCheckEdit.Checked">False</globalSetting>
@@ -62,7 +61,7 @@
     <globalSetting name="AddNewFileGroupForm.destinationLanguagesListBox">0;1;2</globalSetting>
     <globalSetting name="AddNewFileGroupForm.baseFolderTextEdit.Text">C:\Ablage</globalSetting>
     <globalSetting name="AddNewFileGroupForm.baseFileNameTextEdit.Text">EinTestNew</globalSetting>
-    <globalSetting name="EnableExcelExportSnapshots">True</globalSetting>
+    <globalSetting name="EnableExcelExportSnapshots">False</globalSetting>
     <globalSetting name="CreateNewFilesForm.destinationLanguagesListBox">0</globalSetting>
     <globalSetting name="sendFileToTranslator.sendFilesToEMailReceivers2CheckEdit.Checked">False</globalSetting>
     <globalSetting name="sendFileToTranslator.zulReceiversTextEdit.Text">someone@example.org, someone-other@example.org</globalSetting>
@@ -90,10 +89,8 @@ Kind regards</globalSetting>
     <globalSetting name="CreateNewFileForm.copyTextsCheckBox.Checked">True</globalSetting>
     <globalSetting name="CreateNewFileForm.automaticallyTranslateCheckBox.Checked">True</globalSetting>
     <globalSetting name="AddNewFileGroupForm.extensionComboBoxEdit">0</globalSetting>
-    <userSetting name="ukeim@OFFICE.FindText">
-    </userSetting>
-    <userSetting name="ukeim@OFFICE.RecentFiles">
-    </userSetting>
+    <userSetting name="ukeim@OFFICE.FindText">Do you want to save changes to the resource files?</userSetting>
+    <userSetting name="ukeim@OFFICE.RecentFiles">C:\P\ZetaResourceEditor\Source\Main\Properties\Resources.resx;C:\P\ZetaResourceEditor\Source\Main\Properties\Resources.de.resx</userSetting>
     <userSetting name="ukeim@OFFICE.mainDataGridRowHeight">72</userSetting>
     <userSetting name="ukeim@OFFICE.mainDataGridColCount">3</userSetting>
     <userSetting name="ukeim@OFFICE.mainDataGridColWith0">304</userSetting>
@@ -107,305 +104,305 @@ Kind regards</globalSetting>
   </configuration>
   <fileGroups>
     <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="6764ff5c-dc76-43d5-913a-bcbc348c0e3e">
-      <file filePath="RuntimeBusinessLogic\Properties\Resources.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\RuntimeBusinessLogic\Properties\Resources.resx" uniqueID="53c00431-775d-4738-99e8-e38cd91d532a" />
-      <file filePath="RuntimeBusinessLogic\Properties\Resources.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\RuntimeBusinessLogic\Properties\Resources.de.resx" uniqueID="fb347a9e-d1c7-4d8b-8006-aa5b1be3b1f9" />
+      <file filePath="RuntimeBusinessLogic\Properties\Resources.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\RuntimeBusinessLogic\Properties\Resources.resx" uniqueID="53c00431-775d-4738-99e8-e38cd91d532a" />
+      <file filePath="RuntimeBusinessLogic\Properties\Resources.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\RuntimeBusinessLogic\Properties\Resources.de.resx" uniqueID="fb347a9e-d1c7-4d8b-8006-aa5b1be3b1f9" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="04e18429-2fef-4984-93d4-7441e8ce43cb">
-      <file filePath="Runtime\Properties\Resources.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Runtime\Properties\Resources.resx" uniqueID="b67cd57c-98bb-4da1-ab41-a6c050483211" />
-      <file filePath="Runtime\Properties\Resources.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Runtime\Properties\Resources.de.resx" uniqueID="33ef324e-88d5-413e-82c9-833617371598" />
+      <file filePath="Runtime\Properties\Resources.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Runtime\Properties\Resources.resx" uniqueID="b67cd57c-98bb-4da1-ab41-a6c050483211" />
+      <file filePath="Runtime\Properties\Resources.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Runtime\Properties\Resources.de.resx" uniqueID="33ef324e-88d5-413e-82c9-833617371598" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="69e9e017-c7db-4137-984a-0462f58c3e34" orderPosition="2" ignoreDuringExportAndImport="False" uniqueID="39cb9ded-145c-4eab-8fc3-b52c5a794b3d">
-      <file filePath="Web\App_GlobalResources\Resources.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Web\App_GlobalResources\Resources.resx" uniqueID="fdcec649-ff68-4165-9e0c-d3195cbdabda" />
-      <file filePath="Web\App_GlobalResources\Resources.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Web\App_GlobalResources\Resources.de.resx" uniqueID="c1b37805-926b-49ee-b5a4-30d5332588db" />
+      <file filePath="Web\App_GlobalResources\Resources.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Web\App_GlobalResources\Resources.resx" uniqueID="fdcec649-ff68-4165-9e0c-d3195cbdabda" />
+      <file filePath="Web\App_GlobalResources\Resources.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Web\App_GlobalResources\Resources.de.resx" uniqueID="c1b37805-926b-49ee-b5a4-30d5332588db" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="69e9e017-c7db-4137-984a-0462f58c3e34" orderPosition="3" ignoreDuringExportAndImport="False" uniqueID="793f006b-ec86-4906-bead-231f9048951c">
-      <file filePath="UpdateChecker\App_GlobalResources\Resources.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\UpdateChecker\App_GlobalResources\Resources.resx" uniqueID="fbe080ef-ef5b-4cd1-bbd5-71ea925a27a0" />
-      <file filePath="UpdateChecker\App_GlobalResources\Resources.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\UpdateChecker\App_GlobalResources\Resources.de.resx" uniqueID="1c08f158-f18b-4a4d-9041-94c5f726586d" />
+      <file filePath="UpdateChecker\App_GlobalResources\Resources.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\UpdateChecker\App_GlobalResources\Resources.resx" uniqueID="fbe080ef-ef5b-4cd1-bbd5-71ea925a27a0" />
+      <file filePath="UpdateChecker\App_GlobalResources\Resources.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\UpdateChecker\App_GlobalResources\Resources.de.resx" uniqueID="1c08f158-f18b-4a4d-9041-94c5f726586d" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="47" ignoreDuringExportAndImport="False" uniqueID="f2df250b-d913-4d2c-9556-37686e11271f">
-      <file filePath="LicenseGenerator\Properties\Resources.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\LicenseGenerator\Properties\Resources.resx" uniqueID="c7ebf264-f8ac-4aba-a064-c1f15410e0d8" />
+      <file filePath="LicenseGenerator\Properties\Resources.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\LicenseGenerator\Properties\Resources.resx" uniqueID="c7ebf264-f8ac-4aba-a064-c1f15410e0d8" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="48" ignoreDuringExportAndImport="False" uniqueID="107b50da-d6f3-4541-abed-a33559e93be5">
-      <file filePath="LicenseGenerator\UI\MainForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\LicenseGenerator\UI\MainForm.resx" uniqueID="6c41d0d8-20bc-4e55-81c4-cd65d26e2d83" />
+      <file filePath="LicenseGenerator\UI\MainForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\LicenseGenerator\UI\MainForm.resx" uniqueID="6c41d0d8-20bc-4e55-81c4-cd65d26e2d83" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="49" ignoreDuringExportAndImport="False" uniqueID="633704a2-ed35-44bf-a949-1f412de495e1">
-      <file filePath="Main\Properties\Resources.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\Properties\Resources.resx" uniqueID="263ba51b-a59f-40dd-a8b5-7445d97c5e1d" />
-      <file filePath="Main\Properties\Resources.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\Properties\Resources.de.resx" uniqueID="f879976b-52b6-45fd-ae94-649219edfae9" />
+      <file filePath="Main\Properties\Resources.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\Properties\Resources.resx" uniqueID="263ba51b-a59f-40dd-a8b5-7445d97c5e1d" />
+      <file filePath="Main\Properties\Resources.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\Properties\Resources.de.resx" uniqueID="f879976b-52b6-45fd-ae94-649219edfae9" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="50" ignoreDuringExportAndImport="False" uniqueID="30d6a3a4-234e-4b29-a2ab-114e9d4dc867">
-      <file filePath="Main\TestData\TestResources.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\TestData\TestResources.resx" uniqueID="4b1fe1fd-3f33-4775-b9ff-68c5dee73a35" />
-      <file filePath="Main\TestData\TestResources.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\TestData\TestResources.de.resx" uniqueID="3052b942-b8f6-42b0-b234-c01412b7af62" />
+      <file filePath="Main\TestData\TestResources.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\TestData\TestResources.resx" uniqueID="4b1fe1fd-3f33-4775-b9ff-68c5dee73a35" />
+      <file filePath="Main\TestData\TestResources.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\TestData\TestResources.de.resx" uniqueID="3052b942-b8f6-42b0-b234-c01412b7af62" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="51" ignoreDuringExportAndImport="False" uniqueID="e291c85f-0dd6-4fda-94cd-e93de45293c8">
-      <file filePath="Main\UI\ExportImportExcel\ExcelExportWizardForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ExportImportExcel\ExcelExportWizardForm.resx" uniqueID="b2816ddf-9dfa-4f3f-9c85-c6e1275be37e" />
-      <file filePath="Main\UI\ExportImportExcel\ExcelExportWizardForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ExportImportExcel\ExcelExportWizardForm.de.resx" uniqueID="ed5cc9d8-e43c-4aaf-8809-fe5ac50d6cee" />
+      <file filePath="Main\UI\ExportImportExcel\ExcelExportWizardForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ExportImportExcel\ExcelExportWizardForm.resx" uniqueID="b2816ddf-9dfa-4f3f-9c85-c6e1275be37e" />
+      <file filePath="Main\UI\ExportImportExcel\ExcelExportWizardForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ExportImportExcel\ExcelExportWizardForm.de.resx" uniqueID="ed5cc9d8-e43c-4aaf-8809-fe5ac50d6cee" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="52" ignoreDuringExportAndImport="False" uniqueID="a794b3d8-5a08-498f-a8d9-5e6255881c8b">
-      <file filePath="Main\UI\ExportImportExcel\ExcelImportFormatInformationForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ExportImportExcel\ExcelImportFormatInformationForm.resx" uniqueID="b08a55ce-4358-4081-b9a1-3c37121ab2c0" />
-      <file filePath="Main\UI\ExportImportExcel\ExcelImportFormatInformationForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ExportImportExcel\ExcelImportFormatInformationForm.de.resx" uniqueID="a542d8e4-bd21-403b-8680-052b7020784c" />
+      <file filePath="Main\UI\ExportImportExcel\ExcelImportFormatInformationForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ExportImportExcel\ExcelImportFormatInformationForm.resx" uniqueID="b08a55ce-4358-4081-b9a1-3c37121ab2c0" />
+      <file filePath="Main\UI\ExportImportExcel\ExcelImportFormatInformationForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ExportImportExcel\ExcelImportFormatInformationForm.de.resx" uniqueID="a542d8e4-bd21-403b-8680-052b7020784c" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="53" ignoreDuringExportAndImport="False" uniqueID="b4a65821-6ff3-47ef-bbc7-5b696b2379fd">
-      <file filePath="Main\UI\ExportImportExcel\ExcelImportWizardForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ExportImportExcel\ExcelImportWizardForm.resx" uniqueID="50ed123e-61a7-4a69-aac3-4c17f561e4bb" />
-      <file filePath="Main\UI\ExportImportExcel\ExcelImportWizardForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ExportImportExcel\ExcelImportWizardForm.de.resx" uniqueID="ab6b136b-017c-4344-bec4-0cfa07cd02ff" />
+      <file filePath="Main\UI\ExportImportExcel\ExcelImportWizardForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ExportImportExcel\ExcelImportWizardForm.resx" uniqueID="50ed123e-61a7-4a69-aac3-4c17f561e4bb" />
+      <file filePath="Main\UI\ExportImportExcel\ExcelImportWizardForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ExportImportExcel\ExcelImportWizardForm.de.resx" uniqueID="ab6b136b-017c-4344-bec4-0cfa07cd02ff" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="54" ignoreDuringExportAndImport="False" uniqueID="45d93c03-c725-4a13-acc3-e66cd11e432c">
-      <file filePath="Main\UI\ExportImportExcel\ExportWizardForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ExportImportExcel\ExportWizardForm.resx" uniqueID="c7897802-cc2d-4dc5-a363-326ecf57533b" />
-      <file filePath="Main\UI\ExportImportExcel\ExportWizardForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ExportImportExcel\ExportWizardForm.de.resx" uniqueID="7e8f4d90-2187-487b-86a8-3653dc87177a" />
+      <file filePath="Main\UI\ExportImportExcel\ExportWizardForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ExportImportExcel\ExportWizardForm.resx" uniqueID="c7897802-cc2d-4dc5-a363-326ecf57533b" />
+      <file filePath="Main\UI\ExportImportExcel\ExportWizardForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ExportImportExcel\ExportWizardForm.de.resx" uniqueID="7e8f4d90-2187-487b-86a8-3653dc87177a" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="55" ignoreDuringExportAndImport="False" uniqueID="6ad82e67-14a6-4c23-8b78-a1cb150dcceb">
-      <file filePath="Main\UI\ExportImportExcel\ImportWizardForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ExportImportExcel\ImportWizardForm.resx" uniqueID="096036b6-88a5-4c3a-a91c-ada94a570c98" />
-      <file filePath="Main\UI\ExportImportExcel\ImportWizardForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ExportImportExcel\ImportWizardForm.de.resx" uniqueID="d139b891-9c9c-4dcf-8184-41e394606b18" />
+      <file filePath="Main\UI\ExportImportExcel\ImportWizardForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ExportImportExcel\ImportWizardForm.resx" uniqueID="096036b6-88a5-4c3a-a91c-ada94a570c98" />
+      <file filePath="Main\UI\ExportImportExcel\ImportWizardForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ExportImportExcel\ImportWizardForm.de.resx" uniqueID="d139b891-9c9c-4dcf-8184-41e394606b18" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="56" ignoreDuringExportAndImport="False" uniqueID="ae10686e-3bcc-4549-8b54-7f54a9e4cb69">
-      <file filePath="Main\UI\FileGroups\AddNewFileGroupForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\FileGroups\AddNewFileGroupForm.resx" uniqueID="e6e4166c-e2d3-43c1-a703-1bdd468e9cb9" />
-      <file filePath="Main\UI\FileGroups\AddNewFileGroupForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\FileGroups\AddNewFileGroupForm.de.resx" uniqueID="1b42f1ef-79e8-4c55-a343-8302c55f65ba" />
+      <file filePath="Main\UI\FileGroups\AddNewFileGroupForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\FileGroups\AddNewFileGroupForm.resx" uniqueID="e6e4166c-e2d3-43c1-a703-1bdd468e9cb9" />
+      <file filePath="Main\UI\FileGroups\AddNewFileGroupForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\FileGroups\AddNewFileGroupForm.de.resx" uniqueID="1b42f1ef-79e8-4c55-a343-8302c55f65ba" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="57" ignoreDuringExportAndImport="False" uniqueID="5ea5fd07-47c1-4855-b31a-386b12790f72">
-      <file filePath="Main\UI\FileGroups\CreateNewFileForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\FileGroups\CreateNewFileForm.resx" uniqueID="6ed6bfa7-98ae-41e3-a897-0e6da928a5fb" />
-      <file filePath="Main\UI\FileGroups\CreateNewFileForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\FileGroups\CreateNewFileForm.de.resx" uniqueID="96e70008-651c-4c73-a079-ab37d2b31fd4" />
+      <file filePath="Main\UI\FileGroups\CreateNewFileForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\FileGroups\CreateNewFileForm.resx" uniqueID="6ed6bfa7-98ae-41e3-a897-0e6da928a5fb" />
+      <file filePath="Main\UI\FileGroups\CreateNewFileForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\FileGroups\CreateNewFileForm.de.resx" uniqueID="96e70008-651c-4c73-a079-ab37d2b31fd4" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="58" ignoreDuringExportAndImport="False" uniqueID="9fe89174-1f01-4ec8-9d34-32f02382b5fb">
-      <file filePath="Main\UI\FileGroups\CreateNewFilesForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\FileGroups\CreateNewFilesForm.resx" uniqueID="bf5a1462-993e-45d9-8bb7-970aa667056d" />
-      <file filePath="Main\UI\FileGroups\CreateNewFilesForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\FileGroups\CreateNewFilesForm.de.resx" uniqueID="cc67690b-9278-4804-bc93-174ef148395f" />
+      <file filePath="Main\UI\FileGroups\CreateNewFilesForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\FileGroups\CreateNewFilesForm.resx" uniqueID="bf5a1462-993e-45d9-8bb7-970aa667056d" />
+      <file filePath="Main\UI\FileGroups\CreateNewFilesForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\FileGroups\CreateNewFilesForm.de.resx" uniqueID="cc67690b-9278-4804-bc93-174ef148395f" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="59" ignoreDuringExportAndImport="False" uniqueID="4e737a2c-4377-4f3b-a8d4-752c7270d5a0">
-      <file filePath="Main\UI\FileGroups\FileGroupSettingsForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\FileGroups\FileGroupSettingsForm.resx" uniqueID="558319a5-c4e2-4ed3-a5ef-79e0678e2eb3" />
-      <file filePath="Main\UI\FileGroups\FileGroupSettingsForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\FileGroups\FileGroupSettingsForm.de.resx" uniqueID="5dd34a6f-2e17-4726-bb28-3c32176a559b" />
+      <file filePath="Main\UI\FileGroups\FileGroupSettingsForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\FileGroups\FileGroupSettingsForm.resx" uniqueID="558319a5-c4e2-4ed3-a5ef-79e0678e2eb3" />
+      <file filePath="Main\UI\FileGroups\FileGroupSettingsForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\FileGroups\FileGroupSettingsForm.de.resx" uniqueID="5dd34a6f-2e17-4726-bb28-3c32176a559b" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="60" ignoreDuringExportAndImport="False" uniqueID="b38e343f-87fa-427a-9b3e-6b26f06de378">
-      <file filePath="Main\UI\Helper\Base\FormBase.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\Base\FormBase.resx" uniqueID="1896f24c-73ee-4347-a9c6-57a86d227af2" />
+      <file filePath="Main\UI\Helper\Base\FormBase.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\Base\FormBase.resx" uniqueID="1896f24c-73ee-4347-a9c6-57a86d227af2" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="61" ignoreDuringExportAndImport="False" uniqueID="dcd10f06-de44-4dd9-a67f-965c6e295e66">
-      <file filePath="Main\UI\Helper\Base\RibbonFormBase.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\Base\RibbonFormBase.resx" uniqueID="e45d5164-7607-4ba6-9d9c-c63e5ec85422" />
+      <file filePath="Main\UI\Helper\Base\RibbonFormBase.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\Base\RibbonFormBase.resx" uniqueID="e45d5164-7607-4ba6-9d9c-c63e5ec85422" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="62" ignoreDuringExportAndImport="False" uniqueID="21221105-2948-42f8-9fc8-fdb0c47ffa14">
-      <file filePath="Main\UI\Helper\Base\UserControlBase.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\Base\UserControlBase.resx" uniqueID="b84b283f-a832-45df-91df-ac31a16a70b7" />
+      <file filePath="Main\UI\Helper\Base\UserControlBase.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\Base\UserControlBase.resx" uniqueID="b84b283f-a832-45df-91df-ac31a16a70b7" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="63" ignoreDuringExportAndImport="False" uniqueID="84490952-2418-41aa-963d-74e60fce979f">
-      <file filePath="Main\UI\Helper\ErrorHandling\ErrorForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\ErrorHandling\ErrorForm.resx" uniqueID="78693433-e0ee-46ed-b71a-734f93169402" />
-      <file filePath="Main\UI\Helper\ErrorHandling\ErrorForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\ErrorHandling\ErrorForm.de.resx" uniqueID="3718ec4a-fb7f-4ef9-919f-8b12d022aec6" />
+      <file filePath="Main\UI\Helper\ErrorHandling\ErrorForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\ErrorHandling\ErrorForm.resx" uniqueID="78693433-e0ee-46ed-b71a-734f93169402" />
+      <file filePath="Main\UI\Helper\ErrorHandling\ErrorForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\ErrorHandling\ErrorForm.de.resx" uniqueID="3718ec4a-fb7f-4ef9-919f-8b12d022aec6" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="64" ignoreDuringExportAndImport="False" uniqueID="73cc9c25-20e0-478d-9ebf-b224fe177e88">
-      <file filePath="Main\UI\Helper\ErrorHandling\ObjectInspectorForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\ErrorHandling\ObjectInspectorForm.resx" uniqueID="7035b18e-ccaa-444f-b9b7-cc60fb726bae" />
-      <file filePath="Main\UI\Helper\ErrorHandling\ObjectInspectorForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\ErrorHandling\ObjectInspectorForm.de.resx" uniqueID="c5fb0c35-aeab-4aa0-9580-c39e8b65be1e" />
+      <file filePath="Main\UI\Helper\ErrorHandling\ObjectInspectorForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\ErrorHandling\ObjectInspectorForm.resx" uniqueID="7035b18e-ccaa-444f-b9b7-cc60fb726bae" />
+      <file filePath="Main\UI\Helper\ErrorHandling\ObjectInspectorForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\ErrorHandling\ObjectInspectorForm.de.resx" uniqueID="c5fb0c35-aeab-4aa0-9580-c39e8b65be1e" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="65" ignoreDuringExportAndImport="False" uniqueID="c06c99f4-eb0c-447a-8174-e87fd238a521">
-      <file filePath="Main\UI\Helper\ErrorHandling\ReportItemsForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\ErrorHandling\ReportItemsForm.resx" uniqueID="f542b185-bfba-4f1a-b095-6a90cb85442a" />
-      <file filePath="Main\UI\Helper\ErrorHandling\ReportItemsForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\ErrorHandling\ReportItemsForm.de.resx" uniqueID="b5f7b4b2-bbf8-4b3e-92bf-54bbb206f3f0" />
+      <file filePath="Main\UI\Helper\ErrorHandling\ReportItemsForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\ErrorHandling\ReportItemsForm.resx" uniqueID="f542b185-bfba-4f1a-b095-6a90cb85442a" />
+      <file filePath="Main\UI\Helper\ErrorHandling\ReportItemsForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\ErrorHandling\ReportItemsForm.de.resx" uniqueID="b5f7b4b2-bbf8-4b3e-92bf-54bbb206f3f0" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="66" ignoreDuringExportAndImport="False" uniqueID="9d95b8a2-45ae-4481-b89f-4a75193ecf65">
-      <file filePath="Main\UI\Helper\ErrorHandling\TextBoxForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\ErrorHandling\TextBoxForm.resx" uniqueID="44e521a8-185b-49af-8505-686fcd948a18" />
-      <file filePath="Main\UI\Helper\ErrorHandling\TextBoxForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\ErrorHandling\TextBoxForm.de.resx" uniqueID="4c901cdb-8bdd-41fc-811b-f32bf7567c20" />
+      <file filePath="Main\UI\Helper\ErrorHandling\TextBoxForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\ErrorHandling\TextBoxForm.resx" uniqueID="44e521a8-185b-49af-8505-686fcd948a18" />
+      <file filePath="Main\UI\Helper\ErrorHandling\TextBoxForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\ErrorHandling\TextBoxForm.de.resx" uniqueID="4c901cdb-8bdd-41fc-811b-f32bf7567c20" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="67" ignoreDuringExportAndImport="False" uniqueID="9abd960b-a7f5-4b24-88de-378977b1b700">
-      <file filePath="Main\UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserControl.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserControl.resx" uniqueID="fec32273-461d-46a7-a068-fe1762420091" />
+      <file filePath="Main\UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserControl.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserControl.resx" uniqueID="fec32273-461d-46a7-a068-fe1762420091" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="68" ignoreDuringExportAndImport="False" uniqueID="ee5bb949-2f6c-43a4-ba48-3b11fa018371">
-      <file filePath="Main\UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserUserControl.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserUserControl.resx" uniqueID="4dbdd7bf-4577-48a7-a6b9-d30f2e6da991" />
+      <file filePath="Main\UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserUserControl.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserUserControl.resx" uniqueID="4dbdd7bf-4577-48a7-a6b9-d30f2e6da991" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="69" ignoreDuringExportAndImport="False" uniqueID="c4b52198-7d57-4507-9cec-91cbbce3631a">
-      <file filePath="Main\UI\Helper\InformationLightUserControl.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\InformationLightUserControl.resx" uniqueID="fb022e97-db24-4997-bb6a-204c9540cfa1" />
+      <file filePath="Main\UI\Helper\InformationLightUserControl.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\InformationLightUserControl.resx" uniqueID="fb022e97-db24-4997-bb6a-204c9540cfa1" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="70" ignoreDuringExportAndImport="False" uniqueID="5cafb1cf-d396-4429-985a-9094d239d08d">
-      <file filePath="Main\UI\Helper\LineUserControl.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\LineUserControl.resx" uniqueID="077f8434-c39c-4266-b594-a63d592e6df5" />
+      <file filePath="Main\UI\Helper\LineUserControl.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\LineUserControl.resx" uniqueID="077f8434-c39c-4266-b594-a63d592e6df5" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="71" ignoreDuringExportAndImport="False" uniqueID="1c5e5531-936e-44b8-a202-e1c3f62601c5">
-      <file filePath="Main\UI\Helper\Progress\BackgroundWorkerLongProgressForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\Progress\BackgroundWorkerLongProgressForm.resx" uniqueID="82f7dcef-e006-4b6c-99d6-0614050d0e75" />
-      <file filePath="Main\UI\Helper\Progress\BackgroundWorkerLongProgressForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\Progress\BackgroundWorkerLongProgressForm.de.resx" uniqueID="b2c52fab-19e3-4457-b8d2-e46fa87fc65a" />
+      <file filePath="Main\UI\Helper\Progress\BackgroundWorkerLongProgressForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\Progress\BackgroundWorkerLongProgressForm.resx" uniqueID="82f7dcef-e006-4b6c-99d6-0614050d0e75" />
+      <file filePath="Main\UI\Helper\Progress\BackgroundWorkerLongProgressForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\Progress\BackgroundWorkerLongProgressForm.de.resx" uniqueID="b2c52fab-19e3-4457-b8d2-e46fa87fc65a" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="72" ignoreDuringExportAndImport="False" uniqueID="f7b870cb-aee5-47b1-a1f5-49bae4d951d5">
-      <file filePath="Main\UI\Helper\SupportUserControl.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\SupportUserControl.resx" uniqueID="47874d40-66de-463d-87f1-c3e7f89110d7" />
-      <file filePath="Main\UI\Helper\SupportUserControl.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Helper\SupportUserControl.de.resx" uniqueID="51712368-98d7-42dc-bb71-b6c63c828dfa" />
+      <file filePath="Main\UI\Helper\SupportUserControl.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\SupportUserControl.resx" uniqueID="47874d40-66de-463d-87f1-c3e7f89110d7" />
+      <file filePath="Main\UI\Helper\SupportUserControl.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Helper\SupportUserControl.de.resx" uniqueID="51712368-98d7-42dc-bb71-b6c63c828dfa" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="73" ignoreDuringExportAndImport="False" uniqueID="ea461fcc-7f1e-4efe-9ea7-d6d399929555">
-      <file filePath="Main\UI\Main\ExitAdvertisementForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\ExitAdvertisementForm.resx" uniqueID="4b365295-3f8c-437a-86b1-2709e869dc9d" />
-      <file filePath="Main\UI\Main\ExitAdvertisementForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\ExitAdvertisementForm.de.resx" uniqueID="eb2c9f92-13c8-4950-8851-edf1cab11a5e" />
+      <file filePath="Main\UI\Main\ExitAdvertisementForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\ExitAdvertisementForm.resx" uniqueID="4b365295-3f8c-437a-86b1-2709e869dc9d" />
+      <file filePath="Main\UI\Main\ExitAdvertisementForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\ExitAdvertisementForm.de.resx" uniqueID="eb2c9f92-13c8-4950-8851-edf1cab11a5e" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="74" ignoreDuringExportAndImport="False" uniqueID="d7e3236e-1a48-4771-b7a6-526ff3719089">
-      <file filePath="Main\UI\Main\ExitAdvertisementFormNew.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\ExitAdvertisementFormNew.resx" uniqueID="0f19ff06-1c82-4b42-ac72-4b1c223e079f" />
-      <file filePath="Main\UI\Main\ExitAdvertisementFormNew.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\ExitAdvertisementFormNew.de.resx" uniqueID="eb64e8ee-bfa1-40f1-a76d-4a6cf9347c0c" />
+      <file filePath="Main\UI\Main\ExitAdvertisementFormNew.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\ExitAdvertisementFormNew.resx" uniqueID="0f19ff06-1c82-4b42-ac72-4b1c223e079f" />
+      <file filePath="Main\UI\Main\ExitAdvertisementFormNew.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\ExitAdvertisementFormNew.de.resx" uniqueID="eb64e8ee-bfa1-40f1-a76d-4a6cf9347c0c" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="75" ignoreDuringExportAndImport="False" uniqueID="1963f975-dcb1-449f-8a69-56385a58a377">
-      <file filePath="Main\UI\Main\LeftTree\ProjectFilesUserControl.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\LeftTree\ProjectFilesUserControl.resx" uniqueID="27b31caf-608e-4411-8b35-514afed83dfc" />
-      <file filePath="Main\UI\Main\LeftTree\ProjectFilesUserControl.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\LeftTree\ProjectFilesUserControl.de.resx" uniqueID="4023383d-9ce2-42cc-a728-51d225ecc8e4" />
+      <file filePath="Main\UI\Main\LeftTree\ProjectFilesUserControl.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\LeftTree\ProjectFilesUserControl.resx" uniqueID="27b31caf-608e-4411-8b35-514afed83dfc" />
+      <file filePath="Main\UI\Main\LeftTree\ProjectFilesUserControl.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\LeftTree\ProjectFilesUserControl.de.resx" uniqueID="4023383d-9ce2-42cc-a728-51d225ecc8e4" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="76" ignoreDuringExportAndImport="False" uniqueID="df3a824f-ad35-4274-8427-9dbe5d5d1f3f">
-      <file filePath="Main\UI\Main\MainForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\MainForm.resx" uniqueID="de044d56-5eb0-490c-b2a2-d1e3408a69a1" />
-      <file filePath="Main\UI\Main\MainForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\MainForm.de.resx" uniqueID="edb40afe-d8e8-43dd-ae47-2f315cbb4a52" />
+      <file filePath="Main\UI\Main\MainForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\MainForm.resx" uniqueID="de044d56-5eb0-490c-b2a2-d1e3408a69a1" />
+      <file filePath="Main\UI\Main\MainForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\MainForm.de.resx" uniqueID="edb40afe-d8e8-43dd-ae47-2f315cbb4a52" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="77" ignoreDuringExportAndImport="False" uniqueID="ea0a8118-4343-4344-994a-67d45ad4a7cb">
-      <file filePath="Main\UI\Main\OptionsForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\OptionsForm.resx" uniqueID="00d4bdf6-43a6-4f88-89b9-546017327c47" />
-      <file filePath="Main\UI\Main\OptionsForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\OptionsForm.de.resx" uniqueID="7457c98a-c56b-4742-ad51-6ffcff3c4f4f" />
+      <file filePath="Main\UI\Main\OptionsForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\OptionsForm.resx" uniqueID="00d4bdf6-43a6-4f88-89b9-546017327c47" />
+      <file filePath="Main\UI\Main\OptionsForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\OptionsForm.de.resx" uniqueID="7457c98a-c56b-4742-ad51-6ffcff3c4f4f" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="78" ignoreDuringExportAndImport="False" uniqueID="36c721fd-748d-4302-b44c-4540b1713fa8">
-      <file filePath="Main\UI\Main\RightContent\ConfigureLanguageColumnsForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\RightContent\ConfigureLanguageColumnsForm.resx" uniqueID="e35a2594-c121-4f1e-87ef-d08686554c58" />
-      <file filePath="Main\UI\Main\RightContent\ConfigureLanguageColumnsForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\RightContent\ConfigureLanguageColumnsForm.de.resx" uniqueID="56b8b0e8-a152-429a-894a-febca7de270f" />
+      <file filePath="Main\UI\Main\RightContent\ConfigureLanguageColumnsForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\RightContent\ConfigureLanguageColumnsForm.resx" uniqueID="e35a2594-c121-4f1e-87ef-d08686554c58" />
+      <file filePath="Main\UI\Main\RightContent\ConfigureLanguageColumnsForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\RightContent\ConfigureLanguageColumnsForm.de.resx" uniqueID="56b8b0e8-a152-429a-894a-febca7de270f" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="79" ignoreDuringExportAndImport="False" uniqueID="19a8ce7d-b2e8-4f0f-ada9-bd84d2edfce2">
-      <file filePath="Main\UI\Main\RightContent\DeleteRowContentsForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\RightContent\DeleteRowContentsForm.resx" uniqueID="986a27e3-7cf0-420c-89a1-266a191fe021" />
-      <file filePath="Main\UI\Main\RightContent\DeleteRowContentsForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\RightContent\DeleteRowContentsForm.de.resx" uniqueID="1dc0f194-5be7-4ce0-aeae-77ebbd0d1c43" />
+      <file filePath="Main\UI\Main\RightContent\DeleteRowContentsForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\RightContent\DeleteRowContentsForm.resx" uniqueID="986a27e3-7cf0-420c-89a1-266a191fe021" />
+      <file filePath="Main\UI\Main\RightContent\DeleteRowContentsForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\RightContent\DeleteRowContentsForm.de.resx" uniqueID="1dc0f194-5be7-4ce0-aeae-77ebbd0d1c43" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="80" ignoreDuringExportAndImport="False" uniqueID="07fee91d-f91d-44f3-b98e-68e5778f747c">
-      <file filePath="Main\UI\Main\RightContent\GroupFilesUserControl.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\RightContent\GroupFilesUserControl.resx" uniqueID="725139b4-3dbb-4fb8-a898-7487ba52eec6" />
-      <file filePath="Main\UI\Main\RightContent\GroupFilesUserControl.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\RightContent\GroupFilesUserControl.de.resx" uniqueID="2289b714-cfbe-471a-88f7-03bac378021c" />
+      <file filePath="Main\UI\Main\RightContent\GroupFilesUserControl.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\RightContent\GroupFilesUserControl.resx" uniqueID="725139b4-3dbb-4fb8-a898-7487ba52eec6" />
+      <file filePath="Main\UI\Main\RightContent\GroupFilesUserControl.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\RightContent\GroupFilesUserControl.de.resx" uniqueID="2289b714-cfbe-471a-88f7-03bac378021c" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="81" ignoreDuringExportAndImport="False" uniqueID="167d99a1-c23b-402b-a2ec-b5a23ed5c5ff">
-      <file filePath="Main\UI\Main\RightContent\ResourceEditorUserControl.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\RightContent\ResourceEditorUserControl.resx" uniqueID="f2aea83b-76b4-411e-b515-05bde2c0ccad" />
-      <file filePath="Main\UI\Main\RightContent\ResourceEditorUserControl.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\RightContent\ResourceEditorUserControl.de.resx" uniqueID="1823a2ea-ff5b-4959-ab59-beafbebf6032" />
+      <file filePath="Main\UI\Main\RightContent\ResourceEditorUserControl.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\RightContent\ResourceEditorUserControl.resx" uniqueID="f2aea83b-76b4-411e-b515-05bde2c0ccad" />
+      <file filePath="Main\UI\Main\RightContent\ResourceEditorUserControl.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\RightContent\ResourceEditorUserControl.de.resx" uniqueID="1823a2ea-ff5b-4959-ab59-beafbebf6032" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="82" ignoreDuringExportAndImport="False" uniqueID="e2377b04-1ca5-40f1-8f56-09a744cb152f">
-      <file filePath="Main\UI\Main\WebProxySettingsForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\WebProxySettingsForm.resx" uniqueID="a33344fa-8121-489b-9af7-a63609c36dab" />
-      <file filePath="Main\UI\Main\WebProxySettingsForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Main\WebProxySettingsForm.de.resx" uniqueID="ed2267ce-0682-4abe-9c89-938b5458531a" />
+      <file filePath="Main\UI\Main\WebProxySettingsForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\WebProxySettingsForm.resx" uniqueID="a33344fa-8121-489b-9af7-a63609c36dab" />
+      <file filePath="Main\UI\Main\WebProxySettingsForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Main\WebProxySettingsForm.de.resx" uniqueID="ed2267ce-0682-4abe-9c89-938b5458531a" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="83" ignoreDuringExportAndImport="False" uniqueID="736a60a7-52c7-4cce-b98f-5f27edbe2af2">
-      <file filePath="Main\UI\ProjectFolders\ProjectFolderEditForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ProjectFolders\ProjectFolderEditForm.resx" uniqueID="ad8ba2df-1631-4227-b2b9-5e0b189da8f9" />
-      <file filePath="Main\UI\ProjectFolders\ProjectFolderEditForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\ProjectFolders\ProjectFolderEditForm.de.resx" uniqueID="9f19448d-85fd-4228-8d3d-a09c4a07abd6" />
+      <file filePath="Main\UI\ProjectFolders\ProjectFolderEditForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ProjectFolders\ProjectFolderEditForm.resx" uniqueID="ad8ba2df-1631-4227-b2b9-5e0b189da8f9" />
+      <file filePath="Main\UI\ProjectFolders\ProjectFolderEditForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\ProjectFolders\ProjectFolderEditForm.de.resx" uniqueID="9f19448d-85fd-4228-8d3d-a09c4a07abd6" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="84" ignoreDuringExportAndImport="False" uniqueID="ebd32502-8e3f-4f71-9f34-97c1449c27fa">
-      <file filePath="Main\UI\Projects\CreateNewProjectForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Projects\CreateNewProjectForm.resx" uniqueID="ba4cf64f-42d5-47d9-9560-2bdb106c4027" />
-      <file filePath="Main\UI\Projects\CreateNewProjectForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Projects\CreateNewProjectForm.de.resx" uniqueID="17efa5fa-67bc-47b0-b61b-1743e89fe623" />
+      <file filePath="Main\UI\Projects\CreateNewProjectForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Projects\CreateNewProjectForm.resx" uniqueID="ba4cf64f-42d5-47d9-9560-2bdb106c4027" />
+      <file filePath="Main\UI\Projects\CreateNewProjectForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Projects\CreateNewProjectForm.de.resx" uniqueID="17efa5fa-67bc-47b0-b61b-1743e89fe623" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="85" ignoreDuringExportAndImport="False" uniqueID="bc1d2757-8162-478c-9054-1f74164beb2b">
-      <file filePath="Main\UI\Projects\ProjectSettingsForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Projects\ProjectSettingsForm.resx" uniqueID="35566c24-0a99-4de1-8ad0-b49332a19f61" />
-      <file filePath="Main\UI\Projects\ProjectSettingsForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Projects\ProjectSettingsForm.de.resx" uniqueID="2896e7f0-1fb0-43f2-bc5b-6f9ecf959e2d" />
+      <file filePath="Main\UI\Projects\ProjectSettingsForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Projects\ProjectSettingsForm.resx" uniqueID="35566c24-0a99-4de1-8ad0-b49332a19f61" />
+      <file filePath="Main\UI\Projects\ProjectSettingsForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Projects\ProjectSettingsForm.de.resx" uniqueID="2896e7f0-1fb0-43f2-bc5b-6f9ecf959e2d" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="86" ignoreDuringExportAndImport="False" uniqueID="6509e886-b770-4680-a12a-bb86e0580ff7">
-      <file filePath="Main\UI\TagOperations\AddTagForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\TagOperations\AddTagForm.resx" uniqueID="9e2c6b25-1eea-48a0-b30d-6fcdd6cb17e1" />
-      <file filePath="Main\UI\TagOperations\AddTagForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\TagOperations\AddTagForm.de.resx" uniqueID="5c138fb1-7912-43cc-bcde-cabbfc860695" />
+      <file filePath="Main\UI\TagOperations\AddTagForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\TagOperations\AddTagForm.resx" uniqueID="9e2c6b25-1eea-48a0-b30d-6fcdd6cb17e1" />
+      <file filePath="Main\UI\TagOperations\AddTagForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\TagOperations\AddTagForm.de.resx" uniqueID="5c138fb1-7912-43cc-bcde-cabbfc860695" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="87" ignoreDuringExportAndImport="False" uniqueID="ea30925a-3e83-41b8-8be4-199603622101">
-      <file filePath="Main\UI\TagOperations\RenameTagForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\TagOperations\RenameTagForm.resx" uniqueID="55649b1e-ce67-4073-aba4-6513db562ef2" />
-      <file filePath="Main\UI\TagOperations\RenameTagForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\TagOperations\RenameTagForm.de.resx" uniqueID="9f714b2b-34d0-45bc-9ac8-e047899973d1" />
+      <file filePath="Main\UI\TagOperations\RenameTagForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\TagOperations\RenameTagForm.resx" uniqueID="55649b1e-ce67-4073-aba4-6513db562ef2" />
+      <file filePath="Main\UI\TagOperations\RenameTagForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\TagOperations\RenameTagForm.de.resx" uniqueID="9f714b2b-34d0-45bc-9ac8-e047899973d1" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="88" ignoreDuringExportAndImport="False" uniqueID="2abbb593-0534-4357-84b7-3793bbfc38f6">
-      <file filePath="Main\UI\Tools\AboutForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Tools\AboutForm.resx" uniqueID="d6ae2742-b873-4b32-b795-2675da2eb1a6" />
-      <file filePath="Main\UI\Tools\AboutForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Tools\AboutForm.de.resx" uniqueID="de0d6988-5c7e-48c5-8ef2-207944c3987f" />
+      <file filePath="Main\UI\Tools\AboutForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Tools\AboutForm.resx" uniqueID="d6ae2742-b873-4b32-b795-2675da2eb1a6" />
+      <file filePath="Main\UI\Tools\AboutForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Tools\AboutForm.de.resx" uniqueID="de0d6988-5c7e-48c5-8ef2-207944c3987f" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="89" ignoreDuringExportAndImport="False" uniqueID="123f86db-6d42-4df6-8eb9-b7c45c81f270">
-      <file filePath="Main\UI\Tools\FindForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Tools\FindForm.resx" uniqueID="611a9984-081b-4aa5-9236-396bb51fd683" />
-      <file filePath="Main\UI\Tools\FindForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Tools\FindForm.de.resx" uniqueID="359261ab-e2f0-4a08-a43d-9540bd565486" />
+      <file filePath="Main\UI\Tools\FindForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Tools\FindForm.resx" uniqueID="611a9984-081b-4aa5-9236-396bb51fd683" />
+      <file filePath="Main\UI\Tools\FindForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Tools\FindForm.de.resx" uniqueID="359261ab-e2f0-4a08-a43d-9540bd565486" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="90" ignoreDuringExportAndImport="False" uniqueID="cd9c6779-953e-4847-8615-5012aa96d2e4">
-      <file filePath="Main\UI\Tools\ImportExportWizard.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Tools\ImportExportWizard.resx" uniqueID="6fb1844e-c06a-4a63-970c-517ab9a6c016" />
-      <file filePath="Main\UI\Tools\ImportExportWizard.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Tools\ImportExportWizard.de.resx" uniqueID="711bb810-b271-458c-9404-14bf0ae9f7eb" />
+      <file filePath="Main\UI\Tools\ImportExportWizard.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Tools\ImportExportWizard.resx" uniqueID="6fb1844e-c06a-4a63-970c-517ab9a6c016" />
+      <file filePath="Main\UI\Tools\ImportExportWizard.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Tools\ImportExportWizard.de.resx" uniqueID="711bb810-b271-458c-9404-14bf0ae9f7eb" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="91" ignoreDuringExportAndImport="False" uniqueID="04418c98-64e0-473d-8f36-56269a4c5726">
-      <file filePath="Main\UI\Tools\ReplaceForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Tools\ReplaceForm.resx" uniqueID="40a87790-9796-4ce5-9719-74c98847a683" />
-      <file filePath="Main\UI\Tools\ReplaceForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Tools\ReplaceForm.de.resx" uniqueID="7babe9e1-cc09-4192-bb71-eecddba8e4da" />
+      <file filePath="Main\UI\Tools\ReplaceForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Tools\ReplaceForm.resx" uniqueID="40a87790-9796-4ce5-9719-74c98847a683" />
+      <file filePath="Main\UI\Tools\ReplaceForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Tools\ReplaceForm.de.resx" uniqueID="7babe9e1-cc09-4192-bb71-eecddba8e4da" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="92" ignoreDuringExportAndImport="False" uniqueID="e658fce3-69b5-496f-a9e0-ee003f1b8a5f">
-      <file filePath="Main\UI\Translation\AutoTranslateForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Translation\AutoTranslateForm.resx" uniqueID="bc604b3c-d00c-4539-b3a6-3bb4430e7bb4" />
-      <file filePath="Main\UI\Translation\AutoTranslateForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Translation\AutoTranslateForm.de.resx" uniqueID="51ba10db-5e4b-4e0b-8454-9b9d65e7407f" />
+      <file filePath="Main\UI\Translation\AutoTranslateForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Translation\AutoTranslateForm.resx" uniqueID="bc604b3c-d00c-4539-b3a6-3bb4430e7bb4" />
+      <file filePath="Main\UI\Translation\AutoTranslateForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Translation\AutoTranslateForm.de.resx" uniqueID="51ba10db-5e4b-4e0b-8454-9b9d65e7407f" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="93" ignoreDuringExportAndImport="False" uniqueID="93c41502-e30f-4658-b284-2988dd952a6b">
-      <file filePath="Main\UI\Translation\QuickTranslationForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Translation\QuickTranslationForm.resx" uniqueID="b9ad5a2c-9c69-47d3-93b3-4ad0e5df6e48" />
-      <file filePath="Main\UI\Translation\QuickTranslationForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Translation\QuickTranslationForm.de.resx" uniqueID="73fd39f1-f2b2-454e-9bd8-395799138d7f" />
+      <file filePath="Main\UI\Translation\QuickTranslationForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Translation\QuickTranslationForm.resx" uniqueID="b9ad5a2c-9c69-47d3-93b3-4ad0e5df6e48" />
+      <file filePath="Main\UI\Translation\QuickTranslationForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Translation\QuickTranslationForm.de.resx" uniqueID="73fd39f1-f2b2-454e-9bd8-395799138d7f" />
       <remarks>
       </remarks>
     </fileGroup>
     <fileGroup name="" projectFolderUniqueID="b1587bd5-2e13-4479-92d6-a0ab10b01820" orderPosition="94" ignoreDuringExportAndImport="False" uniqueID="cbcd1ae2-dc8d-4e8d-871c-b75db81dc336">
-      <file filePath="Main\UI\Translation\TranslateOptionsForm.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Translation\TranslateOptionsForm.resx" uniqueID="1265cf6a-7073-46d7-9cfb-cb4b745548cd" />
-      <file filePath="Main\UI\Translation\TranslateOptionsForm.de.resx" absoluteFilePath="C:\P\Zeta Resource Editor\Source\Main\UI\Translation\TranslateOptionsForm.de.resx" uniqueID="08e12003-dfb4-4ad9-8759-8f88023822e7" />
+      <file filePath="Main\UI\Translation\TranslateOptionsForm.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Translation\TranslateOptionsForm.resx" uniqueID="1265cf6a-7073-46d7-9cfb-cb4b745548cd" />
+      <file filePath="Main\UI\Translation\TranslateOptionsForm.de.resx" absoluteFilePath="C:\P\ZetaResourceEditor\Source\Main\UI\Translation\TranslateOptionsForm.de.resx" uniqueID="08e12003-dfb4-4ad9-8759-8f88023822e7" />
       <remarks>
       </remarks>
     </fileGroup>

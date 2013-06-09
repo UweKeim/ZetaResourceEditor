@@ -6,7 +6,6 @@ namespace ZetaResourceEditor.Code
 	using System.Threading;
 	using System.Windows.Forms;
 	using DevExpress.XtraEditors;
-	using Runtime.Excel;
 	using RuntimeBusinessLogic.Projects;
 	using UI.Helper.ErrorHandling;
 	using Properties;
@@ -95,8 +94,6 @@ namespace ZetaResourceEditor.Code
 				Application.ThreadException +=
 					applicationThreadException;
 
-				AsposeLicenseHelper.SetLicenses();
-
 				test();
 
 				initializeLanguage();
@@ -163,9 +160,10 @@ namespace ZetaResourceEditor.Code
 		{
 			bool handleException;
 
-			if ( e is MessageBoxException )
+		    var exception = e as MessageBoxException;
+		    if ( exception != null )
 			{
-				var mbx = (MessageBoxException)e;
+				var mbx = exception;
 
 				XtraMessageBox.Show(
 					mbx.Parent,

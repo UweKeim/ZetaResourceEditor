@@ -25,14 +25,13 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.Cells">
-      <HintPath>..\References\Direct\Aspose\Aspose.Cells.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraSpellChecker.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.SpellChecker.v11.1.Core, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="ExcelLibrary">
+      <HintPath>..\References\Direct\ExcelLibrary\ExcelLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.5.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Direct\NewtonsoftJson\net20\Newtonsoft.Json.dll</HintPath>
@@ -43,7 +42,6 @@
       <HintPath>..\References\Direct\Sqlite\net20\System.Data.SQLite.DLL</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
@@ -58,9 +56,6 @@
     <Reference Include="Zeta.EnterpriseLibrary.Tools">
       <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Tools.dll</HintPath>
     </Reference>
-    <Reference Include="Zeta.EnterpriseLibrary.Windows">
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="ZetaLongPaths">
       <HintPath>..\References\Externals\ZetaEnterpriseLibrary\ZetaLongPaths.dll</HintPath>
     </Reference>
@@ -72,14 +67,14 @@
     <Compile Include="BL\DataProcessing.cs" />
     <Compile Include="BL\ResxFile.cs" />
     <Compile Include="DL\GridSourceType.cs" />
+    <Compile Include="ExportImportExcel\CoreExcel\CoreExcelExporter.cs" />
+    <Compile Include="ExportImportExcel\CoreExcel\CoreExcelImporter.cs" />
     <Compile Include="ExportImportExcel\Export\ExcelExportController.cs" />
     <Compile Include="ExportImportExcel\Export\ExcelExportInformation.cs" />
     <Compile Include="ExportImportExcel\Import\ExcelImportController.cs" />
     <Compile Include="ExportImportExcel\Import\ExcelImportInformation.cs" />
     <Compile Include="ExportImportExcel\Import\ExcelImportResult.cs" />
     <Compile Include="ExportImportExcel\ExcelProgressInformation.cs" />
-    <Compile Include="ExportImportExcel\Import\ImportExportHelper.cs" />
-    <Compile Include="ExportImportExcel\Export\ImportExportType.cs" />
     <Compile Include="ExportImportExcel\SafeExcelColors.cs" />
     <Compile Include="Language\CultureHelper.cs" />
     <Compile Include="Language\LanguageCodeDetection.cs" />

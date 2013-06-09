@@ -515,7 +515,7 @@ Built {BuildDate}</value>
     <value>Info</value>
   </data>
   <data name="labelControl5.Text" xml:space="preserve">
-    <value>© 2006-2012</value>
+    <value>© 2006-2013</value>
   </data>
   <data name="buttonClose.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
