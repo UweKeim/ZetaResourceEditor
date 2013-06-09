@@ -121,7 +121,8 @@ So please keep the feedback coming :-)!
 
 ## History
 
-  * **2013-06-07** - First release to Github. The project is also available at [The Code Project](http://www.codeproject.com/KB/aspnet/ZetaResourceEditor.aspx), at [CodePlex](https://zetaresourceeditor.codeplex.com) and at [Google Code](https://code.google.com/p/zetaresourceeditor/). Please note that valid purchased licenses of Aspose.Cells and DevExpress are required to build the tool.
+  * **2013-06-09** - Changed Excel reading/writing functions to use [free Excel library](https://code.google.com/p/excellibrary/).
+  * **2013-06-07** - First release to Github. The project is also available at [The Code Project](http://www.codeproject.com/KB/aspnet/ZetaResourceEditor.aspx), at [CodePlex](https://zetaresourceeditor.codeplex.com) and at [Google Code](https://code.google.com/p/zetaresourceeditor/). Please note that a valid purchased license of DevExpress is required to build the tool.
   * **2012-02-22** - Updated the [binary setup](http://zeta.li/zre-download-setup) and the source download. Small fix to allow translation even when no project is loaded.
   * **2011-10-10** - Updated the [binary setup](http://zeta.li/zre-download-setup) and the source download. Fixed an issue when automatically adding resource files from a Visual Studio .NET Solution.
   * **2011-08-02** - There is now a support forum for [Zeta Resource Editor](http://groups.google.com/group/zeta-resource-editor).
