@@ -106,7 +106,7 @@ Some tools and resources I found to be rather good are:
 
 Beside small test applications, we did not use the tool extensively.
 
-We developed this tool for the upcoming releases of our applications [Zeta Producer CMS](http://www.zeta-producer.com/) version 11 (a windows-based Content Management System), [Zeta Uploader](http://www.zeta-uploader.com/) (a tool for sending large files by e-mail) and our [Test Management tool](http://www.zeta-test.com).
+We developed this tool for the upcoming releases of our applications [Zeta Producer CMS](http://www.zeta-producer.com/de/cms.html) version 11 (a windows-based Content Management System), [Zeta Uploader](http://www.zeta-uploader.com/) (a tool for sending large files by e-mail) and our [Test Management tool](http://www.zeta-test.com).
 
 Although I think it is ready-to-use, the main reason why I already released it was to give other developers the chance to use it and to provide a lot of feedback to me for improving the application.
 
