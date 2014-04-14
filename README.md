@@ -12,7 +12,7 @@ _(The project is also available at [The Code Project](http://www.codeproject.com
 
 ## Introduction
 
-This is a small utility application that enables you to edit *string* resources from multiple different resource files together inside one single data grid.
+This is a small utility application that enables you to edit *string* resources from multiple different resource files together inside one single data grid. It was originally developed to act as the translation tool for a [CMS](http://www.zeta-producer.com) and a [Test Management tool](http://www.zeta-test.com).
 
 ## Background
 
