@@ -478,7 +478,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                     if (preparedInformation.ExportFileGroupColumn)
                     {
                         // Checksum.
-                        dataTable.Columns.Add(Resources.SR_CommandProcessorSend_Process_Group, typeof(int));
+                        // 2014-06-25 Krickbaum - Corrected type to double
+                        dataTable.Columns.Add(Resources.SR_CommandProcessorSend_Process_Group, typeof(double));
                     }
                     if (preparedInformation.ExportNameColumn)
                     {
