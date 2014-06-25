@@ -599,8 +599,8 @@
         {
             int totalChecksumRows;
             var ps = extractColumnCheckSums(table, out totalChecksumRows);
-
-            if (ps.Count <= 0 || totalChecksumRows != table.Rows.Count - 1)
+            // The following was set to compare totalChecksumRows to count -1 but the header row is already removed in the ExcelLibrary.DatasetHelper.CreateDataSet (using PopulateDataTable(ws) method)
+            if (ps.Count <= 0 || totalChecksumRows != table.Rows.Count)
             {
                 return -1;
             }
