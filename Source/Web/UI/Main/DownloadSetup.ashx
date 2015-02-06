@@ -63,21 +63,28 @@ public class DownloadSetup :
 		}
 		catch (HttpException x)
 		{
-			LogCentral.Current.LogError(
-				string.Format(
-					@"HTTP exception during downloading file '{0}'.",
-					context.Request.QueryString),
-				x);
+            if (x.ErrorCode == 0x800703E3 ||
+                x.Message.IndexOf(@"0x800703E3", StringComparison.InvariantCultureIgnoreCase) >= 0 ||
+                x.ErrorCode == 0x80070016 ||
+                x.Message.IndexOf(@"0x80070016", StringComparison.InvariantCultureIgnoreCase) >= 0 ||
+                x.Message.IndexOf(@"The remote host closed the connection", StringComparison.InvariantCultureIgnoreCase) >=
+                0)
+            {
+                // "The remote host closed the connection. The error code is 0x800703E3."
 
-			if ((uint)x.ErrorCode == 0x800704CD)
-			{
-				// Ignore disconnected clients.
-			}
-			else
-			{
-				throw;
-			}
-		}
+                // Ignore.
+            }
+            else
+            {
+                LogCentral.Current.LogError(
+                    string.Format(
+                        @"HttpException during downloading file '{0}'.",
+                        context.Request.QueryString),
+                    x);
+
+                throw;
+            }
+        }
 		catch (Exception x)
 		{
 			LogCentral.Current.LogError(
