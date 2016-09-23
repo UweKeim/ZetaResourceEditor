@@ -1,15 +1,15 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Projects
 {
+    using FileGroups;
+    using FileInformations;
+    using Language;
+    using ProjectFolders;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Xml;
-    using FileGroups;
-    using FileInformations;
-    using Language;
-    using ProjectFolders;
     using ZetaLongPaths;
 
     /// <summary>
@@ -100,10 +100,10 @@
         }
 
         // ADDED: adds resources from file Info lists.
-        // I have changed a method doAutomaticallyAddResourceFiles to fill file groups. 
-        // You can use same method if you call this method from there. 
-        // ATTENTION: LanguageCodeDetection was modified a bit to support variable amount 
-        // of point in base name. New method GetBaseName(IInheritedSettings settings, string fileName) 
+        // I have changed a method doAutomaticallyAddResourceFiles to fill file groups.
+        // You can use same method if you call this method from there.
+        // ATTENTION: LanguageCodeDetection was modified a bit to support variable amount
+        // of point in base name. New method GetBaseName(IInheritedSettings settings, string fileName)
         // was added to get same base name FileGroup gets.
         public void DoAutomaticallyAddResourceFilesFromList(
             BackgroundWorker backgroundWorker,
@@ -185,27 +185,21 @@
             }
             else
             {
-                if (string.Compare(@"Properties", filePath.Directory.Name, StringComparison.OrdinalIgnoreCase) == 0)
+                if (filePath.Directory.Name.EqualsNoCase(@"Properties"))
                 {
                     return true;
                 }
                 else
                 {
-                    // If a "*.Designer.*" companion file exists, assume it 
+                    // If a "*.Designer.*" companion file exists, assume it
                     // is a Windows Forms resource file and do NOT add the file
                     // since it can be translated directly from within VS.NET.
 
                     if (Project.IgnoreWindowsFormsResourcesWithDesignerFiles)
                     {
-                        var baseFileName =
-                            LanguageCodeDetection.GetBaseName(
-                                Project,
-                                filePath.Name);
-                        //filePath.Name.Substring(0, filePath.Name.IndexOf('.'));
+                        var baseFileName = LanguageCodeDetection.GetBaseName(Project, filePath.Name);
 
-                        var files =
-                            filePath.Directory.GetFiles(
-                                $@"{baseFileName}.Designer.*");
+                        var files = filePath.Directory.GetFiles($@"{baseFileName}.Designer.*");
 
                         return files.Length <= 0;
                     }
@@ -264,8 +258,8 @@
                     }
                     var projectType = g.Value;
 
-                    //compare with known project types. 
-                    // Currently only CS Projects are supported. 
+                    //compare with known project types.
+                    // Currently only CS Projects are supported.
                     // But other types like VB can be simply added.
                     if (!Array.Exists(supportedProjectTypes, a => a == projectType))
                     {
@@ -279,7 +273,7 @@
                     //add all files from project
                     //we can add each using separate sub folder
                     var projectName = m.Groups[@"projectName"].Value;
-                    //look in subfolders only 
+                    //look in subfolders only
                     var subFolders = Project.ProjectFolders;
                     if (parentProjectFolder != null)
                     {
