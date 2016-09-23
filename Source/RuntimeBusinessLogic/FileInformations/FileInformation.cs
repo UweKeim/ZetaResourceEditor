@@ -6,7 +6,7 @@
 	using DL;
 	using FileGroups;
 	using Projects;
-	using Zeta.EnterpriseLibrary.Common;
+	using Zeta.VoyagerLibrary.Common;
 	using ZetaLongPaths;
 
 	[DebuggerDisplay(@"File = {_file.Name}")]

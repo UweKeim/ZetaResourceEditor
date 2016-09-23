@@ -11,15 +11,16 @@ namespace ZetaResourceEditor.UI.Helper.Base
 	using DevExpress.XtraEditors;
 	using DevExpress.XtraSpellChecker;
 	using DevExpress.XtraTab;
+	using ExtendedControlsLibrary.General.Base;
 	using Main;
 	using RuntimeBusinessLogic.Language;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	public partial class FormBase :
-		XtraForm
-	{
+        DevExpressXtraFormBase
+    {
 		public FormBase()
 		{
 			InitializeComponent();
@@ -34,14 +35,11 @@ namespace ZetaResourceEditor.UI.Helper.Base
 			}
 		}
 
-		protected virtual bool WantSetGlobalIcon
-		{
-			get { return true; }
-		}
+		protected virtual bool WantSetGlobalIcon => true;
 
-		protected override void OnLoad(EventArgs e)
+	    protected override void OnLoad(EventArgs e)
 		{
-			if (!DesignMode || !Zeta.EnterpriseLibrary.Windows.Base.UserControlBase.IsDesignMode(this))
+			if (!DesignMode || !Zeta.VoyagerLibrary.WinForms.Base.UserControlBase.IsDesignMode(this))
 			{
 				if (MainForm.Current != null && WantSetGlobalIcon)
 				{
@@ -93,18 +91,6 @@ namespace ZetaResourceEditor.UI.Helper.Base
 			return sb.ToString();
 		}
 
-		public virtual void InitiallyFillLists()
-		{
-		}
-
-		public virtual void FillItemToControls()
-		{
-		}
-
-		public virtual void FillControlsToItem()
-		{
-		}
-
 		public virtual void UpdateUI()
 		{
 		}
@@ -148,24 +134,6 @@ namespace ZetaResourceEditor.UI.Helper.Base
 			return bounds != Bounds || state != WindowState;
 		}
 
-		public static string BuildKey(
-			Control c )
-		{
-			var result = string.Empty;
-
-			while ( c != null )
-			{
-				if ( !string.IsNullOrEmpty( result ) )
-				{
-					result = @"." + result;
-				}
-
-				result = c.Name + result;
-			}
-
-			return result;
-		}
-
 		public static void SaveState(
 			XtraTabControl tabControl )
 		{
@@ -186,17 +154,17 @@ namespace ZetaResourceEditor.UI.Helper.Base
 			}
 		}
 
-		public static void SaveState(
-			SplitContainerControl splitContainer )
-		{
-			saveState( PersistanceHelper.Storage, splitContainer );
-		}
+		//public static void SaveState(
+		//	SplitContainerControl splitContainer )
+		//{
+		//	saveState( PersistanceHelper.Storage, splitContainer );
+		//}
 
-		public static void RestoreState(
-			SplitContainerControl splitContainer )
-		{
-			restoreState( PersistanceHelper.Storage, splitContainer );
-		}
+		//public static void RestoreState(
+		//	SplitContainerControl splitContainer )
+		//{
+		//	restoreState( PersistanceHelper.Storage, splitContainer );
+		//}
 
 		private static void restoreState(
 			IPersistentPairStorage storage,

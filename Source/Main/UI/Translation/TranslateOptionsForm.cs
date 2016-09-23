@@ -9,8 +9,8 @@ namespace ZetaResourceEditor.UI.Translation
 	using Helper.Base;
 	using RuntimeBusinessLogic.Projects;
 	using RuntimeBusinessLogic.Translation;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	public partial class TranslateOptionsForm :
 		FormBase
@@ -51,7 +51,7 @@ namespace ZetaResourceEditor.UI.Translation
 			}
 		}
 
-		public override void InitiallyFillLists()
+		protected override void InitiallyFillLists()
 		{
 			base.InitiallyFillLists();
 
@@ -62,7 +62,7 @@ namespace ZetaResourceEditor.UI.Translation
 			}
 		}
 
-		public override void FillItemToControls()
+	    protected override void FillItemToControls()
 		{
 			base.FillItemToControls();
 
@@ -108,7 +108,7 @@ namespace ZetaResourceEditor.UI.Translation
 			}
 		}
 
-		public override void FillControlsToItem()
+	    protected override void FillControlsToItem()
 		{
 			base.FillControlsToItem();
 

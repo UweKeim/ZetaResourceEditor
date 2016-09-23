@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZetaResourceEditorWebsite.RuntimeWeb</RootNamespace>
     <AssemblyName>ZetaResourceEditorWebsite.RuntimeWeb</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -20,11 +20,12 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Intelligencia.UrlRewriter, Version=2.0.0.6, Culture=neutral, PublicKeyToken=0573f3650687980d, processorArchitecture=MSIL">
@@ -39,21 +40,25 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Zeta.EnterpriseLibrary.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf, processorArchitecture=MSIL">
+    <Reference Include="Zeta.VoyagerLibrary.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Common.dll</HintPath>
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Zeta.EnterpriseLibrary.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2b1a401181836fde, processorArchitecture=MSIL">
+    <Reference Include="Zeta.VoyagerLibrary.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2b1a401181836fde, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Data.dll</HintPath>
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Zeta.EnterpriseLibrary.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ec9fabac075fa4cc, processorArchitecture=MSIL">
+    <Reference Include="Zeta.VoyagerLibrary.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ec9fabac075fa4cc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Logging.dll</HintPath>
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Zeta.EnterpriseLibrary.Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=76bfe3d175ed36e1, processorArchitecture=MSIL">
+    <Reference Include="Zeta.VoyagerLibrary.Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=76bfe3d175ed36e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Tools.dll</HintPath>
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="ZetaLongPaths, Version=1.0.0.4, Culture=neutral, PublicKeyToken=b764f59068f31f38, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\ZetaLongPaths.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

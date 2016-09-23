@@ -23,12 +23,12 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
     using RuntimeBusinessLogic.FileGroups;
     using RuntimeBusinessLogic.Language;
     using RuntimeBusinessLogic.Projects;
-    using Zeta.EnterpriseLibrary.Common;
-    using Zeta.EnterpriseLibrary.Common.Collections;
-    using Zeta.EnterpriseLibrary.Logging;
-    using Zeta.EnterpriseLibrary.Tools.Miscellaneous;
-    using Zeta.EnterpriseLibrary.Tools.Storage;
-    using Zeta.EnterpriseLibrary.Windows.Persistance;
+    using Zeta.VoyagerLibrary.Common;
+    using Zeta.VoyagerLibrary.Common.Collections;
+    using Zeta.VoyagerLibrary.Logging;
+    using Zeta.VoyagerLibrary.Tools.Miscellaneous;
+    using Zeta.VoyagerLibrary.Tools.Storage;
+    using Zeta.VoyagerLibrary.WinForms.Persistance;
     using ZetaLongPaths;
 
     // ----------------------------------------------------------------------
@@ -44,7 +44,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
         private Exception _exception;
 
         private static readonly bool HasExcel =
-            FileExtensionRegistration.IsFileExtensionRegistered(@".xls");
+            FileExtensionRegistration.IsFileExtensionRegistered(@".xlsx");
 
         private ExcelImportResult _bwResult;
 
@@ -80,7 +80,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
                 wizardControl.SelectedPage.AllowNext =
                     buttonOpen.Enabled =
                     sourceFileTextEdit.Text.Trim().Length > 0 &&
-                    Path.GetExtension(sourceFileTextEdit.Text.Trim().ToLowerInvariant()) == @".xls" &&
+                    Path.GetExtension(sourceFileTextEdit.Text.Trim().ToLowerInvariant()) == @".xlsx" &&
                     ZlpIOHelper.FileExists(sourceFileTextEdit.Text.Trim());
 
                 buttonOpen.Enabled = buttonOpen.Enabled && HasExcel;
@@ -132,7 +132,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             object sender,
             EventArgs e)
         {
-            WinFormsPersistanceHelper.RestoreState(this);
+            //WinFormsPersistanceHelper.RestoreState(this);
             CenterToParent();
 
             InitiallyFillLists();
@@ -160,7 +160,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             saveState(_project.DynamicSettingsGlobalHierarchical);
         }
 
-        public override void FillItemToControls()
+        protected override void FillItemToControls()
         {
             base.FillItemToControls();
 
@@ -271,9 +271,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 
             foreach (CheckedListBoxItem item in fileGroupsListBox.CheckedItems)
             {
-                var p = (Pair<string, FileGroup>)item.Value;
+                var p = (MyTuple<string, FileGroup>)item.Value;
 
-                groups.Add(p.Second);
+                groups.Add(p.Item2);
             }
 
             ei.FileGroups = groups.ToArray();
@@ -282,9 +282,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 
             foreach (CheckedListBoxItem item in languagesToImportCheckListBox.CheckedItems)
             {
-                var p = (Pair<string, string>)item.Value;
+                var p = (MyTuple<string, string>)item.Value;
 
-                languages.Add(p.Second);
+                languages.Add(p.Item2);
             }
 
             ei.LanguageCodes = languages.ToArray();
@@ -379,7 +379,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
                     if (isMatchingFileGroup(group))
                     {
                         var index = fileGroupsListBox.Items.Add(
-                            new Pair<string, FileGroup>(
+                            new MyTuple<string, FileGroup>(
                                 group.GetNameIntelligent(_project),
                                 group));
 
@@ -432,7 +432,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
                         LanguageCodeDetection.IsValidCultureName(languageCode))
                     {
                         var index = languagesToImportCheckListBox.Items.Add(
-                            new Pair<string, string>(
+                            new MyTuple<string, string>(
                                 string.Format(
                                     @"{0} ({1})",
                                     LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName,
@@ -514,15 +514,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
         {
             UpdateUI();
-        }
-
-        private void underylingExceptionButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            using (var form = new ObjectInspectorForm())
-            {
-                form.Initialize(_exception);
-                form.ShowDialog(this);
-            }
         }
 
         private void detailedErrorsButton_ItemClick(object sender, ItemClickEventArgs e)

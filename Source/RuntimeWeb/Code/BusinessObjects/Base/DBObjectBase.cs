@@ -5,8 +5,8 @@
 	using System.Diagnostics;
 	using System.Text.RegularExpressions;
 	using Sys;
-	using Zeta.EnterpriseLibrary.Data;
-	using Zeta.EnterpriseLibrary.Tools;
+	using Zeta.VoyagerLibrary.Data;
+	using Zeta.VoyagerLibrary.Tools;
 
 	[DebuggerDisplay(@"ID = {_id}, Type = ""{GetType()}""")]
 	public abstract class DBObjectBase

@@ -8,6 +8,7 @@
 	using System.Diagnostics;
 	using System.Globalization;
 	using System.IO;
+	using System.Linq;
 	using System.Text;
 	using System.Xml;
 	using DL;
@@ -17,9 +18,9 @@
 	using Language;
 	using ProjectFolders;
 	using VirtualViews;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.Collections;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Common.Collections;
+	using Zeta.VoyagerLibrary.Tools.Storage;
 	using ZetaLongPaths;
 
 	// ----------------------------------------------------------------------
@@ -552,7 +553,7 @@
 				}
 				else
 				{
-					var result = new Set<string>();
+					var result = new HashSet<string>();
 
 					foreach (var s in types.Split(
 						new[] { @",", @";" },
@@ -575,29 +576,19 @@
 			}
 		}
 
-		public string DefaultFileTypesToIgnore
-		{
-			get
-			{
-				var result = ConvertHelper.ToString(
-					DynamicSettingsGlobal.RetrieveValue(@"DefaultFileTypesToIgnore"));
+	    public string DefaultFileTypesToIgnore
+	    {
+	        get
+	        {
+	            var result = ConvertHelper.ToString(
+	                DynamicSettingsGlobal.RetrieveValue(@"DefaultFileTypesToIgnore"));
 
-				if (result == null)
-				{
-					return @".aspx;.ascx;.asmx;.master;.sitemap";
-				}
-				else
-				{
-					return result;
-				}
-			}
-			set
-			{
-				DynamicSettingsGlobal.PersistValue(@"DefaultFileTypesToIgnore", value);
-			}
-		}
+	            return result ?? @".aspx;.ascx;.asmx;.master;.sitemap";
+	        }
+	        set { DynamicSettingsGlobal.PersistValue(@"DefaultFileTypesToIgnore", value); }
+	    }
 
-		public bool IgnoreWindowsFormsResourcesWithDesignerFiles
+	    public bool IgnoreWindowsFormsResourcesWithDesignerFiles
 		{
 			get
 			{
@@ -1351,7 +1342,7 @@
 
 		string[] IGridEditableData.GetLanguageCodes(Project project)
 		{
-			var result = new Set<string>();
+			var result = new HashSet<string>();
 
 			foreach (var filePath in ((IGridEditableData)this).FilePaths)
 			{

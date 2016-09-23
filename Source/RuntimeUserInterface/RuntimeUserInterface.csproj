@@ -10,26 +10,27 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZetaResourceEditor.RuntimeUserInterface</RootNamespace>
     <AssemblyName>ZetaResourceEditor.RuntimeUserInterface</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Zeta.EnterpriseLibrary.Logging">
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Logging.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.Logging">
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Logging.dll</HintPath>
     </Reference>
     <Reference Include="ZetaLongPaths">
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\ZetaLongPaths.dll</HintPath>
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\ZetaLongPaths.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

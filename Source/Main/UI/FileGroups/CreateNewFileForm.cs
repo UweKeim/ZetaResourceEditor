@@ -15,11 +15,11 @@ namespace ZetaResourceEditor.UI.FileGroups
 	using RuntimeBusinessLogic.Projects;
 	using RuntimeBusinessLogic.Translation;
 	using Translation;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.Collections;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Common;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Common.Collections;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Common;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	public partial class CreateNewFileForm :
 		FormBase
@@ -37,7 +37,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 			_fileGroup = fileGroup;
 		}
 
-		private IEnumerable<Pair<string, string>> languageCodes
+		private IEnumerable<MyTuple<string, string>> languageCodes
 		{
 			get
 			{
@@ -46,30 +46,30 @@ namespace ZetaResourceEditor.UI.FileGroups
 			}
 		}
 
-		public override void InitiallyFillLists()
+		protected override void InitiallyFillLists()
 		{
 			foreach (var languageCode in languageCodes)
 			{
-				if (!string.IsNullOrEmpty(languageCode.First))
+				if (!string.IsNullOrEmpty(languageCode.Item1))
 				{
 					referenceLanguageComboBox.Properties.Items.Add(
-						new Pair<string, Pair<string, string>>(
+						new MyTuple<string, MyTuple<string, string>>(
 							string.Format(
 								@"{0} ({1})",
-								LanguageCodeDetection.MakeValidCulture(languageCode.First).DisplayName,
+								LanguageCodeDetection.MakeValidCulture(languageCode.Item1).DisplayName,
 								languageCode),
 							languageCode));
 				}
 			}
 
-			var items = new List<Pair<string, CultureInfo>>();
+			var items = new List<MyTuple<string, CultureInfo>>();
 
 			foreach (var culture in CultureInfo.GetCultures(CultureTypes.AllCultures))
 			{
-				items.Add(new Pair<string, CultureInfo>(culture.DisplayName, culture));
+				items.Add(new MyTuple<string, CultureInfo>(culture.DisplayName, culture));
 			}
 
-			items.Sort((x, y) => string.CompareOrdinal(x.First, y.First));
+			items.Sort((x, y) => string.CompareOrdinal(x.Item1, y.Item1));
 
 			foreach (var item in items)
 			{
@@ -96,8 +96,8 @@ namespace ZetaResourceEditor.UI.FileGroups
 				referenceLanguageComboBox.SelectedItem != null &&
 				newLanguageComboBox.SelectedItem != null &&
 				string.Compare(
-					((Pair<string, Pair<string, string>>) referenceLanguageComboBox.SelectedItem).Second.First,
-					((Pair<string, CultureInfo>) newLanguageComboBox.SelectedItem).Second.Name,
+					((MyTuple<string, MyTuple<string, string>>) referenceLanguageComboBox.SelectedItem).Item2.Item1,
+					((MyTuple<string, CultureInfo>) newLanguageComboBox.SelectedItem).Item2.Name,
 					StringComparison.OrdinalIgnoreCase) != 0 &&
 				newFileNameTextBox.Text.Trim().Length > 0 &&
 				newFileNameTextBox.Text.Trim().IndexOfAny(Path.GetInvalidFileNameChars()) < 0 &&
@@ -127,7 +127,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 				prefixCheckBox.Checked;
 		}
 
-		public override void FillItemToControls()
+	    protected override void FillItemToControls()
 		{
 			base.FillItemToControls();
 
@@ -198,7 +198,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 			}
 		}
 
-		public override void FillControlsToItem()
+	    protected override void FillControlsToItem()
 		{
 			base.FillControlsToItem();
 
@@ -272,7 +272,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 		private void updateNewFileNameFromLanguage()
 		{
 			var culture =
-				((Pair<string, CultureInfo>)newLanguageComboBox.SelectedItem).Second;
+				((MyTuple<string, CultureInfo>)newLanguageComboBox.SelectedItem).Item2;
 
 			var pattern =
 				new LanguageCodeDetection(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).IsNeutralCulture(
@@ -282,7 +282,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 					: (MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).NonNeutralLanguageFileNamePattern;
 
 			pattern = pattern.Replace(@"[basename]", _fileGroup.BaseName);
-			pattern = pattern.Replace(@"[languagecode]", ((Pair<string, CultureInfo>)newLanguageComboBox.SelectedItem).Second.Name);
+			pattern = pattern.Replace(@"[languagecode]", ((MyTuple<string, CultureInfo>)newLanguageComboBox.SelectedItem).Item2.Name);
 			pattern = pattern.Replace(@"[extension]", _fileGroup.BaseExtension);
 			// AJ CHANGE 
 			pattern = pattern.Replace(@"[optionaldefaulttypes]", _fileGroup.BaseOptionalDefaultType);
@@ -312,10 +312,10 @@ namespace ZetaResourceEditor.UI.FileGroups
 
 				var didCopy =
 					_fileGroup.CreateAndAddNewFile(
-						((Pair<string, Pair<string, string>>) referenceLanguageComboBox.SelectedItem).Second.Second,
+						((MyTuple<string, MyTuple<string, string>>) referenceLanguageComboBox.SelectedItem).Item2.Item2,
 						newFileNameTextBox.Text.Trim(),
-						((Pair<string, Pair<string, string>>) referenceLanguageComboBox.SelectedItem).Second.First,
-						((Pair<string, CultureInfo>) newLanguageComboBox.SelectedItem).Second.Name,
+						((MyTuple<string, MyTuple<string, string>>) referenceLanguageComboBox.SelectedItem).Item2.Item1,
+						((MyTuple<string, CultureInfo>) newLanguageComboBox.SelectedItem).Item2.Name,
 						copyTextsCheckBox.Checked,
 						automaticallyTranslateCheckBox.Checked,
 						prefix);

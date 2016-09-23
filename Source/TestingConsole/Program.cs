@@ -9,7 +9,7 @@
 	using System.Xml;
 	using System.Xml.Serialization;
 	using Newtonsoft.Json;
-	using Zeta.EnterpriseLibrary.Common.Collections;
+	using Zeta.VoyagerLibrary.Common.Collections;
 
 	public class Program
 	{
@@ -50,12 +50,12 @@
 			string clientSecret)
 		{
 			var dic =
-				new List<Pair<string, string>>
+				new List<MyTuple<string, string>>
 					{
-						new Pair<string, string>(@"grant_type", @"client_credentials"),
-						new Pair<string, string>(@"client_id", clientID),
-						new Pair<string, string>(@"client_secret", clientSecret),
-						new Pair<string, string>(@"scope", @"http://api.microsofttranslator.com"),
+						new MyTuple<string, string>(@"grant_type", @"client_credentials"),
+						new MyTuple<string, string>(@"client_id", clientID),
+						new MyTuple<string, string>(@"client_secret", clientSecret),
+						new MyTuple<string, string>(@"scope", @"http://api.microsofttranslator.com"),
 					};
 
 			var xml = makeTranslateRestCallPost(@"https://datamarket.accesscontrol.windows.net/v2/OAuth2-13", dic, null);
@@ -89,8 +89,8 @@
 
 		private static XmlDocument makeTranslateRestCallPost(
 			string url,
-			IEnumerable<Pair<string, string>> parameters,
-			ICollection<Pair<string, string>> headers)
+			IEnumerable<MyTuple<string, string>> parameters,
+			ICollection<MyTuple<string, string>> headers)
 		{
 			var ps = string.Empty;
 
@@ -98,13 +98,13 @@
 			foreach (var pair in parameters)
 			// ReSharper restore LoopCanBeConvertedToQuery
 			{
-				if (!string.IsNullOrEmpty(pair.Value))
+				if (!string.IsNullOrEmpty(pair.Item2))
 				{
 					var p =
 						string.Format(
 							@"{0}={1}&",
-							pair.Name,
-							HttpUtility.UrlEncode(pair.Value));
+							pair.Item1,
+							HttpUtility.UrlEncode(pair.Item2));
 
 					ps += p;
 				}
@@ -130,7 +130,7 @@
 			{
 				foreach (var header in headers)
 				{
-					request.Headers.Add(header.Name, header.Value);
+					request.Headers.Add(header.Item1, header.Item2);
 				}
 			}
 

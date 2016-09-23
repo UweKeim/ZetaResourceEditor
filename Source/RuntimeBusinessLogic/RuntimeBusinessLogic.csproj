@@ -10,27 +10,34 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZetaResourceEditor.RuntimeBusinessLogic</RootNamespace>
     <AssemblyName>ZetaResourceEditor.RuntimeBusinessLogic</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraSpellChecker.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.SpellChecker.v11.1.Core, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="ExcelLibrary">
-      <HintPath>..\References\Direct\ExcelLibrary\ExcelLibrary.dll</HintPath>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.SpellChecker.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EPPlus">
+      <HintPath>..\References\Direct\Epplus\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Utils.Zip">
+      <HintPath>..\References\Direct\Koogra\Ionic.Utils.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Net.SourceForge.Koogra">
+      <HintPath>..\References\Direct\Koogra\Net.SourceForge.Koogra.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.5.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -42,22 +49,26 @@
       <HintPath>..\References\Direct\Sqlite\net20\System.Data.SQLite.DLL</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Zeta.EnterpriseLibrary.Common">
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Common.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.Common">
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Zeta.EnterpriseLibrary.Logging">
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Logging.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.Logging">
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Zeta.EnterpriseLibrary.Tools">
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Tools.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.Tools">
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="ZetaAsync">
+      <HintPath>..\..\Bin-Skinning\ZetaAsync.dll</HintPath>
     </Reference>
     <Reference Include="ZetaLongPaths">
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\ZetaLongPaths.dll</HintPath>
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\ZetaLongPaths.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -67,8 +78,8 @@
     <Compile Include="BL\DataProcessing.cs" />
     <Compile Include="BL\ResxFile.cs" />
     <Compile Include="DL\GridSourceType.cs" />
-    <Compile Include="ExportImportExcel\CoreExcel\CoreExcelExporter.cs" />
-    <Compile Include="ExportImportExcel\CoreExcel\CoreExcelImporter.cs" />
+    <Compile Include="ExportImportExcel\CoreExcel2\CoreExcelExporter.cs" />
+    <Compile Include="ExportImportExcel\CoreExcel2\CoreExcelImporter.cs" />
     <Compile Include="ExportImportExcel\Export\ExcelExportController.cs" />
     <Compile Include="ExportImportExcel\Export\ExcelExportInformation.cs" />
     <Compile Include="ExportImportExcel\Import\ExcelImportController.cs" />
@@ -112,8 +123,6 @@
     <Compile Include="SpecificResourceAccess\NetResourceFileAccessor.cs" />
     <Compile Include="SpecificResourceAccess\QTResourceFileAccessor.cs" />
     <Compile Include="SpecificResourceAccess\ResourceFileHelper.cs" />
-    <Compile Include="Licensing\ZreLicense.cs" />
-    <Compile Include="Licensing\ZreLicenseType.cs" />
     <Compile Include="Translation\BingSoapTranslationEngine.cs" />
     <Compile Include="Translation\BingTranslationHelper.cs" />
     <Compile Include="Translation\GoogleRestfulTranslationEngine.cs" />
@@ -272,9 +281,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.de.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

@@ -18,6 +18,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 	using Helper;
 	using Helper.Base;
 	using Helper.ErrorHandling;
+	using Helper.ExtendedFolderBrowser;
 	using Helper.Progress;
 	using ProjectFolders;
 	using Projects;
@@ -28,12 +29,11 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 	using RuntimeBusinessLogic.FileInformations;
 	using RuntimeBusinessLogic.ProjectFolders;
 	using RuntimeBusinessLogic.Projects;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Logging;
-	using Zeta.EnterpriseLibrary.Tools.Asynchronous;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Common;
-	using Zeta.EnterpriseLibrary.Windows.Dialogs;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Logging;
+	using ZetaAsync;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Common;
 	using ZetaLongPaths;
 
 	// ----------------------------------------------------------------------
@@ -1688,7 +1688,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 		internal bool SaveState(
 			SaveOptions options)
 		{
-			FormBase.SaveState(resourceEditorProjectFilesSplitContainer);
 			new TreeListViewState(treeView).PersistsState(@"projectsTree");
 
 			if (Project == null)
@@ -1697,16 +1696,9 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 			}
 			else
 			{
-				var r = DoSaveFile(options);
+			    var r = DoSaveFile(options);
 
-				if (r == DialogResult.OK)
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+			    return r == DialogResult.OK;
 			}
 		}
 
@@ -1919,13 +1911,8 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
 		private void projectFilesUserControlNew_Load(object sender, EventArgs e)
 		{
-			if (!Zeta.EnterpriseLibrary.Windows.Base.UserControlBase.IsDesignMode(this))
+			if (!Zeta.VoyagerLibrary.WinForms.Base.UserControlBase.IsDesignMode(this))
 			{
-				// Restore but ignore visibility.
-				var vis = resourceEditorProjectFilesSplitContainer.PanelVisibility;
-				FormBase.RestoreState(resourceEditorProjectFilesSplitContainer);
-				resourceEditorProjectFilesSplitContainer.PanelVisibility = vis;
-
 				new TreeListViewState(treeView).RestoreState(@"projectsTree");
 
 				var form = FindForm();
@@ -1948,9 +1935,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 				MainForm.Current.FileGroupStateChanged.Add(
 					(s, args) => updateNodeStateImage(locateNode(args.GridEditableData),
 						AsynchronousMode.Asynchronous));
-
-				newsBrowserControl.WebBrowser.Navigate(
-					Resources.SR_InlineNewsUrl);
 
 				//if (!HostSettings.Current.ShowNewsInMainWindow)
 				//{

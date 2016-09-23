@@ -28,310 +28,456 @@ namespace ZetaResourceEditor.UI.Translation
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TranslateOptionsForm));
-			this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-			this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-			this.engineTabPage = new DevExpress.XtraTab.XtraTabPage();
-			this.appIDLinkControl = new DevExpress.XtraEditors.HyperLinkEdit();
-			this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-			this.appID2Label = new DevExpress.XtraEditors.LabelControl();
-			this.appID2TextEdit = new DevExpress.XtraEditors.TextEdit();
-			this.engineComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
-			this.appIDLabel = new DevExpress.XtraEditors.LabelControl();
-			this.appIDTextEdit = new DevExpress.XtraEditors.TextEdit();
-			this.settingsTabPage = new DevExpress.XtraTab.XtraTabPage();
-			this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-			this.checkEditContinueOnErrors = new DevExpress.XtraEditors.CheckEdit();
-			this.translationDelayTextEdit = new DevExpress.XtraEditors.TextEdit();
-			this.label2 = new DevExpress.XtraEditors.LabelControl();
-			this.wordsToKeepTabPage = new DevExpress.XtraTab.XtraTabPage();
-			this.buttonAddDefaultWordsToKeep = new DevExpress.XtraEditors.SimpleButton();
-			this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-			this.wordsToProtectMemoEdit = new DevExpress.XtraEditors.MemoEdit();
-			this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-			this.wordsToRemoveTabPage = new DevExpress.XtraTab.XtraTabPage();
-			this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-			this.wordsToRemoveMemoEdit = new DevExpress.XtraEditors.MemoEdit();
-			this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-			this.buttonOK = new DevExpress.XtraEditors.SimpleButton();
-			this.buttonCancel = new DevExpress.XtraEditors.SimpleButton();
-			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-			this.panelControl1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
-			this.xtraTabControl1.SuspendLayout();
-			this.engineTabPage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.appIDLinkControl.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.appID2TextEdit.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.engineComboBox.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.appIDTextEdit.Properties)).BeginInit();
-			this.settingsTabPage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.checkEditContinueOnErrors.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.translationDelayTextEdit.Properties)).BeginInit();
-			this.wordsToKeepTabPage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.wordsToProtectMemoEdit.Properties)).BeginInit();
-			this.wordsToRemoveTabPage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.wordsToRemoveMemoEdit.Properties)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// panelControl1
-			// 
-			this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-			this.panelControl1.Controls.Add(this.xtraTabControl1);
-			this.panelControl1.Controls.Add(this.buttonOK);
-			this.panelControl1.Controls.Add(this.buttonCancel);
-			resources.ApplyResources(this.panelControl1, "panelControl1");
-			this.panelControl1.Name = "panelControl1";
-			// 
-			// xtraTabControl1
-			// 
-			resources.ApplyResources(this.xtraTabControl1, "xtraTabControl1");
-			this.xtraTabControl1.Name = "xtraTabControl1";
-			this.xtraTabControl1.SelectedTabPage = this.engineTabPage;
-			this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
+            this.xtraTabControl1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
+            this.engineTabPage = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
+            this.appIDLinkControl = new ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit();
+            this.labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.appID2Label = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.appID2TextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+            this.engineComboBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
+            this.appIDLabel = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.appIDTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+            this.settingsTabPage = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
+            this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.checkEditContinueOnErrors = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+            this.translationDelayTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+            this.label2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.wordsToKeepTabPage = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
+            this.buttonAddDefaultWordsToKeep = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+            this.labelControl4 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.wordsToProtectMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
+            this.labelControl5 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.wordsToRemoveTabPage = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
+            this.labelControl6 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.wordsToRemoveMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
+            this.labelControl3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+            this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.engineTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appIDLinkControl.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appID2TextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.engineComboBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appIDTextEdit.Properties)).BeginInit();
+            this.settingsTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditContinueOnErrors.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.translationDelayTextEdit.Properties)).BeginInit();
+            this.wordsToKeepTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wordsToProtectMemoEdit.Properties)).BeginInit();
+            this.wordsToRemoveTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wordsToRemoveMemoEdit.Properties)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.xtraTabControl1);
+            this.panelControl1.Controls.Add(this.buttonOK);
+            this.panelControl1.Controls.Add(this.buttonCancel);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Padding = new System.Windows.Forms.Padding(3);
+            this.panelControl1.Size = new System.Drawing.Size(382, 335);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.xtraTabControl1.AppearancePage.Header.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.xtraTabControl1.AppearancePage.Header.Options.UseFont = true;
+            this.xtraTabControl1.Location = new System.Drawing.Point(6, 6);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.engineTabPage;
+            this.xtraTabControl1.Size = new System.Drawing.Size(370, 291);
+            this.xtraTabControl1.TabIndex = 0;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.engineTabPage,
             this.settingsTabPage,
             this.wordsToKeepTabPage,
             this.wordsToRemoveTabPage});
-			// 
-			// engineTabPage
-			// 
-			this.engineTabPage.Controls.Add(this.appIDLinkControl);
-			this.engineTabPage.Controls.Add(this.labelControl2);
-			this.engineTabPage.Controls.Add(this.appID2Label);
-			this.engineTabPage.Controls.Add(this.appID2TextEdit);
-			this.engineTabPage.Controls.Add(this.engineComboBox);
-			this.engineTabPage.Controls.Add(this.appIDLabel);
-			this.engineTabPage.Controls.Add(this.appIDTextEdit);
-			this.engineTabPage.Name = "engineTabPage";
-			resources.ApplyResources(this.engineTabPage, "engineTabPage");
-			// 
-			// appIDLinkControl
-			// 
-			resources.ApplyResources(this.appIDLinkControl, "appIDLinkControl");
-			this.appIDLinkControl.Name = "appIDLinkControl";
-			this.appIDLinkControl.Properties.AllowFocused = false;
-			this.appIDLinkControl.Properties.Appearance.BackColor = ((System.Drawing.Color)(resources.GetObject("appIDLinkControl.Properties.Appearance.BackColor")));
-			this.appIDLinkControl.Properties.Appearance.Options.UseBackColor = true;
-			this.appIDLinkControl.Properties.Appearance.Options.UseTextOptions = true;
-			this.appIDLinkControl.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-			this.appIDLinkControl.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-			this.appIDLinkControl.TabStop = false;
-			this.appIDLinkControl.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.appIDLinkControl_OpenLink);
-			// 
-			// labelControl2
-			// 
-			resources.ApplyResources(this.labelControl2, "labelControl2");
-			this.labelControl2.Name = "labelControl2";
-			// 
-			// appID2Label
-			// 
-			resources.ApplyResources(this.appID2Label, "appID2Label");
-			this.appID2Label.Name = "appID2Label";
-			// 
-			// appID2TextEdit
-			// 
-			resources.ApplyResources(this.appID2TextEdit, "appID2TextEdit");
-			this.appID2TextEdit.Name = "appID2TextEdit";
-			this.appID2TextEdit.Properties.Mask.EditMask = resources.GetString("appID2TextEdit.Properties.Mask.EditMask");
-			this.appID2TextEdit.Properties.MaxLength = 400;
-			this.appID2TextEdit.Properties.NullValuePrompt = resources.GetString("appID2TextEdit.Properties.NullValuePrompt");
-			this.appID2TextEdit.EditValueChanged += new System.EventHandler(this.translationDelayTextEdit_EditValueChanged);
-			// 
-			// engineComboBox
-			// 
-			resources.ApplyResources(this.engineComboBox, "engineComboBox");
-			this.engineComboBox.Name = "engineComboBox";
-			this.engineComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("engineComboBox.Properties.Buttons"))))});
-			this.engineComboBox.Properties.NullValuePrompt = resources.GetString("engineComboBox.Properties.NullValuePrompt");
-			this.engineComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-			this.engineComboBox.SelectedIndexChanged += new System.EventHandler(this.engineComboBox_SelectedIndexChanged);
-			// 
-			// appIDLabel
-			// 
-			resources.ApplyResources(this.appIDLabel, "appIDLabel");
-			this.appIDLabel.Name = "appIDLabel";
-			// 
-			// appIDTextEdit
-			// 
-			resources.ApplyResources(this.appIDTextEdit, "appIDTextEdit");
-			this.appIDTextEdit.Name = "appIDTextEdit";
-			this.appIDTextEdit.Properties.Mask.EditMask = resources.GetString("appIDTextEdit.Properties.Mask.EditMask");
-			this.appIDTextEdit.Properties.MaxLength = 400;
-			this.appIDTextEdit.Properties.NullValuePrompt = resources.GetString("appIDTextEdit.Properties.NullValuePrompt");
-			this.appIDTextEdit.EditValueChanged += new System.EventHandler(this.translationDelayTextEdit_EditValueChanged);
-			// 
-			// settingsTabPage
-			// 
-			this.settingsTabPage.Controls.Add(this.labelControl1);
-			this.settingsTabPage.Controls.Add(this.checkEditContinueOnErrors);
-			this.settingsTabPage.Controls.Add(this.translationDelayTextEdit);
-			this.settingsTabPage.Controls.Add(this.label2);
-			this.settingsTabPage.Name = "settingsTabPage";
-			resources.ApplyResources(this.settingsTabPage, "settingsTabPage");
-			// 
-			// labelControl1
-			// 
-			resources.ApplyResources(this.labelControl1, "labelControl1");
-			this.labelControl1.Name = "labelControl1";
-			// 
-			// checkEditContinueOnErrors
-			// 
-			resources.ApplyResources(this.checkEditContinueOnErrors, "checkEditContinueOnErrors");
-			this.checkEditContinueOnErrors.Name = "checkEditContinueOnErrors";
-			this.checkEditContinueOnErrors.Properties.AutoWidth = true;
-			this.checkEditContinueOnErrors.Properties.Caption = resources.GetString("checkEditContinueOnErrors.Properties.Caption");
-			// 
-			// translationDelayTextEdit
-			// 
-			resources.ApplyResources(this.translationDelayTextEdit, "translationDelayTextEdit");
-			this.translationDelayTextEdit.Name = "translationDelayTextEdit";
-			this.translationDelayTextEdit.Properties.Mask.EditMask = resources.GetString("translationDelayTextEdit.Properties.Mask.EditMask");
-			this.translationDelayTextEdit.Properties.MaxLength = 5;
-			this.translationDelayTextEdit.Properties.NullValuePrompt = resources.GetString("translationDelayTextEdit.Properties.NullValuePrompt");
-			this.translationDelayTextEdit.EditValueChanged += new System.EventHandler(this.translationDelayTextEdit_EditValueChanged);
-			// 
-			// label2
-			// 
-			resources.ApplyResources(this.label2, "label2");
-			this.label2.Name = "label2";
-			// 
-			// wordsToKeepTabPage
-			// 
-			this.wordsToKeepTabPage.Controls.Add(this.buttonAddDefaultWordsToKeep);
-			this.wordsToKeepTabPage.Controls.Add(this.labelControl4);
-			this.wordsToKeepTabPage.Controls.Add(this.wordsToProtectMemoEdit);
-			this.wordsToKeepTabPage.Controls.Add(this.labelControl5);
-			this.wordsToKeepTabPage.Name = "wordsToKeepTabPage";
-			resources.ApplyResources(this.wordsToKeepTabPage, "wordsToKeepTabPage");
-			// 
-			// buttonAddDefaultWordsToKeep
-			// 
-			resources.ApplyResources(this.buttonAddDefaultWordsToKeep, "buttonAddDefaultWordsToKeep");
-			this.buttonAddDefaultWordsToKeep.Name = "buttonAddDefaultWordsToKeep";
-			this.buttonAddDefaultWordsToKeep.Click += new System.EventHandler(this.buttonAddDefaultWordsToKeep_Click);
-			// 
-			// labelControl4
-			// 
-			resources.ApplyResources(this.labelControl4, "labelControl4");
-			this.labelControl4.Appearance.ForeColor = ((System.Drawing.Color)(resources.GetObject("labelControl4.Appearance.ForeColor")));
-			this.labelControl4.Name = "labelControl4";
-			// 
-			// wordsToProtectMemoEdit
-			// 
-			resources.ApplyResources(this.wordsToProtectMemoEdit, "wordsToProtectMemoEdit");
-			this.wordsToProtectMemoEdit.Name = "wordsToProtectMemoEdit";
-			// 
-			// labelControl5
-			// 
-			resources.ApplyResources(this.labelControl5, "labelControl5");
-			this.labelControl5.Name = "labelControl5";
-			// 
-			// wordsToRemoveTabPage
-			// 
-			this.wordsToRemoveTabPage.Controls.Add(this.labelControl6);
-			this.wordsToRemoveTabPage.Controls.Add(this.wordsToRemoveMemoEdit);
-			this.wordsToRemoveTabPage.Controls.Add(this.labelControl3);
-			this.wordsToRemoveTabPage.Name = "wordsToRemoveTabPage";
-			resources.ApplyResources(this.wordsToRemoveTabPage, "wordsToRemoveTabPage");
-			// 
-			// labelControl6
-			// 
-			resources.ApplyResources(this.labelControl6, "labelControl6");
-			this.labelControl6.Name = "labelControl6";
-			// 
-			// wordsToRemoveMemoEdit
-			// 
-			resources.ApplyResources(this.wordsToRemoveMemoEdit, "wordsToRemoveMemoEdit");
-			this.wordsToRemoveMemoEdit.Name = "wordsToRemoveMemoEdit";
-			// 
-			// labelControl3
-			// 
-			resources.ApplyResources(this.labelControl3, "labelControl3");
-			this.labelControl3.Appearance.ForeColor = ((System.Drawing.Color)(resources.GetObject("labelControl3.Appearance.ForeColor")));
-			this.labelControl3.Name = "labelControl3";
-			// 
-			// buttonOK
-			// 
-			resources.ApplyResources(this.buttonOK, "buttonOK");
-			this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.buttonOK.Name = "buttonOK";
-			this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
-			// 
-			// buttonCancel
-			// 
-			resources.ApplyResources(this.buttonCancel, "buttonCancel");
-			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.buttonCancel.Name = "buttonCancel";
-			// 
-			// TranslateOptionsForm
-			// 
-			this.AcceptButton = this.buttonOK;
-			this.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("TranslateOptionsForm.Appearance.Font")));
-			this.Appearance.Options.UseFont = true;
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.CancelButton = this.buttonCancel;
-			resources.ApplyResources(this, "$this");
-			this.Controls.Add(this.panelControl1);
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.Name = "TranslateOptionsForm";
-			this.ShowIcon = false;
-			this.ShowInTaskbar = false;
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutoTranslateOptionsForm_FormClosing);
-			this.Load += new System.EventHandler(this.AutoTranslateOptionsForm_Load);
-			this.Shown += new System.EventHandler(this.TranslateOptionsForm_Shown);
-			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-			this.panelControl1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
-			this.xtraTabControl1.ResumeLayout(false);
-			this.engineTabPage.ResumeLayout(false);
-			this.engineTabPage.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.appIDLinkControl.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.appID2TextEdit.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.engineComboBox.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.appIDTextEdit.Properties)).EndInit();
-			this.settingsTabPage.ResumeLayout(false);
-			this.settingsTabPage.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.checkEditContinueOnErrors.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.translationDelayTextEdit.Properties)).EndInit();
-			this.wordsToKeepTabPage.ResumeLayout(false);
-			this.wordsToKeepTabPage.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.wordsToProtectMemoEdit.Properties)).EndInit();
-			this.wordsToRemoveTabPage.ResumeLayout(false);
-			this.wordsToRemoveTabPage.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.wordsToRemoveMemoEdit.Properties)).EndInit();
-			this.ResumeLayout(false);
+            // 
+            // engineTabPage
+            // 
+            this.engineTabPage.Controls.Add(this.appIDLinkControl);
+            this.engineTabPage.Controls.Add(this.labelControl2);
+            this.engineTabPage.Controls.Add(this.appID2Label);
+            this.engineTabPage.Controls.Add(this.appID2TextEdit);
+            this.engineTabPage.Controls.Add(this.engineComboBox);
+            this.engineTabPage.Controls.Add(this.appIDLabel);
+            this.engineTabPage.Controls.Add(this.appIDTextEdit);
+            this.engineTabPage.Name = "engineTabPage";
+            this.engineTabPage.Padding = new System.Windows.Forms.Padding(9);
+            this.engineTabPage.Size = new System.Drawing.Size(364, 259);
+            this.engineTabPage.Text = "Service";
+            // 
+            // appIDLinkControl
+            // 
+            this.appIDLinkControl.AllowAutoWidth = true;
+            this.appIDLinkControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.appIDLinkControl.CausesValidation = false;
+            this.appIDLinkControl.EditValue = "How to get an API key?";
+            this.appIDLinkControl.Location = new System.Drawing.Point(12, 178);
+            this.appIDLinkControl.Name = "appIDLinkControl";
+            this.appIDLinkControl.Properties.AllowFocused = false;
+            this.appIDLinkControl.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.appIDLinkControl.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.appIDLinkControl.Properties.Appearance.Options.UseBackColor = true;
+            this.appIDLinkControl.Properties.Appearance.Options.UseFont = true;
+            this.appIDLinkControl.Properties.Appearance.Options.UseTextOptions = true;
+            this.appIDLinkControl.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.appIDLinkControl.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.appIDLinkControl.Properties.ReadOnly = true;
+            this.appIDLinkControl.Size = new System.Drawing.Size(340, 22);
+            this.appIDLinkControl.TabIndex = 6;
+            this.appIDLinkControl.TabStop = false;
+            this.appIDLinkControl.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.appIDLinkControl_OpenLink);
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl2.Location = new System.Drawing.Point(12, 12);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(151, 17);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "Translation service to use:";
+            // 
+            // appID2Label
+            // 
+            this.appID2Label.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.appID2Label.Location = new System.Drawing.Point(12, 118);
+            this.appID2Label.Name = "appID2Label";
+            this.appID2Label.Size = new System.Drawing.Size(107, 17);
+            this.appID2Label.TabIndex = 4;
+            this.appID2Label.Text = "{0} for this service:";
+            // 
+            // appID2TextEdit
+            // 
+            this.appID2TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.appID2TextEdit.Bold = false;
+            this.appID2TextEdit.CueText = null;
+            this.appID2TextEdit.Location = new System.Drawing.Point(12, 138);
+            this.appID2TextEdit.MaximumSize = new System.Drawing.Size(0, 24);
+            this.appID2TextEdit.MinimumSize = new System.Drawing.Size(0, 24);
+            this.appID2TextEdit.Name = "appID2TextEdit";
+            this.appID2TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.appID2TextEdit.Properties.Appearance.Options.UseFont = true;
+            this.appID2TextEdit.Properties.Mask.EditMask = null;
+            this.appID2TextEdit.Properties.MaxLength = 400;
+            this.appID2TextEdit.Properties.NullValuePrompt = null;
+            this.appID2TextEdit.Size = new System.Drawing.Size(340, 24);
+            this.appID2TextEdit.TabIndex = 5;
+            this.appID2TextEdit.EditValueChanged += new System.EventHandler(this.translationDelayTextEdit_EditValueChanged);
+            // 
+            // engineComboBox
+            // 
+            this.engineComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.engineComboBox.CueText = null;
+            this.engineComboBox.Location = new System.Drawing.Point(12, 32);
+            this.engineComboBox.Name = "engineComboBox";
+            this.engineComboBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.engineComboBox.Properties.Appearance.Options.UseFont = true;
+            this.engineComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.engineComboBox.Properties.NullValuePrompt = null;
+            this.engineComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.engineComboBox.Size = new System.Drawing.Size(340, 24);
+            this.engineComboBox.TabIndex = 1;
+            this.engineComboBox.SelectedIndexChanged += new System.EventHandler(this.engineComboBox_SelectedIndexChanged);
+            // 
+            // appIDLabel
+            // 
+            this.appIDLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.appIDLabel.Location = new System.Drawing.Point(12, 68);
+            this.appIDLabel.Name = "appIDLabel";
+            this.appIDLabel.Size = new System.Drawing.Size(107, 17);
+            this.appIDLabel.TabIndex = 2;
+            this.appIDLabel.Text = "{0} for this service:";
+            // 
+            // appIDTextEdit
+            // 
+            this.appIDTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.appIDTextEdit.Bold = false;
+            this.appIDTextEdit.CueText = null;
+            this.appIDTextEdit.Location = new System.Drawing.Point(12, 88);
+            this.appIDTextEdit.MaximumSize = new System.Drawing.Size(0, 24);
+            this.appIDTextEdit.MinimumSize = new System.Drawing.Size(0, 24);
+            this.appIDTextEdit.Name = "appIDTextEdit";
+            this.appIDTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.appIDTextEdit.Properties.Appearance.Options.UseFont = true;
+            this.appIDTextEdit.Properties.Mask.EditMask = null;
+            this.appIDTextEdit.Properties.MaxLength = 400;
+            this.appIDTextEdit.Properties.NullValuePrompt = null;
+            this.appIDTextEdit.Size = new System.Drawing.Size(340, 24);
+            this.appIDTextEdit.TabIndex = 3;
+            this.appIDTextEdit.EditValueChanged += new System.EventHandler(this.translationDelayTextEdit_EditValueChanged);
+            // 
+            // settingsTabPage
+            // 
+            this.settingsTabPage.Controls.Add(this.labelControl1);
+            this.settingsTabPage.Controls.Add(this.checkEditContinueOnErrors);
+            this.settingsTabPage.Controls.Add(this.translationDelayTextEdit);
+            this.settingsTabPage.Controls.Add(this.label2);
+            this.settingsTabPage.Name = "settingsTabPage";
+            this.settingsTabPage.Padding = new System.Windows.Forms.Padding(9);
+            this.settingsTabPage.Size = new System.Drawing.Size(364, 259);
+            this.settingsTabPage.Text = "Settings";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl1.Location = new System.Drawing.Point(277, 43);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(17, 17);
+            this.labelControl1.TabIndex = 3;
+            this.labelControl1.Text = "ms";
+            // 
+            // checkEditContinueOnErrors
+            // 
+            this.checkEditContinueOnErrors.Location = new System.Drawing.Point(12, 12);
+            this.checkEditContinueOnErrors.Name = "checkEditContinueOnErrors";
+            this.checkEditContinueOnErrors.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.checkEditContinueOnErrors.Properties.Appearance.Options.UseFont = true;
+            this.checkEditContinueOnErrors.Properties.AutoWidth = true;
+            this.checkEditContinueOnErrors.Properties.Caption = "Continue on errors";
+            this.checkEditContinueOnErrors.Size = new System.Drawing.Size(132, 21);
+            this.checkEditContinueOnErrors.TabIndex = 0;
+            // 
+            // translationDelayTextEdit
+            // 
+            this.translationDelayTextEdit.Bold = false;
+            this.translationDelayTextEdit.CueText = null;
+            this.translationDelayTextEdit.Location = new System.Drawing.Point(204, 39);
+            this.translationDelayTextEdit.MaximumSize = new System.Drawing.Size(0, 24);
+            this.translationDelayTextEdit.MinimumSize = new System.Drawing.Size(0, 24);
+            this.translationDelayTextEdit.Name = "translationDelayTextEdit";
+            this.translationDelayTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.translationDelayTextEdit.Properties.Appearance.Options.UseFont = true;
+            this.translationDelayTextEdit.Properties.Mask.EditMask = null;
+            this.translationDelayTextEdit.Properties.MaxLength = 5;
+            this.translationDelayTextEdit.Properties.NullValuePrompt = null;
+            this.translationDelayTextEdit.Size = new System.Drawing.Size(67, 24);
+            this.translationDelayTextEdit.TabIndex = 2;
+            this.translationDelayTextEdit.EditValueChanged += new System.EventHandler(this.translationDelayTextEdit_EditValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label2.Location = new System.Drawing.Point(14, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Delay between two translations:";
+            // 
+            // wordsToKeepTabPage
+            // 
+            this.wordsToKeepTabPage.Controls.Add(this.buttonAddDefaultWordsToKeep);
+            this.wordsToKeepTabPage.Controls.Add(this.labelControl4);
+            this.wordsToKeepTabPage.Controls.Add(this.wordsToProtectMemoEdit);
+            this.wordsToKeepTabPage.Controls.Add(this.labelControl5);
+            this.wordsToKeepTabPage.Name = "wordsToKeepTabPage";
+            this.wordsToKeepTabPage.Padding = new System.Windows.Forms.Padding(9);
+            this.wordsToKeepTabPage.Size = new System.Drawing.Size(364, 259);
+            this.wordsToKeepTabPage.Text = "Words to keep";
+            // 
+            // buttonAddDefaultWordsToKeep
+            // 
+            this.buttonAddDefaultWordsToKeep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddDefaultWordsToKeep.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.buttonAddDefaultWordsToKeep.Appearance.Options.UseFont = true;
+            this.buttonAddDefaultWordsToKeep.Location = new System.Drawing.Point(257, 219);
+            this.buttonAddDefaultWordsToKeep.Name = "buttonAddDefaultWordsToKeep";
+            this.buttonAddDefaultWordsToKeep.Size = new System.Drawing.Size(95, 28);
+            this.buttonAddDefaultWordsToKeep.TabIndex = 3;
+            this.buttonAddDefaultWordsToKeep.Text = "Add defaults";
+            this.buttonAddDefaultWordsToKeep.WantDrawFocusRectangle = true;
+            this.buttonAddDefaultWordsToKeep.Click += new System.EventHandler(this.buttonAddDefaultWordsToKeep_Click);
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelControl4.Location = new System.Drawing.Point(12, 225);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(170, 17);
+            this.labelControl4.TabIndex = 1;
+            this.labelControl4.Text = "(One word/sentence per line)";
+            // 
+            // wordsToProtectMemoEdit
+            // 
+            this.wordsToProtectMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wordsToProtectMemoEdit.CueText = null;
+            this.wordsToProtectMemoEdit.Location = new System.Drawing.Point(12, 32);
+            this.wordsToProtectMemoEdit.Name = "wordsToProtectMemoEdit";
+            this.wordsToProtectMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.wordsToProtectMemoEdit.Properties.Appearance.Options.UseFont = true;
+            this.wordsToProtectMemoEdit.Properties.NullValuePrompt = null;
+            this.wordsToProtectMemoEdit.Size = new System.Drawing.Size(340, 181);
+            this.wordsToProtectMemoEdit.TabIndex = 0;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl5.Location = new System.Drawing.Point(12, 12);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(211, 17);
+            this.labelControl5.TabIndex = 2;
+            this.labelControl5.Text = "Never translate the following words:";
+            // 
+            // wordsToRemoveTabPage
+            // 
+            this.wordsToRemoveTabPage.Controls.Add(this.labelControl6);
+            this.wordsToRemoveTabPage.Controls.Add(this.wordsToRemoveMemoEdit);
+            this.wordsToRemoveTabPage.Controls.Add(this.labelControl3);
+            this.wordsToRemoveTabPage.Name = "wordsToRemoveTabPage";
+            this.wordsToRemoveTabPage.Padding = new System.Windows.Forms.Padding(9);
+            this.wordsToRemoveTabPage.Size = new System.Drawing.Size(364, 259);
+            this.wordsToRemoveTabPage.Text = "Words to remove";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl6.Location = new System.Drawing.Point(12, 12);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(277, 17);
+            this.labelControl6.TabIndex = 3;
+            this.labelControl6.Text = "Remove the following words before translating:";
+            // 
+            // wordsToRemoveMemoEdit
+            // 
+            this.wordsToRemoveMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wordsToRemoveMemoEdit.CueText = null;
+            this.wordsToRemoveMemoEdit.Location = new System.Drawing.Point(12, 32);
+            this.wordsToRemoveMemoEdit.Name = "wordsToRemoveMemoEdit";
+            this.wordsToRemoveMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.wordsToRemoveMemoEdit.Properties.Appearance.Options.UseFont = true;
+            this.wordsToRemoveMemoEdit.Properties.NullValuePrompt = null;
+            this.wordsToRemoveMemoEdit.Size = new System.Drawing.Size(340, 192);
+            this.wordsToRemoveMemoEdit.TabIndex = 0;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl3.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelControl3.Location = new System.Drawing.Point(12, 230);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(170, 17);
+            this.labelControl3.TabIndex = 1;
+            this.labelControl3.Text = "(One word/sentence per line)";
+            // 
+            // buttonOK
+            // 
+            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.buttonOK.Appearance.Options.UseFont = true;
+            this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonOK.Location = new System.Drawing.Point(220, 301);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(75, 28);
+            this.buttonOK.TabIndex = 1;
+            this.buttonOK.Text = "OK";
+            this.buttonOK.WantDrawFocusRectangle = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.buttonCancel.Appearance.Options.UseFont = true;
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(301, 301);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 28);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.WantDrawFocusRectangle = true;
+            // 
+            // TranslateOptionsForm
+            // 
+            this.AcceptButton = this.buttonOK;
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.CancelButton = this.buttonCancel;
+            this.ClientSize = new System.Drawing.Size(382, 335);
+            this.Controls.Add(this.panelControl1);
+            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(398, 373);
+            this.Name = "TranslateOptionsForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Translation settings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutoTranslateOptionsForm_FormClosing);
+            this.Load += new System.EventHandler(this.AutoTranslateOptionsForm_Load);
+            this.Shown += new System.EventHandler(this.TranslateOptionsForm_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.engineTabPage.ResumeLayout(false);
+            this.engineTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appIDLinkControl.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appID2TextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.engineComboBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appIDTextEdit.Properties)).EndInit();
+            this.settingsTabPage.ResumeLayout(false);
+            this.settingsTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditContinueOnErrors.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.translationDelayTextEdit.Properties)).EndInit();
+            this.wordsToKeepTabPage.ResumeLayout(false);
+            this.wordsToKeepTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wordsToProtectMemoEdit.Properties)).EndInit();
+            this.wordsToRemoveTabPage.ResumeLayout(false);
+            this.wordsToRemoveTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wordsToRemoveMemoEdit.Properties)).EndInit();
+            this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private DevExpress.XtraEditors.PanelControl panelControl1;
-		private DevExpress.XtraEditors.SimpleButton buttonOK;
-		private DevExpress.XtraEditors.SimpleButton buttonCancel;
-		private DevExpress.XtraEditors.TextEdit translationDelayTextEdit;
-		private DevExpress.XtraEditors.CheckEdit checkEditContinueOnErrors;
-		private DevExpress.XtraEditors.LabelControl label2;
-		private DevExpress.XtraEditors.LabelControl labelControl1;
-		private DevExpress.XtraEditors.ComboBoxEdit engineComboBox;
-		private DevExpress.XtraEditors.LabelControl labelControl2;
-		private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
-		private DevExpress.XtraTab.XtraTabPage settingsTabPage;
-		private DevExpress.XtraTab.XtraTabPage wordsToKeepTabPage;
-		private DevExpress.XtraEditors.MemoEdit wordsToProtectMemoEdit;
-		private DevExpress.XtraEditors.LabelControl labelControl4;
-		private DevExpress.XtraTab.XtraTabPage wordsToRemoveTabPage;
-		private DevExpress.XtraEditors.MemoEdit wordsToRemoveMemoEdit;
-		private DevExpress.XtraEditors.LabelControl labelControl3;
-		private DevExpress.XtraEditors.LabelControl labelControl5;
-		private DevExpress.XtraEditors.LabelControl labelControl6;
-		private DevExpress.XtraEditors.SimpleButton buttonAddDefaultWordsToKeep;
-		private DevExpress.XtraEditors.LabelControl appIDLabel;
-		private DevExpress.XtraEditors.TextEdit appIDTextEdit;
-		private DevExpress.XtraEditors.HyperLinkEdit appIDLinkControl;
-		private DevExpress.XtraEditors.LabelControl appID2Label;
-		private DevExpress.XtraEditors.TextEdit appID2TextEdit;
-		private DevExpress.XtraTab.XtraTabPage engineTabPage;
+		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
+		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonOK;
+		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonCancel;
+		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit translationDelayTextEdit;
+		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit checkEditContinueOnErrors;
+		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl label2;
+		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
+		private ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit engineComboBox;
+		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl2;
+		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl xtraTabControl1;
+		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage settingsTabPage;
+		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage wordsToKeepTabPage;
+		private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit wordsToProtectMemoEdit;
+		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl4;
+		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage wordsToRemoveTabPage;
+		private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit wordsToRemoveMemoEdit;
+		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl3;
+		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl5;
+		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl6;
+		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonAddDefaultWordsToKeep;
+		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl appIDLabel;
+		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit appIDTextEdit;
+		private ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit appIDLinkControl;
+		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl appID2Label;
+		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit appID2TextEdit;
+		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage engineTabPage;
 	}
 }

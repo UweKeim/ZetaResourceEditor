@@ -8,7 +8,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 	using DevExpress.XtraEditors;
 	using DevExpress.XtraEditors.Controls;
 	using Properties;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Logging;
 
 	public partial class ErrorForm : FormBase
 	{
@@ -76,7 +76,9 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 
 		private void hyperLinkEdit1_OpenLink(object sender, OpenLinkEventArgs e)
 		{
-			if (XtraMessageBox.Show(
+            e.Handled = true;
+
+            if (XtraMessageBox.Show(
 					this,
 					Resources.SR_ErrorForm_button2Click_QuitTheApplication,
 					@"Zeta Resource Editor",

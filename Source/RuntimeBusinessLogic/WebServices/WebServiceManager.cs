@@ -8,9 +8,9 @@
 	using System.Net;
 	using System.Web.Services.Protocols;
 	using UpdateChecker;
-	using Zeta.EnterpriseLibrary.Logging;
-	using Zeta.EnterpriseLibrary.Tools;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.Logging;
+	using Zeta.VoyagerLibrary.Tools;
+	using Zeta.VoyagerLibrary.Tools.Storage;
 	using ZetaUploader;
 	using TranslationService = TranslationService.TranslationService;
 	using AdService = AdService.AdService;

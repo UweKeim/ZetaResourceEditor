@@ -5,9 +5,9 @@
 
 	using System;
 	using System.Windows.Forms;
-	using Zeta.EnterpriseLibrary.Windows.Common;
+	using Zeta.VoyagerLibrary.WinForms.Common;
 
-	// ----------------------------------------------------------------------
+    // ----------------------------------------------------------------------
 	#endregion
 
 	/////////////////////////////////////////////////////////////////////////

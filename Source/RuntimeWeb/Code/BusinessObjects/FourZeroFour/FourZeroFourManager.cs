@@ -2,7 +2,7 @@
 {
 	using System.Data;
 	using Base;
-	using Zeta.EnterpriseLibrary.Data.Caching;
+	using Zeta.VoyagerLibrary.Data.Caching;
 
 	public class FourZeroFourManager :
 		DBObjectsManagerBase

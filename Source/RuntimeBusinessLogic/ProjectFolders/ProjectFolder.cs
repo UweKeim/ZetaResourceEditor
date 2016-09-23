@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Linq;
 	using System.Xml;
 	using DL;
 	using DynamicSettings;
@@ -10,9 +11,8 @@
 	using Language;
 	using Projects;
 	using VirtualViews;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.Collections;
-	using Zeta.EnterpriseLibrary.Tools.Asynchronous;
+	using Zeta.VoyagerLibrary.Common;
+	using ZetaAsync;
 	using ZetaLongPaths;
 
 	public class ProjectFolder :
@@ -113,7 +113,7 @@
 				}
 				else
 				{
-					var result = new Set<string>();
+					var result = new HashSet<string>();
 
 					foreach (var s in types.Split(
 						new[] { @",", @";" },
@@ -230,7 +230,7 @@
 
 		string[] IGridEditableData.GetLanguageCodes(Project project)
 		{
-			var result = new Set<string>();
+			var result = new HashSet<string>();
 
 			foreach (var filePath in ((IGridEditableData)this).FilePaths)
 			{

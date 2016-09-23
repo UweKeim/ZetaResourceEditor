@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B59B3945-CC02-4515-A4A2-ECA0B0EA53C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExtendedControlsLibrary</RootNamespace>
+    <AssemblyName>ExtendedControlsLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin-Skinning\</OutputPath>
+    <DefineConstants>TRACE;MEASURETEXT_USE_DEVEXPRESS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v16.1.Extensions, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraWizard.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zeta.VoyagerLibrary.Common">
+      <HintPath>..\..\Source\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.VoyagerLibrary.Tools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=76bfe3d175ed36e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Source\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.VoyagerLibrary.WinForms">
+      <HintPath>..\..\Source\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="ZetaLongPaths">
+      <HintPath>..\..\Source\References\Externals\ZetaVoyagerLibrary\ZetaLongPaths.dll</HintPath>
+    </Reference>
+    <Reference Include="ZetaTestSkin">
+      <HintPath>..\..\Skin\ZetaTestSkin\ZetaTestSkin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DesignModeHelper.cs" />
+    <Compile Include="General\Base\DevExpressRibbonFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\Base\DevExpressXtraFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\Base\DevExpressXtraUserControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="General\Base\IGuiEnvironment.cs" />
+    <Compile Include="General\Base\ZetaTemporaryFileCreator.cs" />
+    <Compile Include="General\ExtendedManagedCueButtonEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\ExtendedManagedCueComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\ExtendedManagedCueMemoEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\ExtendedManagedCueTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\ExtendedTree\ExtendedTreeListControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\LineUserControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\ListBoxWithoutFocusRectangle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\TextMeasurement\MeasureTextInformation.cs" />
+    <Compile Include="General\TextMeasurement\MeasureTextResult.cs" />
+    <Compile Include="General\TextMeasurement\TextMeasuringController.cs" />
+    <Compile Include="General\UIUpdating\IUpdateUI.cs" />
+    <Compile Include="General\UIUpdating\UpdateUIController.cs" />
+    <Compile Include="General\UIUpdating\UpdateUIInformation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Skinning\CustomBar\MyBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomButtonEdit\MyRepositoryItemButtonEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomButtonEdit\MyButtonEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomButton\MySimpleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomCheckEdit\MyCheckEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomComboBoxEdit\MyCheckedComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomComboBoxEdit\MyComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomDateEdit\MyDateEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomDropDownButton\MyDropDownButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomForm\MyXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomForm\WantProcessDialogKeyEventArgs.cs" />
+    <Compile Include="Skinning\CustomGrid\MyGridControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomGrid\MyGridHandler.cs" />
+    <Compile Include="Skinning\CustomGrid\MyGridInfoRegistrator.cs" />
+    <Compile Include="Skinning\CustomGrid\MyGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomGrid\MyGridViewInfo.cs" />
+    <Compile Include="Skinning\CustomGroup\MyGroupControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomHyperLinkEdit\AutoWidthHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomHyperLinkEdit\MyBoldHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomHyperLinkEdit\MyBoldColoredHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomHyperLinkEdit\MyBoldLargeColoredHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomHyperLinkEdit\MyColoredHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomHyperLinkEdit\MyFullHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomHyperLinkEdit\MyHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomHyperLinkEdit\MyLargeColoredHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomHyperLinkEdit\MyLargeHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomHyperLinkEdit\MyTransparentHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomLabelEdit\MyLabelBoldControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomLabelEdit\MyLabelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomLabelEdit\MyLargeLabelBoldControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomLabelEdit\MyLargeLabelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomLabelEdit\MyLargeLabelUnderlineControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomListBox\MyCheckedListBoxControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomListBox\MyListBoxControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomMemoEdit\MemoEditScrollbarAdjuster.cs" />
+    <Compile Include="Skinning\CustomMemoEdit\MyMemoEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomPanel\MyPanelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomPanel\MyPureBorderlessPanelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomPanel\MyThinBorderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomPopupContainer\MyPopupContainerEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomPropertyGrid\MyPropertyDescriptionControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomPropertyGrid\MyPropertyGridControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomRibbonForm\MyDefaultBarAndDockingController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomRibbonForm\MyRibbonControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomRibbonForm\MyRibbonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomRibbonForm\MyRibbonPageGroupViewInfo.cs" />
+    <Compile Include="Skinning\CustomRibbonForm\MyRibbonPanelViewInfo.cs" />
+    <Compile Include="Skinning\CustomRibbonForm\MyRibbonViewInfo.cs" />
+    <Compile Include="Skinning\CustomRichEditControl\MyRichEditControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomSpinEdit\MySpinEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomSplitContainer\MySimpleSplitContainerControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomSplitContainer\MySplitGroupPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomTabControl\MyHelperXtraTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomTabControl\MyHelperXtraTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomTabControl\MyHelperXtraTabPageCollection.cs" />
+    <Compile Include="Skinning\CustomTabControl\MyXtraTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomTabControl\MyXtraTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomTabControl\MyXtraTabPageCollection.cs" />
+    <Compile Include="Skinning\CustomTextEdit\MyRepositoryItemTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomTextEdit\MyTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomTreeList\MyTreeList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomTreeList\TreeListHelper.cs" />
+    <Compile Include="Skinning\CustomUserControl\MyUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomWizard\NoHeaderWizardAeroClientPainter.cs" />
+    <Compile Include="Skinning\CustomWizard\NoHeaderWizardAeroModel.cs" />
+    <Compile Include="Skinning\CustomWizard\NoHeaderWizardControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Skinning\CustomWizard\NoHeaderWizardPainter.cs" />
+    <Compile Include="Skinning\CustomWizard\NoHeaderWizardViewInfo.cs" />
+    <Compile Include="Skinning\SkinController.cs" />
+    <Compile Include="Skinning\SkinHelper.cs" />
+    <Compile Include="Skinning\SkinningResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SkinningResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Specialized\MessageBox\MyMessageBox.cs" />
+    <Compile Include="Specialized\MessageBox\MyMessageBoxImplementation.cs" />
+    <Compile Include="Specialized\MessageBox\MyMessageBoxInformation.cs" />
+    <Compile Include="Specialized\MessageBox\MyMessageBoxTemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Specialized\MessageBox\MyMessageBoxTemplateForm.Designer.cs">
+      <DependentUpon>MyMessageBoxTemplateForm.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\cross-circle.png" />
+    <Content Include="Resources\exclamation.png" />
+    <Content Include="Resources\information.png" />
+    <Content Include="Resources\question.png" />
+    <Content Include="Resources\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Skinning\SkinningResources.de.resx">
+      <LastGenOutput>SkinningResources.de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Skinning\SkinningResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SkinningResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Specialized\MessageBox\MyMessageBoxTemplateForm.de.resx">
+      <DependentUpon>MyMessageBoxTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Specialized\MessageBox\MyMessageBoxTemplateForm.resx">
+      <DependentUpon>MyMessageBoxTemplateForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

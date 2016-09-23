@@ -6,9 +6,10 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
     using System.Data;
     using System.Globalization;
     using System.IO;
+    using System.Linq;
     using System.Text;
     using BL;
-    using CoreExcel;
+    using CoreExcel2;
     using DynamicSettings;
     using FileGroups;
     using Language;
@@ -18,9 +19,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
     using Runtime.FileAccess;
     using Snapshots;
     using WebServices;
-    using Zeta.EnterpriseLibrary.Common;
-    using Zeta.EnterpriseLibrary.Common.Collections;
-    using Zeta.EnterpriseLibrary.Common.IO.Compression;
+    using Zeta.VoyagerLibrary.Common;
+    using Zeta.VoyagerLibrary.Common.Collections;
+    using Zeta.VoyagerLibrary.Common.IO.Compression;
     using ZetaLongPaths;
     using ZetaUploader;
 
@@ -187,7 +188,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
         private static void ensureFileNamesUnique(
             IEnumerable<PreparedInformation> preparedInformations)
         {
-            var prevFilePaths = new Set<string>();
+            var prevFilePaths = new HashSet<string>();
 
             foreach (var preparedInformation in preparedInformations)
             {
@@ -421,7 +422,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
 
             // --
 
-            var exportedReferenceLanguageValues = new Set<string>();
+            var exportedReferenceLanguageValues = new HashSet<string>();
 
             var dataSet = new DataSet();
 
@@ -1179,7 +1180,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
 
             if (rawDir.Contains(@"{"))
             {
-                var result = new Set<string>();
+                var result = new HashSet<string>();
 
                 foreach (var fileGroup in information.FileGroups)
                 {
@@ -1220,7 +1221,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
 
             if (raw.Contains(@"{"))
             {
-                var result = new Set<string>();
+                var result = new HashSet<string>();
 
                 foreach (var fileGroup in information.FileGroups)
                 {

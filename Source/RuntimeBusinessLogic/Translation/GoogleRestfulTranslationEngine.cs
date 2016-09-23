@@ -12,7 +12,7 @@
 	using Newtonsoft.Json;
 	using Properties;
 	using WebServices;
-	using Zeta.EnterpriseLibrary.Common.Collections;
+	using Zeta.VoyagerLibrary.Common.Collections;
 
 	public class GoogleRestfulTranslationEngine :
 		ITranslationEngine
@@ -60,12 +60,12 @@
 		private static XmlDocument makeRestCallPost(
 			string appID,
 			string url,
-			ICollection<Pair<string, string>> parameters)
+			ICollection<MyTuple<string, string>> parameters)
 		{
 			if (!url.EndsWith(@"?")) url += @"?";
 
-			parameters.Add(new Pair<string, string>(@"key", appID));
-			//parameters.Add(new Pair<string, string>(@"userip", currentIPAddress));
+			parameters.Add(new MyTuple<string, string>(@"key", appID));
+			//parameters.Add(new MyTuple<string, string>(@"userip", currentIPAddress));
 
 			var ps = string.Empty;
 
@@ -73,13 +73,13 @@
 			foreach (var pair in parameters)
 			// ReSharper restore LoopCanBeConvertedToQuery
 			{
-				if (!string.IsNullOrEmpty(pair.Value))
+				if (!string.IsNullOrEmpty(pair.Item2))
 				{
 					var p =
 						string.Format(
 							@"{0}={1}&",
-							pair.Name,
-							HttpUtility.UrlEncode(pair.Value));
+							pair.Item1,
+							HttpUtility.UrlEncode(pair.Item2));
 
 					ps += p;
 				}
@@ -151,7 +151,7 @@
 				var json = makeRestCallPost(
 					appID,
 					@"https://www.googleapis.com/language/translate/v2/languages",
-					new List<Pair<string, string>>());
+					new List<MyTuple<string, string>>());
 
 				// --
 
@@ -209,10 +209,10 @@
 			string[] wordsToRemove)
 		{
 			var dic =
-				new List<Pair<string, string>>
+				new List<MyTuple<string, string>>
 					{
-						new Pair<string, string>(@"source", sourceLanguageCode),
-						new Pair<string, string>(@"target", destinationLanguageCode),
+						new MyTuple<string, string>(@"source", sourceLanguageCode),
+						new MyTuple<string, string>(@"target", destinationLanguageCode),
 					};
 
 			// ReSharper disable LoopCanBeConvertedToQuery
@@ -220,7 +220,7 @@
 			// ReSharper restore LoopCanBeConvertedToQuery
 			{
 				dic.Add(
-					new Pair<string, string>(
+					new MyTuple<string, string>(
 						@"q",
 						TranslationHelper.ProtectWords(
 							TranslationHelper.RemoveWords(text, wordsToRemove), wordsToProtect)));
@@ -289,11 +289,11 @@
 				makeRestCallPost(
 					appID,
 					@"https://www.googleapis.com/language/translate/v2",
-					new List<Pair<string, string>>
+					new List<MyTuple<string, string>>
 						{
-							new Pair<string, string>(@"source", sourceLanguageCode),
-							new Pair<string, string>(@"target", destinationLanguageCode),
-							new Pair<string, string>(
+							new MyTuple<string, string>(@"source", sourceLanguageCode),
+							new MyTuple<string, string>(@"target", destinationLanguageCode),
+							new MyTuple<string, string>(
 								@"q",
 								TranslationHelper.ProtectWords(
 									TranslationHelper.RemoveWords(text, wordsToRemove), wordsToProtect))

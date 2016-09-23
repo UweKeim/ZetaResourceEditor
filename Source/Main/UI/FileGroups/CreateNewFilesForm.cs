@@ -4,7 +4,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 	using System.Collections.Generic;
 	using System.ComponentModel;
 	using System.Globalization;
-
+	using System.Linq;
 	using System.Windows.Forms;
 	using DevExpress.XtraEditors;
 	using DevExpress.XtraEditors.Controls;
@@ -19,12 +19,12 @@ namespace ZetaResourceEditor.UI.FileGroups
 	using RuntimeBusinessLogic.Projects;
 	using RuntimeBusinessLogic.Translation;
 	using Translation;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.Collections;
-	using Zeta.EnterpriseLibrary.Common.IO;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Common;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Common.Collections;
+	using Zeta.VoyagerLibrary.Common.IO;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Common;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	public partial class CreateNewFilesForm :
 		FormBase
@@ -45,7 +45,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 			_projectFolder = projectFolder;
 		}
 
-		private IEnumerable<Pair<string, string>> languageCodes
+		private IEnumerable<MyTuple<string, string>> languageCodes
 		{
 			get
 			{
@@ -59,34 +59,34 @@ namespace ZetaResourceEditor.UI.FileGroups
 			}
 		}
 
-		public override void InitiallyFillLists()
+		protected override void InitiallyFillLists()
 		{
 			var plc = projectLanguageCodes;
 			var plcl = new List<string>(plc);
 
 			foreach (var languageCode in languageCodes)
 			{
-				if (!string.IsNullOrEmpty(languageCode.First))
+				if (!string.IsNullOrEmpty(languageCode.Item1))
 				{
 					referenceLanguageComboBox.Properties.Items.Add(
-						new Pair<string, Pair<string, string>>(
+						new MyTuple<string, MyTuple<string, string>>(
 							string.Format(
 								@"{0}{1} ({2})",
-								plcl.Contains(languageCode.First) ? @"* " : string.Empty,
-								LanguageCodeDetection.MakeValidCulture(languageCode.First).DisplayName,
+								plcl.Contains(languageCode.Item1) ? @"* " : string.Empty,
+								LanguageCodeDetection.MakeValidCulture(languageCode.Item1).DisplayName,
 								languageCode),
 							languageCode));
 				}
 			}
 
-			var items = new List<Pair<string, CultureInfo>>();
+			var items = new List<MyTuple<string, CultureInfo>>();
 
 			// ReSharper disable LoopCanBeConvertedToQuery
 			foreach (var culture in CultureInfo.GetCultures(CultureTypes.AllCultures))
 			// ReSharper restore LoopCanBeConvertedToQuery
 			{
 				items.Add(
-					new Pair<string, CultureInfo>(
+					new MyTuple<string, CultureInfo>(
 						string.Format(
 							@"{0}{1} [{2}]",
 							plcl.Contains(culture.Name.ToLowerInvariant()) ? @"* " : string.Empty,
@@ -96,7 +96,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 						culture));
 			}
 
-			items.Sort((x, y) => string.CompareOrdinal(x.First, y.First));
+			items.Sort((x, y) => string.CompareOrdinal(x.Item1, y.Item1));
 
 			foreach (var item in items)
 			{
@@ -131,8 +131,8 @@ namespace ZetaResourceEditor.UI.FileGroups
 				referenceLanguageComboBox.SelectedItem != null &&
 				destinationLanguagesListBox.CheckedItems.Count > 0 &&
 				string.Compare(
-					((Pair<string, Pair<string, string>>)referenceLanguageComboBox.SelectedItem).Second.First,
-					((Pair<string, CultureInfo>)destinationLanguagesListBox.CheckedItems[0]).Second.Name,
+					((MyTuple<string, MyTuple<string, string>>)referenceLanguageComboBox.SelectedItem).Item2.Item1,
+					((MyTuple<string, CultureInfo>)destinationLanguagesListBox.CheckedItems[0]).Item2.Name,
 					StringComparison.OrdinalIgnoreCase) != 0 &&
 				(!prefixCheckBox.Checked || prefixTextBox.Text.Trim().Length > 0);
 
@@ -160,7 +160,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 				prefixCheckBox.Checked;
 		}
 
-		public override void FillItemToControls()
+	    protected override void FillItemToControls()
 		{
 			base.FillItemToControls();
 
@@ -228,7 +228,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 			}
 		}
 
-		public override void FillControlsToItem()
+	    protected override void FillControlsToItem()
 		{
 			base.FillControlsToItem();
 
@@ -297,7 +297,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 		{
 			using (new WaitCursor(this, WaitCursorOption.ShortSleep))
 			{
-				var sourceLanguageCode = ((Pair<string, Pair<string, string>>)referenceLanguageComboBox.SelectedItem).Second.First;
+				var sourceLanguageCode = ((MyTuple<string, MyTuple<string, string>>)referenceLanguageComboBox.SelectedItem).Item2.Item1;
 				var cultures = getCultures();
 				var copyTextsFromSource = copyTextsCheckBox.Checked;
 				var automaticallyTranslateTexts = automaticallyTranslateCheckBox.Checked;
@@ -437,9 +437,9 @@ namespace ZetaResourceEditor.UI.FileGroups
 			foreach (CheckedListBoxItem item in destinationLanguagesListBox.CheckedItems)
 			// ReSharper restore LoopCanBeConvertedToQuery
 			{
-				var p = (Pair<string, CultureInfo>)item.Value;
+				var p = (MyTuple<string, CultureInfo>)item.Value;
 
-				list.Add(p.Second);
+				list.Add(p.Item2);
 			}
 
 			return list.ToArray();
@@ -532,11 +532,11 @@ namespace ZetaResourceEditor.UI.FileGroups
 
 			for (var index = 0; index < destinationLanguagesListBox.Items.Count; ++index)
 			{
-				var p = (Pair<string, CultureInfo>)((CheckedListBoxItem)destinationLanguagesListBox.GetItem(index)).Value;
+				var p = (MyTuple<string, CultureInfo>)((CheckedListBoxItem)destinationLanguagesListBox.GetItem(index)).Value;
 
 				destinationLanguagesListBox.SetItemChecked(
 					index,
-					plcl.Contains(p.Second.Name.ToLowerInvariant()));
+					plcl.Contains(p.Item2.Name.ToLowerInvariant()));
 			}
 		}
 
@@ -545,7 +545,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 			get
 			{
 				var codes =
-					new Set<string>
+					new HashSet<string>
 						{
 							_project.NeutralLanguageCode
 						};
@@ -561,9 +561,10 @@ namespace ZetaResourceEditor.UI.FileGroups
 					}
 				}
 
-				codes.Sort();
+			    var l = codes.ToList();
+				l.Sort();
 
-				return codes.ToArray();
+				return l.ToArray();
 			}
 		}
 

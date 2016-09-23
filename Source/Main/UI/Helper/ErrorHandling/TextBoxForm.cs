@@ -2,13 +2,9 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 {
 	using System;
 	using System.Drawing;
-	
 	using System.Windows.Forms;
 	using Base;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Common;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	public partial class TextBoxForm :
 		FormBase
@@ -27,30 +23,9 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 			textMemoEdit.Text = text;
 		}
 
-		private void buttonCopyTextToClipboard_Click(
-			object sender,
-			EventArgs e )
-		{
-			using ( new WaitCursor( this, WaitCursorOption.ShortSleep ) )
-			{
-				Clipboard.SetText( textMemoEdit.Text );
-			}
-		}
-
-		private void wordWrapCheckEdit_CheckedChanged(
-			object sender,
-			EventArgs e )
-		{
-			textMemoEdit.Properties.WordWrap =
-				wordWrapCheckEdit.Checked;
-		}
-
 		private void textBoxForm_Load( object sender, EventArgs e )
 		{
 			WinFormsPersistanceHelper.RestoreState( this );
-			wordWrapCheckEdit.Checked =
-				ConvertHelper.ToBoolean(
-					PersistanceHelper.RestoreValue( @"TextBoxForm.Wrap", true ) );
 			CenterToParent();
 
 			if ( !DesignMode )
@@ -63,7 +38,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 
 					foreach (var family in families)
 					{
-						if(string.Compare(family.Name, @"Consolas", true) == 0)
+						if(string.Compare(family.Name, @"Consolas", StringComparison.OrdinalIgnoreCase) == 0)
 						{
 							_hasConsolas = true;
 							break;
@@ -76,8 +51,6 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 					textMemoEdit.Font = new Font( @"Consolas", textMemoEdit.Font.Size );
 				}
 			}
-
-			wordWrapCheckEdit_CheckedChanged( null, null );
 		}
 
 		private void textBoxForm_FormClosing(
@@ -85,7 +58,6 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 			FormClosingEventArgs e )
 		{
 			WinFormsPersistanceHelper.SaveState( this );
-			PersistanceHelper.SaveValue( @"TextBoxForm.Wrap", wordWrapCheckEdit.Checked );
 		}
 
 		private void textMemoEdit_KeyDown( object sender, KeyEventArgs e )

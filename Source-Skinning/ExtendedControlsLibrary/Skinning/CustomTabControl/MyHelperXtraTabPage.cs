@@ -1,0 +1,24 @@
+﻿namespace ExtendedControlsLibrary.Skinning.CustomTabControl
+{
+    using System.ComponentModel;
+    using System.Drawing;
+    using DevExpress.XtraTab;
+
+    public class MyHelperXtraTabPage :
+		XtraTabPage
+	{
+		public MyHelperXtraTabPage()
+		{
+			base.BackColor = SkinHelper.GetCurrentSkin().TranslateColor(SystemColors.Control);
+		}
+
+        #region Hide several properties from designer.
+
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public override Color BackColor { get { return base.BackColor; } set { base.BackColor = value; } }
+
+        #endregion
+	}
+}

@@ -1,65 +1,70 @@
 ﻿using System;
 using System.Web.UI;
-using Zeta.EnterpriseLibrary.Logging;
-using Zeta.EnterpriseLibrary.Web;
 
-public partial class UI_Main_404Helper :
-	UserControl
+namespace Web.UI.Main
 {
-	public string CategoryName
-	{
-		get
-		{
-			return ViewState[@"CategoryName"] as string;
-		}
-		set
-		{
-			ViewState[@"CategoryName"] = value;
-		}
-	}
+    using Code;
+    using Zeta.VoyagerLibrary.Logging;
+    using Zeta.VoyagerLibrary.WebForms;
 
-	protected void Page_Load(object sender, EventArgs e)
-	{
-		checkHandleRedirect();
-	}
+    public partial class UI_Main_404Helper :
+        UserControl
+    {
+        public string CategoryName
+        {
+            get
+            {
+                return ViewState[@"CategoryName"] as string;
+            }
+            set
+            {
+                ViewState[@"CategoryName"] = value;
+            }
+        }
 
-	private void checkHandleRedirect()
-	{
-		var cn = CategoryName;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            checkHandleRedirect();
+        }
 
-		if (!string.IsNullOrEmpty(cn))
-		{
-			LogCentral.Current.LogInfo(
-				string.Format(
-					@"[404 root] About to gather 404 redirects for category '{0}'.",
-					cn.Trim()));
+        private void checkHandleRedirect()
+        {
+            var cn = CategoryName;
 
-			var redirects =
-				Host.Current.ElementManager.FourZeroFourManager.GetFourZeroFourRedirects(cn.Trim());
+            if (!string.IsNullOrEmpty(cn))
+            {
+                LogCentral.Current.LogInfo(
+                    string.Format(
+                        @"[404 root] About to gather 404 redirects for category '{0}'.",
+                        cn.Trim()));
 
-			foreach (var redirect in redirects)
-			{
-				var gotoUrl = redirect.MatchUrl(Request.Url.Query);
+                var redirects =
+                    Host.Current.ElementManager.FourZeroFourManager.GetFourZeroFourRedirects(cn.Trim());
 
-				if (!string.IsNullOrEmpty(gotoUrl))
-				{
-					LogCentral.Current.LogInfo(
-						string.Format(
-							@"[404 root] About to 404 redirect to '{0}'.",
-							gotoUrl));
+                foreach (var redirect in redirects)
+                {
+                    var gotoUrl = redirect.MatchUrl(Request.Url.Query);
 
-					new QueryString(gotoUrl).Redirect(
-						redirect.IsPermanent
-							? RedirectMethod.Permanent
-							: RedirectMethod.Temporary);
-					return;
-				}
-			}
+                    if (!string.IsNullOrEmpty(gotoUrl))
+                    {
+                        LogCentral.Current.LogInfo(
+                            string.Format(
+                                @"[404 root] About to 404 redirect to '{0}'.",
+                                gotoUrl));
 
-			LogCentral.Current.LogInfo(
-				string.Format(
-					@"[404 root] No matching to 404 redirect found for '{0}'.",
-					Request.Url.Query));
-		}
-	}
+                        new QueryString(gotoUrl).Redirect(
+                            redirect.IsPermanent
+                                ? RedirectMethod.Permanent
+                                : RedirectMethod.Temporary);
+                        return;
+                    }
+                }
+
+                LogCentral.Current.LogInfo(
+                    string.Format(
+                        @"[404 root] No matching to 404 redirect found for '{0}'.",
+                        Request.Url.Query));
+            }
+        }
+    }
 }

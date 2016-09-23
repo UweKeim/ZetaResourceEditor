@@ -14,8 +14,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 	using Language;
 	using Projects;
 	using Properties;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.IO;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Common.IO;
 	using ZetaLongPaths;
 
 	// ----------------------------------------------------------------------
@@ -120,7 +120,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 					}
 
 					removeReadOnlyAttributes(resxFile.FilePath);
-					SafeFileOperations.SafeDeleteFile(resxFile.FilePath.FullName);
+					ZlpSafeFileOperations.SafeDeleteFile(resxFile.FilePath.FullName);
 				}
 
 				var settings =
@@ -709,10 +709,10 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 						// Remove ReadOnly-attribute.
 						removeReadOnlyAttributes(
 							new ZlpFileInfo(bak.FullName + @".bak"));
-						SafeFileOperations.SafeDeleteFile(bak + @".bak");
+						ZlpSafeFileOperations.SafeDeleteFile(bak + @".bak");
 					}
 
-					SafeFileOperations.SafeCopyFile(
+					ZlpSafeFileOperations.SafeCopyFile(
 						resxFile.FilePath.FullName,
 						bak.FullName + @".bak",
 						true);

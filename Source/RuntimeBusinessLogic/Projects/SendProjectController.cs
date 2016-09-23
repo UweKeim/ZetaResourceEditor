@@ -9,8 +9,8 @@
 	using Properties;
 	using Runtime.FileAccess;
 	using WebServices;
-	using Zeta.EnterpriseLibrary.Common.IO;
-	using Zeta.EnterpriseLibrary.Common.IO.Compression;
+	using Zeta.VoyagerLibrary.Common.IO;
+	using Zeta.VoyagerLibrary.Common.IO.Compression;
 	using ZetaLongPaths;
 	using ZetaUploader;
 

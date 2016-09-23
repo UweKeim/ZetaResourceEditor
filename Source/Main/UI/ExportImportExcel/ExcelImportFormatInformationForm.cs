@@ -2,7 +2,7 @@
 {
 	using System;
 	using System.Windows.Forms;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 	using Helper.Base;
 
 	public partial class ExcelImportFormatInformationForm :

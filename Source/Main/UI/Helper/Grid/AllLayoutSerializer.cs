@@ -1,7 +1,7 @@
 ﻿namespace ZetaResourceEditor.UI.Helper.Grid
 {
 	using DevExpress.XtraGrid.Views.Grid;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.Tools.Storage;
 
 	internal class AllLayoutSerializer
 	{

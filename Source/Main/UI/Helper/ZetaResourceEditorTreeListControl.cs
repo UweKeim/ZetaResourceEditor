@@ -3,13 +3,13 @@ namespace ZetaResourceEditor.UI.Helper
 	using System;
 	
 	using System.Windows.Forms;
-	using DevExpress.XtraTreeList;
 	using DevExpress.XtraTreeList.Nodes;
-	using Zeta.EnterpriseLibrary.Tools.Asynchronous;
+	using ExtendedControlsLibrary.Skinning.CustomTreeList;
+	using ZetaAsync;
 
 	public partial class ZetaResourceEditorTreeListControl :
-		TreeList
-	{
+        MyTreeList
+    {
 		public ZetaResourceEditorTreeListControl()
 		{
 			InitializeComponent();

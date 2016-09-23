@@ -3,7 +3,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
 	using System;
 	using System.Collections.Generic;
 	using System.Xml;
-	using Zeta.EnterpriseLibrary.Common;
+	using Zeta.VoyagerLibrary.Common;
 
 	internal class DynSettings
 	{

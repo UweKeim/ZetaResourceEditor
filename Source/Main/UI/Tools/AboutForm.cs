@@ -59,6 +59,7 @@
 
 		private void linkLabel1_OpenLink(object sender, OpenLinkEventArgs e)
 		{
+		    e.Handled = true;
 			linkLabel1_Properties_Click(null, null);
 		}
 

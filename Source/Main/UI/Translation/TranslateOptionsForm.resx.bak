@@ -1,0 +1,811 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="xtraTabControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xtraTabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="appIDLinkControl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="appIDLinkControl.EditValue" xml:space="preserve">
+    <value>How to get an API key?</value>
+  </data>
+  <data name="appIDLinkControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 156</value>
+  </data>
+  <data name="appIDLinkControl.Properties.Appearance.BackColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="appIDLinkControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 18</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="appIDLinkControl.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;appIDLinkControl.Name" xml:space="preserve">
+    <value>appIDLinkControl</value>
+  </data>
+  <data name="&gt;&gt;appIDLinkControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.HyperLinkEdit, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;appIDLinkControl.Parent" xml:space="preserve">
+    <value>engineTabPage</value>
+  </data>
+  <data name="&gt;&gt;appIDLinkControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="labelControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 13</value>
+  </data>
+  <data name="labelControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelControl2.Text" xml:space="preserve">
+    <value>Translation service to use:</value>
+  </data>
+  <data name="&gt;&gt;labelControl2.Name" xml:space="preserve">
+    <value>labelControl2</value>
+  </data>
+  <data name="&gt;&gt;labelControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl2.Parent" xml:space="preserve">
+    <value>engineTabPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="appID2Label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 107</value>
+  </data>
+  <data name="appID2Label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 13</value>
+  </data>
+  <data name="appID2Label.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="appID2Label.Text" xml:space="preserve">
+    <value>{0} for this service:</value>
+  </data>
+  <data name="&gt;&gt;appID2Label.Name" xml:space="preserve">
+    <value>appID2Label</value>
+  </data>
+  <data name="&gt;&gt;appID2Label.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;appID2Label.Parent" xml:space="preserve">
+    <value>engineTabPage</value>
+  </data>
+  <data name="&gt;&gt;appID2Label.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="appID2TextEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="appID2TextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 123</value>
+  </data>
+  <data name="appID2TextEdit.Properties.Mask.EditMask" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="appID2TextEdit.Properties.NullValuePrompt" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="appID2TextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
+  </data>
+  <data name="appID2TextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;appID2TextEdit.Name" xml:space="preserve">
+    <value>appID2TextEdit</value>
+  </data>
+  <data name="&gt;&gt;appID2TextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;appID2TextEdit.Parent" xml:space="preserve">
+    <value>engineTabPage</value>
+  </data>
+  <data name="&gt;&gt;appID2TextEdit.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="engineComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="engineComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 28</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v13.2" name="DevExpress.Utils.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="engineComboBox.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v13.2">
+    <value>Combo</value>
+  </data>
+  <data name="engineComboBox.Properties.NullValuePrompt" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="engineComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
+  </data>
+  <data name="engineComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;engineComboBox.Name" xml:space="preserve">
+    <value>engineComboBox</value>
+  </data>
+  <data name="&gt;&gt;engineComboBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;engineComboBox.Parent" xml:space="preserve">
+    <value>engineTabPage</value>
+  </data>
+  <data name="&gt;&gt;engineComboBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="appIDLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 64</value>
+  </data>
+  <data name="appIDLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 13</value>
+  </data>
+  <data name="appIDLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="appIDLabel.Text" xml:space="preserve">
+    <value>{0} for this service:</value>
+  </data>
+  <data name="&gt;&gt;appIDLabel.Name" xml:space="preserve">
+    <value>appIDLabel</value>
+  </data>
+  <data name="&gt;&gt;appIDLabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;appIDLabel.Parent" xml:space="preserve">
+    <value>engineTabPage</value>
+  </data>
+  <data name="&gt;&gt;appIDLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="appIDTextEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="appIDTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 80</value>
+  </data>
+  <data name="appIDTextEdit.Properties.Mask.EditMask" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="appIDTextEdit.Properties.NullValuePrompt" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="appIDTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
+  </data>
+  <data name="appIDTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;appIDTextEdit.Name" xml:space="preserve">
+    <value>appIDTextEdit</value>
+  </data>
+  <data name="&gt;&gt;appIDTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;appIDTextEdit.Parent" xml:space="preserve">
+    <value>engineTabPage</value>
+  </data>
+  <data name="&gt;&gt;appIDTextEdit.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="engineTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="engineTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>364, 265</value>
+  </data>
+  <data name="engineTabPage.Text" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="&gt;&gt;engineTabPage.Name" xml:space="preserve">
+    <value>engineTabPage</value>
+  </data>
+  <data name="&gt;&gt;engineTabPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;engineTabPage.Parent" xml:space="preserve">
+    <value>xtraTabControl1</value>
+  </data>
+  <data name="&gt;&gt;engineTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="xtraTabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 291</value>
+  </data>
+  <data name="xtraTabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 40</value>
+  </data>
+  <data name="labelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 13</value>
+  </data>
+  <data name="labelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="labelControl1.Text" xml:space="preserve">
+    <value>ms</value>
+  </data>
+  <data name="&gt;&gt;labelControl1.Name" xml:space="preserve">
+    <value>labelControl1</value>
+  </data>
+  <data name="&gt;&gt;labelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl1.Parent" xml:space="preserve">
+    <value>settingsTabPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkEditContinueOnErrors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="checkEditContinueOnErrors.Properties.Caption" xml:space="preserve">
+    <value>Continue on errors</value>
+  </data>
+  <data name="checkEditContinueOnErrors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 19</value>
+  </data>
+  <data name="checkEditContinueOnErrors.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkEditContinueOnErrors.Name" xml:space="preserve">
+    <value>checkEditContinueOnErrors</value>
+  </data>
+  <data name="&gt;&gt;checkEditContinueOnErrors.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;checkEditContinueOnErrors.Parent" xml:space="preserve">
+    <value>settingsTabPage</value>
+  </data>
+  <data name="&gt;&gt;checkEditContinueOnErrors.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="translationDelayTextEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 37</value>
+  </data>
+  <data name="translationDelayTextEdit.Properties.Mask.EditMask" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="translationDelayTextEdit.Properties.NullValuePrompt" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="translationDelayTextEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 20</value>
+  </data>
+  <data name="translationDelayTextEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;translationDelayTextEdit.Name" xml:space="preserve">
+    <value>translationDelayTextEdit</value>
+  </data>
+  <data name="&gt;&gt;translationDelayTextEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;translationDelayTextEdit.Parent" xml:space="preserve">
+    <value>settingsTabPage</value>
+  </data>
+  <data name="&gt;&gt;translationDelayTextEdit.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 40</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Delay between two translations:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>settingsTabPage</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="settingsTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="settingsTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>364, 265</value>
+  </data>
+  <data name="settingsTabPage.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="&gt;&gt;settingsTabPage.Name" xml:space="preserve">
+    <value>settingsTabPage</value>
+  </data>
+  <data name="&gt;&gt;settingsTabPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;settingsTabPage.Parent" xml:space="preserve">
+    <value>xtraTabControl1</value>
+  </data>
+  <data name="&gt;&gt;settingsTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="buttonAddDefaultWordsToKeep.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonAddDefaultWordsToKeep.Location" type="System.Drawing.Point, System.Drawing">
+    <value>267, 227</value>
+  </data>
+  <data name="buttonAddDefaultWordsToKeep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 26</value>
+  </data>
+  <data name="buttonAddDefaultWordsToKeep.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonAddDefaultWordsToKeep.Text" xml:space="preserve">
+    <value>Add defaults</value>
+  </data>
+  <data name="&gt;&gt;buttonAddDefaultWordsToKeep.Name" xml:space="preserve">
+    <value>buttonAddDefaultWordsToKeep</value>
+  </data>
+  <data name="&gt;&gt;buttonAddDefaultWordsToKeep.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;buttonAddDefaultWordsToKeep.Parent" xml:space="preserve">
+    <value>wordsToKeepTabPage</value>
+  </data>
+  <data name="&gt;&gt;buttonAddDefaultWordsToKeep.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelControl4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="labelControl4.Appearance.ForeColor" type="System.Drawing.Color, System.Drawing">
+    <value>GrayText</value>
+  </data>
+  <data name="labelControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 233</value>
+  </data>
+  <data name="labelControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 13</value>
+  </data>
+  <data name="labelControl4.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="labelControl4.Text" xml:space="preserve">
+    <value>(One word/sentence per line)</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.Name" xml:space="preserve">
+    <value>labelControl4</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.Parent" xml:space="preserve">
+    <value>wordsToKeepTabPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="wordsToProtectMemoEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="wordsToProtectMemoEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 31</value>
+  </data>
+  <data name="wordsToProtectMemoEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 190</value>
+  </data>
+  <data name="wordsToProtectMemoEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;wordsToProtectMemoEdit.Name" xml:space="preserve">
+    <value>wordsToProtectMemoEdit</value>
+  </data>
+  <data name="&gt;&gt;wordsToProtectMemoEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;wordsToProtectMemoEdit.Parent" xml:space="preserve">
+    <value>wordsToKeepTabPage</value>
+  </data>
+  <data name="&gt;&gt;wordsToProtectMemoEdit.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelControl5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="labelControl5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 13</value>
+  </data>
+  <data name="labelControl5.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="labelControl5.Text" xml:space="preserve">
+    <value>Never translate the following words:</value>
+  </data>
+  <data name="&gt;&gt;labelControl5.Name" xml:space="preserve">
+    <value>labelControl5</value>
+  </data>
+  <data name="&gt;&gt;labelControl5.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl5.Parent" xml:space="preserve">
+    <value>wordsToKeepTabPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl5.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="wordsToKeepTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="wordsToKeepTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>364, 265</value>
+  </data>
+  <data name="wordsToKeepTabPage.Text" xml:space="preserve">
+    <value>Words to keep</value>
+  </data>
+  <data name="&gt;&gt;wordsToKeepTabPage.Name" xml:space="preserve">
+    <value>wordsToKeepTabPage</value>
+  </data>
+  <data name="&gt;&gt;wordsToKeepTabPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;wordsToKeepTabPage.Parent" xml:space="preserve">
+    <value>xtraTabControl1</value>
+  </data>
+  <data name="&gt;&gt;wordsToKeepTabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelControl6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="labelControl6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 13</value>
+  </data>
+  <data name="labelControl6.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="labelControl6.Text" xml:space="preserve">
+    <value>Remove the following words before translating:</value>
+  </data>
+  <data name="&gt;&gt;labelControl6.Name" xml:space="preserve">
+    <value>labelControl6</value>
+  </data>
+  <data name="&gt;&gt;labelControl6.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl6.Parent" xml:space="preserve">
+    <value>wordsToRemoveTabPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="wordsToRemoveMemoEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="wordsToRemoveMemoEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 31</value>
+  </data>
+  <data name="wordsToRemoveMemoEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 203</value>
+  </data>
+  <data name="wordsToRemoveMemoEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;wordsToRemoveMemoEdit.Name" xml:space="preserve">
+    <value>wordsToRemoveMemoEdit</value>
+  </data>
+  <data name="&gt;&gt;wordsToRemoveMemoEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;wordsToRemoveMemoEdit.Parent" xml:space="preserve">
+    <value>wordsToRemoveTabPage</value>
+  </data>
+  <data name="&gt;&gt;wordsToRemoveMemoEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelControl3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="labelControl3.Appearance.ForeColor" type="System.Drawing.Color, System.Drawing">
+    <value>GrayText</value>
+  </data>
+  <data name="labelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 240</value>
+  </data>
+  <data name="labelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 13</value>
+  </data>
+  <data name="labelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="labelControl3.Text" xml:space="preserve">
+    <value>(One word/sentence per line)</value>
+  </data>
+  <data name="&gt;&gt;labelControl3.Name" xml:space="preserve">
+    <value>labelControl3</value>
+  </data>
+  <data name="&gt;&gt;labelControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;labelControl3.Parent" xml:space="preserve">
+    <value>wordsToRemoveTabPage</value>
+  </data>
+  <data name="&gt;&gt;labelControl3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="wordsToRemoveTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
+  </data>
+  <data name="wordsToRemoveTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>364, 265</value>
+  </data>
+  <data name="wordsToRemoveTabPage.Text" xml:space="preserve">
+    <value>Words to remove</value>
+  </data>
+  <data name="&gt;&gt;wordsToRemoveTabPage.Name" xml:space="preserve">
+    <value>wordsToRemoveTabPage</value>
+  </data>
+  <data name="&gt;&gt;wordsToRemoveTabPage.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;wordsToRemoveTabPage.Parent" xml:space="preserve">
+    <value>xtraTabControl1</value>
+  </data>
+  <data name="&gt;&gt;wordsToRemoveTabPage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;xtraTabControl1.Name" xml:space="preserve">
+    <value>xtraTabControl1</value>
+  </data>
+  <data name="&gt;&gt;xtraTabControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;xtraTabControl1.Parent" xml:space="preserve">
+    <value>panelControl1</value>
+  </data>
+  <data name="&gt;&gt;xtraTabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>220, 303</value>
+  </data>
+  <data name="buttonOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="buttonOK.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;buttonOK.Name" xml:space="preserve">
+    <value>buttonOK</value>
+  </data>
+  <data name="&gt;&gt;buttonOK.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;buttonOK.Parent" xml:space="preserve">
+    <value>panelControl1</value>
+  </data>
+  <data name="&gt;&gt;buttonOK.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="buttonCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>301, 303</value>
+  </data>
+  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;buttonCancel.Name" xml:space="preserve">
+    <value>buttonCancel</value>
+  </data>
+  <data name="&gt;&gt;buttonCancel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
+    <value>panelControl1</value>
+  </data>
+  <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panelControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelControl1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="panelControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>382, 335</value>
+  </data>
+  <data name="panelControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelControl1.Name" xml:space="preserve">
+    <value>panelControl1</value>
+  </data>
+  <data name="&gt;&gt;panelControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v13.2, Version=13.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;panelControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="TranslateOptionsForm.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11px</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>382, 335</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>398, 373</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Translation settings</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>TranslateOptionsForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>ZetaResourceEditor.UI.Helper.Base.FormBase, ZetaResourceEditor, Version=2.2.0.29, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+</root>

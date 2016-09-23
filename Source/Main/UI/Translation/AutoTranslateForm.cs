@@ -24,11 +24,11 @@
 	using RuntimeBusinessLogic.Language;
 	using RuntimeBusinessLogic.Projects;
 	using RuntimeBusinessLogic.Translation;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.IO;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Common;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Common.IO;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Common;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	// ----------------------------------------------------------------------
 	#endregion
@@ -164,7 +164,7 @@
 			buttonSettings.Enabled = _project != null;
 		}
 
-		public override void InitiallyFillLists()
+		protected override void InitiallyFillLists()
 		{
 			base.InitiallyFillLists();
 
@@ -294,7 +294,7 @@
 				@"autoTranslateForm.languagesToTranslateCheckListBox");
 		}
 
-		public override void FillItemToControls()
+	    protected override void FillItemToControls()
 		{
 			base.FillItemToControls();
 

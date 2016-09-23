@@ -17,12 +17,11 @@
 	using RuntimeBusinessLogic.ExportImportExcel;
 	using RuntimeBusinessLogic.Projects;
 	using RuntimeUserInterface.Shell;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.IO;
-	using Zeta.EnterpriseLibrary.Logging;
-	using Zeta.EnterpriseLibrary.Tools;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Logging;
+	using Zeta.VoyagerLibrary.Tools;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 	using ZetaLongPaths;
 
 	public partial class SendProjectWizardForm :
@@ -52,7 +51,7 @@
 			_project = project;
 		}
 
-		public override void InitiallyFillLists()
+		protected override void InitiallyFillLists()
 		{
 			base.InitiallyFillLists();
 
@@ -61,7 +60,7 @@
 			zulReceiversTextEdit.Properties.Items.Add(SendProjectController.VendorReceiverGuiName);
 		}
 
-		public override void FillItemToControls()
+	    protected override void FillItemToControls()
 		{
 			base.FillItemToControls();
 
@@ -222,7 +221,7 @@
 
 		private void SendProjectWizardForm_Load(object sender, EventArgs e)
 		{
-			WinFormsPersistanceHelper.RestoreState(this);
+			//WinFormsPersistanceHelper.RestoreState(this);
 			CenterToParent();
 
 			InitiallyFillLists();
@@ -260,16 +259,6 @@
 					Application.DoEvents();
 				}
 			}
-		}
-
-		private void hyperLinkEdit1_OpenLink(object sender, OpenLinkEventArgs e)
-		{
-			var sei =
-				new ShellExecuteInformation
-				{
-					FileName = @"https://www.zeta-uploader.com"
-				};
-			sei.Execute();
 		}
 
 		private void exportProjectFileCheckEdit_CheckedChanged(object sender, EventArgs e)

@@ -9,9 +9,9 @@
 	using DevExpress.Utils.Serializing;
 	using DevExpress.Utils.Serializing.Helpers;
 	using DevExpress.XtraGrid.Views.Grid;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	// http://www.devexpress.com/Support/Center/p/Q249609.aspx
 	// http://www.devexpress.com/Support/Center/e/E600.aspx

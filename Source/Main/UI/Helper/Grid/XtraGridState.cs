@@ -10,8 +10,8 @@ namespace ZetaResourceEditor.UI.Helper
     using System.Text;
     using DevExpress.Utils;
     using DevExpress.XtraGrid.Views.Grid;
-    using Zeta.EnterpriseLibrary.Common;
-    using Zeta.EnterpriseLibrary.Windows.Common;
+    using Zeta.VoyagerLibrary.Common;
+    using Zeta.VoyagerLibrary.WinForms.Common;
 
     /// <summary>
     /// See http://www.devexpress.com/Support/Center/kb/p/A1433.aspx.

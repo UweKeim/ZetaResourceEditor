@@ -4,7 +4,7 @@
 	using System.Net;
 	using Helper.Base;
 	using RuntimeBusinessLogic.WebServices;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	public partial class WebProxySettingsForm : FormBase
 	{

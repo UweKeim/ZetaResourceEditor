@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZetaResourceEditor.Runtime</RootNamespace>
     <AssemblyName>ZetaResourceEditor.Runtime</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -20,22 +20,23 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Zeta.EnterpriseLibrary.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf, processorArchitecture=MSIL">
+    <Reference Include="Zeta.VoyagerLibrary.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\Zeta.EnterpriseLibrary.Common.dll</HintPath>
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Common.dll</HintPath>
     </Reference>
     <Reference Include="ZetaLongPaths, Version=1.0.0.3, Culture=neutral, PublicKeyToken=b764f59068f31f38, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Externals\ZetaEnterpriseLibrary\ZetaLongPaths.dll</HintPath>
+      <HintPath>..\References\Externals\ZetaVoyagerLibrary\ZetaLongPaths.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -55,7 +56,6 @@
     <Compile Include="StringExtensionMethods.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.de.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

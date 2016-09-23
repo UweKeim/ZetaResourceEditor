@@ -7,8 +7,9 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Data;
+    using System.Linq;
     using BL;
-    using CoreExcel;
+    using CoreExcel2;
     using DynamicSettings;
     using Export;
     using FileGroups;
@@ -17,9 +18,8 @@
     using Properties;
     using Runtime;
     using Runtime.FileAccess;
-    using Zeta.EnterpriseLibrary.Common;
-    using Zeta.EnterpriseLibrary.Common.Collections;
-    using Zeta.EnterpriseLibrary.Tools;
+    using Zeta.VoyagerLibrary.Common;
+    using Zeta.VoyagerLibrary.Common.Collections;
     using ZetaLongPaths;
 
     // ----------------------------------------------------------------------
@@ -41,7 +41,6 @@
         {
             if (string.IsNullOrEmpty(filePath) ||
                 (
-                StringExtensionMethods.ToLowerInvariantIntelligent(ZlpPathHelper.GetExtension(filePath)) != @".xls" &&
                 StringExtensionMethods.ToLowerInvariantIntelligent(ZlpPathHelper.GetExtension(filePath)) != @".xlsx"
                 )
                 ||
@@ -66,7 +65,7 @@
         {
             var result = new List<FileGroup>();
 
-            var checkSums = new Set<long>();
+            var checkSums = new HashSet<long>();
 
             foreach (DataTable table in dataSet.Tables)
             {
@@ -74,7 +73,7 @@
                 var ix = extractColumnCheckSums(table, out totalChecksumRows);
                 foreach (var pair in ix)
                 {
-                    checkSums.Add(pair.First);
+                    checkSums.Add(pair.Item1);
                 }
             }
 
@@ -97,12 +96,12 @@
             return result.ToArray();
         }
 
-        private static List<Pair<long, int>> extractColumnCheckSums(
+        private static List<MyTuple<long, int>> extractColumnCheckSums(
             DataTable table,
             out int totalChecksumRows)
         {
             totalChecksumRows = 0;
-            var result = new List<Pair<long, int>>();
+            var result = new List<MyTuple<long, int>>();
 
             if (table.Columns.Count >= 1)
             {
@@ -130,7 +129,7 @@
                                 foreach (var pair in result)
                                 // ReSharper restore LoopCanBeConvertedToQuery
                                 {
-                                    if (pair.First == checkSum)
+                                    if (pair.Item1 == checkSum)
                                     {
                                         found = true;
                                         break;
@@ -139,7 +138,7 @@
 
                                 if (!found)
                                 {
-                                    result.Add(new Pair<long, int>(checkSum, columnIndex));
+                                    result.Add(new MyTuple<long, int>(checkSum, columnIndex));
                                 }
                             }
                         }
@@ -172,7 +171,6 @@
         {
             if (string.IsNullOrEmpty(filePath) ||
                 (
-                StringExtensionMethods.ToLowerInvariantIntelligent(ZlpPathHelper.GetExtension(filePath)) != @".xls" &&
                 StringExtensionMethods.ToLowerInvariantIntelligent(ZlpPathHelper.GetExtension(filePath)) != @".xlsx"
                 ) ||
                 !ZlpIOHelper.FileExists(filePath))
@@ -192,24 +190,24 @@
         private static string[] detectLanguagesFromWorkbook(
             DataSet dataSet)
         {
-            var result = new Set<string>();
+            var result = new HashSet<string>();
 
             foreach (DataTable table in dataSet.Tables)
             {
                 foreach (var pair in dectectLanguageCodesFromTable(table))
                 {
-                    result.Add(pair.First);
+                    result.Add(pair.Item1);
                 }
             }
 
             return result.ToArray();
         }
 
-        private static List<Pair<string, int>> dectectLanguageCodesFromTable(
+        private static List<MyTuple<string, int>> dectectLanguageCodesFromTable(
             DataTable table)
         {
             // Make no Set type to keep order.
-            var result = new List<Pair<string, int>>();
+            var result = new List<MyTuple<string, int>>();
 
             // --
             // Header.
@@ -242,7 +240,7 @@
                             foreach (var pair in result)
                             // ReSharper restore LoopCanBeConvertedToQuery
                             {
-                                if (pair.First == lc)
+                                if (pair.Item1 == lc)
                                 {
                                     found = true;
                                     break;
@@ -251,7 +249,7 @@
 
                             if (!found)
                             {
-                                result.Add(new Pair<string, int>(lc, columnIndex));
+                                result.Add(new MyTuple<string, int>(lc, columnIndex));
                             }
                         }
                     }
@@ -557,8 +555,8 @@
             }
             else
             {
-                referenceLanguageName = languageCodes[0].First;
-                referenceLanguageColumnIndex = languageCodes[0].Second;
+                referenceLanguageName = languageCodes[0].Item1;
+                referenceLanguageColumnIndex = languageCodes[0].Item2;
             }
         }
 
@@ -606,7 +604,7 @@
             }
             else
             {
-                return ps[0].Second;
+                return ps[0].Item2;
             }
         }
 
@@ -680,7 +678,7 @@
             {
                 throw new ArgumentException(
                     Resources.ExcelImportController_getDestinationTableRowsByTagName_Reference_tag_name_must_be_provided_but_is_currently_NULL_or_empty_,
-                    @"tagName");
+                    nameof(tagName));
             }
             else
             {
@@ -731,7 +729,7 @@
             {
                 throw new ArgumentException(
                     Resources.SR_CommandProcessorReceive_getTableRows_Reference_language_value,
-                    @"referenceLanguageValue");
+                    nameof(referenceLanguageValue));
             }
             else
             {
@@ -758,7 +756,7 @@
                 {
                     var nr = table.NewRow();
                     nr[0] = string.Empty; // Column 0=FileGroup checksum, column 1=Tag name.
-                    nr[1] = StringHelper.GenerateMatchCode(referenceLanguageValue); // Column 0=FileGroup checksum, column 1=Tag name.
+                    nr[1] = referenceLanguageValue.GenerateMatchCode(); // Column 0=FileGroup checksum, column 1=Tag name.
                     nr[referenceLanguageDestinationColumnIndex] = referenceLanguageValue;
                     table.Rows.Add(nr);
 

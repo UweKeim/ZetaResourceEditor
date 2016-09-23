@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedControlsLibrary", "ExtendedControlsLibrary\ExtendedControlsLibrary.csproj", "{B59B3945-CC02-4515-A4A2-ECA0B0EA53C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{40202516-53C5-4FF1-9389-45B721757177}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Async", "Async\Async.csproj", "{DA221A47-8C58-4F70-9E21-BD65D776A7C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B59B3945-CC02-4515-A4A2-ECA0B0EA53C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B59B3945-CC02-4515-A4A2-ECA0B0EA53C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40202516-53C5-4FF1-9389-45B721757177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40202516-53C5-4FF1-9389-45B721757177}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA221A47-8C58-4F70-9E21-BD65D776A7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA221A47-8C58-4F70-9E21-BD65D776A7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -4,8 +4,8 @@
 	using System.Collections.Generic;
 	using System.Windows.Forms;
 	using DevExpress.XtraEditors;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	internal static class DevExpressExtensionMethods
 	{

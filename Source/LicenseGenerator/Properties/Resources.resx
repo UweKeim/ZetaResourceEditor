@@ -167,7 +167,7 @@
 		<comment></comment>
 	</data>
 	<data name="SR_ImportExportWizard_buttonBrowseFileClick_ExcelFilesXls" xml:space="preserve">
-		<value>Microsoft Office Excel documents (*.xls)</value>
+		<value>Microsoft Office Excel documents (*.xlsx)</value>
 		<comment></comment>
 	</data>
 	<data name="SR_EnumComboBox_Initialize_TMustBeAnEnum" xml:space="preserve">
@@ -285,7 +285,7 @@ Do you want to open the Excel document now?</value>
 		<comment></comment>
 	</data>
 	<data name="SR_ExportWizard_buttonBrowseClick_ExcelFilesXlsxls" xml:space="preserve">
-		<value>Excel documents (*.xls)|*.xls</value>
+		<value>Excel documents (*.xlsx)|*.xlsx</value>
 		<comment></comment>
 	</data>
 	<data name="SR_CommandProcessorSend_Process_Name" xml:space="preserve">

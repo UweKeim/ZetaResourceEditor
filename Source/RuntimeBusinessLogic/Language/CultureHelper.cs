@@ -8,7 +8,7 @@
 	using System.Threading;
 	using System.Windows.Forms;
 	using DevExpress.XtraSpellChecker;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Logging;
 	using ZetaLongPaths;
 
 	public static class CultureHelper

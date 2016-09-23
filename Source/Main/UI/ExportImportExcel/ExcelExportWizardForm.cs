@@ -7,6 +7,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 	using System.Collections.Generic;
 	using System.ComponentModel;
 	using System.Diagnostics;
+	using System.Linq;
 	using System.Threading;
 	using System.Windows.Forms;
 	using Code;
@@ -24,15 +25,13 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 	using RuntimeBusinessLogic.FileGroups;
 	using RuntimeBusinessLogic.Language;
 	using RuntimeBusinessLogic.Projects;
-	using RuntimeUserInterface.Shell;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.Collections;
-	using Zeta.EnterpriseLibrary.Common.IO;
-	using Zeta.EnterpriseLibrary.Logging;
-	using Zeta.EnterpriseLibrary.Tools;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Common;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Common.Collections;
+	using Zeta.VoyagerLibrary.Logging;
+	using Zeta.VoyagerLibrary.Tools;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Common;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 	using ZetaLongPaths;
 
 	// ----------------------------------------------------------------------
@@ -79,34 +78,32 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 			_project = project;
 		}
 
-		private string[] languageCodes
-		{
-			get
-			{
-				var codes =
-					new Set<string>
-						{
-							_project.NeutralLanguageCode
-						};
+	    private string[] languageCodes
+	    {
+	        get
+	        {
+	            var codes =
+	                new HashSet<string>
+	                {
+	                    _project.NeutralLanguageCode
+	                };
 
-				foreach (var group in _groups)
-				{
-					foreach (var lc in group.GetLanguageCodes(_project))
-					{
-						if (!string.IsNullOrEmpty(lc))
-						{
-							codes.Add(lc);
-						}
-					}
-				}
+	            foreach (
+	                var lc in
+	                    _groups.SelectMany(
+	                        @group => @group.GetLanguageCodes(_project).Where(lc => !string.IsNullOrEmpty(lc))))
+	            {
+	                codes.Add(lc);
+	            }
 
-				codes.Sort();
+	            var l = codes.ToList();
+	            l.Sort();
 
-				return codes.ToArray();
-			}
-		}
+	            return l.ToArray();
+	        }
+	    }
 
-		public override void InitiallyFillLists()
+	    protected override void InitiallyFillLists()
 		{
 			base.InitiallyFillLists();
 
@@ -125,7 +122,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 					(group.ParentSettings == null || !group.ParentSettings.EffectiveIgnoreDuringExportAndImport))
 				{
 					var index = fileGroupsListBox.Items.Add(
-						new Pair<string, FileGroup>(
+						new MyTuple<string, FileGroup>(
 							group.GetNameIntelligent(_project),
 							group));
 
@@ -144,11 +141,8 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 			foreach (var languageCode in languageCodes)
 			{
 				referenceLanguageGroupBox.Properties.Items.Add(
-					new Pair<string, string>(
-						string.Format(
-							@"{0} ({1})",
-							LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName,
-							languageCode),
+					new MyTuple<string, string>(
+					    $@"{LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName} ({languageCode})",
 						languageCode));
 			}
 
@@ -168,7 +162,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 			}
 		}
 
-		public override void FillItemToControls()
+	    protected override void FillItemToControls()
 		{
 			base.FillItemToControls();
 
@@ -449,7 +443,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 				referenceLanguageGroupBox.SelectedIndex >= 0 &&
 				referenceLanguageGroupBox.SelectedIndex <
 				referenceLanguageGroupBox.Properties.Items.Count
-					? ((Pair<string, string>)referenceLanguageGroupBox.SelectedItem).Second
+					? ((MyTuple<string, string>)referenceLanguageGroupBox.SelectedItem).Item2
 					: string.Empty;
 
 			foreach (var languageCode in languageCodes)
@@ -458,11 +452,8 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 					 languageCode.ToLowerInvariant() != forbidden.ToLowerInvariant())
 				{
 					var index = languagesToExportCheckListBox.Items.Add(
-						new Pair<string, string>(
-							string.Format(
-								@"{0} ({1})",
-								LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName,
-								languageCode),
+						new MyTuple<string, string>(
+						    $@"{LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName} ({languageCode})",
 							languageCode));
 
 					languagesToExportCheckListBox.SetItemChecked(index, true);
@@ -535,7 +526,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 			{
 				selectedPage.AllowNext =
 					destinationFileTextEdit.Text.Trim().Length > 0 &&
-					ZlpPathHelper.GetExtension(destinationFileTextEdit.Text.Trim().ToLowerInvariant()) == @".xls";
+					ZlpPathHelper.GetExtension(destinationFileTextEdit.Text.Trim().ToLowerInvariant()) == @".xlsx";
 			}
 			else if (selectedPage == sendWithZetaUploaderWizardPage)
 			{
@@ -569,7 +560,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 			object sender,
 			EventArgs e)
 		{
-			WinFormsPersistanceHelper.RestoreState(this);
+			//WinFormsPersistanceHelper.RestoreState(this);
 			CenterToParent();
 
 			advancedOptionsPanel.Visible =
@@ -896,12 +887,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 			}
 		}
 
-		protected bool hasWarnings
-		{
-			get { return !string.IsNullOrEmpty(warningTextLabel.Text.Trim()); }
-		}
+	    private bool hasWarnings => !string.IsNullOrEmpty(warningTextLabel.Text.Trim());
 
-		private void wizardControl_NextClick(
+	    private void wizardControl_NextClick(
 			object sender,
 			WizardCommandButtonClickEventArgs e)
 		{
@@ -962,57 +950,43 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 
 		private void doExport()
 		{
-			var ei =
-				new ExcelExportInformation
-					{
-						Project = _project,
-						ReferenceLanguageCode = ((Pair<string, string>)referenceLanguageGroupBox.SelectedItem).Second,
-						DestinationFilePath = destinationFileTextEdit.Text.Trim(),
-						EliminateDuplicateRows = eliminateDuplicateRowsCheckEdit.Checked,
-						OnlyExportRowsWithNoTranslation = exportWithoutDestinationTranslationOnlyCheckEdit.Checked,
-						ExportCompletelyEmptyRows = exportCompletelyEmptyRowsCheckEdit.Checked,
-						OnlyExportRowsWithChangedTexts = exportOnlyRowsWithChangedTextsCheckEdit.Checked,
-						ExportAllGroupsMode =
-							exportGroupsAsOneWorkSheetCheckEdit.Checked
-								? ExcelExportInformation.ExportFileGroupMode.AllGroupsIntoOneWorksheet
-								: exportGroupsAsWorkSheetsCheckEdit.Checked
-									? ExcelExportInformation.ExportFileGroupMode.EachGroupIntoSeparateWorksheet
-									: ExcelExportInformation.ExportFileGroupMode.OneExcelFilePerGroup,
-						ExportFileGroupColumn = exportFileGroupColumnCheckEdit.Checked,
-						ExportNameColumn = exportNameColumnCheckEdit.Checked,
-						ExportCommentColumn = exportCommentColumnCheckEdit.Checked,
-						ExportReferenceLanguageColumn = exportReferenceLanguageColumnCheckEdit.Checked,
-						ExportEachLanguageIntoSeparateExcelFile = exportEachLanguageIntoSeparateExcelFileCheckEdit.Checked,
-						UseCrypticExcelExportSheetNames = useCrypticExcelExportSheetNamesCheckEdit.Checked,
-						SendFilesWithZetaUploader = sendFilesToEMailReceiversCheckEdit.Checked,
-						SendFilesEMailReceivers = zulReceiversTextEdit.Text.Trim(),
-						SendFilesEMailSubject = zulSubjectTextEdit.Text.Trim(),
-						SendFilesEMailBody = zulBodyTextEdit.Text.Trim()
-					};
+		    var ei =
+		        new ExcelExportInformation
+		        {
+		            Project = _project,
+		            ReferenceLanguageCode = ((MyTuple<string, string>) referenceLanguageGroupBox.SelectedItem).Item2,
+		            DestinationFilePath = destinationFileTextEdit.Text.Trim(),
+		            EliminateDuplicateRows = eliminateDuplicateRowsCheckEdit.Checked,
+		            OnlyExportRowsWithNoTranslation = exportWithoutDestinationTranslationOnlyCheckEdit.Checked,
+		            ExportCompletelyEmptyRows = exportCompletelyEmptyRowsCheckEdit.Checked,
+		            OnlyExportRowsWithChangedTexts = exportOnlyRowsWithChangedTextsCheckEdit.Checked,
+		            ExportAllGroupsMode =
+		                exportGroupsAsOneWorkSheetCheckEdit.Checked
+		                    ? ExcelExportInformation.ExportFileGroupMode.AllGroupsIntoOneWorksheet
+		                    : exportGroupsAsWorkSheetsCheckEdit.Checked
+		                        ? ExcelExportInformation.ExportFileGroupMode.EachGroupIntoSeparateWorksheet
+		                        : ExcelExportInformation.ExportFileGroupMode.OneExcelFilePerGroup,
+		            ExportFileGroupColumn = exportFileGroupColumnCheckEdit.Checked,
+		            ExportNameColumn = exportNameColumnCheckEdit.Checked,
+		            ExportCommentColumn = exportCommentColumnCheckEdit.Checked,
+		            ExportReferenceLanguageColumn = exportReferenceLanguageColumnCheckEdit.Checked,
+		            ExportEachLanguageIntoSeparateExcelFile = exportEachLanguageIntoSeparateExcelFileCheckEdit.Checked,
+		            UseCrypticExcelExportSheetNames = useCrypticExcelExportSheetNamesCheckEdit.Checked,
+		            SendFilesWithZetaUploader = sendFilesToEMailReceiversCheckEdit.Checked,
+		            SendFilesEMailReceivers = zulReceiversTextEdit.Text.Trim(),
+		            SendFilesEMailSubject = zulSubjectTextEdit.Text.Trim(),
+		            SendFilesEMailBody = zulBodyTextEdit.Text.Trim(),
+		            FileGroups = (from CheckedListBoxItem item in fileGroupsListBox.CheckedItems
+		                select (MyTuple<string, FileGroup>) item.Value
+		                into p
+		                select p.Item2).ToArray(),
+		            DestinationLanguageCodes = (from CheckedListBoxItem item in languagesToExportCheckListBox.CheckedItems
+		                select (MyTuple<string, string>) item.Value
+		                into p
+		                select p.Item2).ToArray()
+		        };
 
-			var groups = new List<FileGroup>();
-
-			foreach (CheckedListBoxItem item in fileGroupsListBox.CheckedItems)
-			{
-				var p = (Pair<string, FileGroup>)item.Value;
-
-				groups.Add(p.Second);
-			}
-
-			ei.FileGroups = groups.ToArray();
-
-			var languages = new List<string>();
-
-			foreach (CheckedListBoxItem item in languagesToExportCheckListBox.CheckedItems)
-			{
-				var p = (Pair<string, string>)item.Value;
-
-				languages.Add(p.Second);
-			}
-
-			ei.DestinationLanguageCodes = languages.ToArray();
-
-			// --
+		    // --
 
 			progressBackgroundWorker.RunWorkerAsync(ei);
 			UpdateUI();
@@ -1143,7 +1117,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 
 			var baseFolderPath = _project.ProjectConfigurationFilePath.DirectoryName;
 			var baseFileName = ZlpPathHelper.GetFileNameWithoutExtension(_project.ProjectConfigurationFilePath.Name);
-			const string baseExtension = @".xls";
+			const string baseExtension = @".xlsx";
 
 			// --
 
@@ -1153,30 +1127,21 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 				destinationFileTextEdit.Text =
 					ZlpPathHelper.Combine(
 						baseFolderPath,
-						string.Format(
-							@"{0}-{{LanguageName}}-{{FileGroupName}}{1}",
-							baseFileName,
-							baseExtension));
+					    $@"{baseFileName}-{{LanguageName}}-{{FileGroupName}}{baseExtension}");
 			}
 			else if (exportGroupsAsExcelFilesCheckEdit.Checked)
 			{
 				destinationFileTextEdit.Text =
 					ZlpPathHelper.Combine(
 						baseFolderPath,
-						string.Format(
-							@"{0}-{{FileGroupName}}{1}",
-							baseFileName,
-							baseExtension));
+					    $@"{baseFileName}-{{FileGroupName}}{baseExtension}");
 			}
 			else if (exportEachLanguageIntoSeparateExcelFileCheckEdit.Checked)
 			{
 				destinationFileTextEdit.Text =
 					ZlpPathHelper.Combine(
 						baseFolderPath,
-						string.Format(
-							@"{0}-{{LanguageName}}{1}",
-							baseFileName,
-							baseExtension));
+					    $@"{baseFileName}-{{LanguageName}}{baseExtension}");
 			}
 			else
 			{
@@ -1189,15 +1154,12 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 		{
 			var baseFolderPath = _project.ProjectConfigurationFilePath.DirectoryName;
 			var baseFileName = ZlpPathHelper.GetFileNameWithoutExtension(_project.ProjectConfigurationFilePath.Name);
-			const string baseExtension = @".xls";
+			const string baseExtension = @".xlsx";
 
 			destinationFileTextEdit.Text =
 				ZlpPathHelper.Combine(
 					baseFolderPath,
-					string.Format(
-						@"{0}{1}",
-						baseFileName,
-						baseExtension));
+				    $@"{baseFileName}{baseExtension}");
 		}
 
 		private void exportFileGroupColumnCheckEdit_CheckedChanged(object sender, EventArgs e)
@@ -1240,16 +1202,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 		private void sendFilesToEMailReceiversCheckEdit_CheckedChanged(object sender, EventArgs e)
 		{
 			UpdateUI();
-		}
-
-		private void hyperLinkEdit1_OpenLink(object sender, OpenLinkEventArgs e)
-		{
-			var sei =
-				new ShellExecuteInformation
-				{
-					FileName = @"https://www.zeta-uploader.com"
-				};
-			sei.Execute();
 		}
 
 		private void zulReceiversTextEdit_EditValueChanged(object sender, EventArgs e)

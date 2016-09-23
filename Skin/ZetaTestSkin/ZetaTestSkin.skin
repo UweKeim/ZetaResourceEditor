@@ -1,0 +1,8 @@
+﻿<SkinItems version="1.0" application="SkinEditor" assembly="ZetaTestSkin" class="" extranamespace="">
+  <Item>
+    <ItemName>ZetaTestSkin</ItemName>
+    <TemplateName>Office 2013</TemplateName>
+    <SkinMaskColor />
+    <SkinMaskColor2 />
+  </Item>
+</SkinItems>

@@ -8,10 +8,10 @@
 	using Properties;
 	using RuntimeBusinessLogic.UpdateChecker;
 	using UI.Helper.Progress;
-	using Zeta.EnterpriseLibrary.Common.IO;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Logging;
+	using ZetaLongPaths;
 
-	internal class SetupDownloadController
+    internal class SetupDownloadController
 	{
 		private readonly UpdateCheckerService _ws;
 
@@ -36,7 +36,7 @@
 						var res = _ws.DownloadUpdate2(info);
 
 						localPath =
-							PathHelper.Combine(
+							ZlpPathHelper.Combine(
 								getTempPathIntelligent(),
 								Path.GetFileNameWithoutExtension(res.FileName) +
 								Guid.NewGuid() +
@@ -68,11 +68,7 @@
 				var url = downloadWebsiteUrl;
 
 				LogCentral.Current.LogInfo(
-					string.Format(
-						@"About to redirect to update-web page at '{0}' " +
-							@"for client with version '{1}'.",
-						url,
-						info.VersionNumber));
+				    $@"About to redirect to update-web page at '{url}' for client with version '{info.VersionNumber}'.");
 
 				var si =
 					new ProcessStartInfo

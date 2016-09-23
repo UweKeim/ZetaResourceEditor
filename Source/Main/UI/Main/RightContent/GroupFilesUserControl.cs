@@ -12,8 +12,8 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 	using RuntimeBusinessLogic.DL;
 	using RuntimeBusinessLogic.FileGroups;
 	using RuntimeBusinessLogic.Projects;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Tools.Storage;
 	using ZetaLongPaths;
 
 	public partial class GroupFilesUserControl :

@@ -11,7 +11,7 @@
 	using Language;
 	using Properties;
 	using Runtime;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Logging;
 
 	public class BingSoapTranslationEngine :
 		ITranslationEngine

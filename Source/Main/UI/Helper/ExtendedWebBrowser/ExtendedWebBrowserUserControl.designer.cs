@@ -28,7 +28,7 @@ namespace ZetaResourceEditor.UI.Helper.ExtendedWebBrowser
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.panel1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
 			webBrowser = new ZetaResourceEditor.UI.Helper.ExtendedWebBrowser.ExtendedWebBrowserControl();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -69,7 +69,7 @@ namespace ZetaResourceEditor.UI.Helper.ExtendedWebBrowser
 
 		#endregion
 
-		private System.Windows.Forms.Panel panel1;
+		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panel1;
 		private ExtendedWebBrowserControl webBrowser;
 	}
 }

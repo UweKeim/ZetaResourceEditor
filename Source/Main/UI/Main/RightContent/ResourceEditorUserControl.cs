@@ -10,6 +10,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 	using System.Diagnostics;
 	using System.Drawing;
 	using System.Globalization;
+	using System.Linq;
 	using System.Windows.Forms;
 	using DevExpress.Data;
 	using DevExpress.Skins;
@@ -21,6 +22,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 	using DevExpress.XtraGrid.Views.Grid;
 	using DevExpress.XtraSpellChecker;
 	using DevExpress.XtraTab;
+	using ExtendedControlsLibrary.General.Base;
 	using Helper.Base;
 	using Helper.Grid;
 	using Helper.Progress;
@@ -33,13 +35,11 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 	using RuntimeBusinessLogic.Projects;
 	using TagOperations;
 	using Tools;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.Collections;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Common;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Common;
 
-	// ----------------------------------------------------------------------
+    // ----------------------------------------------------------------------
 	#endregion
 
 	public partial class ResourceEditorUserControl :
@@ -67,7 +67,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		{
 			MainForm.Current.Closing += current_Closing;
 
-			WinFormsPersistanceHelper.RestoreState(tabControl1);
+			//WinFormsPersistanceHelper.RestoreState(tabControl1);
 
 			_findText = ConvertHelper.ToString(
 				PersistanceHelper.RestoreValue(@"FindText"));
@@ -136,7 +136,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		{
 			get
 			{
-				var result = new Set<int>();
+				var result = new HashSet<int>();
 
 				var cells = mainGridView.GetSelectedCells();
 				if (cells.Length > 0)
@@ -150,7 +150,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 				{
 					var rows = mainGridView.GetSelectedRows();
 
-					foreach (int row in rows)
+					foreach (var row in rows)
 					{
 						result.Add(row);
 					}
@@ -160,15 +160,9 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 			}
 		}
 
-		private bool hasSelectedRow
-		{
-			get
-			{
-				return selectedRowHandle != -1;
-			}
-		}
+		private bool hasSelectedRow => selectedRowHandle != -1;
 
-		private void mainDataView_RowCellStyle(object sender, RowCellStyleEventArgs e)
+	    private void mainDataView_RowCellStyle(object sender, RowCellStyleEventArgs e)
 		{
 			// Ignore during closing.
 			if (mainDataGrid.DataSource != null)
@@ -332,21 +326,9 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 			notifyModifyStateChanged();
 		}
 
-		/// <summary>
-		/// Gets a value indicating whether this instance is modified.
-		/// </summary>
-		/// <value>
-		/// 	<c>true</c> if this instance is modified; otherwise, <c>false</c>.
-		/// </value>
-		public bool IsModified
-		{
-			get
-			{
-				return _isDetailsContentModified || _isGridContentModified;
-			}
-		}
+		public bool IsModified => _isDetailsContentModified || _isGridContentModified;
 
-		internal bool OpenWithDialog(
+	    internal bool OpenWithDialog(
 			FileGroup fileGroup)
 		{
 			var r = DoSaveFiles(
@@ -670,12 +652,9 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		/// </summary>
 		private void notifyModifyStateChanged()
 		{
-			if (ModifyStateChanged != null)
-			{
-				ModifyStateChanged(this, EventArgs.Empty);
-			}
+		    ModifyStateChanged?.Invoke(this, EventArgs.Empty);
 
-			// --
+		    // --
 
 			if (GridEditableData != null)
 			{
@@ -866,92 +845,32 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 			}
 		}
 
-		public bool CanSave
-		{
-			get
-			{
-				return _data != null;
-			}
-		}
+		public bool CanSave => _data != null;
 
-		public bool CanResetLayout
-		{
-			get
-			{
-				return _data != null;
-			}
-		}
+	    public bool CanResetLayout => _data != null;
 
-		public bool CanClose
-		{
-			get
-			{
-				return _data != null;
-			}
-		}
+	    public bool CanClose => _data != null;
 
-		public bool CanAddTag
-		{
-			get
-			{
-				return _data != null &&
-					// Only allow to add when file group because otherwise
-					// it cannot be determined for which file group to add.
-					GridEditableData != null &&
-						GridEditableData.SourceType == GridSourceType.FileGroup;
-			}
-		}
+	    public bool CanAddTag => _data != null &&
+	                             // Only allow to add when file group because otherwise
+	                             // it cannot be determined for which file group to add.
+	                             GridEditableData != null &&
+	                             GridEditableData.SourceType == GridSourceType.FileGroup;
 
-		public bool CanDeleteTag
-		{
-			get
-			{
-				return _data != null && hasSelectedRow;
-			}
-		}
+	    public bool CanDeleteTag => _data != null && hasSelectedRow;
 
-		public bool CanRenameTag
-		{
-			get
-			{
-				return _data != null && hasSelectedRow;
-			}
-		}
+	    public bool CanRenameTag => _data != null && hasSelectedRow;
 
-		public bool CanAutoTranslateMissingTranslations
-		{
-			get
-			{
-				return _data != null && mainGridView.Columns.Count > 2;
-			}
-		}
+	    public bool CanAutoTranslateMissingTranslations => _data != null && mainGridView.Columns.Count > 2;
 
-		public bool CanOpenFolder
-		{
-			get
-			{
-				return _data != null;
-			}
-		}
+	    public bool CanOpenFolder => _data != null;
 
-		public bool CanFind
-		{
-			get
-			{
-				return _data != null;
-			}
-		}
+	    public bool CanFind => _data != null;
 
-		public bool CanFindNext
-		{
-			get
-			{
-				return _data != null &&
-					!string.IsNullOrEmpty(_findText);
-			}
-		}
+	    public bool CanFindNext => _data != null &&
+	                               !string.IsNullOrEmpty(_findText);
 
-		internal IGridEditableData GridEditableData { get; private set; }
+	    internal IGridEditableData GridEditableData { get; private set; }
 
 		public DataTable GetDataSource()
 		{
@@ -1006,9 +925,9 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		private void restoreGridLayout()
 		{
 			var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
-			if (project != null && layoutSerializer != null)
+			if (project != null)
 			{
-				layoutSerializer.Restore();
+				layoutSerializer?.Restore();
 			}
 		}
 
@@ -1470,7 +1389,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
 				var ss = new List<string>();
 
-				if (mainGridView != null && mainGridView.Columns != null)
+				if (mainGridView?.Columns != null)
 				{
 					// Column 0=FileGroup checksum, column 1=Tag name.
 					for (var i = 2; i < mainGridView.Columns.Count - sub; ++i)
@@ -1560,7 +1479,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 				// Check both, grid and underlying table, because depending
 				// on the loading stage of the grid, the grid can still be empty.
 
-				if (mainGridView != null && mainGridView.Columns != null)
+				if (mainGridView?.Columns != null)
 				{
 					// Column 0=FileGroup checksum, column 1=Tag name.
 					for (var i = 2; i < mainGridView.Columns.Count - sub; ++i)
@@ -1629,13 +1548,9 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 			}
 		}
 
-		public bool IsTranslating
-		{
-			get;
-			set;
-		}
+	    public bool IsTranslating { get; set; }
 
-		private int _currentRowIndex = -1;
+	    private int _currentRowIndex = -1;
 
 		private string _findText;
 		private bool _isLoaded;
@@ -1691,9 +1606,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 					else
 					{
 						XtraMessageBox.Show(
-							string.Format(
-								"{0} occurrences have been replaced.",
-								count),
+						    $"{count} occurrences have been replaced.",
 							@"Zeta Resource Editor",
 							MessageBoxButtons.OK,
 							MessageBoxIcon.Information);
@@ -1893,19 +1806,13 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 			}
 		}
 
-		internal bool SaveState()
-		{
-			return SaveState(
-				SaveOptions.OnlyIfModified |
-					SaveOptions.AskConfirm);
-		}
-
-		/// <summary>
+	    /// <summary>
 		/// Saves the state.
 		/// </summary>
 		/// <returns>Returns FALSE if cancel requested.</returns>
 		internal bool SaveState(
-			SaveOptions options)
+			SaveOptions options = SaveOptions.OnlyIfModified |
+			                      SaveOptions.AskConfirm)
 		{
 			PersistanceHelper.SaveValue(
 				MainForm.UserStorageIntelligent,
@@ -1933,13 +1840,13 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
 		private void saveSplitterState()
 		{
-			FormBase.SaveState(
+			DevExpressXtraFormBase.SaveState(
 				resourceEditorUserControlMainSplitContainer);
 		}
 
 		private void restoreSplitterState()
 		{
-			FormBase.RestoreState(
+			DevExpressXtraFormBase.RestoreState(
 				resourceEditorUserControlMainSplitContainer);
 		}
 
@@ -2059,12 +1966,9 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 					_gridSpellCheckers[culture] = gridSpellChecker;
 				}
 
-				if (gridSpellChecker != null)
-				{
-					gridSpellChecker.SetShowSpellCheckMenu(
-					   mainGridView.ActiveEditor,
-					   true);
-				}
+			    gridSpellChecker?.SetShowSpellCheckMenu(
+			        mainGridView.ActiveEditor,
+			        true);
 			}
 		}
 
@@ -2213,7 +2117,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 								mainGridView.Columns[i].GetCaption());
 
 							if (!StringExtensionMethods.IsNullOrWhiteSpace(
-								languagesToDelete.Find(y => string.Compare(y, languageName, true) == 0)))
+								languagesToDelete.Find(y => String.Compare(y, languageName, StringComparison.OrdinalIgnoreCase) == 0)))
 							{
 								mainGridHelper.SetRowCellValue(rowHandle, i, null);
 							}

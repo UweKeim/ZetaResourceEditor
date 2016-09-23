@@ -3,10 +3,10 @@ using System.Windows.Forms;
 namespace ZetaResourceEditor.UI.Tools
 {
 	using System;
-	using Zeta.EnterpriseLibrary.Common;
+	using Zeta.VoyagerLibrary.Common;
 	using Helper.Base;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	public partial class FindForm :
 		FormBase
@@ -83,7 +83,7 @@ namespace ZetaResourceEditor.UI.Tools
 
 		private void saveComboBox()
 		{
-			WinFormsPersistanceHelper.SaveState(textToFindComboBox);
+			//WinFormsPersistanceHelper.SaveState(textToFindComboBox);
 
 			PersistanceHelper.SaveValue(
 				textToFindComboBox.Name + @".Text",
@@ -109,7 +109,7 @@ namespace ZetaResourceEditor.UI.Tools
 		private void restoreComboBox()
 		{
 			var temp = TextToFind;
-			WinFormsPersistanceHelper.RestoreState(textToFindComboBox);
+			//WinFormsPersistanceHelper.RestoreState(textToFindComboBox);
 
 			var count =
 				ConvertHelper.ToInt32(

@@ -1,6 +1,6 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
 {
-	using Zeta.EnterpriseLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.Tools.Storage;
 
 	public class DynamicSettingsHierarchical :
 		IPersistentPairStorage
@@ -50,5 +50,11 @@
 		public void Flush()
 		{
 		}
+
+	    public RetrieveValueDelegate ExternalValueRetriever
+	    {
+	        get { return null; }
+	        set {  }
+	    }
 	}
 }

@@ -22,9 +22,9 @@
             DataSet dataSet,
             string filePath)
         {
-            if (!filePath.EndsWith(@".xls", StringComparison.InvariantCultureIgnoreCase))
+            if (!filePath.EndsWith(@".xlsx", StringComparison.InvariantCultureIgnoreCase))
             {
-                throw new Exception("Currently only XLS (i.e. not XLSX) is supported when writing Excel files.");
+                throw new Exception("Currently only XLSX (i.e. not XLS) is supported when writing Excel files.");
             }
 
             var wb = new Workbook();

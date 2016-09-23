@@ -6,13 +6,14 @@ namespace ZetaResourceEditor.Code
 	using System.Threading;
 	using System.Windows.Forms;
 	using DevExpress.XtraEditors;
+	using ExtendedControlsLibrary.Skinning;
 	using RuntimeBusinessLogic.Projects;
 	using UI.Helper.ErrorHandling;
 	using Properties;
 	using UI.Main;
-	using Zeta.EnterpriseLibrary.Logging;
-	using Zeta.EnterpriseLibrary.Tools.Miscellaneous;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.Logging;
+	using Zeta.VoyagerLibrary.Tools.Miscellaneous;
+	using Zeta.VoyagerLibrary.Tools.Storage;
 	using ZetaLongPaths;
 
 	internal sealed class Host
@@ -27,9 +28,9 @@ namespace ZetaResourceEditor.Code
 		{
 			try
 			{
-				//Zeta.EnterpriseLibrary.Common.Configuration.
+				//Zeta.VoyagerLibrary.Common.Configuration.
 				//    LibraryConfiguration.Current.Initialize();
-				//Zeta.EnterpriseLibrary.Windows.Configuration.
+				//Zeta.VoyagerLibrary.WinForms.Configuration.
 				//    LibraryConfiguration.Current.Initialize();
 
 				LogCentral.Current.ConfigureLogging();
@@ -70,24 +71,21 @@ namespace ZetaResourceEditor.Code
 
 				PersistanceHelper.Storage = persistentStorage;
 
-				// --
+                // --
 
-				// http://community.devexpress.com/forums/t/80133.aspx
+                // http://community.devexpress.com/forums/t/80133.aspx
 
-				// http://www.devexpress.com/Support/Center/p/B155647.aspx
-				//DevExpress.UserSkins.OfficeSkins.Register();
-				//DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = @"Office 2010 Silver";
+                // http://www.devexpress.com/Support/Center/p/B155647.aspx
+                //DevExpress.UserSkins.OfficeSkins.Register();
+                //DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = @"Office 2010 Silver";
 
-				DevExpress.Skins.SkinManager.EnableFormSkins();
+                SkinHelper.InitializeAll();
 
-				// --
+                // --
 
-				// Manually turn off.
-				//Zeta.EnterpriseLibrary.Windows.Configuration.
-				//    LibraryConfiguration.Current.IsDesignMode = false;
-
-				Application.EnableVisualStyles();
-				Application.SetCompatibleTextRenderingDefault( false );
+                // Manually turn off.
+                //Zeta.VoyagerLibrary.WinForms.Configuration.
+                //    LibraryConfiguration.Current.IsDesignMode = false;
 
 				AppDomain.CurrentDomain.UnhandledException +=
 					currentDomainUnhandledException;

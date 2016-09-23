@@ -3,13 +3,14 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Globalization;
+	using System.Linq;
 	using System.Windows.Forms;
 	using DevExpress.XtraEditors.Controls;
 	using Helper.Base;
 	using RuntimeBusinessLogic.Language;
 	using RuntimeBusinessLogic.Projects;
-	using Zeta.EnterpriseLibrary.Common.Collections;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common.Collections;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	public partial class DeleteRowContentsForm :
 		FormBase
@@ -31,7 +32,7 @@
 			get
 			{
 				var codes =
-					new Set<string>
+					new HashSet<string>
 						{
 							_project.NeutralLanguageCode
 						};
@@ -47,20 +48,21 @@
 					}
 				}
 
-				codes.Sort();
+                var l = codes.ToList();
+                l.Sort();
 
-				return codes.ToArray();
-			}
-		}
+                return l.ToArray();
+            }
+        }
 
-		public override void InitiallyFillLists()
+		protected override void InitiallyFillLists()
 		{
 			base.InitiallyFillLists();
 
 			refillLanguagesToTranslate();
 		}
 
-		public override void FillItemToControls()
+	    protected override void FillItemToControls()
 		{
 			base.FillItemToControls();
 
@@ -84,9 +86,9 @@
 		{
 			foreach (CheckedListBoxItem item in languagesToDisplayCheckListBox.Items)
 			{
-				var p = (Pair<string, string>)item.Value;
+				var p = (MyTuple<string, string>)item.Value;
 
-				if (string.Compare(p.Second, cultureInfo.Name, true) == 0)
+				if (string.Compare(p.Item2, cultureInfo.Name, true) == 0)
 				{
 					item.CheckState = CheckState.Checked;
 					break;
@@ -113,9 +115,9 @@
 				foreach (CheckedListBoxItem item in languagesToDisplayCheckListBox.CheckedItems)
 				// ReSharper restore LoopCanBeConvertedToQuery
 				{
-					var p = (Pair<string, string>)item.Value;
+					var p = (MyTuple<string, string>)item.Value;
 
-					cs.Add(p.Second);
+					cs.Add(p.Item2);
 				}
 
 				return cs.ToArray();
@@ -142,7 +144,7 @@
 		{
 			languagesToDisplayCheckListBox.Items.Clear();
 
-			var pairs = new List<Pair<string, string>>();
+			var pairs = new List<MyTuple<string, string>>();
 
 			// ReSharper disable LoopCanBeConvertedToQuery
 			foreach (var languageCode in languageCodes)
@@ -151,7 +153,7 @@
 				if (!string.IsNullOrEmpty(languageCode))
 				{
 					pairs.Add(
-						new Pair<string, string>(
+						new MyTuple<string, string>(
 							string.Format(
 								@"{0} ({1})",
 								LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName,
@@ -160,7 +162,7 @@
 				}
 			}
 
-			pairs.Sort((x, y) => x.First.CompareTo(y.First));
+			pairs.Sort((x, y) => x.Item1.CompareTo(y.Item1));
 
 			foreach (var pair in pairs)
 			{

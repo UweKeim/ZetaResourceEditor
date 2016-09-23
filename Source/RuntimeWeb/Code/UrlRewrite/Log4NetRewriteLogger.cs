@@ -2,7 +2,7 @@
 {
 	using System;
 	using Intelligencia.UrlRewriter.Logging;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Logging;
 
 	public class Log4NetRewriteLogger :
 		IRewriteLogger

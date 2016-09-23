@@ -6,10 +6,15 @@
 Deploy/
 Etc/
 Bin-LicenseGenerator/
+Bin-Skinning/
 Source/UpdateChecker/App_Data/ZetaResourceEditor.exe
 
 /Bin/
 
+Source/build-all.cmd
+Source/do-build-all.cs
+Source/do-build-all.log
+Source/NuGet.exe
 Source/UpdateChecker/Bin/*.dll
 Source/UpdateChecker/Bin/de/*.dll
 Source/Web/Bin/*.dll

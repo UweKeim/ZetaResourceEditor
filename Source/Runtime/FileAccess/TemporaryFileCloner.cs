@@ -2,7 +2,6 @@
 {
 	using System;
 	using System.IO;
-	using Zeta.EnterpriseLibrary.Common.IO;
 	using ZetaLongPaths;
 
 	public class TemporaryFileCloner :
@@ -19,7 +18,7 @@
 						Guid.NewGuid(),
 						ZlpPathHelper.GetFileNameWithoutExtension(wordDocumentFilePath)));
 
-			SafeFileOperations.SafeCopyFile(
+			ZlpSafeFileOperations.SafeCopyFile(
 				wordDocumentFilePath,
 				_tempFilePath,
 				true);
@@ -43,7 +42,7 @@
 
 		private void doDispose()
 		{
-			SafeFileOperations.SafeDeleteFile(_tempFilePath);
+			ZlpSafeFileOperations.SafeDeleteFile(_tempFilePath);
 		}
 
 		#endregion

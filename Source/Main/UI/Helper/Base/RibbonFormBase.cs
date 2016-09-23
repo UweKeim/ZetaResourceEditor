@@ -1,12 +1,12 @@
 namespace ZetaResourceEditor.UI.Helper.Base
 {
 	using System.ComponentModel;
-	using DevExpress.XtraBars.Ribbon;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using ExtendedControlsLibrary.General.Base;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	public partial class RibbonFormBase :
-		RibbonForm
-	{
+        DevExpressRibbonFormBase
+    {
 		public RibbonFormBase()
 		{
 			InitializeComponent();
@@ -18,18 +18,6 @@ namespace ZetaResourceEditor.UI.Helper.Base
 			container.Add( this );
 
 			InitializeComponent();
-		}
-
-		public virtual void InitiallyFillLists()
-		{
-		}
-
-		public virtual void FillItemToControls()
-		{
-		}
-
-		public virtual void FillControlsToItem()
-		{
 		}
 
 		public virtual void UpdateUI()

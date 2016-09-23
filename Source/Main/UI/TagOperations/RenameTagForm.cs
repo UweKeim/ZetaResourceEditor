@@ -4,7 +4,7 @@ namespace ZetaResourceEditor.UI.TagOperations
 	using System.Collections.Generic;
 	using System.Windows.Forms;
 	using Helper.Base;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	/// <summary>
 	/// 

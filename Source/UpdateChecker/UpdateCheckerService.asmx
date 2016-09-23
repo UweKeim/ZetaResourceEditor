@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="~/App_Code/UpdateCheckerService.cs" Class="UpdateCheckerService" %>
+﻿<%@ WebService Language="C#" CodeBehind="UpdateCheckerService.cs" Class="UpdateChecker.UpdateCheckerService" %>

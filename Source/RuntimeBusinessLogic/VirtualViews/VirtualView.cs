@@ -1,16 +1,18 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.VirtualViews
 {
 	using System;
+	using System.Collections.Generic;
+	using System.Linq;
 	using System.Xml;
 	using DL;
 	using FileGroups;
 	using ProjectFolders;
 	using Projects;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.Collections;
-	using Zeta.EnterpriseLibrary.Tools.Asynchronous;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Common.Collections;
+	using ZetaAsync;
 
-	public class VirtualView :
+    public class VirtualView :
 		ITranslationStateInformation,
 		IComparable,
 		IComparable<VirtualView>,
@@ -29,30 +31,18 @@
 		private int _orderPosition;
 		private Guid _uniqueID;
 
-		public Guid UniqueID
-		{
-			get
-			{
-				return _uniqueID;
-			}
-		}
+		public Guid UniqueID => _uniqueID;
 
-		public Project Project
-		{
-			get
-			{
-				return _project;
-			}
-		}
+        public Project Project => _project;
 
-		public ProjectFolder ProjectFolder
+        public ProjectFolder ProjectFolder
 		{
 			get
 			{
 				return _project.GetProjectFolderByUniqueID(_projectFolderUniqueID);
 			}
 			set {
-				_projectFolderUniqueID = value == null ? Guid.Empty : value.UniqueID;
+				_projectFolderUniqueID = value?.UniqueID ?? Guid.Empty;
 			}
 		}
 
@@ -139,18 +129,12 @@
 			}
 
 			var remarksNode = parentNode.SelectSingleNode(@"remarks");
-			Remarks = remarksNode != null ? remarksNode.InnerText : null;
+			Remarks = remarksNode?.InnerText;
 		}
 
-		public Guid ProjectFolderUniqueID
-		{
-			get
-			{
-				return _projectFolderUniqueID;
-			}
-		}
+		public Guid ProjectFolderUniqueID => _projectFolderUniqueID;
 
-		public void StoreOrderPosition(
+        public void StoreOrderPosition(
 			object threadPoolManager,
 			object postExecuteCallback, 
 			AsynchronousMode asynchronousMode,
@@ -181,9 +165,9 @@
 			set { _name = value; }
 		}
 
-		public Pair<string, string>[] GetLanguageCodesExtended(Project project)
+		public MyTuple<string, string>[] GetLanguageCodesExtended(Project project)
 		{
-			var result = new Set<Pair<string, string>>();
+			var result = new HashSet<MyTuple<string, string>>();
 
 			var fileGroups =
 				ProjectFolder == null
@@ -195,8 +179,7 @@
 				foreach (var f in fg.GetLanguageCodesExtended(project))
 				{
 					var g = f;
-					Pair<string, string> p;
-					if (!result.Find(out p, x => string.Compare(x.First, g.First, true) == 0))
+					if (result.All(x => String.Compare(x.Item1, g.Item1, StringComparison.OrdinalIgnoreCase) != 0))
 					{
 						result.Add(f);
 					}
@@ -208,19 +191,12 @@
 
 		public int CompareTo(VirtualView other)
 		{
-			var a = _orderPosition.CompareTo(other._orderPosition);
+		    var a = _orderPosition.CompareTo(other._orderPosition);
 
-			if (a == 0)
-			{
-				return Name.CompareTo(other.Name);
-			}
-			else
-			{
-				return a;
-			}
+		    return a == 0 ? String.Compare(Name, other.Name, StringComparison.Ordinal) : a;
 		}
 
-		public int CompareTo(object obj)
+        public int CompareTo(object obj)
 		{
 			return CompareTo((VirtualView)obj);
 		}

@@ -5,7 +5,7 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Reflection;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Logging;
 	using ZetaLongPaths;
 
 	// ----------------------------------------------------------------------

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using ZetaResourceEditor.UI.Helper.Base;
 using ZetaResourceEditor.Properties;
 using ZetaResourceEditor.RuntimeBusinessLogic.ProjectFolders;
-using Zeta.EnterpriseLibrary.Windows.Persistance;
+using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 namespace ZetaResourceEditor.UI.ProjectFolders
 {

@@ -3,7 +3,7 @@
 	#region Using directives.
 	// ----------------------------------------------------------------------
 	using System.Diagnostics;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Logging;
 	using ZetaLongPaths;
 
 	// ----------------------------------------------------------------------

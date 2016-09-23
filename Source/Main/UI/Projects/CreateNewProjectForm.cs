@@ -5,12 +5,12 @@ namespace ZetaResourceEditor.UI.Projects
 	using System.IO;
 	using System.Windows.Forms;
 	using Helper.Base;
+	using Helper.ExtendedFolderBrowser;
 	using Properties;
 	using RuntimeBusinessLogic.Projects;
 	using RuntimeUserInterface.Shell;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Dialogs;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 	using ZetaLongPaths;
 
 	public partial class CreateNewProjectForm :

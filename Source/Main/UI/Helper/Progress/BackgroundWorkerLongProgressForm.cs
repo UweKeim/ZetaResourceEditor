@@ -5,7 +5,7 @@ namespace ZetaResourceEditor.UI.Helper.Progress
 	using System.Diagnostics;
 	using System.Windows.Forms;
 	using Base;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Logging;
 
 	public partial class BackgroundWorkerLongProgressForm : 
 		FormBase

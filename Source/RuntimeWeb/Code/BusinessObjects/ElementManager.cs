@@ -4,12 +4,12 @@ namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects
 	using System.Net.Mail;
 	using Base;
 	using FourZeroFour;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Data;
-	using Zeta.EnterpriseLibrary.Data.Base;
-	using Zeta.EnterpriseLibrary.Data.Caching;
-	using Zeta.EnterpriseLibrary.Data.Common;
-	using Zeta.EnterpriseLibrary.Data.Sql;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Data;
+	using Zeta.VoyagerLibrary.Data.Base;
+	using Zeta.VoyagerLibrary.Data.Caching;
+	using Zeta.VoyagerLibrary.Data.Common;
+	using Zeta.VoyagerLibrary.Data.Sql;
 
 	public class ElementManager :
 		DBObjectsManagerBase

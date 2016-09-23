@@ -11,7 +11,7 @@
 	using FileGroups;
 	using Projects;
 	using Properties;
-	using Zeta.EnterpriseLibrary.Common.Collections;
+	using Zeta.VoyagerLibrary.Common.Collections;
 	using ZetaLongPaths;
 
 	// ----------------------------------------------------------------------
@@ -187,7 +187,7 @@
 			}
 		}
 
-		private static readonly Set<string> CultureCache = new Set<string>();
+		private static readonly HashSet<string> CultureCache = new HashSet<string>();
 
 		private static bool isValueCultureName(string cultureName, out string longCultureName)
 		{
@@ -235,7 +235,7 @@
 			}
 			else
 			{
-				if (string.Compare(cultureName, cultureInfo.Name, true) == 0)
+				if (string.Compare(cultureName, cultureInfo.Name, StringComparison.OrdinalIgnoreCase) == 0)
 				{
 					longCultureName = cultureInfo.Name;
 					return true;

@@ -5,8 +5,8 @@
 	using System.Net;
 	using System.Net.Sockets;
 	using System.Web;
-	using Zeta.EnterpriseLibrary.Data;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Data;
+	using Zeta.VoyagerLibrary.Logging;
 
 	public class FourZeroFourEMailNotifyIgnore
 	{

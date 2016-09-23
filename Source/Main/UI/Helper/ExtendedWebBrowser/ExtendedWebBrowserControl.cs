@@ -9,8 +9,8 @@ namespace ZetaResourceEditor.UI.Helper.ExtendedWebBrowser
 	using System.Text;
 	using System.Windows.Forms;
 	using System.Text.RegularExpressions;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Logging;
 	using System.Diagnostics;
 	using System.Runtime.InteropServices;
 	using System.Runtime.InteropServices.ComTypes;

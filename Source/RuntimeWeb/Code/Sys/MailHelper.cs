@@ -4,10 +4,10 @@
 	using System.IO;
 	using System.Net.Mail;
 	using System.Text;
-	using Zeta.EnterpriseLibrary.Common.IO;
-	using Zeta.EnterpriseLibrary.Logging;
+	using Zeta.VoyagerLibrary.Logging;
+	using ZetaLongPaths;
 
-	public static class MailHelper
+    public static class MailHelper
 	{
 		public static void WriteMailToFile(
 			MailMessage message,
@@ -34,7 +34,7 @@
 					Directory.CreateDirectory(folderPath);
 				}
 
-				var filePath = PathHelper.Combine(folderPath, fileName);
+				var filePath = ZlpPathHelper.Combine(folderPath, fileName);
 				if (Directory.Exists(filePath))
 				{
 					File.Delete(filePath);

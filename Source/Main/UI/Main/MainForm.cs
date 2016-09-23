@@ -21,7 +21,6 @@ namespace ZetaResourceEditor.UI.Main
 	using Properties;
 	using RightContent;
 	using Runtime.Events;
-	using RuntimeBusinessLogic.AdService;
 	using RuntimeBusinessLogic.BL;
 	using RuntimeBusinessLogic.DL;
 	using RuntimeBusinessLogic.FileGroups;
@@ -31,12 +30,12 @@ namespace ZetaResourceEditor.UI.Main
 	using RuntimeUserInterface.Shell;
 	using Tools;
 	using Translation;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.IO;
-	using Zeta.EnterpriseLibrary.Logging;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Common;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Common.IO;
+	using Zeta.VoyagerLibrary.Logging;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Common;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 	using ZetaLongPaths;
 
 	// ----------------------------------------------------------------------
@@ -58,7 +57,6 @@ namespace ZetaResourceEditor.UI.Main
 		}
 
 		private FastSmartWeakEvent<EventHandler<FileGroupStateChangedEventArgs>> _fileGroupStateChanged;
-		private bool _skipAdvertising;
 		private UpdateCheckInfo2 _updateCheckInfo;
 
 		public FastSmartWeakEvent<EventHandler<FileGroupStateChangedEventArgs>> FileGroupStateChanged
@@ -832,11 +830,6 @@ namespace ZetaResourceEditor.UI.Main
 			{
 				projectFilesUserControl.CloseProject();
 
-				if (!_skipAdvertising)
-				{
-					ExitAdvertisementFormNew.CheckShow();
-				}
-
 				FormBase.SaveState(ribbon);
 				FormBase.SaveState(mainFormMainSplitContainer);
 
@@ -872,69 +865,9 @@ namespace ZetaResourceEditor.UI.Main
 					@"Error starting checking for updates.", x);
 			}
 
-			fetchAdAsync();
-
 			QuickTranslationForm.CheckRestoreShowForm();
 
 			UpdateUI();
-		}
-
-		private void fetchAdAsync()
-		{
-			try
-			{
-				adFetchTimer.Stop();
-
-				var ws = WebServiceManager.Current.AdWS;
-
-				var req =
-					new AdRequest
-					{
-						Culture = CultureInfo.CurrentUICulture.LCID
-					};
-
-				ws.GetNextAdCompleted +=
-					ws_GetNextAdCompleted;
-				ws.GetNextAdAsync(req);
-			}
-			catch (Exception x)
-			{
-				LogCentral.Current.LogError(
-					@"Silently catching exception when start fetching ad.",
-					x);
-			}
-		}
-
-		private void ws_GetNextAdCompleted(
-			object sender,
-			GetNextAdCompletedEventArgs e)
-		{
-			try
-			{
-				FormHelper.SyncInvoke(
-					this,
-					delegate
-					{
-						barStaticItem1.Caption = e.Result.Text;
-						barStaticItem1.Tag = e.Result.Url;
-					});
-
-				// Next turn.
-				adFetchTimer.Start();
-			}
-			catch (Exception x)
-			{
-				LogCentral.Current.LogError(
-					@"Silently catching exception when finished fetching ad.",
-					x);
-			}
-		}
-
-		private void adFetchTimer_Tick(
-			object sender,
-			EventArgs e)
-		{
-			fetchAdAsync();
 		}
 
 		private void findToolStripMenuItem_Click(
@@ -1015,16 +948,6 @@ namespace ZetaResourceEditor.UI.Main
 			SaveAllWithDialog();
 		}
 
-		private void donateToolStripMenuItem_Click(object sender, ItemClickEventArgs e)
-		{
-			var sei =
-				new ShellExecuteInformation
-				{
-					FileName = @"http://zeta.li/zre-donate"
-				};
-			sei.Execute();
-		}
-
 		private void visitVendorsWebsiteToolStripMenuItem_Click(object sender, ItemClickEventArgs e)
 		{
 			var sei =
@@ -1085,16 +1008,15 @@ namespace ZetaResourceEditor.UI.Main
 
 			if (checkAskSaveEverything())
 			{
-				var info = (UpdatePresentResult2) buttonUpdateAvailable.Tag;
+				var result = (UpdatePresentResult2) buttonUpdateAvailable.Tag;
 
 				var ws = WebServiceManager.Current.UpdateCheckerWS;
 				new SetupDownloadController(ws).DownloadAndRunSetup(
 					this,
 					_updateCheckInfo,
-					info.DownloadWebsiteUrl);
+					result.DownloadWebsiteUrl);
 
 				// Exit myself to be updateable.
-				_skipAdvertising = true;
 				Close();
 			}
 			else
@@ -1115,7 +1037,7 @@ namespace ZetaResourceEditor.UI.Main
 					new UpdateCheckInfo2
 						{
 							ApiKey = @"658b513f-8c69-482c-86ab-4be029377d18",
-							VersionNumber = FileHelper.GetAssemblyVersion(
+							VersionNumber = FileVersionHelper.GetAssemblyVersion(
 								Assembly.GetEntryAssembly().Location).ToString(),
 							VersionDate = File.GetLastWriteTime(
 								Assembly.GetEntryAssembly().Location),
@@ -1332,11 +1254,6 @@ namespace ZetaResourceEditor.UI.Main
 			Close();
 		}
 
-		private void ribbonStatusBar_Click(object sender, EventArgs e)
-		{
-			barStaticItem1.PerformClick();
-		}
-
 		// ------------------------------------------------------------------
 		#endregion
 
@@ -1460,19 +1377,6 @@ namespace ZetaResourceEditor.UI.Main
 		{
 			projectFilesUserControl.AutomaticallyAddResourceFilesFromSolutionWithDialog();
 			UpdateUI();
-		}
-
-		private void buttonDonateOne_ItemClick(object sender, ItemClickEventArgs e)
-		{
-			var sei =
-				new ShellExecuteInformation
-					{
-						FileName =
-							string.Format(
-								@"http://zeta.li/{0}",
-								Resources.SR_MainForm_buttonDonateOne_ItemClick_zre_donate_one_currency)
-					};
-			sei.Execute();
 		}
 
 		private void buttonConfigureLanguageColumns_ItemClick(object sender, ItemClickEventArgs e)

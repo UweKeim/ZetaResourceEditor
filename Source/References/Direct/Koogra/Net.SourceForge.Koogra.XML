@@ -1,0 +1,3924 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Net.SourceForge.Koogra</name>
+    </assembly>
+    <members>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry">
+            <summary>
+            Directory sector entry.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.#ctor(System.IO.Stream)">
+            <summary>
+            Stream constructor.
+            </summary>
+            <param name="stream">The stream that contains the DirectorySectorEntry data.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.Name">
+            <summary>
+            Entry name.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.NameLength">
+            <summary>
+            Name length.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.Type">
+            <summary>
+            Type.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.Color">
+            <summary>
+            Color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.LeftSibling">
+            <summary>
+            Pointer to left sibling.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.RightSibling">
+            <summary>
+            Pointer to right sibling.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.Child">
+            <summary>
+            Pointer to child.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.ClsId">
+            <summary>
+            Class id.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.UserFlags">
+            <summary>
+            User flags.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.CreateTimeStamp">
+            <summary>
+            Creation time stamp.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.ModifyTimeStamp">
+            <summary>
+            Modification time stamp.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.SectStart">
+            <summary>
+            Stream start.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.Size">
+            <summary>
+            Stream size.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry.PropType">
+            <summary>
+            Property type.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.SstRecord">
+            <summary>
+            This class abstracts the SST (0x00fc) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.Biff">
+            <summary>
+            This is the base class for all Excel records.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.Biff.#ctor">
+            <summary>
+            The default constructor
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.SstRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff,System.IO.Stream)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the SST record.</param>
+            <param name="recordStream">The stream into the records to which the SST record belongs to. The record stream must be positioned just after the SST record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.SstRecord.Strings">
+            <summary>
+            The array of strings in the SST record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.FontCollection">
+            <summary>
+            Collection class for Font objects.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ExcelCollection`1">
+            <summary>
+            Base class for collections that are part of a workbook.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Collections.ReadOnlyCollection`1">
+            <summary>
+            Read-only Collection.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Collections.ReadOnlyCollection`1.GetEnumerator">
+            <summary>
+            Returns an enumerator for the collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Collections.ReadOnlyCollection`1.Count">
+            <summary>
+            Collection item count.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Collections.ReadOnlyCollection`1.InnerList">
+            <summary>
+            Internal list.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.IExcelObject">
+            <summary>
+            Interface that must be implemented by all Excel objects.
+            </summary>
+            <remarks>
+            Basically, Excel objects are simply objects that are inside a workbook.
+            </remarks>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.IExcelObject.Workbook">
+            <summary>
+            Must return a reference to the objects workbook and must not return null.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ExcelCollection`1.#ctor(Net.SourceForge.Koogra.Excel.Workbook)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="wb">The workbook.</param>
+            <exception cref="T:System.ArgumentNullException">Exception is thrown if wb is null.</exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ExcelCollection`1.Workbook">
+            <summary>
+            The workbook.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ExcelCollection`1.Item(System.Int32)">
+            <summary>
+            Default indexer for the collection.
+            </summary>
+            <param name="index">The item index.</param>
+            <returns>Returns the item at the specified index.</returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.WorksheetCollection">
+            <summary>
+            Collection class of Worksheet objects.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Collections.SimpleCollection`1">
+            <summary>
+            Simple collection class.
+            </summary>
+            <typeparam name="T">The data type held by the collection</typeparam>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Collections.SimpleCollection`1.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Collections.SimpleCollection`1.Add(`0)">
+            <summary>
+            Add's an item to the collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Collections.SimpleCollection`1.Item(System.Int32)">
+            <summary>
+            Default indexer.
+            </summary>
+            <param name="index">The index to the item in the collection.</param>
+            <returns>Returns the item at the specified index.</returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.IWorksheets">
+            <summary>
+            Abstract for a collection of worksheets.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.IWorksheets.EnumerateWorksheetNames">
+            <summary>
+            Retrieves the available worksheet names for the workbook.
+            </summary>
+            <returns>Enumerator for the worksheet names.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.IWorksheets.GetWorksheetByName(System.String)">
+            <summary>
+            Retrieves a worksheet by it's name.
+            
+            This method is case sensitive.
+            </summary>
+            <param name="name">The case sensitive worksheet name.</param>
+            <returns>
+            A <see cref="T:Net.SourceForge.Koogra.IWorksheet"/> that matches the requested name.
+            
+            Null if no matching name is found.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.IWorksheets.GetWorksheetByName(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="name">The case sensitive worksheet name.</param>
+            <param name="ignoreCase">Set to True for a case insensitive match, False if otherwise.</param>
+            <returns>
+            A <see cref="T:Net.SourceForge.Koogra.IWorksheet"/> that matches the requested name.
+            
+            Null if no matching name is found.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.IWorksheets.GetWorksheetByIndex(System.Int32)">
+            <summary>
+            Retrieve a worksheet by ordinal position.
+            </summary>
+            <param name="index">The index where to retrieve the worksheet.</param>
+            <returns>A <see cref="T:Net.SourceForge.Koogra.IWorksheet"/> at the specified index.</returns>
+            <exception cref="T:System.IndexOutOfRangeException">Is thrown if there is no worksheet at the specified index.</exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.IWorksheets.Count">
+            <summary>
+            Returns the count of available worksheets in this workbook.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.WorksheetCollection.GetByName(System.String)">
+            <summary>
+            Retrieves a worksheet given its name.
+            </summary>
+            <param name="index">The name of the worksheet.</param>
+            <returns>Returns null if the worksheet cannot be found.</returns>
+            <remarks>Search is case sensitive.</remarks>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.WorksheetCollection.GetByName(System.String,System.Boolean)">
+            <summary>
+            Retrieves a worksheet given its name.
+            </summary>
+            <param name="index">The name of the worksheet.</param>
+            <param name="ignoreCase">Set to True to perform a case insenstive match, False if otherwise.</param>
+            <returns>Returns null if the worksheet cannot be found.</returns>
+            <remarks>Search is case sensitive.</remarks>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.BoolErrValue">
+            <summary>
+            Class that abstracts a boolean or error Excel value.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.BoolErrValue.#ctor(System.Byte,System.Byte)">
+            <summary>
+            The constructor.
+            </summary>
+            <param name="value">The value to read.</param>
+            <param name="error">Error indicator.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.BoolErrValue.ToString">
+            <summary>
+            Method for getting the string value of the object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.BoolErrValue.Value">
+            <summary>
+            The value of the object.
+            </summary>
+            <value>Returns a bool or string value.</value>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.BoolErrValue.IsError">
+            <summary>
+            Returns true if the class reprents an error and false if a boolean.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Row">
+            <summary>
+            Represents a row of cells.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ExcelObject">
+            <summary>
+            Base class implemenation of IExcelObject
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ExcelObject.#ctor(Net.SourceForge.Koogra.Excel.Workbook)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="wb">The workbook.</param>
+            <exception cref="T:System.ArgumentNullException">Exception is thrown if wb is null.</exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ExcelObject.Workbook">
+            <summary>
+            The workbook.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.IRow">
+            <summary>
+            Abstract for a row.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.IRow.IsEmpty">
+            <summary>
+            Method to determine if the row is empty.
+            </summary>
+            <returns>Returns True if the row mostly contains null or empty string cells.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.IRow.GetCell(System.UInt32)">
+            <summary>
+            Returns a cell at the specified index.
+            </summary>
+            <param name="index">The index of the cell.</param>
+            <returns>
+            Returns a <see cref="T:Net.SourceForge.Koogra.ICell"/> that exists at the specified index.
+            
+            Should return null if no cell exists.
+            </returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Row.IsEmpty">
+            <summary>
+            Method to determine if a row is empty.
+            </summary>
+            <returns>Returns True if the row is composed of null or empty string formatted value cells.</returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Row.Cells">
+            <summary>
+            The collection of cells in the row.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.MultipleColCellRecord">
+            <summary>
+            Base class for cell records that span multiple cells.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.CellRecord">
+            <summary>
+            Base class for all Excel Cell type records.
+            Cell type records may pertain to a single column or a range of columns and may or may not have formatting information.
+            All Cell type records must return a value.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.CellRecord.ReadRow(System.IO.BinaryReader)">
+            <summary>
+            Method for retrieving the row to which the cell belongs to.
+            </summary>
+            <param name="reader">The reader for the record.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.CellRecord.Value">
+            <summary>
+            Method that must be overriden in inheriting classes and must return the value for that class.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.CellRecord.Row">
+            <summary>
+            The row to which the cell belongs to.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.MultipleColCellRecord.ReadRowColInfo(System.IO.BinaryReader)">
+            <summary>
+            Method for reading the the first and last column information of the cell.
+            </summary>
+            <param name="reader">The reader for the record.</param>
+            <returns>Returns a new reader that points to the data between the first and last column data.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.MultipleColCellRecord.GetValue(System.UInt16)">
+            <summary>
+            Method for getting the value of a particular column in the range pertained to.
+            </summary>
+            <param name="col"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.MultipleColCellRecord.FirstCol">
+            <summary>
+            The first column in the range the record pertains to.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.MultipleColCellRecord.LastCol">
+            <summary>
+            The last column in the range the record pertains to.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.IndexRecord">
+            <summary>
+            This class abstracts the INDEX (0x020B) Excel record  found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.IndexRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the INDEX record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.IndexRecord.FirstRow">
+            <summary>
+            The first row that can be found in the worksheet.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.IndexRecord.LastRow">
+            <summary>
+            The last row that can be found in the worksheet.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.IndexRecord.Rows">
+            <summary>
+            The collection of ROW cluster offsets to the DBCELL records for each ROW cluster.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.DirectoryEntryNameComparer">
+            <summary>
+            Helper class for comparing directory entry names.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.DirectoryEntryNameComparer.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.DirectoryEntryNameComparer.Compare(System.String,System.String)">
+            <summary>
+            Compares directory names.
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.DirectoryEntry">
+            <summary>
+            Base class for Directory entries.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.DirectoryEntry.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name">The name of the directory entry.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.DirectoryEntry.Find(System.String)">
+            <summary>
+            Locates a directory entry by name.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.DirectoryEntry.Name">
+            <summary>
+            The name of the directory entry.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.DirectoryEntry.LeftSibling">
+            <summary>
+            The left sibling.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.DirectoryEntry.RightSibling">
+            <summary>
+            The right sibling.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.DirectoryEntry.Child">
+            <summary>
+            The child.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.CompoundFile">
+            <summary>
+            CompoundFile.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.CompoundFile.#ctor(System.IO.Stream)">
+            <summary>
+            Stream constructor.
+            </summary>
+            <param name="stream">The stream that contains the CompoundFile.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.CompoundFile.OpenStream(System.String)">
+            <summary>
+            Opens a stream by locating the stream by name.
+            </summary>
+            <param name="name">The name of the string.</param>
+            <returns>Returns the stream.</returns>
+            <exception cref="T:System.IO.IOException">Exception is thrown if the stream does not exist.</exception>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.StringValueRecord">
+            <summary>
+            This class abstracts the STRING (0x0207) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.FormulaChildRecord">
+            <summary>
+            This is the base class for records that typically follow FORMULA (0x006) Excel records.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.StringValueRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the SST record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.StringValueRecord.Value">
+            <summary>
+            Returns the value of the STRING record.
+            </summary>
+            <value>Returns a string value.</value>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord">
+            <summary>
+            This class abstract an HLINK (0x01B8) record found in Excel streams.
+            Thanks to openoffice.org as the format was taken from their documentation of the excel file format http://www.openoffice.org
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the HLINK record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.FirstRow">
+            <summary>
+            The first row where the hyperlink applies to.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.LastRow">
+            <summary>
+            The last row where the hyperlink applies to.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.FirstCol">
+            <summary>
+            The first column where the hyperlink applies to.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.LastCol">
+            <summary>
+            The last column where the hyperlink applies to.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.Guid">
+            <summary>
+            The link GUID.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.Options">
+            <summary>
+            The hyperlink options flag.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.MonikerGuid">
+            <summary>
+            The moniker GUID of the link. Used to identify if the link is a URL or file link.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.Link">
+            <summary>
+            The link.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.Description">
+            <summary>
+            Description of the link.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.TextMark">
+            <summary>
+            Text mark.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkRecord.TargetFrame">
+            <summary>
+            Link target frame.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Cell">
+            <summary>
+            Class that represents the individual cells in a row.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.ICell">
+            <summary>
+            Abstract for a cell.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.ICell.GetFormattedValue">
+            <summary>
+            Retrieves the formatted value of the cell.
+            </summary>
+            <remarks>
+            Uses the Win32 VarFormat function.
+            </remarks>
+            <returns>Returns the formatted value of the cell of possibly null if the cell has a null value.</returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.ICell.Value">
+            <summary>
+            The raw value of the cell.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Cell.Format(System.Object,System.String)">
+            <summary>
+            Use this method to format a value.
+            </summary>
+            <param name="str">The value to format.</param>
+            <param name="format">The format string. This format string is the same as strings used in old OLE applications.</param>
+            <returns>The formatted value of str.</returns>
+            <permission cref="F:System.Security.Permissions.SecurityPermissionFlag.UnmanagedCode">This method requires the specified permission.</permission>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Cell.Format(System.Object,System.String,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            Use this method to format a value.
+            </summary>
+            <param name="str">The value to format.</param>
+            <param name="format">The format string. This format string is the same as strings used in old OLE applications.</param>
+            <param name="firstDay">The first day of the week for date formats.</param>
+            <param name="firstWeek">The first week of the year.</param>
+            <param name="flags">Flags that control the formatting process.</param>
+            <returns>The formatted value of str.</returns>
+            <remarks>For further documentation on firstDay, firstWeek and flags, lookup VarFormat in the MSDN library.</remarks>
+            <permission cref="F:System.Security.Permissions.SecurityPermissionFlag.UnmanagedCode">This method requires the specified permission.</permission>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Cell.FormattedValue">
+            <summary>
+            Use this method to get the value of the cell with formatting applied.
+            </summary>
+            <returns>The formatted value of the cell</returns>
+            <permission cref="F:System.Security.Permissions.SecurityPermissionFlag.UnmanagedCode">This method requires the specified permission.</permission>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Cell.Value">
+            <summary>
+            The value of the cell.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Cell.Style">
+            <summary>
+            Formatting.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.DifSector">
+            <summary>
+            Double indirect FAT sector.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.Sector">
+            <summary>
+            Sector class.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sector.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.DifSector.#ctor(System.IO.Stream)">
+            <summary>
+            Stream constructor.
+            </summary>
+            <param name="stream">The stream to read the sector contents from.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DifSector.SectFat">
+            <summary>
+            The collection of FAT sectors.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DifSector.NextDif">
+            <summary>
+            Pointer to the next DIFSector.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.Constants">
+            <summary>
+            Compound file constants.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Constants.SECTOR_SIZE">
+            <summary>
+            Default sector size.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Constants.DIR_ENTRY_SIZE">
+            <summary>
+            Default directory entry size.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Constants.MAX_SECT">
+            <summary>
+            Maximum section size.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.IWorkbook">
+            <summary>
+            Abstract for a workbook.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.IWorkbook.Worksheets">
+            <summary>
+            Returns the worksheets available in this workbook.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.TypeAndProtection">
+            <summary>
+            Type and protection options.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.TypeAndProtection.#ctor(System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="val">The raw type and protection options.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.TypeAndProtection.#ctor(System.Byte)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="val">The raw type and protection options.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.TypeAndProtection.Locked">
+            <summary>
+            Locked.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.TypeAndProtection.Hidden">
+            <summary>
+            Hidden.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.TypeAndProtection.IsStyle">
+            <summary>
+            Is style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.TypeAndProtection.IsCell">
+            <summary>
+            Is cell.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.TypeAndProtection.Lotus123">
+            <summary>
+            Lotus 123.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.PaletteEntry">
+            <summary>
+            Represents an entry in the Palette class.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.PaletteEntry.Color">
+            <summary>
+            The color of the entry.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.IWorksheet">
+            <summary>
+            Abstract for a worksheet.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.IWorksheet.Name">
+            <summary>
+            The worksheet name.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.IWorksheet.Rows">
+            <summary>
+            The worksheet rows.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.IWorksheet.FirstRow">
+            <summary>
+            The first non-empty row index in the worksheet.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.IWorksheet.LastRow">
+            <summary>
+            The Last non-empty row index in the worksheet.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.IWorksheet.FirstCol">
+            <summary>
+            The first non-empty column index in the worksheet.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.IWorksheet.LastCol">
+            <summary>
+            The last non-empty column index in the worksheet.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.IRows">
+            <summary>
+            Abstract for the rows in a worksheet.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.IRows.GetRow(System.UInt32)">
+            <summary>
+            Retries a row at the specified index.
+            </summary>
+            <param name="index">The index for the row.</param>
+            <returns>
+            Return a <see cref="T:Net.SourceForge.Koogra.IRow"/> at the specified index.
+            
+            Returns null if no row exists at the specified index.
+            </returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.WorkbookFactory">
+            <summary>
+            Helper class for returning an appropriate <see cref="T:Net.SourceForge.Koogra.IWorkbook"/> implementation.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.WorkbookFactory.GetExcelBIFFReader(System.String)">
+            <summary>
+            Returns a <see cref="T:Net.SourceForge.Koogra.IWorkbook"/> for BIFF based Excel 97 and up files.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.WorkbookFactory.GetExcel2007Reader(System.String)">
+            <summary>
+            Returns a <see cref="T:Net.SourceForge.Koogra.IWorkbook"/> for Excel 2007 .xlsx files.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.EofRecord">
+            <summary>
+            This class abstracts a EOF (0x000a) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.EofRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the EOF record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ExcelIndexedCollection`2">
+            <summary>
+            Base class for indexed collections that are part of a Workbook
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Collections.IndexedCollection`2">
+            <summary>
+            Indexed collection.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Collections.IndexedCollection`2.BaseAdd(`0,`1)">
+            <summary>
+            Add's the specified value at the specified key.
+            </summary>
+            <param name="key">The key where the value is to be inserted.</param>
+            <param name="value">The value to insert.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Collections.IndexedCollection`2.BaseGet(`0)">
+            <summary>
+            Returns the value at the specified key.
+            </summary>
+            <param name="key">The key for the value.</param>
+            <returns>Returns the a default value (e.g. null) if the key does not exist. Else returns the value at the specified key.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Collections.IndexedCollection`2.ContainsKey(`0)">
+            <summary>
+            Returns true if the collection contains the specified key.
+            </summary>
+            <param name="key">The key to find.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Collections.IndexedCollection`2.BaseFirstKey">
+            <summary>
+            The lowest value key available in the collection.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Collections.IndexedCollection`2.BaseLastKey">
+            <summary>
+            The highest value key available in the collection.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Collections.IndexedCollection`2.BaseValues">
+            <summary>
+            Value enumerator.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ExcelIndexedCollection`2.#ctor(Net.SourceForge.Koogra.Excel.Workbook)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="wb">The workbook.</param>
+            <exception cref="T:System.ArgumentNullException">Exception thrown if wb is null.</exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ExcelIndexedCollection`2.Workbook">
+            <summary>
+            The workbook.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ExcelIndexedCollection`2.InternalValues">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.Stgty">
+            <summary>
+            Stream type enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Stgty.Invalid">
+            <summary>
+            Invalid
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Stgty.Storage">
+            <summary>
+            Storage
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Stgty.Stream">
+            <summary>
+            Stream
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Stgty.LockBytes">
+            <summary>
+            LockBytes
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Stgty.Property">
+            <summary>
+            Propery
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Stgty.Root">
+             <summary>
+            Root
+             </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Style">
+            <summary>
+            Represents a cell style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.Font">
+            <summary>
+            Font.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.Format">
+            <summary>
+            Format.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.ParentStyle">
+            <summary>
+            Parent style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.TypeAndProtection">
+            <summary>
+            Type and protection.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.HorizontalAlignment">
+            <summary>
+            Horizontal alignment.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.Wrapped">
+            <summary>
+            Wrapped.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.VerticalAlignment">
+            <summary>
+            Vertical alignment.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.Rotation">
+            <summary>
+            Rotation.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.IndentLevel">
+            <summary>
+            IndentLevel.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.ShrinkContent">
+            <summary>
+            Shrink content.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.ParentStyleAttributes">
+            <summary>
+            Parent style attributes usage.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.LeftLineStyle">
+            <summary>
+            Left line style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.RightLineStyle">
+            <summary>
+            Right line style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.TopLineStyle">
+            <summary>
+            Top line style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.BottomLineStyle">
+            <summary>
+            Bottom line style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.LeftLineColor">
+            <summary>
+            Left line color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.RightLineColor">
+            <summary>
+            Right line color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.DiagonalRightTopToLeftBottom">
+            <summary>
+            Diagonal right top to left bottom.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.DiagonalLeftBottomToTopRight">
+            <summary>
+            Diagonal left bottom to top right.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.TopLineColor">
+            <summary>
+            Top line color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.BottomLineColor">
+            <summary>
+            Bottom line color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.DiagonalLineColor">
+            <summary>
+            Diagonal line color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.DiagonalLineStyle">
+            <summary>
+            Diagonal line style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.FillPattern">
+            <summary>
+            Fill pattern.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.PatternColor">
+            <summary>
+            Pattern color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Style.PatternBackground">
+            <summary>
+            Pattern background.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.FormulaChildRangedRecord">
+            <summary>
+            This is the base class for FORMULA (0x006) Excel records whose formula and values pertain to a range of cells.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.FormulaChildRangedRecord.#ctor">
+            <summary>
+            The default constructor
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.FormulaChildRangedRecord.ReadRangeValues(System.IO.BinaryReader)">
+            <summary>
+            Method for populating the range values of the record given a reader for the stream.
+            </summary>
+            <param name="reader">The reader for the stream.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormulaChildRangedRecord.FirstRowIdx">
+            <summary>
+            The first row in the range to which the formula applies.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormulaChildRangedRecord.LastRowIdx">
+            <summary>
+            The last row in the range to which the formula applies.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormulaChildRangedRecord.FirstColIdx">
+            <summary>
+            The first column in the range to which the formula applies.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormulaChildRangedRecord.LastColIdx">
+            <summary>
+            The last column in the range to which the formula applies.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.BoundSheetRecord">
+            <summary>
+            This class abstracts a BOUNDSHEET (0x0085) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.BoundSheetRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the BOUNDSHEET record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BoundSheetRecord.BofPos">
+            <summary>
+            The absolute position in the stream of the BOF record associated with this BOUNDSHEET record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BoundSheetRecord.Visibility">
+            <summary>
+            The visibility of this BOUNDSHEET record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BoundSheetRecord.Type">
+            <summary>
+            The type for the BOUNDSHEET record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BoundSheetRecord.Name">
+            <summary>
+            The name of the BOUNDSHEET record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Font">
+            <summary>
+            Class that represents a font.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Font.Height">
+            <summary>
+            Font height.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Font.Options">
+            <summary>
+            Font options.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Font.Color">
+            <summary>
+            Font color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Font.BoldNess">
+            <summary>
+            Font boldness.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Font.Escapement">
+            <summary>
+            Font escapement.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Font.Underline">
+            <summary>
+            Font underline.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Font.Family">
+            <summary>
+            Font family.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Font.CharacterSet">
+            <summary>
+            Font character set.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Font.FontName">
+            <summary>
+            Font name.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.CellCollection">
+            <summary>
+            Collection class for Cell objects.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.CellCollection.FirstCol">
+            <summary>
+            Obsolete. Use <see cref="P:Net.SourceForge.Koogra.Excel.CellCollection.MinCol"/>.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.CellCollection.MinCol">
+            <summary>
+            The first column in the collection.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.CellCollection.LastCol">
+            <summary>
+            Obsolete. Use <see cref="P:Net.SourceForge.Koogra.Excel.CellCollection.MaxCol"/>.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.CellCollection.MaxCol">
+            <summary>
+            The last column in the collection.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.CellCollection.Item(System.UInt32)">
+            <summary>
+            The indexer for the collection.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.GenericDirectoryEntry">
+            <summary>
+            GenericDirectoryEntry. Class for entries whose contents are never interpreted.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.GenericDirectoryEntry.#ctor(System.String,Net.SourceForge.Koogra.Storage.Sectors.Stgty)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name">The name of the entry.</param>
+            <param name="type">The entry type.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.GenericDirectoryEntry.Type">
+            <summary>
+            The entry type.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Workbook">
+            <summary>
+            Represents a workbook.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Workbook.#ctor(System.String)">
+            <summary>
+            File path constructor.
+            </summary>
+            <param name="path">The path to the excel file.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Workbook.#ctor(System.IO.Stream)">
+            <summary>
+            Stream constructor.
+            </summary>
+            <param name="stream">The stream that has excel file data.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Workbook.#ctor(Net.SourceForge.Koogra.Storage.CompoundFile)">
+            <summary>
+            CompoundFile constructor.
+            </summary>
+            <param name="doc">The compound file that has excel file data.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Workbook.Sheets">
+            <summary>
+            The worksheets in the workbook.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Workbook.Styles">
+            <summary>
+            The style collection table.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Workbook.Formats">
+            <summary>
+            The format collection table.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Workbook.Fonts">
+            <summary>
+            The font collection table.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Workbook.Palette">
+            <summary>
+            The color palette collection table.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Workbook.HyperLinks">
+            <summary>
+            The hyperlink table
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.HyperLinkOptions">
+            <summary>
+            This class decodes the hyperlink options field
+            Thanks to openoffice.org as the format was taken from their documentation of the excel file format http://www.openoffice.org
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.HyperLinkOptions.#ctor(System.UInt32)">
+            <summary>
+            The constructor
+            </summary>
+            <param name="options">The options flag as taken from the HLINK record</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkOptions.HasFileLinkOrUrl">
+            <summary>
+            Returns true if the HLINK record contains a file or url link
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkOptions.HasRelativeFilePath">
+            <summary>
+            Returns true if the link is a relative file path
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkOptions.HasDescription">
+            <summary>
+            Returns true if the HLINK record contains a description
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkOptions.HasTextMark">
+            <summary>
+            Returns true if the HLINK record contains a text mark
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkOptions.HasTargetFrame">
+            <summary>
+            Returns true if the HLINK record contains a target frame
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.HyperLinkOptions.HasUNCPath">
+            <summary>
+            Returns true if the HLINK record contains a UNC path
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.FormatRecord">
+            <summary>
+            This class abstracts the FORMAT (0x041e) Excel record  found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.FormatRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the FORMAT record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormatRecord.Index">
+            <summary>
+            Index of the FORMAT record in the format table.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormatRecord.Format">
+            <summary>
+            The format string for the FORMAT record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Palette">
+            <summary>
+            Represents a color palette.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Palette.GetColor(System.Int32)">
+            <summary>
+            Gets a color in the palette.
+            </summary>
+            <param name="index">The index for the color.</param>
+            <returns>Returns a PaletteEntry object.</returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.SectorCollection">
+            <summary>
+            Container class for Sector objects.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.SectorCollection.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.SectorCollection.#ctor(System.Int32)">
+            <summary>
+            Initial capacity constructor.
+            </summary>
+            <param name="initialCapacity">The initial capacity of the collection.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.SectorCollection.Item(Net.SourceForge.Koogra.Storage.Sectors.Sect)">
+            <summary>
+            Indexer of the collection.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.MiniFatSector">
+            <summary>
+            Mini FAT Sector.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.MiniFatSector.#ctor(System.IO.Stream)">
+            <summary>
+            Stream constructor.
+            </summary>
+            <param name="stream">The stream that contains the MiniFatSector data.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.MiniFatSector.SectFat">
+            <summary>
+            The chain array of mini fat sectors.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.ParentStyleAttributes">
+            <summary>
+            Parent style usage attributes enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.ParentStyleAttributes.None">
+            <summary>
+            None 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.ParentStyleAttributes.Number">
+            <summary>
+            Number 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.ParentStyleAttributes.Font">
+            <summary>
+            Font 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.ParentStyleAttributes.Orientation">
+            <summary>
+            Orientation 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.ParentStyleAttributes.Border">
+            <summary>
+            Border 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.ParentStyleAttributes.Background">
+            <summary>
+            Background 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.ParentStyleAttributes.Protection">
+            <summary>
+            Protection 
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.XfRecord">
+            <summary>
+            This class abstracts the XF (0x00e0) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.XfRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the XF record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.FontIdx">
+            <summary>
+            Index in the font table for the formatting record font.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.FormatIdx">
+            <summary>
+            Index in the format table for the formatting record format.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.TypeAndProtection">
+            <summary>
+            Type and protection option for the format.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.ParentIdx">
+            <summary>
+            The parent format for the FORMAT record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.ParentStyle">
+            <summary>
+            Parent style usage attributes.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.HorizontalAlignment">
+            <summary>
+            Horizontal alignment.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.Wrapped">
+            <summary>
+            Text wrapping.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.VerticalAlignment">
+            <summary>
+            Vertical alignment.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.Rotation">
+            <summary>
+            Rotation.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.LeftLineStyle">
+            <summary>
+            Left line style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.RightLineStyle">
+            <summary>
+            Right line style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.TopLineStyle">
+            <summary>
+            Top line style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.BottomLineStyle">
+            <summary>
+            Bottom line style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.LeftLineColor">
+            <summary>
+            Left line color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.RightLineColor">
+            <summary>
+            Right line color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.DiagonalRightTopToLeftBottom">
+            <summary>
+            Diagonal line right top to left bottom.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.DiagonalLeftBottomToTopRight">
+            <summary>
+            Diagonal line left bottom to right top.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.TopLineColor">
+            <summary>
+            Top line color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.BottomLineColor">
+            <summary>
+            Bottom line color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.DiagonalLineColor">
+            <summary>
+            Diagonal line color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.DiagonalLineStyle">
+            <summary>
+            Diagonal line style.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.FillPattern">
+            <summary>
+            Fill pattern.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.PatternColor">
+            <summary>
+            Pattern color.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.PatternBackground">
+            <summary>
+            Pattern background.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.IndentLevel">
+            <summary>
+            Indent level.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.XfRecord.ShrinkContent">
+            <summary>
+            Shrink.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.RowColXfCellRecord">
+            <summary>
+            Base class for Excel Cell type records that span only a specific column and have formatting (XF) information.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.SingleColCellRecord">
+            <summary>
+            Base class for Excel Cell type records that span only a specific column.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.SingleColCellRecord.ReadRowCol(System.IO.BinaryReader)">
+            <summary>
+            Method for reading the row and column to which the cell belongs to.
+            </summary>
+            <param name="reader">The reader for the record.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.SingleColCellRecord.Col">
+            <summary>
+            The column that the cell pertains to.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.RowColXfCellRecord.ReadRowColXf(System.IO.BinaryReader)">
+            <summary>
+            Method for reading the row, column and formatting information for the cell.
+            </summary>
+            <param name="reader">The reader for the cell.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RowColXfCellRecord.Xf">
+            <summary>
+            The index to the formatting information for retrieving formatting information from the format table.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.MulBlankRecord">
+            <summary>
+            This class abstracts the MULBLANK (0x00be) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.MulBlankRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the MULBLANK record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.MulBlankRecord.GetValue(System.UInt16)">
+            <summary>
+            Method for getting the value of a particular column.
+            </summary>
+            <param name="col">The column index.</param>
+            <returns>Always returns null.</returns>
+            <remarks>Currently doesn't check if the col parameter is within the acceptable range of values.</remarks>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.MulBlankRecord.XfIndex">
+            <summary>
+            The array of formatting (XF) records for each column in the range.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.MulBlankRecord.Value">
+            <summary>
+            Method for getting the array of values in the range of cells.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.LabelSstRecord">
+            <summary>
+            This class abstracts the LABELSST (0x00fd) Excel record  found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.LabelSstRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff,Net.SourceForge.Koogra.Excel.Records.SstRecord)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the LABELSST record.</param>
+            <param name="sst">A reference to the shared string table for the workbook.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.LabelSstRecord.SstIndex">
+            <summary>
+            Index in the sst of the LABELSST record's value.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.LabelSstRecord.Value">
+            <summary>
+            The value of the LABELSST record.
+            </summary>
+            <value>
+            Returns a string value.
+            </value>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.BofRecord">
+            <summary>
+            This class abstracts the BOF (0x0809) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.BofRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the BOF record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BofRecord.Version">
+            <summary>
+            The version of the sub-stream of data that follows this BOF record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BofRecord.Type">
+            <summary>
+            The type of the sub-stream of data that follows this BOF record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BofRecord.BuildId">
+            <summary>
+            The build id for the sub-stream of data that follows this BOF record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BofRecord.BuildYear">
+            <summary>
+            The build year for the sub-stream of data that follows this BOF record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BofRecord.History">
+            <summary>
+            The history for the sub-stream of data that follows this BOF record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BofRecord.LowestBiff">
+            <summary>
+            The lowest biff version that can read the data found in the sub-stream of data that follows this BOF record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.BofRecord.SubstreamType">
+            <summary>
+            Sub stream types that determine the data that follows the BOF record.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.BofRecord.SubstreamType.WorkbookGlobals">
+            <summary>
+            Sub stream type for data that apply to the entire workbook.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.BofRecord.SubstreamType.VisualBasicModule">
+            <summary>
+            Sub stream type for visual basic modules.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.BofRecord.SubstreamType.Worksheet">
+            <summary>
+            Sub stream type for Worksheet streams.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.BofRecord.SubstreamType.Chart">
+            <summary>
+            Sub stream type for Chart streams.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.BofRecord.SubstreamType.Excel4MacroSheet">
+            <summary>
+            Sub stream type for Excel 4.0 Macros.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.BofRecord.SubstreamType.Workspace">
+            <summary>
+            Sub stream type for Workspaces.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.StorageSector">
+            <summary>
+            Storage sector.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.StorageSector.#ctor(System.IO.Stream)">
+            <summary>
+            Stream constructor.
+            </summary>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.StorageSector.GetStream">
+            <summary>
+            Returns a stream to the data in the StorageSector.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.StorageSector.Data">
+            <summary>
+            The data in the StorageSector.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.FatSector">
+            <summary>
+            FAT Sector.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.FatSector.#ctor(System.IO.Stream)">
+            <summary>
+            Stream constructor.
+            </summary>
+            <param name="stream">The stream that contains the FatSector data.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.FatSector.SectFat">
+            <summary>
+            The Fat array chain.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.DeColor">
+            <summary>
+            Red black indication enumeration
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.DeColor.Red">
+             <summary>
+            Red 
+             </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.DeColor.Black">
+            <summary>
+            Black
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Worksheet">
+            <summary>
+            Represents a worksheet in a workbook.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Worksheet.Name">
+            <summary>
+            The name of the worksheet.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Worksheet.Rows">
+            <summary>
+            The collection of rows in the worksheet.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Worksheet.HyperLinks">
+            <summary>
+            The hyperlink table/collection in the worksheet.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.Version">
+            <summary>
+            Version enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.Version.Unsupported">
+            <summary>
+            Unsupported
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.Version.Biff5_7">
+            <summary>
+            Biff5_7 - Excel 95 - 97
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.Version.Biff8">
+            <summary>
+            Biff 8 - Excel 2000
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.RowOptionFlags">
+            <summary>
+            Row options.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.RowOptionFlags.#ctor(System.UInt16)">
+            <summary>
+            The constructor.
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.RowOptionFlags.OutlineLevel">
+            <summary>
+            Determines the outline level.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.RowOptionFlags.Collapsed">
+            <summary>
+            Determines if the row is collapsed.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.RowOptionFlags.ZeroHeight">
+            <summary>
+            Determines if the row height is zero.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.RowOptionFlags.Unsynced">
+            <summary>
+            Detemines if the row is unsynced.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.RowOptionFlags.Formatted">
+            <summary>
+            Determines if a row is formatted.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.RkValue">
+            <summary>
+            Structure that represents the value of an RK record.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.RkValue.#ctor(System.Int32)">
+            <summary>
+            The constructor for the RK record.
+            </summary>
+            <param name="rk">The raw RK value to interpret.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.RkValue.ToString">
+            <summary>
+            Method for getting the string value of the RK record.
+            </summary>
+            <returns>The string value of the RK record.</returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.RkValue.Value">
+            <summary>
+            The value of the RK record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.SharedFormulaRecord">
+            <summary>
+            This class abstracts the SHRFMLA (0x00bc) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.SharedFormulaRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the SHRFMLA record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.SharedFormulaRecord.Reserved">
+            <summary>
+            Reserved field.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.SharedFormulaRecord.Data">
+            <summary>
+            The data for the SHRFMLA record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.PaletteRecord">
+            <summary>
+            This class abstracts the PALETTE (0x0092) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.PaletteRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the PALETTE record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.PaletteRecord.Colors">
+            <summary>
+            The array of colors in the PALETTE record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.BlankRecord">
+            <summary>
+            This class abstracts the BLANK (0x0201) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.BlankRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the BLANK record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException if thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BlankRecord.Value">
+            <summary>
+            Method for retrieving the value of the Record.
+            </summary>
+            <value>
+            Currently returns null since BLANK records have no value.
+            </value>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector">
+            <summary>
+            Header sector.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.MAGIC_NUMBER">
+            <summary>
+            The magic number that starts any compound file.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.#ctor(System.IO.Stream)">
+            <summary>
+            Stream constructor.
+            </summary>
+            <param name="stream">The stream that contains the HeaderSector data.</param>
+            <exception cref="T:System.Exception">Throws an exception if it encounters any invalid data in the stream.</exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.ClsId">
+            <summary>
+            Class Id.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.MinorVer">
+            <summary>
+            Minor Version.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.DllVer">
+            <summary>
+            Dll Version.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.ByteOrder">
+            <summary>
+            Byte Order.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.SectShift">
+            <summary>
+            Sector size in powers of 2.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.MiniSectShift">
+            <summary>
+            Mini-sector size in powers of 2.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.Reserved">
+            <summary>
+            Reserved.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.Reserved1">
+            <summary>
+            Reserved.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.Reserved2">
+            <summary>
+            Reserved.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.SectFatCount">
+            <summary>
+            FAT sector chain count.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.SectDirStart">
+            <summary>
+            Directory sector start.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.Signature">
+            <summary>
+            Transaction signature.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.MiniSectorCutoff">
+            <summary>
+            Maximum ministream size.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.SectMiniFatStart">
+            <summary>
+            Mini sector start.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.SectMiniFatCount">
+            <summary>
+            Mini FAT sector chain count.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.SectDifStart">
+            <summary>
+            Double Indirect FAT Sector start.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.SectDifCount">
+            <summary>
+            Double Indirect FAT count.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.HeaderSector.SectFat">
+            <summary>
+            First 109 Sects of the FAT
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Directory">
+            <summary>
+            Directory.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Directory.#ctor(Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntryCollection,Net.SourceForge.Koogra.Storage.Sectors.SectorCollection,Net.SourceForge.Koogra.Storage.Sectors.Sect[])">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="entries">The directory sector entries.</param>
+            <param name="sectors">All the sectors.</param>
+            <param name="fat">The FAT.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Directory.Root">
+            <summary>
+            The root directory entry.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle">
+            <summary>
+            Line style enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.None">
+            <summary>
+            None 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.Thin">
+            <summary>
+            Thin,
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.Medium">
+            <summary>
+            Medium
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.Dashed">
+            <summary>
+            Dashed
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.Dotted">
+            <summary>
+            Dotted
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.Think">
+            <summary>
+            Think
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.Double">
+            <summary>
+            Double
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.Hair">
+            <summary>
+            Hair,
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.MediumDashed">
+            <summary>
+            Medium Dashed
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.ThinDashDotted">
+            <summary>
+            Thin Dash Dotted
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.MediumDashDotted">
+            <summary>
+            Medium Dash Dotted
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.ThinDashDotDotted">
+            <summary>
+            Thin Dash Dot Dotted
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.MediumDashDotDotted">
+            <summary>
+            Medium Dash Dot Dotted
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.LineStyle.SlantedMediumDashDotted">
+            <summary>
+            Slanted Medium Dash Dotted
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.DbCellRecord">
+            <summary>
+            This class abstracts a DBCELL (0x00d7) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.DbCellRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the DBCELL record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.DbCellRecord.RowOffset">
+            <summary>
+            The offset of the first row in the ROW cluster that the DBCELL record indexes.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.DbCellRecord.StreamOffsets">
+            <summary>
+            Row offsets in the ROW cluster that the DBCELL record indexes.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.BiffCollection">
+            <summary>
+            Collection class for Biff base objects.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.BiffCollection.#ctor">
+            <summary>
+            The default constructor
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.ArrayRecord">
+            <summary>
+            This class abstracts the ARRAY (0x0221) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.ArrayRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the ARRAY record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.ArrayRecord.Options">
+            <summary>
+            The options for the ARRAY record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.ArrayRecord.Reserved">
+            <summary>
+            The reserved field for the ARRAY record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.ArrayRecord.Data">
+            <summary>
+            The raw byte data for the ARRAY record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.HyperLinkCollection">
+            <summary>
+            Represents the table of hyperlinks to be found in a worksheet
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.HyperLinkCollection.FindHyperlink(System.UInt16,System.UInt16)">
+            <summary>
+            Method for locating a hyperlink given a row or column.
+            </summary>
+            <param name="row">The row to search in.</param>
+            <param name="col">The column to search in.</param>
+            <returns>Returns a HyperLinkRecord if a record is found, null if not.</returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.FormatCollection">
+            <summary>
+            Collection class for Format objects.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.FormatCollection.Item(System.Int32)">
+            <summary>
+            Indexer for the collection.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.RowCollection">
+            <summary>
+            Collection class for Row objects.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.RowCollection.FirstRow">
+            <summary>        
+            Obsolete. Use <see cref="P:Net.SourceForge.Koogra.Excel.RowCollection.MinRow"/>.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.RowCollection.MinRow">
+            <summary>
+            The first row in the collection.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.RowCollection.LastRow">
+            <summary>
+            Obsolete. Use <see cref="P:Net.SourceForge.Koogra.Excel.RowCollection.MaxRow"/>.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.RowCollection.MaxRow">
+            <summary>
+            The last row in the collection.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.RowCollection.Item(System.UInt32)">
+            <summary>
+            The indexer for the collection.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.RecordType">
+            <summary>
+            Enumeration of currently supported/known Excel record id's
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Bof">
+            <summary>
+            BOF
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Boundsheet">
+            <summary>
+            BOUNDSHEET
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Index">
+            <summary>
+            INDEX
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.DbCell">
+            <summary>
+            DBCELL
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Row">
+            <summary>
+            ROW
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Continue">
+            <summary>
+            CONTINUE
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Sst">
+            <summary>
+            SST
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Blank">
+            <summary>
+            BLANK
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.BoolErr">
+            <summary>
+            BOOLERR
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Formula">
+            <summary>
+            FORMULA
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Label">
+            <summary>
+            LABEL
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.LabelSst">
+            <summary>
+            LABELSST
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.MulBlank">
+            <summary>
+            MULBLANK
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.MulRk">
+            <summary>
+            MULRK
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.String">
+            <summary>
+            STRING
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Xf">
+            <summary>
+            XF
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Eof">
+            <summary>
+            EOF
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Rk">
+            <summary>
+            RK
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Number">
+            <summary>
+            NUMBER
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Array">
+            <summary>
+            ARRAY
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.ShrFmla">
+            <summary>
+            SHRFMLA
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Table">
+            <summary>
+            TABLE
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Font">
+            <summary>
+            FONT
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Format">
+            <summary>
+            FORMAT
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Palette">
+            <summary>
+            PALETTE
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.RecordType.Hyperlink">
+            <summary>
+            HLINK
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.GenericBiff">
+            <summary>
+            This class abstracts a Generic Microsoft (MS) Binary Interchange File Format (BIFF) record.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.Records.GenericBiff.MinimumSize">
+            <summary>
+            The minimum size of any BIFF records.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.GenericBiff.#ctor(System.IO.Stream)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="stream">The stream to read the record data from.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.GenericBiff.GetDataStream">
+            <summary>
+            Method for getting a stream for the data in the BIFF record.
+            </summary>
+            <returns>Returns a stream for the data in the BIFF record.</returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.GenericBiff.Id">
+            <summary>
+            The Id of the BIFF record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.GenericBiff.Length">
+            <summary>
+            The length of data in the BIFF record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.GenericBiff.Data">
+            <summary>
+            The data in the BIFF record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.FormulaRecord">
+            <summary>
+            This class abstracts the FORMULA (0x006) Excel record  found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.FormulaRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff,System.IO.Stream)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the FORMULA record.</param>
+            <param name="recordsStream">The stream into the records to which the FORMULA record belongs to. The record stream must be positioned just after the FORMULA record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormulaRecord.Value">
+            <summary>
+            The value of the formula.
+            </summary>
+            <value>
+            The return value maybe a double, string or bool value.
+            </value>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormulaRecord.Options">
+            <summary>
+            Options for the FORMULA record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormulaRecord.Reserved">
+            <summary>
+            Reserved field for the FORMULA record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormulaRecord.FormulaLen">
+            <summary>
+            Length of the formula data.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FormulaRecord.FormulaData">
+            <summary>
+            The unparsed formula data.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntryCollection">
+            <summary>
+            Collection class for DirectorySectorEntry objects.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntryCollection.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntryCollection.Add(Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry)">
+            <summary>
+            Adds a directory sector entry and returns its Sid
+            </summary>
+            <param name="entry">The directory sector entry.</param>
+            <returns>Returns the Sid of the entry.</returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntryCollection.Item(Net.SourceForge.Koogra.Storage.Sectors.Sid)">
+            <summary>
+            Indexer for retrieving a DirectorySectorEntry
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.RotationType">
+            <summary>
+            Rotation type enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.RotationType.None">
+            <summary>
+            None 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.RotationType.CounterClockwise">
+            <summary>
+            Counter Clockwise
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.RotationType.ClockWise">
+            <summary>
+            Clock Wise
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.RotationType.TopToBottom">
+            <summary>
+            Top To Bottom
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.Rotation">
+            <summary>
+            Rotation enumeration.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.Rotation.#ctor(System.Byte)">
+            <summary>
+            Constructor for the rotation
+            </summary>
+            <param name="rotationAngle">The rotation angle.</param>
+            <remarks>The rotation angle must be a value less than 180 or equal to 255</remarks>
+            <exception cref="T:System.ArgumentException">Exception is thrown if value is invalid.</exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.Rotation.RotationAngle">
+            <summary>
+            The rotation angle.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.Rotation.RotationType">
+            <summary>
+            The rotation type.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.FontUnderline">
+            <summary>
+            Font underline.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontUnderline.None">
+            <summary>
+            None 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontUnderline.Single">
+            <summary>
+            Single 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontUnderline.Double">
+            <summary>
+            Double 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontUnderline.SingleAccounting">
+            <summary>
+            Single Accounting 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontUnderline.DoubleAccounting">
+            <summary>
+            Double Accounting 
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.FontFamily">
+            <summary>
+            Font family enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontFamily.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontFamily.Roman">
+            <summary>
+            Roman 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontFamily.Swiss">
+            <summary>
+            Swiss 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontFamily.Modern">
+            <summary>
+            Modern 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontFamily.Script">
+            <summary>
+            Script 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontFamily.Decorative">
+            <summary>
+            Decorative 
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.RkRec">
+            <summary>
+            Structure that represents a formatted RK value.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.RkRec.#ctor(System.UInt16,System.Int32)">
+            <summary>
+            Constructor for the formatted RK value.
+            </summary>
+            <param name="xf">The index in the format table for the RK value.</param>
+            <param name="rk">The RK value.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RkRec.Xf">
+            <summary>
+            The index in the format table for the RK value.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RkRec.Value">
+            <summary>
+            The value of the RK record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Text.Reader">
+            <summary>
+            Utility class for reading Text from BinaryReaders
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Text.Reader.ReadSimpleUnicodeString(System.IO.BinaryReader)">
+            <summary>
+            Reads a string where the first 2 bytes are its length and is followed by unicode characters.
+            </summary>
+            <param name="reader">The string reader.</param>
+            <returns>Returns a string.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Text.Reader.ReadSimpleAsciiString(System.IO.BinaryReader,System.Int32)">
+            <summary>
+            Reads an ascii string given its length.
+            </summary>
+            <param name="reader">The string reader.</param>
+            <param name="len">The length of the string.</param>
+            <returns>Returns a string.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Text.Reader.ReadSimpleUnicodeString(System.IO.BinaryReader,System.Int32)">
+            <summary>
+            Reads a unicode string given its length.
+            </summary>
+            <param name="reader">The string reader.</param>
+            <param name="len">The length of the string.</param>
+            <returns>Returns a string.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Text.Reader.ReadComplexString(System.IO.BinaryReader)">
+            <summary>
+            Reads an encoded string where the length is followed by options that determine if the string is ascii, unicode, rtf, etc.
+            </summary>
+            <param name="reader">The string reader.</param>
+            <returns>Returns a string.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Text.Reader.ReadComplexString(System.IO.BinaryReader,System.Int32)">
+            <summary>
+            Reads an encoded string given its length where the first byte are options that determine if the string is ascii, unicode, rtf, etc.
+            </summary>
+            <param name="reader">The string reader.</param>
+            <param name="len">The string length.</param>
+            <returns>Returns a string.</returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.VerticalAlignment">
+            <summary>
+            Vertical alignment enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.VerticalAlignment.Top">
+             <summary>
+            Top 
+             </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.VerticalAlignment.Centered">
+            <summary>
+            Centered
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.VerticalAlignment.Bottom">
+            <summary>
+            Bottom
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.VerticalAlignment.Justified">
+            <summary>
+            Justified
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.VerticalAlignment.Distributed">
+            <summary>
+            Distributed
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.HorizontalAlignment">
+            <summary>
+            Horizontal alignment enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.HorizontalAlignment.General">
+            <summary>
+            General 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.HorizontalAlignment.Left">
+            <summary>
+            Left 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.HorizontalAlignment.Centered">
+            <summary>
+            Centered 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.HorizontalAlignment.Right">
+            <summary>
+            Right 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.HorizontalAlignment.Filled">
+            <summary>
+            Filled 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.HorizontalAlignment.Justified">
+            <summary>
+            Justified 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.HorizontalAlignment.CenteredAcrossSelection">
+            <summary>
+            Centered Across Selection 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.HorizontalAlignment.Distributed">
+            <summary>
+            Distributed 
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.FormulaValue">
+            <summary>
+            This class abstracts the value of a formula.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.FormulaValue.#ctor(System.Double)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="value">The value of the formula.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.FormulaValue.ToString">
+            <summary>
+            Method for getting the string value of the formula.
+            </summary>
+            <returns>The string value/convertion of the formula.</returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.FormulaValue.StringFollows">
+            <summary>
+            Returns true if the value of the formula is in a STRING record that follows.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.FormulaValue.Value">
+            <summary>
+            The value of the formula.
+            </summary>
+            <value>Returns a double, string or bool value.</value>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.TableRecord">
+            <summary>
+            This class abstracts the TABLE (0x0036) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.TableRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the TABLE record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.TableRecord.Options">
+            <summary>
+            Options.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.TableRecord.InputRowIdx">
+            <summary>
+            InputRowIdx.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.TableRecord.InputColIdx">
+            <summary>
+            InputColIdx.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.TableRecord.InputRowIdxForColInp">
+            <summary>
+            InputRowIdxForColInp.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.TableRecord.InputColIdxForColInp">
+            <summary>
+            InputColIdxForColInp.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.LabelRecord">
+            <summary>
+            This class abstracts the LABEL (0x0204) Excel record  found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.LabelRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the LABEL record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.LabelRecord.Value">
+            <summary>
+            Returns the value of the LABEL record.
+            </summary>
+            <value>
+            Returns a string value.
+            </value>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            <summary>
+            Exception thrown when encountering invalid record types when reading GenericBiff records.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException.#ctor(System.Object,System.Object)">
+            <summary>
+            Exception constructor.
+            </summary>
+            <param name="actual">The actual id encountered.</param>
+            <param name="expected">The expected id.</param>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.FontRecord">
+            <summary>
+            This class abstracts the FONT (0x0031) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.FontRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the FONT record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FontRecord.FontHeight">
+            <summary>
+            The height of the font in twips.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FontRecord.Options">
+            <summary>
+            Options for the font.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FontRecord.ColorIdx">
+            <summary>
+            Index in the COLOR table for the font.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FontRecord.Boldness">
+            <summary>
+            Boldness of the font.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FontRecord.Escapement">
+            <summary>
+            Escapement of the font.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FontRecord.Underline">
+            <summary>
+            Underline options for the font.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FontRecord.FontFamily">
+            <summary>
+            Font family options for the font.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FontRecord.CharacterSet">
+            <summary>
+            Character set of the font.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.FontRecord.FontName">
+            <summary>
+            Name of the font.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.ContinueRecord">
+            <summary>
+            This class abstracts a CONTINUE (0x003c) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.ContinueRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the CONTINUE record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.ContinueRecord.GetDataStream">
+            <summary>
+            Method for getting a stream for the data in the CONTINUE record.
+            </summary>
+            <returns>Returns a Stream for the data in the CONTINUE record.</returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.ContinueRecord.Data">
+            <summary>
+            The data in the CONTINUE record.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.BoolErrRecord">
+            <summary>
+            This class abstracts BOOLERR (0x0205) Excel records found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.BoolErrRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the BOOLERR record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.BoolErrRecord.Value">
+            <summary>
+            Method for returning the value in the BOOLERR record.
+            </summary>
+            <value>
+            The returned value may be a string or bool. Be sure to test accordingly.
+            </value>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.VisibilityType">
+            <summary>
+            Visibility enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.VisibilityType.Visible">
+            <summary>
+            Visible
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.VisibilityType.Hidden">
+            <summary>
+            Hidden
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.VisibilityType.StrongHidden">
+            <summary>
+            Strong Hidden
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.SheetType">
+            <summary>
+            Sheet type enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.SheetType.WorkSheet">
+            <summary>
+            WorkSheet
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.SheetType.Chart">
+            <summary>
+            Chart
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.SheetType.VBModule">
+            <summary>
+            VBModule
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.FontEscape">
+            <summary>
+            Escape enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontEscape.None">
+            <summary>
+            No escape.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontEscape.SuperScript">
+            <summary>
+            Superscript.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontEscape.SubScript">
+            <summary>
+            Subscript.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.FontBoldness">
+            <summary>
+            Font boldness structure.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontBoldness.Min">
+            <summary>
+            The minimum boldness possible for a font.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontBoldness.Max">
+            <summary>
+            The maximum boldness possible for a font.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontBoldness.Normal">
+            <summary>
+            The normal (no boldness) for a font.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontBoldness.Bold">
+            <summary>
+            Normal bold weight for a font.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.FontBoldness.#ctor(System.UInt16)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="boldness">The boldness of the font.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Exception thrown if boldness is an invalid value.</exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.FontBoldness.Boldness">
+            <summary>
+            The boldness.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern">
+            <summary>
+            Fill pattern enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent5">
+            <summary>
+            5 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent10">
+            <summary>
+            10 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent20">
+            <summary>
+            20 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent25">
+            <summary>
+            25 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent30">
+            <summary>
+            30 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent40">
+            <summary>
+            40 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent50">
+            <summary>
+            50 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent60">
+            <summary>
+            60 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent70">
+            <summary>
+            70 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent80">
+            <summary>
+            80 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Percent90">
+            <summary>
+            90 Percent
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DarkHorizontal">
+            <summary>
+            Dark Horizontal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DarkVertical">
+            <summary>
+            Dark Vertical
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DarkDownwardDiagonal">
+            <summary>
+            Dark Downward Diagonal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DarkUpwardDiagonal">
+            <summary>
+            Dark Upward Diagonal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.SmallCheckerBoard">
+            <summary>
+            Small CheckerBoard
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Trellis">
+            <summary>
+            Trellis
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.LightHorizontal">
+            <summary>
+            Light Horizontal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.LightVertical">
+            <summary>
+            Light Vertical
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.LightDownwardDiagonal">
+            <summary>
+            Light Downward Diagonal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.LightUpwardDiagonal">
+            <summary>
+            Light Upward Diagonal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.SmallGrid">
+            <summary>
+            Small Grid
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DottedDiamond">
+            <summary>
+            Dotted Diamond
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.WideDownwardDiagonal">
+            <summary>
+            Wide Downward Diagonal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.WideUpwardDiagonal">
+            <summary>
+            Wide Upward Diagonal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DashedUpwardDiagonal">
+            <summary>
+            Dashed Upward Diagonal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DashedDownwardDiagonal">
+            <summary>
+            Dashed Downward Diagonal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.NarrowVertical">
+            <summary>
+            Narrow Vertical
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.NarrowHorizontal">
+            <summary>
+            Narrow Horizontal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DashedVertical">
+            <summary>
+            Dashed Vertical
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DashedHorizontal">
+            <summary>
+            Dashed Horizontal
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.LargeConfetti">
+            <summary>
+            Large Confetti
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.LargeGrid">
+            <summary>
+            Large Grid
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.HorizontalBrick">
+            <summary>
+            Horizontal Brick
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.LargeCheckerBoard">
+            <summary>
+            Large CheckerBoard
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.SmallConfetti">
+            <summary>
+            Small Confetti
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.ZigZag">
+            <summary>
+            ZigZag
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.SolidDiamond">
+            <summary>
+            Solid Diamond
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DiagonalBrick">
+            <summary>
+            Diagonal Brick
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.OutlinedDiamond">
+            <summary>
+            Outlined Diamond
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Plaid">
+            <summary>
+            Plaid
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Sphere">
+            <summary>
+            Sphere
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Weave">
+            <summary>
+            Weave
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.DottedGrid">
+            <summary>
+            Dotted Grid
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Divot">
+            <summary>
+            Divot
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Shingle">
+            <summary>
+            Shingle
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FillPattern.Wave">
+            <summary>
+            Wave
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.RkRecord">
+            <summary>
+            This class abstracts the RK (0x027e) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.RkRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the RK record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RkRecord.Value">
+            <summary>
+            The value of the RK record.
+            </summary>
+            <value>Returns a double value.</value>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.MulRkRecord">
+            <summary>
+            This class abstracts the MULRK (0x00bd) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.MulRkRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the MULRK record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.MulRkRecord.GetValue(System.UInt16)">
+            <summary>
+            Returns the value of a particular column in the range.
+            </summary>
+            <param name="col">The index of the column.</param>
+            <returns>Returns an RkRec value.</returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.MulRkRecord.Values">
+            <summary>
+            The array of RkRec values within the range of records.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.MulRkRecord.Value">
+            <summary>
+            Returns the array of RkRec values within the range of records.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.StreamEntry">
+            <summary>
+            StreamEntry.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.StreamEntry.#ctor(System.String,System.Int64,Net.SourceForge.Koogra.Storage.Sectors.Sect,Net.SourceForge.Koogra.Storage.Sectors.SectorCollection,Net.SourceForge.Koogra.Storage.Sectors.Sect[])">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name">The entry Name.</param>
+            <param name="length">The stream length.</param>
+            <param name="dataOffset">Data offset.</param>
+            <param name="sectors">The sectors.</param>
+            <param name="fat">The FAT.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.StreamEntry.Data">
+            <summary>
+            The data.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.StreamEntry.Length">
+            <summary>
+            Data length.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.StorageEntry">
+            <summary>
+            StorageEntry.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.StorageEntry.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.Sid">
+            <summary>
+            Represents a DirectorySectorEntry index.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Sid.EOF">
+            <summary>
+            Represents the end of the file.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Sid.ZERO">
+            <summary>
+            Represents a zero Sid.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.#ctor(System.UInt32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="value">The index of the Sid.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.ToInt">
+            <summary>
+            Converts a Sid to an integer .
+            </summary>
+            <returns>Returns the integer equivalent of the Sid.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.Equals(System.Object)">
+            <summary>
+            Compares Value to obj.
+            </summary>
+            <param name="obj">The value to compare.</param>
+            <returns>Returns true if obj == Value .</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.GetHashCode">
+            <summary>
+            Returns the hashcode of Value.
+            </summary>
+            <returns>Returns the hashcode of Value.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.op_Equality(Net.SourceForge.Koogra.Storage.Sectors.Sid,Net.SourceForge.Koogra.Storage.Sectors.Sid)">
+            <summary>
+            Compares a Sid to another Sid for equality.
+            </summary>
+            <param name="l">The left Sid.</param>
+            <param name="r">The right Sid.</param>
+            <returns>Returns true if l is equal to r.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.op_Inequality(Net.SourceForge.Koogra.Storage.Sectors.Sid,Net.SourceForge.Koogra.Storage.Sectors.Sid)">
+            <summary>
+            Compares a Sid to another Sid for inequality.
+            </summary>
+            <param name="l">The left Sid.</param>
+            <param name="r">The right Sid.</param>
+            <returns>Returns true if l is not equal to r.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.op_LessThan(Net.SourceForge.Koogra.Storage.Sectors.Sid,Net.SourceForge.Koogra.Storage.Sectors.Sid)">
+            <summary>
+            Compares a Sid to another Sid.
+            </summary>
+            <param name="l">The left Sid.</param>
+            <param name="r">The right Sid.</param>
+            <returns>Returns true if l is less than r.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.op_GreaterThan(Net.SourceForge.Koogra.Storage.Sectors.Sid,Net.SourceForge.Koogra.Storage.Sectors.Sid)">
+            <summary>
+            Compares a Sid to another Sid.
+            </summary>
+            <param name="l">The left Sid.</param>
+            <param name="r">The right Sid.</param>
+            <returns>Returns true if l is greater than r.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.op_LessThanOrEqual(Net.SourceForge.Koogra.Storage.Sectors.Sid,Net.SourceForge.Koogra.Storage.Sectors.Sid)">
+            <summary>
+            Compares a Sid to another Sid.
+            </summary>
+            <param name="l">The left Sid.</param>
+            <param name="r">The right Sid.</param>
+            <returns>Returns true if l less than or equal to r.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.op_GreaterThanOrEqual(Net.SourceForge.Koogra.Storage.Sectors.Sid,Net.SourceForge.Koogra.Storage.Sectors.Sid)">
+            <summary>
+            Compares a Sid to another Sid for equality.
+            </summary>
+            <param name="l">The left Sid.</param>
+            <param name="r">The right Sid.</param>
+            <returns>Returns true if l is greater than or equal to r.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sid.CompareTo(System.Object)">
+            <summary>
+            Compares this Sid to another Sid.
+            </summary>
+            <param name="obj">The other Sid.</param>
+            <returns>Returns 0, &lt; 0 or &gt; 0 if obj is equal, less or greater than this Sid respectively.</returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.Sid.IsEof">
+            <summary>
+            Returns true if this Sid indicates end of file.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.Sid.Value">
+            <summary>
+            Returns the value of this Sid.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.Sect">
+            <summary>
+            Sector index.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Sect.DIFSECT">
+            <summary>
+            DifSect index.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Sect.FATSECT">
+            <summary>
+            FatSect index.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Sect.END_OF_CHAIN">
+            <summary>
+            End of chain index.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Sect.FREE_SECT">
+            <summary>
+            Free sector index.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Storage.Sectors.Sect.ZERO">
+            <summary>
+            Zero value.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sect.#ctor(System.UInt32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="value">The index of the Sect.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sect.ToInt">
+            <summary>
+            Casts the sect to an integer.
+            </summary>
+            <returns>The integer equivalent of the Sect.</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sect.Equals(System.Object)">
+            <summary>
+            Compares a Sect.
+            </summary>
+            <param name="obj">The other value to compare.</param>
+            <returns>Returns true if obj == Value .</returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.Sect.GetHashCode">
+            <summary>
+            Returns the hashcode based on Value.
+            </summary>
+            <returns>Returns the hashcode based on Value.</returns>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.Sect.IsDifSect">
+            <summary>
+            Returns true is Sect is a DifSect
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.Sect.IsFatSect">
+            <summary>
+            Returns true if Sect is a FatSect
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.Sect.IsEndOfChain">
+            <summary>
+            Returns true if Sect is the end of the chain.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.Sect.IsFree">
+            <summary>
+            Returns true if Sect has no data.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.Sect.Value">
+            <summary>
+            Returns the index of the Sect.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.RowHeight">
+            <summary>
+            The height of the row.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.RowHeight.#ctor(System.UInt16)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="height">The row height.</param>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.RowHeight.HeightInTwips">
+            <summary>
+            Method for converting the height to twips.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.RowHeight.DefaultHeight">
+            <summary>
+            Determines if the current height is the default height.
+            </summary>
+            <returns>Returns true if the current height is the default height.</returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.Nibble">
+            <summary>
+            Represents a nibble which is half a byte.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.Nibble.MinValue">
+            <summary>
+            The minimum value allowed for the nibble.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.Nibble.MaxValue">
+            <summary>
+            The maximum value allowed for the nibble.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.Nibble.#ctor(System.Int32)">
+            <summary>
+            Constructs a nibble from an integer. The integer is cast to a byte.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Exception is thrown when value is not between MinValue and MaxValue</exception>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.ValueTypes.Nibble.#ctor(System.Byte)">
+            <summary>
+            Constructs a nibble from a byte.
+            </summary>
+            <param name="value">The value to read.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Exception is thrown when value is not between MinValue and MaxValue</exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.ValueTypes.Nibble.Value">
+            <summary>
+            The value of the Nibble.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.FontOptions">
+            <summary>
+            Font options.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontOptions.None">
+            <summary>
+            None 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontOptions.Italic">
+            <summary>
+            Italic 
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontOptions.StrikeOut">
+            <summary>
+            Strike Out 
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.NumberRecord">
+            <summary>
+            This class abstracts the NUMBER (0x0203) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.NumberRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the NUMBER record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.NumberRecord.Value">
+            <summary>
+            Returns the value of the NUMBER record.
+            </summary>
+            <value>Returns a double value.</value>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.Sectors.DirectorySector">
+            <summary>
+            Directory sector.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.Sectors.DirectorySector.#ctor(System.IO.Stream)">
+            <summary>
+            Stream constructor.
+            </summary>
+            <param name="stream">The stream that contains the DirectorySector data.</param>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Storage.Sectors.DirectorySector.Entries">
+            <summary>
+            The array of directory sector entries.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Storage.DirectoryEntryFactory">
+            <summary>
+            Directory entry factory helper class.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Storage.DirectoryEntryFactory.CreateEntry(Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntry,Net.SourceForge.Koogra.Storage.Sectors.DirectorySectorEntryCollection,Net.SourceForge.Koogra.Storage.Sectors.SectorCollection,Net.SourceForge.Koogra.Storage.Sectors.Sect[])">
+            <summary>
+            Builds a directory entry and populates its correct type, children and siblings.
+            </summary>
+            <param name="entry">The directory sector entry.</param>
+            <param name="entries">The current entries.</param>
+            <param name="sectors">The data sectors.</param>
+            <param name="fat">The FAT.</param>
+            <returns>The correct DirectoryEntry object.</returns>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet">
+            <summary>
+            Character set enumeration.
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSILatin">
+            <summary>
+            ANSI Latin
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.Symbol">
+            <summary>
+            Symbol
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.AppleRoman">
+            <summary>
+            Apple Roman
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIJapanese">
+            <summary>
+            ANSI Japanese
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIKoreanHangul">
+            <summary>
+            ANSI Korean Hangul
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIKoreanJohab">
+            <summary>
+            ANSI Korean Johab
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIChineseSimplifiedGBK">
+            <summary>
+            ANSI Chinese Simplified GBK
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIChineseTraditionalBIG5">
+            <summary>
+            ANSI Chinese Traditional BIG5
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIGreek">
+            <summary>
+            ANSI Greek
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSITurkish">
+            <summary>
+            ANSI Turkish
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIVietnamese">
+            <summary>
+            ANSI Vietnamese
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIHebrew">
+            <summary>
+            ANSI Hebrew
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIArabic">
+            <summary>
+            ANSI Arabic
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIBaltic">
+            <summary>
+            ANSI Baltic
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSICyrillic">
+            <summary>
+            ANSI Cyrillic
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIThai">
+            <summary>
+            ANSI Thai
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSILatin2">
+            <summary>
+            ANSI Latin 2
+            </summary>
+        </member>
+        <member name="F:Net.SourceForge.Koogra.Excel.ValueTypes.FontCharacterSet.ANSIOEMLatin1">
+            <summary>
+            ANSI OEM Latin 1
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.StyleCollection">
+            <summary>
+            Collection class for Style objects.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Records.RowRecord">
+            <summary>
+            This class abstracts the ROW (0x0208) Excel record found in Excel streams.
+            </summary>
+        </member>
+        <member name="M:Net.SourceForge.Koogra.Excel.Records.RowRecord.#ctor(Net.SourceForge.Koogra.Excel.Records.GenericBiff)">
+            <summary>
+            The constructor for the record.
+            </summary>
+            <param name="biff">The GenericBiff record that should contain the correct type and data for the ROW record.</param>
+            <exception cref="T:Net.SourceForge.Koogra.Excel.Records.InvalidRecordIdException">
+            An InvalidRecordIdException is thrown if biff contains an invalid type or invalid data.
+            </exception>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RowRecord.RowNumber">
+            <summary>
+            The row number of the ROW record in the worksheet.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RowRecord.FirstCol">
+            <summary>
+            The first column that can be found in the ROW record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RowRecord.LastCol">
+            <summary>
+            The last column that can be found in the ROW record.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RowRecord.RowHeight">
+            <summary>
+            The height of the row in twips.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RowRecord.Optimizer">
+            <summary>
+            Microsoft specific row optimizer.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RowRecord.Options">
+            <summary>
+            Options.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Records.RowRecord.Xf">
+            <summary>
+            The formatting (XF) information for the row.
+            </summary>
+        </member>
+        <member name="T:Net.SourceForge.Koogra.Excel.Format">
+            <summary>
+            Represents a cell format.
+            </summary>
+        </member>
+        <member name="P:Net.SourceForge.Koogra.Excel.Format.FormatValue">
+            <summary>
+            The format string.
+            </summary>
+        </member>
+    </members>
+</doc>

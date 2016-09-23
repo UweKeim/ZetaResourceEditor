@@ -7,10 +7,10 @@
 	using Main;
 	using RuntimeBusinessLogic.Projects;
 	using RuntimeBusinessLogic.Translation;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Common;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Common;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 	public partial class QuickTranslationForm : FormBase
 	{
@@ -77,7 +77,7 @@
 				!string.IsNullOrEmpty(destinationTextTextBox.Text.Trim());
 		}
 
-		public override void InitiallyFillLists()
+		protected override void InitiallyFillLists()
 		{
 			base.InitiallyFillLists();
 
@@ -128,7 +128,7 @@
 			InitializeComponent();
 		}
 
-		public override void FillItemToControls()
+	    protected override void FillItemToControls()
 		{
 			base.FillItemToControls();
 
@@ -191,7 +191,7 @@
 			labelControl4.Text = ti.UserReadableName;
 		}
 
-		public override void FillControlsToItem()
+	    protected override void FillControlsToItem()
 		{
 			base.FillControlsToItem();
 

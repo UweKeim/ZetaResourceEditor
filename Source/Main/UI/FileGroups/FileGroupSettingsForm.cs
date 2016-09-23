@@ -8,7 +8,7 @@
 	using RuntimeBusinessLogic.FileGroups;
 	using RuntimeBusinessLogic.Projects;
 	using RuntimeUserInterface.Shell;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 	using ZetaLongPaths;
 
 	public partial class FileGroupSettingsForm :

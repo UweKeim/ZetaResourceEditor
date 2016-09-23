@@ -1,11 +1,11 @@
 namespace ZetaResourceEditor.UI.Helper.Base
 {
 	using System.ComponentModel;
-	using DevExpress.XtraEditors;
+	using ExtendedControlsLibrary.General.Base;
 
-	public partial class UserControlBase : 
-		XtraUserControl
-	{
+    public partial class UserControlBase :
+        DevExpressXtraUserControlBase
+    {
 		public UserControlBase()
 		{
 			InitializeComponent();

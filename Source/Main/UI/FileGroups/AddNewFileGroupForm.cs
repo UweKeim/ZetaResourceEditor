@@ -4,12 +4,14 @@ namespace ZetaResourceEditor.UI.FileGroups
 	using System.Collections.Generic;
 	using System.ComponentModel;
 	using System.Globalization;
+	using System.Linq;
 	using System.Windows.Forms;
 	using DevExpress.XtraEditors;
 	using DevExpress.XtraEditors.Controls;
 	using Helper;
 	using Helper.Base;
 	using Helper.ErrorHandling;
+	using Helper.ExtendedFolderBrowser;
 	using Helper.Progress;
 	using Main;
 	using Properties;
@@ -18,13 +20,11 @@ namespace ZetaResourceEditor.UI.FileGroups
 	using RuntimeBusinessLogic.Language;
 	using RuntimeBusinessLogic.ProjectFolders;
 	using RuntimeBusinessLogic.Projects;
-	using Zeta.EnterpriseLibrary.Common;
-	using Zeta.EnterpriseLibrary.Common.Collections;
-	using Zeta.EnterpriseLibrary.Common.IO;
-	using Zeta.EnterpriseLibrary.Tools.Storage;
-	using Zeta.EnterpriseLibrary.Windows.Common;
-	using Zeta.EnterpriseLibrary.Windows.Dialogs;
-	using Zeta.EnterpriseLibrary.Windows.Persistance;
+	using Zeta.VoyagerLibrary.Common;
+	using Zeta.VoyagerLibrary.Common.Collections;
+	using Zeta.VoyagerLibrary.Tools.Storage;
+	using Zeta.VoyagerLibrary.WinForms.Common;
+	using Zeta.VoyagerLibrary.WinForms.Persistance;
 	using ZetaLongPaths;
 
 	public partial class AddNewFileGroupForm :
@@ -47,19 +47,19 @@ namespace ZetaResourceEditor.UI.FileGroups
 			_projectFolder = projectFolder;
 		}
 
-		public override void InitiallyFillLists()
+		protected override void InitiallyFillLists()
 		{
 			var plc = projectLanguageCodes;
 			var plcl = new List<string>(plc);
 
-			var items = new List<Pair<string, CultureInfo>>();
+			var items = new List<MyTuple<string, CultureInfo>>();
 
 			// ReSharper disable LoopCanBeConvertedToQuery
 			foreach (var culture in CultureInfo.GetCultures(CultureTypes.AllCultures))
 			// ReSharper restore LoopCanBeConvertedToQuery
 			{
 				items.Add(
-					new Pair<string, CultureInfo>(
+					new MyTuple<string, CultureInfo>(
 						string.Format(
 							@"{0}{1} [{2}]",
 							plcl.Contains(culture.Name.ToLowerInvariant()) ? @"* " : string.Empty,
@@ -69,7 +69,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 						culture));
 			}
 
-			items.Sort((x, y) => string.CompareOrdinal(x.First, y.First));
+			items.Sort((x, y) => string.CompareOrdinal(x.Item1, y.Item1));
 
 			foreach (var item in items)
 			{
@@ -96,7 +96,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 				baseFileNameTextEdit.Text.Trim().Length > 0;
 		}
 
-		public override void FillItemToControls()
+	    protected override void FillItemToControls()
 		{
 			base.FillItemToControls();
 
@@ -136,7 +136,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 						baseFileNameTextEdit.Text));
 		}
 
-		public override void FillControlsToItem()
+	    protected override void FillControlsToItem()
 		{
 			base.FillControlsToItem();
 
@@ -320,9 +320,9 @@ namespace ZetaResourceEditor.UI.FileGroups
 			foreach (CheckedListBoxItem item in destinationLanguagesListBox.CheckedItems)
 			// ReSharper restore LoopCanBeConvertedToQuery
 			{
-				var p = (Pair<string, CultureInfo>)item.Value;
+				var p = (MyTuple<string, CultureInfo>)item.Value;
 
-				list.Add(p.Second);
+				list.Add(p.Item2);
 			}
 
 			list.Sort(
@@ -414,11 +414,11 @@ namespace ZetaResourceEditor.UI.FileGroups
 
 			for (var index = 0; index < destinationLanguagesListBox.Items.Count; ++index)
 			{
-				var p = (Pair<string, CultureInfo>)((CheckedListBoxItem)destinationLanguagesListBox.GetItem(index)).Value;
+				var p = (MyTuple<string, CultureInfo>)((CheckedListBoxItem)destinationLanguagesListBox.GetItem(index)).Value;
 
 				destinationLanguagesListBox.SetItemChecked(
 					index,
-					plcl.Contains(p.Second.Name.ToLowerInvariant()));
+					plcl.Contains(p.Item2.Name.ToLowerInvariant()));
 			}
 		}
 
@@ -427,7 +427,7 @@ namespace ZetaResourceEditor.UI.FileGroups
 			get
 			{
 				var codes =
-					new Set<string>
+					new HashSet<string>
 						{
 							_project.NeutralLanguageCode
 						};
@@ -443,18 +443,16 @@ namespace ZetaResourceEditor.UI.FileGroups
 					}
 				}
 
-				codes.Sort();
+                var l = codes.ToList();
+                l.Sort();
 
-				return codes.ToArray();
-			}
-		}
+                return l.ToArray();
+            }
+        }
 
-		public FileGroup Result
-		{
-			get { return _result; }
-		}
+		public FileGroup Result => _result;
 
-		private void baseFileNameTextEdit_EditValueChanged(object sender, EventArgs e)
+	    private void baseFileNameTextEdit_EditValueChanged(object sender, EventArgs e)
 		{
 			UpdateUI();
 		}

@@ -2,10 +2,12 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.VirtualViews
 {
 	#region Using directives.
 	// ----------------------------------------------------------------------
-	using System.Collections.Generic;
+    using System;
+    using System.Collections.Generic;
+	using System.Linq;
 	using System.Xml;
 	using Projects;
-	using Zeta.EnterpriseLibrary.Common.Collections;
+	using Zeta.VoyagerLibrary.Common.Collections;
 
 	// ----------------------------------------------------------------------
 	#endregion
@@ -115,18 +117,17 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.VirtualViews
 					   );
 		}
 
-		public Pair<string, string>[] GetLanguageCodesExtended(
+		public MyTuple<string, string>[] GetLanguageCodesExtended(
 			Project project)
 		{
-			var result = new Set<Pair<string, string>>();
+			var result = new HashSet<MyTuple<string, string>>();
 
 			foreach (var fg in this)
 			{
 				foreach (var f in fg.GetLanguageCodesExtended(project))
 				{
 					var g = f;
-					Pair<string, string> p;
-					if (!result.Find(out p, x => string.Compare(x.First, g.First, true) == 0))
+					if (result.All(x => string.Compare(x.Item1, g.Item1, StringComparison.OrdinalIgnoreCase) != 0))
 					{
 						result.Add(f);
 					}
