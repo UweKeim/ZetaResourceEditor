@@ -45,6 +45,8 @@ build/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+*.csproj.bak
+*.bak
 *_i.c
 *_p.c
 *.ilk
@@ -172,4 +174,3 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
-

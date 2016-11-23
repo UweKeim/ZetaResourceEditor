@@ -47,10 +47,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
     {
         public FileGroup(Project project)
         {
-            _project = project;
+            Project = project;
         }
-
-        private Project _project;
 
         private string _name;
         private Guid _projectFolderUniqueID;
@@ -209,7 +207,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         {
             get
             {
-                return _project?.GetProjectFolderByUniqueID(_projectFolderUniqueID);
+                return Project?.GetProjectFolderByUniqueID(_projectFolderUniqueID);
             }
             set
             {
@@ -967,11 +965,11 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         /// it would be "Properties".
         /// </remarks>
         /// <value>The base name.</value>
-        public string BaseName => new LanguageCodeDetection(_project).GetBaseName(this);
+        public string BaseName => new LanguageCodeDetection(Project).GetBaseName(this);
 
-        public string BaseExtension => new LanguageCodeDetection(_project).GetBaseExtension(this);
+        public string BaseExtension => new LanguageCodeDetection(Project).GetBaseExtension(this);
 
-        public string BaseOptionalDefaultType => new LanguageCodeDetection(_project).GetBaseOptionalDefaultType(this);
+        public string BaseOptionalDefaultType => new LanguageCodeDetection(Project).GetBaseOptionalDefaultType(this);
 
         public string Remarks { get; set; }
 
@@ -983,7 +981,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             AsynchronousMode asynchronousMode,
             object userState)
         {
-            _project.MarkAsModified();
+            Project.MarkAsModified();
         }
 
         public int OrderPosition
@@ -1118,23 +1116,20 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         // ------------------------------------------------------------------
         #endregion
 
-        public Guid UniqueID => _uniqueID;
+        public Guid UniqueID
+        {
+            get
+            {
+                if (_uniqueID == Guid.Empty) _uniqueID = Guid.NewGuid();
+                return _uniqueID;
+            }
+        }
 
         public GridSourceType SourceType => GridSourceType.FileGroup;
 
         FileGroup IGridEditableData.FileGroup => this;
 
-        public Project Project
-        {
-            get
-            {
-                return _project;
-            }
-            set
-            {
-                _project = value;
-            }
-        }
+        public Project Project { get; set; }
 
         public int FileInfoCount
         {
@@ -1244,7 +1239,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                     if (didCopy)
                     {
                         translateTexts(
-                            _project,
+                            Project,
                             ffi,
                             sourceLanguageCode,
                             newLanguageCode,
