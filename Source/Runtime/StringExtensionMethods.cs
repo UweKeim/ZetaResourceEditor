@@ -4,18 +4,34 @@
     using System.Text.RegularExpressions;
 
     public static class StringExtensionMethods
-	{
-		public static bool IsNullOrWhiteSpace(
-			string s)
-		{
-			return string.IsNullOrEmpty(s) || s.Trim().Length <= 0;
-		}
+    {
+        public static string ReplaceEscapes(string text)
+        {
+            return text
+                .Replace("\r", @"\r")
+                .Replace("\n", @"\n")
+                .Replace("\t", @"\t");
+        }
 
-		public static string ToLowerInvariantIntelligent(
-			string s)
-		{
-			return string.IsNullOrEmpty(s) ? s : s.ToLowerInvariant();
-		}
+        public static string UnreplaceEscapes(string text)
+        {
+            return text
+                .Replace(@"\r", "\r")
+                .Replace(@"\n", "\n")
+                .Replace(@"\t", "\t");
+        }
+
+        public static bool IsNullOrWhiteSpace(
+            string s)
+        {
+            return string.IsNullOrEmpty(s) || s.Trim().Length <= 0;
+        }
+
+        public static string ToLowerInvariantIntelligent(
+            string s)
+        {
+            return string.IsNullOrEmpty(s) ? s : s.ToLowerInvariant();
+        }
 
         public static string GenerateMatchCode(
             string matchCode,

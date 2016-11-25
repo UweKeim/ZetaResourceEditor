@@ -63,6 +63,8 @@
             this.xtraTabControl1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
             this.xtraTabPage1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
             this.enableExcelExportSnapshotsCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+            this.ResXIndentCharTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+            this.myLabelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.xtraTabPage2 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
             this.xtraTabPage3 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
             this.hideFileGroupFilesInTreeCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
@@ -104,6 +106,7 @@
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.enableExcelExportSnapshotsCheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResXIndentCharTextEdit.Properties)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             this.xtraTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hideFileGroupFilesInTreeCheckEdit.Properties)).BeginInit();
@@ -127,7 +130,7 @@
             this.readOnlySaveBehaviourComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.readOnlySaveBehaviourComboBox.CueText = null;
-            this.readOnlySaveBehaviourComboBox.Location = new System.Drawing.Point(103, 81);
+            this.readOnlySaveBehaviourComboBox.Location = new System.Drawing.Point(121, 81);
             this.readOnlySaveBehaviourComboBox.MenuManager = this.barManager;
             this.readOnlySaveBehaviourComboBox.Name = "readOnlySaveBehaviourComboBox";
             this.readOnlySaveBehaviourComboBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -136,7 +139,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.readOnlySaveBehaviourComboBox.Properties.NullValuePrompt = null;
             this.readOnlySaveBehaviourComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.readOnlySaveBehaviourComboBox.Size = new System.Drawing.Size(381, 24);
+            this.readOnlySaveBehaviourComboBox.Size = new System.Drawing.Size(363, 24);
             this.readOnlySaveBehaviourComboBox.TabIndex = 6;
             // 
             // barManager
@@ -188,14 +191,14 @@
             // 
             // ignoreWindowsFormsDesignerFiles
             // 
-            this.ignoreWindowsFormsDesignerFiles.Location = new System.Drawing.Point(12, 178);
+            this.ignoreWindowsFormsDesignerFiles.Location = new System.Drawing.Point(11, 206);
             this.ignoreWindowsFormsDesignerFiles.Name = "ignoreWindowsFormsDesignerFiles";
             this.ignoreWindowsFormsDesignerFiles.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ignoreWindowsFormsDesignerFiles.Properties.Appearance.Options.UseFont = true;
             this.ignoreWindowsFormsDesignerFiles.Properties.AutoWidth = true;
             this.ignoreWindowsFormsDesignerFiles.Properties.Caption = "Ignore Windows Forms resource files with \"*.Designer.*\" files";
             this.ignoreWindowsFormsDesignerFiles.Size = new System.Drawing.Size(375, 21);
-            this.ignoreWindowsFormsDesignerFiles.TabIndex = 9;
+            this.ignoreWindowsFormsDesignerFiles.TabIndex = 11;
             // 
             // button1
             // 
@@ -220,25 +223,25 @@
             // 
             // omitEmptyItemsCheckBox
             // 
-            this.omitEmptyItemsCheckBox.Location = new System.Drawing.Point(12, 151);
+            this.omitEmptyItemsCheckBox.Location = new System.Drawing.Point(11, 179);
             this.omitEmptyItemsCheckBox.Name = "omitEmptyItemsCheckBox";
             this.omitEmptyItemsCheckBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.omitEmptyItemsCheckBox.Properties.Appearance.Options.UseFont = true;
             this.omitEmptyItemsCheckBox.Properties.AutoWidth = true;
             this.omitEmptyItemsCheckBox.Properties.Caption = "&Do not write empty strings into the resource file";
             this.omitEmptyItemsCheckBox.Size = new System.Drawing.Size(301, 21);
-            this.omitEmptyItemsCheckBox.TabIndex = 8;
+            this.omitEmptyItemsCheckBox.TabIndex = 10;
             // 
             // createBackupsCheckBox
             // 
-            this.createBackupsCheckBox.Location = new System.Drawing.Point(12, 124);
+            this.createBackupsCheckBox.Location = new System.Drawing.Point(11, 152);
             this.createBackupsCheckBox.Name = "createBackupsCheckBox";
             this.createBackupsCheckBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.createBackupsCheckBox.Properties.Appearance.Options.UseFont = true;
             this.createBackupsCheckBox.Properties.AutoWidth = true;
             this.createBackupsCheckBox.Properties.Caption = "&Automatically create backups";
             this.createBackupsCheckBox.Size = new System.Drawing.Size(191, 21);
-            this.createBackupsCheckBox.TabIndex = 7;
+            this.createBackupsCheckBox.TabIndex = 9;
             // 
             // nameTextBox
             // 
@@ -246,7 +249,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nameTextBox.Bold = false;
             this.nameTextBox.CueText = null;
-            this.nameTextBox.Location = new System.Drawing.Point(103, 42);
+            this.nameTextBox.Location = new System.Drawing.Point(121, 42);
             this.nameTextBox.MaximumSize = new System.Drawing.Size(0, 24);
             this.nameTextBox.MinimumSize = new System.Drawing.Size(0, 24);
             this.nameTextBox.Name = "nameTextBox";
@@ -255,7 +258,7 @@
             this.nameTextBox.Properties.Mask.EditMask = null;
             this.nameTextBox.Properties.NullValuePrompt = null;
             this.nameTextBox.Properties.ReadOnly = true;
-            this.nameTextBox.Size = new System.Drawing.Size(352, 24);
+            this.nameTextBox.Size = new System.Drawing.Size(334, 24);
             this.nameTextBox.TabIndex = 3;
             // 
             // locationTextBox
@@ -264,7 +267,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.locationTextBox.Bold = false;
             this.locationTextBox.CueText = null;
-            this.locationTextBox.Location = new System.Drawing.Point(103, 12);
+            this.locationTextBox.Location = new System.Drawing.Point(121, 12);
             this.locationTextBox.MaximumSize = new System.Drawing.Size(0, 24);
             this.locationTextBox.MinimumSize = new System.Drawing.Size(0, 24);
             this.locationTextBox.Name = "locationTextBox";
@@ -273,12 +276,13 @@
             this.locationTextBox.Properties.Mask.EditMask = null;
             this.locationTextBox.Properties.NullValuePrompt = null;
             this.locationTextBox.Properties.ReadOnly = true;
-            this.locationTextBox.Size = new System.Drawing.Size(383, 24);
+            this.locationTextBox.Size = new System.Drawing.Size(365, 24);
             this.locationTextBox.TabIndex = 1;
             // 
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.Location = new System.Drawing.Point(12, 84);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(85, 17);
@@ -288,6 +292,7 @@
             // label2
             // 
             this.label2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label2.Appearance.Options.UseFont = true;
             this.label2.Location = new System.Drawing.Point(12, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 17);
@@ -297,6 +302,7 @@
             // label1
             // 
             this.label1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label1.Appearance.Options.UseFont = true;
             this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 17);
@@ -366,6 +372,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Enabled = false;
             this.labelControl2.Location = new System.Drawing.Point(230, 45);
             this.labelControl2.Name = "labelControl2";
@@ -376,6 +383,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(14, 46);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(104, 17);
@@ -443,6 +451,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(14, 97);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(200, 17);
@@ -455,6 +464,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Appearance.Options.UseTextOptions = true;
             this.labelControl4.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.labelControl4.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -487,7 +498,9 @@
             // 
             this.xtraTabPage1.Controls.Add(this.readOnlySaveBehaviourComboBox);
             this.xtraTabPage1.Controls.Add(this.enableExcelExportSnapshotsCheckEdit);
+            this.xtraTabPage1.Controls.Add(this.ResXIndentCharTextEdit);
             this.xtraTabPage1.Controls.Add(this.ignoreWindowsFormsDesignerFiles);
+            this.xtraTabPage1.Controls.Add(this.myLabelControl1);
             this.xtraTabPage1.Controls.Add(this.locationTextBox);
             this.xtraTabPage1.Controls.Add(this.button1);
             this.xtraTabPage1.Controls.Add(this.label1);
@@ -503,14 +516,41 @@
             // 
             // enableExcelExportSnapshotsCheckEdit
             // 
-            this.enableExcelExportSnapshotsCheckEdit.Location = new System.Drawing.Point(12, 205);
+            this.enableExcelExportSnapshotsCheckEdit.Location = new System.Drawing.Point(11, 233);
             this.enableExcelExportSnapshotsCheckEdit.Name = "enableExcelExportSnapshotsCheckEdit";
             this.enableExcelExportSnapshotsCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.enableExcelExportSnapshotsCheckEdit.Properties.Appearance.Options.UseFont = true;
             this.enableExcelExportSnapshotsCheckEdit.Properties.AutoWidth = true;
             this.enableExcelExportSnapshotsCheckEdit.Properties.Caption = "Enable snapshots for Excel export";
             this.enableExcelExportSnapshotsCheckEdit.Size = new System.Drawing.Size(220, 21);
-            this.enableExcelExportSnapshotsCheckEdit.TabIndex = 10;
+            this.enableExcelExportSnapshotsCheckEdit.TabIndex = 12;
+            // 
+            // ResXIndentCharTextEdit
+            // 
+            this.ResXIndentCharTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ResXIndentCharTextEdit.Bold = false;
+            this.ResXIndentCharTextEdit.CueText = null;
+            this.ResXIndentCharTextEdit.Location = new System.Drawing.Point(121, 111);
+            this.ResXIndentCharTextEdit.MaximumSize = new System.Drawing.Size(0, 24);
+            this.ResXIndentCharTextEdit.MinimumSize = new System.Drawing.Size(0, 24);
+            this.ResXIndentCharTextEdit.Name = "ResXIndentCharTextEdit";
+            this.ResXIndentCharTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.ResXIndentCharTextEdit.Properties.Appearance.Options.UseFont = true;
+            this.ResXIndentCharTextEdit.Properties.Mask.EditMask = null;
+            this.ResXIndentCharTextEdit.Properties.NullValuePrompt = null;
+            this.ResXIndentCharTextEdit.Size = new System.Drawing.Size(364, 24);
+            this.ResXIndentCharTextEdit.TabIndex = 8;
+            // 
+            // myLabelControl1
+            // 
+            this.myLabelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.myLabelControl1.Appearance.Options.UseFont = true;
+            this.myLabelControl1.Location = new System.Drawing.Point(11, 114);
+            this.myLabelControl1.Name = "myLabelControl1";
+            this.myLabelControl1.Size = new System.Drawing.Size(104, 17);
+            this.myLabelControl1.TabIndex = 7;
+            this.myLabelControl1.Text = "XML indent chars:";
             // 
             // xtraTabPage2
             // 
@@ -635,6 +675,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(12, 12);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(227, 17);
@@ -657,6 +698,7 @@
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Location = new System.Drawing.Point(12, 61);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(254, 17);
@@ -685,6 +727,7 @@
             // labelControl9
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Location = new System.Drawing.Point(12, 118);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(115, 17);
@@ -711,6 +754,7 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Location = new System.Drawing.Point(12, 148);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(132, 17);
@@ -737,6 +781,7 @@
             // labelControl10
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.Location = new System.Drawing.Point(190, 118);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(26, 17);
@@ -840,10 +885,10 @@
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.enableExcelExportSnapshotsCheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResXIndentCharTextEdit.Properties)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             this.xtraTabPage2.PerformLayout();
             this.xtraTabPage3.ResumeLayout(false);
-            this.xtraTabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hideFileGroupFilesInTreeCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorifyNullCellsCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hideTranslatedRowsCheck.Properties)).EndInit();
@@ -921,5 +966,7 @@
 		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit enableExcelExportSnapshotsCheckEdit;
 		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage xtraTabPage4;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonSendProject;
-	}
+        private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit ResXIndentCharTextEdit;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl myLabelControl1;
+    }
 }
