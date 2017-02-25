@@ -9,7 +9,7 @@
 	{
 		public void Debug( object message )
 		{
-			LogCentral.Current.LogDebug( makeLoggingMessage( message ) );
+			LogCentral.Current.LogInfo( makeLoggingMessage( message ) );
 		}
 
 		public void Info( object message )

@@ -241,7 +241,7 @@ namespace Web.Code
         private string readRemoteHtmlDocument(
             string url )
         {
-            LogCentral.Current.LogDebug(
+            LogCentral.Current.LogInfo(
                 string.Format(
                     @"Reading remote HTML document from URL '{0}'.",
                     url ) );
@@ -276,7 +276,7 @@ namespace Web.Code
 
                 _sourcePageEncodingName = detectEncodingName( content );
 
-                LogCentral.Current.LogDebug(
+                LogCentral.Current.LogInfo(
                     string.Format(
                         @"Detected encoding '{0}' for remote HTML document from URL '{1}'.",
                         _sourcePageEncodingName,

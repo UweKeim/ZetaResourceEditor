@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Web;
-using Zeta.VoyagerLibrary.Common.IO;
-using Zeta.VoyagerLibrary.Logging;
-
-namespace Web.UI.Main
+﻿namespace Web.UI.Main
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.IO;
+    using System.Web;
+    using Zeta.VoyagerLibrary.Common.IO;
+    using Zeta.VoyagerLibrary.Logging;
+
     public class DownloadSetup :
         IHttpHandler
     {
@@ -44,10 +44,7 @@ namespace Web.UI.Main
                         context.Response.ClearContent();
 
                         LogCentral.Current.LogInfo(
-                            string.Format(
-                                @"About to send file '{0}' as file '{1}' to browser.",
-                                file.FullName,
-                                fileName));
+                            $@"About to send file '{file.FullName}' as file '{fileName}' to browser.");
 
                         // http://support.microsoft.com/kb/812406/en-us/
                         streamFileToBrowser(context.Response, file, fileName);
@@ -55,17 +52,15 @@ namespace Web.UI.Main
                     else
                     {
                         throw new Exception(
-                            string.Format(
-                                "File '{0}' was not found.",
-                                fileName));
+                            $"File '{fileName}' was not found.");
                     }
                 }
             }
             catch (HttpException x)
             {
                 if (x.ErrorCode == 0x800703E3 ||
-                    x.Message.IndexOf(@"0x800703E3", StringComparison.InvariantCultureIgnoreCase) >= 0 ||
                     x.ErrorCode == 0x80070016 ||
+                    x.Message.IndexOf(@"0x800703E3", StringComparison.InvariantCultureIgnoreCase) >= 0 ||
                     x.Message.IndexOf(@"0x80070016", StringComparison.InvariantCultureIgnoreCase) >= 0 ||
                     x.Message.IndexOf(@"The remote host closed the connection", StringComparison.InvariantCultureIgnoreCase) >=
                     0)
@@ -77,9 +72,7 @@ namespace Web.UI.Main
                 else
                 {
                     LogCentral.Current.LogError(
-                        string.Format(
-                            @"HttpException during downloading file '{0}'.",
-                            context.Request.QueryString),
+                        $@"HttpException during downloading file '{context.Request.QueryString}'.",
                         x);
 
                     throw;
@@ -88,9 +81,7 @@ namespace Web.UI.Main
             catch (Exception x)
             {
                 LogCentral.Current.LogError(
-                    string.Format(
-                        @"Exception during downloading file '{0}'.",
-                        context.Request.QueryString),
+                    $@"Exception during downloading file '{context.Request.QueryString}'.",
                     x);
 
                 throw;
@@ -115,13 +106,9 @@ namespace Web.UI.Main
 
                 response.Cache.SetExpires(DateTime.Now - TimeSpan.FromDays(1000));
 
-                response.ContentType = MimeHelper.MapFileExtensionToMimeType(file.Extension); //@"application/octet-stream";
+                response.ContentType = MimeHelper.MapFileExtensionToMimeType(Path.GetExtension(fileName)); //@"application/octet-stream";
                 response.AddHeader(@"Content-Disposition", @"attachment; filename=" + fileName);
-                response.AddHeader(
-                    @"Content-Length",
-                    string.Format(
-                        @"{0}",
-                        file.Length));
+                response.AddHeader(@"Content-Length", $@"{file.Length}");
 
                 // Read the bytes.
                 while (dataToRead > 0)
@@ -159,12 +146,6 @@ namespace Web.UI.Main
             }
         }
 
-        public bool IsReusable
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReusable => false;
     }
 }

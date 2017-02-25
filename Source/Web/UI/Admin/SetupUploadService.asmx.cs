@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Web.Services;
-using Zeta.VoyagerLibrary.Logging;
-using ZetaLongPaths;
-
-namespace Web.UI.Admin
+﻿namespace Web.UI.Admin
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.IO;
+    using System.Web.Services;
+    using Zeta.VoyagerLibrary.Logging;
+    using ZetaLongPaths;
+
     [WebService(Namespace = @"http://webservices.zeta-resource-editor.com/setupupload")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class SetupUploadService :
@@ -38,7 +38,7 @@ namespace Web.UI.Admin
                             fileName);
 
                     destinationFilePath += @"." + Guid.NewGuid().ToString(@"N");
-				
+
                     var tempDestinationFilePath = destinationFilePath + @".temporary";
 
                     // --
@@ -49,7 +49,7 @@ namespace Web.UI.Admin
                         FileAccess.Write,
                         FileShare.None))
                     {
-                        if (fileContent != null) fs.Write(fileContent, 0, fileContent.Length );
+                        if (fileContent != null) fs.Write(fileContent, 0, fileContent.Length);
                     }
 
                     // --
@@ -77,7 +77,7 @@ namespace Web.UI.Admin
                             {
                                 LogCentral.Current.LogInfo(
                                     $@"About to delete old file '{file.Name}'.");
-							
+
                                 // Try to delete but if failing (usually when in use),
                                 // do not fail.
                                 file.Delete();

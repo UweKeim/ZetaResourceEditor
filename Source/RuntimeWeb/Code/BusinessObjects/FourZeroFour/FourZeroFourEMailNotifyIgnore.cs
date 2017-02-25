@@ -44,7 +44,7 @@
 			var hostname = hostAddress;
 			try
 			{
-				LogCentral.Current.LogDebug(
+				LogCentral.Current.LogInfo(
 					string.Format(
 						@"Trying to resolve host name of '{0}'.",
 						hostAddress));
@@ -58,7 +58,7 @@
 			catch (SocketException e)
 			{
 				//-- Fallback if lookup failed.
-				LogCentral.Current.LogDebug(
+				LogCentral.Current.LogInfo(
 					string.Format(
 						@"Failed to resolve host name of '{0}' - Using IP address.",
 						hostAddress),

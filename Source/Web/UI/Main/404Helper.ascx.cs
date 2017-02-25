@@ -1,9 +1,8 @@
-﻿using System;
-using System.Web.UI;
-
-namespace Web.UI.Main
+﻿namespace Web.UI.Main
 {
     using Code;
+    using System;
+    using System.Web.UI;
     using Zeta.VoyagerLibrary.Logging;
     using Zeta.VoyagerLibrary.WebForms;
 

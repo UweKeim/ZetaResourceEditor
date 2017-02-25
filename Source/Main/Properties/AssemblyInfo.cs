@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Zeta Software GmbH")]
 [assembly: AssemblyProduct("Zeta Resource Editor")]
-[assembly: AssemblyCopyright("Copyright © 2006-2016 Zeta Software GmbH")]
+[assembly: AssemblyCopyright("Copyright © 2006-2017 Zeta Software GmbH")]
 [assembly: AssemblyTrademark("http://www.zeta-resource-editor.com")]
 [assembly: AssemblyCulture("")]
 
@@ -28,5 +28,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("2.3.0.6")]
-[assembly: AssemblyFileVersion("2.3.0.6")]
+[assembly: AssemblyVersion("2.3.0.7")]
+[assembly: AssemblyFileVersion("2.3.0.7")]

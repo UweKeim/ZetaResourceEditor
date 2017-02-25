@@ -97,6 +97,7 @@ namespace ZetaResourceEditor.UI.Main
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.clientPanel = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
             this.updateAvailableCheckerBackgroundWorker = new System.ComponentModel.BackgroundWorker();
@@ -219,8 +220,6 @@ namespace ZetaResourceEditor.UI.Main
             // 
             this.applicationMenu1.ItemLinks.Add(this.barSubRecentFiles);
             this.applicationMenu1.ItemLinks.Add(this.barSubRecentProjects);
-            this.applicationMenu1.ItemLinks.Add(this.infoButton, true);
-            this.applicationMenu1.ItemLinks.Add(this.buttonExit);
             this.applicationMenu1.Name = "applicationMenu1";
             this.applicationMenu1.Ribbon = this.ribbon;
             this.applicationMenu1.BeforePopup += new System.ComponentModel.CancelEventHandler(this.applicationMenu1_BeforePopup);
@@ -230,7 +229,7 @@ namespace ZetaResourceEditor.UI.Main
             this.barSubRecentFiles.Caption = "Recent resource files";
             this.barSubRecentFiles.Description = "Loads recently opened resource files";
             this.barSubRecentFiles.Id = 50;
-            this.barSubRecentFiles.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSubRecentFiles.LargeGlyph")));
+            this.barSubRecentFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubRecentFiles.ImageOptions.LargeImage")));
             this.barSubRecentFiles.Name = "barSubRecentFiles";
             // 
             // barSubRecentProjects
@@ -238,7 +237,7 @@ namespace ZetaResourceEditor.UI.Main
             this.barSubRecentProjects.Caption = "Recent projects";
             this.barSubRecentProjects.Description = "Loads a recently opened project";
             this.barSubRecentProjects.Id = 52;
-            this.barSubRecentProjects.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barSubRecentProjects.LargeGlyph")));
+            this.barSubRecentProjects.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubRecentProjects.ImageOptions.LargeImage")));
             this.barSubRecentProjects.Name = "barSubRecentProjects";
             // 
             // infoButton
@@ -246,7 +245,8 @@ namespace ZetaResourceEditor.UI.Main
             this.infoButton.Caption = "Info";
             this.infoButton.Description = "Displays application and version information";
             this.infoButton.Id = 0;
-            this.infoButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("infoButton.LargeGlyph")));
+            this.infoButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("infoButton.ImageOptions.Image")));
+            this.infoButton.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("infoButton.ImageOptions.LargeImage")));
             this.infoButton.Name = "infoButton";
             this.infoButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.aboutZetaResxEditorToolStripMenuItem_Click);
             // 
@@ -263,8 +263,8 @@ namespace ZetaResourceEditor.UI.Main
             this.buttonOnlineManual.Caption = "Online manual";
             this.buttonOnlineManual.Hint = "Shows the online manual";
             this.buttonOnlineManual.Id = 2;
+            this.buttonOnlineManual.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonOnlineManual.ImageOptions.LargeImage")));
             this.buttonOnlineManual.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F1);
-            this.buttonOnlineManual.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonOnlineManual.LargeGlyph")));
             this.buttonOnlineManual.Name = "buttonOnlineManual";
             this.buttonOnlineManual.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.onlineManualToolStripMenuItem_Click);
             // 
@@ -272,64 +272,64 @@ namespace ZetaResourceEditor.UI.Main
             // 
             this.buttonWebsite.Caption = "Website";
             this.buttonWebsite.Id = 3;
-            this.buttonWebsite.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonWebsite.LargeGlyph")));
+            this.buttonWebsite.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonWebsite.ImageOptions.LargeImage")));
             this.buttonWebsite.Name = "buttonWebsite";
             this.buttonWebsite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.visitVendorsWebsiteToolStripMenuItem_Click);
             // 
             // buttonOpenResourceFiles
             // 
             this.buttonOpenResourceFiles.Caption = "Open resource files";
-            this.buttonOpenResourceFiles.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonOpenResourceFiles.Glyph")));
             this.buttonOpenResourceFiles.Hint = "Opens existing resource files";
             this.buttonOpenResourceFiles.Id = 5;
+            this.buttonOpenResourceFiles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonOpenResourceFiles.ImageOptions.Image")));
+            this.buttonOpenResourceFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonOpenResourceFiles.ImageOptions.LargeImage")));
             this.buttonOpenResourceFiles.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O));
-            this.buttonOpenResourceFiles.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonOpenResourceFiles.LargeGlyph")));
             this.buttonOpenResourceFiles.Name = "buttonOpenResourceFiles";
             this.buttonOpenResourceFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openToolStripMenuItem_Click);
             // 
             // buttonSaveResourceFiles
             // 
             this.buttonSaveResourceFiles.Caption = "Save files";
-            this.buttonSaveResourceFiles.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonSaveResourceFiles.Glyph")));
             this.buttonSaveResourceFiles.Hint = "Saves the currently opened resource file group";
             this.buttonSaveResourceFiles.Id = 6;
+            this.buttonSaveResourceFiles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveResourceFiles.ImageOptions.Image")));
+            this.buttonSaveResourceFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonSaveResourceFiles.ImageOptions.LargeImage")));
             this.buttonSaveResourceFiles.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S));
-            this.buttonSaveResourceFiles.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonSaveResourceFiles.LargeGlyph")));
             this.buttonSaveResourceFiles.Name = "buttonSaveResourceFiles";
             this.buttonSaveResourceFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveToolStripMenuItem_Click);
             // 
             // buttonSaveAllFiles
             // 
             this.buttonSaveAllFiles.Caption = "Save all files";
-            this.buttonSaveAllFiles.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonSaveAllFiles.Glyph")));
             this.buttonSaveAllFiles.Hint = "Saves all modified resource files and the project itself";
             this.buttonSaveAllFiles.Id = 7;
+            this.buttonSaveAllFiles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveAllFiles.ImageOptions.Image")));
+            this.buttonSaveAllFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonSaveAllFiles.ImageOptions.LargeImage")));
             this.buttonSaveAllFiles.ItemShortcut = new DevExpress.XtraBars.BarShortcut(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
                 | System.Windows.Forms.Keys.S));
-            this.buttonSaveAllFiles.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonSaveAllFiles.LargeGlyph")));
             this.buttonSaveAllFiles.Name = "buttonSaveAllFiles";
             this.buttonSaveAllFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveAllToolStripButton_Click);
             // 
             // buttonCloseResourceFiles
             // 
             this.buttonCloseResourceFiles.Caption = "Close resource files";
-            this.buttonCloseResourceFiles.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonCloseResourceFiles.Glyph")));
             this.buttonCloseResourceFiles.Hint = "Close the currently open resource file data grid";
             this.buttonCloseResourceFiles.Id = 8;
+            this.buttonCloseResourceFiles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCloseResourceFiles.ImageOptions.Image")));
+            this.buttonCloseResourceFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCloseResourceFiles.ImageOptions.LargeImage")));
             this.buttonCloseResourceFiles.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4));
-            this.buttonCloseResourceFiles.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonCloseResourceFiles.LargeGlyph")));
             this.buttonCloseResourceFiles.Name = "buttonCloseResourceFiles";
             this.buttonCloseResourceFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.closeToolStripMenuItem_Click);
             // 
             // buttonCloseAllDocuments
             // 
             this.buttonCloseAllDocuments.Caption = "Close all documents";
-            this.buttonCloseAllDocuments.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonCloseAllDocuments.Glyph")));
             this.buttonCloseAllDocuments.Hint = "Closes all open resource file group editor windows";
             this.buttonCloseAllDocuments.Id = 9;
+            this.buttonCloseAllDocuments.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCloseAllDocuments.ImageOptions.Image")));
+            this.buttonCloseAllDocuments.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCloseAllDocuments.ImageOptions.LargeImage")));
             this.buttonCloseAllDocuments.ItemShortcut = new DevExpress.XtraBars.BarShortcut(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
                 | System.Windows.Forms.Keys.W));
-            this.buttonCloseAllDocuments.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonCloseAllDocuments.LargeGlyph")));
             this.buttonCloseAllDocuments.Name = "buttonCloseAllDocuments";
             this.buttonCloseAllDocuments.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.closeAllDocumentsToolStripMenuItem_Click);
             // 
@@ -338,58 +338,59 @@ namespace ZetaResourceEditor.UI.Main
             this.buttonOpenProjectFile.Caption = "Open project file";
             this.buttonOpenProjectFile.Hint = "Opens an existing project file";
             this.buttonOpenProjectFile.Id = 10;
+            this.buttonOpenProjectFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonOpenProjectFile.ImageOptions.Image")));
+            this.buttonOpenProjectFile.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonOpenProjectFile.ImageOptions.LargeImage")));
             this.buttonOpenProjectFile.ItemShortcut = new DevExpress.XtraBars.BarShortcut(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
                 | System.Windows.Forms.Keys.O));
-            this.buttonOpenProjectFile.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonOpenProjectFile.LargeGlyph")));
             this.buttonOpenProjectFile.Name = "buttonOpenProjectFile";
             this.buttonOpenProjectFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openProjectFileToolStripMenuItem_Click);
             // 
             // buttonSaveProjectFile
             // 
             this.buttonSaveProjectFile.Caption = "Save project file";
-            this.buttonSaveProjectFile.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonSaveProjectFile.Glyph")));
             this.buttonSaveProjectFile.Id = 11;
-            this.buttonSaveProjectFile.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonSaveProjectFile.LargeGlyph")));
+            this.buttonSaveProjectFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveProjectFile.ImageOptions.Image")));
+            this.buttonSaveProjectFile.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonSaveProjectFile.ImageOptions.LargeImage")));
             this.buttonSaveProjectFile.Name = "buttonSaveProjectFile";
             this.buttonSaveProjectFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveProjectFileToolStripMenuItem_Click);
             // 
             // buttonCloseProject
             // 
             this.buttonCloseProject.Caption = "Close project";
-            this.buttonCloseProject.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonCloseProject.Glyph")));
             this.buttonCloseProject.Id = 12;
-            this.buttonCloseProject.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonCloseProject.LargeGlyph")));
+            this.buttonCloseProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCloseProject.ImageOptions.Image")));
+            this.buttonCloseProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCloseProject.ImageOptions.LargeImage")));
             this.buttonCloseProject.Name = "buttonCloseProject";
             this.buttonCloseProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.closeProjectFileToolStripMenuItem_Click);
             // 
             // buttonFind
             // 
             this.buttonFind.Caption = "Find";
-            this.buttonFind.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonFind.Glyph")));
             this.buttonFind.Hint = "Searches for text in the currently opened resource file group data grid";
             this.buttonFind.Id = 13;
+            this.buttonFind.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonFind.ImageOptions.Image")));
+            this.buttonFind.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonFind.ImageOptions.LargeImage")));
             this.buttonFind.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F));
-            this.buttonFind.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonFind.LargeGlyph")));
             this.buttonFind.Name = "buttonFind";
             this.buttonFind.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.findToolStripMenuItem_Click);
             // 
             // buttonFindNext
             // 
             this.buttonFindNext.Caption = "Find next";
-            this.buttonFindNext.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonFindNext.Glyph")));
             this.buttonFindNext.Hint = "Continues a previously started search";
             this.buttonFindNext.Id = 14;
+            this.buttonFindNext.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonFindNext.ImageOptions.Image")));
+            this.buttonFindNext.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonFindNext.ImageOptions.LargeImage")));
             this.buttonFindNext.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F3);
-            this.buttonFindNext.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonFindNext.LargeGlyph")));
             this.buttonFindNext.Name = "buttonFindNext";
             this.buttonFindNext.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.findNextToolStripMenuItem_Click);
             // 
             // buttonTranslateMissingLanguages
             // 
             this.buttonTranslateMissingLanguages.Caption = "Translate missing languages";
-            this.buttonTranslateMissingLanguages.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonTranslateMissingLanguages.Glyph")));
             this.buttonTranslateMissingLanguages.Id = 15;
-            this.buttonTranslateMissingLanguages.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonTranslateMissingLanguages.LargeGlyph")));
+            this.buttonTranslateMissingLanguages.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonTranslateMissingLanguages.ImageOptions.Image")));
+            this.buttonTranslateMissingLanguages.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonTranslateMissingLanguages.ImageOptions.LargeImage")));
             this.buttonTranslateMissingLanguages.Name = "buttonTranslateMissingLanguages";
             this.buttonTranslateMissingLanguages.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.translateMissingLanguagesToolStripMenuItem_Click);
             // 
@@ -398,53 +399,53 @@ namespace ZetaResourceEditor.UI.Main
             this.buttonAddNewTag.Caption = "Add new tag";
             this.buttonAddNewTag.Hint = "Adds a new tag to the currently open resource file group data grid";
             this.buttonAddNewTag.Id = 18;
+            this.buttonAddNewTag.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonAddNewTag.ImageOptions.LargeImage")));
             this.buttonAddNewTag.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N));
-            this.buttonAddNewTag.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonAddNewTag.LargeGlyph")));
             this.buttonAddNewTag.Name = "buttonAddNewTag";
             this.buttonAddNewTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addTagToolStripMenuItem_Click);
             // 
             // buttonDeleteTag
             // 
             this.buttonDeleteTag.Caption = "Delete tag";
-            this.buttonDeleteTag.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonDeleteTag.Glyph")));
             this.buttonDeleteTag.Hint = "Deletes the currently selected row";
             this.buttonDeleteTag.Id = 19;
+            this.buttonDeleteTag.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteTag.ImageOptions.Image")));
+            this.buttonDeleteTag.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonDeleteTag.ImageOptions.LargeImage")));
             this.buttonDeleteTag.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete));
-            this.buttonDeleteTag.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonDeleteTag.LargeGlyph")));
             this.buttonDeleteTag.Name = "buttonDeleteTag";
             this.buttonDeleteTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.deleteTagToolStripMenuItem_Click);
             // 
             // buttonRenameTag
             // 
             this.buttonRenameTag.Caption = "Rename tag";
-            this.buttonRenameTag.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonRenameTag.Glyph")));
             this.buttonRenameTag.Hint = "Renames the currently selected tag";
             this.buttonRenameTag.Id = 20;
+            this.buttonRenameTag.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonRenameTag.ImageOptions.Image")));
+            this.buttonRenameTag.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonRenameTag.ImageOptions.LargeImage")));
             this.buttonRenameTag.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R));
-            this.buttonRenameTag.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonRenameTag.LargeGlyph")));
             this.buttonRenameTag.Name = "buttonRenameTag";
             this.buttonRenameTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.renameTagToolStripMenuItem_Click);
             // 
             // buttonQuickTranslate
             // 
             this.buttonQuickTranslate.Caption = "Quick translate";
-            this.buttonQuickTranslate.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonQuickTranslate.Glyph")));
             this.buttonQuickTranslate.Hint = "Opens the Quick translate window";
             this.buttonQuickTranslate.Id = 21;
+            this.buttonQuickTranslate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonQuickTranslate.ImageOptions.Image")));
+            this.buttonQuickTranslate.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonQuickTranslate.ImageOptions.LargeImage")));
             this.buttonQuickTranslate.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F9);
-            this.buttonQuickTranslate.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonQuickTranslate.LargeGlyph")));
             this.buttonQuickTranslate.Name = "buttonQuickTranslate";
             this.buttonQuickTranslate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.quickTranslationToolStripMenuItem_Click);
             // 
             // buttonRefresh
             // 
             this.buttonRefresh.Caption = "Refresh file list";
-            this.buttonRefresh.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Glyph")));
             this.buttonRefresh.Hint = "Refreshes the project file list";
             this.buttonRefresh.Id = 22;
+            this.buttonRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.ImageOptions.Image")));
+            this.buttonRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.ImageOptions.LargeImage")));
+            this.buttonRefresh.ImageOptions.LargeImageIndex = 1;
             this.buttonRefresh.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
-            this.buttonRefresh.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.LargeGlyph")));
-            this.buttonRefresh.LargeImageIndex = 1;
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.refreshProjectFilesListToolStripMenuItem_Click);
             // 
@@ -452,20 +453,20 @@ namespace ZetaResourceEditor.UI.Main
             // 
             this.buttonOptions.Caption = "Options";
             this.buttonOptions.Id = 23;
+            this.buttonOptions.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonOptions.ImageOptions.LargeImage")));
             this.buttonOptions.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F7));
-            this.buttonOptions.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonOptions.LargeGlyph")));
             this.buttonOptions.Name = "buttonOptions";
             this.buttonOptions.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.optionsToolStripMenuItem1_Click);
             // 
             // buttonCreateNewProject
             // 
             this.buttonCreateNewProject.Caption = "Create new project";
-            this.buttonCreateNewProject.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewProject.Glyph")));
             this.buttonCreateNewProject.Hint = "Creates a new project";
             this.buttonCreateNewProject.Id = 24;
+            this.buttonCreateNewProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewProject.ImageOptions.Image")));
+            this.buttonCreateNewProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewProject.ImageOptions.LargeImage")));
             this.buttonCreateNewProject.ItemShortcut = new DevExpress.XtraBars.BarShortcut(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
                 | System.Windows.Forms.Keys.N));
-            this.buttonCreateNewProject.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewProject.LargeGlyph")));
             this.buttonCreateNewProject.Name = "buttonCreateNewProject";
             this.buttonCreateNewProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.createNewProjectToolStripMenuItem_Click);
             // 
@@ -473,61 +474,61 @@ namespace ZetaResourceEditor.UI.Main
             // 
             this.buttonAutomaticallyAddFileGroupsToProject.Caption = "Automatically add multiple files";
             this.buttonAutomaticallyAddFileGroupsToProject.Id = 25;
-            this.buttonAutomaticallyAddFileGroupsToProject.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonAutomaticallyAddFileGroupsToProject.LargeGlyph")));
+            this.buttonAutomaticallyAddFileGroupsToProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonAutomaticallyAddFileGroupsToProject.ImageOptions.LargeImage")));
             this.buttonAutomaticallyAddFileGroupsToProject.Name = "buttonAutomaticallyAddFileGroupsToProject";
             this.buttonAutomaticallyAddFileGroupsToProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.automaticallyAddMultipleFileGroupsToolStripMenuItem_Click);
             // 
             // buttonAddFileGroupToProject
             // 
             this.buttonAddFileGroupToProject.Caption = "Add file group to project";
-            this.buttonAddFileGroupToProject.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonAddFileGroupToProject.Glyph")));
             this.buttonAddFileGroupToProject.Id = 26;
-            this.buttonAddFileGroupToProject.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonAddFileGroupToProject.LargeGlyph")));
+            this.buttonAddFileGroupToProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddFileGroupToProject.ImageOptions.Image")));
+            this.buttonAddFileGroupToProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonAddFileGroupToProject.ImageOptions.LargeImage")));
             this.buttonAddFileGroupToProject.Name = "buttonAddFileGroupToProject";
             this.buttonAddFileGroupToProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addResourceFilesToProjectToolStripMenuItem_Click);
             // 
             // buttonRemoveFileGroupFromProject
             // 
             this.buttonRemoveFileGroupFromProject.Caption = "Remove file group from project";
-            this.buttonRemoveFileGroupFromProject.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileGroupFromProject.Glyph")));
             this.buttonRemoveFileGroupFromProject.Id = 27;
-            this.buttonRemoveFileGroupFromProject.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileGroupFromProject.LargeGlyph")));
+            this.buttonRemoveFileGroupFromProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileGroupFromProject.ImageOptions.Image")));
+            this.buttonRemoveFileGroupFromProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileGroupFromProject.ImageOptions.LargeImage")));
             this.buttonRemoveFileGroupFromProject.Name = "buttonRemoveFileGroupFromProject";
             this.buttonRemoveFileGroupFromProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.removeResourceFilesFromProjectToolStripMenuItem_Click);
             // 
             // buttonEditFileGroupSettings
             // 
             this.buttonEditFileGroupSettings.Caption = "Edit file group settings";
-            this.buttonEditFileGroupSettings.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonEditFileGroupSettings.Glyph")));
             this.buttonEditFileGroupSettings.Id = 28;
-            this.buttonEditFileGroupSettings.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonEditFileGroupSettings.LargeGlyph")));
+            this.buttonEditFileGroupSettings.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditFileGroupSettings.ImageOptions.Image")));
+            this.buttonEditFileGroupSettings.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonEditFileGroupSettings.ImageOptions.LargeImage")));
             this.buttonEditFileGroupSettings.Name = "buttonEditFileGroupSettings";
             this.buttonEditFileGroupSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.editResourceFilesSettingsToolStripMenuItem_Click);
             // 
             // buttonAddFilesToFileGroup
             // 
             this.buttonAddFilesToFileGroup.Caption = "Add files to file group";
-            this.buttonAddFilesToFileGroup.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonAddFilesToFileGroup.Glyph")));
             this.buttonAddFilesToFileGroup.Id = 29;
-            this.buttonAddFilesToFileGroup.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonAddFilesToFileGroup.LargeGlyph")));
+            this.buttonAddFilesToFileGroup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddFilesToFileGroup.ImageOptions.Image")));
+            this.buttonAddFilesToFileGroup.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonAddFilesToFileGroup.ImageOptions.LargeImage")));
             this.buttonAddFilesToFileGroup.Name = "buttonAddFilesToFileGroup";
             this.buttonAddFilesToFileGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addFilesToFileGroupToolStripMenuItem_Click);
             // 
             // buttonRemoveFileFromGroup
             // 
             this.buttonRemoveFileFromGroup.Caption = "Remove file from group";
-            this.buttonRemoveFileFromGroup.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileFromGroup.Glyph")));
             this.buttonRemoveFileFromGroup.Id = 30;
-            this.buttonRemoveFileFromGroup.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileFromGroup.LargeGlyph")));
+            this.buttonRemoveFileFromGroup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileFromGroup.ImageOptions.Image")));
+            this.buttonRemoveFileFromGroup.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileFromGroup.ImageOptions.LargeImage")));
             this.buttonRemoveFileFromGroup.Name = "buttonRemoveFileFromGroup";
             this.buttonRemoveFileFromGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.removeFileFromGroupToolStripMenuItem_Click);
             // 
             // buttonEditProjectSettings
             // 
             this.buttonEditProjectSettings.Caption = "Edit project settings";
-            this.buttonEditProjectSettings.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonEditProjectSettings.Glyph")));
             this.buttonEditProjectSettings.Id = 31;
-            this.buttonEditProjectSettings.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonEditProjectSettings.LargeGlyph")));
+            this.buttonEditProjectSettings.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditProjectSettings.ImageOptions.Image")));
+            this.buttonEditProjectSettings.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonEditProjectSettings.ImageOptions.LargeImage")));
             this.buttonEditProjectSettings.Name = "buttonEditProjectSettings";
             this.buttonEditProjectSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.editProjectSettingsToolStripMenuItem_Click);
             // 
@@ -535,14 +536,14 @@ namespace ZetaResourceEditor.UI.Main
             // 
             this.barMdiChildrenListItem1.Caption = "Recent projects";
             this.barMdiChildrenListItem1.Id = 32;
-            this.barMdiChildrenListItem1.LargeImageIndex = 35;
+            this.barMdiChildrenListItem1.ImageOptions.LargeImageIndex = 35;
             this.barMdiChildrenListItem1.Name = "barMdiChildrenListItem1";
             // 
             // barMdiChildrenListItem2
             // 
             this.barMdiChildrenListItem2.Caption = "Recent files";
             this.barMdiChildrenListItem2.Id = 33;
-            this.barMdiChildrenListItem2.LargeImageIndex = 36;
+            this.barMdiChildrenListItem2.ImageOptions.LargeImageIndex = 36;
             this.barMdiChildrenListItem2.Name = "barMdiChildrenListItem2";
             // 
             // barListItem1
@@ -554,9 +555,9 @@ namespace ZetaResourceEditor.UI.Main
             // buttonUpdateAvailable
             // 
             this.buttonUpdateAvailable.Caption = "An update is available!";
-            this.buttonUpdateAvailable.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonUpdateAvailable.Glyph")));
             this.buttonUpdateAvailable.Id = 37;
-            this.buttonUpdateAvailable.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonUpdateAvailable.LargeGlyph")));
+            this.buttonUpdateAvailable.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdateAvailable.ImageOptions.Image")));
+            this.buttonUpdateAvailable.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonUpdateAvailable.ImageOptions.LargeImage")));
             this.buttonUpdateAvailable.Name = "buttonUpdateAvailable";
             this.buttonUpdateAvailable.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.buttonUpdateAvailable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonUpdateAvailable_ItemClick);
@@ -565,7 +566,7 @@ namespace ZetaResourceEditor.UI.Main
             // 
             this.buttonOpenFileGroupFolder.Caption = "Open folder";
             this.buttonOpenFileGroupFolder.Id = 40;
-            this.buttonOpenFileGroupFolder.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonOpenFileGroupFolder.LargeGlyph")));
+            this.buttonOpenFileGroupFolder.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonOpenFileGroupFolder.ImageOptions.LargeImage")));
             this.buttonOpenFileGroupFolder.Name = "buttonOpenFileGroupFolder";
             this.buttonOpenFileGroupFolder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openFolderOfCurrentResourceFileToolStripMenuItem_Click);
             // 
@@ -586,40 +587,40 @@ namespace ZetaResourceEditor.UI.Main
             // buttonExport
             // 
             this.buttonExport.Caption = "Export to Microsoft Excel";
-            this.buttonExport.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonExport.Glyph")));
             this.buttonExport.Id = 48;
-            this.buttonExport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonExport.LargeGlyph")));
+            this.buttonExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonExport.ImageOptions.Image")));
+            this.buttonExport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonExport.ImageOptions.LargeImage")));
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonExport_ItemClick);
             // 
             // buttonImport
             // 
             this.buttonImport.Caption = "Import from Microsoft Excel";
-            this.buttonImport.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonImport.Glyph")));
             this.buttonImport.Id = 49;
-            this.buttonImport.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonImport.LargeGlyph")));
+            this.buttonImport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonImport.ImageOptions.Image")));
+            this.buttonImport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonImport.ImageOptions.LargeImage")));
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonImport_ItemClick);
             // 
             // buttonMoveDown
             // 
             this.buttonMoveDown.Caption = "Move down";
-            this.buttonMoveDown.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonMoveDown.Glyph")));
             this.buttonMoveDown.Hint = "Move the selected item in the project files tree down by one";
             this.buttonMoveDown.Id = 53;
+            this.buttonMoveDown.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonMoveDown.ImageOptions.Image")));
+            this.buttonMoveDown.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonMoveDown.ImageOptions.LargeImage")));
             this.buttonMoveDown.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Down));
-            this.buttonMoveDown.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonMoveDown.LargeGlyph")));
             this.buttonMoveDown.Name = "buttonMoveDown";
             this.buttonMoveDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMoveDown_ItemClick);
             // 
             // buttonMoveUp
             // 
             this.buttonMoveUp.Caption = "Move up";
-            this.buttonMoveUp.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonMoveUp.Glyph")));
             this.buttonMoveUp.Hint = "Move the selected item in the project files tree up by one";
             this.buttonMoveUp.Id = 54;
+            this.buttonMoveUp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonMoveUp.ImageOptions.Image")));
+            this.buttonMoveUp.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonMoveUp.ImageOptions.LargeImage")));
             this.buttonMoveUp.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Up));
-            this.buttonMoveUp.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonMoveUp.LargeGlyph")));
             this.buttonMoveUp.Name = "buttonMoveUp";
             this.buttonMoveUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMoveUp_ItemClick);
             // 
@@ -627,18 +628,18 @@ namespace ZetaResourceEditor.UI.Main
             // 
             this.buttonShowHideProjectPanel.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.buttonShowHideProjectPanel.Caption = "Show project panel";
-            this.buttonShowHideProjectPanel.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonShowHideProjectPanel.Glyph")));
             this.buttonShowHideProjectPanel.Id = 55;
-            this.buttonShowHideProjectPanel.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonShowHideProjectPanel.LargeGlyph")));
+            this.buttonShowHideProjectPanel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonShowHideProjectPanel.ImageOptions.Image")));
+            this.buttonShowHideProjectPanel.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonShowHideProjectPanel.ImageOptions.LargeImage")));
             this.buttonShowHideProjectPanel.Name = "buttonShowHideProjectPanel";
             this.buttonShowHideProjectPanel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonShowHideProjectPanel_ItemClick);
             // 
             // buttonCreateNewFile
             // 
             this.buttonCreateNewFile.Caption = "Create new file for language";
-            this.buttonCreateNewFile.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewFile.Glyph")));
             this.buttonCreateNewFile.Id = 56;
-            this.buttonCreateNewFile.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewFile.LargeGlyph")));
+            this.buttonCreateNewFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewFile.ImageOptions.Image")));
+            this.buttonCreateNewFile.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewFile.ImageOptions.LargeImage")));
             this.buttonCreateNewFile.Name = "buttonCreateNewFile";
             this.buttonCreateNewFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonCreateNewFile_ItemClick);
             // 
@@ -646,44 +647,44 @@ namespace ZetaResourceEditor.UI.Main
             // 
             this.buttonCreateNewFiles.Caption = "Create new files for language";
             this.buttonCreateNewFiles.Id = 57;
-            this.buttonCreateNewFiles.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewFiles.LargeGlyph")));
+            this.buttonCreateNewFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewFiles.ImageOptions.LargeImage")));
             this.buttonCreateNewFiles.Name = "buttonCreateNewFiles";
             this.buttonCreateNewFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonCreateNewFiles_ItemClick);
             // 
             // resetLayoutButton
             // 
             this.resetLayoutButton.Caption = "Reset layout";
-            this.resetLayoutButton.Glyph = ((System.Drawing.Image)(resources.GetObject("resetLayoutButton.Glyph")));
             this.resetLayoutButton.Id = 59;
-            this.resetLayoutButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("resetLayoutButton.LargeGlyph")));
+            this.resetLayoutButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resetLayoutButton.ImageOptions.Image")));
+            this.resetLayoutButton.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("resetLayoutButton.ImageOptions.LargeImage")));
             this.resetLayoutButton.Name = "resetLayoutButton";
             this.resetLayoutButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.resetLayoutButton_ItemClick);
             // 
             // buttonAddFromVisualStudio
             // 
             this.buttonAddFromVisualStudio.Caption = "Automatically add from Visual Studio solution";
-            this.buttonAddFromVisualStudio.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonAddFromVisualStudio.Glyph")));
             this.buttonAddFromVisualStudio.Id = 60;
-            this.buttonAddFromVisualStudio.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonAddFromVisualStudio.LargeGlyph")));
+            this.buttonAddFromVisualStudio.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddFromVisualStudio.ImageOptions.Image")));
+            this.buttonAddFromVisualStudio.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonAddFromVisualStudio.ImageOptions.LargeImage")));
             this.buttonAddFromVisualStudio.Name = "buttonAddFromVisualStudio";
             this.buttonAddFromVisualStudio.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonAddFromVisualStudio_ItemClick);
             // 
             // buttonConfigureLanguageColumns
             // 
             this.buttonConfigureLanguageColumns.Caption = "Configure language columns";
-            this.buttonConfigureLanguageColumns.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonConfigureLanguageColumns.Glyph")));
             this.buttonConfigureLanguageColumns.Id = 63;
-            this.buttonConfigureLanguageColumns.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonConfigureLanguageColumns.LargeGlyph")));
+            this.buttonConfigureLanguageColumns.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonConfigureLanguageColumns.ImageOptions.Image")));
+            this.buttonConfigureLanguageColumns.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonConfigureLanguageColumns.ImageOptions.LargeImage")));
             this.buttonConfigureLanguageColumns.Name = "buttonConfigureLanguageColumns";
             this.buttonConfigureLanguageColumns.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonConfigureLanguageColumns_ItemClick);
             // 
             // buttonReplace
             // 
             this.buttonReplace.Caption = "Replace";
-            this.buttonReplace.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonReplace.Glyph")));
             this.buttonReplace.Id = 68;
+            this.buttonReplace.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonReplace.ImageOptions.Image")));
+            this.buttonReplace.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonReplace.ImageOptions.LargeImage")));
             this.buttonReplace.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H));
-            this.buttonReplace.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("buttonReplace.LargeGlyph")));
             this.buttonReplace.Name = "buttonReplace";
             this.buttonReplace.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
@@ -806,7 +807,8 @@ namespace ZetaResourceEditor.UI.Main
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup7,
-            this.ribbonPageGroup6});
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup11});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Extras";
             // 
@@ -824,6 +826,13 @@ namespace ZetaResourceEditor.UI.Main
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.ShowCaptionButton = false;
             this.ribbonPageGroup6.Text = "Help";
+            // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.ItemLinks.Add(this.infoButton);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.ShowCaptionButton = false;
+            this.ribbonPageGroup11.Text = "Info";
             // 
             // repositoryItemHyperLinkEdit1
             // 
@@ -967,5 +976,6 @@ namespace ZetaResourceEditor.UI.Main
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
 		private System.Windows.Forms.Timer updateAvailableBlinkTimer;
 		private DevExpress.Utils.ImageCollection blinkImageCollection;
-	}
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+    }
 }

@@ -2,12 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ZetaResourceEditor.RuntimeBusinessLogic.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ZetaResourceEditor_RuntimeBusinessLogic_AdService_AdService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://www.zeta-resource-editor.com/backend/AdService.asmx</Value>
-    </Setting>
-    <Setting Name="ZetaResourceEditor_RuntimeBusinessLogic_TranslationService_TranslationService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://www.zeta-resource-editor.com/backend/TranslationService.asmx</Value>
-    </Setting>
     <Setting Name="ZetaResourceEditor_RuntimeBusinessLogic_UpdateChecker_UpdateCheckerService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://www.zeta-resource-editor.com/backend/UpdateCheckerService.asmx</Value>
     </Setting>

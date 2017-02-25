@@ -26,26 +26,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.zeta-resource-editor.com/backend/AdService.asmx")]
-        public string ZetaResourceEditor_RuntimeBusinessLogic_AdService_AdService {
-            get {
-                return ((string)(this["ZetaResourceEditor_RuntimeBusinessLogic_AdService_AdService"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.zeta-resource-editor.com/backend/TranslationService.asmx")]
-        public string ZetaResourceEditor_RuntimeBusinessLogic_TranslationService_TranslationService {
-            get {
-                return ((string)(this["ZetaResourceEditor_RuntimeBusinessLogic_TranslationService_TranslationService"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://www.zeta-resource-editor.com/backend/UpdateCheckerService.asmx")]
         public string ZetaResourceEditor_RuntimeBusinessLogic_UpdateChecker_UpdateCheckerService {
             get {

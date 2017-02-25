@@ -25,7 +25,7 @@
 		public void Execute()
 		{
 			// ReSharper disable InvocationIsSkipped
-			LogCentral.Current.LogDebug(
+			LogCentral.Current.LogInfo(
 				string.Format(
 				@"About to shell-execute the command '{0}'.",
 				_fileName));

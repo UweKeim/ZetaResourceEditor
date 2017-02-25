@@ -136,7 +136,7 @@
 		{
 			if ( a != null )
 			{
-				LogCentral.Current.LogDebug(
+				LogCentral.Current.LogInfo(
 					string.Format(
 						@"doGetAllTypes(): Searching assembly '{0}'...",
 						a.GetName().Name ) );
@@ -169,7 +169,7 @@
 
 								if ( !found )
 								{
-									LogCentral.Current.LogDebug(
+									LogCentral.Current.LogInfo(
 										string.Format(
 											@"Found plug-in type '{0}'.",
 											t ) );
