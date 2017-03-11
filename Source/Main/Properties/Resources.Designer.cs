@@ -112,7 +112,7 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saving files, please wait....
+        ///   Looks up a localized string similar to Saving files, please wait….
         /// </summary>
         internal static string ResourceEditorUserControl_DoSaveFiles_Saving_files__please_wait___ {
             get {
@@ -121,7 +121,7 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Downloading update, please wait....
+        ///   Looks up a localized string similar to Downloading update, please wait….
         /// </summary>
         internal static string SetupDownloadController_DownloadAndRunSetup_Downloading_update__please_wait___ {
             get {
@@ -140,7 +140,7 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://zeta.li/zre-ENU-home.
+        ///   Looks up a localized string similar to https://zeta.li/zre-ENU-home.
         /// </summary>
         internal static string SR_AboutForm_linkLabel1LinkClicked_Httpwwwzetasoftwaredelinkszrehome {
             get {
@@ -231,7 +231,7 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Creating new files....
+        ///   Looks up a localized string similar to Creating new files….
         /// </summary>
         internal static string SR_CreateNewFilesForm_Creating {
             get {
@@ -413,7 +413,7 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://www.zeta-resource-editor.com/inline-news.html.
+        ///   Looks up a localized string similar to https://www.zeta-resource-editor.com/inline-news.html.
         /// </summary>
         internal static string SR_InlineNewsUrl {
             get {
@@ -523,7 +523,7 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://zeta.li/zre-ENU-purchase-license.
+        ///   Looks up a localized string similar to https://zeta.li/zre-ENU-purchase-license.
         /// </summary>
         internal static string SR_OptionsForm_purchaseLicenseButton_Click {
             get {
@@ -588,7 +588,7 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please wait while the files will be added....
+        ///   Looks up a localized string similar to Please wait while the files will be added….
         /// </summary>
         internal static string SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WillBeAdded {
             get {

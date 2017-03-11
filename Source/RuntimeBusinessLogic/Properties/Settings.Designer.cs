@@ -26,7 +26,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.zeta-resource-editor.com/backend/UpdateCheckerService.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.zeta-resource-editor.com/backend/UpdateCheckerService.asmx")]
         public string ZetaResourceEditor_RuntimeBusinessLogic_UpdateChecker_UpdateCheckerService {
             get {
                 return ((string)(this["ZetaResourceEditor_RuntimeBusinessLogic_UpdateChecker_UpdateCheckerService"]));

@@ -255,7 +255,7 @@ Do you want to open the Excel document now?</value>
 		<value>Removes all items from the list above</value>
 	<comment></comment></data>
 	<data name="SR_InlineNewsUrl" xml:space="preserve">
-		<value>http://www.zeta-resource-editor.com/inline-news.html</value>
+		<value>https://www.zeta-resource-editor.com/inline-news.html</value>
 	<comment></comment></data>
 	<data name="SR_ExportWizard_buttonBrowseClick_ExcelFilesXlsxls" xml:space="preserve">
 		<value>Excel documents (*.xlsx)|*.xlsx</value>

@@ -39,7 +39,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.popupImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.locationTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
             this.nameTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
             this.label2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
@@ -49,7 +48,6 @@
             this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.locationTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -81,9 +79,8 @@
             // 
             // browseButton
             // 
-            this.browseButton.Caption = "&Browse...";
+            this.browseButton.Caption = "&Browse";
             this.browseButton.Id = 0;
-            this.browseButton.ImageIndex = 1;
             this.browseButton.Name = "browseButton";
             this.browseButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.browseButton_ItemClick);
             // 
@@ -91,7 +88,6 @@
             // 
             this.openButton.Caption = "&Open folder";
             this.openButton.Id = 0;
-            this.openButton.ImageIndex = 0;
             this.openButton.Name = "openButton";
             this.openButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openButton_ItemClick);
             // 
@@ -102,7 +98,6 @@
             this.barManager.DockControls.Add(this.barDockControlLeft);
             this.barManager.DockControls.Add(this.barDockControlRight);
             this.barManager.Form = this;
-            this.barManager.Images = this.popupImageCollection;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.browseButton,
             this.openButton});
@@ -113,6 +108,7 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager;
             this.barDockControlTop.Size = new System.Drawing.Size(426, 0);
             // 
             // barDockControlBottom
@@ -120,6 +116,7 @@
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 122);
+            this.barDockControlBottom.Manager = this.barManager;
             this.barDockControlBottom.Size = new System.Drawing.Size(426, 0);
             // 
             // barDockControlLeft
@@ -127,6 +124,7 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 122);
             // 
             // barDockControlRight
@@ -134,13 +132,8 @@
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(426, 0);
+            this.barDockControlRight.Manager = this.barManager;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 122);
-            // 
-            // popupImageCollection
-            // 
-            this.popupImageCollection.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("popupImageCollection.ImageStream")));
-            this.popupImageCollection.Images.SetKeyName(0, "folder_green.png");
-            this.popupImageCollection.Images.SetKeyName(1, "folder_window.png");
             // 
             // locationTextBox
             // 
@@ -180,6 +173,7 @@
             // label2
             // 
             this.label2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label2.Appearance.Options.UseFont = true;
             this.label2.Location = new System.Drawing.Point(12, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 17);
@@ -189,6 +183,7 @@
             // label1
             // 
             this.label1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label1.Appearance.Options.UseFont = true;
             this.label1.Location = new System.Drawing.Point(12, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 17);
@@ -267,7 +262,6 @@
             this.Load += new System.EventHandler(this.CreateNewProjectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupImageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.locationTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -293,7 +287,6 @@
 		private DevExpress.XtraBars.BarDockControl barDockControlBottom;
 		private DevExpress.XtraBars.BarDockControl barDockControlLeft;
 		private DevExpress.XtraBars.BarDockControl barDockControlRight;
-		private DevExpress.Utils.ImageCollection popupImageCollection;
 		private DevExpress.XtraBars.BarButtonItem browseButton;
 		private ExtendedControlsLibrary.Skinning.CustomDropDownButton.MyDropDownButton button1;
 		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;

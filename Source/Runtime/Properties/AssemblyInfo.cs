@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCompany("Zeta Software GmbH")]
 [assembly: AssemblyProduct("Zeta Resource Editor")]
 [assembly: AssemblyCopyright("Copyright © 2006-2016 Zeta Software GmbH")]
-[assembly: AssemblyTrademark("http://www.zeta-resource-editor.com")]
+[assembly: AssemblyTrademark("https://www.zeta-resource-editor.com")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

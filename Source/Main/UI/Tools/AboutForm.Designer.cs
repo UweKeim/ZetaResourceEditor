@@ -75,6 +75,7 @@ namespace ZetaResourceEditor.UI.Tools
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(14, 37);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(166, 51);
@@ -105,6 +106,7 @@ namespace ZetaResourceEditor.UI.Tools
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(14, 14);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(121, 17);
@@ -127,6 +129,7 @@ namespace ZetaResourceEditor.UI.Tools
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(93, 12);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(122, 17);
@@ -136,6 +139,7 @@ namespace ZetaResourceEditor.UI.Tools
             // label4
             // 
             this.label4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label4.Appearance.Options.UseFont = true;
             this.label4.Location = new System.Drawing.Point(93, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 34);

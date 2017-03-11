@@ -91,9 +91,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             ((System.ComponentModel.ISupportInitialize)(this.panel1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // wizardControl
-            // 
+            //
             this.wizardControl.AllowAutoScaling = DevExpress.Utils.DefaultBoolean.False;
             this.wizardControl.AllowTransitionAnimation = false;
             this.wizardControl.Controls.Add(this.importFileWizardPage);
@@ -119,9 +119,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.wizardControl.FinishClick += new System.ComponentModel.CancelEventHandler(this.wizardControl_FinishClick);
             this.wizardControl.NextClick += new DevExpress.XtraWizard.WizardCommandButtonClickEventHandler(this.wizardControl_NextClick);
             this.wizardControl.PrevClick += new DevExpress.XtraWizard.WizardCommandButtonClickEventHandler(this.wizardControl_PrevClick);
-            // 
+            //
             // importFileWizardPage
-            // 
+            //
             this.importFileWizardPage.Controls.Add(this.labelControl7);
             this.importFileWizardPage.Controls.Add(this.cmdImportFormatInfo);
             this.importFileWizardPage.Controls.Add(this.sourceFileTextEdit);
@@ -136,10 +136,10 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.importFileWizardPage.Padding = new System.Windows.Forms.Padding(9);
             this.importFileWizardPage.Size = new System.Drawing.Size(535, 294);
             this.importFileWizardPage.Text = "Specify import file from Microsoft Excel";
-            // 
+            //
             // labelControl7
-            // 
-            this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl7.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
@@ -152,9 +152,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.labelControl7.TabIndex = 13;
             this.labelControl7.Text = "Information about the required structure of a Microsoft Office Excel document in " +
     "order to successfully import";
-            // 
+            //
             // cmdImportFormatInfo
-            // 
+            //
             this.cmdImportFormatInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmdImportFormatInfo.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.cmdImportFormatInfo.Appearance.Options.UseFont = true;
@@ -165,10 +165,10 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.cmdImportFormatInfo.Text = "Import format information";
             this.cmdImportFormatInfo.WantDrawFocusRectangle = true;
             this.cmdImportFormatInfo.Click += new System.EventHandler(this.cmdImportFormatInfo_Click);
-            // 
+            //
             // sourceFileTextEdit
-            // 
-            this.sourceFileTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.sourceFileTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sourceFileTextEdit.CueText = null;
             this.sourceFileTextEdit.Location = new System.Drawing.Point(12, 31);
@@ -180,9 +180,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.sourceFileTextEdit.Size = new System.Drawing.Size(511, 40);
             this.sourceFileTextEdit.TabIndex = 7;
             this.sourceFileTextEdit.EditValueChanged += new System.EventHandler(this.sourceFileTextEdit_EditValueChanged);
-            // 
+            //
             // buttonOpen
-            // 
+            //
             this.buttonOpen.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonOpen.Appearance.Options.UseFont = true;
             this.buttonOpen.Location = new System.Drawing.Point(9, 77);
@@ -192,9 +192,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.buttonOpen.Text = "&Open";
             this.buttonOpen.WantDrawFocusRectangle = true;
             this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
-            // 
+            //
             // buttonBrowse
-            // 
+            //
             this.buttonBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonBrowse.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonBrowse.Appearance.Options.UseFont = true;
@@ -205,46 +205,46 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.buttonBrowse.Text = "Browse";
             this.buttonBrowse.WantDrawFocusRectangle = true;
             this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
-            // 
+            //
             // labelControl2
-            // 
+            //
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl2.Location = new System.Drawing.Point(12, 12);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(251, 17);
             this.labelControl2.TabIndex = 4;
             this.labelControl2.Text = "Microsoft Office Excel document to import:";
-            // 
+            //
             // barDockControlLeft
-            // 
+            //
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(9, 9);
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 276);
-            // 
+            //
             // barDockControlRight
-            // 
+            //
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(526, 9);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 276);
-            // 
+            //
             // barDockControlBottom
-            // 
+            //
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(9, 285);
             this.barDockControlBottom.Size = new System.Drawing.Size(517, 0);
-            // 
+            //
             // barDockControlTop
-            // 
+            //
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(9, 9);
             this.barDockControlTop.Size = new System.Drawing.Size(517, 0);
-            // 
+            //
             // successWizardPage
-            // 
+            //
             this.successWizardPage.AllowBack = false;
             this.successWizardPage.AllowCancel = false;
             this.successWizardPage.AllowNext = false;
@@ -256,9 +256,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.successWizardPage.Padding = new System.Windows.Forms.Padding(9);
             this.successWizardPage.Size = new System.Drawing.Size(535, 294);
             this.successWizardPage.Text = "Import completed successfully";
-            // 
+            //
             // simpleButton1
-            // 
+            //
             this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.simpleButton1.Appearance.Options.UseFont = true;
@@ -269,9 +269,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.simpleButton1.Text = "No rows imported — Find out why";
             this.simpleButton1.WantDrawFocusRectangle = true;
             this.simpleButton1.Click += new System.EventHandler(this.cmdImportFormatInfo_Click);
-            // 
+            //
             // pictureBox2
-            // 
+            //
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -281,11 +281,11 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
-            // 
+            //
             // summaryAfterSuccessfulImportLabel
-            // 
-            this.summaryAfterSuccessfulImportLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.summaryAfterSuccessfulImportLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.summaryAfterSuccessfulImportLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.summaryAfterSuccessfulImportLabel.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
@@ -296,10 +296,10 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.summaryAfterSuccessfulImportLabel.Size = new System.Drawing.Size(448, 174);
             this.summaryAfterSuccessfulImportLabel.TabIndex = 9;
             this.summaryAfterSuccessfulImportLabel.Text = "<SUMMARY>";
-            // 
+            //
             // labelControl5
-            // 
-            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl5.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
@@ -311,9 +311,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.labelControl5.TabIndex = 9;
             this.labelControl5.Text = "Your data was successfully imported from the Microsoft Office Excel document you " +
     "specified.";
-            // 
+            //
             // fileGroupsWizardPage
-            // 
+            //
             this.fileGroupsWizardPage.Controls.Add(this.invertFileGroupsButton);
             this.fileGroupsWizardPage.Controls.Add(this.selectNoFileGroupsButton);
             this.fileGroupsWizardPage.Controls.Add(this.selectAllFileGroupsButton);
@@ -324,9 +324,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.fileGroupsWizardPage.Padding = new System.Windows.Forms.Padding(9);
             this.fileGroupsWizardPage.Size = new System.Drawing.Size(535, 294);
             this.fileGroupsWizardPage.Text = "Select files groups to import";
-            // 
+            //
             // invertFileGroupsButton
-            // 
+            //
             this.invertFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.invertFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.invertFileGroupsButton.Appearance.Options.UseFont = true;
@@ -337,9 +337,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.invertFileGroupsButton.Text = "Flip";
             this.invertFileGroupsButton.WantDrawFocusRectangle = true;
             this.invertFileGroupsButton.Click += new System.EventHandler(this.invertFileGroupsButton_Click);
-            // 
+            //
             // selectNoFileGroupsButton
-            // 
+            //
             this.selectNoFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectNoFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.selectNoFileGroupsButton.Appearance.Options.UseFont = true;
@@ -350,9 +350,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.selectNoFileGroupsButton.Text = "None";
             this.selectNoFileGroupsButton.WantDrawFocusRectangle = true;
             this.selectNoFileGroupsButton.Click += new System.EventHandler(this.selectNoFileGroupsButton_Click);
-            // 
+            //
             // selectAllFileGroupsButton
-            // 
+            //
             this.selectAllFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectAllFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.selectAllFileGroupsButton.Appearance.Options.UseFont = true;
@@ -363,11 +363,11 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.selectAllFileGroupsButton.Text = "All";
             this.selectAllFileGroupsButton.WantDrawFocusRectangle = true;
             this.selectAllFileGroupsButton.Click += new System.EventHandler(this.selectAllFileGroupsButton_Click);
-            // 
+            //
             // fileGroupsListBox
-            // 
-            this.fileGroupsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.fileGroupsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fileGroupsListBox.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.fileGroupsListBox.Appearance.Options.UseFont = true;
@@ -378,18 +378,18 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.fileGroupsListBox.TabIndex = 6;
             this.fileGroupsListBox.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.fileGroupsListBox_ItemCheck);
             this.fileGroupsListBox.SelectedIndexChanged += new System.EventHandler(this.fileGroupsListBox_SelectedIndexChanged);
-            // 
+            //
             // labelControl4
-            // 
+            //
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl4.Location = new System.Drawing.Point(12, 40);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(220, 17);
             this.labelControl4.TabIndex = 5;
             this.labelControl4.Text = "Check the groups you want to import:";
-            // 
+            //
             // labelControl1
-            // 
+            //
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
@@ -397,9 +397,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.labelControl1.TabIndex = 5;
             this.labelControl1.Text = "The following matching file groups were found in the Microsoft Office Excel docum" +
     "ent.";
-            // 
+            //
             // languagesWizardPage
-            // 
+            //
             this.languagesWizardPage.Controls.Add(this.labelControl6);
             this.languagesWizardPage.Controls.Add(this.label3);
             this.languagesWizardPage.Controls.Add(this.selectAllLanguagesToExportButton);
@@ -410,18 +410,18 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.languagesWizardPage.Padding = new System.Windows.Forms.Padding(9);
             this.languagesWizardPage.Size = new System.Drawing.Size(535, 294);
             this.languagesWizardPage.Text = "Specify languages to import";
-            // 
+            //
             // labelControl6
-            // 
+            //
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl6.Location = new System.Drawing.Point(12, 40);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(238, 17);
             this.labelControl6.TabIndex = 14;
             this.labelControl6.Text = "Check the languages you want to import:";
-            // 
+            //
             // label3
-            // 
+            //
             this.label3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label3.Location = new System.Drawing.Point(12, 12);
             this.label3.Name = "label3";
@@ -429,9 +429,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.label3.TabIndex = 9;
             this.label3.Text = "The following matching languages were found in the Microsoft Office Excel documen" +
     "t.";
-            // 
+            //
             // selectAllLanguagesToExportButton
-            // 
+            //
             this.selectAllLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectAllLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.selectAllLanguagesToExportButton.Appearance.Options.UseFont = true;
@@ -442,9 +442,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.selectAllLanguagesToExportButton.Text = "All";
             this.selectAllLanguagesToExportButton.WantDrawFocusRectangle = true;
             this.selectAllLanguagesToExportButton.Click += new System.EventHandler(this.selectAllLanguagesToExportButton_Click);
-            // 
+            //
             // invertLanguagesToExportButton
-            // 
+            //
             this.invertLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.invertLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.invertLanguagesToExportButton.Appearance.Options.UseFont = true;
@@ -455,9 +455,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.invertLanguagesToExportButton.Text = "Flip";
             this.invertLanguagesToExportButton.WantDrawFocusRectangle = true;
             this.invertLanguagesToExportButton.Click += new System.EventHandler(this.invertLanguagesToExportButton_Click);
-            // 
+            //
             // selectNoLanguagesToExportButton
-            // 
+            //
             this.selectNoLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectNoLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.selectNoLanguagesToExportButton.Appearance.Options.UseFont = true;
@@ -468,11 +468,11 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.selectNoLanguagesToExportButton.Text = "None";
             this.selectNoLanguagesToExportButton.WantDrawFocusRectangle = true;
             this.selectNoLanguagesToExportButton.Click += new System.EventHandler(this.selectNoLanguagesToExportButton_Click);
-            // 
+            //
             // languagesToImportCheckListBox
-            // 
-            this.languagesToImportCheckListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.languagesToImportCheckListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.languagesToImportCheckListBox.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.languagesToImportCheckListBox.Appearance.Options.UseFont = true;
@@ -483,9 +483,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.languagesToImportCheckListBox.TabIndex = 10;
             this.languagesToImportCheckListBox.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.languagesToImportCheckListBox_ItemCheck);
             this.languagesToImportCheckListBox.SelectedIndexChanged += new System.EventHandler(this.languagesToImportCheckListBox_SelectedIndexChanged);
-            // 
+            //
             // progressWizardPage
-            // 
+            //
             this.progressWizardPage.AllowBack = false;
             this.progressWizardPage.AllowNext = false;
             this.progressWizardPage.Controls.Add(this.progressBarControl);
@@ -494,19 +494,19 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.progressWizardPage.Padding = new System.Windows.Forms.Padding(9);
             this.progressWizardPage.Size = new System.Drawing.Size(535, 294);
             this.progressWizardPage.Text = "Data is being imported. Please wait...";
-            // 
+            //
             // progressBarControl
-            // 
-            this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarControl.EditValue = 0;
             this.progressBarControl.Location = new System.Drawing.Point(12, 12);
             this.progressBarControl.Name = "progressBarControl";
             this.progressBarControl.Size = new System.Drawing.Size(511, 18);
             this.progressBarControl.TabIndex = 2;
-            // 
+            //
             // progressLabel
-            // 
+            //
             this.progressLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.progressLabel.Location = new System.Drawing.Point(12, 36);
             this.progressLabel.Name = "progressLabel";
@@ -514,9 +514,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.progressLabel.TabIndex = 3;
             this.progressLabel.Text = "<Progress information, if any>";
             this.progressLabel.Visible = false;
-            // 
+            //
             // errorOccurredWizardPage
-            // 
+            //
             this.errorOccurredWizardPage.AllowNext = false;
             this.errorOccurredWizardPage.Controls.Add(this.optionsButton);
             this.errorOccurredWizardPage.Controls.Add(this.errorTextMemoEdit);
@@ -524,9 +524,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.errorOccurredWizardPage.Padding = new System.Windows.Forms.Padding(9);
             this.errorOccurredWizardPage.Size = new System.Drawing.Size(535, 294);
             this.errorOccurredWizardPage.Text = "An error has occurred";
-            // 
+            //
             // optionsButton
-            // 
+            //
             this.optionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.optionsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.optionsButton.Appearance.Options.UseFont = true;
@@ -539,25 +539,25 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.optionsButton.Size = new System.Drawing.Size(75, 28);
             this.optionsButton.TabIndex = 10;
             this.optionsButton.Text = "&Options";
-            // 
+            //
             // optionsPopupMenu
-            // 
+            //
             this.optionsPopupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.detailedErrorsButton)});
             this.optionsPopupMenu.Manager = this.barManager;
             this.optionsPopupMenu.Name = "optionsPopupMenu";
             this.optionsPopupMenu.BeforePopup += new System.ComponentModel.CancelEventHandler(this.optionsPopupMenu_BeforePopup);
-            // 
+            //
             // detailedErrorsButton
-            // 
+            //
             this.detailedErrorsButton.Caption = "Details";
             this.detailedErrorsButton.Id = 0;
             this.detailedErrorsButton.ImageIndex = 1;
             this.detailedErrorsButton.Name = "detailedErrorsButton";
             this.detailedErrorsButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.detailedErrorsButton_ItemClick);
-            // 
+            //
             // barManager
-            // 
+            //
             this.barManager.DockControls.Add(this.barDockControlTop);
             this.barManager.DockControls.Add(this.barDockControlBottom);
             this.barManager.DockControls.Add(this.barDockControlLeft);
@@ -566,11 +566,11 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.detailedErrorsButton});
             this.barManager.MaxItemId = 3;
-            // 
+            //
             // errorTextMemoEdit
-            // 
-            this.errorTextMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.errorTextMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.errorTextMemoEdit.CueText = null;
             this.errorTextMemoEdit.Location = new System.Drawing.Point(12, 12);
@@ -580,17 +580,17 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.errorTextMemoEdit.Properties.NullValuePrompt = null;
             this.errorTextMemoEdit.Size = new System.Drawing.Size(511, 236);
             this.errorTextMemoEdit.TabIndex = 9;
-            // 
+            //
             // progressBackgroundWorker
-            // 
+            //
             this.progressBackgroundWorker.WorkerReportsProgress = true;
             this.progressBackgroundWorker.WorkerSupportsCancellation = true;
             this.progressBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.progressBackgroundWorker_DoWork);
             this.progressBackgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.progressBackgroundWorker_ProgressChanged);
             this.progressBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.progressBackgroundWorker_RunWorkerCompleted);
-            // 
+            //
             // panel1
-            // 
+            //
             this.panel1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Appearance.Options.UseBackColor = true;
             this.panel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -600,9 +600,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(579, 424);
             this.panel1.TabIndex = 3;
-            // 
+            //
             // ExcelImportWizardForm
-            // 
+            //
             this.Appearance.Options.UseFont = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(579, 424);

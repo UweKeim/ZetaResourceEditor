@@ -1,8 +1,5 @@
 namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 {
-    #region Using directives.
-    // ----------------------------------------------------------------------
-
     using BL;
     using DL;
     using DynamicSettings;
@@ -27,11 +24,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
     using Zeta.VoyagerLibrary.Common.Collections;
     using ZetaAsync;
     using ZetaLongPaths;
-
-    // ----------------------------------------------------------------------
-    #endregion
-
-    /////////////////////////////////////////////////////////////////////////
 
     /// <summary>
     /// Groups multiple single files.
@@ -219,14 +211,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             Project project,
             string joinedFilePaths)
         {
-            if (string.IsNullOrEmpty(joinedFilePaths))
-            {
-                return new FileGroup(project);
-            }
-            else
-            {
-                return CheckCreate(project, SplitFilePaths(joinedFilePaths));
-            }
+            return string.IsNullOrEmpty(joinedFilePaths) ? new FileGroup(project) : CheckCreate(project, SplitFilePaths(joinedFilePaths));
         }
 
         public static FileGroup CheckCreate(
@@ -262,8 +247,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                 }
             }
 
-            var same =
-                project?.GetFileGroupByCheckSum(result.GetChecksum(project));
+            var same = project?.GetFileGroupByCheckSum(result.GetChecksum(project));
 
             return same ?? result;
         }
@@ -922,6 +906,13 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
         public FileInformation GetFileByLanguageCode(
             Project project,
+            CultureInfo culture)
+        {
+            return GetFileByLanguageCode(project, culture.Name);
+        }
+
+        public FileInformation GetFileByLanguageCode(
+            Project project,
             string languageCode)
         {
             lock (_fileInfos)
@@ -1327,78 +1318,81 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
             // --
 
-            string appID;
-            string appID2;
-            TranslationHelper.GetTranslationAppID(project, out appID, out appID2);
+            TranslationHelper.GetTranslationAppID(project, out string appID, out string appID2);
 
             var ti = TranslationHelper.GetTranslationEngine(project);
 
-            var slc =
-                ti.MapCultureToSourceLanguageCode(
-                    appID, appID2,
-                    CultureHelper.CreateCultureErrorTolerant(sourceLanguageCode));
-            var dlc =
-                ti.MapCultureToDestinationLanguageCode(
-                    appID, appID2,
-                    CultureHelper.CreateCultureErrorTolerant(destinationLanguageCode));
-
-            // --
-
-            foreach (DataRow row in table.Rows)
+            // 2017-03-11, Uwe Keim: Only translate if supported.
+            if (ti.IsSourceLanguageSupported(appID, appID2, sourceLanguageCode) &&
+                ti.IsDestinationLanguageSupported(appID, appID2, destinationLanguageCode))
             {
-                var sourceText = ConvertHelper.ToString(row[2]);
+                var slc =
+                    ti.MapCultureToSourceLanguageCode(
+                        appID, appID2,
+                        CultureHelper.CreateCultureErrorTolerant(sourceLanguageCode));
+                var dlc =
+                    ti.MapCultureToDestinationLanguageCode(
+                        appID, appID2,
+                        CultureHelper.CreateCultureErrorTolerant(destinationLanguageCode));
 
-                if (!string.IsNullOrEmpty(sourceText))
+                // --
+
+                foreach (DataRow row in table.Rows)
                 {
-                    if (delayMilliseconds > 0)
+                    var sourceText = ConvertHelper.ToString(row[2]);
+
+                    if (!string.IsNullOrEmpty(sourceText))
                     {
-                        Thread.Sleep(delayMilliseconds);
-                    }
-
-                    try
-                    {
-                        var destinationText =
-                            prefix +
-                            ti.Translate(
-                                appID,
-                                appID2,
-                                sourceText,
-                                slc,
-                                dlc,
-                                project.TranslationWordsToProtect,
-                                project.TranslationWordsToRemove);
-
-                        row[2] = destinationText;
-
-                        translationSuccessCount++;
-                    }
-                    catch (Exception x)
-                    {
-                        translationErrorCount++;
-
-                        if (continueOnErrors)
+                        if (delayMilliseconds > 0)
                         {
-                            var prefixError = DefaultTranslationErrorPrefix.Trim() + @" ";
+                            Thread.Sleep(delayMilliseconds);
+                        }
 
-                            var destinationText = prefixError + x.Message;
+                        try
+                        {
+                            var destinationText =
+                                prefix +
+                                ti.Translate(
+                                    appID,
+                                    appID2,
+                                    sourceText,
+                                    slc,
+                                    dlc,
+                                    project.TranslationWordsToProtect,
+                                    project.TranslationWordsToRemove);
 
-                            if (row[2] != null)
+                            row[2] = destinationText;
+
+                            translationSuccessCount++;
+                        }
+                        catch (Exception x)
+                        {
+                            translationErrorCount++;
+
+                            if (continueOnErrors)
                             {
-                                row[2] = destinationText;
+                                var prefixError = DefaultTranslationErrorPrefix.Trim() + @" ";
+
+                                var destinationText = prefixError + x.Message;
+
+                                if (row[2] != null)
+                                {
+                                    row[2] = destinationText;
+                                }
+                            }
+                            else
+                            {
+                                throw;
                             }
                         }
-                        else
-                        {
-                            throw;
-                        }
+
+                        translationCount++;
                     }
-
-                    translationCount++;
                 }
-            }
 
-            // Write back.
-            data.SaveDataTableToResxFiles(project, table, false, false);
+                // Write back.
+                data.SaveDataTableToResxFiles(project, table, false, false);
+            }
         }
 
         public bool IsDeepChildOf(ProjectFolder folder)
@@ -1438,14 +1432,20 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             return false;
         }
 
-        public void RemoveFileInfo(FileInformation tag)
+        public bool DeleteFile(FileInformation fileInformation)
+        {
+            RemoveFileInfo(fileInformation);
+            fileInformation.File.SafeDelete();
+
+            return !fileInformation.File.SafeExists();
+        }
+
+        public void RemoveFileInfo(FileInformation fileInformation)
         {
             lock (_fileInfos)
             {
-                _fileInfos.Remove(tag);
+                _fileInfos.Remove(fileInformation);
             }
         }
     }
-
-    /////////////////////////////////////////////////////////////////////////
 }

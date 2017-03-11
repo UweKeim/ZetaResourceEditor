@@ -106,7 +106,7 @@
 			// --
 
 			var request = (HttpWebRequest)WebRequest.Create(url);
-			request.Referer = string.Format(@"http://www.zeta-resource-editor.com/rest?{0:N}", Guid.NewGuid());
+			request.Referer = string.Format(@"https://www.zeta-resource-editor.com/rest?{0:N}", Guid.NewGuid());
 
 			WebServiceManager.Current.ApplyProxy(request);
 

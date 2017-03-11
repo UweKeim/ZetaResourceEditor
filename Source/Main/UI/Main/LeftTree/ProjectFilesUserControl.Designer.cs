@@ -36,11 +36,10 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.stateImageList = new DevExpress.Utils.ImageCollection(this.components);
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.guiRefreshTimer = new System.Windows.Forms.Timer(this.components);
-            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.buttonMenuProjectEditResourceFiles = new DevExpress.XtraBars.BarButtonItem();
             this.buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject = new DevExpress.XtraBars.BarButtonItem();
             this.buttonMenuProjectAddFileGroupToProject = new DevExpress.XtraBars.BarButtonItem();
@@ -62,12 +61,15 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.buttonSortChildrenProjectAZ = new DevExpress.XtraBars.BarButtonItem();
             this.buttonMenuProjectFolderAddFileGroupToProject = new DevExpress.XtraBars.BarButtonItem();
             this.buttonMenuProjectAddNewFileGroupToProject = new DevExpress.XtraBars.BarButtonItem();
+            this.buttonMenuProjectDeleteExistingLanguage = new DevExpress.XtraBars.BarButtonItem();
+            this.guiRefreshTimer = new System.Windows.Forms.Timer(this.components);
             this.popupMenuProject = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuProjectFolder = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuFileGroup = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuFile = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuNone = new DevExpress.XtraBars.PopupMenu(this.components);
             this.updateNodeStateImageBackgroundworker = new System.ComponentModel.BackgroundWorker();
+            this.buttonMenuProjectDeleteLanguages = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.treeView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeImageList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stateImageList)).BeginInit();
@@ -121,7 +123,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             // 
             this.treeListColumn1.Caption = "Name";
             this.treeListColumn1.FieldName = "Name";
-            this.treeListColumn1.MinWidth = 49;
+            this.treeListColumn1.MinWidth = 52;
             this.treeListColumn1.Name = "treeListColumn1";
             this.treeListColumn1.OptionsColumn.AllowEdit = false;
             this.treeListColumn1.OptionsColumn.AllowMove = false;
@@ -157,33 +159,8 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager;
             this.barDockControlTop.Size = new System.Drawing.Size(201, 0);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 434);
-            this.barDockControlBottom.Size = new System.Drawing.Size(201, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 434);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(201, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 434);
-            // 
-            // guiRefreshTimer
-            // 
-            this.guiRefreshTimer.Interval = 500;
-            this.guiRefreshTimer.Tick += new System.EventHandler(this.guiRefreshTimer_Tick);
             // 
             // barManager
             // 
@@ -213,22 +190,48 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.buttonSortProjectFolderChildrenAscendingAZ,
             this.buttonSortChildrenProjectAZ,
             this.buttonMenuProjectFolderAddFileGroupToProject,
-            this.buttonMenuProjectAddNewFileGroupToProject});
-            this.barManager.MaxItemId = 24;
+            this.buttonMenuProjectAddNewFileGroupToProject,
+            this.buttonMenuProjectDeleteExistingLanguage,
+            this.buttonMenuProjectDeleteLanguages});
+            this.barManager.MaxItemId = 26;
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 434);
+            this.barDockControlBottom.Manager = this.barManager;
+            this.barDockControlBottom.Size = new System.Drawing.Size(201, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 434);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(201, 0);
+            this.barDockControlRight.Manager = this.barManager;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 434);
             // 
             // buttonMenuProjectEditResourceFiles
             // 
             this.buttonMenuProjectEditResourceFiles.Caption = "Edit resource files";
-            this.buttonMenuProjectEditResourceFiles.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonMenuProjectEditResourceFiles.Glyph")));
             this.buttonMenuProjectEditResourceFiles.Id = 3;
+            this.buttonMenuProjectEditResourceFiles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonMenuProjectEditResourceFiles.ImageOptions.Image")));
             this.buttonMenuProjectEditResourceFiles.Name = "buttonMenuProjectEditResourceFiles";
             this.buttonMenuProjectEditResourceFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonEditResourceFiles_ItemClick);
             // 
             // buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject
             // 
             this.buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject.Caption = "Automatically add multiple file groups to project";
-            this.buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject.Glyph")));
             this.buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject.Id = 4;
+            this.buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject.ImageOptions.Image")));
             this.buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject.Name = "buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject";
             this.buttonMenuProjectAutomaticallyAddMultipleFileGroupsToProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonAutomaticallyAddMultipleFileGroupsToProject_ItemClick);
             // 
@@ -298,16 +301,16 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             // buttonMenuProjectMoveUp
             // 
             this.buttonMenuProjectMoveUp.Caption = "Move up";
-            this.buttonMenuProjectMoveUp.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonMenuProjectMoveUp.Glyph")));
             this.buttonMenuProjectMoveUp.Id = 14;
+            this.buttonMenuProjectMoveUp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonMenuProjectMoveUp.ImageOptions.Image")));
             this.buttonMenuProjectMoveUp.Name = "buttonMenuProjectMoveUp";
             this.buttonMenuProjectMoveUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMoveUp_ItemClick);
             // 
             // buttonMenuProjectMoveDown
             // 
             this.buttonMenuProjectMoveDown.Caption = "Move down";
-            this.buttonMenuProjectMoveDown.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonMenuProjectMoveDown.Glyph")));
             this.buttonMenuProjectMoveDown.Id = 15;
+            this.buttonMenuProjectMoveDown.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonMenuProjectMoveDown.ImageOptions.Image")));
             this.buttonMenuProjectMoveDown.Name = "buttonMenuProjectMoveDown";
             this.buttonMenuProjectMoveDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMoveDown_ItemClick);
             // 
@@ -328,32 +331,33 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             // buttonMenuProjectAutomaticallyAddFileGroupsFromVisualStudioSolution
             // 
             this.buttonMenuProjectAutomaticallyAddFileGroupsFromVisualStudioSolution.Caption = "Automatically add file groups from Visual Studio solution";
-            this.buttonMenuProjectAutomaticallyAddFileGroupsFromVisualStudioSolution.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonMenuProjectAutomaticallyAddFileGroupsFromVisualStudioSolution.Glyph")));
             this.buttonMenuProjectAutomaticallyAddFileGroupsFromVisualStudioSolution.Id = 18;
+            this.buttonMenuProjectAutomaticallyAddFileGroupsFromVisualStudioSolution.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonMenuProjectAutomaticallyAddFileGroupsFromVisualStudioSolution.ImageOptions." +
+        "Image")));
             this.buttonMenuProjectAutomaticallyAddFileGroupsFromVisualStudioSolution.Name = "buttonMenuProjectAutomaticallyAddFileGroupsFromVisualStudioSolution";
             this.buttonMenuProjectAutomaticallyAddFileGroupsFromVisualStudioSolution.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonAutomaticallyAddFileGroupsFromVisualStudioSolution_ItemClick);
             // 
             // buttonOpenProjectMenuItem
             // 
             this.buttonOpenProjectMenuItem.Caption = "Open project file";
-            this.buttonOpenProjectMenuItem.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonOpenProjectMenuItem.Glyph")));
             this.buttonOpenProjectMenuItem.Id = 19;
+            this.buttonOpenProjectMenuItem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonOpenProjectMenuItem.ImageOptions.Image")));
             this.buttonOpenProjectMenuItem.Name = "buttonOpenProjectMenuItem";
             this.buttonOpenProjectMenuItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonOpenProjectMenuItem_ItemClick);
             // 
             // buttonSortProjectFolderChildrenAscendingAZ
             // 
             this.buttonSortProjectFolderChildrenAscendingAZ.Caption = "Sort children alphabetically";
-            this.buttonSortProjectFolderChildrenAscendingAZ.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonSortProjectFolderChildrenAscendingAZ.Glyph")));
             this.buttonSortProjectFolderChildrenAscendingAZ.Id = 20;
+            this.buttonSortProjectFolderChildrenAscendingAZ.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonSortProjectFolderChildrenAscendingAZ.ImageOptions.Image")));
             this.buttonSortProjectFolderChildrenAscendingAZ.Name = "buttonSortProjectFolderChildrenAscendingAZ";
             this.buttonSortProjectFolderChildrenAscendingAZ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonSortAscendingAZ_ItemClick);
             // 
             // buttonSortChildrenProjectAZ
             // 
             this.buttonSortChildrenProjectAZ.Caption = "Sort children alphabetically";
-            this.buttonSortChildrenProjectAZ.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonSortChildrenProjectAZ.Glyph")));
             this.buttonSortChildrenProjectAZ.Id = 21;
+            this.buttonSortChildrenProjectAZ.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonSortChildrenProjectAZ.ImageOptions.Image")));
             this.buttonSortChildrenProjectAZ.Name = "buttonSortChildrenProjectAZ";
             this.buttonSortChildrenProjectAZ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonSortChildrenProjectAZ_ItemClick);
             // 
@@ -371,6 +375,18 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.buttonMenuProjectAddNewFileGroupToProject.Name = "buttonMenuProjectAddNewFileGroupToProject";
             this.buttonMenuProjectAddNewFileGroupToProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMenuProjectAddNewFileGroupToProject_ItemClick);
             // 
+            // buttonMenuProjectDeleteExistingLanguage
+            // 
+            this.buttonMenuProjectDeleteExistingLanguage.Caption = "Delete language";
+            this.buttonMenuProjectDeleteExistingLanguage.Id = 24;
+            this.buttonMenuProjectDeleteExistingLanguage.Name = "buttonMenuProjectDeleteExistingLanguage";
+            this.buttonMenuProjectDeleteExistingLanguage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMenuProjectDeleteExistingLanguage_ItemClick);
+            // 
+            // guiRefreshTimer
+            // 
+            this.guiRefreshTimer.Interval = 500;
+            this.guiRefreshTimer.Tick += new System.EventHandler(this.guiRefreshTimer_Tick);
+            // 
             // popupMenuProject
             // 
             this.popupMenuProject.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -380,6 +396,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectAddFileGroupToProject, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectAddNewFileGroupToProject),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectCreateNewFiles),
+            new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectDeleteLanguages),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectAddProjectFolder, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectEditProjectSettings, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonSortChildrenProjectAZ, true)});
@@ -396,6 +413,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectAddFileGroupToProject, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectFolderAddFileGroupToProject),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectCreateNewFiles),
+            new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectDeleteExistingLanguage),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectAddProjectFolder, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectRemoveProjectFolder),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectEditProjectFolder),
@@ -442,6 +460,13 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.updateNodeStateImageBackgroundworker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.updateNodeStateImageBackgroundworker_DoWork);
             this.updateNodeStateImageBackgroundworker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.updateNodeStateImageBackgroundworker_ProgressChanged);
             this.updateNodeStateImageBackgroundworker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.updateNodeStateImageBackgroundworker_RunWorkerCompleted);
+            // 
+            // buttonMenuProjectDeleteLanguages
+            // 
+            this.buttonMenuProjectDeleteLanguages.Caption = "Delete language";
+            this.buttonMenuProjectDeleteLanguages.Id = 25;
+            this.buttonMenuProjectDeleteLanguages.Name = "buttonMenuProjectDeleteLanguages";
+            this.buttonMenuProjectDeleteLanguages.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMenuProjectDeleteLanguages_ItemClick);
             // 
             // ProjectFilesUserControl
             // 
@@ -510,5 +535,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 		private DevExpress.XtraBars.BarButtonItem buttonSortChildrenProjectAZ;
 		private DevExpress.XtraBars.BarButtonItem buttonMenuProjectFolderAddFileGroupToProject;
 		private DevExpress.XtraBars.BarButtonItem buttonMenuProjectAddNewFileGroupToProject;
-	}
+        private DevExpress.XtraBars.BarButtonItem buttonMenuProjectDeleteExistingLanguage;
+        private DevExpress.XtraBars.BarButtonItem buttonMenuProjectDeleteLanguages;
+    }
 }

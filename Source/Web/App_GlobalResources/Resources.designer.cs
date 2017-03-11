@@ -440,7 +440,7 @@ namespace Web.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://www.zeta-resource-editor.com/inline-news.html.
+        ///   Looks up a localized string similar to https://www.zeta-resource-editor.com/inline-news.html.
         /// </summary>
         internal static string SR_InlineNewsUrl {
             get {

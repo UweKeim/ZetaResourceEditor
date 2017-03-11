@@ -90,7 +90,7 @@
 			// --
 
 			var request = (HttpWebRequest)WebRequest.Create(url);
-			request.Referer = string.Format(@"http://www.zeta-resource-editor.com/rest?{0:N}", Guid.NewGuid());
+			request.Referer = string.Format(@"https://www.zeta-resource-editor.com/rest?{0:N}", Guid.NewGuid());
 
 			WebServiceManager.Current.ApplyProxy(request);
 
@@ -256,12 +256,12 @@
 			return result.ToArray();
 		}
 
-		public bool isSourceLanguageSupported(string appID, string appID2, string languageCode)
+		public bool IsSourceLanguageSupported(string appID, string appID2, string languageCode)
 		{
 			return TranslationHelper.IsSupportedLanguage(languageCode, GetSourceLanguages(appID, appID2));
 		}
 
-		public bool isDestinationLanguageSupported(string appID, string appID2, string languageCode)
+		public bool IsDestinationLanguageSupported(string appID, string appID2, string languageCode)
 		{
 			return TranslationHelper.IsSupportedLanguage(languageCode, GetDestinationLanguages(appID, appID2));
 		}

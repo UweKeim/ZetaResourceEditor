@@ -120,7 +120,8 @@ namespace ZetaResourceEditor.UI.Translation
             // appIDLinkControl
             // 
             this.appIDLinkControl.AllowAutoWidth = true;
-            this.appIDLinkControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.appIDLinkControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.appIDLinkControl.CausesValidation = false;
             this.appIDLinkControl.EditValue = "How to get an API key?";
             this.appIDLinkControl.Location = new System.Drawing.Point(12, 178);
@@ -142,6 +143,7 @@ namespace ZetaResourceEditor.UI.Translation
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(12, 12);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(151, 17);
@@ -151,6 +153,7 @@ namespace ZetaResourceEditor.UI.Translation
             // appID2Label
             // 
             this.appID2Label.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.appID2Label.Appearance.Options.UseFont = true;
             this.appID2Label.Location = new System.Drawing.Point(12, 118);
             this.appID2Label.Name = "appID2Label";
             this.appID2Label.Size = new System.Drawing.Size(107, 17);
@@ -196,6 +199,7 @@ namespace ZetaResourceEditor.UI.Translation
             // appIDLabel
             // 
             this.appIDLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.appIDLabel.Appearance.Options.UseFont = true;
             this.appIDLabel.Location = new System.Drawing.Point(12, 68);
             this.appIDLabel.Name = "appIDLabel";
             this.appIDLabel.Size = new System.Drawing.Size(107, 17);
@@ -235,6 +239,7 @@ namespace ZetaResourceEditor.UI.Translation
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(277, 43);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(17, 17);
@@ -272,6 +277,7 @@ namespace ZetaResourceEditor.UI.Translation
             // label2
             // 
             this.label2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label2.Appearance.Options.UseFont = true;
             this.label2.Location = new System.Drawing.Point(14, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(184, 17);
@@ -307,6 +313,8 @@ namespace ZetaResourceEditor.UI.Translation
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Appearance.Options.UseForeColor = true;
             this.labelControl4.Location = new System.Drawing.Point(12, 225);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(170, 17);
@@ -330,6 +338,7 @@ namespace ZetaResourceEditor.UI.Translation
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(12, 12);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(211, 17);
@@ -349,6 +358,7 @@ namespace ZetaResourceEditor.UI.Translation
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Location = new System.Drawing.Point(12, 12);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(277, 17);
@@ -374,6 +384,8 @@ namespace ZetaResourceEditor.UI.Translation
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl3.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Appearance.Options.UseForeColor = true;
             this.labelControl3.Location = new System.Drawing.Point(12, 230);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(170, 17);

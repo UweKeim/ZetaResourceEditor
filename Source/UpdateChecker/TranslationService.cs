@@ -9,7 +9,7 @@
 
 /////////////////////////////////////////////////////////////////////////////
 
-    [WebService(Namespace = @"http://www.zeta-resource-editor.com/")]
+    [WebService(Namespace = @"https://www.zeta-resource-editor.com/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class TranslationService :
         ApiKeyProtectedWebServiceBase

@@ -37,13 +37,13 @@
                 {
                     if (colsDefined)
                     {
-                        data[pos] = ws.GetRow(row).GetCell(col).Value;
+                        data[pos] = ws?.GetRow(row)?.GetCell(col)?.Value;
                         pos++;
                     }
                     else
                     {
                         var dc = dtResult.Columns.Add();
-                        dc.ColumnName = ws.GetRow(row).GetCell(col).Value.ToString();
+                        dc.ColumnName = ws?.GetRow(row)?.GetCell(col)?.Value?.ToString()?? dc.ColumnName;
                     }
                 }
 

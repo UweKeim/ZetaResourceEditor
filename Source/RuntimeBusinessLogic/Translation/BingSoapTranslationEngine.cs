@@ -197,12 +197,12 @@
 			}
 		}
 
-		public bool isSourceLanguageSupported(string appID, string appID2, string languageCode)
+		public bool IsSourceLanguageSupported(string appID, string appID2, string languageCode)
 		{
 			return TranslationHelper.IsSupportedLanguage(languageCode, GetSourceLanguages(appID, appID2));
 		}
 
-		public bool isDestinationLanguageSupported(string appID, string appID2, string languageCode)
+		public bool IsDestinationLanguageSupported(string appID, string appID2, string languageCode)
 		{
 			return TranslationHelper.IsSupportedLanguage(languageCode, GetDestinationLanguages(appID, appID2));
 		}
