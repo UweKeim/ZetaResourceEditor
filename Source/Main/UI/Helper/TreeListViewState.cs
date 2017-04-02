@@ -169,17 +169,17 @@ namespace ZetaResourceEditor.UI.Helper
 
 					if ( oID == tag )
 					{
-						LogCentral.Current.LogInfo( string.Format( @"Tree: FOUND(!) ID: {0} (tag: {1}).", oID, tag ) );
+						LogCentral.Current.LogInfo($@"Tree: FOUND(!) ID: {oID} (tag: {tag}).");
 						return node;
 					}
 					else
 					{
-						LogCentral.Current.LogInfo( string.Format( @"Tree: Not found; ID: {0} (tag: {1}).", oID, tag ) );
+						LogCentral.Current.LogInfo($@"Tree: Not found; ID: {oID} (tag: {tag}).");
 					}
 				}
 				else
 				{
-					LogCentral.Current.LogInfo( string.Format( @"Tree: Not found; Non-ID (tag: {0}).", tag ) );
+					LogCentral.Current.LogInfo($@"Tree: Not found; Non-ID (tag: {tag}).");
 				}
 			}
 
@@ -228,11 +228,8 @@ namespace ZetaResourceEditor.UI.Helper
 
 		public ZetaResourceEditorTreeListControl TreeList
 		{
-			get
-			{
-				return _treeList;
-			}
-			set
+			get => _treeList;
+		    set
 			{
 				_treeList = value;
 				Clear();
@@ -242,27 +239,19 @@ namespace ZetaResourceEditor.UI.Helper
 		private class OperationSaveExpanded :
 			TreeListOperation
 		{
-			private readonly List<Guid> _al = new List<Guid>();
-
-			public override void Execute( TreeListNode node )
+		    public override void Execute( TreeListNode node )
 			{
 				if ( node.HasChildren && node.Expanded )
 				{
 					var obj = node.Tag as IUniqueID;
 					if ( obj != null )
 					{
-						_al.Add( obj.UniqueID );
+						IDs.Add( obj.UniqueID );
 					}
 				}
 			}
 
-			public List<Guid> IDs
-			{
-				get
-				{
-					return _al;
-				}
-			}
+			public List<Guid> IDs { get; } = new List<Guid>();
 		}
 	}
 }

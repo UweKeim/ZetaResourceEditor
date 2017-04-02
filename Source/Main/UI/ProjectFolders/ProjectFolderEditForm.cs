@@ -1,176 +1,176 @@
-﻿using System;
-using System.Windows.Forms;
-using ZetaResourceEditor.UI.Helper.Base;
-using ZetaResourceEditor.Properties;
-using ZetaResourceEditor.RuntimeBusinessLogic.ProjectFolders;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
-
-namespace ZetaResourceEditor.UI.ProjectFolders
+﻿namespace ZetaResourceEditor.UI.ProjectFolders
 {
-	public partial class ProjectFolderEditForm :
-		FormBase
-	{
-		private ProjectFolder _projectFolder;
+    using Helper.Base;
+    using Properties;
+    using RuntimeBusinessLogic.ProjectFolders;
+    using System;
+    using System.Windows.Forms;
+    using Zeta.VoyagerLibrary.WinForms.Persistance;
 
-		public ProjectFolderEditForm()
-		{
-			InitializeComponent();
-			createToolTips();
-		}
+    public partial class ProjectFolderEditForm :
+        FormBase
+    {
+        private ProjectFolder _projectFolder;
 
-		/// <summary>
-		/// Since the strings constantly get lost, create
-		/// them in code instead in the designer.
-		/// </summary>
-		private void createToolTips()
-		{
-			var superToolTip4 = new DevExpress.Utils.SuperToolTip();
-			var toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-			var toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+        public ProjectFolderEditForm()
+        {
+            InitializeComponent();
+            createToolTips();
+        }
 
-			var superToolTip5 = new DevExpress.Utils.SuperToolTip();
-			var toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-			var toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+        /// <summary>
+        /// Since the strings constantly get lost, create
+        /// them in code instead in the designer.
+        /// </summary>
+        private void createToolTips()
+        {
+            var superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            var toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+            var toolTipItem4 = new DevExpress.Utils.ToolTipItem();
 
-			var superToolTip6 = new DevExpress.Utils.SuperToolTip();
-			var toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-			var toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            var superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            var toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+            var toolTipItem5 = new DevExpress.Utils.ToolTipItem();
 
-			// --
+            var superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            var toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+            var toolTipItem6 = new DevExpress.Utils.ToolTipItem();
 
-			toolTipTitleItem4.Text = Resources.SR_toolTipTitleItem4Text;
-			toolTipItem4.Text = Resources.SR_toolTipItem4Text;
-			superToolTip4.Items.Add(toolTipTitleItem4);
-			superToolTip4.Items.Add(toolTipItem4);
-			defaultToolTipController1.SetSuperTip(pictureBox8, superToolTip4);
+            // --
 
-			toolTipTitleItem5.Text = Resources.SR_toolTipTitleItem5Text;
-			toolTipItem5.Text = Resources.SR_toolTipItem5Text;
-			superToolTip5.Items.Add(toolTipTitleItem5);
-			superToolTip5.Items.Add(toolTipItem5);
-			defaultToolTipController1.SetSuperTip(pictureBox6, superToolTip5);
+            toolTipTitleItem4.Text = Resources.SR_toolTipTitleItem4Text;
+            toolTipItem4.Text = Resources.SR_toolTipItem4Text;
+            superToolTip4.Items.Add(toolTipTitleItem4);
+            superToolTip4.Items.Add(toolTipItem4);
+            defaultToolTipController1.SetSuperTip(pictureBox8, superToolTip4);
 
-			toolTipTitleItem6.Text = Resources.SR_toolTipTitleItem6Text;
-			toolTipItem6.Text = Resources.SR_toolTipItem6Text;
-			superToolTip6.Items.Add(toolTipTitleItem6);
-			superToolTip6.Items.Add(toolTipItem6);
-			defaultToolTipController1.SetSuperTip(pictureBox7, superToolTip6);
-		}
+            toolTipTitleItem5.Text = Resources.SR_toolTipTitleItem5Text;
+            toolTipItem5.Text = Resources.SR_toolTipItem5Text;
+            superToolTip5.Items.Add(toolTipTitleItem5);
+            superToolTip5.Items.Add(toolTipItem5);
+            defaultToolTipController1.SetSuperTip(pictureBox6, superToolTip5);
 
-		public override void UpdateUI()
-		{
-			base.UpdateUI();
+            toolTipTitleItem6.Text = Resources.SR_toolTipTitleItem6Text;
+            toolTipItem6.Text = Resources.SR_toolTipItem6Text;
+            superToolTip6.Items.Add(toolTipTitleItem6);
+            superToolTip6.Items.Add(toolTipItem6);
+            defaultToolTipController1.SetSuperTip(pictureBox7, superToolTip6);
+        }
 
-			discreteFilePatternSettingsPanel.Enabled =
-				useTheFollowingFilePatternSettingsCheckEdit.Checked;
-			buttonOK.Enabled = nameTextBox.Text.Trim().Length > 0;
-		}
+        public override void UpdateUI()
+        {
+            base.UpdateUI();
 
-		private void ProjectFolderEditForm_Load(
-			object sender,
-			EventArgs e)
-		{
-			WinFormsPersistanceHelper.RestoreState(this);
-			CenterToParent();
+            discreteFilePatternSettingsPanel.Enabled =
+                useTheFollowingFilePatternSettingsCheckEdit.Checked;
+            buttonOK.Enabled = nameTextBox.Text.Trim().Length > 0;
+        }
 
-			parentTextBox.Text =
-				_projectFolder.Parent == null
-					? _projectFolder.Project.Name
-					: _projectFolder.Parent.NameIntelli;
+        private void ProjectFolderEditForm_Load(
+            object sender,
+            EventArgs e)
+        {
+            WinFormsPersistanceHelper.RestoreState(this);
+            CenterToParent();
 
-			nameTextBox.Text = _projectFolder.Name;
+            parentTextBox.Text =
+                _projectFolder.Parent == null
+                    ? _projectFolder.Project.Name
+                    : _projectFolder.Parent.NameIntelli;
 
-			neutralLanguageFileNamePatternTextEdit.Text = _projectFolder.NeutralLanguageFileNamePattern;
-			nonNeutralLanguageFileNamePatternTextEdit.Text = _projectFolder.NonNeutralLanguageFileNamePattern;
-			baseNameDotCountSpinEdit.Value = _projectFolder.BaseNameDotCount;
-			defaultTypesTextEdit.Text = _projectFolder.DefaultFileTypesToIgnore;
+            nameTextBox.Text = _projectFolder.Name;
 
-			useParentElementsFilePatternSettingsCheckEdit.Checked =
-				_projectFolder.UseParentFilePatternSettings;
-			useTheFollowingFilePatternSettingsCheckEdit.Checked =
-				!_projectFolder.UseParentFilePatternSettings;
+            neutralLanguageFileNamePatternTextEdit.Text = _projectFolder.NeutralLanguageFileNamePattern;
+            nonNeutralLanguageFileNamePatternTextEdit.Text = _projectFolder.NonNeutralLanguageFileNamePattern;
+            baseNameDotCountSpinEdit.Value = _projectFolder.BaseNameDotCount;
+            defaultTypesTextEdit.Text = _projectFolder.DefaultFileTypesToIgnore;
 
-			ignoreChildsDuringExportAndImportCheckEdit.Checked =
-				_projectFolder.IgnoreDuringExportAndImport;
+            useParentElementsFilePatternSettingsCheckEdit.Checked =
+                _projectFolder.UseParentFilePatternSettings;
+            useTheFollowingFilePatternSettingsCheckEdit.Checked =
+                !_projectFolder.UseParentFilePatternSettings;
 
-			checkFillFromParent();
-			UpdateUI();
-		}
+            ignoreChildsDuringExportAndImportCheckEdit.Checked =
+                _projectFolder.IgnoreDuringExportAndImport;
 
-		private void ProjectFolderEditForm_FormClosing(
-			object sender,
-			FormClosingEventArgs e)
-		{
-			WinFormsPersistanceHelper.SaveState(this);
-		}
+            checkFillFromParent();
+            UpdateUI();
+        }
 
-		public void Initialize(ProjectFolder projectFolder)
-		{
-			_projectFolder = projectFolder;
-		}
+        private void ProjectFolderEditForm_FormClosing(
+            object sender,
+            FormClosingEventArgs e)
+        {
+            WinFormsPersistanceHelper.SaveState(this);
+        }
 
-		private void buttonOK_Click(object sender, EventArgs e)
-		{
-			_projectFolder.Name = nameTextBox.Text;
+        public void Initialize(ProjectFolder projectFolder)
+        {
+            _projectFolder = projectFolder;
+        }
 
-			_projectFolder.UseParentFilePatternSettings =
-				useParentElementsFilePatternSettingsCheckEdit.Checked;
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            _projectFolder.Name = nameTextBox.Text;
 
-			_projectFolder.NeutralLanguageFileNamePattern = neutralLanguageFileNamePatternTextEdit.Text.Trim();
-			_projectFolder.NonNeutralLanguageFileNamePattern = nonNeutralLanguageFileNamePatternTextEdit.Text.Trim();
-			_projectFolder.BaseNameDotCount = (int)baseNameDotCountSpinEdit.Value;
-			_projectFolder.DefaultFileTypesToIgnore = defaultTypesTextEdit.Text.Trim();
-			_projectFolder.IgnoreDuringExportAndImport = ignoreChildsDuringExportAndImportCheckEdit.Checked;
+            _projectFolder.UseParentFilePatternSettings =
+                useParentElementsFilePatternSettingsCheckEdit.Checked;
 
-			_projectFolder.Project.MarkAsModified();
-		}
+            _projectFolder.NeutralLanguageFileNamePattern = neutralLanguageFileNamePatternTextEdit.Text.Trim();
+            _projectFolder.NonNeutralLanguageFileNamePattern = nonNeutralLanguageFileNamePatternTextEdit.Text.Trim();
+            _projectFolder.BaseNameDotCount = (int)baseNameDotCountSpinEdit.Value;
+            _projectFolder.DefaultFileTypesToIgnore = defaultTypesTextEdit.Text.Trim();
+            _projectFolder.IgnoreDuringExportAndImport = ignoreChildsDuringExportAndImportCheckEdit.Checked;
 
-		private void nameTextBox_EditValueChanged(object sender, EventArgs e)
-		{
-			UpdateUI();
-		}
+            _projectFolder.Project.MarkAsModified();
+        }
 
-		private void ProjectFolderEditForm_Shown(object sender, EventArgs e)
-		{
-			nameTextBox.Focus();
-		}
+        private void nameTextBox_EditValueChanged(object sender, EventArgs e)
+        {
+            UpdateUI();
+        }
 
-		private void useParentElementsFilePatternSettingsCheckEdit_CheckedChanged(
-			object sender,
-			EventArgs e)
-		{
-			UpdateUI();
+        private void ProjectFolderEditForm_Shown(object sender, EventArgs e)
+        {
+            nameTextBox.Focus();
+        }
 
-			checkFillFromParent();
-		}
+        private void useParentElementsFilePatternSettingsCheckEdit_CheckedChanged(
+            object sender,
+            EventArgs e)
+        {
+            UpdateUI();
 
-		private void useTheFollowingFilePatternSettingsCheckEdit_CheckedChanged(
-			object sender,
-			EventArgs e)
-		{
-			UpdateUI();
+            checkFillFromParent();
+        }
 
-			checkFillFromParent();
-		}
+        private void useTheFollowingFilePatternSettingsCheckEdit_CheckedChanged(
+            object sender,
+            EventArgs e)
+        {
+            UpdateUI();
 
-		private void checkFillFromParent()
-		{
-			if (useParentElementsFilePatternSettingsCheckEdit.Checked)
-			{
-				var ps = _projectFolder.ParentSettings;
-				if (ps != null)
-				{
-					neutralLanguageFileNamePatternTextEdit.Text = ps.EffectiveNeutralLanguageFileNamePattern;
-					nonNeutralLanguageFileNamePatternTextEdit.Text = ps.EffectiveNonNeutralLanguageFileNamePattern;
-					baseNameDotCountSpinEdit.Value = ps.EffectiveBaseNameDotCount;
-					defaultTypesTextEdit.Text = ps.EffectiveDefaultFileTypesToIgnore;
-				}
-			}
-		}
+            checkFillFromParent();
+        }
 
-		private void label2_Click(object sender, EventArgs e)
-		{
+        private void checkFillFromParent()
+        {
+            if (useParentElementsFilePatternSettingsCheckEdit.Checked)
+            {
+                var ps = _projectFolder.ParentSettings;
+                if (ps != null)
+                {
+                    neutralLanguageFileNamePatternTextEdit.Text = ps.EffectiveNeutralLanguageFileNamePattern;
+                    nonNeutralLanguageFileNamePatternTextEdit.Text = ps.EffectiveNonNeutralLanguageFileNamePattern;
+                    baseNameDotCountSpinEdit.Value = ps.EffectiveBaseNameDotCount;
+                    defaultTypesTextEdit.Text = ps.EffectiveDefaultFileTypesToIgnore;
+                }
+            }
+        }
 
-		}
-	}
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

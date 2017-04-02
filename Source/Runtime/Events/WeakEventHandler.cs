@@ -53,9 +53,9 @@
 			where TEventListener : class
 		{
 			if ( senderObject == null )
-				throw new ArgumentNullException( @"senderObject" );
+				throw new ArgumentNullException( nameof(senderObject) );
 			if ( listeningObject == null )
-				throw new ArgumentNullException( @"listeningObject" );
+				throw new ArgumentNullException( nameof(listeningObject) );
 			VerifyDelegate( registerEvent, @"registerEvent" );
 			VerifyDelegate( deregisterEvent, @"deregisterEvent" );
 			VerifyDelegate( forwarderAction, @"forwarderAction" );
@@ -160,11 +160,11 @@
 		{
 			if ( senderObject == null )
 			{
-				throw new ArgumentNullException( @"senderObject" );
+				throw new ArgumentNullException( nameof(senderObject) );
 			}
 			if ( listeningObject == null )
 			{
-				throw new ArgumentNullException( @"listeningObject" );
+				throw new ArgumentNullException( nameof(listeningObject) );
 			}
 			WeakEventHandler.VerifyDelegate( registerEvent, @"registerEvent" );
 			WeakEventHandler.VerifyDelegate( deregisterEvent, @"deregisterEvent" );

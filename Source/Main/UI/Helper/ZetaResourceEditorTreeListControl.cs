@@ -15,27 +15,16 @@ namespace ZetaResourceEditor.UI.Helper
 			InitializeComponent();
 		}
 
-		public bool WasDoubleClick
-		{
-			get
-			{
-				return _wasDoubleClick;
-			}
-			set
-			{
-				_wasDoubleClick = value;
-			}
-		}
+		public bool WasDoubleClick { get; set; }
 
-		private bool _wasDoubleClick;
-		private const int WmLbuttondblclk = 0x203;
+        private const int WmLbuttondblclk = 0x203;
 
 		protected override void WndProc(ref Message m)
 		{
 			// http://groups.google.com/group/microsoft.public.dotnet.framework.windowsforms/msg/d16ac686dc6b42?hl=en&lr=&ie=UTF-8
 			if (m.Msg == WmLbuttondblclk)
 			{
-				_wasDoubleClick = true;
+				WasDoubleClick = true;
 			}
 
 			base.WndProc(ref m);

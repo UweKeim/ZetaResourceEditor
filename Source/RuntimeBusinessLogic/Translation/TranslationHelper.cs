@@ -111,7 +111,7 @@
 				var index = 0;
 				foreach (var word in wordsToProtect)
 				{
-					text = text.Replace(word, string.Format(@"3213213{0}4234234", index));
+					text = text.Replace(word, $@"3213213{index}4234234");
 					index++;
 				}
 
@@ -132,7 +132,7 @@
 				var index = 0;
 				foreach (var word in wordsToProtect)
 				{
-					text = text.Replace(string.Format(@"3213213{0}4234234", index), word);
+					text = text.Replace($@"3213213{index}4234234", word);
 					index++;
 				}
 

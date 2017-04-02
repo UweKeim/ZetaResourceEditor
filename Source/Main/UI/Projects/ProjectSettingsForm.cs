@@ -72,7 +72,7 @@
 
         private class ReadOnlyHelper
         {
-            public ReadOnlyFileOverwriteBehaviour Behaviour { get; private set; }
+            public ReadOnlyFileOverwriteBehaviour Behaviour { get; }
 
             public ReadOnlyHelper(ReadOnlyFileOverwriteBehaviour behaviour)
             {

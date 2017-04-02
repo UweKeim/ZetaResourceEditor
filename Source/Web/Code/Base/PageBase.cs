@@ -15,14 +15,8 @@ namespace Web.Code.Base
          Bindable( true )]
         public string Title2
         {
-            get
-            {
-                return ViewState[@"Title2"] as string;
-            }
-            set
-            {
-                ViewState[@"Title2"] = value;
-            }
+            get => ViewState[@"Title2"] as string;
+            set => ViewState[@"Title2"] = value;
         }
 
         [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden ), 
@@ -30,14 +24,8 @@ namespace Web.Code.Base
          Bindable( true )]
         public string Title3
         {
-            get
-            {
-                return ViewState[@"Title3"] as string;
-            }
-            set
-            {
-                ViewState[@"Title3"] = value;
-            }
+            get => ViewState[@"Title3"] as string;
+            set => ViewState[@"Title3"] = value;
         }
 
         public PageLoadTaskPerformer LoadTaskPerformer => _loadTaskPerformer ?? (_loadTaskPerformer = new PageLoadTaskPerformer(this));

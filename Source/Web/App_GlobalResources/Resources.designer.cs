@@ -112,7 +112,7 @@ namespace Web.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://zeta.li/zre-ENU-home.
+        ///   Looks up a localized string similar to https://zeta.li/zre-ENU-home.
         /// </summary>
         internal static string SR_AboutForm_linkLabel1LinkClicked_Httpwwwzetasoftwaredelinkszrehome {
             get {
@@ -577,7 +577,7 @@ namespace Web.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://zeta.li/zre-ENU-purchase-license.
+        ///   Looks up a localized string similar to https://zeta.li/zre-ENU-purchase-license.
         /// </summary>
         internal static string SR_OptionsForm_purchaseLicenseButton_Click {
             get {

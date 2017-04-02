@@ -4,9 +4,7 @@
 
     public class ExcelImportResult
     {
-        private readonly List<string> _importMessages = new List<string>();
-
         public int ImportedRowCount { get; internal set; }
-        public List<string> ImportMessages { get { return _importMessages; } }
+        public List<string> ImportMessages { get; } = new List<string>();
     }
 }

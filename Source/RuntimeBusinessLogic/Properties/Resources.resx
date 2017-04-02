@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
 	<!-- 
     Microsoft ResX Schema 
@@ -141,7 +141,7 @@
 	<data name="SR_CommandProcessorReceive_getTableRows_Reference_language_value" xml:space="preserve">
     <value>Reference language value must be provided but is currently NULL or empty.</value>
   </data>
-	<data name="SR_CommandProcessorSend_ensureFileNamesUnique_Failed_to_generate_unique_file_names_" xml:space="preserve">
+	<data name="FailedToGenerateUniqueFileNames" xml:space="preserve">
     <value>Failed to generate unique file names.</value>
   </data>
 	<data name="SR_CommandProcessorSend_Process_Group" xml:space="preserve">
@@ -243,10 +243,10 @@
 	<data name="SR_ColumnCaption_FileGroup">
 		<value xml:space="preserve">File group</value>
 	</data>
-	<data name="SnapshotController_TakeFullSnapshot_Taking_snapshots_">
+	<data name="TakingSnapshots">
 		<value xml:space="preserve">Taking snapshots.</value>
 	</data>
-	<data name="SnapshotController_TakeFullSnapshot_Taking_snapshot__0__of__1__for_file_group___2_____">
+	<data name="TakeFullSnapshot">
 		<value>Taking snapshot {0} of {1} for file group '{2}'...</value>
 	</data>
 	<data name="GoogleScreenScrapingTranslationEngine_UserReadableName_Google_Translate">

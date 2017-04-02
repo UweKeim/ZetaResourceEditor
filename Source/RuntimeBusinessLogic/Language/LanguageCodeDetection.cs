@@ -26,7 +26,6 @@
         #region Private variables.
         // ------------------------------------------------------------------
 
-        private readonly Project _project;
         private const string PhBasename = @"[basename]";
         private const string PhLanguagecode = @"[languagecode]";
         private const string PhExtension = @"[extension]";
@@ -41,16 +40,10 @@
         public LanguageCodeDetection(
             Project project)
         {
-            _project = project;
+            Project = project;
         }
 
-        public Project Project
-        {
-            get
-            {
-                return _project;
-            }
-        }
+        public Project Project { get; }
 
         /// <summary>
         /// Gets the base name.
@@ -155,8 +148,8 @@
                 {
                     // http://www.codeproject.com/Messages/3453976/IsValidCultureName-validation-error.aspx
                     if (cultureName.Length > 10 ||
-                        string.Compare(cultureName, Resources.SR_CommandProcessorSend_Process_Group, true) == 0 ||
-                        string.Compare(cultureName, Resources.SR_CommandProcessorSend_Process_Name, true) == 0)
+                        String.Compare(cultureName, Resources.SR_CommandProcessorSend_Process_Group, StringComparison.OrdinalIgnoreCase) == 0 ||
+                        String.Compare(cultureName, Resources.SR_CommandProcessorSend_Process_Name, StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         return false;
                     }
@@ -167,6 +160,7 @@
                         {
                             try
                             {
+                                // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
                                 CultureInfo.GetCultureInfo(longCultureName);
                                 CultureCache.Add(longCultureName);
                                 return true;
@@ -408,7 +402,7 @@
             string filePath)
         {
             var fn = ZlpPathHelper.GetFileNameFromFilePath(filePath);
-            var baseDotCount = settings == null ? 0 : settings.EffectiveBaseNameDotCount;
+            var baseDotCount = settings?.EffectiveBaseNameDotCount ?? 0;
 
             //CHANGED: special case if settings.EffectiveBaseNameDotCount < 0, guess culture from name:
             if (settings == null || baseDotCount <= 0)
@@ -476,16 +470,14 @@
                     foreach (var odft in odfts)
                     {
                         var p =
-                            string.Format(
-                                @"\b({0})\b",
-                                Regex.Escape(odft));
+                            $@"\b({Regex.Escape(odft)})\b";
 
                         var before = fileName;
                         fileName = Regex.Replace(fileName, p, string.Empty, RegexOptions.IgnoreCase);
 
-                        if (fileName != before && removedTypes != null)
+                        if (fileName != before)
                         {
-                            removedTypes.Add(odft);
+                            removedTypes?.Add(odft);
                         }
                     }
 
@@ -607,7 +599,7 @@
             }
             else
             {
-                var separatorPos = text.LastIndexOf(separator);
+                var separatorPos = text.LastIndexOf(separator, StringComparison.Ordinal);
                 if (separatorPos < 0)
                 {
                     left = string.Empty;
@@ -634,7 +626,7 @@
             }
             else
             {
-                var separatorPos = text.IndexOf(separator);
+                var separatorPos = text.IndexOf(separator, StringComparison.Ordinal);
                 if (separatorPos < 0)
                 {
                     left = text;
@@ -677,9 +669,7 @@
             IInheritedSettings settings,
             CultureInfo culture)
         {
-            return culture ==
-                   MakeValidCulture(
-                    settings.EffectiveNeutralLanguageCode);
+            return Equals(culture, MakeValidCulture(settings.EffectiveNeutralLanguageCode));
         }
 
         // ------------------------------------------------------------------

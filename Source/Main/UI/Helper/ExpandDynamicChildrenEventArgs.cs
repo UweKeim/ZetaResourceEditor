@@ -6,20 +6,12 @@ namespace ZetaResourceEditor.UI.Helper
 	public class ExpandDynamicChildrenEventArgs :
 		EventArgs
 	{
-		private readonly TreeListNode _node;
-
-		public ExpandDynamicChildrenEventArgs(
+	    public ExpandDynamicChildrenEventArgs(
 			TreeListNode node )
 		{
-			_node = node;
+			Node = node;
 		}
 
-		public TreeListNode Node
-		{
-			get
-			{
-				return _node;
-			}
-		}
+		public TreeListNode Node { get; }
 	}
 }

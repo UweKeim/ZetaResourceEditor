@@ -140,14 +140,8 @@ namespace ZetaResourceEditor.UI.Helper.Progress
 		/// </summary>
 		public event RunWorkerCompletedEventHandler RunWorkerCompleted
 		{
-			add
-			{
-				BackgroundWorker.RunWorkerCompleted += value;
-			}
-			remove
-			{
-				BackgroundWorker.RunWorkerCompleted -= value;
-			}
+			add => BackgroundWorker.RunWorkerCompleted += value;
+		    remove => BackgroundWorker.RunWorkerCompleted -= value;
 		}
 
 		/// <summary>
@@ -214,15 +208,9 @@ namespace ZetaResourceEditor.UI.Helper.Progress
 		/// When the worker has finished, you can use this property
 		/// to inspect the result and/or whether there were exceptions.
 		/// </summary>
-		public RunWorkerCompletedEventArgs WorkCompletedArgs
-		{
-			get
-			{
-				return _workCompletedArgs;
-			}
-		}
+		public RunWorkerCompletedEventArgs WorkCompletedArgs { get; private set; }
 
-		// ------------------------------------------------------------------
+	    // ------------------------------------------------------------------
 		#endregion
 
 		#region Private variables.
@@ -230,9 +218,8 @@ namespace ZetaResourceEditor.UI.Helper.Progress
 
 		private readonly int _initialProgressBarRight;
 		private int _addedCount;
-		private RunWorkerCompletedEventArgs _workCompletedArgs;
 
-		// ------------------------------------------------------------------
+	    // ------------------------------------------------------------------
 		#endregion
 
 		#region Busy bar handling.
@@ -367,7 +354,7 @@ namespace ZetaResourceEditor.UI.Helper.Progress
 			RunWorkerCompletedEventArgs e )
 		{
 			// Remember for accessing from outside.
-			_workCompletedArgs = e;
+			WorkCompletedArgs = e;
 
 			if ( e.Error == null )
 			{

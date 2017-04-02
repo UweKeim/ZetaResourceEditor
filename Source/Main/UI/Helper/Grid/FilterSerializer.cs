@@ -14,48 +14,29 @@
         {
         }
 
-        protected override string KeyPrefix
-        {
-            get
-            {
-                return @"Filter";
-            }
-        }
+        protected override string KeyPrefix => @"Filter";
 
         public override void Reset()
         {
             base.Reset();
 
             gridView.ClearColumnsFilter();
-            
-            if (gridView.ActiveFilter != null)
-            {
-                gridView.ActiveFilter.Clear();
-            }
+
+            gridView.ActiveFilter?.Clear();
 
             gridView.ActiveFilterEnabled = false;
             gridView.ActiveFilterCriteria = null;
             gridView.ActiveFilterString = null;
 
-            if (gridView.MRUFilters != null)
-            {
-                gridView.MRUFilters.Clear();
-            }
+            gridView.MRUFilters?.Clear();
         }
 
-        protected override string[] Fields
+        protected override string[] Fields => new[]
         {
-            get
-            {
-                return
-                    new[]
-                        {
-							//@"ActiveFilterEnabled",
-							@"ActiveFilterString"
-							//@"MRUFilters",
-							//@"ActiveFilter",
-                        };
-            }
-        }
+            //@"ActiveFilterEnabled",
+            @"ActiveFilterString"
+            //@"MRUFilters",
+            //@"ActiveFilter",
+        };
     }
 }

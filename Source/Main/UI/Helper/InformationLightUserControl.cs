@@ -40,19 +40,9 @@
 		/// 
 		/// </summary>
 		[DefaultValue( false )]
-		public bool UseMouseHoverEffect
-		{
-			get
-			{
-				return _useMouseHoverEffect;
-			}
-			set
-			{
-				_useMouseHoverEffect = value;
-			}
-		}
+		public bool UseMouseHoverEffect { get; set; }
 
-		// ------------------------------------------------------------------
+	    // ------------------------------------------------------------------
 		#endregion
 
 		#region Public properties.
@@ -64,14 +54,8 @@
 		[Localizable( true )]
 		public string DescriptionText
 		{
-			get
-			{
-				return descriptionLabel.Text;
-			}
-			set
-			{
-				descriptionLabel.Text = value;
-			}
+			get => descriptionLabel.Text;
+		    set => descriptionLabel.Text = value;
 		}
 
 		// ------------------------------------------------------------------
@@ -115,7 +99,7 @@
 			object sender,
 			EventArgs e )
 		{
-			if ( _useMouseHoverEffect )
+			if ( UseMouseHoverEffect )
 			{
 				InvertColors();
 			}
@@ -147,9 +131,7 @@
 		#region Private variables.
 		// ------------------------------------------------------------------
 
-		private bool _useMouseHoverEffect;
-
-		// ------------------------------------------------------------------
+	    // ------------------------------------------------------------------
 		#endregion
 	}
 

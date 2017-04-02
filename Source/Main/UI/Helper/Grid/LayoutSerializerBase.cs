@@ -38,13 +38,12 @@
 			IPersistentPairStorage storage,
 			string key)
 		{
-			_gridView = gridView;
+			this.gridView = gridView;
 			_storage = storage;
 			_key = key;
 		}
 
-		private readonly GridView _gridView;
-		private readonly IPersistentPairStorage _storage;
+	    private readonly IPersistentPairStorage _storage;
 		private readonly string _key;
 		private static FilterSerializationContext _instance;
 		private static readonly object TypeLock =new object();
@@ -129,20 +128,11 @@
 		protected abstract string[] Fields { get; }
 		protected abstract string KeyPrefix { get; }
 
-		private string key
-		{
-			get
-			{
-				return KeyPrefix + @"-" + _key;
-			}
-		}
+		private string key => KeyPrefix + @"-" + _key;
 
-		protected GridView gridView
-		{
-			get { return _gridView; }
-		}
+	    protected GridView gridView { get; }
 
-		private void saveSettings(object view, Stream stream, string appName)
+	    private void saveSettings(object view, Stream stream, string appName)
 		{
 			SerializeObject(view, stream, appName);
 		}

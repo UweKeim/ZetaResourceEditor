@@ -93,8 +93,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
         public bool IgnoreDuringExportAndImport
         {
-            get { return _ignoreDuringExportAndImport; }
-            set { _ignoreDuringExportAndImport = value; }
+            get => _ignoreDuringExportAndImport;
+            set => _ignoreDuringExportAndImport = value;
         }
 
         public static FileGroupStateColor TranslateStateToColorKey(
@@ -197,14 +197,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
         public ProjectFolder ProjectFolder
         {
-            get
-            {
-                return Project?.GetProjectFolderByUniqueID(_projectFolderUniqueID);
-            }
-            set
-            {
-                _projectFolderUniqueID = value?.UniqueID ?? Guid.Empty;
-            }
+            get => Project?.GetProjectFolderByUniqueID(_projectFolderUniqueID);
+            set => _projectFolderUniqueID = value?.UniqueID ?? Guid.Empty;
         }
 
         public static FileGroup CheckCreate(
@@ -977,14 +971,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
         public int OrderPosition
         {
-            get
-            {
-                return _orderPosition;
-            }
-            set
-            {
-                _orderPosition = value;
-            }
+            get => _orderPosition;
+            set => _orderPosition = value;
         }
 
         private FileGroupStates? _inMemoryState;
@@ -993,14 +981,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
         public FileGroupStates InMemoryState
         {
-            get
-            {
-                return _inMemoryState.GetValueOrDefault(FileGroupStates.Empty);
-            }
-            set
-            {
-                _inMemoryState = value;
-            }
+            get => _inMemoryState.GetValueOrDefault(FileGroupStates.Empty);
+            set => _inMemoryState = value;
         }
 
         private static IEnumerable<FileInformation> sortFiles(

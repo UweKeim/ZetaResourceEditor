@@ -5,33 +5,14 @@ namespace Web.Code
     public class NeedPerformTaskEventArgs :
         EventArgs
     {
-        private readonly PageLoadTaskPerformer _taskPerformer;
-        private bool _hasPerformed;
-
         public NeedPerformTaskEventArgs(
             PageLoadTaskPerformer taskPerformer )
         {
-            _taskPerformer = taskPerformer;
+            TaskPerformer = taskPerformer;
         }
 
-        public PageLoadTaskPerformer TaskPerformer
-        {
-            get
-            {
-                return _taskPerformer;
-            }
-        }
+        public PageLoadTaskPerformer TaskPerformer { get; }
 
-        public bool HasPerformed
-        {
-            get
-            {
-                return _hasPerformed;
-            }
-            set
-            {
-                _hasPerformed = value;
-            }
-        }
+        public bool HasPerformed { get; set; }
     }
 }

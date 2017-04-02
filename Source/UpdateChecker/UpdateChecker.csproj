@@ -100,12 +100,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TranslationService.cs">
+    <Compile Include="TranslationService.asmx.cs">
       <DependentUpon>TranslationService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UpdateCheckerService.cs">
+    <Compile Include="UpdateCheckerService.asmx.cs">
       <DependentUpon>UpdateCheckerService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
@@ -114,6 +115,7 @@
     <Content Include="App_GlobalResources\Resources.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resources.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

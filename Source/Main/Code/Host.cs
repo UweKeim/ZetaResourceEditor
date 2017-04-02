@@ -1,75 +1,75 @@
 namespace ZetaResourceEditor.Code
 {
-	using System;
-	using System.Globalization;
-	using System.IO;
-	using System.Threading;
-	using System.Windows.Forms;
-	using DevExpress.XtraEditors;
-	using ExtendedControlsLibrary.Skinning;
-	using RuntimeBusinessLogic.Projects;
-	using UI.Helper.ErrorHandling;
-	using Properties;
-	using UI.Main;
-	using Zeta.VoyagerLibrary.Logging;
-	using Zeta.VoyagerLibrary.Tools.Miscellaneous;
-	using Zeta.VoyagerLibrary.Tools.Storage;
-	using ZetaLongPaths;
+    using System;
+    using System.Globalization;
+    using System.IO;
+    using System.Threading;
+    using System.Windows.Forms;
+    using DevExpress.XtraEditors;
+    using ExtendedControlsLibrary.Skinning;
+    using RuntimeBusinessLogic.Projects;
+    using UI.Helper.ErrorHandling;
+    using Properties;
+    using UI.Main;
+    using Zeta.VoyagerLibrary.Logging;
+    using Zeta.VoyagerLibrary.Tools.Miscellaneous;
+    using Zeta.VoyagerLibrary.Tools.Storage;
+    using ZetaLongPaths;
 
-	internal sealed class Host
-	{
-		private static ZlpDirectoryInfo _cacheForCurrentUserStorageBaseFolderPath;
+    internal sealed class Host
+    {
+        private static ZlpDirectoryInfo _cacheForCurrentUserStorageBaseFolderPath;
 
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
-		private static void Main()
-		{
-			try
-			{
-				//Zeta.VoyagerLibrary.Common.Configuration.
-				//    LibraryConfiguration.Current.Initialize();
-				//Zeta.VoyagerLibrary.WinForms.Configuration.
-				//    LibraryConfiguration.Current.Initialize();
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        private static void Main()
+        {
+            try
+            {
+                //Zeta.VoyagerLibrary.Common.Configuration.
+                //    LibraryConfiguration.Current.Initialize();
+                //Zeta.VoyagerLibrary.WinForms.Configuration.
+                //    LibraryConfiguration.Current.Initialize();
 
-				LogCentral.Current.ConfigureLogging();
+                LogCentral.Current.ConfigureLogging();
 
-				// --
-				// Register extension.
+                // --
+                // Register extension.
 
-				try
-				{
-					var info =
-						new FileExtensionRegistration.RegistrationInformation
-						{
-							ApplicationFilePath = typeof( Host ).Assembly.Location,
-							Extension = Project.ProjectFileExtension,
-							ClassName = @"ZetaResourceEditorDocument",
-							Description = Resources.SR_Host_Main_ZetaResourceEditorProjectFile
-						};
+                try
+                {
+                    var info =
+                        new FileExtensionRegistration.RegistrationInformation
+                        {
+                            ApplicationFilePath = typeof(Host).Assembly.Location,
+                            Extension = Project.ProjectFileExtension,
+                            ClassName = @"ZetaResourceEditorDocument",
+                            Description = Resources.SR_Host_Main_ZetaResourceEditorProjectFile
+                        };
 
-					FileExtensionRegistration.Register( info );
-				}
-				catch ( Exception x )
-				{
-					// May fail if no permissions, silently eat.
-					LogCentral.Current.LogError( x );
-				}
+                    FileExtensionRegistration.Register(info);
+                }
+                catch (Exception x)
+                {
+                    // May fail if no permissions, silently eat.
+                    LogCentral.Current.LogError(x);
+                }
 
-				// --
+                // --
 
-				var persistentStorage =
-					new PersistentXmlFilePairStorage
-						{
-							FilePath =
-								ZlpPathHelper.Combine(
-									CurrentUserStorageBaseFolderPath.FullName,
-									@"zeta-resource-editor-settings.xml")
-						};
-				persistentStorage.Error += storageError;
+                var persistentStorage =
+                    new PersistentXmlFilePairStorage
+                    {
+                        FilePath =
+                                ZlpPathHelper.Combine(
+                                    CurrentUserStorageBaseFolderPath.FullName,
+                                    @"zeta-resource-editor-settings.xml")
+                    };
+                persistentStorage.Error += storageError;
 
-				PersistanceHelper.Storage = persistentStorage;
+                PersistanceHelper.Storage = persistentStorage;
 
                 // --
 
@@ -87,180 +87,180 @@ namespace ZetaResourceEditor.Code
                 //Zeta.VoyagerLibrary.WinForms.Configuration.
                 //    LibraryConfiguration.Current.IsDesignMode = false;
 
-				AppDomain.CurrentDomain.UnhandledException +=
-					currentDomainUnhandledException;
-				Application.ThreadException +=
-					applicationThreadException;
+                AppDomain.CurrentDomain.UnhandledException +=
+                    currentDomainUnhandledException;
+                Application.ThreadException +=
+                    applicationThreadException;
 
-				test();
+                test();
 
-				initializeLanguage();
+                initializeLanguage();
 
-				Application.Run( new MainForm() );
-			}
-			catch ( Exception x )
-			{
-				doHandleException( x );
-			}
-		}
+                Application.Run(new MainForm());
+            }
+            catch (Exception x)
+            {
+                doHandleException(x);
+            }
+        }
 
-		public static void ApplyLanguageSettingsToCurrentThread()
-		{
-			foreach (var e in Environment.GetCommandLineArgs())
-			{
-				if (e.StartsWith(@"-language") || e.StartsWith(@"/language"))
-				{
-					var f = e.Replace(@"language", string.Empty);
-					f = f.Trim(' ', '\t', '=', '/', '-').ToLowerInvariant();
+        public static void ApplyLanguageSettingsToCurrentThread()
+        {
+            foreach (var e in Environment.GetCommandLineArgs())
+            {
+                if (e.StartsWith(@"-language") || e.StartsWith(@"/language"))
+                {
+                    var f = e.Replace(@"language", string.Empty);
+                    f = f.Trim(' ', '\t', '=', '/', '-').ToLowerInvariant();
 
-					if (f.StartsWith(@"de"))
-					{
-						Thread.CurrentThread.CurrentCulture =
-							Thread.CurrentThread.CurrentUICulture =
-							Application.CurrentCulture = new CultureInfo(@"de-DE");
-					}
-					else if (f.StartsWith(@"en"))
-					{
-						Thread.CurrentThread.CurrentCulture =
-							Thread.CurrentThread.CurrentUICulture =
-							Application.CurrentCulture = new CultureInfo(@"en-US");
-					}
-				}
-			}
-		}
+                    if (f.StartsWith(@"de"))
+                    {
+                        Thread.CurrentThread.CurrentCulture =
+                            Thread.CurrentThread.CurrentUICulture =
+                            Application.CurrentCulture = new CultureInfo(@"de-DE");
+                    }
+                    else if (f.StartsWith(@"en"))
+                    {
+                        Thread.CurrentThread.CurrentCulture =
+                            Thread.CurrentThread.CurrentUICulture =
+                            Application.CurrentCulture = new CultureInfo(@"en-US");
+                    }
+                }
+            }
+        }
 
-		private static void initializeLanguage()
-		{
-			ApplyLanguageSettingsToCurrentThread();
-		}
+        private static void initializeLanguage()
+        {
+            ApplyLanguageSettingsToCurrentThread();
+        }
 
-		private static void test()
-		{
-			//var s = Resources.SR_Test;
-		}
+        private static void test()
+        {
+            //var s = Resources.SR_Test;
+        }
 
-		private static void currentDomainUnhandledException(
-			object sender,
-			UnhandledExceptionEventArgs e )
-		{
-			doHandleException( e.ExceptionObject as Exception );
-		}
+        private static void currentDomainUnhandledException(
+            object sender,
+            UnhandledExceptionEventArgs e)
+        {
+            doHandleException(e.ExceptionObject as Exception);
+        }
 
-		private static void applicationThreadException(
-			object sender,
-			ThreadExceptionEventArgs e )
-		{
-			doHandleException( e.Exception );
-		}
+        private static void applicationThreadException(
+            object sender,
+            ThreadExceptionEventArgs e)
+        {
+            doHandleException(e.Exception);
+        }
 
-		private static void doHandleException(
-			Exception e )
-		{
-			bool handleException;
+        private static void doHandleException(
+            Exception e)
+        {
+            bool handleException;
 
-		    var exception = e as MessageBoxException;
-		    if ( exception != null )
-			{
-				var mbx = exception;
+            var exception = e as MessageBoxException;
+            if (exception != null)
+            {
+                var mbx = exception;
 
-				XtraMessageBox.Show(
-					mbx.Parent,
-					mbx.Message,
-					@"Zeta Resource Editor",
-					mbx.Buttons,
-					mbx.Icon );
+                XtraMessageBox.Show(
+                    mbx.Parent,
+                    mbx.Message,
+                    @"Zeta Resource Editor",
+                    mbx.Buttons,
+                    mbx.Icon);
 
-				handleException = false;
-			}
-			else if ( e is PersistentPairStorageException )
-			{
-				// 2009-06-22, Uwe Keim:
-				// http://zeta-producer.de/Pages/AdvancedForumIndex.aspx?DataID=9514
-				LogCentral.Current.LogWarn(
-					@"PersistentPairStorageException occurred.", e );
+                handleException = false;
+            }
+            else if (e is PersistentPairStorageException)
+            {
+                // 2009-06-22, Uwe Keim:
+                // http://zeta-producer.de/Pages/AdvancedForumIndex.aspx?DataID=9514
+                LogCentral.Current.LogWarn(
+                    @"PersistentPairStorageException occurred.", e);
 
-				if ( e.InnerException == null )
-				{
-					handleException = true;
-				}
-				else
-				{
-					if ( e.InnerException is UnauthorizedAccessException ||
-						e.InnerException is IOException )
-					{
-						handleException = false;
-					}
-					else
-					{
-						handleException = true;
-					}
-				}
-			}
-			else
-			{
-				handleException = true;
-			}
+                if (e.InnerException == null)
+                {
+                    handleException = true;
+                }
+                else
+                {
+                    if (e.InnerException is UnauthorizedAccessException ||
+                        e.InnerException is IOException)
+                    {
+                        handleException = false;
+                    }
+                    else
+                    {
+                        handleException = true;
+                    }
+                }
+            }
+            else
+            {
+                handleException = true;
+            }
 
-			// --
+            // --
 
-			if ( handleException )
-			{
-				LogCentral.Current.LogError( @"Exception occurred.", e );
+            if (handleException)
+            {
+                LogCentral.Current.LogError(@"Exception occurred.", e);
 
-				// Do not allow recursive exceptions, since the
-				// Application.ThreadException would eat them anyway.
-				try
-				{
-					// --
+                // Do not allow recursive exceptions, since the
+                // Application.ThreadException would eat them anyway.
+                try
+                {
+                    // --
 
-					using ( var form = new ErrorForm() )
-					{
-						form.Initialize( e );
-						var result = form.ShowDialog( Form.ActiveForm );
+                    using (var form = new ErrorForm())
+                    {
+                        form.Initialize(e);
+                        var result = form.ShowDialog(Form.ActiveForm);
 
-						if ( result == DialogResult.Abort )
-						{
-							System.Diagnostics.Process.GetCurrentProcess().Kill();
-							Application.Exit();
-						}
-					}
-				}
-				catch ( Exception x )
-				{
-					LogCentral.Current.LogError(
-						@"Exception occurred during exception handling.",
-						x );
+                        if (result == DialogResult.Abort)
+                        {
+                            System.Diagnostics.Process.GetCurrentProcess().Kill();
+                            Application.Exit();
+                        }
+                    }
+                }
+                catch (Exception x)
+                {
+                    LogCentral.Current.LogError(
+                        @"Exception occurred during exception handling.",
+                        x);
 
-					XtraMessageBox.Show(
-						Form.ActiveForm,
-						string.Format( @"{0}{1}{1}{2}",
-							x.Message,
-							Environment.NewLine,
-							e.Message ),
-						@"Zeta Resource Editor",
-						MessageBoxButtons.OK,
-						MessageBoxIcon.Error );
-				}
-			}
-		}
+                    XtraMessageBox.Show(
+                        Form.ActiveForm,
+                        string.Format(@"{0}{1}{1}{2}",
+                            x.Message,
+                            Environment.NewLine,
+                            e.Message),
+                        @"Zeta Resource Editor",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+        }
 
-		private static void storageError(
-			object sender,
-			PersistentPairStorageErrorEventArgs args )
-		{
-			if (args.RetryCount <= 2)
-			{
-				Application.DoEvents();
-				Thread.Sleep(0);
+        private static void storageError(
+            object sender,
+            PersistentPairStorageErrorEventArgs args)
+        {
+            if (args.RetryCount <= 2)
+            {
+                Application.DoEvents();
+                Thread.Sleep(0);
 
-				args.Result = CheckHandleExceptionResult.Retry;
-			}
-			else
-			{
-				args.Result = CheckHandleExceptionResult.Ignore;
-			}
+                args.Result = CheckHandleExceptionResult.Retry;
+            }
+            else
+            {
+                args.Result = CheckHandleExceptionResult.Ignore;
+            }
 
-			/*
+            /*
 			if ( e.Exception == null )
 			{
 				e.Cancel = false;
@@ -289,56 +289,48 @@ namespace ZetaResourceEditor.Code
 					}
 				}
 			}*/
-		}
+        }
 
-		/// <summary>
-		/// Gets the current user storage base folder path.
-		/// </summary>
-		/// <value>The current user storage base folder path.</value>
-		public static ZlpDirectoryInfo CurrentUserStorageBaseFolderPath
-		{
-			get
-			{
-				if ( _cacheForCurrentUserStorageBaseFolderPath == null )
-				{
-					const string folderName = @"Zeta Resource Editor";
+        /// <summary>
+        /// Gets the current user storage base folder path.
+        /// </summary>
+        /// <value>The current user storage base folder path.</value>
+        public static ZlpDirectoryInfo CurrentUserStorageBaseFolderPath
+        {
+            get
+            {
+                if (_cacheForCurrentUserStorageBaseFolderPath == null)
+                {
+                    const string folderName = @"Zeta Resource Editor";
 
-					var result = new ZlpDirectoryInfo(
-						ZlpPathHelper.Combine(
-							Environment.GetFolderPath(
-								Environment.SpecialFolder.LocalApplicationData ),
-							folderName ) );
+                    var result = new ZlpDirectoryInfo(
+                        ZlpPathHelper.Combine(
+                            Environment.GetFolderPath(
+                                Environment.SpecialFolder.LocalApplicationData),
+                            folderName));
 
-					_cacheForCurrentUserStorageBaseFolderPath =
-						CheckCreateFolder( result );
-				}
+                    _cacheForCurrentUserStorageBaseFolderPath =
+                        CheckCreateFolder(result);
+                }
 
-				return _cacheForCurrentUserStorageBaseFolderPath;
-			}
-		}
+                return _cacheForCurrentUserStorageBaseFolderPath;
+            }
+        }
 
-		/// <summary>
-		/// Checks and creates the folder if not yet exists.
-		/// </summary>
-		/// <param name="folderPath">The folder path.</param>
-		/// <returns></returns>
-		public static ZlpDirectoryInfo CheckCreateFolder(
-			ZlpDirectoryInfo folderPath)
-		{
-			if ( folderPath != null && !folderPath.Exists )
-			{
-				folderPath.Create();
-			}
+        /// <summary>
+        /// Checks and creates the folder if not yet exists.
+        /// </summary>
+        /// <param name="folderPath">The folder path.</param>
+        /// <returns></returns>
+        private static ZlpDirectoryInfo CheckCreateFolder(
+            ZlpDirectoryInfo folderPath)
+        {
+            if (folderPath != null && !folderPath.Exists)
+            {
+                folderPath.Create();
+            }
 
-			return folderPath;
-		}
-
-		public static bool WantDisplaySupportOptionsOnForms
-		{
-			get
-			{
-				return true;
-			}
-		}
-	}
+            return folderPath;
+        }
+    }
 }

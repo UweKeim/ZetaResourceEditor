@@ -12,40 +12,40 @@
     [Serializable]
     public struct UpdateCheckInfo2
     {
-        public string ApiKey;
-        public DateTime VersionDate;
-        public string VersionNumber;
-        public int Culture;
+        public string ApiKey { get; set; }
+        public DateTime VersionDate { get; set; }
+        public string VersionNumber { get; set; }
+        public int Culture { get; set; }
     }
 
     [Serializable]
     public struct UpdatePresentResult2
     {
-        public bool IsPresent;
-        public string DownloadWebsiteUrl;
+        public bool IsPresent { get; set; }
+        public string DownloadWebsiteUrl { get; set; }
     }
 
     [Serializable]
     public struct UpdateInformationResult2
     {
-        public string ApiKey;
+        public string ApiKey { get; set; }
 
-        public bool IsPresent;
+        public bool IsPresent { get; set; }
 
-        public string FileName;
-        public byte[] FileContent;
+        public string FileName { get; set; }
+        public byte[] FileContent { get; set; }
 
-        public string AlternativeFallbackDownloadUrl;
+        public string AlternativeFallbackDownloadUrl { get; set; }
     }
 
-    [WebService(Namespace = @"https://www.zeta-resource-editor.com/")]
+    [WebService(Namespace = @"http://www.zeta-resource-editor.com/")] // ACHTUNG! HIER _NICHT_ HTTPS machen.
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class UpdateCheckerService :
         ApiKeyProtectedWebServiceBase
     {
         [WebMethod]
         public UpdatePresentResult2 IsUpdateAvailable2(
-            UpdateCheckInfo2 info )
+            UpdateCheckInfo2 info)
         {
             try
             {
@@ -60,11 +60,11 @@
                 var result =
                     new UpdatePresentResult2
                     {
-                        IsPresent = v1 < v2, 
+                        IsPresent = v1 < v2,
                         DownloadWebsiteUrl = web
                     };
 
-                LogCentral.Current.LogInfo(string.Format(@"Returning download URL '{0}'.", url));
+                LogCentral.Current.LogInfo($@"Returning download URL '{url}'.");
                 return result;
             }
             catch (Exception x)
@@ -83,10 +83,7 @@
                 CheckThrowApiKey(info.ApiKey);
 
                 LogCentral.Current.LogInfo(
-                    string.Format(
-                        @"Downloading Update for client with version '{0}', date '{1}'.",
-                        info.VersionNumber,
-                        info.VersionDate));
+                    $@"Downloading Update for client with version '{info.VersionNumber}', date '{info.VersionDate}'.");
 
                 var avail = IsUpdateAvailable2(info);
 
@@ -119,7 +116,7 @@
 
                 var url = v1 >= v2 ? string.Empty : ConfigurationManager.AppSettings[@"updateChecker.downloadUrl"];
 
-                LogCentral.Current.LogInfo(string.Format(@"Returning download URL '{0}'.", url));
+                LogCentral.Current.LogInfo($@"Returning download URL '{url}'.");
                 return url;
             }
             catch (Exception x)
@@ -147,7 +144,7 @@
                             ConfigurationManager.AppSettings[@"updateChecker.availableAssemblyVersion"]);
                 }
 
-                LogCentral.Current.LogInfo(string.Format(@"Found version '{0}' on server.", result));
+                LogCentral.Current.LogInfo($@"Found version '{result}' on server.");
                 return result;
             }
         }
@@ -157,8 +154,9 @@
             var searchFolderPath = ConfigurationManager.AppSettings[@"setupUploadService.baseFolderPath"];
 
             var filePaths =
-                new List<string>(
-                    Directory.GetFiles(searchFolderPath, @"ZetaResourceEditor.exe*"));
+                Directory.Exists(searchFolderPath)
+                    ? new List<string>(Directory.GetFiles(searchFolderPath, @"ZetaResourceEditor.exe*"))
+                    : new List<string>();
 
             // Latest first.
             filePaths.Sort(
@@ -168,7 +166,7 @@
 
             if (filePaths.Count > 0)
             {
-                LogCentral.Current.LogInfo(string.Format(@"Found file '{0}' when checking for update.", filePaths[0]));
+                LogCentral.Current.LogInfo($@"Found file '{filePaths[0]}' when checking for update.");
                 return filePaths[0];
             }
             else
@@ -182,8 +180,9 @@
             var searchFolderPath = ConfigurationManager.AppSettings[@"setupUploadService.baseFolderPath"];
 
             var filePaths =
-                new List<string>(
-                    Directory.GetFiles(searchFolderPath, @"ZetaResourceEditor-setup.exe*"));
+                Directory.Exists(searchFolderPath)
+                    ? new List<string>(Directory.GetFiles(searchFolderPath, @"ZetaResourceEditor-setup.exe*"))
+                    : new List<string>();
 
             // Latest first.
             filePaths.Sort(
@@ -193,7 +192,7 @@
 
             if (filePaths.Count > 0)
             {
-                LogCentral.Current.LogInfo(string.Format(@"Found setup file '{0}' when checking for update.", filePaths[0]));
+                LogCentral.Current.LogInfo($@"Found setup file '{filePaths[0]}' when checking for update.");
                 return filePaths[0];
             }
             else

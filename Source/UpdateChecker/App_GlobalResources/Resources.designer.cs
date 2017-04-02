@@ -8,7 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UpdateChecker.App_GlobalResources {
+namespace Resources {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -16,7 +19,7 @@ namespace UpdateChecker.App_GlobalResources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -117,15 +120,6 @@ namespace UpdateChecker.App_GlobalResources {
         internal static string FileGroupStates_TranslationsMissing {
             get {
                 return ResourceManager.GetString("FileGroupStates_TranslationsMissing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to http://zeta.li/zre-ENU-home.
-        /// </summary>
-        internal static string SR_AboutForm_linkLabel1LinkClicked_Httpwwwzetasoftwaredelinkszrehome {
-            get {
-                return ResourceManager.GetString("SR_AboutForm_linkLabel1LinkClicked_Httpwwwzetasoftwaredelinkszrehome", resourceCulture);
             }
         }
         
@@ -582,24 +576,6 @@ namespace UpdateChecker.App_GlobalResources {
         internal static string SR_NetResourceFileAccessor_Name_NETResourceFiles {
             get {
                 return ResourceManager.GetString("SR_NetResourceFileAccessor_Name_NETResourceFiles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to http://zeta.li/zre-ENU-purchase-license.
-        /// </summary>
-        internal static string SR_OptionsForm_purchaseLicenseButton_Click {
-            get {
-                return ResourceManager.GetString("SR_OptionsForm_purchaseLicenseButton_Click", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to (Invalid license key).
-        /// </summary>
-        internal static string SR_OptionsForm_updateLicenseInfo__Invalid_license_key_ {
-            get {
-                return ResourceManager.GetString("SR_OptionsForm_updateLicenseInfo__Invalid_license_key_", resourceCulture);
             }
         }
         

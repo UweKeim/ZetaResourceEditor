@@ -26,10 +26,9 @@
     {
         public ProjectFolder(Project project)
         {
-            _project = project;
+            Project = project;
         }
 
-        private Project _project;
         private Guid _uniqueID = Guid.NewGuid();
         private Guid _parentUniqueID;
         private string _name;
@@ -39,30 +38,18 @@
 
         public bool UseParentFilePatternSettings
         {
-            get
-            {
-                return ConvertHelper.ToBoolean(
-                    _dynSettings.RetrieveValue(@"UseParentFilePatternSettings"),
-                    true);
-            }
-            set
-            {
-                _dynSettings.PersistValue(@"UseParentFilePatternSettings", value.ToString());
-            }
+            get => ConvertHelper.ToBoolean(
+                _dynSettings.RetrieveValue(@"UseParentFilePatternSettings"),
+                true);
+            set => _dynSettings.PersistValue(@"UseParentFilePatternSettings", value.ToString());
         }
 
         public int BaseNameDotCount
         {
-            get
-            {
-                return ConvertHelper.ToInt32(
-                    _dynSettings.RetrieveValue(@"BaseNameDotCount"),
-                    0);
-            }
-            set
-            {
-                _dynSettings.PersistValue(@"BaseNameDotCount", value.ToString());
-            }
+            get => ConvertHelper.ToInt32(
+                _dynSettings.RetrieveValue(@"BaseNameDotCount"),
+                0);
+            set => _dynSettings.PersistValue(@"BaseNameDotCount", value.ToString());
         }
 
         public string NeutralLanguageFileNamePattern
@@ -74,10 +61,7 @@
 
                 return string.IsNullOrEmpty(result) ? @"[basename][optionaldefaulttypes].[extension]" : result;
             }
-            set
-            {
-                _dynSettings.PersistValue(@"NeutralLanguageFileNamePattern", value);
-            }
+            set => _dynSettings.PersistValue(@"NeutralLanguageFileNamePattern", value);
         }
 
         public string NonNeutralLanguageFileNamePattern
@@ -96,10 +80,7 @@
                     return result;
                 }
             }
-            set
-            {
-                _dynSettings.PersistValue(@"NonNeutralLanguageFileNamePattern", value);
-            }
+            set => _dynSettings.PersistValue(@"NonNeutralLanguageFileNamePattern", value);
         }
 
         public string[] DefaultFileTypesToIgnoreArray
@@ -145,23 +126,14 @@
 
                 return result ?? @".aspx;.ascx;.asmx;.master;.sitemap";
             }
-            set
-            {
-                _dynSettings.PersistValue(@"DefaultFileTypesToIgnore", value);
-            }
+            set => _dynSettings.PersistValue(@"DefaultFileTypesToIgnore", value);
         }
 
         public bool IgnoreDuringExportAndImport
         {
-            get
-            {
-                return ConvertHelper.ToBoolean(
-                    _dynSettings.RetrieveValue(@"IgnoreDuringExportAndImport"), false);
-            }
-            set
-            {
-                _dynSettings.PersistValue(@"IgnoreDuringExportAndImport", value.ToString());
-            }
+            get => ConvertHelper.ToBoolean(
+                _dynSettings.RetrieveValue(@"IgnoreDuringExportAndImport"), false);
+            set => _dynSettings.PersistValue(@"IgnoreDuringExportAndImport", value.ToString());
         }
 
         FileInformation[] IGridEditableData.GetFileInformationsSorted()
@@ -170,25 +142,25 @@
 
             var result = new List<FileInformation>();
 
-            var cfg = _project.UseShallowGridDataCumulation ? ChildFileGroups : ChildFileGroupsDeep;
+            var cfg = Project.UseShallowGridDataCumulation ? ChildFileGroups : ChildFileGroupsDeep;
             cfg.ForEach(x => result.AddRange(x.GetFileInfos()));
 
             result.Sort();
             return result.ToArray();
         }
 
-        public IInheritedSettings ParentSettings => Parent ?? (IInheritedSettings)_project;
+        public IInheritedSettings ParentSettings => Parent ?? (IInheritedSettings)Project;
 
         FileGroupStates IGridEditableData.InMemoryState
         {
             get
             {
-                var sfg = _project.UseShallowGridDataCumulation ? ChildFileGroups : ChildFileGroupsDeep;
+                var sfg = Project.UseShallowGridDataCumulation ? ChildFileGroups : ChildFileGroupsDeep;
                 return sfg.Count <= 0 ? FileGroupStates.Empty : sfg[0].InMemoryState;
             }
             set
             {
-                var sfg = _project.UseShallowGridDataCumulation ? ChildFileGroups : ChildFileGroupsDeep;
+                var sfg = Project.UseShallowGridDataCumulation ? ChildFileGroups : ChildFileGroupsDeep;
                 if (sfg.Count > 0)
                 {
                     sfg[0].InMemoryState = value;
@@ -278,7 +250,7 @@
 
         public string EffectiveDefaultFileTypesToIgnore => UseParentFilePatternSettings ? ParentSettings.EffectiveDefaultFileTypesToIgnore : DefaultFileTypesToIgnore;
 
-        public string EffectiveNeutralLanguageCode => _project.NeutralLanguageCode;
+        public string EffectiveNeutralLanguageCode => Project.NeutralLanguageCode;
 
         public FileGroupStateColor TranslationStateColor
         {
@@ -331,25 +303,19 @@
 
         public ProjectFolder Parent
         {
-            get
-            {
-                return _project.GetProjectFolderByUniqueID(_parentUniqueID);
-            }
-            set
-            {
-                _parentUniqueID = value?._uniqueID ?? Guid.Empty;
-            }
+            get => Project.GetProjectFolderByUniqueID(_parentUniqueID);
+            set => _parentUniqueID = value?._uniqueID ?? Guid.Empty;
         }
 
-        public ProjectFolderCollection ChildProjectFolders => _project.GetProjectFoldersByParentUniqueID(_uniqueID);
+        public ProjectFolderCollection ChildProjectFolders => Project.GetProjectFoldersByParentUniqueID(_uniqueID);
 
-        public FileGroupCollection ChildFileGroups => _project.GetFileGroupsByProjectFolderUniqueID(_uniqueID);
+        public FileGroupCollection ChildFileGroups => Project.GetFileGroupsByProjectFolderUniqueID(_uniqueID);
 
         public FileGroupCollection ChildFileGroupsDeep
         {
             get
             {
-                var result = new FileGroupCollection(_project);
+                var result = new FileGroupCollection(Project);
 
                 result.AddRange(ChildFileGroups);
 
@@ -362,18 +328,12 @@
             }
         }
 
-        public VirtualViewCollection ChildVirtualViews => _project.GetVirtualViewsByProjectFolderUniqueID(_uniqueID);
+        public VirtualViewCollection ChildVirtualViews => Project.GetVirtualViewsByProjectFolderUniqueID(_uniqueID);
 
         public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
+            get => _name;
+            set => _name = value;
         }
 
         public string Remarks { get; set; }
@@ -384,19 +344,13 @@
             AsynchronousMode asynchronousMode,
             object userState)
         {
-            _project.MarkAsModified();
+            Project.MarkAsModified();
         }
 
         public int OrderPosition
         {
-            get
-            {
-                return _orderPosition;
-            }
-            set
-            {
-                _orderPosition = value;
-            }
+            get => _orderPosition;
+            set => _orderPosition = value;
         }
 
         public Guid UniqueID => _uniqueID;
@@ -411,7 +365,7 @@
 
                 if (p == null)
                 {
-                    return _project.Name + @" » " + Name;
+                    return Project.Name + @" » " + Name;
                 }
                 else
                 {
@@ -424,17 +378,7 @@
 
         FileGroup IGridEditableData.FileGroup => null;
 
-        public Project Project
-        {
-            get
-            {
-                return _project;
-            }
-            set
-            {
-                _project = value;
-            }
-        }
+        public Project Project { get; set; }
 
         ZlpDirectoryInfo IGridEditableData.FolderPath
         {

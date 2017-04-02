@@ -243,18 +243,12 @@
 
 		private static bool closedByFormOwner
 		{
-			get
-			{
-				return ConvertHelper.ToBoolean(
-					PersistanceHelper.RestoreValue(
-						@"QuickTranslationForm.closedByFormOwner"));
-			}
-			set
-			{
-				PersistanceHelper.SaveValue(
-					@"QuickTranslationForm.closedByFormOwner",
-					value);
-			}
+			get => ConvertHelper.ToBoolean(
+			    PersistanceHelper.RestoreValue(
+			        @"QuickTranslationForm.closedByFormOwner"));
+		    set => PersistanceHelper.SaveValue(
+		        @"QuickTranslationForm.closedByFormOwner",
+		        value);
 		}
 
 		private void sourceLanguageComboBox_SelectedIndexChanged(object sender, EventArgs e)

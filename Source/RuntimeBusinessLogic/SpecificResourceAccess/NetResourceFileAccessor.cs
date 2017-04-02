@@ -24,43 +24,25 @@
 		/// Gets the unique class ID.
 		/// </summary>
 		/// <value>The unique class ID.</value>
-		public Guid UniqueClassID
-		{
-			get
-			{
-				return new Guid( @"91680cc0-4eca-4999-bb57-d3a757bd022c" );
-			}
-		}
+		public Guid UniqueClassID => new Guid( @"91680cc0-4eca-4999-bb57-d3a757bd022c" );
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the supported file extensions. return as e.g. ".RESX".
 		/// </summary>
 		/// <value>The supported file extensions.</value>
-		public string[] SupportedFileExtensions
-		{
-			get
-			{
-				return new[]
-					{
-						@".resx",
-						@".resw"
-					};
-			}
-		}
+		public string[] SupportedFileExtensions => new[]
+	    {
+	        @".resx",
+	        @".resw"
+	    };
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the name. This is visible to the user.
 		/// </summary>
 		/// <value>The name.</value>
-		public string Name
-		{
-			get
-			{
-				return Resources.SR_NetResourceFileAccessor_Name_NETResourceFiles;
-			}
-		}
+		public string Name => Resources.SR_NetResourceFileAccessor_Name_NETResourceFiles;
 
-		/// <summary>
+	    /// <summary>
 		/// Gets a value indicating whether this instance is adding of new tags 
 		/// supported.
 		/// </summary>
@@ -68,15 +50,9 @@
 		/// 	<c>true</c> if this instance is adding of new tags supported; 
 		/// otherwise, <c>false</c>.
 		/// </value>
-		public bool IsAddingOfNewTagsSupported
-		{
-			get
-			{
-				return true;
-			}
-		}
+		public bool IsAddingOfNewTagsSupported => true;
 
-		/// <summary>
+	    /// <summary>
 		/// Loads a list of name/value pairs from the given resource file.
 		/// </summary>
 		/// <param name="filePath">The file path.</param>

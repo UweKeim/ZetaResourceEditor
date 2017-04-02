@@ -204,6 +204,9 @@ Do you want to open the Excel document now?</value>
 	<data name="SR_AutoTranslateForm_buttonTranslateClick_TranslatingTranslatedTexts" xml:space="preserve">
     <value>Finished translating. Translated {0} texts. {1} translations successful, {2} translations failed.</value>
   </data>
+	<data name="SR_AutoTranslateForm_buttonTranslateClick_TranslatingTranslatedTextsExisting" xml:space="preserve">
+    <value>{0} texts were translated by using already translated other texts.</value>
+  </data>
 	<data name="SR_MainFormNew_loadMruFileProjects_ClearRecentProjectsList" xml:space="preserve">
     <value>Clear recent projects list</value>
   </data>

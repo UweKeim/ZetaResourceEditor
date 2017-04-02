@@ -47,9 +47,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             if (node?.TreeList != null && node.Tag != null)
             {
                 LogCentral.Current.LogInfo(
-                    string.Format(
-                        @"Updating node info of node '{0}'.",
-                        node[0]));
+                    $@"Updating node info of node '{node[0]}'.");
 
                 updateNodeStateImage(node, AsynchronousMode.Asynchronous);
             }
@@ -101,8 +99,8 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             using (var ofd = new OpenFileDialog())
             {
                 ofd.Multiselect = true;
-                ofd.Filter = string.Format(@"{0} (*.resx;*.resw)|*.resx;*.resw",
-                    Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles);
+                ofd.Filter =
+                    $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw";
                 ofd.RestoreDirectory = true;
 
                 var initialDir =
@@ -453,9 +451,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
                 dialog.InitialDirectory = initialDir;
                 dialog.Filter =
-                    string.Format(
-                        @"{0}|*.csproj;*.sln",
-                        Resources.SR_SlnNames);
+                    $@"{Resources.SR_SlnNames}|*.csproj;*.sln";
 
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
@@ -1594,8 +1590,8 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             using (var ofd = new OpenFileDialog())
             {
                 ofd.Multiselect = true;
-                ofd.Filter = string.Format(@"{0} (*.resx;*.resw)|*.resx;*.resw",
-                    Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles);
+                ofd.Filter =
+                    $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw";
                 ofd.RestoreDirectory = true;
 
                 var fileGroup = (FileGroup)treeView.SelectedNode.Tag;

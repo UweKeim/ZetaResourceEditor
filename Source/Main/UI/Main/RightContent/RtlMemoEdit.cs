@@ -14,16 +14,11 @@
 	{
 		public override RightToLeft RightToLeft
 		{
-			get
-			{
-				return RightToLeft.Yes;
-			}
+			get => RightToLeft.Yes;
 // ReSharper disable ValueParameterNotUsed
 			set
 // ReSharper restore ValueParameterNotUsed
-			{
-				base.RightToLeft = RightToLeft.Yes;
-			}
+			    => base.RightToLeft = RightToLeft.Yes;
 		}
 	}
 
@@ -202,12 +197,6 @@
 			EditorRegistrationInfo.Default.Editors.Add(editorInfo);
 		}
 
-		public override string EditorTypeName
-		{
-			get
-			{
-				return @"RtlMemoEdit";
-			}
-		}
+		public override string EditorTypeName => @"RtlMemoEdit";
 	}
 }

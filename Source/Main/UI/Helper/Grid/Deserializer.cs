@@ -56,13 +56,12 @@
 		SerializationContext
 	{
 		private readonly Dictionary<Type, string> _filters = new Dictionary<Type, string>();
-		private static readonly FilterSerializationContext Instance = new FilterSerializationContext();
 
-		public bool Exclusive { get; set; }
+	    public bool Exclusive { get; set; }
 
-		public static FilterSerializationContext Default { get { return Instance; } }
+		public static FilterSerializationContext Default { get; } = new FilterSerializationContext();
 
-		public void AddProperty(Type key, string propertyName)
+	    public void AddProperty(Type key, string propertyName)
 		{
 			if (!_filters.ContainsKey(key)) _filters.Add(key, @";");
 			_filters[key] = string.Concat(_filters[key], propertyName, @";");

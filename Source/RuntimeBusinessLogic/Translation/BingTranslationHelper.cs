@@ -92,10 +92,7 @@
 				if (!string.IsNullOrEmpty(pair.Item2))
 				{
 					var p =
-						string.Format(
-							@"{0}={1}&",
-							pair.Item1,
-							HttpUtility.UrlEncode(pair.Item2));
+					    $@"{pair.Item1}={HttpUtility.UrlEncode(pair.Item2)}&";
 
 					ps += p;
 				}
@@ -106,7 +103,7 @@
 			// --
 
 			var request = (HttpWebRequest)WebRequest.Create(url);
-			request.Referer = string.Format(@"https://www.zeta-resource-editor.com/rest?{0:N}", Guid.NewGuid());
+			request.Referer = $@"https://www.zeta-resource-editor.com/rest?{Guid.NewGuid():N}";
 
 			WebServiceManager.Current.ApplyProxy(request);
 
@@ -167,7 +164,7 @@
 			}
 			else
 			{
-				var r = string.Format(@"{{ ""root"": {0} }}", rawResult);
+				var r = $@"{{ ""root"": {rawResult} }}";
 
 				return JsonConvert.DeserializeXmlNode(r);
 			}
@@ -303,10 +300,7 @@
 			}
 			finally
 			{
-				if (response != null)
-				{
-					response.Close();
-				}
+			    response?.Close();
 			}
 
 			return result.ToArray();

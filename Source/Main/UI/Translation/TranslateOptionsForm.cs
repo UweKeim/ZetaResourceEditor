@@ -40,18 +40,11 @@ namespace ZetaResourceEditor.UI.Translation
 			}
 		}
 
-		public bool TranslationProviderChanged
-		{
-			get
-			{
-				return
-					engineComboBox.SelectedIndex != _initialIndex ||
-					appIDTextEdit.Text.Trim() != _initialAppID ||
-					appID2TextEdit.Text.Trim() != _initialAppID2;
-			}
-		}
+		public bool TranslationProviderChanged => engineComboBox.SelectedIndex != _initialIndex ||
+		                                          appIDTextEdit.Text.Trim() != _initialAppID ||
+		                                          appID2TextEdit.Text.Trim() != _initialAppID2;
 
-		protected override void InitiallyFillLists()
+	    protected override void InitiallyFillLists()
 		{
 			base.InitiallyFillLists();
 

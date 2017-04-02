@@ -34,42 +34,21 @@
 		//    return _ws;
 		//}
 
-		public bool Has2AppIDs
-		{
-			get { return true; }
-		}
+		public bool Has2AppIDs => true;
 
-		public string AppID1Name
-		{
-			get { return Resources.BingSoapTranslationEngine_AppID1Name_Client_ID; }
-		}
+	    public string AppID1Name => Resources.BingSoapTranslationEngine_AppID1Name_Client_ID;
 
-		public string AppID2Name
-		{
-			get { return Resources.BingSoapTranslationEngine_AppID2Name_Client_secret; }
-		}
+	    public string AppID2Name => Resources.BingSoapTranslationEngine_AppID2Name_Client_secret;
 
-		public bool IsUserSelectable
-		{
-			get { return true; }
-		}
+	    public bool IsUserSelectable => true;
 
-		public bool IsDefault
-		{
-			get { return false; }
-		}
+	    public bool IsDefault => false;
 
-		public string UniqueInternalName
-		{
-			get { return @"b5c87f9c-e3cd-4963-a3a2-559d3e69e961"; }
-		}
+	    public string UniqueInternalName => @"b5c87f9c-e3cd-4963-a3a2-559d3e69e961";
 
-		public string UserReadableName
-		{
-			get { return Resources.BingSoapTranslationEngine_UserReadableName_Microsoft_Translator__Bing_; }
-		}
+	    public string UserReadableName => Resources.BingSoapTranslationEngine_UserReadableName_Microsoft_Translator__Bing_;
 
-		public TranslationLanguageInfo[] GetSourceLanguages(string appID, string appID2)
+	    public TranslationLanguageInfo[] GetSourceLanguages(string appID, string appID2)
 		{
 			if (_names == null)
 			{
@@ -136,19 +115,13 @@
 
 		private delegate void ActionToProtect();
 
-		public bool SupportsArrayTranslation { get { return true; } }
+		public bool SupportsArrayTranslation => true;
 
-		public int MaxArraySize
-		{
-			get { return 25; }
-		}
+	    public int MaxArraySize => 25;
 
-		public string AppIDLink
-		{
-			get { return @"http://zeta.li/zre-translation-appid-bing"; }
-		}
+	    public string AppIDLink => @"https://zeta.li/zre-translation-appid-bing";
 
-		public string[] TranslateArray(
+	    public string[] TranslateArray(
 			string appID,
 			string appID2,
 			string[] texts,
@@ -266,7 +239,7 @@
 			sb.Append(x.Message);
 			sb.Append(@" ");
 
-			if (errorDetails != null && errorDetails.OwnerDocument != null)
+			if (errorDetails?.OwnerDocument != null)
 			{
 				// Add the default namespace to the namespace manager.
 				var nsmgr =
@@ -345,10 +318,7 @@
 
 		public static string PrettyPrint(CultureInfo cultureInfo)
 		{
-			return string.Format(
-				@"{0} ({1})",
-				cultureInfo.DisplayName,
-				cultureInfo);
+			return $@"{cultureInfo.DisplayName} ({cultureInfo})";
 		}
 	}
 }

@@ -17,23 +17,15 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 	public class FileGroupCollection :
 		List<FileGroup>
 	{
-		private readonly Project _project;
-
-		public FileGroupCollection(
+	    public FileGroupCollection(
 			Project project)
 		{
-			_project = project;
+			Project = project;
 		}
 
-		public Project Project
-		{
-			get
-			{
-				return _project;
-			}
-		}
+		public Project Project { get; }
 
-		internal void StoreToXml(
+	    internal void StoreToXml(
 			XmlElement parentNode)
 		{
 			if (parentNode.OwnerDocument != null)
@@ -50,7 +42,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 							parentNode.OwnerDocument.CreateElement(@"fileGroup");
 						groupsNode.AppendChild(fileGroupNode);
 
-						fileGroup.StoreToXml(_project, fileGroupNode);
+						fileGroup.StoreToXml(Project, fileGroupNode);
 					}
 				}
 			}
@@ -68,8 +60,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 			{
 				foreach (XmlNode fileGroupNode in fileGroupNodes)
 				{
-					var fileGroup = new FileGroup(_project);
-					fileGroup.LoadFromXml(_project, fileGroupNode);
+					var fileGroup = new FileGroup(Project);
+					fileGroup.LoadFromXml(Project, fileGroupNode);
 
 					// Do not add orphans.
 					if (fileGroup.FileInfoCount > 0)
@@ -110,7 +102,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 			foreach (var fileGroup in this)
 // ReSharper restore LoopCanBeConvertedToQuery
 			{
-				if (fileGroup.GetChecksum(_project) == checksum)
+				if (fileGroup.GetChecksum(Project) == checksum)
 				{
 					return true;
 				}

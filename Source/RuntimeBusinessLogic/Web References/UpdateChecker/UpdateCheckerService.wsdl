@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://www.zeta-resource-editor.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://www.zeta-resource-editor.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.zeta-resource-editor.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.zeta-resource-editor.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="https://www.zeta-resource-editor.com/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.zeta-resource-editor.com/">
       <s:element name="IsUpdateAvailable2">
         <s:complexType>
           <s:sequence>
@@ -104,7 +104,7 @@
   <wsdl:binding name="UpdateCheckerServiceSoap" type="tns:UpdateCheckerServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="IsUpdateAvailable2">
-      <soap:operation soapAction="https://www.zeta-resource-editor.com/IsUpdateAvailable2" style="document" />
+      <soap:operation soapAction="http://www.zeta-resource-editor.com/IsUpdateAvailable2" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -113,7 +113,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DownloadUpdate2">
-      <soap:operation soapAction="https://www.zeta-resource-editor.com/DownloadUpdate2" style="document" />
+      <soap:operation soapAction="http://www.zeta-resource-editor.com/DownloadUpdate2" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -122,7 +122,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="IsUpdateAvailable">
-      <soap:operation soapAction="https://www.zeta-resource-editor.com/IsUpdateAvailable" style="document" />
+      <soap:operation soapAction="http://www.zeta-resource-editor.com/IsUpdateAvailable" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -134,7 +134,7 @@
   <wsdl:binding name="UpdateCheckerServiceSoap12" type="tns:UpdateCheckerServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="IsUpdateAvailable2">
-      <soap12:operation soapAction="https://www.zeta-resource-editor.com/IsUpdateAvailable2" style="document" />
+      <soap12:operation soapAction="http://www.zeta-resource-editor.com/IsUpdateAvailable2" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -143,7 +143,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DownloadUpdate2">
-      <soap12:operation soapAction="https://www.zeta-resource-editor.com/DownloadUpdate2" style="document" />
+      <soap12:operation soapAction="http://www.zeta-resource-editor.com/DownloadUpdate2" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -152,7 +152,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="IsUpdateAvailable">
-      <soap12:operation soapAction="https://www.zeta-resource-editor.com/IsUpdateAvailable" style="document" />
+      <soap12:operation soapAction="http://www.zeta-resource-editor.com/IsUpdateAvailable" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -1,33 +1,33 @@
 namespace ZetaResourceEditor.UI.Tools
 {
-	partial class AboutForm
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class AboutForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
-		{
-			if ( disposing && (components != null) )
-			{
-				components.Dispose();
-			}
-			base.Dispose( disposing );
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupControl1 = new ExtendedControlsLibrary.Skinning.CustomGroup.MyGroupControl();
@@ -35,7 +35,7 @@ namespace ZetaResourceEditor.UI.Tools
             this.linkLabel1 = new ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit();
             this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.buttonClose = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.labelControl3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.labelControl3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelBoldControl();
             this.label4 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -45,9 +45,9 @@ namespace ZetaResourceEditor.UI.Tools
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // pictureBox1
-            // 
+            //
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
@@ -56,10 +56,10 @@ namespace ZetaResourceEditor.UI.Tools
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
+            //
             // groupControl1
-            // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.linkLabel1);
@@ -71,9 +71,9 @@ namespace ZetaResourceEditor.UI.Tools
             this.groupControl1.Size = new System.Drawing.Size(285, 129);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "Vendor information";
-            // 
+            //
             // labelControl2
-            // 
+            //
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(14, 37);
@@ -81,9 +81,9 @@ namespace ZetaResourceEditor.UI.Tools
             this.labelControl2.Size = new System.Drawing.Size(166, 51);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Manfred-Wörner-Straße 115\r\n73037 Göppingen\r\nGermany";
-            // 
+            //
             // linkLabel1
-            // 
+            //
             this.linkLabel1.AllowAutoWidth = true;
             this.linkLabel1.CausesValidation = false;
             this.linkLabel1.EditValue = "www.zeta-resource-editor.com";
@@ -102,9 +102,9 @@ namespace ZetaResourceEditor.UI.Tools
             this.linkLabel1.Size = new System.Drawing.Size(208, 22);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.linkLabel1_OpenLink);
-            // 
+            //
             // labelControl1
-            // 
+            //
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(14, 14);
@@ -112,9 +112,9 @@ namespace ZetaResourceEditor.UI.Tools
             this.labelControl1.Size = new System.Drawing.Size(121, 17);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Zeta Software GmbH";
-            // 
+            //
             // buttonClose
-            // 
+            //
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonClose.Appearance.Options.UseFont = true;
@@ -125,9 +125,9 @@ namespace ZetaResourceEditor.UI.Tools
             this.buttonClose.TabIndex = 0;
             this.buttonClose.Text = "Close";
             this.buttonClose.WantDrawFocusRectangle = true;
-            // 
+            //
             // labelControl3
-            // 
+            //
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(93, 12);
@@ -135,9 +135,9 @@ namespace ZetaResourceEditor.UI.Tools
             this.labelControl3.Size = new System.Drawing.Size(122, 17);
             this.labelControl3.TabIndex = 1;
             this.labelControl3.Text = "Zeta Resource Editor";
-            // 
+            //
             // label4
-            // 
+            //
             this.label4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label4.Appearance.Options.UseFont = true;
             this.label4.Location = new System.Drawing.Point(93, 41);
@@ -145,9 +145,9 @@ namespace ZetaResourceEditor.UI.Tools
             this.label4.Size = new System.Drawing.Size(118, 34);
             this.label4.TabIndex = 2;
             this.label4.Text = "Version {VersionNo}\r\nBuilt {BuildDate}";
-            // 
+            //
             // panelControl1
-            // 
+            //
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -162,9 +162,9 @@ namespace ZetaResourceEditor.UI.Tools
             this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
             this.panelControl1.Size = new System.Drawing.Size(309, 272);
             this.panelControl1.TabIndex = 6;
-            // 
+            //
             // AboutForm
-            // 
+            //
             this.AcceptButton = this.buttonClose;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -191,18 +191,18 @@ namespace ZetaResourceEditor.UI.Tools
             this.panelControl1.PerformLayout();
             this.ResumeLayout(false);
 
-		}
+        }
 
-		#endregion
+        #endregion
 
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private ExtendedControlsLibrary.Skinning.CustomGroup.MyGroupControl groupControl1;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl2;
-		private ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit linkLabel1;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
-		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonClose;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl3;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl label4;
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
-	}
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private ExtendedControlsLibrary.Skinning.CustomGroup.MyGroupControl groupControl1;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl2;
+        private ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit linkLabel1;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
+        private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonClose;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelBoldControl labelControl3;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl label4;
+        private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
+    }
 }

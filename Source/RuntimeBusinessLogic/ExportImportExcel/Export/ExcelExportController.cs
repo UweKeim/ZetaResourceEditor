@@ -20,7 +20,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
     using Snapshots;
     using WebServices;
     using Zeta.VoyagerLibrary.Common;
-    using Zeta.VoyagerLibrary.Common.Collections;
     using Zeta.VoyagerLibrary.Common.IO.Compression;
     using ZetaLongPaths;
     using ZetaUploader;
@@ -58,28 +57,28 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                         {
                             preparedInformations.Add(
                                 new PreparedInformation
-                                    {
-                                        DestinationFilePath =
+                                {
+                                    DestinationFilePath =
                                             replacePlaceholders(
                                                 replacePlaceholders(information.DestinationFilePath, destinationLanguageCode),
                                                 fileGroup),
-                                        DestinationLanguageCodes = new[] { destinationLanguageCode },
-                                        EliminateDuplicateRows = information.EliminateDuplicateRows,
-                                        ExportAllGroups =
+                                    DestinationLanguageCodes = new[] { destinationLanguageCode },
+                                    EliminateDuplicateRows = information.EliminateDuplicateRows,
+                                    ExportAllGroups =
                                             information.ExportAllGroupsMode ==
                                             ExcelExportInformation.ExportFileGroupMode.AllGroupsIntoOneWorksheet,
-                                        ExportNameColumn = information.ExportNameColumn,
-                                        ExportCommentColumn = information.ExportCommentColumn,
-                                        ExportReferenceLanguageColumn = information.ExportReferenceLanguageColumn,
-                                        ExportFileGroupColumn = information.ExportFileGroupColumn,
-                                        UseCrypticExcelExportSheetNames = information.UseCrypticExcelExportSheetNames,
-                                        FileGroups = new[] { fileGroup },
-                                        OnlyExportRowsWithNoTranslation = information.OnlyExportRowsWithNoTranslation,
-                                        ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
-                                        OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
-                                        Project = information.Project,
-                                        ReferenceLanguageCode = information.ReferenceLanguageCode
-                                    });
+                                    ExportNameColumn = information.ExportNameColumn,
+                                    ExportCommentColumn = information.ExportCommentColumn,
+                                    ExportReferenceLanguageColumn = information.ExportReferenceLanguageColumn,
+                                    ExportFileGroupColumn = information.ExportFileGroupColumn,
+                                    UseCrypticExcelExportSheetNames = information.UseCrypticExcelExportSheetNames,
+                                    FileGroups = new[] { fileGroup },
+                                    OnlyExportRowsWithNoTranslation = information.OnlyExportRowsWithNoTranslation,
+                                    ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
+                                    OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
+                                    Project = information.Project,
+                                    ReferenceLanguageCode = information.ReferenceLanguageCode
+                                });
                         }
                     }
                 }
@@ -156,28 +155,28 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
 
                 preparedInformations.Add(
                     new PreparedInformation
-                        {
-                            DestinationFilePath =
+                    {
+                        DestinationFilePath =
                                 replacePlaceholders(
                                     replacePlaceholders(information.DestinationFilePath, information.DestinationLanguageCodes[0]),
                                     information.FileGroups[0]),
-                            DestinationLanguageCodes = information.DestinationLanguageCodes,
-                            EliminateDuplicateRows = information.EliminateDuplicateRows,
-                            ExportAllGroups =
+                        DestinationLanguageCodes = information.DestinationLanguageCodes,
+                        EliminateDuplicateRows = information.EliminateDuplicateRows,
+                        ExportAllGroups =
                                 information.ExportAllGroupsMode ==
                                 ExcelExportInformation.ExportFileGroupMode.AllGroupsIntoOneWorksheet,
-                            ExportFileGroupColumn = information.ExportFileGroupColumn,
-                            ExportNameColumn = information.ExportNameColumn,
-                            ExportCommentColumn = information.ExportCommentColumn,
-                            ExportReferenceLanguageColumn = information.ExportReferenceLanguageColumn,
-                            UseCrypticExcelExportSheetNames = information.UseCrypticExcelExportSheetNames,
-                            FileGroups = information.FileGroups,
-                            OnlyExportRowsWithNoTranslation = information.OnlyExportRowsWithNoTranslation,
-                            ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
-                            OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
-                            Project = information.Project,
-                            ReferenceLanguageCode = information.ReferenceLanguageCode
-                        });
+                        ExportFileGroupColumn = information.ExportFileGroupColumn,
+                        ExportNameColumn = information.ExportNameColumn,
+                        ExportCommentColumn = information.ExportCommentColumn,
+                        ExportReferenceLanguageColumn = information.ExportReferenceLanguageColumn,
+                        UseCrypticExcelExportSheetNames = information.UseCrypticExcelExportSheetNames,
+                        FileGroups = information.FileGroups,
+                        OnlyExportRowsWithNoTranslation = information.OnlyExportRowsWithNoTranslation,
+                        ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
+                        OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
+                        Project = information.Project,
+                        ReferenceLanguageCode = information.ReferenceLanguageCode
+                    });
             }
 
             // --
@@ -205,9 +204,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                         var fn = ZlpPathHelper.GetFileNameWithoutExtension(dp);
                         var ext = ZlpPathHelper.GetExtension(dp);
 
-                        dp = ZlpPathHelper.Combine(
-                            dir,
-                            string.Format(@"{0}{1}{2}", fn, index, ext));
+                        dp = ZlpPathHelper.Combine(dir, $@"{fn}{index}{ext}");
 
                         dpl = dp.ToLowerInvariant();
 
@@ -226,11 +223,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                                 index = Math.Abs(Guid.NewGuid().GetHashCode());
                                 guidCount++;
 
-                                if (guidCount > 100)
-                                {
-                                    throw new Exception(
-                                        Resources.SR_CommandProcessorSend_ensureFileNamesUnique_Failed_to_generate_unique_file_names_);
-                                }
+                                if (guidCount > 100) throw new Exception(Resources.FailedToGenerateUniqueFileNames);
                             }
                         }
                     }
@@ -245,12 +238,10 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
         private class PreparedInformationCollection :
             List<PreparedInformation>
         {
-            private readonly ExcelExportInformation _originalInformation;
-
             public PreparedInformationCollection(
                 ExcelExportInformation originalInformation)
             {
-                _originalInformation = originalInformation;
+                OriginalInformation = originalInformation;
             }
 
             public int FileGroupsLength
@@ -268,10 +259,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                 }
             }
 
-            public ExcelExportInformation OriginalInformation
-            {
-                get { return _originalInformation; }
-            }
+            public ExcelExportInformation OriginalInformation { get; }
         }
 
         /// <summary>
@@ -327,30 +315,30 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                 bw.ReportProgress(
                     0,
                     new ExcelProgressInformation
-                        {
-                            TemporaryProgressMessage =
+                    {
+                        TemporaryProgressMessage =
                                 string.Format(
                                     Resources.ExcelExportController_doSendFilesWithZetaUploader_Sending__0__files_through_Zeta_Uploader___,
                                     filePathsToSend.Length)
-                        });
+                    });
 
                 var sendInfo =
                     new ZetaUploaderCommunicationClientTransferInformation2
-                        {
-                            EMailReceiverAddresses =
+                    {
+                        EMailReceiverAddresses =
                                 splitEMailAddresses(
                                     _preparedInformations.OriginalInformation.SendFilesEMailReceivers),
-                            EMailSubject =
+                        EMailSubject =
                                 replaceEMailPlaceholders(
                                     _preparedInformations.OriginalInformation.SendFilesEMailSubject),
-                            AdditionalRemarks =
+                        AdditionalRemarks =
                                 replaceEMailPlaceholders(
                                     _preparedInformations.OriginalInformation.SendFilesEMailBody),
-                            Language =
+                        Language =
                                 CultureHelper.GetSupportedUICultureFromThreeLetterWindowsLanguageName(
                                     CultureInfo.CurrentUICulture.ThreeLetterWindowsLanguageName).TwoLetterISOLanguageName,
-                            UserStates = new[] { new ZulPair { Name = @"allow-browse", Value = bool.FalseString } },
-                        };
+                        UserStates = new[] { new ZulPair { Name = @"allow-browse", Value = bool.FalseString } },
+                    };
 
                 // --
 
@@ -496,7 +484,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                     // Destination languages.
                     // ReSharper disable ForCanBeConvertedToForeach
                     for (var runningColIndex = 0;
-                        // ReSharper restore ForCanBeConvertedToForeach
+                         // ReSharper restore ForCanBeConvertedToForeach
                          runningColIndex < preparedInformation.DestinationLanguageCodes.Length;
                          ++runningColIndex)
                     {
@@ -540,8 +528,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                         bw.ReportProgress(
                             0,
                             new ExcelProgressInformation
-                                {
-                                    TemporaryProgressMessage =
+                            {
+                                TemporaryProgressMessage =
                                         string.Format(
                                             Resources.SR_CommandProcessorSend_Process_ProcessingFileGroupOfRowOf,
                                             fileGroupIndex + 1,
@@ -552,7 +540,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                                                     (table.Rows.Count) *
                                                     ((fileGroupIndex + 1.0) /
                                                      (fileGroupsLength))) * 100))
-                                });
+                            });
 
                         if (bw.CancellationPending)
                         {
@@ -749,11 +737,11 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                 bw.ReportProgress(
                     0,
                     new ExcelProgressInformation
-                        {
-                            TemporaryProgressMessage =
+                    {
+                        TemporaryProgressMessage =
                                 string.Format(
                                     Resources.SR_CommandProcessorSend_Process_SavingMicrosoftOfficeExcelDocument)
-                        });
+                    });
 
                 savedFiles.Add(preparedInformation.DestinationFilePath);
                 CoreExcelExporter.ExportToExcelFile(dataSet, preparedInformation.DestinationFilePath);
@@ -763,14 +751,14 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                 bw.ReportProgress(
                     0,
                     new ExcelProgressInformation
-                        {
-                            TemporaryProgressMessage =
+                    {
+                        TemporaryProgressMessage =
                                 Resources.ExcelExportController_doProcess_Skipping_Microsoft_Office_Excel_document_,
-                            WarningMessage =
+                        WarningMessage =
                                 string.Format(
                                     Resources.ExcelExportController_doProcess_Skipping_Excel_document___0___because_it_contains_no_work_sheets_,
                                     ZlpPathHelper.GetFileNameFromFilePath(preparedInformation.DestinationFilePath))
-                        });
+                    });
             }
 
             // --
@@ -988,7 +976,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
             string languageValue)
         {
             var baseKey = ssc.MakeBaseKey(fileGroup, tagName);
-            var key = ssc.MakeFullKey(baseKey, languageCode);
+            var key = SnapshotController.MakeFullKey(baseKey, languageCode);
 
             var prevValue = ssc.GetSettingValue(key);
             var currValue = languageValue;

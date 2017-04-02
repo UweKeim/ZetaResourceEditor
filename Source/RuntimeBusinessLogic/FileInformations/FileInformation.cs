@@ -9,32 +9,26 @@
     using Zeta.VoyagerLibrary.Common;
     using ZetaLongPaths;
 
-    [DebuggerDisplay(@"File = {_file.Name}")]
+    [DebuggerDisplay(@"File = {File.Name}")]
     public class FileInformation :
         ITranslationStateInformation,
         IComparable,
         IComparable<FileInformation>,
         IUniqueID
     {
-        private readonly FileGroup _fileGroup;
-        private ZlpFileInfo _file;
         private Guid _uniqueID;
 
         public FileInformation(
             FileGroup fileGroup)
         {
-            _fileGroup = fileGroup;
+            FileGroup = fileGroup;
         }
 
-        public FileGroup FileGroup => _fileGroup;
+        public FileGroup FileGroup { get; }
 
-        public FileGroupStateColor TranslationStateColor => _fileGroup.TranslationStateColor;
+        public FileGroupStateColor TranslationStateColor => FileGroup.TranslationStateColor;
 
-        public ZlpFileInfo File
-        {
-            get { return _file; }
-            set { _file = value; }
-        }
+        public ZlpFileInfo File { get; set; }
 
         public int CompareTo(object obj)
         {
@@ -83,11 +77,11 @@
             if (parentNode.OwnerDocument != null)
             {
                 var a = parentNode.OwnerDocument.CreateAttribute(@"filePath");
-                a.Value = project.MakeRelativeFilePath(_file.FullName);
+                a.Value = project.MakeRelativeFilePath(File.FullName);
                 parentNode.Attributes.Append(a);
 
                 a = parentNode.OwnerDocument.CreateAttribute(@"absoluteFilePath");
-                a.Value = _file.FullName;
+                a.Value = File.FullName;
                 parentNode.Attributes.Append(a);
 
                 a = parentNode.OwnerDocument.CreateAttribute(@"uniqueID");
@@ -124,7 +118,7 @@
 
             if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
             {
-                _file = new ZlpFileInfo(filePath);
+                File = new ZlpFileInfo(filePath);
                 return true;
             }
             else
@@ -140,7 +134,7 @@
 
                 if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
                 {
-                    _file = new ZlpFileInfo(filePath);
+                    File = new ZlpFileInfo(filePath);
                     return true;
                 }
                 else
@@ -163,7 +157,7 @@
 
                     if (string.IsNullOrEmpty(filePath))
                     {
-                        _file = null;
+                        File = null;
                         return false;
                     }
                     else
@@ -173,12 +167,12 @@
 
                         if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
                         {
-                            _file = new ZlpFileInfo(filePath);
+                            File = new ZlpFileInfo(filePath);
                             return true;
                         }
                         else
                         {
-                            _file = null;
+                            File = null;
                             return false;
                         }
                     }

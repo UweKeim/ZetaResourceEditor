@@ -21,13 +21,12 @@
 
         public void MarkAsUnmodified()
         {
-            _isModified = false;
+            IsModified = false;
         }
 
-        public bool IsModified => _isModified;
+        public bool IsModified { get; private set; }
 
         private readonly string _prefix;
-        private bool _isModified;
 
         private string addPrefix(string name)
         {
@@ -59,13 +58,13 @@
                     if (!isSame(current, adding))
                     {
                         DirectValues[addPrefix(name)] = adding;
-                        _isModified = true;
+                        IsModified = true;
                     }
                 }
                 else
                 {
                     DirectValues.Add(addPrefix(name), value?.ToString());
-                    _isModified = true;
+                    IsModified = true;
                 }
             }
         }
@@ -134,7 +133,7 @@
                 {
                     if (DirectValues.Remove(addPrefix(name)))
                     {
-                        _isModified = true;
+                        IsModified = true;
                     }
                 }
             }

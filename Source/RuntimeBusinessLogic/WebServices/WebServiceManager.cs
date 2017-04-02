@@ -89,12 +89,9 @@
                         true);
                 }
             }
-            set
-            {
-                PersistanceHelper.SaveValue(
-                    @"WebProxyUsage",
-                    value.ToString());
-            }
+            set => PersistanceHelper.SaveValue(
+                @"WebProxyUsage",
+                value.ToString());
         }
 
         /// <summary>

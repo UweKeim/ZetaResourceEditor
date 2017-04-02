@@ -1,15 +1,5 @@
 namespace ZetaResourceEditor.UI.ExportImportExcel
 {
-    #region Using directives.
-    // ----------------------------------------------------------------------
-
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Threading;
-    using System.Windows.Forms;
     using Code;
     using DevExpress.XtraBars;
     using DevExpress.XtraEditors;
@@ -23,6 +13,13 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
     using RuntimeBusinessLogic.FileGroups;
     using RuntimeBusinessLogic.Language;
     using RuntimeBusinessLogic.Projects;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Threading;
+    using System.Windows.Forms;
     using Zeta.VoyagerLibrary.Common;
     using Zeta.VoyagerLibrary.Common.Collections;
     using Zeta.VoyagerLibrary.Logging;
@@ -30,11 +27,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
     using Zeta.VoyagerLibrary.Tools.Storage;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
     using ZetaLongPaths;
-
-    // ----------------------------------------------------------------------
-    #endregion
-
-    /////////////////////////////////////////////////////////////////////////
 
     public partial class ExcelImportWizardForm :
         FormBase
@@ -433,10 +425,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
                     {
                         var index = languagesToImportCheckListBox.Items.Add(
                             new MyTuple<string, string>(
-                                string.Format(
-                                    @"{0} ({1})",
-                                    LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName,
-                                    languageCode),
+                                $@"{LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName} ({languageCode})",
                                 languageCode));
 
                         languagesToImportCheckListBox.SetItemChecked(index, true);
@@ -654,6 +643,4 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             }
         }
     }
-
-    /////////////////////////////////////////////////////////////////////////
 }

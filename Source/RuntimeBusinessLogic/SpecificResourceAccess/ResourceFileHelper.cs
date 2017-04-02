@@ -137,9 +137,7 @@
 			if ( a != null )
 			{
 				LogCentral.Current.LogInfo(
-					string.Format(
-						@"doGetAllTypes(): Searching assembly '{0}'...",
-						a.GetName().Name ) );
+				    $@"doGetAllTypes(): Searching assembly '{a.GetName().Name}'...");
 
 				try
 				{
@@ -170,9 +168,7 @@
 								if ( !found )
 								{
 									LogCentral.Current.LogInfo(
-										string.Format(
-											@"Found plug-in type '{0}'.",
-											t ) );
+									    $@"Found plug-in type '{t}'.");
 
 									list.Add( b );
 								}
@@ -185,11 +181,9 @@
 				catch ( ReflectionTypeLoadException tle )
 				{
 					LogCentral.Current.LogInfo(
-						string.Format(
-							@"Ignoring type load exception for assembly '{0}'. " +
-								@"This usually occurs inside a web application for " +
-									@"plug-ins that are only intended for the main Windows application.",
-							a.GetName().Name ),
+					    $@"Ignoring type load exception for assembly '{a.GetName().Name}'. " +
+					    @"This usually occurs inside a web application for " +
+					    @"plug-ins that are only intended for the main Windows application.",
 						tle );
 				}
 			}

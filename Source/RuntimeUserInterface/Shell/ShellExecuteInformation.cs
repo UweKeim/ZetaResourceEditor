@@ -26,9 +26,7 @@
 		{
 			// ReSharper disable InvocationIsSkipped
 			LogCentral.Current.LogInfo(
-				string.Format(
-				@"About to shell-execute the command '{0}'.",
-				_fileName));
+			    $@"About to shell-execute the command '{_fileName}'.");
 			// ReSharper restore InvocationIsSkipped
 
 			checkSplitFileName();
@@ -38,11 +36,11 @@
 				new ProcessStartInfo
 					{
 						UseShellExecute = true,
-						Verb = _verb,
+						Verb = Verb,
 						FileName = _fileName,
-						Arguments = _arguments,
-						WorkingDirectory = _workingDirectory,
-						WindowStyle = _windowStyle
+						Arguments = Arguments,
+						WorkingDirectory = WorkingDirectory,
+						WindowStyle = WindowStyle
 					};
 
 			Process.Start(info);
@@ -60,99 +58,43 @@
 		/// <value>The name of the file.</value>
 		public string FileName
 		{
-			get
-			{
-				return _fileName;
-			}
-			set
-			{
-				_fileName = value;
-			}
+			get => _fileName;
+		    set => _fileName = value;
 		}
 
 		/// <summary>
 		/// Gets or sets the arguments.
 		/// </summary>
 		/// <value>The arguments.</value>
-		public string Arguments
-		{
-			get
-			{
-				return _arguments;
-			}
-			set
-			{
-				_arguments = value;
-			}
-		}
+		public string Arguments { get; set; }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets or sets the working directory.
 		/// </summary>
 		/// <value>The working directory.</value>
-		public string WorkingDirectory
-		{
-			get
-			{
-				return _workingDirectory;
-			}
-			set
-			{
-				_workingDirectory = value;
-			}
-		}
+		public string WorkingDirectory { get; set; }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets or sets the window style.
 		/// </summary>
 		/// <value>The window style.</value>
-		public ProcessWindowStyle WindowStyle
-		{
-			get
-			{
-				return _windowStyle;
-			}
-			set
-			{
-				_windowStyle = value;
-			}
-		}
+		public ProcessWindowStyle WindowStyle { get; set; }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets or sets the verb.
 		/// </summary>
 		/// <value>The verb.</value>
-		public string Verb
-		{
-			get
-			{
-				return _verb;
-			}
-			set
-			{
-				_verb = value;
-			}
-		}
+		public string Verb { get; set; }
 
-		/// <summary>
+	    /// <summary>
 		/// Gets or sets a value indicating whether [use HTTP post if applicable].
 		/// </summary>
 		/// <value>
 		/// 	<c>true</c> if [use HTTP post if applicable]; otherwise, <c>false</c>.
 		/// </value>
-		public bool UseHttpPostIfApplicable
-		{
-			get
-			{
-				return _useHttpPostIfApplicable;
-			}
-			set
-			{
-				_useHttpPostIfApplicable = value;
-			}
-		}
+		public bool UseHttpPostIfApplicable { get; set; } = true;
 
-		// ------------------------------------------------------------------
+	    // ------------------------------------------------------------------
 		#endregion
 
 		#region Private methods.
@@ -191,14 +133,14 @@
 						_fileName = _fileName.Trim();
 					}
 
-					if (!string.IsNullOrEmpty(_arguments))
+					if (!string.IsNullOrEmpty(Arguments))
 					{
-						_arguments = _arguments.Trim();
+						Arguments = Arguments.Trim();
 					}
 
 					// --
 
-					if (string.IsNullOrEmpty(_arguments) &&
+					if (string.IsNullOrEmpty(Arguments) &&
 						!string.IsNullOrEmpty(_fileName) && _fileName.Length > 2)
 					{
 						if (_fileName.StartsWith(@""""))
@@ -207,7 +149,7 @@
 
 							if (pos > 0 && _fileName.Length > pos + 1)
 							{
-								_arguments = _fileName.Substring(pos + 1).Trim();
+								Arguments = _fileName.Substring(pos + 1).Trim();
 								_fileName = _fileName.Substring(0, pos + 1).Trim();
 							}
 						}
@@ -216,7 +158,7 @@
 							int pos = _fileName.IndexOf(@" ");
 							if (pos > 0 && _fileName.Length > pos + 1)
 							{
-								_arguments = _fileName.Substring(pos + 1).Trim();
+								Arguments = _fileName.Substring(pos + 1).Trim();
 								_fileName = _fileName.Substring(0, pos + 1).Trim();
 							}
 						}
@@ -249,13 +191,8 @@
 		//private static readonly int _httpGetLengthLimit = 1000;
 
 		private string _fileName;
-		private string _arguments;
-		private string _workingDirectory;
-		private ProcessWindowStyle _windowStyle;
-		private string _verb;
-		private bool _useHttpPostIfApplicable = true;
 
-		// ------------------------------------------------------------------
+	    // ------------------------------------------------------------------
 		#endregion
 	}
 

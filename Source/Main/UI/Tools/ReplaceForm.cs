@@ -17,34 +17,14 @@
 
         public string TextToFind
         {
-            get
-            {
-                if (whiteSpaceAwareCheckEdit.Checked)
-                {
-                    return textToFindComboBox.Text;
-                }
-                else
-                {
-                    return textToFindComboBox.Text.Trim();
-                }
-            }
-            private set { textToFindComboBox.Text = value; }
+            get => whiteSpaceAwareCheckEdit.Checked ? textToFindComboBox.Text : textToFindComboBox.Text.Trim();
+            private set => textToFindComboBox.Text = value;
         }
 
         public string TextToReplaceWith
         {
-            get
-            {
-                if (whiteSpaceAwareCheckEdit.Checked)
-                {
-                    return textToReplaceComboBox.Text;
-                }
-                else
-                {
-                    return textToReplaceComboBox.Text.Trim();
-                }
-            }
-            private set { textToReplaceComboBox.Text = value; }
+            get => whiteSpaceAwareCheckEdit.Checked ? textToReplaceComboBox.Text : textToReplaceComboBox.Text.Trim();
+            private set => textToReplaceComboBox.Text = value;
         }
 
         private void textToFindComboBox_TextUpdate(object sender, EventArgs e)
@@ -127,7 +107,7 @@
 
         private void saveReplaceComboBox()
         {
-            WinFormsPersistanceHelper.SaveState(textToReplaceComboBox);
+            //WinFormsPersistanceHelper.SaveState(textToReplaceComboBox);
 
             PersistanceHelper.SaveValue(
                 textToReplaceComboBox.Name + @".Text",
@@ -153,7 +133,7 @@
         private void restoreFindComboBox()
         {
             var temp = TextToFind;
-            WinFormsPersistanceHelper.RestoreState(textToFindComboBox);
+            //WinFormsPersistanceHelper.RestoreState(textToFindComboBox);
 
             var count =
                 ConvertHelper.ToInt32(

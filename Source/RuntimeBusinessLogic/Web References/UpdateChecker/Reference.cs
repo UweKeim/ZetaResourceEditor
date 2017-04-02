@@ -26,7 +26,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.UpdateChecker {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="UpdateCheckerServiceSoap", Namespace="https://www.zeta-resource-editor.com/")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="UpdateCheckerServiceSoap", Namespace="http://www.zeta-resource-editor.com/")]
     public partial class UpdateCheckerService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback IsUpdateAvailable2OperationCompleted;
@@ -83,7 +83,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.UpdateChecker {
         public event IsUpdateAvailableCompletedEventHandler IsUpdateAvailableCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("https://www.zeta-resource-editor.com/IsUpdateAvailable2", RequestNamespace="https://www.zeta-resource-editor.com/", ResponseNamespace="https://www.zeta-resource-editor.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.zeta-resource-editor.com/IsUpdateAvailable2", RequestNamespace="http://www.zeta-resource-editor.com/", ResponseNamespace="http://www.zeta-resource-editor.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public UpdatePresentResult2 IsUpdateAvailable2(UpdateCheckInfo2 info) {
             object[] results = this.Invoke("IsUpdateAvailable2", new object[] {
                         info});
@@ -112,7 +112,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.UpdateChecker {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("https://www.zeta-resource-editor.com/DownloadUpdate2", RequestNamespace="https://www.zeta-resource-editor.com/", ResponseNamespace="https://www.zeta-resource-editor.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.zeta-resource-editor.com/DownloadUpdate2", RequestNamespace="http://www.zeta-resource-editor.com/", ResponseNamespace="http://www.zeta-resource-editor.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public UpdateInformationResult2 DownloadUpdate2(UpdateCheckInfo2 info) {
             object[] results = this.Invoke("DownloadUpdate2", new object[] {
                         info});
@@ -141,7 +141,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.UpdateChecker {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("https://www.zeta-resource-editor.com/IsUpdateAvailable", RequestNamespace="https://www.zeta-resource-editor.com/", ResponseNamespace="https://www.zeta-resource-editor.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.zeta-resource-editor.com/IsUpdateAvailable", RequestNamespace="http://www.zeta-resource-editor.com/", ResponseNamespace="http://www.zeta-resource-editor.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string IsUpdateAvailable(string assemblyVersion) {
             object[] results = this.Invoke("IsUpdateAvailable", new object[] {
                         assemblyVersion});
@@ -193,7 +193,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.UpdateChecker {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://www.zeta-resource-editor.com/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.zeta-resource-editor.com/")]
     public partial class UpdateCheckInfo2 {
         
         private string apiKeyField;
@@ -250,7 +250,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.UpdateChecker {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://www.zeta-resource-editor.com/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.zeta-resource-editor.com/")]
     public partial class UpdateInformationResult2 {
         
         private string apiKeyField;
@@ -320,7 +320,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.UpdateChecker {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="https://www.zeta-resource-editor.com/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.zeta-resource-editor.com/")]
     public partial class UpdatePresentResult2 {
         
         private bool isPresentField;

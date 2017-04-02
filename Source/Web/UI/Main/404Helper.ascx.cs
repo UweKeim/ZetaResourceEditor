@@ -11,14 +11,8 @@
     {
         public string CategoryName
         {
-            get
-            {
-                return ViewState[@"CategoryName"] as string;
-            }
-            set
-            {
-                ViewState[@"CategoryName"] = value;
-            }
+            get => ViewState[@"CategoryName"] as string;
+            set => ViewState[@"CategoryName"] = value;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -33,9 +27,7 @@
             if (!string.IsNullOrEmpty(cn))
             {
                 LogCentral.Current.LogInfo(
-                    string.Format(
-                        @"[404 root] About to gather 404 redirects for category '{0}'.",
-                        cn.Trim()));
+                    $@"[404 root] About to gather 404 redirects for category '{cn.Trim()}'.");
 
                 var redirects =
                     Host.Current.ElementManager.FourZeroFourManager.GetFourZeroFourRedirects(cn.Trim());
@@ -47,9 +39,7 @@
                     if (!string.IsNullOrEmpty(gotoUrl))
                     {
                         LogCentral.Current.LogInfo(
-                            string.Format(
-                                @"[404 root] About to 404 redirect to '{0}'.",
-                                gotoUrl));
+                            $@"[404 root] About to 404 redirect to '{gotoUrl}'.");
 
                         new QueryString(gotoUrl).Redirect(
                             redirect.IsPermanent
@@ -60,9 +50,7 @@
                 }
 
                 LogCentral.Current.LogInfo(
-                    string.Format(
-                        @"[404 root] No matching to 404 redirect found for '{0}'.",
-                        Request.Url.Query));
+                    $@"[404 root] No matching to 404 redirect found for '{Request.Url.Query}'.");
             }
         }
     }

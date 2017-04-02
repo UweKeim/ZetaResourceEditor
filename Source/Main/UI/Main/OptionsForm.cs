@@ -22,8 +22,8 @@ namespace ZetaResourceEditor.UI.Main
 
         public int ActiveTabPageIndex
         {
-            get { return xtraTabControl1.SelectedTabPageIndex; }
-            set { xtraTabControl1.SelectedTabPageIndex = value; }
+            get => xtraTabControl1.SelectedTabPageIndex;
+            set => xtraTabControl1.SelectedTabPageIndex = value;
         }
 
         protected override void FillItemToControls()

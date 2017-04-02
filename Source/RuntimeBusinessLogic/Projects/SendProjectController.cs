@@ -16,12 +16,9 @@
 
 	public class SendProjectController
 	{
-		public static string VendorReceiverGuiName
-		{
-			get { return Resources.SendProjectController_VendorReceiverGuiName_Zeta_Resource_Editor_support; }
-		}
+		public static string VendorReceiverGuiName => Resources.SendProjectController_VendorReceiverGuiName_Zeta_Resource_Editor_support;
 
-		public SendProjectResult SendProject(
+	    public SendProjectResult SendProject(
 			BackgroundWorker bw,
 			SendProjectInformation information)
 		{

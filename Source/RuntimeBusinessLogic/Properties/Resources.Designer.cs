@@ -176,6 +176,15 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to generate unique file names..
+        /// </summary>
+        internal static string FailedToGenerateUniqueFileNames {
+            get {
+                return ResourceManager.GetString("FailedToGenerateUniqueFileNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Automatic translation exists.
         /// </summary>
         internal static string FileGroupStates_AutomaticTranslationsExist {
@@ -295,25 +304,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Taking snapshot {0} of {1} for file group &apos;{2}&apos;....
-        /// </summary>
-        internal static string SnapshotController_TakeFullSnapshot_Taking_snapshot__0__of__1__for_file_group___2_____ {
-            get {
-                return ResourceManager.GetString("SnapshotController_TakeFullSnapshot_Taking_snapshot__0__of__1__for_file_group___2" +
-                        "_____", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Taking snapshots..
-        /// </summary>
-        internal static string SnapshotController_TakeFullSnapshot_Taking_snapshots_ {
-            get {
-                return ResourceManager.GetString("SnapshotController_TakeFullSnapshot_Taking_snapshots_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Comment.
         /// </summary>
         internal static string SR_ColumnCaption_Comment {
@@ -355,16 +345,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Properties {
         internal static string SR_CommandProcessorReceive_Process_ProcessingWorkSheetOfRowOf {
             get {
                 return ResourceManager.GetString("SR_CommandProcessorReceive_Process_ProcessingWorkSheetOfRowOf", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to generate unique file names..
-        /// </summary>
-        internal static string SR_CommandProcessorSend_ensureFileNamesUnique_Failed_to_generate_unique_file_names_ {
-            get {
-                return ResourceManager.GetString("SR_CommandProcessorSend_ensureFileNamesUnique_Failed_to_generate_unique_file_name" +
-                        "s_", resourceCulture);
             }
         }
         
@@ -572,6 +552,24 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Properties {
         internal static string SR_ZreLicenseType_LicenseType_DisplayName {
             get {
                 return ResourceManager.GetString("SR_ZreLicenseType_LicenseType_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taking snapshot {0} of {1} for file group &apos;{2}&apos;....
+        /// </summary>
+        internal static string TakeFullSnapshot {
+            get {
+                return ResourceManager.GetString("TakeFullSnapshot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taking snapshots..
+        /// </summary>
+        internal static string TakingSnapshots {
+            get {
+                return ResourceManager.GetString("TakingSnapshots", resourceCulture);
             }
         }
     }

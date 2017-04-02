@@ -24,42 +24,24 @@
 		/// Gets the unique class ID.
 		/// </summary>
 		/// <value>The unique class ID.</value>
-		public Guid UniqueClassID
-		{
-			get
-			{
-				return new Guid( @"f5831289-8a27-45a0-a869-d74268e12ed6" );
-			}
-		}
+		public Guid UniqueClassID => new Guid( @"f5831289-8a27-45a0-a869-d74268e12ed6" );
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the supported file extensions. return as e.g. ".RESX".
 		/// </summary>
 		/// <value>The supported file extensions.</value>
-		public string[] SupportedFileExtensions
-		{
-			get
-			{
-				return new[]
-					{
-						@".ts"
-					};
-			}
-		}
+		public string[] SupportedFileExtensions => new[]
+	    {
+	        @".ts"
+	    };
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the name. This is visible to the user.
 		/// </summary>
 		/// <value>The name.</value>
-		public string Name
-		{
-			get
-			{
-				return Resources.SR_QTResourceFileAccessor_Name_QTResourceFiles;
-			}
-		}
+		public string Name => Resources.SR_QTResourceFileAccessor_Name_QTResourceFiles;
 
-		/// <summary>
+	    /// <summary>
 		/// Gets a value indicating whether this instance is adding of new tags 
 		/// supported.
 		/// </summary>
@@ -67,15 +49,9 @@
 		/// 	<c>true</c> if this instance is adding of new tags supported; 
 		/// otherwise, <c>false</c>.
 		/// </value>
-		public bool IsAddingOfNewTagsSupported
-		{
-			get
-			{
-				return false;
-			}
-		}
+		public bool IsAddingOfNewTagsSupported => false;
 
-		/// <summary>
+	    /// <summary>
 		/// Loads a list of name/value pairs from the given resource file.
 		/// </summary>
 		/// <param name="filePath">The file path.</param>

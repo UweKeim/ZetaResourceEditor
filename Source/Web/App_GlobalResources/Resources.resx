@@ -211,7 +211,7 @@
 Do you want to open the Excel document now?</value>
 	<comment></comment></data>
 	<data name="SR_AboutForm_linkLabel1LinkClicked_Httpwwwzetasoftwaredelinkszrehome" xml:space="preserve">
-		<value>http://zeta.li/zre-ENU-home</value>
+		<value>https://zeta.li/zre-ENU-home</value>
 	<comment></comment></data>
 	<data name="SR_Test" xml:space="preserve">
 		<value>Test</value>
@@ -322,7 +322,7 @@ Do you want to open the Excel document now?</value>
 		<value>(Invalid license key)</value>
 	<comment></comment></data>
 	<data name="SR_OptionsForm_purchaseLicenseButton_Click" xml:space="preserve">
-		<value>http://zeta.li/zre-ENU-purchase-license</value>
+		<value>https://zeta.li/zre-ENU-purchase-license</value>
 	<comment></comment></data>
 	<data name="SR_ReadOnlyFileOverwriteBehaviour_Ask" xml:space="preserve">
 		<value>Ask whether to overwrite read-only files</value>

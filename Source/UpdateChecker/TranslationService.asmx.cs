@@ -7,9 +7,9 @@
     using Code;
     using Zeta.VoyagerLibrary.Logging;
 
-/////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
 
-    [WebService(Namespace = @"https://www.zeta-resource-editor.com/")]
+    [WebService(Namespace = @"http://www.zeta-resource-editor.com/")] // ACHTUNG! HIER _NICHT_ HTTPS machen.
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class TranslationService :
         ApiKeyProtectedWebServiceBase

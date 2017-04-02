@@ -31,8 +31,8 @@ namespace ZetaResourceEditor.UI.Main
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainFormMainSplitContainer = new DevExpress.XtraEditors.SplitContainerControl();
-            this.projectFilesUserControl = new ZetaResourceEditor.UI.Main.LeftTree.ProjectFilesUserControl();
-            this.groupFilesControl = new ZetaResourceEditor.UI.Main.RightContent.GroupFilesUserControl();
+            this.ProjectFilesControl = new ZetaResourceEditor.UI.Main.LeftTree.ProjectFilesUserControl();
+            this.GroupFilesControl = new ZetaResourceEditor.UI.Main.RightContent.GroupFilesUserControl();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.barSubRecentFiles = new DevExpress.XtraBars.BarSubItem();
@@ -119,10 +119,10 @@ namespace ZetaResourceEditor.UI.Main
             this.mainFormMainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainFormMainSplitContainer.Location = new System.Drawing.Point(0, 0);
             this.mainFormMainSplitContainer.Name = "mainFormMainSplitContainer";
-            this.mainFormMainSplitContainer.Panel1.Controls.Add(this.projectFilesUserControl);
+            this.mainFormMainSplitContainer.Panel1.Controls.Add(this.ProjectFilesControl);
             this.mainFormMainSplitContainer.Panel1.MinSize = 250;
             this.mainFormMainSplitContainer.Panel1.Text = "Panel1";
-            this.mainFormMainSplitContainer.Panel2.Controls.Add(this.groupFilesControl);
+            this.mainFormMainSplitContainer.Panel2.Controls.Add(this.GroupFilesControl);
             this.mainFormMainSplitContainer.Size = new System.Drawing.Size(685, 408);
             this.mainFormMainSplitContainer.SplitterPosition = 200;
             this.mainFormMainSplitContainer.TabIndex = 0;
@@ -130,23 +130,23 @@ namespace ZetaResourceEditor.UI.Main
             // 
             // projectFilesUserControl
             // 
-            this.projectFilesUserControl.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.projectFilesUserControl.Appearance.Options.UseFont = true;
-            this.projectFilesUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.projectFilesUserControl.Location = new System.Drawing.Point(0, 0);
-            this.projectFilesUserControl.Name = "projectFilesUserControl";
-            this.projectFilesUserControl.Size = new System.Drawing.Size(250, 408);
-            this.projectFilesUserControl.TabIndex = 0;
+            this.ProjectFilesControl.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.ProjectFilesControl.Appearance.Options.UseFont = true;
+            this.ProjectFilesControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectFilesControl.Location = new System.Drawing.Point(0, 0);
+            this.ProjectFilesControl.Name = "ProjectFilesControl";
+            this.ProjectFilesControl.Size = new System.Drawing.Size(250, 408);
+            this.ProjectFilesControl.TabIndex = 0;
             // 
             // groupFilesControl
             // 
-            this.groupFilesControl.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.groupFilesControl.Appearance.Options.UseFont = true;
-            this.groupFilesControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupFilesControl.Location = new System.Drawing.Point(0, 0);
-            this.groupFilesControl.Name = "groupFilesControl";
-            this.groupFilesControl.Size = new System.Drawing.Size(430, 408);
-            this.groupFilesControl.TabIndex = 0;
+            this.GroupFilesControl.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.GroupFilesControl.Appearance.Options.UseFont = true;
+            this.GroupFilesControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GroupFilesControl.Location = new System.Drawing.Point(0, 0);
+            this.GroupFilesControl.Name = "GroupFilesControl";
+            this.GroupFilesControl.Size = new System.Drawing.Size(430, 408);
+            this.GroupFilesControl.TabIndex = 0;
             // 
             // ribbon
             // 
@@ -954,9 +954,7 @@ namespace ZetaResourceEditor.UI.Main
 		private DevExpress.XtraEditors.SplitContainerControl mainFormMainSplitContainer;
 		private DevExpress.XtraBars.BarButtonItem buttonUpdateAvailable;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup updateRibbonPageGroup;
-		private ZetaResourceEditor.UI.Main.LeftTree.ProjectFilesUserControl projectFilesUserControl;
-		private ZetaResourceEditor.UI.Main.RightContent.GroupFilesUserControl groupFilesControl;
-		private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
+	    private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
 		private DevExpress.XtraBars.BarButtonItem buttonOpenFileGroupFolder;
 		private DevExpress.XtraBars.BarStaticItem barStaticItem1;
 		private DevExpress.XtraBars.BarButtonItem buttonExport;

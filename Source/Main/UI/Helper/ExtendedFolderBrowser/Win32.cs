@@ -882,15 +882,9 @@ namespace ZetaResourceEditor.UI.Helper.ExtendedFolderBrowser
 		/// Check whether the message was handled.
 		/// </summary>
 		/// <value><c>true</c> if [message handled]; otherwise, <c>false</c>.</value>
-		public bool MessageHandled
-		{
-			get
-			{
-				return _messageHandled;
-			}
-		}
+		public bool MessageHandled { get; private set; }
 
-		/// <summary>
+	    /// <summary>
 		/// Call this inside your Window proc in the control that
 		/// wants to do custom drawing.
 		/// </summary>
@@ -911,7 +905,7 @@ namespace ZetaResourceEditor.UI.Helper.ExtendedFolderBrowser
 			ref System.Windows.Forms.Message msg)
 		{
 			IntPtr ret = IntPtr.Zero;
-			_messageHandled = false;
+			MessageHandled = false;
 
 			if (msg.Msg == (int)Win32.OCM.OCM_NOTIFY)
 			{
@@ -921,7 +915,7 @@ namespace ZetaResourceEditor.UI.Helper.ExtendedFolderBrowser
 				{
 					var nmcd = (Win32.NMCUSTOMDRAW)msg.GetLParam(typeof(Win32.NMCUSTOMDRAW));
 					msg.Result = (IntPtr)OnCustomDraw(msg.WParam.ToInt32(), ref nmcd);
-					_messageHandled = true;
+					MessageHandled = true;
 				}
 			}
 			return ret;
@@ -975,9 +969,8 @@ namespace ZetaResourceEditor.UI.Helper.ExtendedFolderBrowser
 		}
 
 		private readonly ICustomDraw _interfaceCustDraw;
-		private bool _messageHandled;
 
-		// ------------------------------------------------------------------
+	    // ------------------------------------------------------------------
 		#endregion
 	}
 

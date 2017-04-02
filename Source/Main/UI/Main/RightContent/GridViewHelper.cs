@@ -4,23 +4,15 @@
 
 	internal class GridViewHelper
 	{
-		private readonly GridView _gridView;
-
-		public GridViewHelper(
+	    public GridViewHelper(
 			GridView gridView )
 		{
-			_gridView = gridView;
+			GridView = gridView;
 		}
 
-		public GridView GridView
-		{
-			get
-			{
-				return _gridView;
-			}
-		}
+		public GridView GridView { get; }
 
-		public void SelectCell(
+	    public void SelectCell(
 			int rowHandle,
 			int columnIndex )
 		{
@@ -51,31 +43,31 @@
 		public void SelectRow(
 			int rowHandle )
 		{
-			_gridView.SelectRow( rowHandle );
+			GridView.SelectRow( rowHandle );
 		}
 
 		public void FocusRow(
 			int rowHandle )
 		{
-			_gridView.FocusedRowHandle = rowHandle;
+			GridView.FocusedRowHandle = rowHandle;
 		}
 
 		public object GetRowCellValue(
 			int rowHandle,
 			int columnIndex )
 		{
-			return _gridView.GetRowCellValue(
+			return GridView.GetRowCellValue(
 				rowHandle,
-				_gridView.Columns[columnIndex] );
+				GridView.Columns[columnIndex] );
 		}
 
 		public T GetRowCellValue<T>(
 			int rowHandle,
 			int columnIndex )
 		{
-			return (T)_gridView.GetRowCellValue(
+			return (T)GridView.GetRowCellValue(
 				rowHandle,
-				_gridView.Columns[columnIndex] );
+				GridView.Columns[columnIndex] );
 		}
 
 		public void SetRowCellValue(
@@ -83,9 +75,9 @@
 			int columnIndex,
 			object value )
 		{
-			_gridView.SetRowCellValue(
+			GridView.SetRowCellValue(
 				rowHandle,
-				_gridView.Columns[columnIndex],
+				GridView.Columns[columnIndex],
 				value );
 		}
 	}

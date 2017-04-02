@@ -39,8 +39,7 @@
 
 		private static string makeLoggingMessage(object message)
 		{
-			return string.Format(
-				@"[URL Rewriter] {0}", message ?? string.Empty);
+			return $@"[URL Rewriter] {message ?? string.Empty}";
 		}
 	}
 }

@@ -7,32 +7,22 @@
 	public class TemporaryFileCloner :
 		IDisposable
 	{
-		private readonly string _tempFilePath;
-
-		public TemporaryFileCloner(string wordDocumentFilePath)
+	    public TemporaryFileCloner(string wordDocumentFilePath)
 		{
-			_tempFilePath =
+			FilePath =
 				ZlpPathHelper.Combine(
 					Path.GetTempPath(),
-					string.Format(@"{0}-{1}",
-						Guid.NewGuid(),
-						ZlpPathHelper.GetFileNameWithoutExtension(wordDocumentFilePath)));
+				    $@"{Guid.NewGuid()}-{ZlpPathHelper.GetFileNameWithoutExtension(wordDocumentFilePath)}");
 
 			ZlpSafeFileOperations.SafeCopyFile(
 				wordDocumentFilePath,
-				_tempFilePath,
+				FilePath,
 				true);
 		}
 
-		public string FilePath
-		{
-			get
-			{
-				return _tempFilePath;
-			}
-		}
+		public string FilePath { get; }
 
-		#region Implementation of IDisposable
+	    #region Implementation of IDisposable
 
 		public void Dispose()
 		{
@@ -42,7 +32,7 @@
 
 		private void doDispose()
 		{
-			ZlpSafeFileOperations.SafeDeleteFile(_tempFilePath);
+			ZlpSafeFileOperations.SafeDeleteFile(FilePath);
 		}
 
 		#endregion

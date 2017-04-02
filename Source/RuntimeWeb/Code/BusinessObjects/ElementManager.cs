@@ -50,17 +50,11 @@ namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects
 			}
 		}
 
-		public MailAddress OwnerEMailAddress
-		{
-			get
-			{
-				return new MailAddress(
-					ConfigurationManager.AppSettings[@"web.ownerEMailAddress"],
-					ConfigurationManager.AppSettings[@"web.ownerEMailDisplayName"]);
-			}
-		}
+		public MailAddress OwnerEMailAddress => new MailAddress(
+		    ConfigurationManager.AppSettings[@"web.ownerEMailAddress"],
+		    ConfigurationManager.AppSettings[@"web.ownerEMailDisplayName"]);
 
-		public FourZeroFourManager FourZeroFourManager
+	    public FourZeroFourManager FourZeroFourManager
 		{
 			get
 			{

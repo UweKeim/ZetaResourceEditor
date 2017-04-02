@@ -39,8 +39,6 @@
         IGridEditableData,
         ILanguageColumnFilter
     {
-        private readonly FileGroupCollection _fileGroups;
-        private readonly ProjectFolderCollection _projectFolders;
         private readonly VirtualViewCollection _virtualViews;
 
         private bool _createBackupFiles;
@@ -49,9 +47,7 @@
         private bool _useSpellChecker = true;
         private string _resXIndentChar = "\t";
         private string _neutralLanguageCode = @"en-US";
-        private ZlpFileInfo _projectConfigurationFilePath;
         private bool _isModified;
-        private string _description;
 
         private readonly List<string> _languagesToDisplay = new List<string>();
 
@@ -60,7 +56,7 @@
         bool ILanguageColumnFilter.WantDisplayLanguageColumnInGrid(
             CultureInfo ci)
         {
-            return ((ILanguageColumnFilter)this).WantDisplayLanguageColumnInGrid(ci.Name);
+            return ((ILanguageColumnFilter) this).WantDisplayLanguageColumnInGrid(ci.Name);
         }
 
         bool ILanguageColumnFilter.WantDisplayLanguageColumnInGrid(
@@ -74,7 +70,7 @@
             {
                 // ReSharper disable LoopCanBeConvertedToQuery
                 foreach (var l in _languagesToDisplay)
-                // ReSharper restore LoopCanBeConvertedToQuery
+                    // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     if (string.Compare(l, language, StringComparison.OrdinalIgnoreCase) == 0)
                     {
@@ -94,7 +90,7 @@
 
                 // ReSharper disable LoopCanBeConvertedToQuery
                 foreach (var l in _languagesToDisplay)
-                // ReSharper restore LoopCanBeConvertedToQuery
+                    // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     if (!string.IsNullOrEmpty(l))
                     {
@@ -122,7 +118,7 @@
 
         public bool HideEmptyRows
         {
-            get { return _hideEmptyRows; }
+            get => _hideEmptyRows;
             set
             {
                 _hideEmptyRows = value;
@@ -132,7 +128,7 @@
 
         public bool HideTranslatedRows
         {
-            get { return _hideTranslatedRows; }
+            get => _hideTranslatedRows;
             set
             {
                 _hideTranslatedRows = value;
@@ -193,16 +189,6 @@
 
         public const string ProjectFileExtension = @".zreproj";
 
-        private readonly DynamicSettings _dynamicSettingsUser =
-            new DynamicSettings(
-                string.Format(
-                    @"{0}@{1}",
-                    Environment.UserName,
-                    Environment.UserDomainName));
-
-        private readonly DynamicSettings _dynamicSettingsGlobal =
-            new DynamicSettings(string.Empty);
-
         private IPersistentPairStorage _dynamicSettingsGlobalHierarchical;
         private IPersistentPairStorage _dynamicSettingsUserHierarchical;
 
@@ -259,7 +245,7 @@
         private void MarkAsUnmodified()
         {
             _isModified = false;
-            _dynamicSettingsGlobal.MarkAsUnmodified();
+            DynamicSettingsGlobal.MarkAsUnmodified();
 
             // Do not mark the user settings.
 
@@ -268,16 +254,13 @@
 
         private void notifyModifyStateChanged()
         {
-            if (ModifyStateChanged != null)
-            {
-                ModifyStateChanged(this, EventArgs.Empty);
-            }
+            ModifyStateChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public Project()
         {
-            _fileGroups = new FileGroupCollection(this);
-            _projectFolders = new ProjectFolderCollection(this);
+            FileGroups = new FileGroupCollection(this);
+            ProjectFolders = new ProjectFolderCollection(this);
             _virtualViews = new VirtualViewCollection(this);
 
             /*
@@ -289,9 +272,9 @@
             Trace.Write(machine);*/
         }
 
-        public FileGroupCollection FileGroups => _fileGroups;
+        public FileGroupCollection FileGroups { get; }
 
-        public ProjectFolderCollection ProjectFolders => _projectFolders;
+        public ProjectFolderCollection ProjectFolders { get; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [create backup files].
@@ -300,25 +283,15 @@
         [DefaultValue(false)]
         public bool CreateBackupFiles
         {
-            get
-            {
-                return _createBackupFiles;
-                //return ConvertHelper.ToBoolean(
-                //    DynamicSettingsGlobal.RetrieveValue( @"CreateBackupFiles" ),
-                //    false );
-            }
-            set
-            {
-                _createBackupFiles = value;
-                //DynamicSettingsGlobal.PersistValue( @"CreateBackupFiles", value );
-            }
+            get => _createBackupFiles;
+            set => _createBackupFiles = value;
         }
 
         /// <summary>
         /// Gets the project configuration file path.
         /// </summary>
         /// <value>The project configuration file path.</value>
-        public ZlpFileInfo ProjectConfigurationFilePath => _projectConfigurationFilePath;
+        public ZlpFileInfo ProjectConfigurationFilePath { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether this instance is modified.
@@ -327,31 +300,27 @@
         /// 	<c>true</c> if this instance is modified; otherwise, <c>false</c>.
         /// </value>
         public bool IsModified => !IsInMemoryOnly &&
-                                  (_isModified || _dynamicSettingsGlobal.IsModified);
+                                  (_isModified || DynamicSettingsGlobal.IsModified);
 
         /// <summary>
         /// Gets the name.
         /// </summary>
         /// <value>The name.</value>
         public string Name => ZlpPathHelper.GetFileNameWithoutExtension(
-            _projectConfigurationFilePath.Name);
+            ProjectConfigurationFilePath.Name);
 
-        public string Description
-        {
-            get { return _description; }
-            set { _description = value; }
-        }
+        public string Description { get; set; }
 
         public bool UseSpellChecker
         {
-            get { return _useSpellChecker; }
-            set { _useSpellChecker = value; }
+            get => _useSpellChecker;
+            set => _useSpellChecker = value;
         }
 
         public string ResXIndentChar
         {
-            get { return _resXIndentChar; }
-            set { _resXIndentChar = value; }
+            get => _resXIndentChar;
+            set => _resXIndentChar = value;
         }
 
         /// <summary>
@@ -360,9 +329,10 @@
         /// <value>The modified char.</value>
         public static string ModifiedChar => @"*";
 
-        public DynamicSettings DynamicSettingsGlobal => _dynamicSettingsGlobal;
+        public DynamicSettings DynamicSettingsGlobal { get; } = new DynamicSettings(string.Empty);
 
-        public DynamicSettings DynamicSettingsUser => _dynamicSettingsUser;
+        public DynamicSettings DynamicSettingsUser { get; } = new DynamicSettings(
+            $@"{Environment.UserName}@{Environment.UserDomainName}");
 
         public IPersistentPairStorage DynamicSettingsGlobalHierarchical
         {
@@ -370,11 +340,11 @@
             {
                 // ReSharper disable ConvertIfStatementToNullCoalescingExpression
                 if (_dynamicSettingsGlobalHierarchical == null)
-                // ReSharper restore ConvertIfStatementToNullCoalescingExpression
+                    // ReSharper restore ConvertIfStatementToNullCoalescingExpression
                 {
                     _dynamicSettingsGlobalHierarchical =
                         new DynamicSettingsHierarchical(
-                            _dynamicSettingsGlobal,
+                            DynamicSettingsGlobal,
                             PersistanceHelper.Storage);
                 }
 
@@ -388,11 +358,11 @@
             {
                 // ReSharper disable ConvertIfStatementToNullCoalescingExpression
                 if (_dynamicSettingsUserHierarchical == null)
-                // ReSharper restore ConvertIfStatementToNullCoalescingExpression
+                    // ReSharper restore ConvertIfStatementToNullCoalescingExpression
                 {
                     _dynamicSettingsUserHierarchical =
                         new DynamicSettingsHierarchical(
-                            _dynamicSettingsUser,
+                            DynamicSettingsUser,
                             PersistanceHelper.Storage);
                 }
 
@@ -402,24 +372,18 @@
 
         public bool OmitEmptyItems
         {
-            get
-            {
-                return ConvertHelper.ToBoolean(
-                    DynamicSettingsGlobal.RetrieveValue(@"OmitEmptyItems"),
-                    true);
-            }
-            set { DynamicSettingsGlobal.PersistValue(@"OmitEmptyItems", value); }
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobal.RetrieveValue(@"OmitEmptyItems"),
+                true);
+            set => DynamicSettingsGlobal.PersistValue(@"OmitEmptyItems", value);
         }
 
         public int BaseNameDotCount
         {
-            get
-            {
-                return ConvertHelper.ToInt32(
-                    DynamicSettingsGlobal.RetrieveValue(@"BaseNameDotCount"),
-                    0);
-            }
-            set { DynamicSettingsGlobal.PersistValue(@"BaseNameDotCount", value); }
+            get => ConvertHelper.ToInt32(
+                DynamicSettingsGlobal.RetrieveValue(@"BaseNameDotCount"),
+                0);
+            set => DynamicSettingsGlobal.PersistValue(@"BaseNameDotCount", value);
         }
 
         public string NeutralLanguageFileNamePattern
@@ -438,7 +402,7 @@
                     return result;
                 }
             }
-            set { DynamicSettingsGlobal.PersistValue(@"NeutralLanguageFileNamePattern", value); }
+            set => DynamicSettingsGlobal.PersistValue(@"NeutralLanguageFileNamePattern", value);
         }
 
         public string NonNeutralLanguageFileNamePattern
@@ -457,7 +421,7 @@
                     return result;
                 }
             }
-            set { DynamicSettingsGlobal.PersistValue(@"NonNeutralLanguageFileNamePattern", value); }
+            set => DynamicSettingsGlobal.PersistValue(@"NonNeutralLanguageFileNamePattern", value);
         }
 
         public string[] DefaultFileTypesToIgnoreArray
@@ -474,7 +438,7 @@
                     var result = new HashSet<string>();
 
                     foreach (var s in types.Split(
-                        new[] { @",", @";" },
+                        new[] {@",", @";"},
                         StringSplitOptions.RemoveEmptyEntries))
                     {
                         var t = s.Trim('*', ' ');
@@ -503,143 +467,95 @@
 
                 return result ?? @".aspx;.ascx;.asmx;.master;.sitemap";
             }
-            set { DynamicSettingsGlobal.PersistValue(@"DefaultFileTypesToIgnore", value); }
+            set => DynamicSettingsGlobal.PersistValue(@"DefaultFileTypesToIgnore", value);
         }
 
         public bool IgnoreWindowsFormsResourcesWithDesignerFiles
         {
-            get
-            {
-                return ConvertHelper.ToBoolean(
-                    DynamicSettingsGlobal.RetrieveValue(
-                        @"IgnoreWindowsFormsResourcesWithDesignerFiles"),
-                    true);
-            }
-            set
-            {
-                DynamicSettingsGlobal.PersistValue(
-                    @"IgnoreWindowsFormsResourcesWithDesignerFiles",
-                    value);
-            }
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobal.RetrieveValue(
+                    @"IgnoreWindowsFormsResourcesWithDesignerFiles"),
+                true);
+            set => DynamicSettingsGlobal.PersistValue(
+                @"IgnoreWindowsFormsResourcesWithDesignerFiles",
+                value);
         }
 
         public bool UseShallowGridDataCumulation
         {
-            get
-            {
-                return ConvertHelper.ToBoolean(
-                    DynamicSettingsGlobal.RetrieveValue(
-                        @"UseShallowGridDataCumulation"),
-                    true);
-            }
-            set
-            {
-                DynamicSettingsGlobal.PersistValue(
-                    @"UseShallowGridDataCumulation",
-                    value);
-            }
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobal.RetrieveValue(
+                    @"UseShallowGridDataCumulation"),
+                true);
+            set => DynamicSettingsGlobal.PersistValue(
+                @"UseShallowGridDataCumulation",
+                value);
         }
 
         public bool HideFileGroupFilesInTree
         {
-            get
-            {
-                return ConvertHelper.ToBoolean(
-                    DynamicSettingsGlobal.RetrieveValue(
-                        @"HideFileGroupFilesInTree"),
-                    true);
-            }
-            set
-            {
-                DynamicSettingsGlobal.PersistValue(
-                    @"HideFileGroupFilesInTree",
-                    value);
-            }
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobal.RetrieveValue(
+                    @"HideFileGroupFilesInTree"),
+                true);
+            set => DynamicSettingsGlobal.PersistValue(
+                @"HideFileGroupFilesInTree",
+                value);
         }
 
         public ReadOnlyFileOverwriteBehaviour ReadOnlyFileOverwriteBehaviour
         {
-            get
-            {
-                return (ReadOnlyFileOverwriteBehaviour)ConvertHelper.ToInt32(
-                    DynamicSettingsGlobal.RetrieveValue(
-                        @"ReadOnlyFileOverwriteBehaviour"),
-                    (int)ReadOnlyFileOverwriteBehaviour.Overwrite);
-            }
-            set
-            {
-                DynamicSettingsGlobal.PersistValue(
-                    @"ReadOnlyFileOverwriteBehaviour",
-                    (int)value);
-            }
+            get => (ReadOnlyFileOverwriteBehaviour) ConvertHelper.ToInt32(
+                DynamicSettingsGlobal.RetrieveValue(
+                    @"ReadOnlyFileOverwriteBehaviour"),
+                (int) ReadOnlyFileOverwriteBehaviour.Overwrite);
+            set => DynamicSettingsGlobal.PersistValue(
+                @"ReadOnlyFileOverwriteBehaviour",
+                (int) value);
         }
 
         public bool ShowCommentsColumnInGrid
         {
-            get
-            {
-                return ConvertHelper.ToBoolean(
-                    DynamicSettingsGlobal.RetrieveValue(
-                        @"ShowCommentsColumnInGrid"),
-                    false);
-            }
-            set
-            {
-                DynamicSettingsGlobal.PersistValue(
-                    @"ShowCommentsColumnInGrid",
-                    value);
-            }
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobal.RetrieveValue(
+                    @"ShowCommentsColumnInGrid"),
+                false);
+            set => DynamicSettingsGlobal.PersistValue(
+                @"ShowCommentsColumnInGrid",
+                value);
         }
 
         public bool ColorifyNullCells
         {
-            get
-            {
-                return ConvertHelper.ToBoolean(
-                    DynamicSettingsGlobal.RetrieveValue(
-                        @"ColorifyNullCells"),
-                    true);
-            }
-            set
-            {
-                DynamicSettingsGlobal.PersistValue(
-                    @"ColorifyNullCells",
-                    value);
-            }
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobal.RetrieveValue(
+                    @"ColorifyNullCells"),
+                true);
+            set => DynamicSettingsGlobal.PersistValue(
+                @"ColorifyNullCells",
+                value);
         }
 
         public bool EnableExcelExportSnapshots
         {
-            get
-            {
-                return ConvertHelper.ToBoolean(
-                    DynamicSettingsGlobal.RetrieveValue(
-                        @"EnableExcelExportSnapshots"),
-                    true);
-            }
-            set
-            {
-                DynamicSettingsGlobal.PersistValue(
-                    @"EnableExcelExportSnapshots",
-                    value);
-            }
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobal.RetrieveValue(
+                    @"EnableExcelExportSnapshots"),
+                true);
+            set => DynamicSettingsGlobal.PersistValue(
+                @"EnableExcelExportSnapshots",
+                value);
         }
 
         public bool HideInternalDesignerRows
         {
-            get
-            {
-                return ConvertHelper.ToBoolean(
-                    DynamicSettingsGlobal.RetrieveValue(
-                        @"HideInternalDesignerRows"),
-                    true);
-            }
-            set
-            {
-                DynamicSettingsGlobal.PersistValue(
-                    @"HideInternalDesignerRows",
-                    value);
-            }
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobal.RetrieveValue(
+                    @"HideInternalDesignerRows"),
+                true);
+            set => DynamicSettingsGlobal.PersistValue(
+                @"HideInternalDesignerRows",
+                value);
         }
 
         /// <summary>
@@ -654,7 +570,7 @@
             var project =
                 new Project
                 {
-                    _projectConfigurationFilePath = projectConfigurationFilePath
+                    ProjectConfigurationFilePath = projectConfigurationFilePath
                 };
 
             return project;
@@ -686,14 +602,14 @@
         internal string MakeRelativeFilePath(
             string absoluteFilePath)
         {
-            if (_projectConfigurationFilePath == null)
+            if (ProjectConfigurationFilePath == null)
             {
                 return absoluteFilePath;
             }
             else
             {
                 return ZlpPathHelper.GetRelativePath(
-                    _projectConfigurationFilePath.DirectoryName,
+                    ProjectConfigurationFilePath.DirectoryName,
                     absoluteFilePath);
             }
         }
@@ -706,7 +622,7 @@
         internal string MakeAbsoluteFilePath(
             string relativeFilePath)
         {
-            if (_projectConfigurationFilePath == null)
+            if (ProjectConfigurationFilePath == null)
             {
                 return relativeFilePath;
             }
@@ -714,7 +630,7 @@
             {
                 return ZlpPathHelper.GetAbsolutePath(
                     relativeFilePath,
-                    _projectConfigurationFilePath.DirectoryName);
+                    ProjectConfigurationFilePath.DirectoryName);
             }
         }
 
@@ -726,7 +642,7 @@
         public void Load(
             ZlpFileInfo projectConfigurationFilePath)
         {
-            _projectConfigurationFilePath = projectConfigurationFilePath;
+            ProjectConfigurationFilePath = projectConfigurationFilePath;
 
             var doc = XmlHelper.CreateDocument();
             doc.Load(projectConfigurationFilePath.FullName);
@@ -734,8 +650,8 @@
             var rootNode = doc.SelectSingleNode(@"project");
 
             loadFromXml(rootNode);
-            _fileGroups.LoadFromXml(rootNode);
-            _projectFolders.LoadFromXml(rootNode);
+            FileGroups.LoadFromXml(rootNode);
+            ProjectFolders.LoadFromXml(rootNode);
             _virtualViews.LoadFromXml(rootNode);
 
             MarkAsUnmodified();
@@ -743,7 +659,7 @@
 
         public void SilentStore()
         {
-            if (_projectConfigurationFilePath != null)
+            if (ProjectConfigurationFilePath != null)
             {
                 Store();
             }
@@ -755,12 +671,12 @@
         public void Store()
         {
             // ReSharper disable InvocationIsSkipped
-            Debug.Assert(_projectConfigurationFilePath != null /* &&
+            Debug.Assert(ProjectConfigurationFilePath != null /* &&
                 _projectConfigurationFilePath.Exists*/
             );
             // ReSharper restore InvocationIsSkipped
 
-            StoreAs(_projectConfigurationFilePath);
+            StoreAs(ProjectConfigurationFilePath);
             MarkAsUnmodified();
         }
 
@@ -772,7 +688,7 @@
         public void StoreAs(
             ZlpFileInfo projectConfigurationFilePath)
         {
-            _projectConfigurationFilePath = projectConfigurationFilePath;
+            ProjectConfigurationFilePath = projectConfigurationFilePath;
 
             var doc = XmlHelper.CreateDocument(Encoding.UTF8);
 
@@ -780,8 +696,8 @@
             doc.AppendChild(rootNode);
 
             storeToXml(rootNode);
-            _fileGroups.StoreToXml(rootNode);
-            _projectFolders.StoreToXml(rootNode);
+            FileGroups.StoreToXml(rootNode);
+            ProjectFolders.StoreToXml(rootNode);
 
             projectConfigurationFilePath.Refresh();
             if (projectConfigurationFilePath.Exists)
@@ -812,9 +728,9 @@
 
                 // --
 
-                foreach (var key in _dynamicSettingsGlobal.DirectValues.Keys)
+                foreach (var key in DynamicSettingsGlobal.DirectValues.Keys)
                 {
-                    var value = _dynamicSettingsGlobal.DirectValues[key];
+                    var value = DynamicSettingsGlobal.DirectValues[key];
 
                     if (parentNode.OwnerDocument != null)
                     {
@@ -831,9 +747,9 @@
 
                 // --
 
-                foreach (var key in _dynamicSettingsUser.DirectValues.Keys)
+                foreach (var key in DynamicSettingsUser.DirectValues.Keys)
                 {
-                    var value = _dynamicSettingsUser.DirectValues[key];
+                    var value = DynamicSettingsUser.DirectValues[key];
 
                     if (parentNode.OwnerDocument != null)
                     {
@@ -879,7 +795,7 @@
                     var descriptionNode =
                         parentNode.OwnerDocument.CreateElement(@"description");
                     configurationNode.AppendChild(descriptionNode);
-                    descriptionNode.InnerText = _description;
+                    descriptionNode.InnerText = Description;
 
                     a = parentNode.OwnerDocument.CreateAttribute(@"languagesToDisplay");
                     a.Value = string.Join(@";", _languagesToDisplay.ToArray());
@@ -890,11 +806,8 @@
 
         public string NeutralLanguageCode
         {
-            get
-            {
-                return string.IsNullOrEmpty(_neutralLanguageCode) ? @"en-us" : _neutralLanguageCode.ToLowerInvariant();
-            }
-            set { _neutralLanguageCode = value == null ? null : value.ToLowerInvariant(); }
+            get => string.IsNullOrEmpty(_neutralLanguageCode) ? @"en-us" : _neutralLanguageCode.ToLowerInvariant();
+            set => _neutralLanguageCode = value?.ToLowerInvariant();
         }
 
         /// <summary>
@@ -911,51 +824,45 @@
             var configurationNode =
                 parentNode.SelectSingleNode(@"configuration");
 
-            if (configurationNode != null)
+            if (configurationNode?.Attributes != null)
             {
-                if (configurationNode.Attributes != null)
-                {
-                    XmlHelper.ReadAttribute(
-                        out _createBackupFiles,
-                        configurationNode.Attributes[@"createBackupFiles"]);
+                XmlHelper.ReadAttribute(
+                    out _createBackupFiles,
+                    configurationNode.Attributes[@"createBackupFiles"]);
 
-                    XmlHelper.ReadAttribute(
-                        out _hideEmptyRows,
-                        configurationNode.Attributes[@"hideEmptyRows"]);
+                XmlHelper.ReadAttribute(
+                    out _hideEmptyRows,
+                    configurationNode.Attributes[@"hideEmptyRows"]);
 
-                    XmlHelper.ReadAttribute(
-                        out _hideTranslatedRows,
-                        configurationNode.Attributes[@"hideTranslatedRows"]);
+                XmlHelper.ReadAttribute(
+                    out _hideTranslatedRows,
+                    configurationNode.Attributes[@"hideTranslatedRows"]);
 
-                    XmlHelper.ReadAttribute(
-                        out _useSpellChecker,
-                        configurationNode.Attributes[@"useSpellChecker"],
-                        true);
+                XmlHelper.ReadAttribute(
+                    out _useSpellChecker,
+                    configurationNode.Attributes[@"useSpellChecker"],
+                    true);
 
-                    XmlHelper.ReadAttribute(
-                        out _resXIndentChar,
-                        configurationNode.Attributes[@"resXIndentChar"],
-                        "\t");
+                XmlHelper.ReadAttribute(
+                    out _resXIndentChar,
+                    configurationNode.Attributes[@"resXIndentChar"],
+                    "\t");
 
-                    XmlHelper.ReadAttribute(
-                        out _neutralLanguageCode,
-                        configurationNode.Attributes[@"neutralLanguageCode"],
-                        @"en-US");
-                }
+                XmlHelper.ReadAttribute(
+                    out _neutralLanguageCode,
+                    configurationNode.Attributes[@"neutralLanguageCode"],
+                    @"en-US");
             }
 
             // --
 
             string lsRaw = null;
-            if (configurationNode != null)
+            if (configurationNode?.Attributes != null)
             {
-                if (configurationNode.Attributes != null)
-                {
-                    XmlHelper.ReadAttribute(
-                        out lsRaw,
-                        configurationNode.Attributes[@"languagesToDisplay"],
-                        null);
-                }
+                XmlHelper.ReadAttribute(
+                    out lsRaw,
+                    configurationNode.Attributes[@"languagesToDisplay"],
+                    null);
             }
 
             _languagesToDisplay.Clear();
@@ -963,71 +870,65 @@
             {
                 _languagesToDisplay.AddRange(
                     lsRaw.Split(
-                        new[] { @";" },
+                        new[] {@";"},
                         StringSplitOptions.RemoveEmptyEntries));
             }
 
             // --
 
-            _dynamicSettingsGlobal.DirectValues.Clear();
+            DynamicSettingsGlobal.DirectValues.Clear();
 
-            if (configurationNode != null)
+            var globalSettingsNodes = configurationNode?.SelectNodes(@"globalSetting");
+            if (globalSettingsNodes != null)
             {
-                var globalSettingsNodes = configurationNode.SelectNodes(@"globalSetting");
-                if (globalSettingsNodes != null)
+                foreach (XmlNode globalSettingsNode in globalSettingsNodes)
                 {
-                    foreach (XmlNode globalSettingsNode in globalSettingsNodes)
+                    if (globalSettingsNode.Attributes != null)
                     {
-                        if (globalSettingsNode.Attributes != null)
+                        string name;
+                        XmlHelper.ReadAttribute(
+                            out name,
+                            globalSettingsNode.Attributes[@"name"]);
+
+                        var value = globalSettingsNode.InnerText;
+
+                        if (!string.IsNullOrEmpty(name))
                         {
-                            string name;
-                            XmlHelper.ReadAttribute(
-                                out name,
-                                globalSettingsNode.Attributes[@"name"]);
-
-                            var value = globalSettingsNode.InnerText;
-
-                            if (!string.IsNullOrEmpty(name))
-                            {
-                                _dynamicSettingsGlobal.DirectValues[name] = value;
-                            }
+                            DynamicSettingsGlobal.DirectValues[name] = value;
                         }
                     }
                 }
             }
 
-            _dynamicSettingsGlobal.MarkAsUnmodified();
+            DynamicSettingsGlobal.MarkAsUnmodified();
 
             // --
 
-            _dynamicSettingsUser.DirectValues.Clear();
+            DynamicSettingsUser.DirectValues.Clear();
 
-            if (configurationNode != null)
+            var userSettingsNodes = configurationNode?.SelectNodes(@"userSetting");
+            if (userSettingsNodes != null)
             {
-                var userSettingsNodes = configurationNode.SelectNodes(@"userSetting");
-                if (userSettingsNodes != null)
+                foreach (XmlNode userSettingsNode in userSettingsNodes)
                 {
-                    foreach (XmlNode userSettingsNode in userSettingsNodes)
+                    if (userSettingsNode.Attributes != null)
                     {
-                        if (userSettingsNode.Attributes != null)
+                        string name;
+                        XmlHelper.ReadAttribute(
+                            out name,
+                            userSettingsNode.Attributes[@"name"]);
+
+                        var value = userSettingsNode.InnerText;
+
+                        if (!string.IsNullOrEmpty(name))
                         {
-                            string name;
-                            XmlHelper.ReadAttribute(
-                                out name,
-                                userSettingsNode.Attributes[@"name"]);
-
-                            var value = userSettingsNode.InnerText;
-
-                            if (!string.IsNullOrEmpty(name))
-                            {
-                                _dynamicSettingsUser.DirectValues[name] = value;
-                            }
+                            DynamicSettingsUser.DirectValues[name] = value;
                         }
                     }
                 }
             }
 
-            _dynamicSettingsUser.MarkAsUnmodified();
+            DynamicSettingsUser.MarkAsUnmodified();
 
             // --
 
@@ -1035,7 +936,7 @@
             {
                 var descriptionNode =
                     configurationNode.SelectSingleNode(@"description");
-                _description = descriptionNode == null ? null : descriptionNode.InnerText;
+                Description = descriptionNode?.InnerText;
             }
         }
 
@@ -1048,8 +949,8 @@
             else
             {
                 // ReSharper disable LoopCanBeConvertedToQuery
-                foreach (var projectFolder in _projectFolders)
-                // ReSharper restore LoopCanBeConvertedToQuery
+                foreach (var projectFolder in ProjectFolders)
+                    // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     if (projectFolder.UniqueID == uniqueID)
                     {
@@ -1072,8 +973,8 @@
             var result = new ProjectFolderCollection(this);
 
             // ReSharper disable LoopCanBeConvertedToQuery
-            foreach (var projectFolder in _projectFolders)
-            // ReSharper restore LoopCanBeConvertedToQuery
+            foreach (var projectFolder in ProjectFolders)
+                // ReSharper restore LoopCanBeConvertedToQuery
             {
                 if (projectFolder.ParentUniqueID == uniqueID)
                 {
@@ -1097,7 +998,7 @@
 
             // ReSharper disable LoopCanBeConvertedToQuery
             foreach (var virtualView in _virtualViews)
-            // ReSharper restore LoopCanBeConvertedToQuery
+                // ReSharper restore LoopCanBeConvertedToQuery
             {
                 if (virtualView.ProjectFolderUniqueID == uniqueID)
                 {
@@ -1120,8 +1021,8 @@
             var result = new FileGroupCollection(this);
 
             // ReSharper disable LoopCanBeConvertedToQuery
-            foreach (var fileGroup in _fileGroups)
-            // ReSharper restore LoopCanBeConvertedToQuery
+            foreach (var fileGroup in FileGroups)
+                // ReSharper restore LoopCanBeConvertedToQuery
             {
                 if (fileGroup.ProjectFolderUniqueID == uniqueID)
                 {
@@ -1138,8 +1039,8 @@
         public FileGroup GetFileGroupByCheckSum(long checksum)
         {
             // ReSharper disable LoopCanBeConvertedToQuery
-            foreach (var fileGroup in _fileGroups)
-            // ReSharper restore LoopCanBeConvertedToQuery
+            foreach (var fileGroup in FileGroups)
+                // ReSharper restore LoopCanBeConvertedToQuery
             {
                 if (fileGroup.GetChecksum(this) == checksum)
                 {
@@ -1165,13 +1066,13 @@
             }
         }
 
-        ZlpDirectoryInfo IGridEditableData.FolderPath => _projectConfigurationFilePath.Directory;
+        ZlpDirectoryInfo IGridEditableData.FolderPath => ProjectConfigurationFilePath.Directory;
 
         FileInformation[] IGridEditableData.GetFileInformationsSorted()
         {
             var result = new List<FileInformation>();
 
-            var sfg = UseShallowGridDataCumulation ? GetRootFileGroups() : _fileGroups;
+            var sfg = UseShallowGridDataCumulation ? GetRootFileGroups() : FileGroups;
             sfg.ForEach(x => result.AddRange(x.GetFileInfos()));
 
             result.Sort();
@@ -1184,7 +1085,7 @@
         {
             get
             {
-                var sfg = UseShallowGridDataCumulation ? GetRootFileGroups() : _fileGroups;
+                var sfg = UseShallowGridDataCumulation ? GetRootFileGroups() : FileGroups;
                 if (sfg.Count <= 0)
                 {
                     return FileGroupStates.Empty;
@@ -1196,7 +1097,7 @@
             }
             set
             {
-                var sfg = UseShallowGridDataCumulation ? GetRootFileGroups() : _fileGroups;
+                var sfg = UseShallowGridDataCumulation ? GetRootFileGroups() : FileGroups;
                 if (sfg.Count > 0)
                 {
                     sfg[0].InMemoryState = value;
@@ -1211,8 +1112,8 @@
                 var ss = new List<string>();
 
                 // ReSharper disable LoopCanBeConvertedToQuery
-                foreach (var filePath in ((IGridEditableData)this).GetFileInformationsSorted())
-                // ReSharper restore LoopCanBeConvertedToQuery
+                foreach (var filePath in ((IGridEditableData) this).GetFileInformationsSorted())
+                    // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     ss.Add(filePath.File.FullName);
                 }
@@ -1221,7 +1122,7 @@
             }
         }
 
-        string IGridEditableData.JoinedFilePaths => FileGroup.JoinFilePaths(((IGridEditableData)this).FilePaths);
+        string IGridEditableData.JoinedFilePaths => FileGroup.JoinFilePaths(((IGridEditableData) this).FilePaths);
 
         string IGridEditableData.GetNameIntelligent(Project project)
         {
@@ -1238,12 +1139,12 @@
         {
             var result = new HashSet<string>();
 
-            foreach (var filePath in ((IGridEditableData)this).FilePaths)
+            foreach (var filePath in ((IGridEditableData) this).FilePaths)
             {
                 var lc =
                     new LanguageCodeDetection(
-                        ((IGridEditableData)this).Project).DetectLanguageCodeFromFileName(
-                        ((IGridEditableData)this).ParentSettings,
+                        ((IGridEditableData) this).Project).DetectLanguageCodeFromFileName(
+                        ((IGridEditableData) this).ParentSettings,
                         filePath);
 
                 if (!string.IsNullOrEmpty(lc))
@@ -1257,7 +1158,7 @@
 
         public string GetFullNameIntelligent(Project project)
         {
-            return _projectConfigurationFilePath.FullName;
+            return ProjectConfigurationFilePath.FullName;
         }
 
         IInheritedSettings IInheritedSettings.ParentSettings => null;
@@ -1278,56 +1179,35 @@
 
         public int TranslationDelayMilliseconds
         {
-            get
-            {
-                return
-                    ConvertHelper.ToInt32(
-                        DynamicSettingsGlobalHierarchical.RetrieveValue(
-                            @"Project-TranslationDelayMilliseconds"),
-                        2000);
-            }
-            set
-            {
-                DynamicSettingsGlobalHierarchical.PersistValue(
-                    @"Project-TranslationDelayMilliseconds",
-                    value);
-            }
+            get => ConvertHelper.ToInt32(
+                DynamicSettingsGlobalHierarchical.RetrieveValue(
+                    @"Project-TranslationDelayMilliseconds"),
+                2000);
+            set => DynamicSettingsGlobalHierarchical.PersistValue(
+                @"Project-TranslationDelayMilliseconds",
+                value);
         }
 
         public bool TranslationContinueOnErrors
         {
-            get
-            {
-                return
-                    ConvertHelper.ToBoolean(
-                        DynamicSettingsGlobalHierarchical.RetrieveValue(
-                            @"Project-TranslationContinueOnErrors"),
-                        true);
-            }
-            set
-            {
-                DynamicSettingsGlobalHierarchical.PersistValue(
-                    @"Project-TranslationContinueOnErrors",
-                    value);
-            }
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobalHierarchical.RetrieveValue(
+                    @"Project-TranslationContinueOnErrors"),
+                true);
+            set => DynamicSettingsGlobalHierarchical.PersistValue(
+                @"Project-TranslationContinueOnErrors",
+                value);
         }
 
         public bool PersistGridSettings
         {
-            get
-            {
-                return
-                    ConvertHelper.ToBoolean(
-                        DynamicSettingsGlobalHierarchical.RetrieveValue(
-                            @"Project-PersistGridSettings"),
-                        true);
-            }
-            set
-            {
-                DynamicSettingsGlobalHierarchical.PersistValue(
-                    @"Project-PersistGridSettings",
-                    value);
-            }
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobalHierarchical.RetrieveValue(
+                    @"Project-PersistGridSettings"),
+                true);
+            set => DynamicSettingsGlobalHierarchical.PersistValue(
+                @"Project-PersistGridSettings",
+                value);
         }
 
         #endregion
@@ -1342,7 +1222,7 @@
                 if (node.OwnerDocument != null)
                 {
                     var a = node.OwnerDocument.CreateAttribute(@"type");
-                    a.InnerText = ((int)Type).ToString(CultureInfo.InvariantCulture);
+                    a.InnerText = ((int) Type).ToString(CultureInfo.InvariantCulture);
                     if (node.Attributes != null)
                     {
                         node.Attributes.Append(a);
@@ -1361,7 +1241,7 @@
                 {
                     int i;
                     XmlHelper.ReadAttribute(out i, node.Attributes[@"type"]);
-                    Type = (GridSourceType)i;
+                    Type = (GridSourceType) i;
 
                     long l;
                     XmlHelper.ReadAttribute(out l, node.Attributes[@"checksum"]);
@@ -1387,7 +1267,7 @@
 
                 // ReSharper disable LoopCanBeConvertedToQuery
                 foreach (var mruItem in this)
-                // ReSharper restore LoopCanBeConvertedToQuery
+                    // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     if (mruItem.Checksum == gridEditableData.GetChecksum(_project) &&
                         mruItem.Type == gridEditableData.SourceType)
@@ -1445,7 +1325,7 @@
                     {
                         // ReSharper disable LoopCanBeConvertedToQuery
                         foreach (XmlNode node in nodes)
-                        // ReSharper restore LoopCanBeConvertedToQuery
+                            // ReSharper restore LoopCanBeConvertedToQuery
                         {
                             result.Add(new ProjectMruItem().FromXml(node));
                         }
@@ -1481,11 +1361,11 @@
         public static Project Empty => _emptyProject ?? (_emptyProject = new Project
         {
             IsInMemoryOnly = true,
-            _projectConfigurationFilePath =
-                                               new ZlpFileInfo(
-                                                   ZlpPathHelper.Combine(
-                                                       Path.GetTempPath(),
-                                                       string.Format(@"Dummy{0}", ProjectFileExtension)))
+            ProjectConfigurationFilePath =
+                new ZlpFileInfo(
+                    ZlpPathHelper.Combine(
+                        Path.GetTempPath(),
+                        $@"Dummy{ProjectFileExtension}"))
         });
 
         public Dictionary<string, string> TranslationAppIDs
@@ -1504,11 +1384,11 @@
                 {
                     var result = new Dictionary<string, string>();
 
-                    var pairs = raw.Trim().Split(new[] { @"~~~~" }, StringSplitOptions.RemoveEmptyEntries);
+                    var pairs = raw.Trim().Split(new[] {@"~~~~"}, StringSplitOptions.RemoveEmptyEntries);
 
                     foreach (var pair in pairs)
                     {
-                        var items = pair.Split(new[] { @"=<>=" }, StringSplitOptions.RemoveEmptyEntries);
+                        var items = pair.Split(new[] {@"=<>="}, StringSplitOptions.RemoveEmptyEntries);
 
                         if (items.Length == 2)
                         {
@@ -1532,7 +1412,7 @@
                             raw += @"~~~~";
                         }
 
-                        var pair = string.Format(@"{0}=<>={1}", key.Trim(), value[key].Trim());
+                        var pair = $@"{key.Trim()}=<>={value[key].Trim()}";
                         raw += pair;
                     }
                 }
@@ -1545,18 +1425,12 @@
 
         public string TranslationEngineUniqueInternalName
         {
-            get
-            {
-                return ConvertHelper.ToString(
-                    DynamicSettingsGlobalHierarchical.RetrieveValue(
-                        @"Project-TranslationEngineUniqueInternalName"));
-            }
-            set
-            {
-                DynamicSettingsGlobalHierarchical.PersistValue(
-                    @"Project-TranslationEngineUniqueInternalName",
-                    value);
-            }
+            get => ConvertHelper.ToString(
+                DynamicSettingsGlobalHierarchical.RetrieveValue(
+                    @"Project-TranslationEngineUniqueInternalName"));
+            set => DynamicSettingsGlobalHierarchical.PersistValue(
+                @"Project-TranslationEngineUniqueInternalName",
+                value);
         }
 
         public string[] TranslationWordsToProtect
@@ -1574,15 +1448,12 @@
                 }
                 else
                 {
-                    return r.Trim().Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                    return r.Trim().Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
                 }
             }
-            set
-            {
-                DynamicSettingsGlobalHierarchical.PersistValue(
-                    @"Project-TranslationWordsToProtect",
-                    value == null ? string.Empty : string.Join(Environment.NewLine, value));
-            }
+            set => DynamicSettingsGlobalHierarchical.PersistValue(
+                @"Project-TranslationWordsToProtect",
+                value == null ? string.Empty : string.Join(Environment.NewLine, value));
         }
 
         public string[] TranslationWordsToRemove
@@ -1600,15 +1471,12 @@
                 }
                 else
                 {
-                    return r.Trim().Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                    return r.Trim().Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
                 }
             }
-            set
-            {
-                DynamicSettingsGlobalHierarchical.PersistValue(
-                    @"Project-TranslationWordsToRemove",
-                    value == null ? string.Empty : string.Join(Environment.NewLine, value));
-            }
+            set => DynamicSettingsGlobalHierarchical.PersistValue(
+                @"Project-TranslationWordsToRemove",
+                value == null ? string.Empty : string.Join(Environment.NewLine, value));
         }
 
         public void ClearMruElements()
@@ -1643,7 +1511,7 @@
 
             // ReSharper disable LoopCanBeConvertedToQuery
             foreach (var mruItem in mruItems)
-            // ReSharper restore LoopCanBeConvertedToQuery
+                // ReSharper restore LoopCanBeConvertedToQuery
             {
                 var e = getDataItemByMruItem(mruItem);
                 if (e != null)
@@ -1663,7 +1531,7 @@
                     return this;
 
                 case GridSourceType.ProjectFolder:
-                    foreach (var projectFolder in _projectFolders)
+                    foreach (var projectFolder in ProjectFolders)
                     {
                         if (projectFolder.GetChecksum(this) == mruItem.Checksum)
                         {
@@ -1673,7 +1541,7 @@
                     return null;
 
                 case GridSourceType.FileGroup:
-                    foreach (var fileGroup in _fileGroups)
+                    foreach (var fileGroup in FileGroups)
                     {
                         if (fileGroup.GetChecksum(this) == mruItem.Checksum)
                         {

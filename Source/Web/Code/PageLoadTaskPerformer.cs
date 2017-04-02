@@ -11,11 +11,8 @@ namespace Web.Code
         public PageLoadTaskPerformer(
             PageBase page )
         {
-            _page = page;
+            Page = page;
         }
-
-        private readonly PageBase _page;
-        private readonly QueryString _qs = new QueryString();
 
         public event EventHandler<NeedPerformTaskEventArgs> NeedPerformTask;
 
@@ -67,29 +64,11 @@ namespace Web.Code
         /// new URL to redirect to.
         /// </summary>
         /// <value>The redirect URL.</value>
-        public string RedirectUrl
-        {
-            get
-            {
-                return QueryString.AllUrl;
-            }
-        }
+        public string RedirectUrl => QueryString.AllUrl;
 
-        public PageBase Page
-        {
-            get
-            {
-                return _page;
-            }
-        }
+        public PageBase Page { get; }
 
-        public QueryString QueryString
-        {
-            get
-            {
-                return _qs;
-            }
-        }
+        public QueryString QueryString { get; } = new QueryString();
 
         public void Redirect()
         {

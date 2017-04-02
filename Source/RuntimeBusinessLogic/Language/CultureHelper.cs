@@ -202,9 +202,7 @@
 				out grammarFilePath))
 			{
 				Trace.WriteLine(
-					string.Format(
-						@"Using spell checker with culture '{0}'.",
-						culture));
+				    $@"Using spell checker with culture '{culture}'.");
 
 				// http://www.devexpress.com/Help/?document=XtraSpellChecker/CustomDocument3158.htm&levelup=true.
 				var spellChecker =
@@ -229,9 +227,7 @@
 			else
 			{
 				Trace.WriteLine(
-					string.Format(
-						@"No spell checker with culture '{0}' because no dictionaries available.",
-						culture));
+				    $@"No spell checker with culture '{culture}' because no dictionaries available.");
 
 				return null;
 			}
@@ -280,8 +276,7 @@
 			CultureInfo cultureInfo)
 		{
 			LogCentral.Current.LogInfo(
-				string.Format(@"Applying culture '{0}' to all UI elements.",
-					cultureInfo.Name));
+			    $@"Applying culture '{cultureInfo.Name}' to all UI elements.");
 
 			Thread.CurrentThread.CurrentCulture =
 				Thread.CurrentThread.CurrentUICulture =

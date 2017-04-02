@@ -4,7 +4,6 @@
     using System.Diagnostics;
     using System.Globalization;
     using System.Web.Services;
-    using App_GlobalResources;
     using Code;
 
     [Serializable]
@@ -21,7 +20,7 @@
         /// </summary>
         public AdResponse(
             string text,
-            string url )
+            string url)
         {
             Text = text;
             Url = url;
@@ -40,8 +39,8 @@
     /// <summary>
     /// Serves ads for the Windows client.
     /// </summary>
-    [WebService( Namespace = @"http://zeta-resource-editor.com/" )]
-    [WebServiceBinding( ConformsTo = WsiProfiles.BasicProfile1_1 )]
+    [WebService(Namespace = @"http://zeta-resource-editor.com/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class AdService :
         ApiKeyProtectedWebServiceBase
     {
@@ -72,16 +71,16 @@
         /// 
         /// </summary>
         [WebMethod(
-            Description = @"Returns an ad to display inside the Zeta Resource Editor. Simple version." )]
+            Description = @"Returns an ad to display inside the Zeta Resource Editor. Simple version.")]
         public AdResponse GetNextAdSimple()
         {
             try
             {
-                return GetNextAd( new AdRequest() );
+                return GetNextAd(new AdRequest());
             }
-            catch ( Exception x )
+            catch (Exception x)
             {
-                Trace.TraceError( x.Message );
+                Trace.TraceError(x.Message);
                 throw;
             }
         }
@@ -90,28 +89,28 @@
         /// 
         /// </summary>
         [WebMethod(
-            Description = @"Returns an ad to display inside the Zeta Resource Editor. Extended version." )]
+            Description = @"Returns an ad to display inside the Zeta Resource Editor. Extended version.")]
         public AdResponse GetNextAd(
-            AdRequest request )
+            AdRequest request)
         {
             try
             {
                 // Fetch randomly.
-                var resp = stockResponses[_rnd.Next( 0, stockResponses.Length )];
+                var resp = stockResponses[_rnd.Next(0, stockResponses.Length)];
 
                 // Translate the resources.
                 var ci = CultureInfo.GetCultureInfo(request.Culture);
 
-                resp.Text = 
-                    Resources.ResourceManager.GetString( 
-                        resp.Text, 
-                        ci );
+                resp.Text = string.Empty;
+                //Resources.ResourceManager.GetString( 
+                //    resp.Text, 
+                //    ci );
 
                 return resp;
             }
-            catch ( Exception x )
+            catch (Exception x)
             {
-                Trace.TraceError( x.Message );
+                Trace.TraceError(x.Message);
                 throw;
             }
         }

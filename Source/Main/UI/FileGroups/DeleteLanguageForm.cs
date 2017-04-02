@@ -1,11 +1,5 @@
 namespace ZetaResourceEditor.UI.FileGroups
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Globalization;
-    using System.Linq;
-    using System.Windows.Forms;
     using DevExpress.XtraEditors;
     using DevExpress.XtraEditors.Controls;
     using Helper;
@@ -14,6 +8,12 @@ namespace ZetaResourceEditor.UI.FileGroups
     using Main;
     using RuntimeBusinessLogic.ProjectFolders;
     using RuntimeBusinessLogic.Projects;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Globalization;
+    using System.Linq;
+    using System.Windows.Forms;
     using Zeta.VoyagerLibrary.Common.Collections;
     using Zeta.VoyagerLibrary.WinForms.Common;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
@@ -215,11 +215,7 @@ namespace ZetaResourceEditor.UI.FileGroups
                 {
                     XtraMessageBox.Show(
                         this,
-                        string.Format(
-                            "The operation finished successfully. {0} files were processed, {1} files were skipped, {2} files were deleted.",
-                            processed,
-                            skipped,
-                            deleted),
+                        $"The operation finished successfully. {processed} files were processed, {skipped} files were skipped, {deleted} files were deleted.",
                         @"Zeta Resource Editor",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -228,11 +224,7 @@ namespace ZetaResourceEditor.UI.FileGroups
                 {
                     XtraMessageBox.Show(
                         this,
-                        string.Format(
-                            "The operation finished successfully. {0} files were processed, of which {1} files were deleted and {2} files were not deleted.",
-                            processed,
-                            deleted,
-                            notdeleted),
+                        $"The operation finished successfully. {processed} files were processed, of which {deleted} files were deleted and {notdeleted} files were not deleted.",
                         @"Zeta Resource Editor",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -241,9 +233,7 @@ namespace ZetaResourceEditor.UI.FileGroups
                 {
                     XtraMessageBox.Show(
                         this,
-                        string.Format(
-                            "The operation finished successfully. {0} files were deleted.",
-                            deleted),
+                        $"The operation finished successfully. {deleted} files were deleted.",
                         @"Zeta Resource Editor",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -302,23 +292,6 @@ namespace ZetaResourceEditor.UI.FileGroups
         private void destinationLanguagesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateUI();
-        }
-
-        private void selectProjectLanguagesButton_Click(object sender, EventArgs e)
-        {
-            var plc = projectLanguageCodes;
-            var plcl = new List<string>(plc);
-
-            for (var index = 0; index < destinationLanguagesListBox.Items.Count; ++index)
-            {
-                var p =
-                    (MyTuple<string, CultureInfo>)
-                    ((CheckedListBoxItem)destinationLanguagesListBox.GetItem(index)).Value;
-
-                destinationLanguagesListBox.SetItemChecked(
-                    index,
-                    plcl.Contains(p.Item2.Name.ToLowerInvariant()));
-            }
         }
 
         private IEnumerable<string> projectLanguageCodes

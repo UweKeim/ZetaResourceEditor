@@ -149,10 +149,7 @@
 				{
 					pairs.Add(
 						new MyTuple<string, string>(
-							string.Format(
-								@"{0} ({1})",
-								LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName,
-								languageCode),
+						    $@"{LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName} ({languageCode})",
 							languageCode));
 				}
 			}

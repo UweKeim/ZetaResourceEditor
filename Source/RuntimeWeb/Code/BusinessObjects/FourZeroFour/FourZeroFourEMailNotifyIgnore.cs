@@ -45,9 +45,7 @@
 			try
 			{
 				LogCentral.Current.LogInfo(
-					string.Format(
-						@"Trying to resolve host name of '{0}'.",
-						hostAddress));
+				    $@"Trying to resolve host name of '{hostAddress}'.");
 
 				// Example from 
 				// http://www.microsoft.com/communities/newsgroups/en-us/default.aspx?dg=microsoft.public.de.german.entwickler.dotnet.asp&tid=83bde397-291d-417e-b2b8-b2a1a6c7e06a&p=1
@@ -59,9 +57,7 @@
 			{
 				//-- Fallback if lookup failed.
 				LogCentral.Current.LogInfo(
-					string.Format(
-						@"Failed to resolve host name of '{0}' - Using IP address.",
-						hostAddress),
+				    $@"Failed to resolve host name of '{hostAddress}' - Using IP address.",
 					e);
 			}
 
@@ -109,12 +105,9 @@
 					if (string.IsNullOrEmpty(check))
 					{
 						LogCentral.Current.LogInfo(
-							string.Format(
-								@"[404 notify e-mail ignore] NOT matching: pattern to check = '{0}', against string '{1}', of detect type '{2}' with pattern type '{3}'.",
-								_pattern,
-								@"(NULL/empty)",
-								_detectType,
-								_patternType));
+						    $@"[404 notify e-mail ignore] NOT matching: pattern to check = '{_pattern}', against string '{
+						            @"(NULL/empty)"
+						        }', of detect type '{_detectType}' with pattern type '{_patternType}'.");
 
 						return false;
 					}
@@ -128,24 +121,18 @@
 						if (match)
 						{
 							LogCentral.Current.LogInfo(
-								string.Format(
-									@"[404 notify e-mail ignore] IS matching: pattern to check = '{0}', against string '{1}', of detect type '{2}' with pattern type '{3}'.",
-									_pattern,
-									check,
-									_detectType,
-									_patternType));
+							    $@"[404 notify e-mail ignore] IS matching: pattern to check = '{_pattern}', against string '{
+							            check
+							        }', of detect type '{_detectType}' with pattern type '{_patternType}'.");
 
 							return true;
 						}
 						else
 						{
 							LogCentral.Current.LogInfo(
-								string.Format(
-									@"[404 notify e-mail ignore] NOT matching: pattern to check = '{0}', against string '{1}', of detect type '{2}' with pattern type '{3}'.",
-									_pattern,
-									check,
-									_detectType,
-									_patternType));
+							    $@"[404 notify e-mail ignore] NOT matching: pattern to check = '{_pattern}', against string '{
+							            check
+							        }', of detect type '{_detectType}' with pattern type '{_patternType}'.");
 
 							return false;
 						}

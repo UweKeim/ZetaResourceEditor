@@ -20,31 +20,23 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.VirtualViews
 	public class VirtualViewCollection :
 		List<VirtualView>
 	{
-		private readonly Project _project;
-
-		/// <summary>
+	    /// <summary>
 		/// Initializes a new instance of the <see cref="VirtualViewCollection"/> class.
 		/// </summary>
 		/// <param name="project">The project.</param>
 		public VirtualViewCollection(
 			Project project)
 		{
-			_project = project;
+			Project = project;
 		}
 
 		/// <summary>
 		/// Gets the project.
 		/// </summary>
 		/// <value>The project.</value>
-		public Project Project
-		{
-			get
-			{
-				return _project;
-			}
-		}
+		public Project Project { get; }
 
-		/// <summary>
+	    /// <summary>
 		/// Stores to XML.
 		/// </summary>
 		/// <param name="parentNode">The parent node.</param>
@@ -65,7 +57,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.VirtualViews
 							parentNode.OwnerDocument.CreateElement(@"virtualView");
 						groupsNode.AppendChild(virtualViewNode);
 
-						virtualView.StoreToXml(_project, virtualViewNode);
+						virtualView.StoreToXml(Project, virtualViewNode);
 					}
 				}
 			}
@@ -87,8 +79,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.VirtualViews
 			{
 				foreach (XmlNode virtualViewNode in virtualViewNodes)
 				{
-					var virtualView = new VirtualView(_project);
-					virtualView.LoadFromXml(_project, virtualViewNode);
+					var virtualView = new VirtualView(Project);
+					virtualView.LoadFromXml(Project, virtualViewNode);
 					Add(virtualView);
 				}
 			}

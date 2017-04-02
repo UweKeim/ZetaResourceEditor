@@ -66,9 +66,7 @@ namespace Web.Code
                     if ( cache.IsCachedVersionAvailable )
                     {
                         // Report error but continue anyway.
-                        LogCentral.Current.LogError( string.Format(
-                            @"Error during document retrieval from URL '{0}'.",
-                            fetchFromUrl ),
+                        LogCentral.Current.LogError($@"Error during document retrieval from URL '{fetchFromUrl}'.",
                             x );
 
                         html = cache.CachedContent;
@@ -104,13 +102,7 @@ namespace Web.Code
         /// The placeholder parameters (if any) from the last call.
         /// Returns NULL if no parameters.
         /// </summary>
-        public string PlaceholderParameters
-        {
-            get
-            {
-                return _internalPlaceholderParameters;
-            }
-        }
+        public string PlaceholderParameters => _internalPlaceholderParameters;
 
         /// <summary>
         /// Read the HTML string that appears before the placeholder.
@@ -242,9 +234,7 @@ namespace Web.Code
             string url )
         {
             LogCentral.Current.LogInfo(
-                string.Format(
-                    @"Reading remote HTML document from URL '{0}'.",
-                    url ) );
+                $@"Reading remote HTML document from URL '{url}'.");
 
             var req = (HttpWebRequest)WebRequest.Create( url );
 
@@ -277,10 +267,7 @@ namespace Web.Code
                 _sourcePageEncodingName = detectEncodingName( content );
 
                 LogCentral.Current.LogInfo(
-                    string.Format(
-                        @"Detected encoding '{0}' for remote HTML document from URL '{1}'.",
-                        _sourcePageEncodingName,
-                        url ) );
+                    $@"Detected encoding '{_sourcePageEncodingName}' for remote HTML document from URL '{url}'.");
 
                 _sourcePageEncoding = getEncodingByName( _sourcePageEncodingName );
                 string html = _sourcePageEncoding.GetString( content );
@@ -539,9 +526,7 @@ namespace Web.Code
         {
             placeholder = placeholder.Trim().Trim( '#' ).Trim();
 
-            var pattern = string.Format(
-                @"##{0}(\([^\)]*\))?##",
-                placeholder );
+            var pattern = $@"##{placeholder}(\([^\)]*\))?##";
 
             var match = Regex.Match(
                 html,
@@ -600,7 +585,7 @@ namespace Web.Code
             }
             else
             {
-                html = Regex.Replace( html, @"(<head[^>]*>)", string.Format( "$1\n{0}\n", header ),
+                html = Regex.Replace( html, @"(<head[^>]*>)", $"$1\n{header}\n",
                     RegexOptions.IgnoreCase | RegexOptions.Multiline );
 
                 return html;
@@ -651,10 +636,7 @@ namespace Web.Code
                     encoding = Encoding.Default;
 
                     LogCentral.Current.LogError(
-                        string.Format(
-                            @"Unsupported encoding: '{0}'. Returning default encoding '{1}'.",
-                            encodingName,
-                            encoding ),
+                        $@"Unsupported encoding: '{encodingName}'. Returning default encoding '{encoding}'.",
                         x );
 
                     encoding = Encoding.Default;
@@ -850,10 +832,7 @@ namespace Web.Code
                     var o = HttpContext.Current.Session[cacheDateKeyName];
                     return ConvertHelper.ToDateTime( o );
                 }
-                set
-                {
-                    HttpContext.Current.Session[cacheDateKeyName] = value;
-                }
+                set => HttpContext.Current.Session[cacheDateKeyName] = value;
             }
 
             /// <summary>
@@ -869,30 +848,12 @@ namespace Web.Code
             /// <summary>
             /// Calculate the unique key name.
             /// </summary>
-            private string cacheContentKeyName
-            {
-                get
-                {
-                    return string.Format(
-                        @"{0}.{1}.Content",
-                        GetType().FullName,
-                        _key );
-                }
-            }
+            private string cacheContentKeyName => $@"{GetType().FullName}.{_key}.Content";
 
             /// <summary>
             /// Calculate the unique key name.
             /// </summary>
-            private string cacheDateKeyName
-            {
-                get
-                {
-                    return string.Format(
-                        @"{0}.{1}.FetchDate",
-                        GetType().FullName,
-                        _key );
-                }
-            }
+            private string cacheDateKeyName => $@"{GetType().FullName}.{_key}.FetchDate";
         }
 
         // ------------------------------------------------------------------

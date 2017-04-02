@@ -16,15 +16,9 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 
 		private Exception _exception;
 
-		protected override bool WantSetGlobalIcon
-		{
-			get
-			{
-				return false;
-			}
-		}
+		protected override bool WantSetGlobalIcon => false;
 
-		public ErrorForm()
+	    public ErrorForm()
 		{
 			InitializeComponent();
 

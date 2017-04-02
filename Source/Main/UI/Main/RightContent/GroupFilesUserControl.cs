@@ -118,43 +118,18 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 			}
 		}
 
-		public bool CanClose
-		{
-			get
-			{
-				return CurrentFileGroupControl != null &&
-					CurrentFileGroupControl.CanClose;
-			}
-		}
+		public bool CanClose => CurrentFileGroupControl != null &&
+		                        CurrentFileGroupControl.CanClose;
 
-		public bool CanResetLayout
-		{
-			get
-			{
-				return CurrentFileGroupControl != null &&
-					CurrentFileGroupControl.CanResetLayout;
-			}
-		}
+	    public bool CanResetLayout => CurrentFileGroupControl != null &&
+	                                  CurrentFileGroupControl.CanResetLayout;
 
-		public bool CanCloseAllDocuments
-		{
-			get
-			{
-				return mainTabControl.Visible && mainTabControl.TabPages.Count > 0;
-			}
-		}
+	    public bool CanCloseAllDocuments => mainTabControl.Visible && mainTabControl.TabPages.Count > 0;
 
-		public bool CanOpenFolderOfCurrentResourceFile
-		{
-			get
-			{
-				return
-					mainTabControl.Visible && mainTabControl.SelectedTabPage != null &&
-					CurrentFileGroupControl.CanOpenFolder;
-			}
-		}
+	    public bool CanOpenFolderOfCurrentResourceFile => mainTabControl.Visible && mainTabControl.SelectedTabPage != null &&
+	                                                      CurrentFileGroupControl.CanOpenFolder;
 
-		/// <summary>
+	    /// <summary>
 		/// Opens the with dialog.
 		/// </summary>
 		public void OpenWithDialog()
@@ -162,8 +137,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 			using (var ofd = new OpenFileDialog())
 			{
 				ofd.Multiselect = true;
-				ofd.Filter = string.Format(@"{0} (*.resx;*.resw)|*.resx;*.resw",
-					Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles);
+				ofd.Filter = $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw";
 				ofd.RestoreDirectory = true;
 
 				var initialDir =
@@ -541,25 +515,13 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 				CanCloseAllDocuments;
 		}
 
-		private bool canCloseAllButThis
-		{
-			get
-			{
-				return mainTabControl.SelectedTabPage != null &&
-					mainTabControl.TabPages.Count > 1;
-			}
-		}
+		private bool canCloseAllButThis => mainTabControl.SelectedTabPage != null &&
+		                                   mainTabControl.TabPages.Count > 1;
 
-		public bool CanSave
-		{
-			get
-			{
-				return CurrentFileGroupControl != null &&
-					CurrentFileGroupControl.CanSave;
-			}
-		}
+	    public bool CanSave => CurrentFileGroupControl != null &&
+		                       CurrentFileGroupControl.CanSave;
 
-		#region Event handler.
+	    #region Event handler.
 		// ------------------------------------------------------------------
 
 		private void optionsPopupMenu_BeforePopup(object sender, CancelEventArgs e)

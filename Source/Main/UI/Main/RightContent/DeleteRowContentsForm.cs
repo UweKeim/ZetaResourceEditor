@@ -96,12 +96,9 @@
 			}
 		}
 
-		internal bool WantDeleteComments
-		{
-			get { return deleteCommentsCheckEdit.Checked; }
-		}
+		internal bool WantDeleteComments => deleteCommentsCheckEdit.Checked;
 
-		internal string[] GetLanguagesToDelete()
+	    internal string[] GetLanguagesToDelete()
 		{
 			if (displayAllLanguagesCheckEdit.Checked)
 			{
@@ -154,10 +151,7 @@
 				{
 					pairs.Add(
 						new MyTuple<string, string>(
-							string.Format(
-								@"{0} ({1})",
-								LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName,
-								languageCode),
+						    $@"{LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName} ({languageCode})",
 							languageCode));
 				}
 			}

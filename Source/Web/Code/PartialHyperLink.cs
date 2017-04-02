@@ -31,10 +31,7 @@
 					return str;
 				}
 			}
-			set
-			{
-				ViewState[@"NavigateUrl"] = value;
-			}
+			set => ViewState[@"NavigateUrl"] = value;
 		}
 
 		[
@@ -56,10 +53,7 @@
 					return str;
 				}
 			}
-			set
-			{
-				ViewState[@"Text"] = value;
-			}
+			set => ViewState[@"Text"] = value;
 		}
 
 		[
@@ -81,10 +75,7 @@
 					return string.Empty;
 				}
 			}
-			set
-			{
-				ViewState[@"ImageUrl"] = value;
-			}
+			set => ViewState[@"ImageUrl"] = value;
 		}
 
 		[
@@ -105,10 +96,7 @@
 					return string.Empty;
 				}
 			}
-			set
-			{
-				ViewState[@"Target"] = value;
-			}
+			set => ViewState[@"Target"] = value;
 		}
 
 		protected override void RenderContents( HtmlTextWriter writer )

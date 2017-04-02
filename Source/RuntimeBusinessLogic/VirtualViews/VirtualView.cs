@@ -21,30 +21,23 @@
 	{
 		public VirtualView(Project project)
 		{
-			_project = project;
+			Project = project;
 		}
 
-		private readonly Project _project;
-
-		private string _name;
+	    private string _name;
 		private Guid _projectFolderUniqueID;
 		private int _orderPosition;
 		private Guid _uniqueID;
 
 		public Guid UniqueID => _uniqueID;
 
-        public Project Project => _project;
+        public Project Project { get; }
 
-        public ProjectFolder ProjectFolder
+	    public ProjectFolder ProjectFolder
 		{
-			get
-			{
-				return _project.GetProjectFolderByUniqueID(_projectFolderUniqueID);
-			}
-			set {
-				_projectFolderUniqueID = value?.UniqueID ?? Guid.Empty;
-			}
-		}
+			get => Project.GetProjectFolderByUniqueID(_projectFolderUniqueID);
+	        set => _projectFolderUniqueID = value?.UniqueID ?? Guid.Empty;
+	    }
 
 		internal void StoreToXml(
 			Project project,
@@ -140,19 +133,13 @@
 			AsynchronousMode asynchronousMode,
 			object userState)
 		{
-			_project.MarkAsModified();
+			Project.MarkAsModified();
 		}
 
 		public int OrderPosition
 		{
-			get
-			{
-				return _orderPosition;
-			}
-			set
-			{
-				_orderPosition = value;
-			}
+			get => _orderPosition;
+		    set => _orderPosition = value;
 		}
 
 		public string Remarks { get; set; }
@@ -161,8 +148,8 @@
 
 		public string Name
 		{
-			get { return _name; }
-			set { _name = value; }
+			get => _name;
+		    set => _name = value;
 		}
 
 		public MyTuple<string, string>[] GetLanguageCodesExtended(Project project)
@@ -201,12 +188,6 @@
 			return CompareTo((VirtualView)obj);
 		}
 
-		public FileGroupStateColor TranslationStateColor
-		{
-			get
-			{
-				throw new NotImplementedException();
-			}
-		}
+		public FileGroupStateColor TranslationStateColor => throw new NotImplementedException();
 	}
 }

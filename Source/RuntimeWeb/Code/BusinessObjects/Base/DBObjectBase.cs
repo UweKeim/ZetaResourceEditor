@@ -11,9 +11,7 @@
 	[DebuggerDisplay(@"ID = {_id}, Type = ""{GetType()}""")]
 	public abstract class DBObjectBase
 	{
-		private object _tag;
-
-		#region Formatting.
+	    #region Formatting.
 		// ------------------------------------------------------------------
 
 		/// <summary>
@@ -85,89 +83,39 @@
 		/// Indicates whether the object does exist in the database or
 		/// in memory only (i.e. is still unsaved).
 		/// </summary>
-		public virtual bool IsEmpty
-		{
-			get
-			{
-				return _id <= 0;
-			}
-		}
+		public virtual bool IsEmpty => _id <= 0;
 
-		public object Tag
-		{
-			get
-			{
-				return _tag;
-			}
-			set
-			{
-				_tag = value;
-			}
-		}
+	    public object Tag { get; set; }
 
-		public string DBTag
+	    public string DBTag
 		{
-			get
-			{
-				return _dbTag;
-			}
-			set
-			{
-				_dbTag = value;
-			}
-		}
+			get => _dbTag;
+	        set => _dbTag = value;
+	    }
 
 		public bool IsDeleted
 		{
-			get
-			{
-				return _isDeleted;
-			}
-			set
-			{
-				_isDeleted = value;
-			}
+			get => _isDeleted;
+		    set => _isDeleted = value;
 		}
 
 		/// <summary>
 		/// The owning manager of this object.
 		/// </summary>
-		public DBObjectsManagerBase OwningManager
-		{
-			get
-			{
-				return _owningManager;
-			}
-			set
-			{
-				_owningManager = value;
-			}
-		}
+		public DBObjectsManagerBase OwningManager { get; set; }
 
-		/// <summary>
+	    /// <summary>
 		/// The owning manager of this object.
 		/// </summary>
-		public ElementManager ElementManager
-		{
-			get
-			{
-				return _owningManager.ElementManager;
-			}
-		}
+		public ElementManager ElementManager => OwningManager.ElementManager;
 
-		/// <summary>
+	    /// <summary>
 		/// Gets the ID.
 		/// </summary>
 		/// <value>The ID.</value>
-		public virtual int ID
-		{
-			get
-			{
-				return _id;
-			}
-		}
+		public virtual int ID => _id;
 
-		/// <summary>
+	    /// <summary>
 		/// Determines whether [is null or empty] [the specified obj].
 		/// </summary>
 		/// <param name="obj">The obj.</param>
@@ -194,15 +142,9 @@
 			}
 		}
 
-		public bool CanStore
-		{
-			get
-			{
-				return IsValid;
-			}
-		}
+		public bool CanStore => IsValid;
 
-		public bool IsValid
+	    public bool IsValid
 		{
 			get
 			{
@@ -239,10 +181,7 @@
 		public virtual void Validate(
 			ValidateObjectDelegate del)
 		{
-			if (del != null)
-			{
-				del(this);
-			}
+		    del?.Invoke(this);
 		}
 
 		/// <summary>
@@ -312,8 +251,7 @@
 			new FastSmartWeakEvent<EventHandler<ValidateObjectEventArgs>>();
 
 		protected int _id;
-		private DBObjectsManagerBase _owningManager;
-		private bool _isDeleted;
+	    private bool _isDeleted;
 		private string _dbTag;
 
 		/// <summary>
@@ -334,13 +272,13 @@
 			// Condition added 2008-11-15, Uwe Keim.
 			// Only set if not already set to allow copying between
 			// different projects.
-			if (_owningManager == null)
+			if (OwningManager == null)
 			{
-				_owningManager = source._owningManager;
+				OwningManager = source.OwningManager;
 			}
 
 			_id = source._id;
-			_tag = source._tag;
+			Tag = source.Tag;
 		}
 
 		/// <summary>
@@ -352,20 +290,12 @@
 		public class ValidateObjectEventArgs :
 			EventArgs
 		{
-			private readonly DBObjectBase _obj;
-
-			public ValidateObjectEventArgs(DBObjectBase obj)
+		    public ValidateObjectEventArgs(DBObjectBase obj)
 			{
-				_obj = obj;
+				Obj = obj;
 			}
 
-			public DBObjectBase Obj
-			{
-				get
-				{
-					return _obj;
-				}
-			}
+			public DBObjectBase Obj { get; }
 		}
 	}
 }

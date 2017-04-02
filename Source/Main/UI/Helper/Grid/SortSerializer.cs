@@ -14,13 +14,7 @@
         {
         }
 
-        protected override string KeyPrefix
-        {
-            get
-            {
-                return @"Sort";
-            }
-        }
+        protected override string KeyPrefix => @"Sort";
 
         public override void Reset()
         {
@@ -28,28 +22,15 @@
 
             gridView.ClearSorting();
 
-            if (gridView.SortInfo != null)
-            {
-                gridView.SortInfo.ClearSorting();
-            }
-            if (gridView.GroupSummarySortInfo != null)
-            {
-                gridView.GroupSummarySortInfo.Clear();
-            }
+            gridView.SortInfo?.ClearSorting();
+            gridView.GroupSummarySortInfo?.Clear();
             gridView.GroupSummarySortInfoState = null;
         }
 
-        protected override string[] Fields
+        protected override string[] Fields => new[]
         {
-            get
-            {
-                return
-                    new[]
-                        {
-							@"SortedColumns",
-							@"SortInfo"
-                        };
-            }
-        }
+            @"SortedColumns",
+            @"SortInfo"
+        };
     }
 }

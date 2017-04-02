@@ -5,8 +5,6 @@ namespace Web.Code
 {
     public class Host
     {
-        private ElementManager _elementManager;
-
         public static Host GetCurrent(HttpContext context)
         {
             var host = context.Session[@"Host.Current"] as Host;
@@ -29,25 +27,13 @@ namespace Web.Code
             return host;
         }
 
-        public static Host Current
-        {
-            get
-            {
-                return GetCurrent(HttpContext.Current);
-            }
-        }
+        public static Host Current => GetCurrent(HttpContext.Current);
 
         private void initialize()
         {
-            _elementManager = new ElementManager();
+            ElementManager = new ElementManager();
         }
 
-        public ElementManager ElementManager
-        {
-            get
-            {
-                return _elementManager;
-            }
-        }
+        public ElementManager ElementManager { get; private set; }
     }
 }

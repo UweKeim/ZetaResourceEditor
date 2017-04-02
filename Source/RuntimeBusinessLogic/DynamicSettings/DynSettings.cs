@@ -7,21 +7,16 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
 
     internal class DynSettings
     {
-        private readonly Dictionary<string, string> _inMemoryValues =
-            new Dictionary<string, string>();
-
-        private bool _isModified;
-
         public void MarkAsUnmodified()
         {
-            _isModified = false;
+            IsModified = false;
         }
 
-        public bool IsModified => _isModified;
+        public bool IsModified { get; private set; }
 
         public void StoreToXml(XmlElement node)
         {
-            foreach (var pair in _inMemoryValues)
+            foreach (var pair in DirectValues)
             {
                 if (node.OwnerDocument != null)
                 {
@@ -49,7 +44,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
 
         public void LoadFromXml(XmlNode node)
         {
-            _inMemoryValues.Clear();
+            DirectValues.Clear();
 
             var settingNodes = node.SelectNodes(@"setting");
 
@@ -65,18 +60,18 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
                         var value = settingNode.SelectSingleNode(@"value");
                         if (value != null)
                         {
-                            _inMemoryValues[name] = value.InnerText;
+                            DirectValues[name] = value.InnerText;
                         }
                         else
                         {
-                            _inMemoryValues[name] = null;
+                            DirectValues[name] = null;
                         }
                     }
                 }
             }
         }
 
-        public Dictionary<string, string> DirectValues => _inMemoryValues;
+        public Dictionary<string, string> DirectValues { get; } = new Dictionary<string, string>();
 
         public void PersistValue(string name, string value)
         {
@@ -94,13 +89,13 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
                     if (!isSame(current, adding))
                     {
                         DirectValues[name] = adding;
-                        _isModified = true;
+                        IsModified = true;
                     }
                 }
                 else
                 {
                     DirectValues.Add(name, value ?? string.Empty);
-                    _isModified = true;
+                    IsModified = true;
                 }
             }
         }
@@ -142,7 +137,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
                 {
                     if (DirectValues.Remove(name))
                     {
-                        _isModified = true;
+                        IsModified = true;
                     }
                 }
             }

@@ -185,6 +185,15 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} texts were translated by using already translated other texts..
+        /// </summary>
+        internal static string SR_AutoTranslateForm_buttonTranslateClick_TranslatingTranslatedTextsExisting {
+            get {
+                return ResourceManager.GetString("SR_AutoTranslateForm_buttonTranslateClick_TranslatingTranslatedTextsExisting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The background processing did not respond within the given time-frame..
         /// </summary>
         internal static string SR_BackgroundWorkerLongProgressForm_cancelGuardTimerTick_NotResponding {

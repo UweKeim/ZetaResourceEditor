@@ -17,23 +17,15 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ProjectFolders
 	public class ProjectFolderCollection :
 		List<ProjectFolder>
 	{
-		private readonly Project _project;
-
-		public ProjectFolderCollection(
+	    public ProjectFolderCollection(
 			Project project )
 		{
-			_project = project;
+			Project = project;
 		}
 
-		public Project Project
-		{
-			get
-			{
-				return _project;
-			}
-		}
+		public Project Project { get; }
 
-		internal void StoreToXml(
+	    internal void StoreToXml(
 			XmlElement parentNode )
 		{
 			if (parentNode.OwnerDocument != null)
@@ -68,7 +60,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ProjectFolders
 			{
 				foreach ( XmlNode projectFolderNode in projectFolderNodes )
 				{
-					var projectFolder = new ProjectFolder( _project );
+					var projectFolder = new ProjectFolder( Project );
 					projectFolder.LoadFromXml( projectFolderNode );
 
 					Add(projectFolder);
