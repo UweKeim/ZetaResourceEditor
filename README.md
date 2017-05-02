@@ -1,11 +1,11 @@
 # Zeta Resource Editor
 Edit your .NET resource files in parallel
 
-*[Download latest binary setup package](http://zeta.li/zre-download-setup)* | [Download latest sources](http://zeta.li/zre-download-sources) | [Visit official website](http://www.zeta-resource-editor.com) | [Support forum](http://groups.google.com/group/zeta-resource-editor)
+**[Download latest binary setup package](http://zeta.li/zre-download-setup)** | [Visit official website](http://www.zeta-resource-editor.com) | [Support forum](http://groups.google.com/group/zeta-resource-editor)
 
 ![Alt text](http://i.imgur.com/dYMVWKn.png)
 
-*[Download latest binary setup package](http://zeta.li/zre-download-setup)* | [Download latest sources](http://zeta.li/zre-download-sources) 
+**[Download latest binary setup package](http://zeta.li/zre-download-setup)**
 
 _(Please see the bottom of this article for the latest updates)_
 _(The project is also available at [The Code Project](http://www.codeproject.com/KB/aspnet/ZetaResourceEditor.aspx), at [CodePlex](https://zetaresourceeditor.codeplex.com) and at [Google Code](http://code.google.com/p/zetaresourceeditor))_
