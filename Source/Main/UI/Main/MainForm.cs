@@ -1,8 +1,5 @@
 namespace ZetaResourceEditor.UI.Main
 {
-    #region Using directives.
-    // ----------------------------------------------------------------------
-
     using Code;
     using DevExpress.Utils;
     using DevExpress.XtraBars;
@@ -39,14 +36,6 @@ namespace ZetaResourceEditor.UI.Main
     using Zeta.VoyagerLibrary.WinForms.Persistance;
     using ZetaLongPaths;
 
-    // ----------------------------------------------------------------------
-    #endregion
-
-    /////////////////////////////////////////////////////////////////////////
-
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class MainForm :
         RibbonFormBase
     {
@@ -75,6 +64,7 @@ namespace ZetaResourceEditor.UI.Main
         }
 
         #region Properties
+
         // ------------------------------------------------------------------
 
         /// <summary>
@@ -83,41 +73,17 @@ namespace ZetaResourceEditor.UI.Main
         /// <value>The current instance.</value>
         public static MainForm Current { get; private set; }
 
-        /// <summary>
-        /// Gets the user storage or as a fall back the global storage.
-        /// </summary>
-        /// <value>The user storage intelligent.</value>
-        public static IPersistentPairStorage UserStorageIntelligent
-        {
-            get
-            {
-                if (Current == null ||
-                    Current.ProjectFilesControl == null ||
-                    Current.ProjectFilesControl.Project == null ||
-                    Current.ProjectFilesControl.Project.DynamicSettingsUser == null)
-                {
-                    return PersistanceHelper.Storage;
-                }
-                else
-                {
-                    return Current.ProjectFilesControl.Project.DynamicSettingsUser;
-                }
-            }
-        }
+        public static IPersistentPairStorage UserStorageIntelligent =>
+            Current?.ProjectFilesControl?.Project?.DynamicSettingsUser ?? PersistanceHelper.Storage;
 
-        /// <summary>
-        /// Gets the project files control.
-        /// </summary>
-        /// <value>The project files control.</value>
-        internal ProjectFilesUserControl ProjectFilesControl { get; private set; }
+        // Muss public bleiben für Forms-Designer.
+        public ProjectFilesUserControl ProjectFilesControl { get; private set; }
 
-        /// <summary>
-        /// Gets the group files control.
-        /// </summary>
-        /// <value>The group files control.</value>
-        internal GroupFilesUserControl GroupFilesControl { get; private set; }
+        // Muss public bleiben für Forms-Designer.
+        public GroupFilesUserControl GroupFilesControl { get; private set; }
 
         // ------------------------------------------------------------------
+
         #endregion
 
         public MainForm()
@@ -136,11 +102,7 @@ namespace ZetaResourceEditor.UI.Main
 
         internal void SaveWithDialog(SaveOptions saveOptions)
         {
-            if (GroupFilesControl.CurrentFileGroupControl != null)
-            {
-                GroupFilesControl.CurrentFileGroupControl.DoSaveFiles(
-                    saveOptions);
-            }
+            GroupFilesControl.CurrentFileGroupControl?.DoSaveFiles(saveOptions);
         }
 
         private void openToolStripMenuItem_Click(
@@ -152,6 +114,7 @@ namespace ZetaResourceEditor.UI.Main
         }
 
         #region MRU handling, both for files and projects.
+
         // ------------------------------------------------------------------
 
         /*
@@ -403,7 +366,7 @@ namespace ZetaResourceEditor.UI.Main
 
             var result = new List<string>(
                 paths.Split(new[] { @"###~~~###" },
-                StringSplitOptions.RemoveEmptyEntries));
+                    StringSplitOptions.RemoveEmptyEntries));
 
             while (result.Count > MruMaxMruItems)
             {
@@ -435,7 +398,7 @@ namespace ZetaResourceEditor.UI.Main
 
             var result = new List<string>(
                 paths.Split(new[] { @"###~~~###" },
-                StringSplitOptions.RemoveEmptyEntries));
+                    StringSplitOptions.RemoveEmptyEntries));
 
             while (result.Count > MruMaxMruItems)
             {
@@ -557,6 +520,7 @@ namespace ZetaResourceEditor.UI.Main
         }
 
         // ------------------------------------------------------------------
+
         #endregion
 
         private void aboutZetaResxEditorToolStripMenuItem_Click(
@@ -623,26 +587,26 @@ namespace ZetaResourceEditor.UI.Main
 
             buttonImport.Enabled =
                 buttonExport.Enabled =
-                ProjectFilesControl.Project != null &&
-                ProjectFilesControl.Project != Project.Empty;
+                    ProjectFilesControl.Project != null &&
+                    ProjectFilesControl.Project != Project.Empty;
 
             buttonSaveResourceFiles.Enabled =
                 GroupFilesControl.CanSave;
             buttonCloseResourceFiles.Enabled =
                 GroupFilesControl.CanClose;
             buttonAddNewTag.Enabled =
-                    GroupFilesControl.CurrentFileGroupControl != null &&
-                        GroupFilesControl.CurrentFileGroupControl.CanAddTag;
+                GroupFilesControl.CurrentFileGroupControl != null &&
+                GroupFilesControl.CurrentFileGroupControl.CanAddTag;
             buttonDeleteTag.Enabled =
-                    GroupFilesControl.CurrentFileGroupControl != null &&
-                        GroupFilesControl.CurrentFileGroupControl.CanDeleteTag;
+                GroupFilesControl.CurrentFileGroupControl != null &&
+                GroupFilesControl.CurrentFileGroupControl.CanDeleteTag;
             buttonRenameTag.Enabled =
-                    GroupFilesControl.CurrentFileGroupControl != null &&
-                        GroupFilesControl.CurrentFileGroupControl.CanRenameTag;
+                GroupFilesControl.CurrentFileGroupControl != null &&
+                GroupFilesControl.CurrentFileGroupControl.CanRenameTag;
 
             buttonTranslateMissingLanguages.Enabled =
                 GroupFilesControl.CurrentFileGroupControl != null &&
-                        GroupFilesControl.CurrentFileGroupControl.CanAutoTranslateMissingTranslations;
+                GroupFilesControl.CurrentFileGroupControl.CanAutoTranslateMissingTranslations;
 
             buttonCloseAllDocuments.Enabled =
                 GroupFilesControl.CanCloseAllDocuments;
@@ -672,20 +636,20 @@ namespace ZetaResourceEditor.UI.Main
                 ProjectFilesControl != null && ProjectFilesUserControl.CanCreateNewProject;
             buttonAddFileGroupToProject.Enabled =
                 buttonAutomaticallyAddFileGroupsToProject.Enabled =
-                buttonAddFromVisualStudio.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanAddResourceFilesToProject;
+                    buttonAddFromVisualStudio.Enabled =
+                        ProjectFilesControl != null && ProjectFilesControl.CanAddResourceFilesToProject;
             buttonRemoveFileGroupFromProject.Enabled =
                 ProjectFilesControl != null && ProjectFilesControl.CanRemoveResourceFilesFromProject;
             buttonEditProjectSettings.Enabled =
                 ProjectFilesControl != null && ProjectFilesControl.CanEditProjectSettings;
 
             buttonFind.Enabled =
-            buttonReplace.Enabled =
+                buttonReplace.Enabled =
                     GroupFilesControl.CurrentFileGroupControl != null &&
-                        GroupFilesControl.CurrentFileGroupControl.CanFind;
+                    GroupFilesControl.CurrentFileGroupControl.CanFind;
             buttonFindNext.Enabled =
-                    GroupFilesControl.CurrentFileGroupControl != null &&
-                        GroupFilesControl.CurrentFileGroupControl.CanFindNext;
+                GroupFilesControl.CurrentFileGroupControl != null &&
+                GroupFilesControl.CurrentFileGroupControl.CanFindNext;
 
             buttonRefresh.Enabled =
                 ProjectFilesControl != null && ProjectFilesControl.CanRefresh;
@@ -764,7 +728,8 @@ namespace ZetaResourceEditor.UI.Main
             var dr = MessageBox.Show(
                 this,
                 string.Format(
-                    Resources.SR_MainForm_dataProcessing_CanOverwrite_Do_you_want_to_overwrite_the_read_only_file___0___,
+                    Resources
+                        .SR_MainForm_dataProcessing_CanOverwrite_Do_you_want_to_overwrite_the_read_only_file___0___,
                     filePath.Name),
                 @"Zeta Resource Editor",
                 MessageBoxButtons.YesNoCancel,
@@ -818,7 +783,7 @@ namespace ZetaResourceEditor.UI.Main
                 ProjectFilesControl.CloseProject();
 
                 FormBase.SaveState(ribbon);
-                FormBase.SaveState(mainFormMainSplitContainer);
+                DevExpressXtraFormBase.SaveState(mainFormMainSplitContainer);
 
                 WinFormsPersistanceHelper.SaveState(this);
                 ((PersistentXmlFilePairStorage)PersistanceHelper.Storage).Flush();
@@ -831,10 +796,7 @@ namespace ZetaResourceEditor.UI.Main
         {
             UpdateUI();
 
-            if (GroupFilesControl.CurrentFileGroupControl != null)
-            {
-                GroupFilesControl.CurrentFileGroupControl.UpdateUI();
-            }
+            GroupFilesControl.CurrentFileGroupControl?.UpdateUI();
         }
 
         private void mainForm_Shown(
@@ -1024,10 +986,10 @@ namespace ZetaResourceEditor.UI.Main
                     new UpdateCheckInfo2
                     {
                         ApiKey = @"658b513f-8c69-482c-86ab-4be029377d18",
-                        VersionNumber = FileVersionHelper.GetAssemblyVersion(
-                                Assembly.GetEntryAssembly().Location).ToString(),
-                        VersionDate = File.GetLastWriteTime(
-                                Assembly.GetEntryAssembly().Location),
+                        VersionNumber = FileVersionHelper.GetAssemblyVersion(Assembly.GetEntryAssembly().Location)
+                            .ToString(),
+                        // ReSharper disable once AssignNullToNotNullAttribute
+                        VersionDate = File.GetLastWriteTime(Assembly.GetEntryAssembly().Location),
                         Culture = CultureInfo.CurrentUICulture.LCID
                     };
 
@@ -1057,7 +1019,7 @@ namespace ZetaResourceEditor.UI.Main
                     // Yes, we do have an update, pass the URL to the
                     // toolbar button and make it visible.
 
-                    buttonUpdateAvailable.Tag = e.Result as UpdatePresentResult2;
+                    buttonUpdateAvailable.Tag = (UpdatePresentResult2)e.Result;
                     updateRibbonPageGroup.Visible = true;
                     updateAvailableBlinkTimer.Start();
 
@@ -1086,7 +1048,6 @@ namespace ZetaResourceEditor.UI.Main
         /// <summary>
         /// Handles the project on command line.
         /// </summary>
-        /// <returns></returns>
         private bool handleProjectOnCommandLine()
         {
             var args = Environment.GetCommandLineArgs();
@@ -1104,7 +1065,7 @@ namespace ZetaResourceEditor.UI.Main
                     if (string.Compare(
                             Project.ProjectFileExtension,
                             ZlpPathHelper.GetExtension(file),
-                            true) == 0 &&
+                            StringComparison.OrdinalIgnoreCase) == 0 &&
                         ZlpIOHelper.FileExists(file))
                     {
                         ProjectFilesControl.DoLoadProject(new ZlpFileInfo(file));
@@ -1118,6 +1079,7 @@ namespace ZetaResourceEditor.UI.Main
         }
 
         #region Event Handler
+
         // ------------------------------------------------------------------
 
         private void mainForm_DragDrop(
@@ -1134,8 +1096,8 @@ namespace ZetaResourceEditor.UI.Main
                     foreach (var file in files)
                     {
                         // Allow dropping of project files.
-                        if (String.Compare(Project.ProjectFileExtension, ZlpPathHelper.GetExtension(file),
-                            StringComparison.OrdinalIgnoreCase) == 0)
+                        if (string.Compare(Project.ProjectFileExtension, ZlpPathHelper.GetExtension(file),
+                                StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             ProjectFilesControl.DoLoadProject(new ZlpFileInfo(file));
                             return;
@@ -1151,20 +1113,17 @@ namespace ZetaResourceEditor.UI.Main
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
-                var files = (string[])e.Data.GetData(
-                    DataFormats.FileDrop);
+                var files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
                 if (files != null && files.Length > 0)
                 {
-                    // ReSharper disable LoopCanBeConvertedToQuery
                     foreach (var file in files)
-                    // ReSharper restore LoopCanBeConvertedToQuery
                     {
                         // Allow dropping of project files.
                         if (string.Compare(
-                            Project.ProjectFileExtension,
-                            ZlpPathHelper.GetExtension(file),
-                            true) == 0)
+                                Project.ProjectFileExtension,
+                                ZlpPathHelper.GetExtension(file),
+                                StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             e.Effect = DragDropEffects.Copy;
                             return;
@@ -1240,6 +1199,7 @@ namespace ZetaResourceEditor.UI.Main
         }
 
         // ------------------------------------------------------------------
+
         #endregion
 
         private void buttonExport_ItemClick(object sender, ItemClickEventArgs e)
@@ -1345,16 +1305,6 @@ namespace ZetaResourceEditor.UI.Main
             UpdateUI();
         }
 
-        private void buttonLicensing_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            using (var form = new OptionsForm())
-            {
-                form.ActiveTabPageIndex = 1;
-                form.ShowDialog(this);
-            }
-            UpdateUI();
-        }
-
         private void resetLayoutButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             GroupFilesControl.ResetLayout();
@@ -1393,6 +1343,4 @@ namespace ZetaResourceEditor.UI.Main
             }
         }
     }
-
-    /////////////////////////////////////////////////////////////////////////
 }

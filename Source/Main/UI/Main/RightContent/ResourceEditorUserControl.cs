@@ -4,15 +4,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
     // ----------------------------------------------------------------------
 
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Diagnostics;
-    using System.Drawing;
-    using System.Globalization;
-    using System.Linq;
-    using System.Windows.Forms;
     using DevExpress.Data;
     using DevExpress.Skins;
     using DevExpress.XtraBars;
@@ -34,6 +25,15 @@ namespace ZetaResourceEditor.UI.Main.RightContent
     using RuntimeBusinessLogic.FileGroups;
     using RuntimeBusinessLogic.Language;
     using RuntimeBusinessLogic.Projects;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Diagnostics;
+    using System.Drawing;
+    using System.Globalization;
+    using System.Linq;
+    using System.Windows.Forms;
     using TagOperations;
     using Tools;
     using Zeta.VoyagerLibrary.Common;
@@ -105,7 +105,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                 }
                 else
                 {
-                    return (DataRowView) mainGridView.GetRow(h);
+                    return (DataRowView)mainGridView.GetRow(h);
                 }
             }
         }
@@ -243,7 +243,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
                 using (new WaitCursor(this))
                 {
-                    var dataSource = (DataTable) mainDataGrid.DataSource;
+                    var dataSource = (DataTable)mainDataGrid.DataSource;
 
                     if ((options & SaveOptions.AskConfirm) == 0)
                     {
@@ -367,7 +367,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
             // ReSharper disable ConvertIfStatementToConditionalTernaryExpression
             if (gridEditableData.GetFileInformationsSorted().Length > 0)
-                // ReSharper restore ConvertIfStatementToConditionalTernaryExpression
+            // ReSharper restore ConvertIfStatementToConditionalTernaryExpression
             {
                 fileNameTextEdit.Text = gridEditableData.FolderPath.FullName;
             }
@@ -400,7 +400,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
                     addDetailTabPage(
                         filter,
-                        imageIndex,
                         imageIndex == 1
                             ? Resources.SR_ColumnCaption_Comment
                             : table.Columns[i].Caption,
@@ -519,7 +518,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                 {
                     // ReSharper disable ConvertIfStatementToConditionalTernaryExpression
                     if (index == 0)
-                        // ReSharper restore ConvertIfStatementToConditionalTernaryExpression
+                    // ReSharper restore ConvertIfStatementToConditionalTernaryExpression
                     {
                         column.ColumnEdit = meRepositoryItem;
                     }
@@ -542,7 +541,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         {
             if (e.Shift && e.KeyCode == Keys.Enter)
             {
-                var me = (MemoEdit) sender;
+                var me = (MemoEdit)sender;
 
                 me.SelectedText = Environment.NewLine;
                 e.Handled = true;
@@ -551,7 +550,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
         private void addDetailTabPage(
             ILanguageColumnFilter filter,
-            int imageIndex,
             string name,
             string languageCode)
         {
@@ -559,7 +557,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                 new XtraTabPage
                 {
                     Text = name,
-                    ImageIndex = imageIndex,
+                    ImageIndex = -1,
                 };
             tabControl1.TabPages.Add(tabPage);
 
@@ -619,7 +617,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         {
             if (e.Control && e.KeyCode == Keys.A)
             {
-                ((MemoEdit) sender).SelectAll();
+                ((MemoEdit)sender).SelectAll();
                 e.Handled = true;
             }
         }
@@ -660,7 +658,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
             if (GridEditableData != null)
             {
-                var tabPage = (XtraTabPage) Parent;
+                var tabPage = (XtraTabPage)Parent;
 
                 var text = GridEditableData.GetNameIntelligent(
                     MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
@@ -735,7 +733,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
                 foreach (var rowHandle in rowHandles)
                 {
-                    var row = (DataRowView) mainGridView.GetRow(rowHandle);
+                    var row = (DataRowView)mainGridView.GetRow(rowHandle);
                     // Column 0=FileGroup checksum, column 1=Tag name.
                     var tagName = mainGridHelper.GetRowCellValue<string>(rowHandle, 1);
 
@@ -767,7 +765,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                     dataRow[0] =
                         GridEditableData.GetChecksum(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
                     dataRow[1] = newTagName;
-                    ((DataTable) mainDataGrid.DataSource).Rows.Add(dataRow);
+                    ((DataTable)mainDataGrid.DataSource).Rows.Add(dataRow);
 
                     // --
                     // Add to DataObject
@@ -835,7 +833,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
                 for (var i = 0; i < mainGridView.RowCount; ++i)
                 {
-                    var row = (DataRowView) mainGridView.GetRow(i);
+                    var row = (DataRowView)mainGridView.GetRow(i);
                     // Column 0=FileGroup checksum, column 1=Tag name.
                     var s = row[1] as string;
 
@@ -878,7 +876,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
         public DataTable GetDataSource()
         {
-            return (DataTable) mainDataGrid.DataSource;
+            return (DataTable)mainDataGrid.DataSource;
         }
 
         /// <summary>
@@ -886,7 +884,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         /// </summary>
         private DataRow createNewDataRow()
         {
-            var table = (DataTable) mainDataGrid.DataSource;
+            var table = (DataTable)mainDataGrid.DataSource;
             return table.NewRow();
         }
 
@@ -943,7 +941,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                 var row = selectedRow;
 
                 // Column 0=FileGroup checksum, column 1=Tag name.
-                labelControl1.Text = (string) row[1];
+                labelControl1.Text = (string)row[1];
 
                 // Column 0=FileGroup checksum, column 1=Tag name.
                 for (var i = 2; i < mainGridView.Columns.Count; ++i)
@@ -952,7 +950,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                     var text = row[i] as string;
 
                     var columnText =
-                        (MemoEdit) page.Controls[@"ColumnText"];
+                        (MemoEdit)page.Controls[@"ColumnText"];
 
                     columnText.Text = DataProcessing.AdjustLineBreaks(text);
                     columnText.Enabled = true;
@@ -966,7 +964,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                 foreach (XtraTabPage page in tabControl1.TabPages)
                 {
                     var columnText =
-                        (MemoEdit) page.Controls[@"ColumnText"];
+                        (MemoEdit)page.Controls[@"ColumnText"];
 
                     columnText.Text = string.Empty;
                     columnText.Enabled = false;
@@ -1014,7 +1012,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                 {
                     var page = tabControl1.TabPages[i - 2];
                     var columnText =
-                        (MemoEdit) page.Controls[@"ColumnText"];
+                        (MemoEdit)page.Controls[@"ColumnText"];
 
                     row[i] = DataProcessing.AdjustLineBreaks(columnText.Text.Trim());
                 }
@@ -1316,7 +1314,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             {
                 // ReSharper disable ConvertIfStatementToNullCoalescingExpression
                 if (_boldFont == null)
-                    // ReSharper restore ConvertIfStatementToNullCoalescingExpression
+                // ReSharper restore ConvertIfStatementToNullCoalescingExpression
                 {
                     _boldFont = new Font(Font, FontStyle.Bold);
                 }
@@ -1331,7 +1329,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             {
                 // ReSharper disable ConvertIfStatementToNullCoalescingExpression
                 if (_regularFont == null)
-                    // ReSharper restore ConvertIfStatementToNullCoalescingExpression
+                // ReSharper restore ConvertIfStatementToNullCoalescingExpression
                 {
                     _regularFont = new Font(Font, FontStyle.Regular);
                 }
@@ -1346,7 +1344,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             {
                 // ReSharper disable ConvertIfStatementToNullCoalescingExpression
                 if (_italicFont == null)
-                    // ReSharper restore ConvertIfStatementToNullCoalescingExpression
+                // ReSharper restore ConvertIfStatementToNullCoalescingExpression
                 {
                     _italicFont = new Font(Font, FontStyle.Italic);
                 }
@@ -1525,7 +1523,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             {
                 // ReSharper disable ConvertIfStatementToNullCoalescingExpression
                 if (_mainGridHelper == null)
-                    // ReSharper restore ConvertIfStatementToNullCoalescingExpression
+                // ReSharper restore ConvertIfStatementToNullCoalescingExpression
                 {
                     _mainGridHelper = new GridViewHelper(mainGridView);
                 }
@@ -1662,8 +1660,8 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                         if (pos >= 0)
                         {
                             mainGridView.ClearSelection();
-                            mainGridHelper.SelectCell(index.Y, index.X);
-                            mainGridHelper.FocusCell(index.Y, index.X);
+                            mainGridHelper.SelectCell(index.Y);
+                            mainGridHelper.FocusCell(index.Y);
 
                             var newText = text.Replace(textToFind, textToReplaceWith);
 
@@ -1728,8 +1726,8 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                         if (pos >= 0)
                         {
                             mainGridView.ClearSelection();
-                            mainGridHelper.SelectCell(index.Y, index.X);
-                            mainGridHelper.FocusCell(index.Y, index.X);
+                            mainGridHelper.SelectCell(index.Y);
+                            mainGridHelper.FocusCell(index.Y);
                             //break;
                             return true;
                         }
@@ -1853,7 +1851,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                 MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
                 table,
                 CommentVisibilityScope.VisualGrid);
-            var key = (int) FileGroup.TranslateStateToColorKey(state);
+            var key = (int)FileGroup.TranslateStateToColorKey(state);
 
             statusPictureBox.Image = stateImageList.Images[key];
 
@@ -1995,7 +1993,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
                 if (project != null && project.HideTranslatedRows)
                 {
-                    var row = (DataRowView) mainGridView.GetRow(e.ListSourceRow);
+                    var row = (DataRowView)mainGridView.GetRow(e.ListSourceRow);
 
                     if (isCompleteRowTranslated(row))
                     {
@@ -2094,7 +2092,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
                     foreach (var rowHandle in rowHandles)
                     {
-                        var row = (DataRowView) mainGridView.GetRow(rowHandle);
+                        var row = (DataRowView)mainGridView.GetRow(rowHandle);
 
                         var comments =
                             DataProcessing.CommentsAreVisible(

@@ -72,7 +72,7 @@
             this.selectAllLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectAllLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.selectAllLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.selectAllLanguagesToExportButton.Location = new System.Drawing.Point(32, 257);
+            this.selectAllLanguagesToExportButton.Location = new System.Drawing.Point(31, 257);
             this.selectAllLanguagesToExportButton.Name = "selectAllLanguagesToExportButton";
             this.selectAllLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
             this.selectAllLanguagesToExportButton.TabIndex = 3;
@@ -85,7 +85,7 @@
             this.invertLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.invertLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.invertLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.invertLanguagesToExportButton.Location = new System.Drawing.Point(194, 257);
+            this.invertLanguagesToExportButton.Location = new System.Drawing.Point(193, 257);
             this.invertLanguagesToExportButton.Name = "invertLanguagesToExportButton";
             this.invertLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
             this.invertLanguagesToExportButton.TabIndex = 5;
@@ -110,7 +110,7 @@
             this.selectNoLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectNoLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.selectNoLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.selectNoLanguagesToExportButton.Location = new System.Drawing.Point(113, 257);
+            this.selectNoLanguagesToExportButton.Location = new System.Drawing.Point(112, 257);
             this.selectNoLanguagesToExportButton.Name = "selectNoLanguagesToExportButton";
             this.selectNoLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
             this.selectNoLanguagesToExportButton.TabIndex = 4;
@@ -126,7 +126,8 @@
             this.languagesToDisplayCheckListBox.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.languagesToDisplayCheckListBox.Appearance.Options.UseFont = true;
             this.languagesToDisplayCheckListBox.CheckOnClick = true;
-            this.languagesToDisplayCheckListBox.Location = new System.Drawing.Point(32, 66);
+            this.languagesToDisplayCheckListBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.languagesToDisplayCheckListBox.Location = new System.Drawing.Point(31, 66);
             this.languagesToDisplayCheckListBox.Name = "languagesToDisplayCheckListBox";
             this.languagesToDisplayCheckListBox.Size = new System.Drawing.Size(410, 185);
             this.languagesToDisplayCheckListBox.TabIndex = 2;
@@ -149,7 +150,7 @@
             // displayAllLanguagesCheckEdit
             // 
             this.displayAllLanguagesCheckEdit.EditValue = true;
-            this.displayAllLanguagesCheckEdit.Location = new System.Drawing.Point(10, 10);
+            this.displayAllLanguagesCheckEdit.Location = new System.Drawing.Point(12, 12);
             this.displayAllLanguagesCheckEdit.Name = "displayAllLanguagesCheckEdit";
             this.displayAllLanguagesCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.displayAllLanguagesCheckEdit.Properties.Appearance.Options.UseFont = true;
@@ -163,7 +164,7 @@
             // 
             // displayCertainLanguagesCheckEdit
             // 
-            this.displayCertainLanguagesCheckEdit.Location = new System.Drawing.Point(12, 39);
+            this.displayCertainLanguagesCheckEdit.Location = new System.Drawing.Point(12, 41);
             this.displayCertainLanguagesCheckEdit.Name = "displayCertainLanguagesCheckEdit";
             this.displayCertainLanguagesCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.displayCertainLanguagesCheckEdit.Properties.Appearance.Options.UseFont = true;

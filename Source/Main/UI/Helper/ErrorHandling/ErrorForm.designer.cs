@@ -34,6 +34,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.optionsButton = new ExtendedControlsLibrary.Skinning.CustomDropDownButton.MyDropDownButton();
             this.optionsPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.detailedErrorsButton = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -41,13 +42,11 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.memoEdit1 = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
             this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            this.hyperLinkEdit1 = new ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit();
             ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hyperLinkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonContinue
@@ -60,7 +59,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(75, 28);
             this.buttonContinue.TabIndex = 0;
-            this.buttonContinue.Text = "&Continue";
+            this.buttonContinue.Text = "OK";
             this.buttonContinue.WantDrawFocusRectangle = true;
             // 
             // optionsButton
@@ -80,7 +79,8 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             // optionsPopupMenu
             // 
             this.optionsPopupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.detailedErrorsButton)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.detailedErrorsButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
             this.optionsPopupMenu.Manager = this.barManager;
             this.optionsPopupMenu.Name = "optionsPopupMenu";
             this.optionsPopupMenu.BeforePopup += new System.ComponentModel.CancelEventHandler(this.optionsPopupMenu_BeforePopup);
@@ -92,6 +92,13 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.detailedErrorsButton.Name = "detailedErrorsButton";
             this.detailedErrorsButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.detailedErrorsButton_ItemClick);
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Quit";
+            this.barButtonItem1.Id = 3;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // barManager
             // 
             this.barManager.DockControls.Add(this.barDockControlTop);
@@ -100,14 +107,16 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.barManager.DockControls.Add(this.barDockControlRight);
             this.barManager.Form = this;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.detailedErrorsButton});
-            this.barManager.MaxItemId = 3;
+            this.detailedErrorsButton,
+            this.barButtonItem1});
+            this.barManager.MaxItemId = 4;
             // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager;
             this.barDockControlTop.Size = new System.Drawing.Size(324, 0);
             // 
             // barDockControlBottom
@@ -115,6 +124,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 232);
+            this.barDockControlBottom.Manager = this.barManager;
             this.barDockControlBottom.Size = new System.Drawing.Size(324, 0);
             // 
             // barDockControlLeft
@@ -122,6 +132,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 232);
             // 
             // barDockControlRight
@@ -129,6 +140,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(324, 0);
+            this.barDockControlRight.Manager = this.barManager;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 232);
             // 
             // memoEdit1
@@ -155,7 +167,6 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.hyperLinkEdit1);
             this.panelControl1.Controls.Add(this.memoEdit1);
             this.panelControl1.Controls.Add(this.buttonContinue);
             this.panelControl1.Controls.Add(this.optionsButton);
@@ -165,28 +176,6 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
             this.panelControl1.Size = new System.Drawing.Size(324, 232);
             this.panelControl1.TabIndex = 0;
-            // 
-            // hyperLinkEdit1
-            // 
-            this.hyperLinkEdit1.AllowAutoWidth = true;
-            this.hyperLinkEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.hyperLinkEdit1.CausesValidation = false;
-            this.hyperLinkEdit1.EditValue = "Quit";
-            this.hyperLinkEdit1.Location = new System.Drawing.Point(191, 196);
-            this.hyperLinkEdit1.Name = "hyperLinkEdit1";
-            this.hyperLinkEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.hyperLinkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.hyperLinkEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.hyperLinkEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.hyperLinkEdit1.Properties.Appearance.Options.UseFont = true;
-            this.hyperLinkEdit1.Properties.Appearance.Options.UseForeColor = true;
-            this.hyperLinkEdit1.Properties.Appearance.Options.UseTextOptions = true;
-            this.hyperLinkEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.hyperLinkEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.hyperLinkEdit1.Properties.ReadOnly = true;
-            this.hyperLinkEdit1.Size = new System.Drawing.Size(40, 22);
-            this.hyperLinkEdit1.TabIndex = 6;
-            this.hyperLinkEdit1.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.hyperLinkEdit1_OpenLink);
             // 
             // ErrorForm
             // 
@@ -214,7 +203,6 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.hyperLinkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,6 +220,6 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 		private DevExpress.XtraBars.BarDockControl barDockControlLeft;
 		private DevExpress.XtraBars.BarDockControl barDockControlRight;
 		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
-		private ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit hyperLinkEdit1;
-	}
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+    }
 }

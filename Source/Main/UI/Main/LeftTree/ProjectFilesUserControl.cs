@@ -1,10 +1,5 @@
 namespace ZetaResourceEditor.UI.Main.LeftTree
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Windows.Forms;
     using DevExpress.Utils;
     using DevExpress.XtraBars;
     using DevExpress.XtraEditors;
@@ -26,11 +21,17 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
     using RuntimeBusinessLogic.FileInformations;
     using RuntimeBusinessLogic.ProjectFolders;
     using RuntimeBusinessLogic.Projects;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Drawing;
+    using System.Threading;
+    using System.Windows.Forms;
     using Zeta.VoyagerLibrary.Common;
     using Zeta.VoyagerLibrary.Logging;
-    using ZetaAsync;
     using Zeta.VoyagerLibrary.Tools.Storage;
     using Zeta.VoyagerLibrary.WinForms.Common;
+    using ZetaAsync;
     using ZetaLongPaths;
 
     public partial class ProjectFilesUserControl :
@@ -62,10 +63,13 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         public bool CanEditFileGroupSettings
             => Project != null && Project != Project.Empty && treeView.SelectedNode?.Tag is FileGroup;
 
-        public bool CanEditProjectFolderSettings
+        public bool CanMergeIntoFileGroup
+            => Project != null && Project != Project.Empty && treeView.SelectedNode?.Tag is FileGroup;
+
+        private bool CanEditProjectFolderSettings
             => Project != null && Project != Project.Empty && treeView.SelectedNode?.Tag is ProjectFolder;
 
-        public void AddNewResourceFilesWithDialog()
+        private void AddNewResourceFilesWithDialog()
         {
             using (var form = new AddNewFileGroupForm())
             {
@@ -278,116 +282,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        /*
-		/// <summary>
-		/// Does the automatically add resource files.
-		/// </summary>
-		/// <param name="backgroundWorker">The background worker.</param>
-		/// <param name="parentProjectFolder">The parent project folder.</param>
-		/// <param name="fileGroupCount">The file group count.</param>
-		/// <param name="fileCount">The file count.</param>
-		/// <param name="folderPath">The folder path.</param>
-		private void doAutomaticallyAddResourceFiles(
-			BackgroundWorker backgroundWorker,
-			ProjectFolder parentProjectFolder,
-			ref int fileGroupCount,
-			ref int fileCount,
-			ZlpDirectoryInfo folderPath)
-		{
-			if (backgroundWorker.CancellationPending)
-			{
-				throw new OperationCanceledException();
-			}
-
-			// Omit hidden or system folders.
-			if ((folderPath.Attributes & FileAttributes.Hidden) == 0 &&
-				(folderPath.Attributes & FileAttributes.System) == 0)
-			{
-				var filePaths = folderPath.GetFiles(@"*.resx");
-
-				if (filePaths.Length > 0)
-				{
-					FileGroup fileGroup = null;
-					string previousBaseFileName = null;
-
-					foreach (var filePath in filePaths)
-					{
-						if (backgroundWorker.CancellationPending)
-						{
-							throw new OperationCanceledException();
-						}
-
-						var baseFileName =
-							filePath.Name.Substring(0, filePath.Name.IndexOf('.'));
-
-						var wantAddResourceFile =
-							checkWantAddResourceFile(filePath);
-
-						if (wantAddResourceFile)
-						{
-							if (fileGroup == null ||
-								previousBaseFileName == null ||
-								string.Compare(baseFileName, previousBaseFileName, true) != 0)
-							{
-								if (fileGroup != null && fileGroup.Count > 0)
-								{
-									// Look for same entries.
-									if (!_project.FileGroups.HasFileGroupWithChecksum(
-											fileGroup.GetChecksum(_project)))
-									{
-										_project.FileGroups.Add(fileGroup);
-
-										fileGroupCount++;
-										fileCount += fileGroup.Count;
-									}
-								}
-
-								fileGroup =
-									new FileGroup(_project)
-									{
-										ProjectFolder = parentProjectFolder
-									};
-							}
-
-							fileGroup.Add(
-								new FileInformation(fileGroup)
-									{
-										File = filePath
-									});
-
-							previousBaseFileName = baseFileName;
-						}
-					}
-
-					// Add remaining.
-					if (fileGroup != null && fileGroup.Count > 0)
-					{
-						// Look for same entries.
-						if (!_project.FileGroups.HasFileGroupWithChecksum(
-								fileGroup.GetChecksum(_project)))
-						{
-							_project.FileGroups.Add(fileGroup);
-
-							fileGroupCount++;
-							fileCount += fileGroup.Count;
-						}
-					}
-				}
-			}
-
-			// Recurse childs.
-			foreach (var childFolderPath in folderPath.GetDirectories())
-			{
-				doAutomaticallyAddResourceFiles(
-					backgroundWorker,
-					parentProjectFolder,
-					ref fileGroupCount,
-					ref fileCount,
-					childFolderPath);
-			}
-		}
-		*/
-
         private void doAutomaticallyAddResourceFiles(
             BackgroundWorker backgroundWorker,
             ProjectFolder parentProjectFolder,
@@ -409,13 +303,12 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 var filePaths = new List<ZlpFileInfo>(folderPath.GetFiles(@"*.resx"));
                 filePaths.AddRange(new List<ZlpFileInfo>(folderPath.GetFiles(@"*.resw")));
 
-                new VisualStudioImporter(Project).
-                    DoAutomaticallyAddResourceFilesFromList(
-                        backgroundWorker,
-                        parentProjectFolder,
-                        ref fileGroupCount,
-                        ref fileCount,
-                        filePaths);
+                new VisualStudioImporter(Project).DoAutomaticallyAddResourceFilesFromList(
+                    backgroundWorker,
+                    parentProjectFolder,
+                    ref fileGroupCount,
+                    ref fileCount,
+                    filePaths);
             }
 
             // Recurse childs.
@@ -473,13 +366,12 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                         {
                             try
                             {
-                                new VisualStudioImporter(Project).
-                                    DoAutomaticallyAddResourceFilesFromVsProject(
-                                        (BackgroundWorker)sender,
-                                        parentProjectFolder,
-                                        ref fileGroupCount,
-                                        ref fileCount,
-                                        proj);
+                                new VisualStudioImporter(Project).DoAutomaticallyAddResourceFilesFromVsProject(
+                                    (BackgroundWorker)sender,
+                                    parentProjectFolder,
+                                    ref fileGroupCount,
+                                    ref fileCount,
+                                    proj);
                             }
                             catch (OperationCanceledException)
                             {
@@ -595,7 +487,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         public bool CanRemoveResourceFilesFromProject
             => Project != null && Project != Project.Empty && treeView.SelectedNode?.Tag is FileGroup;
 
-        public bool CanRemoveProjectFolder
+        private bool CanRemoveProjectFolder
             => Project != null && Project != Project.Empty && treeView.SelectedNode?.Tag is ProjectFolder;
 
         public bool CanEditProjectSettings => Project != null && Project != Project.Empty;
@@ -634,12 +526,12 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                                              treeView.SelectedNode.Tag is ProjectFolder
                                          );
 
-        public bool CanAddProjectFolder => Project != null && Project != Project.Empty &&
-                                           treeView.SelectedNode != null &&
-                                           (
-                                               treeView.SelectedNode.Tag is Project ||
-                                               treeView.SelectedNode.Tag is ProjectFolder
-                                           );
+        private bool CanAddProjectFolder => Project != null && Project != Project.Empty &&
+                                            treeView.SelectedNode != null &&
+                                            (
+                                                treeView.SelectedNode.Tag is Project ||
+                                                treeView.SelectedNode.Tag is ProjectFolder
+                                            );
 
         public bool CanMoveUp
             =>
@@ -648,12 +540,12 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                     treeView.SelectedNode.Tag is IOrderPosition
                 );
 
-        public bool CanSortChildrenAlphabetically => Project != null && Project != Project.Empty &&
-                                                     treeView.SelectedNode != null &&
-                                                     treeView.SelectedNode.Nodes.Count > 1 &&
-                                                     (
-                                                         treeView.SelectedNode.Nodes[0].Tag is IOrderPosition
-                                                     );
+        private bool CanSortChildrenAlphabetically => Project != null && Project != Project.Empty &&
+                                                      treeView.SelectedNode != null &&
+                                                      treeView.SelectedNode.Nodes.Count > 1 &&
+                                                      (
+                                                          treeView.SelectedNode.Nodes[0].Tag is IOrderPosition
+                                                      );
 
         public bool CanMoveDown
             =>
@@ -739,9 +631,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             MainForm.Current.Text = @"Zeta Resource Editor";
         }
 
-        /// <summary>
-        /// Fills from project.
-        /// </summary>
         private void fillFromProject()
         {
             treeView.Nodes.Clear();
@@ -759,7 +648,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 rootNode[0] = Project.Name;
                 rootNode.ImageIndex = rootNode.SelectImageIndex = getImageIndex(@"root");
                 rootNode.Tag = Project;
-                rootNode.StateImageIndex = (int)FileGroupStateColor.Grey; //(int)_project.TranslationStateColor;
+                rootNode.StateImageIndex = (int)FileGroupStateColor.Grey;
 
                 updateNodeStateImage(rootNode, AsynchronousMode.Asynchronous);
 
@@ -825,11 +714,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        /// <summary>
-        /// Updates the file group in tree.
-        /// </summary>
-        /// <param name="fileGroupNode">The file group node.</param>
-        /// <param name="fileGroup">The file group.</param>
         private void updateFileGroupInTree(
             TreeListNode fileGroupNode,
             FileGroup fileGroup)
@@ -843,27 +727,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
             UpdateUI();
         }
-
-        //private void updateNodeStateImage(
-        //    FileGroup fileGroup,
-        //    FileGroupStates state )
-        //{
-        //    if ( treeView.Nodes.Count > 0 )
-        //    {
-        //        // For now, FileGroups are always in level 1.
-        //        // This changes later.
-        //        foreach ( TreeListNode node in treeView.Nodes[0].Nodes )
-        //        {
-        //            var fg = (FileGroup)node.Tag;
-
-        //            if ( fg.GetChecksum( _project ) == fileGroup.GetChecksum( _project ) )
-        //            {
-        //                updateNodeStateImage( node, state );
-        //                break;
-        //            }
-        //        }
-        //    }
-        //}
 
         private void updateNodeStateImage(
             TreeListNode node,
@@ -952,21 +815,29 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             {
                 while (!e.Cancel)
                 {
-                    AsyncInfo info;
-                    lock (_queue)
+                    if (WantPauseNodeStateUpdate)
                     {
-                        if (_queue.Count > 0)
-                        {
-                            info = _queue.Dequeue();
-                        }
-                        else
-                        {
-                            return;
-                        }
+                        Thread.Sleep(800);
+                        Thread.Sleep(0);
                     }
+                    else
+                    {
+                        AsyncInfo info;
+                        lock (_queue)
+                        {
+                            if (_queue.Count > 0)
+                            {
+                                info = _queue.Dequeue();
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
 
-                    info.StateImageIndex = (int)info.StateInfo.TranslationStateColor;
-                    ((BackgroundWorker)sender).ReportProgress(0, info);
+                        info.StateImageIndex = (int)info.StateInfo.TranslationStateColor;
+                        ((BackgroundWorker)sender).ReportProgress(0, info);
+                    }
                 }
             }
             catch (InvalidOperationException)
@@ -974,6 +845,11 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 // Eat.
             }
         }
+
+        /// <summary>
+        /// 2017-04-15, Uwe Keim: Während Translation keine Node-States aktualisieren.
+        /// </summary>
+        public bool WantPauseNodeStateUpdate { get; set; }
 
         private void updateNodeStateImageBackgroundworker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -999,123 +875,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         {
         }
 
-        //private void updateRootStateImage()
-        //{
-        //    var rootNode = treeView.Nodes[0];
-
-        //    var cumulatedIndex = 0;
-
-        //    foreach ( TreeListNode node in rootNode.Nodes )
-        //    {
-        //        var breakLoop = false;
-        //        var stateIndex = node.StateImageIndex;
-
-        //        switch ( stateIndex )
-        //        {
-        //            case 0:
-        //                switch ( cumulatedIndex )
-        //                {
-        //                    case 0:
-        //                        cumulatedIndex = 0;
-        //                        break;
-        //                    case 1:
-        //                        cumulatedIndex = 1;
-        //                        break;
-        //                    case 2:
-        //                        cumulatedIndex = 2;
-        //                        break;
-        //                    case 3:
-        //                        cumulatedIndex = 3;
-        //                        break;
-
-        //                    default:
-        //                        throw new ArgumentException();
-        //                }
-        //                break;
-
-        //            case 1:
-        //                switch ( cumulatedIndex )
-        //                {
-        //                    case 0:
-        //                        cumulatedIndex = 1;
-        //                        break;
-        //                    case 1:
-        //                        cumulatedIndex = 1;
-        //                        break;
-        //                    case 2:
-        //                        cumulatedIndex = 2;
-        //                        break;
-        //                    case 3:
-        //                        cumulatedIndex = 3;
-        //                        break;
-
-        //                    default:
-        //                        throw new ArgumentException();
-        //                }
-        //                break;
-
-        //            case 2:
-        //                switch ( cumulatedIndex )
-        //                {
-        //                    case 0:
-        //                        cumulatedIndex = 2;
-        //                        break;
-        //                    case 1:
-        //                        cumulatedIndex = 2;
-        //                        break;
-        //                    case 2:
-        //                        cumulatedIndex = 2;
-        //                        break;
-        //                    case 3:
-        //                        cumulatedIndex = 3;
-        //                        break;
-
-        //                    default:
-        //                        throw new ArgumentException();
-        //                }
-        //                break;
-
-        //            case 3:
-        //                switch ( cumulatedIndex )
-        //                {
-        //                    case 0:
-        //                        cumulatedIndex = 3;
-        //                        break;
-        //                    case 1:
-        //                        cumulatedIndex = 3;
-        //                        break;
-        //                    case 2:
-        //                        cumulatedIndex = 3;
-        //                        break;
-        //                    case 3:
-        //                        cumulatedIndex = 3;
-        //                        break;
-
-        //                    default:
-        //                        throw new ArgumentException();
-        //                }
-        //                breakLoop = true;
-        //                break;
-
-        //            default:
-        //                throw new ArgumentException();
-        //        }
-
-        //        if ( breakLoop )
-        //        {
-        //            break;
-        //        }
-        //    }
-
-        //    rootNode.StateImageIndex = cumulatedIndex;
-        //}
-
-        /// <summary>
-        /// Adds the file to tree.
-        /// </summary>
-        /// <param name="fileGroupNode">The file group node.</param>
-        /// <param name="filePath">The file path.</param>
-        /// <returns></returns>
         private TreeListNode addFileToTree(
             TreeListNode fileGroupNode,
             FileInformation filePath)
@@ -1132,7 +891,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
             fileNode.ImageIndex = fileNode.SelectImageIndex = getImageIndex(@"file");
             fileNode.Tag = filePath;
-            fileNode.StateImageIndex = (int)FileGroupStateColor.Grey; // (int)filePath.TranslationStateColor;
+            fileNode.StateImageIndex = (int)FileGroupStateColor.Grey;
 
             updateNodeStateImage(fileNode, AsynchronousMode.Asynchronous);
 
@@ -1200,14 +959,10 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             projectFolderNode.ImageIndex = projectFolderNode.SelectImageIndex = getImageIndex(@"projectfolder");
             projectFolderNode.Tag = projectFolder;
             projectFolderNode.StateImageIndex = (int)FileGroupStateColor.Grey;
-            // (int)projectFolder.TranslationStateColor;
 
             updateNodeStateImage(projectFolderNode, AsynchronousMode.Asynchronous);
         }
 
-        /// <summary>
-        /// Opens the with dialog.
-        /// </summary>
         internal void OpenWithDialog()
         {
             using (var ofd = new OpenFileDialog())
@@ -1235,11 +990,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        /// <summary>
-        /// Does the save file.
-        /// </summary>
-        /// <param name="options">The options.</param>
-        /// <returns></returns>
         internal DialogResult DoSaveFile(
             SaveOptions options)
         {
@@ -1295,9 +1045,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        /// <summary>
-        /// Closes the and save project.
-        /// </summary>
         internal void CloseAndSaveProject()
         {
             if (DoSaveFile(
@@ -1316,9 +1063,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        /// <summary>
-        /// Edits the project settings with dialog.
-        /// </summary>
         public void EditProjectSettingsWithDialog()
         {
             using (var form = new ProjectSettingsForm())
@@ -1331,9 +1075,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        /// <summary>
-        /// Edits the resource file settings with dialog.
-        /// </summary>
         public void EditFileGroupSettingsWithDialog()
         {
             using (var form = new FileGroupSettingsForm())
@@ -1393,7 +1134,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        public void DeleteLanguageWithDialog()
+        private void DeleteLanguageWithDialog()
         {
             using (var form = new DeleteLanguageForm())
             {
@@ -1415,9 +1156,31 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        /// <summary>
-        /// Updates the UI.
-        /// </summary>
+        private void MergeFilesWithDialog()
+        {
+            using (var form = new MergeFileGroupForm())
+            {
+                var p = (FileGroup)treeView.SelectedNode.Tag;
+
+                form.Initialize(p, Project);
+
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    if (form.DidAnything)
+                    {
+                        // Reload from in-memory project.
+                        fillFromProject();
+                        new TreeListViewState(treeView).RestoreState(@"projectsTree");
+
+                        Project.MarkAsModified();
+
+                        sortTree();
+                        UpdateUI();
+                    }
+                }
+            }
+        }
+
         public override void UpdateUI()
         {
             base.UpdateUI();
@@ -1444,6 +1207,9 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
             buttonMenuProjectEditFileGroupSettings.Enabled =
                 CanEditFileGroupSettings;
+
+            buttonMergeIntoFileGroup.Enabled =
+                CanMergeIntoFileGroup;
 
             buttonMenuProjectRemoveFileFromFileGroup.Enabled =
                 CanRemoveFileFromFileGroup;
@@ -1473,9 +1239,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 CanOpenProjectFile;
         }
 
-        /// <summary>
-        /// Creates the new project.
-        /// </summary>
         public void CreateNewProject()
         {
             using (var form = new CreateNewProjectForm())
@@ -1528,10 +1291,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        /// <summary>
-        /// Saves the state.
-        /// </summary>
-        /// <returns></returns>
         internal bool SaveState(
             SaveOptions options)
         {
@@ -1549,10 +1308,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        /// <summary>
-        /// Saves the state.
-        /// </summary>
-        /// <returns></returns>
         public bool SaveState()
         {
             return SaveState(
@@ -1560,24 +1315,17 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 SaveOptions.AskConfirm);
         }
 
-        /// <summary>
-        /// Loads the recent project.
-        /// </summary>
         public void LoadRecentProject()
         {
             var filePath =
                 PersistanceHelper.RestoreValue(@"RecentProject") as string;
 
-            if (!string.IsNullOrEmpty(filePath) &&
-                ZlpIOHelper.FileExists(filePath))
+            if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
             {
                 DoLoadProject(new ZlpFileInfo(filePath));
             }
         }
 
-        /// <summary>
-        /// Saves the recent project info.
-        /// </summary>
         public void SaveRecentProjectInfo()
         {
             var filePath = Project == null ? string.Empty : Project.ProjectConfigurationFilePath.FullName;
@@ -2301,20 +2049,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             CreateNewFilesWithDialog();
         }
 
-        private Font boldFont
-        {
-            get
-            {
-                // ReSharper disable ConvertIfStatementToNullCoalescingExpression
-                if (_boldFont == null)
-                // ReSharper restore ConvertIfStatementToNullCoalescingExpression
-                {
-                    _boldFont = new Font(Appearance.Font, FontStyle.Bold);
-                }
-
-                return _boldFont;
-            }
-        }
+        private Font boldFont => _boldFont ?? (_boldFont = new Font(Appearance.Font, FontStyle.Bold));
 
         private void treeView_NodeCellStyle(object sender, GetCustomNodeCellStyleEventArgs e)
         {
@@ -2390,6 +2125,11 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         private void buttonMenuProjectDeleteLanguages_ItemClick(object sender, ItemClickEventArgs e)
         {
             DeleteLanguageWithDialog();
+        }
+
+        private void buttonMergeIntoFileGroup_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            MergeFilesWithDialog();
         }
     }
 }

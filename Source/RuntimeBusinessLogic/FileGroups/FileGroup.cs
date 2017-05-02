@@ -22,6 +22,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
     using Translation;
     using Zeta.VoyagerLibrary.Common;
     using Zeta.VoyagerLibrary.Common.Collections;
+    using Zeta.VoyagerLibrary.Logging;
     using ZetaAsync;
     using ZetaLongPaths;
 
@@ -201,26 +202,20 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             set => _projectFolderUniqueID = value?.UniqueID ?? Guid.Empty;
         }
 
-        public static FileGroup CheckCreate(
-            Project project,
-            string joinedFilePaths)
-        {
-            return string.IsNullOrEmpty(joinedFilePaths) ? new FileGroup(project) : CheckCreate(project, SplitFilePaths(joinedFilePaths));
-        }
+        /*
+                public static FileGroup CheckCreate(
+                    Project project,
+                    string joinedFilePaths)
+                {
+                    return string.IsNullOrEmpty(joinedFilePaths) ? new FileGroup(project) : CheckCreate(project, SplitFilePaths(joinedFilePaths));
+                }
+        */
 
         public static FileGroup CheckCreate(
             Project project,
             string[] filePaths)
         {
-            var infos = new List<ZlpFileInfo>();
-            // ReSharper disable LoopCanBeConvertedToQuery
-            foreach (var filePath in filePaths)
-            // ReSharper restore LoopCanBeConvertedToQuery
-            {
-                infos.Add(new ZlpFileInfo(filePath));
-            }
-
-            return CheckCreate(project, infos.ToArray());
+            return CheckCreate(project, filePaths.Select(filePath => new ZlpFileInfo(filePath)).ToArray());
         }
 
         public static FileGroup CheckCreate(
@@ -246,7 +241,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             return same ?? result;
         }
 
-        public FileGroupStates TranslationState => _inMemoryState ?? calculateEditingState();
+        private FileGroupStates TranslationState => _inMemoryState ?? calculateEditingState();
 
         public FileGroupStateColor TranslationStateColor => TranslateStateToColorKey(TranslationState);
 
@@ -273,7 +268,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
                 foreach (DataRow row in table.Rows)
                 {
-                    if (IsCompleteRowEmpty(row, commentVisibilityScope))
+                    if (IsCompleteRowEmpty(row))
                     {
                         result |= FileGroupStates.EmptyRows;
                     }
@@ -305,8 +300,10 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             CommentVisibilityScope commentVisibilityScope)
         {
             // Column 0=FileGroup checksum, column 1=Tag name.
-            for (var i = 2; i < row.Table.Columns.Count -
-                (DataProcessing.CommentsAreVisible(project, row, commentVisibilityScope) ? 1 : 0); ++i)
+            for (var i = 2;
+                i < row.Table.Columns.Count -
+                (DataProcessing.CommentsAreVisible(project, row, commentVisibilityScope) ? 1 : 0);
+                ++i)
             {
                 var s = ConvertHelper.ToString(row[i], string.Empty);
                 if (s.StartsWith(DefaultTranslatedPrefix)) return true;
@@ -315,7 +312,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             return false;
         }
 
-        private static bool areTranslationsMissing(Project project, DataRow row,
+        private static bool areTranslationsMissing(
+            Project project,
+            DataRow row,
             CommentVisibilityScope commentVisibilityScope)
         {
             var hasEmpty = false;
@@ -324,8 +323,10 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             // AJ CHANGE
             // Don't check the comments column
             // Column 0=FileGroup checksum, column 1=Tag name.
-            for (var i = 2; i < row.Table.Columns.Count -
-                (DataProcessing.CommentsAreVisible(project, row, commentVisibilityScope) ? 1 : 0); ++i)
+            for (var i = 2;
+                i < row.Table.Columns.Count -
+                (DataProcessing.CommentsAreVisible(project, row, commentVisibilityScope) ? 1 : 0);
+                ++i)
             {
                 var s = ConvertHelper.ToString(row[i], string.Empty);
 
@@ -355,7 +356,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             {
                 foreach (DataColumn column in table.Columns)
                 {
-                    if (string.Compare(column.ColumnName, columnName, StringComparison.OrdinalIgnoreCase) == 0)
+                    if (column.ColumnName.EqualsNoCase(columnName))
                     {
                         return column.Ordinal;
                     }
@@ -385,8 +386,10 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
             // AJ CHANGE, skip the comments column
             // Column 0=FileGroup checksum, column 1=Tag name.
-            for (var i = 2; i < columnCount -
-                (DataProcessing.CommentsAreVisible(project, row, commentVisibilityScope) ? 1 : 0); ++i)
+            for (var i = 2;
+                i < columnCount -
+                (DataProcessing.CommentsAreVisible(project, row, commentVisibilityScope) ? 1 : 0);
+                ++i)
             {
                 if (i != neutralColumnIndex)
                 {
@@ -409,8 +412,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         }
 
         public static bool IsCompleteRowEmpty(
-            DataRow row,
-            CommentVisibilityScope commentVisibilityScope)
+            DataRow row)
         {
             // Column 0=FileGroup checksum, column 1=Tag name.
             for (var i = 2; i < row.Table.Columns.Count; ++i)
@@ -495,17 +497,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         {
             lock (_fileInfos)
             {
-                // ReSharper disable LoopCanBeConvertedToQuery
-                foreach (var fileInfo in _fileInfos)
-                // ReSharper restore LoopCanBeConvertedToQuery
-                {
-                    if (string.Compare(item.File.FullName, fileInfo.File.FullName, StringComparison.OrdinalIgnoreCase) == 0)
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
+                return _fileInfos.Any(fileInfo => item.File.FullName.EqualsNoCase(fileInfo.File.FullName));
             }
         }
 
@@ -655,12 +647,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                     var baseName = LanguageCodeDetection.GetBaseName(project, filePath.Name);
                     filePath = new ZlpFileInfo(ZlpPathHelper.Combine(folderPath.FullName, baseName));
 
-                    if ((string.Equals(@"Properties", folderPath.Name,
-                                       StringComparison.InvariantCultureIgnoreCase) ||
-                         string.Equals(@"App_GlobalResources", folderPath.Name,
-                                       StringComparison.InvariantCultureIgnoreCase)) &&
-                        filePath.Name.StartsWith(
-                            @"Resources.", StringComparison.InvariantCultureIgnoreCase))
+                    if ((@"Properties".EqualsNoCase(folderPath.Name) ||
+                         @"App_GlobalResources".EqualsNoCase(folderPath.Name)) &&
+                        filePath.Name.StartsWithNoCase(@"Resources."))
                     {
                         var parentFolderPath = folderPath.Parent;
                         if (parentFolderPath == null)
@@ -680,8 +669,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                                         pathToMakeRelative));
                         }
                     }
-                    else if (string.Equals(@"App_LocalResources", folderPath.Name,
-                                           StringComparison.InvariantCultureIgnoreCase))
+                    else if (@"App_LocalResources".EqualsNoCase(folderPath.Name))
                     {
                         var name =
                             ZlpPathHelper.GetRelativePath(
@@ -726,10 +714,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                         var filePath = _fileInfos[0].File;
                         var folderPath = filePath.Directory;
 
-                        if (string.Equals(@"Properties", folderPath.Name,
-                                          StringComparison.InvariantCultureIgnoreCase) ||
-                            string.Equals(@"App_GlobalResources", folderPath.Name,
-                                          StringComparison.InvariantCultureIgnoreCase))
+                        if (@"Properties".EqualsNoCase(folderPath.Name) ||
+                            @"App_GlobalResources".EqualsNoCase(folderPath.Name))
                         {
                             var parentFolderPath = folderPath.Parent;
                             if (parentFolderPath == null)
@@ -744,8 +730,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                                         folderPath.Name);
                             }
                         }
-                        else if (string.Equals(@"App_LocalResources", folderPath.Name,
-                                               StringComparison.InvariantCultureIgnoreCase))
+                        else if (@"App_LocalResources".EqualsNoCase(folderPath.Name))
                         {
                             return
                                 ZlpPathHelper.Combine(
@@ -763,10 +748,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                     }
                 }
             }
-            set
-            {
-                _name = value;
-            }
+            set => _name = value;
         }
 
         public string GetFullNameIntelligent(
@@ -774,14 +756,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         {
             lock (_fileInfos)
             {
-                if (_fileInfos.Count <= 0)
-                {
-                    return GetNameIntelligent(project);
-                }
-                else
-                {
-                    return _fileInfos[0].File.DirectoryName;
-                }
+                return _fileInfos.Count <= 0 ? GetNameIntelligent(project) : _fileInfos[0].File.DirectoryName;
             }
         }
 
@@ -791,14 +766,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             {
                 lock (_fileInfos)
                 {
-                    if (_fileInfos.Count <= 0)
-                    {
-                        return null;
-                    }
-                    else
-                    {
-                        return _fileInfos[0].File.Directory;
-                    }
+                    return _fileInfos.Count <= 0 ? null : _fileInfos[0].File.Directory;
                 }
             }
         }
@@ -839,16 +807,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                 lock (_fileInfos)
                 {
                     var xs = sortFiles(_fileInfos.ToArray());
-                    var r = new List<string>();
-
-                    // ReSharper disable LoopCanBeConvertedToQuery
-                    foreach (var x in xs)
-                    // ReSharper restore LoopCanBeConvertedToQuery
-                    {
-                        r.Add(x.File.FullName);
-                    }
-
-                    return r.ToArray();
+                    return xs.Select(x => x.File.FullName).ToArray();
                 }
             }
         }
@@ -911,15 +870,13 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         {
             lock (_fileInfos)
             {
-                // ReSharper disable LoopCanBeConvertedToQuery
                 foreach (var ffi in _fileInfos)
-                // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     var lc = new LanguageCodeDetection(project).DetectLanguageCodeFromFileName(
                         ParentSettings,
                         ffi.File.FullName);
 
-                    if (string.Compare(languageCode, lc, StringComparison.OrdinalIgnoreCase) == 0)
+                    if (languageCode.EqualsNoCase(lc))
                     {
                         return ffi;
                     }
@@ -956,7 +913,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
         public string BaseOptionalDefaultType => new LanguageCodeDetection(Project).GetBaseOptionalDefaultType(this);
 
-        public string Remarks { get; set; }
+        private string Remarks { get; set; }
 
         public Guid ProjectFolderUniqueID => _projectFolderUniqueID;
 
@@ -1013,9 +970,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                 // Clone.
                 var fp = new List<FileInformation>(filePaths);
 
-                // ReSharper disable LoopCanBeConvertedToQuery
                 foreach (var filePath in fp)
-                // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     // Changed 2009-07-11, Uwe Keim:
                     // Use relative path if available.
@@ -1051,9 +1006,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             }
         }
 
-        #region Override
-        // ------------------------------------------------------------------
-
         public int CompareTo(FileGroup other)
         {
             var a = _orderPosition.CompareTo(other._orderPosition);
@@ -1086,9 +1038,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             return GetChecksum(null).GetHashCode();
         }
 
-        // ------------------------------------------------------------------
-        #endregion
-
         public Guid UniqueID
         {
             get
@@ -1117,11 +1066,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
         public FileInformation CreateAndAddNewFile(
             string baseFolderPath,
-            string newFileName,
-            string newLanguageCode)
+            string newFileName)
         {
-            if (newFileName.StartsWith(BaseName, StringComparison.InvariantCultureIgnoreCase) &&
-                newFileName.EndsWith(BaseExtension, StringComparison.InvariantCultureIgnoreCase))
+            if (newFileName.StartsWithNoCase(BaseName) && newFileName.EndsWithNoCase(BaseExtension))
             {
                 var newFilePath = ZlpPathHelper.Combine(baseFolderPath, newFileName);
 
@@ -1153,8 +1100,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             bool automaticallyTranslateTexts,
             string prefix)
         {
-            if (newFileName.StartsWith(BaseName, StringComparison.InvariantCultureIgnoreCase) &&
-                newFileName.EndsWith(BaseExtension, StringComparison.InvariantCultureIgnoreCase))
+            if (newFileName.StartsWithNoCase(BaseName) && newFileName.EndsWithNoCase(BaseExtension))
             {
                 var newFilePath =
                     ZlpPathHelper.Combine(
@@ -1375,6 +1321,11 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                 // Write back.
                 data.SaveDataTableToResxFiles(project, table, false, false);
             }
+
+            LogCentral.Current.Info(
+                $@"Finished translating: {nameof(translationCount)} = '{translationCount}', {
+                        nameof(translationSuccessCount)
+                    } = '{translationSuccessCount}', {nameof(translationErrorCount)} = '{translationErrorCount}'.");
         }
 
         public bool IsDeepChildOf(ProjectFolder folder)
@@ -1397,21 +1348,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         {
             var lcd = new LanguageCodeDetection(Project);
 
-            // ReSharper disable LoopCanBeConvertedToQuery
-            foreach (var filePath in FilePaths)
-            // ReSharper restore LoopCanBeConvertedToQuery
-            {
-                var ci = lcd.DetectCultureFromFileName(
-                    ParentSettings,
-                    filePath);
-
-                if (string.Compare(ci.Name, cultureInfo.Name, StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return FilePaths
+                .Select(filePath => lcd.DetectCultureFromFileName(ParentSettings, filePath))
+                .Any(ci => ci.Name.EqualsNoCase(cultureInfo.Name));
         }
 
         public bool DeleteFile(FileInformation fileInformation)

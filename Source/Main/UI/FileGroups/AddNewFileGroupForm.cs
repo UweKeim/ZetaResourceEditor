@@ -261,8 +261,7 @@ namespace ZetaResourceEditor.UI.FileGroups
                                             ffi =
                                                 fg.CreateAndAddNewFile(
                                                     baseFolderPath,
-                                                    fileName,
-                                                    culture.Name);
+                                                    fileName);
                                         }
 
                                         // Must create real file.

@@ -1,92 +1,92 @@
 namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 {
-	using System;
-	using System.ComponentModel;
-	using System.Windows.Forms;
-	using Base;
-	using DevExpress.XtraBars;
-	using DevExpress.XtraEditors;
-	using DevExpress.XtraEditors.Controls;
-	using Properties;
-	using Zeta.VoyagerLibrary.Logging;
+    using Base;
+    using DevExpress.XtraBars;
+    using System;
+    using System.ComponentModel;
+    using System.Reflection;
+    using System.Windows.Forms;
+    using Zeta.VoyagerLibrary.Logging;
 
-	public partial class ErrorForm : FormBase
-	{
-		private readonly MemoEditScrollbarAdjuster _adjuster = new MemoEditScrollbarAdjuster();
+    public partial class ErrorForm : FormBase
+    {
+        private readonly MemoEditScrollbarAdjuster _adjuster = new MemoEditScrollbarAdjuster();
 
-		private Exception _exception;
+        private Exception _exception;
 
-		protected override bool WantSetGlobalIcon => false;
+        protected override bool WantSetGlobalIcon => false;
 
-	    public ErrorForm()
-		{
-			InitializeComponent();
+        public ErrorForm()
+        {
+            InitializeComponent();
 
-			AcceptButton = buttonContinue;
-			CancelButton = buttonContinue;
-		}
+            AcceptButton = buttonContinue;
+            CancelButton = buttonContinue;
+        }
 
-		public void Initialize( Exception e )
-		{
-			_exception = e;
-			memoEdit1.Text = e.Message;
-		}
+        public void Initialize(Exception e)
+        {
+            _exception = e;
 
-		private void errorForm_Load( object sender, EventArgs e )
-		{
-			RestoreState();
-			CenterToParent();
+            if (_exception is TargetInvocationException && _exception.InnerException != null)
+                _exception = e.InnerException;
 
-			_adjuster.Attach(memoEdit1);
+            memoEdit1.Text = (_exception ?? e).Message;
+        }
 
-			InitiallyFillLists();
-			FillItemToControls();
+        private void errorForm_Load(object sender, EventArgs e)
+        {
+            RestoreState();
+            CenterToParent();
 
-			UpdateUI();
-		}
+            _adjuster.Attach(memoEdit1);
 
-		private void errorForm_FormClosing( object sender, FormClosingEventArgs e )
-		{
-			PersistState();
-		}
+            InitiallyFillLists();
+            FillItemToControls();
 
-		private void detailedErrorsButton_ItemClick( object sender, ItemClickEventArgs e )
-		{
-			using ( var form = new TextBoxForm() )
-			{
-				var message = Logger.MakeTraceMessage( _exception );
-				form.Initialize( message );
+            UpdateUI();
+        }
 
-				form.ShowDialog( this );
-			}
-		}
+        private void errorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            PersistState();
+        }
 
-		private void optionsPopupMenu_BeforePopup(
-			object sender,
-			CancelEventArgs e )
-		{
-			UpdateUI();
-		}
+        private void detailedErrorsButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            using (var form = new TextBoxForm())
+            {
+                var message = Logger.MakeTraceMessage(_exception);
+                form.Initialize(message);
 
-		private void hyperLinkEdit1_OpenLink(object sender, OpenLinkEventArgs e)
-		{
-            e.Handled = true;
+                form.ShowDialog(this);
+            }
+        }
 
-            if (XtraMessageBox.Show(
-					this,
-					Resources.SR_ErrorForm_button2Click_QuitTheApplication,
-					@"Zeta Resource Editor",
-					MessageBoxButtons.YesNo,
-					MessageBoxIcon.Question,
-					MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-			{
-				DialogResult = DialogResult.Abort;
-				Close();
-			}
-			else
-			{
-				DialogResult = DialogResult.None;
-			}
-		}
-	}
+        private void optionsPopupMenu_BeforePopup(
+            object sender,
+            CancelEventArgs e)
+        {
+            UpdateUI();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //if (XtraMessageBox.Show(
+            //        this,
+            //        Resources.SR_ErrorForm_button2Click_QuitTheApplication,
+            //        @"Zeta Resource Editor",
+            //        MessageBoxButtons.YesNo,
+            //        MessageBoxIcon.Question,
+            //        MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            //{
+            DialogResult = DialogResult.Abort;
+            Close();
+            //}
+            //else
+            //{
+            //    DialogResult = DialogResult.None;
+            //}
+        }
+    }
 }

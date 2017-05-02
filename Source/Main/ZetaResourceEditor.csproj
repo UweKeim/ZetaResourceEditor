@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
-  <Import Project="..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -164,6 +164,15 @@
     </Compile>
     <Compile Include="UI\FileGroups\CreateNewFileForm.Designer.cs">
       <DependentUpon>CreateNewFileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FileGroups\FileGroupSelectionControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\FileGroups\MergeFileGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FileGroups\MergeFileGroupForm.Designer.cs">
+      <DependentUpon>MergeFileGroupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Helper\Base\FormBase.cs">
       <SubType>Form</SubType>
@@ -364,6 +373,12 @@
     <EmbeddedResource Include="UI\FileGroups\CreateNewFileForm.resx">
       <DependentUpon>CreateNewFileForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FileGroups\FileGroupSelectionControl.resx">
+      <DependentUpon>FileGroupSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FileGroups\MergeFileGroupForm.resx">
+      <DependentUpon>MergeFileGroupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Helper\Base\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
@@ -583,7 +598,7 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

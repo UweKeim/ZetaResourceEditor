@@ -1,13 +1,5 @@
 namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Globalization;
-    using System.IO;
-    using System.Linq;
-    using System.Text;
     using BL;
     using CoreExcel2;
     using DynamicSettings;
@@ -18,6 +10,14 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
     using Runtime;
     using Runtime.FileAccess;
     using Snapshots;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Globalization;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
     using WebServices;
     using Zeta.VoyagerLibrary.Common;
     using Zeta.VoyagerLibrary.Common.IO.Compression;
@@ -856,7 +856,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
             DataRow row,
             CommentVisibilityScope commentVisibilityScope)
         {
-            if ((FileGroup.IsCompleteRowEmpty(row, commentVisibilityScope) &&
+            if ((FileGroup.IsCompleteRowEmpty(row) &&
                 !preparedInformation.ExportCompletelyEmptyRows) ||
                 // http://www.codeproject.com/KB/aspnet/ZetaResourceEditor.aspx?msg=3367544#xx3367544xx)
                 FileGroup.IsInternalRow(row))

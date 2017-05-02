@@ -15,6 +15,7 @@
     using RuntimeBusinessLogic.FileGroups;
     using RuntimeBusinessLogic.Language;
     using RuntimeBusinessLogic.Projects;
+    using RuntimeBusinessLogic.Snapshots;
     using RuntimeBusinessLogic.Translation;
     using System;
     using System.Collections.Generic;
@@ -25,7 +26,6 @@
     using System.Reflection;
     using System.Threading;
     using System.Windows.Forms;
-    using RuntimeBusinessLogic.Snapshots;
     using Zeta.VoyagerLibrary.Common;
     using Zeta.VoyagerLibrary.Tools.Storage;
     using Zeta.VoyagerLibrary.WinForms.Common;
@@ -519,9 +519,16 @@
                 toTranslateLanguageCodes.Add(pair.LanguageCode.ToLowerInvariant());
             }
 
+            // --
+            // 2017-04-15.
+
+            var prevPause = MainForm.Current.ProjectFilesControl.WantPauseNodeStateUpdate;
+            MainForm.Current.ProjectFilesControl.WantPauseNodeStateUpdate = true;
+
             _fileGroupControl.IsTranslating = true;
             try
             {
+
                 using (
                     new BackgroundWorkerLongProgressGui(
                         delegate (
@@ -654,6 +661,8 @@
 #pragma warning disable 618, 612
                                 DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = prev;
 #pragma warning restore 618, 612
+
+                                MainForm.Current.ProjectFilesControl.WantPauseNodeStateUpdate = prevPause;
                             }
                         },
                         delegate (

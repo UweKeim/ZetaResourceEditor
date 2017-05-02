@@ -1,71 +1,71 @@
 namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 {
-	using System;
-	using System.Drawing;
-	using System.Windows.Forms;
-	using Base;
-	using Zeta.VoyagerLibrary.WinForms.Persistance;
+    using Base;
+    using System;
+    using System.Drawing;
+    using System.Windows.Forms;
+    using Zeta.VoyagerLibrary.WinForms.Persistance;
 
-	public partial class TextBoxForm :
-		FormBase
-	{
-		private static bool _hasConsolas;
-		private static bool _hasConsolasChecked;
+    public partial class TextBoxForm :
+        FormBase
+    {
+        private static bool _hasConsolas;
+        private static bool _hasConsolasChecked;
 
-		public TextBoxForm()
-		{
-			InitializeComponent();
-		}
+        public TextBoxForm()
+        {
+            InitializeComponent();
+        }
 
-		public void Initialize(
-			string text )
-		{
-			textMemoEdit.Text = text;
-		}
+        public void Initialize(
+            string text)
+        {
+            textMemoEdit.Text = text;
+        }
 
-		private void textBoxForm_Load( object sender, EventArgs e )
-		{
-			WinFormsPersistanceHelper.RestoreState( this );
-			CenterToParent();
+        private void textBoxForm_Load(object sender, EventArgs e)
+        {
+            WinFormsPersistanceHelper.RestoreState(this);
+            CenterToParent();
 
-			if ( !DesignMode )
-			{
-				if ( !_hasConsolasChecked )
-				{
-					_hasConsolasChecked = true;
+            if (!DesignMode)
+            {
+                if (!_hasConsolasChecked)
+                {
+                    _hasConsolasChecked = true;
 
-					var families = FontFamily.Families;
+                    var families = FontFamily.Families;
 
-					foreach (var family in families)
-					{
-						if(string.Compare(family.Name, @"Consolas", StringComparison.OrdinalIgnoreCase) == 0)
-						{
-							_hasConsolas = true;
-							break;
-						}
-					}
-				}
+                    foreach (var family in families)
+                    {
+                        if (string.Compare(family.Name, @"Consolas", StringComparison.OrdinalIgnoreCase) == 0)
+                        {
+                            _hasConsolas = true;
+                            break;
+                        }
+                    }
+                }
 
-				if ( _hasConsolas )
-				{
-					textMemoEdit.Font = new Font( @"Consolas", textMemoEdit.Font.Size );
-				}
-			}
-		}
+                if (_hasConsolas)
+                {
+                    textMemoEdit.Font = new Font(@"Consolas", textMemoEdit.Font.Size);
+                }
+            }
+        }
 
-		private void textBoxForm_FormClosing(
-			object sender,
-			FormClosingEventArgs e )
-		{
-			WinFormsPersistanceHelper.SaveState( this );
-		}
+        private void textBoxForm_FormClosing(
+            object sender,
+            FormClosingEventArgs e)
+        {
+            WinFormsPersistanceHelper.SaveState(this);
+        }
 
-		private void textMemoEdit_KeyDown( object sender, KeyEventArgs e )
-		{
-			if ( e.Control && e.KeyCode == Keys.A )
-			{
-				textMemoEdit.SelectAll();
-			}
-		}
-	}
+        private void textMemoEdit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                textMemoEdit.SelectAll();
+            }
+        }
+    }
 }

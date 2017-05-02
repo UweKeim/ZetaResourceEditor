@@ -1,11 +1,11 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.FileInformations
 {
-    using System;
-    using System.Diagnostics;
-    using System.Xml;
     using DL;
     using FileGroups;
     using Projects;
+    using System;
+    using System.Diagnostics;
+    using System.Xml;
     using Zeta.VoyagerLibrary.Common;
     using ZetaLongPaths;
 
@@ -40,35 +40,16 @@
             var x = ZlpPathHelper.GetFileNameWithoutExtension(File.FullName);
             var y = ZlpPathHelper.GetFileNameWithoutExtension(other.File.FullName);
 
-            if ((x.Contains(@".") && y.Contains(@".")) ||
-                (!x.Contains(@".") && !y.Contains(@".")))
+            if (x.Contains(@".") && y.Contains(@".") ||
+                !x.Contains(@".") && !y.Contains(@"."))
             {
                 return string.CompareOrdinal(x, y);
             }
             else
             {
-                if (x.Contains(@"."))
-                {
-                    if (x.StartsWith(y, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        return +1;
-                    }
-                    else
-                    {
-                        return string.CompareOrdinal(x, y);
-                    }
-                }
-                else
-                {
-                    if (y.StartsWith(x, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        return -1;
-                    }
-                    else
-                    {
-                        return string.CompareOrdinal(x, y);
-                    }
-                }
+                return x.Contains(@".")
+                    ? (x.StartsWithNoCase(y) ? +1 : string.CompareOrdinal(x, y))
+                    : (y.StartsWithNoCase(x) ? -1 : string.CompareOrdinal(x, y));
             }
         }
 

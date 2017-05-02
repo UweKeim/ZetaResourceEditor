@@ -62,6 +62,8 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.buttonMenuProjectFolderAddFileGroupToProject = new DevExpress.XtraBars.BarButtonItem();
             this.buttonMenuProjectAddNewFileGroupToProject = new DevExpress.XtraBars.BarButtonItem();
             this.buttonMenuProjectDeleteExistingLanguage = new DevExpress.XtraBars.BarButtonItem();
+            this.buttonMenuProjectDeleteLanguages = new DevExpress.XtraBars.BarButtonItem();
+            this.buttonMergeIntoFileGroup = new DevExpress.XtraBars.BarButtonItem();
             this.guiRefreshTimer = new System.Windows.Forms.Timer(this.components);
             this.popupMenuProject = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuProjectFolder = new DevExpress.XtraBars.PopupMenu(this.components);
@@ -69,7 +71,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.popupMenuFile = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuNone = new DevExpress.XtraBars.PopupMenu(this.components);
             this.updateNodeStateImageBackgroundworker = new System.ComponentModel.BackgroundWorker();
-            this.buttonMenuProjectDeleteLanguages = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.treeView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeImageList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stateImageList)).BeginInit();
@@ -192,8 +193,9 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.buttonMenuProjectFolderAddFileGroupToProject,
             this.buttonMenuProjectAddNewFileGroupToProject,
             this.buttonMenuProjectDeleteExistingLanguage,
-            this.buttonMenuProjectDeleteLanguages});
-            this.barManager.MaxItemId = 26;
+            this.buttonMenuProjectDeleteLanguages,
+            this.buttonMergeIntoFileGroup});
+            this.barManager.MaxItemId = 27;
             // 
             // barDockControlBottom
             // 
@@ -382,6 +384,21 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.buttonMenuProjectDeleteExistingLanguage.Name = "buttonMenuProjectDeleteExistingLanguage";
             this.buttonMenuProjectDeleteExistingLanguage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMenuProjectDeleteExistingLanguage_ItemClick);
             // 
+            // buttonMenuProjectDeleteLanguages
+            // 
+            this.buttonMenuProjectDeleteLanguages.Caption = "Delete language";
+            this.buttonMenuProjectDeleteLanguages.Id = 25;
+            this.buttonMenuProjectDeleteLanguages.Name = "buttonMenuProjectDeleteLanguages";
+            this.buttonMenuProjectDeleteLanguages.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMenuProjectDeleteLanguages_ItemClick);
+            // 
+            // buttonMergeIntoFileGroup
+            // 
+            this.buttonMergeIntoFileGroup.Caption = "Merge into this file group";
+            this.buttonMergeIntoFileGroup.Id = 26;
+            this.buttonMergeIntoFileGroup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonMergeIntoFileGroup.ImageOptions.Image")));
+            this.buttonMergeIntoFileGroup.Name = "buttonMergeIntoFileGroup";
+            this.buttonMergeIntoFileGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMergeIntoFileGroup_ItemClick);
+            // 
             // guiRefreshTimer
             // 
             this.guiRefreshTimer.Interval = 500;
@@ -430,6 +447,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectEditResourceFiles),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectRemoveFileGroupFromProject),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectEditFileGroupSettings),
+            new DevExpress.XtraBars.LinkPersistInfo(this.buttonMergeIntoFileGroup),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectAddFilesToFileGroup, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectCreateNewFile),
             new DevExpress.XtraBars.LinkPersistInfo(this.buttonMenuProjectEditProjectSettings, true),
@@ -460,13 +478,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.updateNodeStateImageBackgroundworker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.updateNodeStateImageBackgroundworker_DoWork);
             this.updateNodeStateImageBackgroundworker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.updateNodeStateImageBackgroundworker_ProgressChanged);
             this.updateNodeStateImageBackgroundworker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.updateNodeStateImageBackgroundworker_RunWorkerCompleted);
-            // 
-            // buttonMenuProjectDeleteLanguages
-            // 
-            this.buttonMenuProjectDeleteLanguages.Caption = "Delete language";
-            this.buttonMenuProjectDeleteLanguages.Id = 25;
-            this.buttonMenuProjectDeleteLanguages.Name = "buttonMenuProjectDeleteLanguages";
-            this.buttonMenuProjectDeleteLanguages.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMenuProjectDeleteLanguages_ItemClick);
             // 
             // ProjectFilesUserControl
             // 
@@ -537,5 +548,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 		private DevExpress.XtraBars.BarButtonItem buttonMenuProjectAddNewFileGroupToProject;
         private DevExpress.XtraBars.BarButtonItem buttonMenuProjectDeleteExistingLanguage;
         private DevExpress.XtraBars.BarButtonItem buttonMenuProjectDeleteLanguages;
+        private DevExpress.XtraBars.BarButtonItem buttonMergeIntoFileGroup;
     }
 }

@@ -1,8 +1,5 @@
 namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 {
-    #region Using directives.
-    // ----------------------------------------------------------------------
-
     using DL;
     using FileGroups;
     using Language;
@@ -17,51 +14,38 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
     using Zeta.VoyagerLibrary.Common;
     using ZetaLongPaths;
 
-    // ----------------------------------------------------------------------
-    #endregion
-
-    /////////////////////////////////////////////////////////////////////////
-
     public sealed class DataProcessing
     {
-        #region Private variables.
-        // ------------------------------------------------------------------
-
         private List<ResxFile> _resxFiles;
         private readonly IGridEditableData _gridEditableData;
         private readonly object _backupLock = new object();
 
         public static event AskOverwriteDelegate<ZlpFileInfo> CanOverwrite;
 
-        // ------------------------------------------------------------------
-        #endregion
-
-        #region Private methods.
-        // ------------------------------------------------------------------
-
-        /// <summary>
-        /// Load files from FileSystem
-        /// </summary>
         private void loadFiles()
         {
             _resxFiles = new List<ResxFile>();
 
             foreach (var item in _gridEditableData.GetFileInformationsSorted())
             {
-                using (var reader = XmlReader.Create(item.File.FullName))
-                {
-                    var doc = new XmlDocument();
-                    doc.Load(reader);
-                    doc.Normalize();
-
-                    _resxFiles.Add(
-                        new ResxFile
+                ZlpSimpleFileAccessProtector.Protect(
+                    delegate
+                    {
+                        using (var reader = XmlReader.Create(item.File.FullName))
                         {
-                            FileInformation = item,
-                            FilePath = item.File,
-                            Document = doc
-                        });
-                }
+                            var doc = new XmlDocument();
+                            doc.Load(reader);
+                            doc.Normalize();
+
+                            _resxFiles.Add(
+                                new ResxFile
+                                {
+                                    FileInformation = item,
+                                    FilePath = item.File,
+                                    Document = doc
+                                });
+                        }
+                    });
             }
         }
 
@@ -75,7 +59,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                 if (resxFile.FilePath.Exists)
                 {
                     if ((ZlpIOHelper.GetFileAttributes(resxFile.FilePath.FullName) &
-                        ZetaLongPaths.Native.FileAttributes.Readonly) != 0)
+                         ZetaLongPaths.Native.FileAttributes.Readonly) != 0)
                     {
                         if (_gridEditableData?.Project != null)
                         {
@@ -87,21 +71,25 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                                 case ReadOnlyFileOverwriteBehaviour.Ask:
                                     var h = CanOverwrite;
                                     resxFile.FilePath.Refresh();
-                                    switch (h(resxFile.FilePath))
+                                    if (h != null)
                                     {
-                                        case AskOverwriteResult.Overwrite:
-                                            // Simply continue to code below.
-                                            break;
-                                        case AskOverwriteResult.Skip:
-                                            continue;
-                                        case AskOverwriteResult.Fail:
-                                            throw new Exception(
-                                                string.Format(
-                                                    Resources.SR_DataProcessing_storeFiles_Save_operation_was_cancelled_at_file,
-                                                    resxFile.FilePath.Name));
+                                        switch (h(resxFile.FilePath))
+                                        {
+                                            case AskOverwriteResult.Overwrite:
+                                                // Simply continue to code below.
+                                                break;
+                                            case AskOverwriteResult.Skip:
+                                                continue;
+                                            case AskOverwriteResult.Fail:
+                                                throw new Exception(
+                                                    string.Format(
+                                                        Resources
+                                                            .SR_DataProcessing_storeFiles_Save_operation_was_cancelled_at_file,
+                                                        resxFile.FilePath.Name));
 
-                                        default:
-                                            throw new ArgumentOutOfRangeException();
+                                            default:
+                                                throw new ArgumentOutOfRangeException();
+                                        }
                                     }
                                     break;
                                 case ReadOnlyFileOverwriteBehaviour.Skip:
@@ -109,7 +97,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                                 case ReadOnlyFileOverwriteBehaviour.Fail:
                                     throw new Exception(
                                         string.Format(
-                                            Resources.SR_DataProcessing_storeFiles_Saving_failed_because_of_read_only_file,
+                                            Resources
+                                                .SR_DataProcessing_storeFiles_Saving_failed_because_of_read_only_file,
                                             resxFile.FilePath.Name));
 
                                 default:
@@ -130,19 +119,23 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                         Encoding = Encoding.UTF8
                     };
 
-                using (var sw = new StreamWriter(
-                    resxFile.FilePath.FullName,
-                    false,
-                    new UTF8Encoding(false)))
-                using (var write = XmlWriter.Create(sw, settings))
-                {
-                    var doc = resxFile.Document;
-                    doc.Save(write);
-                }
+                ZlpSimpleFileAccessProtector.Protect(
+                    delegate
+                    {
+                        using (var sw = new StreamWriter(
+                            resxFile.FilePath.FullName,
+                            false,
+                            new UTF8Encoding(false)))
+                        using (var write = XmlWriter.Create(sw, settings))
+                        {
+                            var doc = resxFile.Document;
+                            doc.Save(write);
+                        }
+                    });
             }
         }
 
-        public static bool GetShowCommentColumn(Project project)
+        private static bool GetShowCommentColumn(Project project)
         {
             return project != null && project.ShowCommentsColumnInGrid;
         }
@@ -220,10 +213,10 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                 });
             table.PrimaryKey =
                 new[]
-                    {
-                        table.Columns[@"FileGroup"],
-                        table.Columns[@"Name"]
-                    };
+                {
+                    table.Columns[@"FileGroup"],
+                    table.Columns[@"Name"]
+                };
 
             // AJ CHANGE
 
@@ -234,7 +227,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 
                 var culture =
                     new LanguageCodeDetection(
-                        _gridEditableData.Project)
+                            _gridEditableData.Project)
                         .DetectCultureFromFileName(
                             _gridEditableData.ParentSettings,
                             cn);
@@ -275,7 +268,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 
                 var culture =
                     new LanguageCodeDetection(
-                        _gridEditableData.Project)
+                            _gridEditableData.Project)
                         .DetectCultureFromFileName(
                             _gridEditableData.ParentSettings,
                             cn);
@@ -291,17 +284,11 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                 // Each "data" node of the XML document is processed
                 foreach (XmlNode node in data)
                 {
-                    var process = true;
-
-                    //Check if this is a non string data tag
-                    if (node.Attributes != null && node.Attributes[@"type"] != null)
-                    {
-                        process = false;
-                    }
+                    var process = node.Attributes?[@"type"] == null;
 
                     //skip mimetype like application/x-microsoft.net.object.binary.base64
                     // http://www.codeproject.com/KB/aspnet/ZetaResourceEditor.aspx?msg=3367544#xx3367544xx
-                    if (node.Attributes != null && node.Attributes[@"mimetype"] != null)
+                    if (node.Attributes?[@"mimetype"] != null)
                     {
                         process = false;
                     }
@@ -379,7 +366,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
             foreach (DataColumn column in columns)
             // ReSharper restore LoopCanBeConvertedToQuery
             {
-                if (string.Compare(column.Caption, cultureCaption, true) == 0)
+                if (String.Compare(column.Caption, cultureCaption, StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     return true;
                 }
@@ -407,7 +394,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                 {
                     if (index > 1) // Column 0=FileGroup checksum, column 1=Tag name.
                     {
-                        if (string.Compare(dataColumn.Caption, cultureCaption, true) == 0)
+                        if (String.Compare(dataColumn.Caption, cultureCaption, StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             captionIndexCache[cultureCaption] = index;
 
@@ -546,10 +533,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                                                     node.RemoveChild(n);
                                                 }
 
-                                                if (node.ParentNode != null)
-                                                {
-                                                    node.ParentNode.RemoveChild(node);
-                                                }
+                                                node.ParentNode?.RemoveChild(node);
                                             }
                                         }
                                         else // Resource doesn't exist in XML.
@@ -565,9 +549,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                                                     //look if base file has same tagName
                                                     //if base file skip it
                                                     if (string.Compare(
-                                                        _gridEditableData.Project.NeutralLanguageCode,
-                                                        culture,
-                                                        StringComparison.OrdinalIgnoreCase) == 0 ||
+                                                            _gridEditableData.Project.NeutralLanguageCode,
+                                                            culture,
+                                                            StringComparison.OrdinalIgnoreCase) == 0 ||
                                                         string.Compare(
                                                             _gridEditableData.Project.NeutralLanguageCode,
                                                             cultureLong,
@@ -578,12 +562,18 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 
                                                     // 2011-01-26, Uwe Keim:
                                                     var pattern =
-                                                        resxFile.FileInformation.FileGroup.ParentSettings.EffectiveNeutralLanguageFileNamePattern;
-                                                    pattern = pattern.Replace(@"[basename]", resxFile.FileInformation.FileGroup.BaseName);
-                                                    pattern = pattern.Replace(@"[languagecode]", project.NeutralLanguageCode);
-                                                    pattern = pattern.Replace(@"[extension]", resxFile.FileInformation.FileGroup.BaseExtension);
+                                                        resxFile.FileInformation.FileGroup.ParentSettings
+                                                            .EffectiveNeutralLanguageFileNamePattern;
+                                                    pattern =
+                                                        pattern.Replace(@"[basename]",
+                                                            resxFile.FileInformation.FileGroup.BaseName);
+                                                    pattern =
+                                                        pattern.Replace(@"[languagecode]", project.NeutralLanguageCode);
+                                                    pattern =
+                                                        pattern.Replace(@"[extension]",
+                                                            resxFile.FileInformation.FileGroup.BaseExtension);
                                                     pattern = pattern.Replace(@"[optionaldefaulttypes]",
-                                                                              resxFile.FileInformation.FileGroup.BaseOptionalDefaultType);
+                                                        resxFile.FileInformation.FileGroup.BaseOptionalDefaultType);
 
                                                     //has base culture value?
                                                     var baseName = pattern;
@@ -593,20 +583,14 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                                                     var baseResxFile =
                                                         _resxFiles.Find(
                                                             resx =>
-                                                            resx.FilePath.Name == baseName &&
-                                                            resx.FileInformation.FileGroup.UniqueID ==
-                                                            file.FileInformation.FileGroup.UniqueID);
-                                                    if (baseResxFile == null ||
-                                                        baseResxFile.Document == null ||
-                                                        baseResxFile.Document.DocumentElement == null)
-                                                    {
-                                                        continue;
-                                                    }
+                                                                resx.FilePath.Name == baseName &&
+                                                                resx.FileInformation.FileGroup.UniqueID ==
+                                                                file.FileInformation.FileGroup.UniqueID);
 
                                                     var baseNode =
-                                                        baseResxFile.Document.DocumentElement.
-                                                            SelectSingleNode(xpathQuery);
-                                                    if (null == baseNode)
+                                                        baseResxFile?.Document?.DocumentElement
+                                                            ?.SelectSingleNode(xpathQuery);
+                                                    if (baseNode == null)
                                                     {
                                                         continue;
                                                     }
@@ -676,9 +660,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
             }
             else
             {
-                return query.
-                   Replace(@"'", @"&acute;").
-                   Replace(@"""", @"&quot;");
+                return query.Replace(@"'", @"&acute;").Replace(@"""", @"&quot;");
             }
         }
 
@@ -701,8 +683,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 
                     ZlpSafeFileOperations.SafeCopyFile(
                         resxFile.FilePath.FullName,
-                        bak.FullName + @".bak",
-                        true);
+                        bak.FullName + @".bak");
                 }
             }
         }
@@ -725,18 +706,15 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 
                 var xpathQuery = $@"child::data[attribute::name='{escapeXsltChars(oldName)}']";
 
-                if (tmp.DocumentElement != null)
-                {
-                    var target =
-                        tmp.DocumentElement.SelectSingleNode(
-                            xpathQuery);
+                var target =
+                    tmp.DocumentElement?.SelectSingleNode(
+                        xpathQuery);
 
-                    // Can be NULL if not yet written.
-                    // http://www.codeproject.com/Messages/3107527/Re-more-bugs.aspx
-                    if (target != null && target.Attributes != null)
-                    {
-                        target.Attributes[@"name"].Value = newName;
-                    }
+                // Can be NULL if not yet written.
+                // http://www.codeproject.com/Messages/3107527/Re-more-bugs.aspx
+                if (target?.Attributes != null)
+                {
+                    target.Attributes[@"name"].Value = newName;
                 }
             }
         }
@@ -771,12 +749,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 
                 XmlNode root = tmp.DocumentElement;
 
-                if (root != null)
-                {
-                    root.InsertAfter(
-                        newData,
-                        root.LastChild);
-                }
+                root?.InsertAfter(
+                    newData,
+                    root.LastChild);
             }
         }
 
@@ -793,24 +768,15 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                 var xpathQuery =
                     $@"child::data[attribute::name='{escapeXsltChars(tag)}']";
 
-                if (tmp.DocumentElement != null)
-                {
-                    var target = tmp.DocumentElement.SelectSingleNode(
-                        xpathQuery);
+                var target = tmp.DocumentElement?.SelectSingleNode(
+                    xpathQuery);
 
-                    if (target != null)
-                    {
-                        tmp.DocumentElement.RemoveChild(target);
-                    }
+                if (target != null)
+                {
+                    tmp.DocumentElement.RemoveChild(target);
                 }
             }
         }
-
-        // ------------------------------------------------------------------
-        #endregion
-
-        #region Public methods.
-        // ------------------------------------------------------------------
 
         public DataProcessing(
             IGridEditableData gridEditableData)
@@ -818,18 +784,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
             _gridEditableData = gridEditableData;
         }
 
-        /// <summary>
-        /// Creates the data source for the grid as "<see cref="DataTable"/>".
-        /// </summary>
-        public DataTable GetDataTableFromResxFiles(
-            Project project)
-        {
-            return GetDataTableFromResxFiles(project, false);
-        }
-
         public DataTable GetDataTableFromResxFiles(
             Project project,
-            bool forceCommentColumn)
+            bool forceCommentColumn = false)
         {
             return getTable(project, forceCommentColumn);
         }
@@ -859,9 +816,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
             saveTable(project, table, backupFiles, omitEmptyStrings);
         }
 
-        /// <summary>
-        /// Rename existing tag
-        /// </summary>
         public void RenameTag(
             string oldName,
             string newName)
@@ -869,27 +823,16 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
             rename(oldName, newName);
         }
 
-        /// <summary>
-        /// Delete existing tag
-        /// </summary>
         public void DeleteTag(
             string tag)
         {
             delete(tag);
         }
 
-        /// <summary>
-        /// Add new tag
-        /// </summary>
         public void AddTag(
             string tag)
         {
             add(tag);
         }
-
-        // ------------------------------------------------------------------
-        #endregion
     }
-
-    /////////////////////////////////////////////////////////////////////////
 }
