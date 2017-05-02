@@ -121,6 +121,9 @@ So please keep the feedback coming :-)!
 
 ## History
 
+_(Please note to also view the [GitHub commit history](https://github.com/UweKeim/ZetaResourceEditor/commits/master) for a full list of changes)_
+
+  * **2017-05-02** - Added merge funktionality to merge one or multiple file groups into another file group.
   * **2013-06-09** - Changed Excel reading/writing functions to use [free Excel library](https://code.google.com/p/excellibrary/).
   * **2013-06-07** - First release to Github. The project is also available at [The Code Project](http://www.codeproject.com/KB/aspnet/ZetaResourceEditor.aspx), at [CodePlex](https://zetaresourceeditor.codeplex.com) and at [Google Code](https://code.google.com/p/zetaresourceeditor/). Please note that a valid purchased license of DevExpress is required to build the tool.
   * **2012-02-22** - Updated the [binary setup](http://zeta.li/zre-download-setup) and the source download. Small fix to allow translation even when no project is loaded.
