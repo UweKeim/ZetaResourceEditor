@@ -125,7 +125,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                         using (var sw = new StreamWriter(
                             resxFile.FilePath.FullName,
                             false,
-                            new UTF8Encoding(false)))
+                            new UTF8Encoding(true))) // https://github.com/UweKeim/ZetaResourceEditor/issues/24
                         using (var write = XmlWriter.Create(sw, settings))
                         {
                             var doc = resxFile.Document;
