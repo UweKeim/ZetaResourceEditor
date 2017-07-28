@@ -1,15 +1,15 @@
 namespace ZetaResourceEditor.Code
 {
+    using DevExpress.XtraEditors;
+    using ExtendedControlsLibrary.Skinning;
+    using Properties;
+    using RuntimeBusinessLogic.Projects;
     using System;
     using System.Globalization;
     using System.IO;
     using System.Threading;
     using System.Windows.Forms;
-    using DevExpress.XtraEditors;
-    using ExtendedControlsLibrary.Skinning;
-    using RuntimeBusinessLogic.Projects;
     using UI.Helper.ErrorHandling;
-    using Properties;
     using UI.Main;
     using Zeta.VoyagerLibrary.Logging;
     using Zeta.VoyagerLibrary.Tools.Miscellaneous;
@@ -153,9 +153,17 @@ namespace ZetaResourceEditor.Code
             doHandleException(e.Exception);
         }
 
+        public static void NotifyAboutException(
+            Exception e)
+        {
+            doHandleException(e);
+        }
+
         private static void doHandleException(
             Exception e)
         {
+            LogCentral.Current.Warn(e);
+
             bool handleException;
 
             var exception = e as MessageBoxException;

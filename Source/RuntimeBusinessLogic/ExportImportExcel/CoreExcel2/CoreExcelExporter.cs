@@ -3,7 +3,6 @@
     using OfficeOpenXml;
     using System.Collections.Generic;
     using System.Data;
-    using System.IO;
     using ZetaLongPaths;
 
     internal static class CoreExcelExporter
@@ -18,7 +17,7 @@
            DataSet dataSet,
            string filePath)
         {
-            var p = new ExcelPackage(new FileInfo(filePath));
+            var p = new ExcelPackage(new ZlpFileInfo(filePath).ToBuiltIn());
 
             var wb = p.Workbook;
             var loopCount = 0;

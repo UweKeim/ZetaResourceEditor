@@ -60,8 +60,8 @@
                     // Delete any older files, if  currently not in use.
 
                     var files =
-                        new List<FileInfo>(
-                            new DirectoryInfo(baseFolderPath).
+                        new List<ZlpFileInfo>(
+                            new ZlpDirectoryInfo(baseFolderPath).
                                 GetFiles(fileName + @"*"));
 
                     files.RemoveAll(x => x.FullName.ToLowerInvariant().EndsWith(@".temporary"));

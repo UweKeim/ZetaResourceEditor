@@ -8,6 +8,8 @@ Etc/
 Bin-LicenseGenerator/
 Bin-Skinning/
 Source/UpdateChecker/App_Data/ZetaResourceEditor.exe
+Source/packages/
+Source-Skinning/packages/
 
 /Bin/
 

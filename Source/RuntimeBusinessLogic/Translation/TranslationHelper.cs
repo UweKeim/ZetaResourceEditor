@@ -1,256 +1,272 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation
 {
-	using System;
-	using System.Collections.Generic;
-	using Language;
-	using Projects;
-	using Runtime;
+    using Azure;
+    using Google;
+    using Language;
+    using Projects;
+    using Properties;
+    using Runtime;
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
+    using Zeta.VoyagerLibrary.Tools;
 
-	public static class TranslationHelper
-	{
-		public static bool IsSupportedLanguage(
-			string languageCode,
-			TranslationLanguageInfo[] languageInfos)
-		{
-			var ci = CultureHelper.CreateCultureErrorTolerant(languageCode);
+    public static class TranslationHelper
+    {
+        public static bool IsSupportedLanguage(
+            string languageCode,
+            TranslationLanguageInfo[] languageInfos)
+        {
+            var ci = CultureHelper.CreateCultureErrorTolerant(languageCode);
 
-			// ReSharper disable LoopCanBeConvertedToQuery
-			foreach (var translationLanguageInfo in languageInfos)
-			// ReSharper restore LoopCanBeConvertedToQuery
-			{
-				if (string.Compare(translationLanguageInfo.LanguageCode, ci.TwoLetterISOLanguageName, StringComparison.OrdinalIgnoreCase) == 0 ||
-					string.Compare(CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name, ci.Name, StringComparison.OrdinalIgnoreCase) == 0 ||
-					string.Compare(CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name.Substring(0, 2), ci.Name.Substring(0, 2), StringComparison.OrdinalIgnoreCase) == 0)
-				{
-					return true;
-				}
-			}
+            return languageInfos.Any(
+                translationLanguageInfo =>
+                    string.Compare(translationLanguageInfo.LanguageCode, ci.TwoLetterISOLanguageName,
+                        StringComparison.OrdinalIgnoreCase) == 0 ||
+                    string.Compare(CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name,
+                        ci.Name, StringComparison.OrdinalIgnoreCase) == 0 ||
+                    string.Compare(
+                        CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name
+                            .SubstringIntelligent(0, 2), ci.Name.SubstringIntelligent(0, 2),
+                        StringComparison.OrdinalIgnoreCase) == 0);
+        }
 
-			return false;
-		}
+        private static ITranslationEngine _translationEngine;
 
-		private static ITranslationEngine _translationEngine;
+        public static string[] RemoveWords(
+            string[] texts,
+            string[] wordsToRemove)
+        {
+            if (texts == null || texts.Length <= 0 || wordsToRemove == null || wordsToRemove.Length <= 0)
+            {
+                return texts;
+            }
+            else
+            {
+                return texts.Select(text => RemoveWords(text, wordsToRemove)).ToArray();
+            }
+        }
 
-		public static string[] RemoveWords(
-			string[] texts,
-			string[] wordsToRemove)
-		{
-			if (texts == null || texts.Length <= 0 || wordsToRemove == null || wordsToRemove.Length <= 0)
-			{
-				return texts;
-			}
-			else
-			{
-				var r = new List<string>();
+        public static string RemoveWords(
+            string text,
+            string[] wordsToRemove)
+        {
+            if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToRemove == null || wordsToRemove.Length <= 0)
+            {
+                return text;
+            }
+            else
+            {
+                return wordsToRemove.Aggregate(text, (current, word) => current.Replace(word, string.Empty));
+            }
+        }
 
-				// ReSharper disable LoopCanBeConvertedToQuery
-				foreach (var text in texts)
-				// ReSharper restore LoopCanBeConvertedToQuery
-				{
-					r.Add(RemoveWords(text, wordsToRemove));
-				}
+        public static string[] ProtectWords(
+            string[] texts,
+            string[] wordsToProtect)
+        {
+            if (texts == null || texts.Length <= 0 || wordsToProtect == null || wordsToProtect.Length <= 0)
+            {
+                return texts;
+            }
+            else
+            {
+                return texts.Select(text => ProtectWords(text, wordsToProtect)).ToArray();
+            }
+        }
 
-				return r.ToArray();
-			}
-		}
+        public static string ProtectWords(
+            string text,
+            string[] wordsToProtect)
+        {
+            if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToProtect == null || wordsToProtect.Length <= 0)
+            {
+                return text;
+            }
+            else
+            {
+                var index = 0;
+                foreach (var word in wordsToProtect)
+                {
+                    text = text.Replace(word, $@"3213213{index}4234234");
+                    index++;
+                }
 
-		public static string RemoveWords(
-			string text,
-			string[] wordsToRemove)
-		{
-			if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToRemove == null || wordsToRemove.Length <= 0)
-			{
-				return text;
-			}
-			else
-			{
-				// ReSharper disable LoopCanBeConvertedToQuery
-				foreach (var word in wordsToRemove)
-				// ReSharper restore LoopCanBeConvertedToQuery
-				{
-					text = text.Replace(word, string.Empty);
-				}
+                return text;
+            }
+        }
 
-				return text;
-			}
-		}
+        public static string UnprotectWords(
+            string text,
+            string[] wordsToProtect)
+        {
+            if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToProtect == null || wordsToProtect.Length <= 0)
+            {
+                return text;
+            }
+            else
+            {
+                var index = 0;
+                foreach (var word in wordsToProtect)
+                {
+                    text = text.Replace($@"3213213{index}4234234", word);
+                    index++;
+                }
 
-		public static string[] ProtectWords(
-			string[] texts,
-			string[] wordsToProtect)
-		{
-			if (texts == null || texts.Length <= 0 || wordsToProtect == null || wordsToProtect.Length <= 0)
-			{
-				return texts;
-			}
-			else
-			{
-				var r = new List<string>();
+                // Remove multiple white-spaces.
+                return text /*.Replace(@"  ", @" ").Replace(@"  ", @" ")*/;
+            }
+        }
 
-				// ReSharper disable LoopCanBeConvertedToQuery
-				foreach (var text in texts)
-				// ReSharper restore LoopCanBeConvertedToQuery
-				{
-					r.Add(ProtectWords(text, wordsToProtect));
-				}
+        public static void ResetSelectedEngine()
+        {
+            _translationEngine = null;
+            _translationAppIDSet = false;
+            _translationAppID = null;
+            _translationAppID2 = null;
+        }
 
-				return r.ToArray();
-			}
-		}
+        public static ITranslationEngine GetTranslationEngine(
+            Project project)
+        {
+            if (_translationEngine == null)
+            {
+                if (project != null)
+                {
+                    var uid = project.TranslationEngineUniqueInternalName;
+                    if (!StringExtensionMethods.IsNullOrWhiteSpace(uid))
+                    {
+                        foreach (var engine in Engines)
+                        {
+                            if (string.Compare(uid, engine.UniqueInternalName, StringComparison.OrdinalIgnoreCase) == 0)
+                            {
+                                _translationEngine = engine;
+                                return engine;
+                            }
+                        }
+                    }
+                }
 
-		public static string ProtectWords(
-			string text,
-			string[] wordsToProtect)
-		{
-			if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToProtect == null || wordsToProtect.Length <= 0)
-			{
-				return text;
-			}
-			else
-			{
-				var index = 0;
-				foreach (var word in wordsToProtect)
-				{
-					text = text.Replace(word, $@"3213213{index}4234234");
-					index++;
-				}
+                foreach (var engine in Engines)
+                {
+                    if (engine.IsDefault)
+                    {
+                        _translationEngine = engine;
+                        return engine;
+                    }
+                }
 
-				return text;
-			}
-		}
+                throw new Exception();
+            }
 
-		public static string UnprotectWords(
-			string text,
-			string[] wordsToProtect)
-		{
-			if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToProtect == null || wordsToProtect.Length <= 0)
-			{
-				return text;
-			}
-			else
-			{
-				var index = 0;
-				foreach (var word in wordsToProtect)
-				{
-					text = text.Replace($@"3213213{index}4234234", word);
-					index++;
-				}
+            return _translationEngine;
+        }
 
-				// Remove multiple white-spaces.
-				return text/*.Replace(@"  ", @" ").Replace(@"  ", @" ")*/;
-			}
-		}
+        private static bool _translationAppIDSet;
+        private static string _translationAppID;
+        private static string _translationAppID2;
 
-		public static void ResetSelectedEngine()
-		{
-			_translationEngine = null;
-			_translationAppIDSet = false;
-			_translationAppID = null;
-			_translationAppID2 = null;
-		}
+        public static void GetTranslationAppID(
+            Project project,
+            out string appID,
+            out string appID2)
+        {
+            if (!_translationAppIDSet)
+            {
+                if (project != null)
+                {
+                    var uid = project.TranslationEngineUniqueInternalName;
+                    if (!StringExtensionMethods.IsNullOrWhiteSpace(uid))
+                    {
+                        var ids = project.TranslationAppIDs;
+                        if (ids != null)
+                        {
+                            foreach (var key in project.TranslationAppIDs.Keys)
+                            {
+                                if (key != null && key == uid)
+                                {
+                                    _translationAppIDSet = true;
+                                    _translationAppID = safeGetValue(project.TranslationAppIDs, key);
+                                    _translationAppID2 = safeGetValue(project.TranslationAppIDs, key + @"-2");
 
-		public static ITranslationEngine GetTranslationEngine(
-			Project project)
-		{
-			if (_translationEngine == null)
-			{
-				if (project != null)
-				{
-					var uid = project.TranslationEngineUniqueInternalName;
-					if (!StringExtensionMethods.IsNullOrWhiteSpace(uid))
-					{
-						foreach (var engine in Engines)
-						{
-							if (string.Compare(uid, engine.UniqueInternalName, StringComparison.OrdinalIgnoreCase) == 0)
-							{
-								_translationEngine = engine;
-								return engine;
-							}
-						}
-					}
-				}
+                                    appID = _translationAppID;
+                                    appID2 = _translationAppID2;
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
-				foreach (var engine in Engines)
-				{
-					if (engine.IsDefault)
-					{
-						_translationEngine = engine;
-						return engine;
-					}
-				}
+            appID = _translationAppID;
+            appID2 = _translationAppID2;
+        }
 
-				throw new Exception();
-			}
+        private static string safeGetValue(Dictionary<string, string> dic, string key)
+        {
+            if (dic == null || string.IsNullOrEmpty(key))
+            {
+                return null;
+            }
+            else
+            {
+                string r;
+                if (dic.TryGetValue(key, out r))
+                {
+                    return r;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
 
-			return _translationEngine;
-		}
+        public static readonly ITranslationEngine[] Engines =
+        {
+            new AzureTranslationEngine(),
+            //new BingSoapTranslationEngine(),
+            new GoogleRestfulTranslationEngine()
+        };
 
-		private static bool _translationAppIDSet;
-		private static string _translationAppID;
-		private static string _translationAppID2;
+        internal static string DoMapCultureToLanguageCode(
+            IEnumerable<TranslationLanguageInfo> availableLanguageInfos,
+            CultureInfo cultureInfo)
+        {
+            // ReSharper disable LoopCanBeConvertedToQuery
+            foreach (var translationLanguageInfo in availableLanguageInfos)
+            // ReSharper restore LoopCanBeConvertedToQuery
+            {
+                if (string.Compare(
+                        translationLanguageInfo.LanguageCode,
+                        cultureInfo.TwoLetterISOLanguageName,
+                        StringComparison.OrdinalIgnoreCase) == 0 ||
+                    string.Compare(
+                        CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name,
+                        cultureInfo.Name,
+                        StringComparison.OrdinalIgnoreCase) == 0 ||
+                    string.Compare(
+                        CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name
+                            .SubstringIntelligent(0, 2),
+                        cultureInfo.Name.SubstringIntelligent(0, 2),
+                        StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    return translationLanguageInfo.LanguageCode;
+                }
+            }
 
-		public static void GetTranslationAppID(
-			Project project,
-			out string appID,
-			out string appID2)
-		{
-			if (!_translationAppIDSet)
-			{
-				if (project != null)
-				{
-					var uid = project.TranslationEngineUniqueInternalName;
-					if (!StringExtensionMethods.IsNullOrWhiteSpace(uid))
-					{
-						var ids = project.TranslationAppIDs;
-						if (ids != null)
-						{
-							foreach (var key in project.TranslationAppIDs.Keys)
-							{
-								if (key != null && key == uid)
-								{
-									_translationAppIDSet = true;
-									_translationAppID = safeGetValue(project.TranslationAppIDs, key);
-									_translationAppID2 = safeGetValue(project.TranslationAppIDs, key + @"-2");
+            throw new Exception(
+                string.Format(
+                    Resources
+                        .BingSoapTranslationEngine_doMapCultureToLanguageCode_Microsoft_Translator__Bing__does_not_provide_a_language_code_for_the_culture___0___to_translate_,
+                    PrettyPrint(cultureInfo)));
+        }
 
-									appID = _translationAppID;
-									appID2 = _translationAppID2;
-									return;
-								}
-							}
-						}
-					}
-				}
-			}
-
-			appID = _translationAppID;
-			appID2 = _translationAppID2;
-		}
-
-		private static string safeGetValue(Dictionary<string, string> dic, string key)
-		{
-			if (dic == null || string.IsNullOrEmpty(key))
-			{
-				return null;
-			}
-			else
-			{
-				string r;
-				if ( dic.TryGetValue(key, out r))
-				{
-					return r;
-				}
-				else
-				{
-					return null;
-				}
-			}
-		}
-
-		public static readonly ITranslationEngine[] Engines =
-			new ITranslationEngine[]
-				{
-					new BingSoapTranslationEngine(),
-					new GoogleRestfulTranslationEngine()
-				};
-	}
+        public static string PrettyPrint(CultureInfo cultureInfo)
+        {
+            return $@"{cultureInfo.DisplayName} ({cultureInfo})";
+        }
+    }
 }

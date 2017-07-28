@@ -26,6 +26,7 @@
     using System.Reflection;
     using System.Threading;
     using System.Windows.Forms;
+    using RuntimeBusinessLogic.Translation.Google;
     using Zeta.VoyagerLibrary.Common;
     using Zeta.VoyagerLibrary.Tools.Storage;
     using Zeta.VoyagerLibrary.WinForms.Common;

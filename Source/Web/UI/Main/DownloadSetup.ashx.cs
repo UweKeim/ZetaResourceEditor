@@ -7,6 +7,7 @@
     using System.Web;
     using Zeta.VoyagerLibrary.Common.IO;
     using Zeta.VoyagerLibrary.Logging;
+    using ZetaLongPaths;
 
     public class DownloadSetup :
         IHttpHandler
@@ -30,8 +31,8 @@
                             @"setupUploadService.baseFolderPath"];
 
                     var files =
-                        new List<FileInfo>(
-                            new DirectoryInfo(baseFolderPath).
+                        new List<ZlpFileInfo>(
+                            new ZlpDirectoryInfo(baseFolderPath).
                                 GetFiles(fileName + @"*"));
 
                     files.RemoveAll(x => x.FullName.ToLowerInvariant().EndsWith(@".temporary"));
@@ -91,7 +92,7 @@
         // http://support.microsoft.com/kb/812406/en-us/
         private static void streamFileToBrowser(
             HttpResponse response,
-            FileInfo file,
+            ZlpFileInfo file,
             string fileName)
         {
             Stream iStream = null;
