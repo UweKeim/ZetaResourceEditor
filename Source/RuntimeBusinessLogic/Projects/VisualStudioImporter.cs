@@ -63,7 +63,9 @@
                     var xpaths = new[]
                     {
                         @"/mb:Project/mb:ItemGroup/mb:EmbeddedResource/@Include",
-                        @"/mb:Project/mb:ItemGroup/mb:Content/@Include"
+                        @"/mb:Project/mb:ItemGroup/mb:Content/@Include",
+                        @"/mb:Project/mb:ItemGroup/mb:EmbeddedResource/@Update",
+                        @"/Project/ItemGroup/EmbeddedResource/@Update"
                     };
 
                     var resNodes = new List<XmlNode>();

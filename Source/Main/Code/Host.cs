@@ -28,11 +28,6 @@ namespace ZetaResourceEditor.Code
         {
             try
             {
-                //Zeta.VoyagerLibrary.Common.Configuration.
-                //    LibraryConfiguration.Current.Initialize();
-                //Zeta.VoyagerLibrary.WinForms.Configuration.
-                //    LibraryConfiguration.Current.Initialize();
-
                 LogCentral.Current.ConfigureLogging();
 
                 // --
@@ -75,22 +70,12 @@ namespace ZetaResourceEditor.Code
 
                 // http://community.devexpress.com/forums/t/80133.aspx
 
-                // http://www.devexpress.com/Support/Center/p/B155647.aspx
-                //DevExpress.UserSkins.OfficeSkins.Register();
-                //DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = @"Office 2010 Silver";
-
                 SkinHelper.InitializeAll();
 
                 // --
 
-                // Manually turn off.
-                //Zeta.VoyagerLibrary.WinForms.Configuration.
-                //    LibraryConfiguration.Current.IsDesignMode = false;
-
-                AppDomain.CurrentDomain.UnhandledException +=
-                    currentDomainUnhandledException;
-                Application.ThreadException +=
-                    applicationThreadException;
+                AppDomain.CurrentDomain.UnhandledException += currentDomainUnhandledException;
+                Application.ThreadException += applicationThreadException;
 
                 test();
 
@@ -166,8 +151,7 @@ namespace ZetaResourceEditor.Code
 
             bool handleException;
 
-            var exception = e as MessageBoxException;
-            if (exception != null)
+            if (e is MessageBoxException exception)
             {
                 var mbx = exception;
 
@@ -317,28 +301,11 @@ namespace ZetaResourceEditor.Code
                                 Environment.SpecialFolder.LocalApplicationData),
                             folderName));
 
-                    _cacheForCurrentUserStorageBaseFolderPath =
-                        CheckCreateFolder(result);
+                    _cacheForCurrentUserStorageBaseFolderPath = result.CheckCreate();
                 }
 
                 return _cacheForCurrentUserStorageBaseFolderPath;
             }
-        }
-
-        /// <summary>
-        /// Checks and creates the folder if not yet exists.
-        /// </summary>
-        /// <param name="folderPath">The folder path.</param>
-        /// <returns></returns>
-        private static ZlpDirectoryInfo CheckCreateFolder(
-            ZlpDirectoryInfo folderPath)
-        {
-            if (folderPath != null && !folderPath.Exists)
-            {
-                folderPath.Create();
-            }
-
-            return folderPath;
         }
     }
 }

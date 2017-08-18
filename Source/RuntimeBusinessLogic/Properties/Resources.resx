@@ -258,7 +258,7 @@
 	<data name="LanguageCodeDetection_MakeValidCulture_No_culture_for_culture_name___0___available_">
 		<value xml:space="preserve">No culture for culture name '{0}' available.</value>
 	</data>
-	<data name="BingSoapTranslationEngine_doMapCultureToLanguageCode_Microsoft_Translator__Bing__does_not_provide_a_language_code_for_the_culture___0___to_translate_">
+	<data name="NoLangForBing">
 		<value xml:space="preserve">Microsoft Translator (Bing) does not provide a language code for the culture '{0}' to translate.</value>
 	</data>
 	<data name="GoogleTranslationHelper_doMapCultureToLanguageCode_Google_does_not_provide_a_language_code_for_the_culture___0___to_translate_">

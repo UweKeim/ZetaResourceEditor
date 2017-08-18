@@ -79,16 +79,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microsoft Translator (Bing) does not provide a language code for the culture &apos;{0}&apos; to translate..
-        /// </summary>
-        internal static string BingSoapTranslationEngine_doMapCultureToLanguageCode_Microsoft_Translator__Bing__does_not_provide_a_language_code_for_the_culture___0___to_translate_ {
-            get {
-                return ResourceManager.GetString("BingSoapTranslationEngine_doMapCultureToLanguageCode_Microsoft_Translator__Bing__" +
-                        "does_not_provide_a_language_code_for_the_culture___0___to_translate_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Microsoft Translator (Bing).
         /// </summary>
         internal static string BingSoapTranslationEngine_UserReadableName_Microsoft_Translator__Bing_ {
@@ -282,6 +272,15 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Properties {
             get {
                 return ResourceManager.GetString("LanguageCodeDetection_MakeValidCulture_No_culture_for_culture_name___0___availabl" +
                         "e_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microsoft Translator (Bing) does not provide a language code for the culture &apos;{0}&apos; to translate..
+        /// </summary>
+        internal static string NoLangForBing {
+            get {
+                return ResourceManager.GetString("NoLangForBing", resourceCulture);
             }
         }
         

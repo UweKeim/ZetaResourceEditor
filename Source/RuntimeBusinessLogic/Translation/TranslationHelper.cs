@@ -11,25 +11,32 @@
     using System.Globalization;
     using System.Linq;
     using Zeta.VoyagerLibrary.Tools;
+    using ZetaLongPaths;
 
     public static class TranslationHelper
     {
+        public static readonly ITranslationEngine[] Engines =
+        {
+            new AzureTranslationEngine(),
+            new GoogleRestfulTranslationEngine()
+            //new BingSoapTranslationEngine()
+        };
+
         public static bool IsSupportedLanguage(
             string languageCode,
-            TranslationLanguageInfo[] languageInfos)
+            IEnumerable<TranslationLanguageInfo> languageInfos)
         {
             var ci = CultureHelper.CreateCultureErrorTolerant(languageCode);
 
             return languageInfos.Any(
                 translationLanguageInfo =>
-                    string.Compare(translationLanguageInfo.LanguageCode, ci.TwoLetterISOLanguageName,
-                        StringComparison.OrdinalIgnoreCase) == 0 ||
-                    string.Compare(CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name,
-                        ci.Name, StringComparison.OrdinalIgnoreCase) == 0 ||
-                    string.Compare(
-                        CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name
-                            .SubstringIntelligent(0, 2), ci.Name.SubstringIntelligent(0, 2),
-                        StringComparison.OrdinalIgnoreCase) == 0);
+                    translationLanguageInfo.LanguageCode.EqualsNoCase(ci.TwoLetterISOLanguageName) ||
+
+                    CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name
+                        .EqualsNoCase(ci.Name) ||
+
+                    CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name
+                        .SubstringIntelligent(0, 2).EqualsNoCase(ci.Name.SubstringIntelligent(0, 2)));
         }
 
         private static ITranslationEngine _translationEngine;
@@ -139,7 +146,7 @@
                     {
                         foreach (var engine in Engines)
                         {
-                            if (string.Compare(uid, engine.UniqueInternalName, StringComparison.OrdinalIgnoreCase) == 0)
+                            if (uid.EqualsNoCase(engine.UniqueInternalName))
                             {
                                 _translationEngine = engine;
                                 return engine;
@@ -212,59 +219,33 @@
             }
             else
             {
-                string r;
-                if (dic.TryGetValue(key, out r))
-                {
-                    return r;
-                }
-                else
-                {
-                    return null;
-                }
+                return dic.TryGetValue(key, out string r) ? r : null;
             }
         }
-
-        public static readonly ITranslationEngine[] Engines =
-        {
-            new AzureTranslationEngine(),
-            //new BingSoapTranslationEngine(),
-            new GoogleRestfulTranslationEngine()
-        };
 
         internal static string DoMapCultureToLanguageCode(
             IEnumerable<TranslationLanguageInfo> availableLanguageInfos,
             CultureInfo cultureInfo)
         {
-            // ReSharper disable LoopCanBeConvertedToQuery
             foreach (var translationLanguageInfo in availableLanguageInfos)
-            // ReSharper restore LoopCanBeConvertedToQuery
             {
-                if (string.Compare(
-                        translationLanguageInfo.LanguageCode,
-                        cultureInfo.TwoLetterISOLanguageName,
-                        StringComparison.OrdinalIgnoreCase) == 0 ||
-                    string.Compare(
-                        CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name,
-                        cultureInfo.Name,
-                        StringComparison.OrdinalIgnoreCase) == 0 ||
-                    string.Compare(
-                        CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name
-                            .SubstringIntelligent(0, 2),
-                        cultureInfo.Name.SubstringIntelligent(0, 2),
-                        StringComparison.OrdinalIgnoreCase) == 0)
+                if (
+                    translationLanguageInfo.LanguageCode.EqualsNoCase(cultureInfo.TwoLetterISOLanguageName) ||
+
+                    CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name.EqualsNoCase(
+                        cultureInfo.Name) ||
+
+                    CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name
+                        .SubstringIntelligent(0, 2).EqualsNoCase(cultureInfo.Name.SubstringIntelligent(0, 2)))
                 {
                     return translationLanguageInfo.LanguageCode;
                 }
             }
 
-            throw new Exception(
-                string.Format(
-                    Resources
-                        .BingSoapTranslationEngine_doMapCultureToLanguageCode_Microsoft_Translator__Bing__does_not_provide_a_language_code_for_the_culture___0___to_translate_,
-                    PrettyPrint(cultureInfo)));
+            throw new Exception(string.Format(Resources.NoLangForBing, PrettyPrint(cultureInfo)));
         }
 
-        public static string PrettyPrint(CultureInfo cultureInfo)
+        private static string PrettyPrint(CultureInfo cultureInfo)
         {
             return $@"{cultureInfo.DisplayName} ({cultureInfo})";
         }

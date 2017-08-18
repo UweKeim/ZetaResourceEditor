@@ -40,7 +40,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
 
         TranslationLanguageInfo[] ITranslationEngine.GetSourceLanguages(string appID, string appID2)
         {
-            var uri = @"https://api.microsofttranslator.com/v2/Http.svc/GetLanguagesForTranslate";
+            const string uri = @"https://api.microsofttranslator.com/v2/Http.svc/GetLanguagesForTranslate";
 
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
             httpWebRequest.Headers.Add(@"Authorization", getAuthToken(appID));
@@ -145,14 +145,14 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
             string[] wordsToProtect,
             string[] wordsToRemove)
         {
-            var uri = @"https://api.microsofttranslator.com/v2/Http.svc/TranslateArray";
+            const string uri = @"https://api.microsofttranslator.com/v2/Http.svc/TranslateArray";
 
             var body = @"<TranslateArrayRequest>" +
                        @"<AppId />" +
                        $@"<From>{sourceLanguageCode}</From>" +
                        @"<Options>" +
                        @" <Category xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
-                       @"<ContentType xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"">{1}</ContentType>" +
+                       @"<ContentType xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"">text/plain</ContentType>" +
                        @"<ReservedFlags xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
                        @"<State xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
                        @"<Uri xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
@@ -193,6 +193,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
                 using (var A = AsyncHelper.Wait)
                 {
                     A.Run(client.SendAsync(request), res => response = res);
+                }
+                using (var A = AsyncHelper.Wait)
+                {
                     A.Run(response?.Content.ReadAsStringAsync(), res => responseBody = res);
                 }
 
@@ -220,7 +223,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
             }
         }
 
-        private string escapeXml(string text)
+        private static string escapeXml(string text)
         {
             // http://stackoverflow.com/a/1091953/107625
 
