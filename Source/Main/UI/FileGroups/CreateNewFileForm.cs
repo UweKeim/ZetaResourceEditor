@@ -1,3 +1,7 @@
+using System.Linq;
+using DevExpress.XtraPrinting.Native;
+using ZetaResourceEditor.UI.Helper;
+
 namespace ZetaResourceEditor.UI.FileGroups
 {
     using DevExpress.XtraEditors;
@@ -12,6 +16,7 @@ namespace ZetaResourceEditor.UI.FileGroups
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
+    using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using Translation;
     using Zeta.VoyagerLibrary.Common;
@@ -78,6 +83,20 @@ namespace ZetaResourceEditor.UI.FileGroups
             labelControl3.Text = ti.UserReadableName;
         }
 
+        private void updateIncludeFileInCsprojControls()
+        {
+            CsProjectWithFileResult csProject = _fileGroup.GetConnectedCsProject();
+
+            IncludeFileInCsprojChecBox.Enabled = (csProject?.Project != null);
+            AddFileAsDependantUponCheckBox.Enabled = IncludeFileInCsprojChecBox.Checked && !String.IsNullOrEmpty(csProject?.DependantUponRootFileName);
+            if (!AddFileAsDependantUponCheckBox.Enabled)
+            {
+                AddFileAsDependantUponCheckBox.Checked = false;
+            }
+
+            labelCsProjectToAdd.Text = $"({new FileInfo(csProject?.Project.FullPath)?.Name})";
+        }
+
         public override void UpdateUI()
         {
             base.UpdateUI();
@@ -92,6 +111,8 @@ namespace ZetaResourceEditor.UI.FileGroups
                 newFileNameTextBox.Text.Trim().Length > 0 &&
                 newFileNameTextBox.Text.Trim().IndexOfAny(Path.GetInvalidFileNameChars()) < 0 &&
                 (!prefixCheckBox.Checked || prefixTextBox.Text.Trim().Length > 0);
+
+            updateIncludeFileInCsprojControls();
 
             // --
 
@@ -109,7 +130,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             }
 
             prefixCheckBox.Enabled =
-                automaticallyTranslateCheckBox.Checked;
+                            automaticallyTranslateCheckBox.Checked;
 
             prefixTextBox.Enabled =
                 buttonDefault.Enabled =
@@ -308,7 +329,9 @@ namespace ZetaResourceEditor.UI.FileGroups
                         ((MyTuple<string, CultureInfo>)newLanguageComboBox.SelectedItem).Item2.Name,
                         copyTextsCheckBox.Checked,
                         automaticallyTranslateCheckBox.Checked,
-                        prefix);
+                        prefix,
+                        IncludeFileInCsprojChecBox.Checked,
+                        AddFileAsDependantUponCheckBox.Checked);
 
                 if (!didCopy)
                 {
@@ -369,6 +392,11 @@ namespace ZetaResourceEditor.UI.FileGroups
                     UpdateUI();
                 }
             }
+        }
+
+        private void IncludeFileInCsprojChecBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateUI();
         }
     }
 }

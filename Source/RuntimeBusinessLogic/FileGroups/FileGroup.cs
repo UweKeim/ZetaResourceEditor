@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 {
     using BL;
@@ -25,6 +27,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
     using Zeta.VoyagerLibrary.Logging;
     using ZetaAsync;
     using ZetaLongPaths;
+    using ZetaResourceEditor.UI.Helper;
 
     /// <summary>
     /// Groups multiple single files.
@@ -1098,7 +1101,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             string newLanguageCode,
             bool copyTextsFromSource,
             bool automaticallyTranslateTexts,
-            string prefix)
+            string prefix,
+            bool includeFileInCsProj,
+            bool includeFileAsDependantUpon)
         {
             if (newFileName.StartsWithNoCase(BaseName) && newFileName.EndsWithNoCase(BaseExtension))
             {
@@ -1144,6 +1149,19 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
                 // --
                 // Further process.
+
+                if (includeFileInCsProj)
+                {
+                    try
+                    {
+                        addFileToCsProj(new FileInfo(sourceFilePath), new FileInfo(newFilePath), includeFileAsDependantUpon);
+                    }
+                    catch
+                    {
+                        //Including new resource file to csproj should not break process of creating new files.
+                        //To consider showing this information in any form
+                    }
+                }
 
                 if (!copyTextsFromSource /*&& !automaticallyTranslateTexts*/)
                 {
@@ -1193,6 +1211,29 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         //    return null;
         //}
 
+        private void addFileToCsProj(FileInfo sourceFile, FileInfo newFile, bool addDependantUpon)
+        {
+            string newFilePath = newFile.FullName;
+            var csProjWithFileResult = CsProjHelper.GetProjectContainingFile(sourceFile);
+            if (csProjWithFileResult?.Project?.Items == null)
+            {
+                //If we are unable to find correlated csProj, we do nothing
+                return;
+            }
+            var project = csProjWithFileResult.Project;
+
+            if (project.Items.FirstOrDefault(i => i.EvaluatedInclude == newFilePath) == null)
+            {
+                var metaData = new List<KeyValuePair<string, string>>();
+                if (addDependantUpon && !String.IsNullOrEmpty(csProjWithFileResult.DependantUponRootFileName))
+                {
+                    metaData.Add(new KeyValuePair<string, string>(CsProjHelper.DependentUponLiteral, csProjWithFileResult.DependantUponRootFileName));
+                }
+                string relativeFilePath = newFilePath.Replace(project.DirectoryPath + "\\", String.Empty);
+                project.AddItem(CsProjHelper.EmbeddedResourceLiteral, relativeFilePath, metaData);
+            }
+            project.Save();
+        }
         private void clearAllTexts(FileInformation ffi)
         {
             var tmpFileGroup = new FileGroup(Project);
@@ -1367,6 +1408,17 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             {
                 _fileInfos.Remove(fileInformation);
             }
+        }
+
+        public CsProjectWithFileResult GetConnectedCsProject()
+        {
+            CsProjectWithFileResult csProjResult = null;
+            if (this.FilePaths != null && this.FilePaths.Length >= 2)
+            {
+                string notDefaultLanguageVersion = this.FilePaths.Select(t => new { Replaced = CsProjHelper.RegexFindMainResourceFile.Replace(t, CsProjHelper.RegexFindMainResourceFileReplacePattern), Original = t }).FirstOrDefault(t => t.Original != t.Replaced).Original;
+                csProjResult = CsProjHelper.GetProjectContainingFile(new FileInfo(notDefaultLanguageVersion));
+            }
+            return csProjResult;
         }
     }
 }

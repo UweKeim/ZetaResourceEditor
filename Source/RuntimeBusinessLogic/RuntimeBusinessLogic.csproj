@@ -49,6 +49,7 @@
       <HintPath>..\packages\JetBrains.Annotations.11.0.0\lib\net20\JetBrains.Annotations.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Build, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MoreLinq, Version=2.6.20831.0, Culture=neutral, PublicKeyToken=384d532d7e88985d">
       <HintPath>..\packages\morelinq.2.6.0\lib\net40\MoreLinq.dll</HintPath>
       <Private>True</Private>
@@ -109,6 +110,7 @@
     <Compile Include="ExportImportExcel\ExcelProgressInformation.cs" />
     <Compile Include="ExportImportExcel\SafeExcelColors.cs" />
     <Compile Include="FileGroups\FileGroupsMerger.cs" />
+    <Compile Include="Helpers\CsProjHelper.cs" />
     <Compile Include="Language\CultureHelper.cs" />
     <Compile Include="Language\LanguageCodeDetection.cs" />
     <Compile Include="DynamicSettings\DynamicSettings.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="DynamicSettings\IInheritedSettings.cs" />
     <Compile Include="DL\ILanguageColumnFilter.cs" />
     <Compile Include="DL\ITranslationStateInformation.cs" />
+    <Compile Include="Projects\CsProjectWithFileResult.cs" />
     <Compile Include="Projects\Project.cs" />
     <Compile Include="ProjectFolders\ProjectFolder.cs" />
     <Compile Include="ProjectFolders\ProjectFolderCollection.cs" />
