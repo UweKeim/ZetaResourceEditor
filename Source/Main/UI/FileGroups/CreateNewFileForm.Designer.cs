@@ -29,6 +29,9 @@ namespace ZetaResourceEditor.UI.FileGroups
 		private void InitializeComponent()
 		{
             this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
+            this.labelCsProjectToAdd = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.AddFileAsDependantUponCheckBox = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+            this.IncludeFileInCsprojChecBox = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
             this.buttonSettings = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.labelControl3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.buttonDefault = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
@@ -48,6 +51,8 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddFileAsDependantUponCheckBox.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IncludeFileInCsprojChecBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prefixTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prefixCheckBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.copyTextsCheckBox.Properties)).BeginInit();
@@ -60,7 +65,10 @@ namespace ZetaResourceEditor.UI.FileGroups
             // 
             // panelControl1
             // 
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.panelControl1.Controls.Add(this.labelCsProjectToAdd);
+            this.panelControl1.Controls.Add(this.AddFileAsDependantUponCheckBox);
+            this.panelControl1.Controls.Add(this.IncludeFileInCsprojChecBox);
             this.panelControl1.Controls.Add(this.buttonSettings);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.buttonDefault);
@@ -83,15 +91,48 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
-            this.panelControl1.Size = new System.Drawing.Size(484, 285);
+            this.panelControl1.Size = new System.Drawing.Size(484, 341);
             this.panelControl1.TabIndex = 0;
+            // 
+            // labelCsProjectToAdd
+            // 
+            this.labelCsProjectToAdd.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelCsProjectToAdd.Appearance.Options.UseFont = true;
+            this.labelCsProjectToAdd.Location = new System.Drawing.Point(158, 235);
+            this.labelCsProjectToAdd.Name = "labelCsProjectToAdd";
+            this.labelCsProjectToAdd.Size = new System.Drawing.Size(18, 17);
+            this.labelCsProjectToAdd.TabIndex = 22;
+            this.labelCsProjectToAdd.Text = "<>";
+            // 
+            // AddFileAsDependantUponCheckBox
+            // 
+            this.AddFileAsDependantUponCheckBox.Location = new System.Drawing.Point(33, 260);
+            this.AddFileAsDependantUponCheckBox.Name = "AddFileAsDependantUponCheckBox";
+            this.AddFileAsDependantUponCheckBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AddFileAsDependantUponCheckBox.Properties.Appearance.Options.UseFont = true;
+            this.AddFileAsDependantUponCheckBox.Properties.AutoWidth = true;
+            this.AddFileAsDependantUponCheckBox.Properties.Caption = "&Add file as dependantUpon (to main resource file)";
+            this.AddFileAsDependantUponCheckBox.Size = new System.Drawing.Size(315, 21);
+            this.AddFileAsDependantUponCheckBox.TabIndex = 21;
+            // 
+            // IncludeFileInCsprojChecBox
+            // 
+            this.IncludeFileInCsprojChecBox.Location = new System.Drawing.Point(14, 233);
+            this.IncludeFileInCsprojChecBox.Name = "IncludeFileInCsprojChecBox";
+            this.IncludeFileInCsprojChecBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.IncludeFileInCsprojChecBox.Properties.Appearance.Options.UseFont = true;
+            this.IncludeFileInCsprojChecBox.Properties.AutoWidth = true;
+            this.IncludeFileInCsprojChecBox.Properties.Caption = "&Include file in csproj";
+            this.IncludeFileInCsprojChecBox.Size = new System.Drawing.Size(138, 21);
+            this.IncludeFileInCsprojChecBox.TabIndex = 20;
+            this.IncludeFileInCsprojChecBox.CheckedChanged += new System.EventHandler(this.IncludeFileInCsprojChecBox_CheckedChanged);
             // 
             // buttonSettings
             // 
             this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSettings.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonSettings.Appearance.Options.UseFont = true;
-            this.buttonSettings.Location = new System.Drawing.Point(12, 245);
+            this.buttonSettings.Location = new System.Drawing.Point(14, 299);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(75, 28);
             this.buttonSettings.TabIndex = 19;
@@ -104,7 +145,9 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl3.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelControl3.Location = new System.Drawing.Point(93, 251);
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Appearance.Options.UseForeColor = true;
+            this.labelControl3.Location = new System.Drawing.Point(95, 305);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(18, 17);
             this.labelControl3.TabIndex = 18;
@@ -140,7 +183,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             // 
             // prefixCheckBox
             // 
-            this.prefixCheckBox.Location = new System.Drawing.Point(12, 202);
+            this.prefixCheckBox.Location = new System.Drawing.Point(14, 204);
             this.prefixCheckBox.Name = "prefixCheckBox";
             this.prefixCheckBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.prefixCheckBox.Properties.Appearance.Options.UseFont = true;
@@ -156,7 +199,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.buttonCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonCancel.Appearance.Options.UseFont = true;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(397, 245);
+            this.buttonCancel.Location = new System.Drawing.Point(395, 299);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 28);
             this.buttonCancel.TabIndex = 2;
@@ -165,7 +208,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             // 
             // copyTextsCheckBox
             // 
-            this.copyTextsCheckBox.Location = new System.Drawing.Point(12, 145);
+            this.copyTextsCheckBox.Location = new System.Drawing.Point(14, 147);
             this.copyTextsCheckBox.Name = "copyTextsCheckBox";
             this.copyTextsCheckBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.copyTextsCheckBox.Properties.Appearance.Options.UseFont = true;
@@ -181,7 +224,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.buttonOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonOK.Appearance.Options.UseFont = true;
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOK.Location = new System.Drawing.Point(316, 245);
+            this.buttonOK.Location = new System.Drawing.Point(314, 299);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 28);
             this.buttonOK.TabIndex = 1;
@@ -191,7 +234,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             // 
             // automaticallyTranslateCheckBox
             // 
-            this.automaticallyTranslateCheckBox.Location = new System.Drawing.Point(12, 172);
+            this.automaticallyTranslateCheckBox.Location = new System.Drawing.Point(14, 174);
             this.automaticallyTranslateCheckBox.Name = "automaticallyTranslateCheckBox";
             this.automaticallyTranslateCheckBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.automaticallyTranslateCheckBox.Properties.Appearance.Options.UseFont = true;
@@ -204,7 +247,8 @@ namespace ZetaResourceEditor.UI.FileGroups
             // label1
             // 
             this.label1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label1.Location = new System.Drawing.Point(14, 15);
+            this.label1.Appearance.Options.UseFont = true;
+            this.label1.Location = new System.Drawing.Point(16, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 17);
             this.label1.TabIndex = 0;
@@ -215,7 +259,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.newLanguageComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.newLanguageComboBox.CueText = null;
-            this.newLanguageComboBox.Location = new System.Drawing.Point(139, 80);
+            this.newLanguageComboBox.Location = new System.Drawing.Point(141, 82);
             this.newLanguageComboBox.Name = "newLanguageComboBox";
             this.newLanguageComboBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.newLanguageComboBox.Properties.Appearance.Options.UseFont = true;
@@ -225,7 +269,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.newLanguageComboBox.Properties.NullValuePrompt = null;
             this.newLanguageComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.newLanguageComboBox.Properties.SelectedIndexChanged += new System.EventHandler(this.referenceLanguageGroupBox_SelectedIndexChanged);
-            this.newLanguageComboBox.Size = new System.Drawing.Size(333, 24);
+            this.newLanguageComboBox.Size = new System.Drawing.Size(329, 24);
             this.newLanguageComboBox.TabIndex = 5;
             this.newLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.newLanguageComboBox_SelectedIndexChanged);
             this.newLanguageComboBox.TextChanged += new System.EventHandler(this.newLanguageComboBox_TextChanged);
@@ -233,7 +277,8 @@ namespace ZetaResourceEditor.UI.FileGroups
             // label2
             // 
             this.label2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label2.Location = new System.Drawing.Point(14, 45);
+            this.label2.Appearance.Options.UseFont = true;
+            this.label2.Location = new System.Drawing.Point(16, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 17);
             this.label2.TabIndex = 2;
@@ -244,7 +289,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.referenceLanguageComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.referenceLanguageComboBox.CueText = null;
-            this.referenceLanguageComboBox.Location = new System.Drawing.Point(139, 42);
+            this.referenceLanguageComboBox.Location = new System.Drawing.Point(141, 44);
             this.referenceLanguageComboBox.Name = "referenceLanguageComboBox";
             this.referenceLanguageComboBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.referenceLanguageComboBox.Properties.Appearance.Options.UseFont = true;
@@ -254,7 +299,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.referenceLanguageComboBox.Properties.NullValuePrompt = null;
             this.referenceLanguageComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.referenceLanguageComboBox.Properties.SelectedIndexChanged += new System.EventHandler(this.referenceLanguageGroupBox_SelectedIndexChanged);
-            this.referenceLanguageComboBox.Size = new System.Drawing.Size(333, 24);
+            this.referenceLanguageComboBox.Size = new System.Drawing.Size(329, 24);
             this.referenceLanguageComboBox.TabIndex = 3;
             this.referenceLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.referenceLanguageComboBox_SelectedIndexChanged);
             // 
@@ -264,7 +309,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fileGroupTextBox.Bold = false;
             this.fileGroupTextBox.CueText = null;
-            this.fileGroupTextBox.Location = new System.Drawing.Point(139, 12);
+            this.fileGroupTextBox.Location = new System.Drawing.Point(141, 14);
             this.fileGroupTextBox.MaximumSize = new System.Drawing.Size(0, 24);
             this.fileGroupTextBox.MinimumSize = new System.Drawing.Size(0, 24);
             this.fileGroupTextBox.Name = "fileGroupTextBox";
@@ -273,13 +318,14 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.fileGroupTextBox.Properties.Mask.EditMask = null;
             this.fileGroupTextBox.Properties.NullValuePrompt = null;
             this.fileGroupTextBox.Properties.ReadOnly = true;
-            this.fileGroupTextBox.Size = new System.Drawing.Size(333, 24);
+            this.fileGroupTextBox.Size = new System.Drawing.Size(329, 24);
             this.fileGroupTextBox.TabIndex = 1;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl2.Location = new System.Drawing.Point(14, 113);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(16, 115);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(86, 17);
             this.labelControl2.TabIndex = 6;
@@ -291,7 +337,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             | System.Windows.Forms.AnchorStyles.Right)));
             this.newFileNameTextBox.Bold = false;
             this.newFileNameTextBox.CueText = null;
-            this.newFileNameTextBox.Location = new System.Drawing.Point(139, 110);
+            this.newFileNameTextBox.Location = new System.Drawing.Point(141, 112);
             this.newFileNameTextBox.MaximumSize = new System.Drawing.Size(0, 24);
             this.newFileNameTextBox.MinimumSize = new System.Drawing.Size(0, 24);
             this.newFileNameTextBox.Name = "newFileNameTextBox";
@@ -300,14 +346,15 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.newFileNameTextBox.Properties.Mask.EditMask = null;
             this.newFileNameTextBox.Properties.NullValuePrompt = null;
             this.newFileNameTextBox.Properties.ReadOnly = true;
-            this.newFileNameTextBox.Size = new System.Drawing.Size(333, 24);
+            this.newFileNameTextBox.Size = new System.Drawing.Size(329, 24);
             this.newFileNameTextBox.TabIndex = 7;
             this.newFileNameTextBox.TextChanged += new System.EventHandler(this.newFileNameTextBox_TextChanged);
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl1.Location = new System.Drawing.Point(14, 83);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(16, 85);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(87, 17);
             this.labelControl1.TabIndex = 4;
@@ -319,13 +366,13 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.Appearance.Options.UseFont = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(484, 285);
+            this.ClientSize = new System.Drawing.Size(484, 341);
             this.Controls.Add(this.panelControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1024, 324);
+            this.MaximumSize = new System.Drawing.Size(1024, 380);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(500, 324);
+            this.MinimumSize = new System.Drawing.Size(500, 380);
             this.Name = "CreateNewFileForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -336,6 +383,8 @@ namespace ZetaResourceEditor.UI.FileGroups
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddFileAsDependantUponCheckBox.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IncludeFileInCsprojChecBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prefixTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prefixCheckBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.copyTextsCheckBox.Properties)).EndInit();
@@ -368,5 +417,8 @@ namespace ZetaResourceEditor.UI.FileGroups
 		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit prefixCheckBox;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonSettings;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl3;
-	}
+        private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit AddFileAsDependantUponCheckBox;
+        private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit IncludeFileInCsprojChecBox;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelCsProjectToAdd;
+    }
 }
