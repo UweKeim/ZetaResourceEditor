@@ -1,11 +1,10 @@
-using System.IO;
-
 namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 {
     using BL;
     using DL;
     using DynamicSettings;
     using FileInformations;
+    using Helpers;
     using Language;
     using ProjectFolders;
     using Projects;
@@ -27,7 +26,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
     using Zeta.VoyagerLibrary.Logging;
     using ZetaAsync;
     using ZetaLongPaths;
-    using ZetaResourceEditor.UI.Helper;
 
     /// <summary>
     /// Groups multiple single files.
@@ -1023,8 +1021,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
         public override bool Equals(object obj)
         {
-            var to = obj as FileGroup;
-            if (to != null)
+            if (obj is FileGroup to)
             {
                 var compareTo = to;
 
@@ -1154,7 +1151,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                 {
                     try
                     {
-                        addFileToCsProj(new FileInfo(sourceFilePath), new FileInfo(newFilePath), includeFileAsDependantUpon);
+                        addFileToCsProj(new ZlpFileInfo(sourceFilePath), new ZlpFileInfo(newFilePath),
+                            includeFileAsDependantUpon);
                     }
                     catch
                     {
@@ -1211,9 +1209,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         //    return null;
         //}
 
-        private void addFileToCsProj(FileInfo sourceFile, FileInfo newFile, bool addDependantUpon)
+        private void addFileToCsProj(ZlpFileInfo sourceFile, ZlpFileInfo newFile, bool addDependantUpon)
         {
-            string newFilePath = newFile.FullName;
+            var newFilePath = newFile.FullName;
             var csProjWithFileResult = CsProjHelper.GetProjectContainingFile(sourceFile);
             if (csProjWithFileResult?.Project?.Items == null)
             {
@@ -1225,15 +1223,17 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             if (project.Items.FirstOrDefault(i => i.EvaluatedInclude == newFilePath) == null)
             {
                 var metaData = new List<KeyValuePair<string, string>>();
-                if (addDependantUpon && !String.IsNullOrEmpty(csProjWithFileResult.DependantUponRootFileName))
+                if (addDependantUpon && !string.IsNullOrEmpty(csProjWithFileResult.DependantUponRootFileName))
                 {
-                    metaData.Add(new KeyValuePair<string, string>(CsProjHelper.DependentUponLiteral, csProjWithFileResult.DependantUponRootFileName));
+                    metaData.Add(new KeyValuePair<string, string>(CsProjHelper.DependentUponLiteral,
+                        csProjWithFileResult.DependantUponRootFileName));
                 }
-                string relativeFilePath = newFilePath.Replace(project.DirectoryPath + "\\", String.Empty);
+                var relativeFilePath = newFilePath.Replace(project.DirectoryPath + "\\", string.Empty);
                 project.AddItem(CsProjHelper.EmbeddedResourceLiteral, relativeFilePath, metaData);
             }
             project.Save();
         }
+
         private void clearAllTexts(FileInformation ffi)
         {
             var tmpFileGroup = new FileGroup(Project);
@@ -1287,7 +1287,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
             // --
 
-            TranslationHelper.GetTranslationAppID(project, out string appID, out string appID2);
+            TranslationHelper.GetTranslationAppID(project, out var appID, out var appID2);
 
             var ti = TranslationHelper.GetTranslationEngine(project);
 
@@ -1413,10 +1413,16 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         public CsProjectWithFileResult GetConnectedCsProject()
         {
             CsProjectWithFileResult csProjResult = null;
-            if (this.FilePaths != null && this.FilePaths.Length >= 2)
+            if (FilePaths != null && FilePaths.Length >= 2)
             {
-                string notDefaultLanguageVersion = this.FilePaths.Select(t => new { Replaced = CsProjHelper.RegexFindMainResourceFile.Replace(t, CsProjHelper.RegexFindMainResourceFileReplacePattern), Original = t }).FirstOrDefault(t => t.Original != t.Replaced).Original;
-                csProjResult = CsProjHelper.GetProjectContainingFile(new FileInfo(notDefaultLanguageVersion));
+                var notDefaultLanguageVersion = FilePaths
+                    .Select(t => new
+                    {
+                        Replaced = CsProjHelper.RegexFindMainResourceFile.Replace(t,
+                            CsProjHelper.RegexFindMainResourceFileReplacePattern),
+                        Original = t
+                    }).FirstOrDefault(t => t.Original != t.Replaced)?.Original;
+                csProjResult = CsProjHelper.GetProjectContainingFile(new ZlpFileInfo(notDefaultLanguageVersion));
             }
             return csProjResult;
         }

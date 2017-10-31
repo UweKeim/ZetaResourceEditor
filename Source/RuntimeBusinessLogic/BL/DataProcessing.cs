@@ -366,7 +366,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
             foreach (DataColumn column in columns)
             // ReSharper restore LoopCanBeConvertedToQuery
             {
-                if (String.Compare(column.Caption, cultureCaption, StringComparison.OrdinalIgnoreCase) == 0)
+                if (string.Compare(column.Caption, cultureCaption, StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     return true;
                 }
@@ -394,7 +394,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                 {
                     if (index > 1) // Column 0=FileGroup checksum, column 1=Tag name.
                     {
-                        if (String.Compare(dataColumn.Caption, cultureCaption, StringComparison.OrdinalIgnoreCase) == 0)
+                        if (string.Compare(dataColumn.Caption, cultureCaption, StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             captionIndexCache[cultureCaption] = index;
 

@@ -6,11 +6,11 @@
     using System;
     using System.ComponentModel;
     using System.Net;
-    using UpdateChecker;
+    using Web_References.UpdateChecker;
+    using Web_References.ZetaUploader;
     using Zeta.VoyagerLibrary.Logging;
     using Zeta.VoyagerLibrary.Tools;
     using Zeta.VoyagerLibrary.Tools.Storage;
-    using ZetaUploader;
 
     // ----------------------------------------------------------------------
 

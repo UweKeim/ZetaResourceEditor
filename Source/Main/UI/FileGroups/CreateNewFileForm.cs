@@ -1,7 +1,3 @@
-using System.Linq;
-using DevExpress.XtraPrinting.Native;
-using ZetaResourceEditor.UI.Helper;
-
 namespace ZetaResourceEditor.UI.FileGroups
 {
     using DevExpress.XtraEditors;
@@ -16,7 +12,6 @@ namespace ZetaResourceEditor.UI.FileGroups
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
-    using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using Translation;
     using Zeta.VoyagerLibrary.Common;
@@ -24,6 +19,7 @@ namespace ZetaResourceEditor.UI.FileGroups
     using Zeta.VoyagerLibrary.Tools.Storage;
     using Zeta.VoyagerLibrary.WinForms.Common;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
+    using ZetaLongPaths;
 
     public partial class CreateNewFileForm :
         FormBase
@@ -52,7 +48,9 @@ namespace ZetaResourceEditor.UI.FileGroups
                 {
                     referenceLanguageComboBox.Properties.Items.Add(
                         new MyTuple<string, MyTuple<string, string>>(
-                            $@"{LanguageCodeDetection.MakeValidCulture(languageCode.Item1).DisplayName} ({languageCode})",
+                            $@"{
+                                    LanguageCodeDetection.MakeValidCulture(languageCode.Item1).DisplayName
+                                } ({languageCode})",
                             languageCode));
                 }
             }
@@ -85,16 +83,17 @@ namespace ZetaResourceEditor.UI.FileGroups
 
         private void updateIncludeFileInCsprojControls()
         {
-            CsProjectWithFileResult csProject = _fileGroup.GetConnectedCsProject();
+            var csProject = _fileGroup.GetConnectedCsProject();
 
-            IncludeFileInCsprojChecBox.Enabled = (csProject?.Project != null);
-            AddFileAsDependantUponCheckBox.Enabled = IncludeFileInCsprojChecBox.Checked && !String.IsNullOrEmpty(csProject?.DependantUponRootFileName);
+            IncludeFileInCsprojChecBox.Enabled = csProject?.Project != null;
+            AddFileAsDependantUponCheckBox.Enabled = IncludeFileInCsprojChecBox.Checked &&
+                                                     !string.IsNullOrEmpty(csProject?.DependantUponRootFileName);
             if (!AddFileAsDependantUponCheckBox.Enabled)
             {
                 AddFileAsDependantUponCheckBox.Checked = false;
             }
 
-            labelCsProjectToAdd.Text = $"({new FileInfo(csProject?.Project.FullPath)?.Name})";
+            labelCsProjectToAdd.Text = $"({new ZlpFileInfo(csProject?.Project.FullPath).Name})";
         }
 
         public override void UpdateUI()
@@ -130,12 +129,12 @@ namespace ZetaResourceEditor.UI.FileGroups
             }
 
             prefixCheckBox.Enabled =
-                            automaticallyTranslateCheckBox.Checked;
+                automaticallyTranslateCheckBox.Checked;
 
             prefixTextBox.Enabled =
                 buttonDefault.Enabled =
-                automaticallyTranslateCheckBox.Checked &&
-                prefixCheckBox.Checked;
+                    automaticallyTranslateCheckBox.Checked &&
+                    prefixCheckBox.Checked;
         }
 
         protected override void FillItemToControls()
@@ -157,7 +156,7 @@ namespace ZetaResourceEditor.UI.FileGroups
                 Math.Min(
                     ConvertHelper.ToInt32(
                         PersistanceHelper.RestoreValue(
-                        storage,
+                            storage,
                             @"CreateNewFileForm.referenceLanguageComboBox.SelectedIndex",
                             referenceLanguageComboBox.SelectedIndex)),
                     referenceLanguageComboBox.Properties.Items.Count - 1);
@@ -166,7 +165,7 @@ namespace ZetaResourceEditor.UI.FileGroups
                 Math.Min(
                     ConvertHelper.ToInt32(
                         PersistanceHelper.RestoreValue(
-                        storage,
+                            storage,
                             @"CreateNewFileForm.newLanguageComboBox.SelectedIndex",
                             newLanguageComboBox.SelectedIndex)),
                     newLanguageComboBox.Properties.Items.Count - 1);
@@ -203,7 +202,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             // Select defaults.
 
             if (referenceLanguageComboBox.SelectedIndex < 0 &&
-                 referenceLanguageComboBox.Properties.Items.Count > 0)
+                referenceLanguageComboBox.Properties.Items.Count > 0)
             {
                 referenceLanguageComboBox.SelectedIndex = 0;
             }
@@ -286,14 +285,16 @@ namespace ZetaResourceEditor.UI.FileGroups
                 ((MyTuple<string, CultureInfo>)newLanguageComboBox.SelectedItem).Item2;
 
             var pattern =
-                new LanguageCodeDetection(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).IsNeutralCulture(
-                _fileGroup.ParentSettings,
-                    culture)
+                new LanguageCodeDetection(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty)
+                    .IsNeutralCulture(
+                        _fileGroup.ParentSettings,
+                        culture)
                     ? (MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).NeutralLanguageFileNamePattern
                     : (MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).NonNeutralLanguageFileNamePattern;
 
             pattern = pattern.Replace(@"[basename]", _fileGroup.BaseName);
-            pattern = pattern.Replace(@"[languagecode]", ((MyTuple<string, CultureInfo>)newLanguageComboBox.SelectedItem).Item2.Name);
+            pattern = pattern.Replace(@"[languagecode]",
+                ((MyTuple<string, CultureInfo>)newLanguageComboBox.SelectedItem).Item2.Name);
             pattern = pattern.Replace(@"[extension]", _fileGroup.BaseExtension);
             // AJ CHANGE 
             pattern = pattern.Replace(@"[optionaldefaulttypes]", _fileGroup.BaseOptionalDefaultType);
@@ -337,7 +338,8 @@ namespace ZetaResourceEditor.UI.FileGroups
                 {
                     XtraMessageBox.Show(
                         this,
-                        Resources.CreateNewFileForm_buttonOK_Click_The_resource_file_for_the_language_you_selected_was_already_present_and_simply_was_added__but_not_created_,
+                        Resources
+                            .CreateNewFileForm_buttonOK_Click_The_resource_file_for_the_language_you_selected_was_already_present_and_simply_was_added__but_not_created_,
                         @"Zeta Resource Editor",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);

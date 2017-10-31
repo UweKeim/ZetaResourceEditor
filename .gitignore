@@ -3,6 +3,7 @@
 #################
 
 .svn/
+.vs/
 Deploy/
 Etc/
 Bin-LicenseGenerator/

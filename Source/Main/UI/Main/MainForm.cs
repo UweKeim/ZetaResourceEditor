@@ -15,7 +15,7 @@ namespace ZetaResourceEditor.UI.Main
     using RuntimeBusinessLogic.DL;
     using RuntimeBusinessLogic.FileGroups;
     using RuntimeBusinessLogic.Projects;
-    using RuntimeBusinessLogic.UpdateChecker;
+    using RuntimeBusinessLogic.Web_References.UpdateChecker;
     using RuntimeBusinessLogic.WebServices;
     using RuntimeUserInterface.Shell;
     using System;

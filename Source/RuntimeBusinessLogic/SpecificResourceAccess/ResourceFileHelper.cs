@@ -1,197 +1,197 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.SpecificResourceAccess
 {
-	#region Using directives.
-	// ----------------------------------------------------------------------
-	using System;
-	using System.Collections.Generic;
-	using System.Reflection;
-	using Zeta.VoyagerLibrary.Logging;
-	using ZetaLongPaths;
+    #region Using directives.
+    // ----------------------------------------------------------------------
+    using System;
+    using System.Collections.Generic;
+    using System.Reflection;
+    using Zeta.VoyagerLibrary.Logging;
+    using ZetaLongPaths;
 
-	// ----------------------------------------------------------------------
-	#endregion
+    // ----------------------------------------------------------------------
+    #endregion
 
-	/////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////
 
-	/// <summary>
-	/// Helper routines for dealing with resource files.
-	/// </summary>
-	internal class ResourceFileHelper
-	{
-		#region Public properties.
-		// ------------------------------------------------------------------
+    /// <summary>
+    /// Helper routines for dealing with resource files.
+    /// </summary>
+    internal class ResourceFileHelper
+    {
+        #region Public properties.
+        // ------------------------------------------------------------------
 
-		/// <summary>
-		/// Gets all available resource file accessors.
-		/// </summary>
-		/// <value>All available resource file accessors.</value>
-		public static IResourceFileAccessor[] AllAvailableResourceFileAccessors
-		{
-			get
-			{
-				if ( _cacheForAllAvailableResourceFileAccessors == null )
-				{
-					_cacheForAllAvailableResourceFileAccessors =
-						new List<IResourceFileAccessor>();
+        /// <summary>
+        /// Gets all available resource file accessors.
+        /// </summary>
+        /// <value>All available resource file accessors.</value>
+        public static IResourceFileAccessor[] AllAvailableResourceFileAccessors
+        {
+            get
+            {
+                if (_cacheForAllAvailableResourceFileAccessors == null)
+                {
+                    _cacheForAllAvailableResourceFileAccessors =
+                        new List<IResourceFileAccessor>();
 
-					doGetAllTypes(
-						_cacheForAllAvailableResourceFileAccessors,
-						Assembly.GetEntryAssembly() );
-				}
+                    doGetAllTypes(
+                        _cacheForAllAvailableResourceFileAccessors,
+                        Assembly.GetEntryAssembly());
+                }
 
-				return _cacheForAllAvailableResourceFileAccessors.ToArray();
-			}
-		}
+                return _cacheForAllAvailableResourceFileAccessors.ToArray();
+            }
+        }
 
-		// ------------------------------------------------------------------
-		#endregion
+        // ------------------------------------------------------------------
+        #endregion
 
-		#region Public methods.
-		// ------------------------------------------------------------------
+        #region Public methods.
+        // ------------------------------------------------------------------
 
-		/// <summary>
-		/// Gets the <c>accessor</c> for file.
-		/// </summary>
-		/// <param name="filePath">The file path.</param>
-		/// <returns>Returns NULL if none found.</returns>
-		public static IResourceFileAccessor GetAccessorForFile(
-			ZlpFileInfo filePath)
-		{
-			var all = AllAvailableResourceFileAccessors;
+        /// <summary>
+        /// Gets the <c>accessor</c> for file.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns>Returns NULL if none found.</returns>
+        public static IResourceFileAccessor GetAccessorForFile(
+            ZlpFileInfo filePath)
+        {
+            var all = AllAvailableResourceFileAccessors;
 
-			if ( all == null || all.Length <= 0 )
-			{
-				return null;
-			}
-			else
-			{
-				var normalizedExtension =
-					normalizeExtension( filePath.Extension );
+            if (all == null || all.Length <= 0)
+            {
+                return null;
+            }
+            else
+            {
+                var normalizedExtension =
+                    normalizeExtension(filePath.Extension);
 
-				foreach ( var accessor in all )
-				{
-					var supportedExtensions =
-						accessor.SupportedFileExtensions;
+                foreach (var accessor in all)
+                {
+                    var supportedExtensions =
+                        accessor.SupportedFileExtensions;
 
-					if ( supportedExtensions != null &&
-						supportedExtensions.Length > 0 )
-					{
-						foreach ( var supportedExtension in supportedExtensions )
-						{
-							if ( normalizeExtension( supportedExtension ) ==
-								normalizedExtension )
-							{
-								return accessor;
-							}
-						}
-					}
-				}
+                    if (supportedExtensions != null &&
+                        supportedExtensions.Length > 0)
+                    {
+                        foreach (var supportedExtension in supportedExtensions)
+                        {
+                            if (normalizeExtension(supportedExtension) ==
+                                normalizedExtension)
+                            {
+                                return accessor;
+                            }
+                        }
+                    }
+                }
 
-				// Not found.
-				return null;
-			}
-		}
+                // Not found.
+                return null;
+            }
+        }
 
-		// ------------------------------------------------------------------
-		#endregion
-	
-		#region Private variables.
-		// ----------------------------------------------------------------------
+        // ------------------------------------------------------------------
+        #endregion
 
-		private static List<IResourceFileAccessor>
-			_cacheForAllAvailableResourceFileAccessors;
+        #region Private variables.
+        // ----------------------------------------------------------------------
 
-		// ----------------------------------------------------------------------
-		#endregion
+        private static List<IResourceFileAccessor>
+            _cacheForAllAvailableResourceFileAccessors;
 
-		#region Private helper.
-		// ------------------------------------------------------------------
+        // ----------------------------------------------------------------------
+        #endregion
 
-		/// <summary>
-		/// Normalizes the extension.
-		/// </summary>
-		/// <param name="extension">The extension.</param>
-		/// <returns></returns>
-		private static string normalizeExtension(
-			string extension )
-		{
-			if ( string.IsNullOrEmpty( extension ) )
-			{
-				return string.Empty;
-			}
-			else
-			{
-				return extension.Trim( ' ', '.' ).ToLowerInvariant();
-			}
-		}
+        #region Private helper.
+        // ------------------------------------------------------------------
 
-		/// <summary>
-		/// Helper.
-		/// </summary>
-		/// <param name="list">The list.</param>
-		/// <param name="a">A.</param>
-		private static void doGetAllTypes<T>(
-			ICollection<T> list, 
-			Assembly a)
-		{
-			if ( a != null )
-			{
-				LogCentral.Current.LogInfo(
-				    $@"doGetAllTypes(): Searching assembly '{a.GetName().Name}'...");
+        /// <summary>
+        /// Normalizes the extension.
+        /// </summary>
+        /// <param name="extension">The extension.</param>
+        /// <returns></returns>
+        private static string normalizeExtension(
+            string extension)
+        {
+            if (string.IsNullOrEmpty(extension))
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return extension.Trim(' ', '.').ToLowerInvariant();
+            }
+        }
 
-				try
-				{
-					var types = a.GetTypes();
+        /// <summary>
+        /// Helper.
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <param name="a">A.</param>
+        private static void doGetAllTypes<T>(
+            ICollection<T> list,
+            Assembly a)
+        {
+            if (a != null)
+            {
+                LogCentral.Current.LogInfo(
+                    $@"doGetAllTypes(): Searching assembly '{a.GetName().Name}'...");
 
-					foreach ( var t in types )
-					{
-						var interfaceTypes = t.GetInterfaces();
+                try
+                {
+                    var types = a.GetTypes();
 
-						foreach ( var interfaceType in interfaceTypes )
-						{
-							if ( interfaceType == typeof( T ) && !t.IsAbstract )
-							{
-								// Create instance.
-								var b = (T)Activator.CreateInstance( t );
+                    foreach (var t in types)
+                    {
+                        var interfaceTypes = t.GetInterfaces();
 
-								// Don't insert duplicates.
-								var found = false;
-								foreach (T c in list)
-								{
-									if (c.GetType() == b.GetType())
-									{
-										found = true;
-										break;
-									}
-								}
+                        foreach (var interfaceType in interfaceTypes)
+                        {
+                            if (interfaceType == typeof(T) && !t.IsAbstract)
+                            {
+                                // Create instance.
+                                var b = (T)Activator.CreateInstance(t);
 
-								if ( !found )
-								{
-									LogCentral.Current.LogInfo(
-									    $@"Found plug-in type '{t}'.");
+                                // Don't insert duplicates.
+                                var found = false;
+                                foreach (var c in list)
+                                {
+                                    if (c.GetType() == b.GetType())
+                                    {
+                                        found = true;
+                                        break;
+                                    }
+                                }
 
-									list.Add( b );
-								}
+                                if (!found)
+                                {
+                                    LogCentral.Current.LogInfo(
+                                        $@"Found plug-in type '{t}'.");
 
-								break;
-							}
-						}
-					}
-				}
-				catch ( ReflectionTypeLoadException tle )
-				{
-					LogCentral.Current.LogInfo(
-					    $@"Ignoring type load exception for assembly '{a.GetName().Name}'. " +
-					    @"This usually occurs inside a web application for " +
-					    @"plug-ins that are only intended for the main Windows application.",
-						tle );
-				}
-			}
-		}
+                                    list.Add(b);
+                                }
 
-		// ------------------------------------------------------------------
-		#endregion
-	}
+                                break;
+                            }
+                        }
+                    }
+                }
+                catch (ReflectionTypeLoadException tle)
+                {
+                    LogCentral.Current.LogInfo(
+                        $@"Ignoring type load exception for assembly '{a.GetName().Name}'. " +
+                        @"This usually occurs inside a web application for " +
+                        @"plug-ins that are only intended for the main Windows application.",
+                        tle);
+                }
+            }
+        }
 
-	/////////////////////////////////////////////////////////////////////////
+        // ------------------------------------------------------------------
+        #endregion
+    }
+
+    /////////////////////////////////////////////////////////////////////////
 }

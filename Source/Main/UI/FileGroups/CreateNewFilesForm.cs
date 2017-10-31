@@ -1,5 +1,3 @@
-using System.IO;
-
 namespace ZetaResourceEditor.UI.FileGroups
 {
     using DevExpress.XtraEditors;
@@ -26,6 +24,7 @@ namespace ZetaResourceEditor.UI.FileGroups
     using Zeta.VoyagerLibrary.Tools.Storage;
     using Zeta.VoyagerLibrary.WinForms.Common;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
+    using ZetaLongPaths;
 
     public partial class CreateNewFilesForm :
         FormBase
@@ -86,9 +85,9 @@ namespace ZetaResourceEditor.UI.FileGroups
             {
                 items.Add(
                     new MyTuple<string, CultureInfo>(
-                        $@"{(plcl.Contains(culture.Name.ToLowerInvariant()) ? @"* " : string.Empty)}{culture.DisplayName} [{
-                                culture.Name
-                            }]",
+                        $@"{
+                                (plcl.Contains(culture.Name.ToLowerInvariant()) ? @"* " : string.Empty)
+                            }{culture.DisplayName} [{culture.Name}]",
                         culture));
             }
 
@@ -113,16 +112,20 @@ namespace ZetaResourceEditor.UI.FileGroups
         private void updateIncludeFileInCsprojControls()
         {
             var csProjs = _project.FileGroups.Select(t => t.GetConnectedCsProject());
-            var groupedProjectFiles = csProjs.GroupBy(t => t?.Project?.FullPath).Where(t => !String.IsNullOrEmpty(t.Key)).Select(s => new FileInfo(s.Key));
+            var groupedProjectFiles = csProjs.GroupBy(t => t?.Project?.FullPath)
+                .Where(t => !string.IsNullOrEmpty(t.Key)).Select(s => new ZlpFileInfo(s.Key));
 
             IncludeFileInCsprojChecBox.Enabled = groupedProjectFiles.Any();
-            AddFileAsDependantUponCheckBox.Enabled = IncludeFileInCsprojChecBox.Checked && csProjs.Any(t => !String.IsNullOrEmpty(t?.DependantUponRootFileName));
+            AddFileAsDependantUponCheckBox.Enabled = IncludeFileInCsprojChecBox.Checked &&
+                                                     csProjs.Any(t =>
+                                                         !string.IsNullOrEmpty(t?.DependantUponRootFileName));
             if (!AddFileAsDependantUponCheckBox.Enabled)
             {
                 AddFileAsDependantUponCheckBox.Checked = false;
             }
 
-            labelCsProjectToAdd.Text = $"({String.Join(Environment.NewLine, groupedProjectFiles.Select(t => t?.Name))})";
+            labelCsProjectToAdd.Text =
+                $"({string.Join(Environment.NewLine, groupedProjectFiles.Select(t => t?.Name))})";
         }
 
         public override void UpdateUI()
@@ -169,8 +172,8 @@ namespace ZetaResourceEditor.UI.FileGroups
 
             prefixTextBox.Enabled =
                 buttonDefault.Enabled =
-                automaticallyTranslateCheckBox.Checked &&
-                prefixCheckBox.Checked;
+                    automaticallyTranslateCheckBox.Checked &&
+                    prefixCheckBox.Checked;
         }
 
         protected override void FillItemToControls()
@@ -235,7 +238,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             // Select defaults.
 
             if (referenceLanguageComboBox.SelectedIndex < 0 &&
-                 referenceLanguageComboBox.Properties.Items.Count > 0)
+                referenceLanguageComboBox.Properties.Items.Count > 0)
             {
                 referenceLanguageComboBox.SelectedIndex = 0;
             }
@@ -310,7 +313,8 @@ namespace ZetaResourceEditor.UI.FileGroups
         {
             using (new WaitCursor(this, WaitCursorOption.ShortSleep))
             {
-                var sourceLanguageCode = ((MyTuple<string, MyTuple<string, string>>)referenceLanguageComboBox.SelectedItem).Item2.Item1;
+                var sourceLanguageCode =
+                    ((MyTuple<string, MyTuple<string, string>>)referenceLanguageComboBox.SelectedItem).Item2.Item1;
                 var cultures = getCultures();
                 var copyTextsFromSource = copyTextsCheckBox.Checked;
                 var automaticallyTranslateTexts = automaticallyTranslateCheckBox.Checked;
@@ -366,11 +370,12 @@ namespace ZetaResourceEditor.UI.FileGroups
                                                     culture.Name,
                                                     copyTextsFromSource,
                                                     automaticallyTranslateTexts,
-                                                    prefix,                                                    
+                                                    prefix,
                                                     IncludeFileInCsprojChecBox.Checked,
                                                     AddFileAsDependantUponCheckBox.Checked);
 
-                                            if (didCopy) added++; else notadded++;
+                                            if (didCopy) added++;
+                                            else notadded++;
 
                                             created++;
                                         }
@@ -504,7 +509,8 @@ namespace ZetaResourceEditor.UI.FileGroups
             prefixTextBox.Text = FileGroup.DefaultTranslatedPrefix;
         }
 
-        private void destinationLanguagesListBox_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
+        private void destinationLanguagesListBox_ItemCheck(object sender,
+            DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
         {
             UpdateUI();
         }
@@ -547,7 +553,8 @@ namespace ZetaResourceEditor.UI.FileGroups
 
             for (var index = 0; index < destinationLanguagesListBox.Items.Count; ++index)
             {
-                var p = (MyTuple<string, CultureInfo>)((CheckedListBoxItem)destinationLanguagesListBox.GetItem(index)).Value;
+                var p = (MyTuple<string, CultureInfo>)((CheckedListBoxItem)destinationLanguagesListBox.GetItem(index))
+                    .Value;
 
                 destinationLanguagesListBox.SetItemChecked(
                     index,
@@ -561,9 +568,9 @@ namespace ZetaResourceEditor.UI.FileGroups
             {
                 var codes =
                     new HashSet<string>
-                        {
-                            _project.NeutralLanguageCode
-                        };
+                    {
+                        _project.NeutralLanguageCode
+                    };
 
                 foreach (var group in _project.FileGroups)
                 {

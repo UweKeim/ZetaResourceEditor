@@ -219,7 +219,7 @@
             }
             else
             {
-                return dic.TryGetValue(key, out string r) ? r : null;
+                return dic.TryGetValue(key, out var r) ? r : null;
             }
         }
 

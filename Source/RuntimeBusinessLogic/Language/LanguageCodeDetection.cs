@@ -148,8 +148,8 @@
                 {
                     // http://www.codeproject.com/Messages/3453976/IsValidCultureName-validation-error.aspx
                     if (cultureName.Length > 10 ||
-                        String.Compare(cultureName, Resources.SR_CommandProcessorSend_Process_Group, StringComparison.OrdinalIgnoreCase) == 0 ||
-                        String.Compare(cultureName, Resources.SR_CommandProcessorSend_Process_Name, StringComparison.OrdinalIgnoreCase) == 0)
+                        string.Compare(cultureName, Resources.SR_CommandProcessorSend_Process_Group, StringComparison.OrdinalIgnoreCase) == 0 ||
+                        string.Compare(cultureName, Resources.SR_CommandProcessorSend_Process_Name, StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         return false;
                     }
