@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace ZetaResourceEditor.UI.FileGroups
 {
     using DevExpress.XtraEditors;
@@ -108,6 +110,21 @@ namespace ZetaResourceEditor.UI.FileGroups
             labelControl2.Text = ti.UserReadableName;
         }
 
+        private void updateIncludeFileInCsprojControls()
+        {
+            var csProjs = _project.FileGroups.Select(t => t.GetConnectedCsProject());
+            var groupedProjectFiles = csProjs.GroupBy(t => t?.Project?.FullPath).Where(t => !String.IsNullOrEmpty(t.Key)).Select(s => new FileInfo(s.Key));
+
+            IncludeFileInCsprojChecBox.Enabled = groupedProjectFiles.Any();
+            AddFileAsDependantUponCheckBox.Enabled = IncludeFileInCsprojChecBox.Checked && csProjs.Any(t => !String.IsNullOrEmpty(t?.DependantUponRootFileName));
+            if (!AddFileAsDependantUponCheckBox.Enabled)
+            {
+                AddFileAsDependantUponCheckBox.Checked = false;
+            }
+
+            labelCsProjectToAdd.Text = $"({String.Join(Environment.NewLine, groupedProjectFiles.Select(t => t?.Name))})";
+        }
+
         public override void UpdateUI()
         {
             base.UpdateUI();
@@ -129,6 +146,8 @@ namespace ZetaResourceEditor.UI.FileGroups
                     ((MyTuple<string, CultureInfo>)destinationLanguagesListBox.CheckedItems[0]).Item2.Name,
                     StringComparison.OrdinalIgnoreCase) != 0 &&
                 (!prefixCheckBox.Checked || prefixTextBox.Text.Trim().Length > 0);
+
+            updateIncludeFileInCsprojControls();
 
             // --
 
@@ -347,7 +366,9 @@ namespace ZetaResourceEditor.UI.FileGroups
                                                     culture.Name,
                                                     copyTextsFromSource,
                                                     automaticallyTranslateTexts,
-                                                    prefix);
+                                                    prefix,                                                    
+                                                    IncludeFileInCsprojChecBox.Checked,
+                                                    AddFileAsDependantUponCheckBox.Checked);
 
                                             if (didCopy) added++; else notadded++;
 
@@ -583,6 +604,11 @@ namespace ZetaResourceEditor.UI.FileGroups
                     UpdateUI();
                 }
             }
+        }
+
+        private void IncludeFileInCsprojChecBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateUI();
         }
     }
 }
