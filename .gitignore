@@ -12,6 +12,10 @@ Source/UpdateChecker/App_Data/ZetaResourceEditor.exe
 Source/packages/
 Source-Skinning/packages/
 
+convert-to-latest-devexpress-version.cmd
+convert-to-latest-devexpress-version.cs
+convert-to-latest-devexpress-version.log
+
 /Bin/
 
 Source/build-all.cmd
