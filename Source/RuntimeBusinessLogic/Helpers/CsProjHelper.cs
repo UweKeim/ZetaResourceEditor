@@ -31,8 +31,7 @@
                 foreach (var currentCsProject in currentCsProjects)
                 {
                     var relativeName = fullName.Replace(currentCsProject.DirectoryPath + @"\", string.Empty);
-                    var resourceFolder =
-                        relativeName.Substring(0, relativeName.LastIndexOf(@"\", StringComparison.Ordinal));
+                    
                     var fileInCsProj = currentCsProject.Items.FirstOrDefault(t => t.EvaluatedInclude == relativeName);
                     if (fileInCsProj != null)
                     {
