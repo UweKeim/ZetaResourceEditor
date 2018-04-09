@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 {
     using DL;
@@ -455,181 +457,164 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                     // 2011-04-09, Uwe Keim: "nb" => "nb-NO".
                     var cultureLong = LanguageCodeDetection.MakeValidCulture(culture).Name;
 
-                    foreach (DataRow row in table.Rows)
-                    {
-                        if (row.RowState != DataRowState.Deleted)
-                        {
-                            if (!FileGroup.IsInternalRow(row))
-                            {
-                                var fileGroupCheckSum = ConvertHelper.ToInt64(row[@"FileGroup"]);
+                    var rowsToSave = table.Rows
+                        .Cast<DataRow>()
+                        .Where(row => !SkipSavingRow(row));
 
-                                // 2010-10-23, Uwe Keim: Only save if same file group.
-                                if (fileGroupCheckSum == checksum)
-                                {
-                                    var tagName = (string)row[@"Name"];
+                    foreach (var row in rowsToSave) {
+                        var fileGroupCheckSum = ConvertHelper.ToInt64(row[@"FileGroup"]);
 
-                                    var xpathQuery = $@"child::data[attribute::name='{escapeXsltChars(tagName)}']";
+                        // 2010-10-23, Uwe Keim: Only save if same file group.
+                        if (fileGroupCheckSum == checksum) {
+                            var tagName = (string) row[@"Name"];
 
-                                    if (document.DocumentElement != null)
-                                    {
-                                        var node = document.DocumentElement.SelectSingleNode(xpathQuery);
-                                        var found = node != null;
+                            var xpathQuery = $@"child::data[attribute::name='{escapeXsltChars(tagName)}']";
 
-                                        var content = row[cultureLong] as string;
-                                        var textToSet = content ?? string.Empty;
+                            if (document.DocumentElement != null) {
+                                var node = document.DocumentElement.SelectSingleNode(xpathQuery);
+                                var found = node != null;
 
-                                        var commentsAreVisible =
-                                            CommentsAreVisible(project, row, CommentVisibilityScope.InMemory);
+                                var content = row[cultureLong] as string;
+                                var textToSet = content ?? string.Empty;
+
+                                var commentsAreVisible =
+                                    CommentsAreVisible(project, row, CommentVisibilityScope.InMemory);
+
+                                // AJ CHANGE
+                                var commentToSet =
+                                    commentsAreVisible
+                                        ? row[@"Comment"] == DBNull.Value
+                                            ? string.Empty
+                                            : (string) row[@"Comment"]
+                                        : null;
+
+                                if (found) {
+                                    var n = node.SelectSingleNode(@"value");
+
+                                    //CHANGED: 	Member 802361 if content is null remove this entry
+                                    if (content != null &&
+                                        (!string.IsNullOrEmpty(textToSet) || !omitEmptyStrings)) {
+                                        // If not present (for whatever reason, e.g.
+                                        // manually edited and therefore misformed).
+                                        if (n == null) {
+                                            n = document.CreateElement(@"value");
+                                            node.AppendChild(n);
+                                        }
+
+                                        n.InnerText = textToSet;
 
                                         // AJ CHANGE
-                                        var commentToSet =
-                                            commentsAreVisible
-                                                ? row[@"Comment"] == DBNull.Value
-                                                    ? string.Empty
-                                                    : (string)row[@"Comment"]
-                                                : null;
-
-                                        if (found)
-                                        {
-                                            var n = node.SelectSingleNode(@"value");
-
-                                            //CHANGED: 	Member 802361 if content is null remove this entry
-                                            if (content != null &&
-                                                (!string.IsNullOrEmpty(textToSet) || !omitEmptyStrings))
-                                            {
+                                        // Only write the comment to the main resx file
+                                        if (commentsAreVisible) {
+                                            if (resxFile == _resxFiles[0]) {
+                                                n = node.SelectSingleNode(@"comment");
                                                 // If not present (for whatever reason, e.g.
                                                 // manually edited and therefore misformed).
-                                                if (n == null)
-                                                {
-                                                    n = document.CreateElement(@"value");
+                                                if (n == null) {
+                                                    n = document.CreateElement(@"comment");
                                                     node.AppendChild(n);
                                                 }
 
-                                                n.InnerText = textToSet;
-
-                                                // AJ CHANGE
-                                                // Only write the comment to the main resx file
-                                                if (commentsAreVisible)
-                                                {
-                                                    if (resxFile == _resxFiles[0])
-                                                    {
-                                                        n = node.SelectSingleNode(@"comment");
-                                                        // If not present (for whatever reason, e.g.
-                                                        // manually edited and therefore misformed).
-                                                        if (n == null)
-                                                        {
-                                                            n = document.CreateElement(@"comment");
-                                                            node.AppendChild(n);
-                                                        }
-
-                                                        n.InnerText = commentToSet ?? string.Empty;
-                                                    }
-                                                }
-                                            }
-                                            else
-                                            {
-                                                if (n != null)
-                                                {
-                                                    node.RemoveChild(n);
-                                                }
-
-                                                node.ParentNode?.RemoveChild(node);
+                                                n.InnerText = commentToSet ?? string.Empty;
                                             }
                                         }
-                                        else // Resource doesn't exist in XML.
-                                        {
-                                            if (content != null &&
-                                                (!string.IsNullOrEmpty(textToSet) || !omitEmptyStrings))
-                                            {
-                                                // Member 802361: only do it if editing single fileGroup.
-                                                // If no we don't know where to add the new entry.
-                                                // TODO: may be add to default file in the list?
-                                                if (_gridEditableData.FileGroup == null)
-                                                {
-                                                    //look if base file has same tagName
-                                                    //if base file skip it
-                                                    if (string.Compare(
-                                                            _gridEditableData.Project.NeutralLanguageCode,
-                                                            culture,
-                                                            StringComparison.OrdinalIgnoreCase) == 0 ||
-                                                        string.Compare(
-                                                            _gridEditableData.Project.NeutralLanguageCode,
-                                                            cultureLong,
-                                                            StringComparison.OrdinalIgnoreCase) == 0)
-                                                    {
-                                                        continue;
-                                                    }
-
-                                                    // 2011-01-26, Uwe Keim:
-                                                    var pattern =
-                                                        resxFile.FileInformation.FileGroup.ParentSettings
-                                                            .EffectiveNeutralLanguageFileNamePattern;
-                                                    pattern =
-                                                        pattern.Replace(@"[basename]",
-                                                            resxFile.FileInformation.FileGroup.BaseName);
-                                                    pattern =
-                                                        pattern.Replace(@"[languagecode]", project.NeutralLanguageCode);
-                                                    pattern =
-                                                        pattern.Replace(@"[extension]",
-                                                            resxFile.FileInformation.FileGroup.BaseExtension);
-                                                    pattern = pattern.Replace(@"[optionaldefaulttypes]",
-                                                        resxFile.FileInformation.FileGroup.BaseOptionalDefaultType);
-
-                                                    //has base culture value?
-                                                    var baseName = pattern;
-
-                                                    // 2011-01-26, Uwe Keim:
-                                                    var file = resxFile;
-                                                    var baseResxFile =
-                                                        _resxFiles.Find(
-                                                            resx =>
-                                                                resx.FilePath.Name == baseName &&
-                                                                resx.FileInformation.FileGroup.UniqueID ==
-                                                                file.FileInformation.FileGroup.UniqueID);
-
-                                                    var baseNode =
-                                                        baseResxFile?.Document?.DocumentElement
-                                                            ?.SelectSingleNode(xpathQuery);
-                                                    if (baseNode == null)
-                                                    {
-                                                        continue;
-                                                    }
-                                                    //ok we can add it.
-                                                }
-                                                //TODO: use default instead
-
-                                                //Create the new Node
-                                                XmlNode newData = document.CreateElement(@"data");
-                                                var newName = document.CreateAttribute(@"name");
-                                                var newSpace = document.CreateAttribute(@"xml:space");
-                                                XmlNode newValue = document.CreateElement(@"value");
-
-                                                // Set the Values
-                                                newName.Value = (string)row[@"Name"];
-                                                newSpace.Value = @"preserve";
-                                                newValue.InnerText = textToSet;
-
-                                                // Get them together
-                                                if (newData.Attributes != null)
-                                                {
-                                                    newData.Attributes.Append(newName);
-                                                    newData.Attributes.Append(newSpace);
-                                                }
-                                                newData.AppendChild(newValue);
-
-                                                // AJ CHANGE
-                                                // Only write the comment to the main resx file
-                                                if (commentsAreVisible && index == 0)
-                                                {
-                                                    XmlNode newComment = document.CreateElement(@"comment");
-                                                    newComment.InnerText = commentToSet ?? string.Empty;
-                                                    newData.AppendChild(newComment);
-                                                }
-
-                                                XmlNode root = document.DocumentElement;
-                                                root?.InsertAfter(newData, root.LastChild);
-                                            }
+                                    }
+                                    else {
+                                        if (n != null) {
+                                            node.RemoveChild(n);
                                         }
+
+                                        node.ParentNode?.RemoveChild(node);
+                                    }
+                                }
+                                else // Resource doesn't exist in XML.
+                                {
+                                    if (content != null &&
+                                        (!string.IsNullOrEmpty(textToSet) || !omitEmptyStrings)) {
+                                        // Member 802361: only do it if editing single fileGroup.
+                                        // If no we don't know where to add the new entry.
+                                        // TODO: may be add to default file in the list?
+                                        if (_gridEditableData.FileGroup == null) {
+                                            //look if base file has same tagName
+                                            //if base file skip it
+                                            if (string.Compare(
+                                                    _gridEditableData.Project.NeutralLanguageCode,
+                                                    culture,
+                                                    StringComparison.OrdinalIgnoreCase) == 0 ||
+                                                string.Compare(
+                                                    _gridEditableData.Project.NeutralLanguageCode,
+                                                    cultureLong,
+                                                    StringComparison.OrdinalIgnoreCase) == 0) {
+                                                continue;
+                                            }
+
+                                            // 2011-01-26, Uwe Keim:
+                                            var pattern =
+                                                resxFile.FileInformation.FileGroup.ParentSettings
+                                                    .EffectiveNeutralLanguageFileNamePattern;
+                                            pattern =
+                                                pattern.Replace(@"[basename]",
+                                                    resxFile.FileInformation.FileGroup.BaseName);
+                                            pattern =
+                                                pattern.Replace(@"[languagecode]", project.NeutralLanguageCode);
+                                            pattern =
+                                                pattern.Replace(@"[extension]",
+                                                    resxFile.FileInformation.FileGroup.BaseExtension);
+                                            pattern = pattern.Replace(@"[optionaldefaulttypes]",
+                                                resxFile.FileInformation.FileGroup.BaseOptionalDefaultType);
+
+                                            //has base culture value?
+                                            var baseName = pattern;
+
+                                            // 2011-01-26, Uwe Keim:
+                                            var file = resxFile;
+                                            var baseResxFile =
+                                                _resxFiles.Find(
+                                                    resx =>
+                                                        resx.FilePath.Name == baseName &&
+                                                        resx.FileInformation.FileGroup.UniqueID ==
+                                                        file.FileInformation.FileGroup.UniqueID);
+
+                                            var baseNode =
+                                                baseResxFile?.Document?.DocumentElement
+                                                    ?.SelectSingleNode(xpathQuery);
+                                            if (baseNode == null) {
+                                                continue;
+                                            }
+
+                                            //ok we can add it.
+                                        }
+                                        //TODO: use default instead
+
+                                        //Create the new Node
+                                        XmlNode newData = document.CreateElement(@"data");
+                                        var newName = document.CreateAttribute(@"name");
+                                        var newSpace = document.CreateAttribute(@"xml:space");
+                                        XmlNode newValue = document.CreateElement(@"value");
+
+                                        // Set the Values
+                                        newName.Value = (string) row[@"Name"];
+                                        newSpace.Value = @"preserve";
+                                        newValue.InnerText = textToSet;
+
+                                        // Get them together
+                                        if (newData.Attributes != null) {
+                                            newData.Attributes.Append(newName);
+                                            newData.Attributes.Append(newSpace);
+                                        }
+
+                                        newData.AppendChild(newValue);
+
+                                        // AJ CHANGE
+                                        // Only write the comment to the main resx file
+                                        if (commentsAreVisible && index == 0) {
+                                            XmlNode newComment = document.CreateElement(@"comment");
+                                            newComment.InnerText = commentToSet ?? string.Empty;
+                                            newData.AppendChild(newComment);
+                                        }
+
+                                        XmlNode root = document.DocumentElement;
+                                        root?.InsertAfter(newData, root.LastChild);
                                     }
                                 }
                             }
@@ -649,6 +634,12 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 
             // Store files back to filesystem
             storeFiles(project);
+        }
+
+        private static bool SkipSavingRow(DataRow row) {
+            return row.RowState == DataRowState.Deleted 
+                   || row.RowState == DataRowState.Unchanged 
+                   || FileGroup.IsInternalRow(row);
         }
 
         private static string escapeXsltChars(
