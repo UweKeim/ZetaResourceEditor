@@ -1,33 +1,33 @@
 namespace ZetaResourceEditor.UI.Translation
 {
-	partial class TranslateOptionsForm
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class TranslateOptionsForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
             this.xtraTabControl1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
             this.engineTabPage = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
@@ -51,9 +51,9 @@ namespace ZetaResourceEditor.UI.Translation
             this.wordsToRemoveTabPage = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
             this.labelControl6 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.wordsToRemoveMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
-            this.labelControl3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+            this.myLabelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -82,20 +82,20 @@ namespace ZetaResourceEditor.UI.Translation
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Padding = new System.Windows.Forms.Padding(3);
-            this.panelControl1.Size = new System.Drawing.Size(382, 335);
+            this.panelControl1.Size = new System.Drawing.Size(461, 419);
             this.panelControl1.TabIndex = 0;
             // 
             // xtraTabControl1
             // 
-            this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.xtraTabControl1.AppearancePage.Header.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.xtraTabControl1.AppearancePage.Header.Options.UseFont = true;
             this.xtraTabControl1.Location = new System.Drawing.Point(6, 6);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.engineTabPage;
-            this.xtraTabControl1.Size = new System.Drawing.Size(370, 291);
+            this.xtraTabControl1.Size = new System.Drawing.Size(449, 375);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.engineTabPage,
@@ -114,13 +114,13 @@ namespace ZetaResourceEditor.UI.Translation
             this.engineTabPage.Controls.Add(this.appIDTextEdit);
             this.engineTabPage.Name = "engineTabPage";
             this.engineTabPage.Padding = new System.Windows.Forms.Padding(9);
-            this.engineTabPage.Size = new System.Drawing.Size(364, 259);
+            this.engineTabPage.Size = new System.Drawing.Size(443, 343);
             this.engineTabPage.Text = "Service";
             // 
             // appIDLinkControl
             // 
             this.appIDLinkControl.AllowAutoWidth = true;
-            this.appIDLinkControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.appIDLinkControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.appIDLinkControl.CausesValidation = false;
             this.appIDLinkControl.EditValue = "How to get an API key?";
@@ -135,7 +135,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.appIDLinkControl.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.appIDLinkControl.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.appIDLinkControl.Properties.ReadOnly = true;
-            this.appIDLinkControl.Size = new System.Drawing.Size(340, 22);
+            this.appIDLinkControl.Size = new System.Drawing.Size(419, 22);
             this.appIDLinkControl.TabIndex = 6;
             this.appIDLinkControl.TabStop = false;
             this.appIDLinkControl.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.appIDLinkControl_OpenLink);
@@ -162,7 +162,7 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             // appID2TextEdit
             // 
-            this.appID2TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.appID2TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.appID2TextEdit.Bold = false;
             this.appID2TextEdit.CueText = null;
@@ -175,13 +175,13 @@ namespace ZetaResourceEditor.UI.Translation
             this.appID2TextEdit.Properties.Mask.EditMask = null;
             this.appID2TextEdit.Properties.MaxLength = 400;
             this.appID2TextEdit.Properties.NullValuePrompt = null;
-            this.appID2TextEdit.Size = new System.Drawing.Size(340, 24);
+            this.appID2TextEdit.Size = new System.Drawing.Size(419, 24);
             this.appID2TextEdit.TabIndex = 5;
             this.appID2TextEdit.EditValueChanged += new System.EventHandler(this.translationDelayTextEdit_EditValueChanged);
             // 
             // engineComboBox
             // 
-            this.engineComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.engineComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.engineComboBox.CueText = null;
             this.engineComboBox.Location = new System.Drawing.Point(12, 32);
@@ -192,7 +192,7 @@ namespace ZetaResourceEditor.UI.Translation
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.engineComboBox.Properties.NullValuePrompt = null;
             this.engineComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.engineComboBox.Size = new System.Drawing.Size(340, 24);
+            this.engineComboBox.Size = new System.Drawing.Size(419, 24);
             this.engineComboBox.TabIndex = 1;
             this.engineComboBox.SelectedIndexChanged += new System.EventHandler(this.engineComboBox_SelectedIndexChanged);
             // 
@@ -208,7 +208,7 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             // appIDTextEdit
             // 
-            this.appIDTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.appIDTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.appIDTextEdit.Bold = false;
             this.appIDTextEdit.CueText = null;
@@ -221,7 +221,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.appIDTextEdit.Properties.Mask.EditMask = null;
             this.appIDTextEdit.Properties.MaxLength = 400;
             this.appIDTextEdit.Properties.NullValuePrompt = null;
-            this.appIDTextEdit.Size = new System.Drawing.Size(340, 24);
+            this.appIDTextEdit.Size = new System.Drawing.Size(419, 24);
             this.appIDTextEdit.TabIndex = 3;
             this.appIDTextEdit.EditValueChanged += new System.EventHandler(this.translationDelayTextEdit_EditValueChanged);
             // 
@@ -233,7 +233,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.settingsTabPage.Controls.Add(this.label2);
             this.settingsTabPage.Name = "settingsTabPage";
             this.settingsTabPage.Padding = new System.Windows.Forms.Padding(9);
-            this.settingsTabPage.Size = new System.Drawing.Size(364, 259);
+            this.settingsTabPage.Size = new System.Drawing.Size(443, 343);
             this.settingsTabPage.Text = "Settings";
             // 
             // labelControl1
@@ -292,7 +292,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.wordsToKeepTabPage.Controls.Add(this.labelControl5);
             this.wordsToKeepTabPage.Name = "wordsToKeepTabPage";
             this.wordsToKeepTabPage.Padding = new System.Windows.Forms.Padding(9);
-            this.wordsToKeepTabPage.Size = new System.Drawing.Size(364, 259);
+            this.wordsToKeepTabPage.Size = new System.Drawing.Size(443, 343);
             this.wordsToKeepTabPage.Text = "Words to keep";
             // 
             // buttonAddDefaultWordsToKeep
@@ -300,7 +300,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.buttonAddDefaultWordsToKeep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddDefaultWordsToKeep.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonAddDefaultWordsToKeep.Appearance.Options.UseFont = true;
-            this.buttonAddDefaultWordsToKeep.Location = new System.Drawing.Point(257, 219);
+            this.buttonAddDefaultWordsToKeep.Location = new System.Drawing.Point(336, 262);
             this.buttonAddDefaultWordsToKeep.Name = "buttonAddDefaultWordsToKeep";
             this.buttonAddDefaultWordsToKeep.Size = new System.Drawing.Size(95, 28);
             this.buttonAddDefaultWordsToKeep.TabIndex = 3;
@@ -310,21 +310,26 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             // labelControl4
             // 
-            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Location = new System.Drawing.Point(12, 225);
+            this.labelControl4.Appearance.Options.UseTextOptions = true;
+            this.labelControl4.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl4.Location = new System.Drawing.Point(12, 296);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(170, 17);
+            this.labelControl4.Size = new System.Drawing.Size(419, 35);
             this.labelControl4.TabIndex = 1;
-            this.labelControl4.Text = "(One word/sentence per line)";
+            this.labelControl4.Text = "(One word/sentence per line. [WC] prefix for wildcards, [RX] prefix for Regular E" +
+    "xpressions)";
             // 
             // wordsToProtectMemoEdit
             // 
-            this.wordsToProtectMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.wordsToProtectMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wordsToProtectMemoEdit.CueText = null;
             this.wordsToProtectMemoEdit.Location = new System.Drawing.Point(12, 32);
@@ -332,7 +337,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.wordsToProtectMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.wordsToProtectMemoEdit.Properties.Appearance.Options.UseFont = true;
             this.wordsToProtectMemoEdit.Properties.NullValuePrompt = null;
-            this.wordsToProtectMemoEdit.Size = new System.Drawing.Size(340, 181);
+            this.wordsToProtectMemoEdit.Size = new System.Drawing.Size(419, 224);
             this.wordsToProtectMemoEdit.TabIndex = 0;
             // 
             // labelControl5
@@ -347,12 +352,12 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             // wordsToRemoveTabPage
             // 
+            this.wordsToRemoveTabPage.Controls.Add(this.myLabelControl1);
             this.wordsToRemoveTabPage.Controls.Add(this.labelControl6);
             this.wordsToRemoveTabPage.Controls.Add(this.wordsToRemoveMemoEdit);
-            this.wordsToRemoveTabPage.Controls.Add(this.labelControl3);
             this.wordsToRemoveTabPage.Name = "wordsToRemoveTabPage";
             this.wordsToRemoveTabPage.Padding = new System.Windows.Forms.Padding(9);
-            this.wordsToRemoveTabPage.Size = new System.Drawing.Size(364, 259);
+            this.wordsToRemoveTabPage.Size = new System.Drawing.Size(443, 343);
             this.wordsToRemoveTabPage.Text = "Words to remove";
             // 
             // labelControl6
@@ -367,8 +372,8 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             // wordsToRemoveMemoEdit
             // 
-            this.wordsToRemoveMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.wordsToRemoveMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wordsToRemoveMemoEdit.CueText = null;
             this.wordsToRemoveMemoEdit.Location = new System.Drawing.Point(12, 32);
@@ -376,21 +381,8 @@ namespace ZetaResourceEditor.UI.Translation
             this.wordsToRemoveMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.wordsToRemoveMemoEdit.Properties.Appearance.Options.UseFont = true;
             this.wordsToRemoveMemoEdit.Properties.NullValuePrompt = null;
-            this.wordsToRemoveMemoEdit.Size = new System.Drawing.Size(340, 192);
+            this.wordsToRemoveMemoEdit.Size = new System.Drawing.Size(419, 258);
             this.wordsToRemoveMemoEdit.TabIndex = 0;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl3.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(12, 230);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(170, 17);
-            this.labelControl3.TabIndex = 1;
-            this.labelControl3.Text = "(One word/sentence per line)";
             // 
             // buttonOK
             // 
@@ -398,7 +390,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.buttonOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonOK.Appearance.Options.UseFont = true;
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOK.Location = new System.Drawing.Point(220, 301);
+            this.buttonOK.Location = new System.Drawing.Point(299, 385);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 28);
             this.buttonOK.TabIndex = 1;
@@ -412,12 +404,30 @@ namespace ZetaResourceEditor.UI.Translation
             this.buttonCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonCancel.Appearance.Options.UseFont = true;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(301, 301);
+            this.buttonCancel.Location = new System.Drawing.Point(380, 385);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 28);
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.WantDrawFocusRectangle = true;
+            // 
+            // myLabelControl1
+            // 
+            this.myLabelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.myLabelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.myLabelControl1.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.myLabelControl1.Appearance.Options.UseFont = true;
+            this.myLabelControl1.Appearance.Options.UseForeColor = true;
+            this.myLabelControl1.Appearance.Options.UseTextOptions = true;
+            this.myLabelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.myLabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.myLabelControl1.Location = new System.Drawing.Point(12, 296);
+            this.myLabelControl1.Name = "myLabelControl1";
+            this.myLabelControl1.Size = new System.Drawing.Size(419, 35);
+            this.myLabelControl1.TabIndex = 4;
+            this.myLabelControl1.Text = "(One word/sentence per line. [WC] prefix for wildcards, [RX] prefix for Regular E" +
+    "xpressions)";
             // 
             // TranslateOptionsForm
             // 
@@ -425,7 +435,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.Appearance.Options.UseFont = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(382, 335);
+            this.ClientSize = new System.Drawing.Size(461, 419);
             this.Controls.Add(this.panelControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.MaximizeBox = false;
@@ -461,35 +471,35 @@ namespace ZetaResourceEditor.UI.Translation
             ((System.ComponentModel.ISupportInitialize)(this.wordsToRemoveMemoEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
-		}
+        }
 
-		#endregion
+        #endregion
 
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
-		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonOK;
-		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonCancel;
-		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit translationDelayTextEdit;
-		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit checkEditContinueOnErrors;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl label2;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
-		private ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit engineComboBox;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl2;
-		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl xtraTabControl1;
-		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage settingsTabPage;
-		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage wordsToKeepTabPage;
-		private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit wordsToProtectMemoEdit;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl4;
-		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage wordsToRemoveTabPage;
-		private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit wordsToRemoveMemoEdit;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl3;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl5;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl6;
-		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonAddDefaultWordsToKeep;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl appIDLabel;
-		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit appIDTextEdit;
-		private ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit appIDLinkControl;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl appID2Label;
-		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit appID2TextEdit;
-		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage engineTabPage;
-	}
+        private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
+        private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonOK;
+        private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonCancel;
+        private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit translationDelayTextEdit;
+        private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit checkEditContinueOnErrors;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl label2;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
+        private ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit engineComboBox;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl2;
+        private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl xtraTabControl1;
+        private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage settingsTabPage;
+        private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage wordsToKeepTabPage;
+        private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit wordsToProtectMemoEdit;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl4;
+        private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage wordsToRemoveTabPage;
+        private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit wordsToRemoveMemoEdit;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl5;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl6;
+        private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonAddDefaultWordsToKeep;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl appIDLabel;
+        private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit appIDTextEdit;
+        private ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit appIDLinkControl;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl appID2Label;
+        private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit appID2TextEdit;
+        private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage engineTabPage;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl myLabelControl1;
+    }
 }

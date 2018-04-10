@@ -1,6 +1,7 @@
 ﻿namespace ZetaResourceEditor.UI.Translation
 {
     #region Using directives.
+
     // ----------------------------------------------------------------------
 
     using DevExpress.XtraEditors;
@@ -17,6 +18,7 @@
     using RuntimeBusinessLogic.Projects;
     using RuntimeBusinessLogic.Snapshots;
     using RuntimeBusinessLogic.Translation;
+    using RuntimeBusinessLogic.Translation.Google;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -26,13 +28,13 @@
     using System.Reflection;
     using System.Threading;
     using System.Windows.Forms;
-    using RuntimeBusinessLogic.Translation.Google;
     using Zeta.VoyagerLibrary.Common;
     using Zeta.VoyagerLibrary.Tools.Storage;
     using Zeta.VoyagerLibrary.WinForms.Common;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
 
     // ----------------------------------------------------------------------
+
     #endregion
 
     public partial class AutoTranslateForm :
@@ -44,13 +46,10 @@
 
             var ti = TranslationHelper.GetTranslationEngine(project);
 
-            string appID;
-            string appID2;
-
             TranslationHelper.GetTranslationAppID(
                 project,
-                out appID,
-                out appID2);
+                out var appID,
+                out var appID2);
 
             if (ti.AreAppIDsSyntacticallyValid(appID, appID2))
             {
@@ -59,12 +58,12 @@
             else
             {
                 if (XtraMessageBox.Show(
-                    ActiveForm,
-                    Resources.AutoTranslateForm_CheckShowAppIDsMissing,
-                    @"Zeta Resource Editor",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                        ActiveForm,
+                        Resources.AutoTranslateForm_CheckShowAppIDsMissing,
+                        @"Zeta Resource Editor",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
                     using (var form = new TranslateOptionsForm())
                     {
@@ -96,13 +95,13 @@
 
                 if (XtraMessageBox.Show(
                         ActiveForm,
-                        Resources.AutoTranslateForm_CheckShowNewTranslationInfos_Google_changed_their_translation_settings__Do_you_want_to_read_how_you_can_continue_using_Google_Translate_,
+                        Resources.HowToGoogleTranslate,
                         @"Zeta Resource Editor",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question,
                         MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
-                    Process.Start(new GoogleRestfulTranslationEngine().AppIDLink);
+                    Process.Start(((ITranslationEngine)new GoogleRestfulTranslationEngine()).AppIDLink);
                 }
             }
         }
@@ -157,7 +156,7 @@
 
             prefixTextBox.Enabled =
                 buttonDefault.Enabled =
-                prefixCheckBox.Checked;
+                    prefixCheckBox.Checked;
 
             buttonSettings.Enabled = _project != null;
 
@@ -170,20 +169,32 @@
 
             var infos = new List<TranslationLanguageInfo>();
 
-            string appID;
-            string appID2;
-
             TranslationHelper.GetTranslationAppID(
                 MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
-                out appID,
-                out appID2);
+                out var appID,
+                out var appID2);
 
             var ti = TranslationHelper.GetTranslationEngine(_project);
 
-            var lcs =
-                ti.AreAppIDsSyntacticallyValid(appID, appID2)
-                    ? ti.GetSourceLanguages(appID, appID2)
-                    : new TranslationLanguageInfo[] { };
+            TranslationLanguageInfo[] lcs;
+
+            //try
+            //{
+            lcs = ti.AreAppIDsSyntacticallyValid(appID, appID2)
+                ? ti.GetSourceLanguages(appID, appID2)
+                : new TranslationLanguageInfo[] { };
+            //}
+            //catch (Exception e) when (e is WebException || e is HttpException)
+            //{
+            //    // Hier Exception nicht durchlassen,
+            //    // Damit der Dialog nicht undefiniert gefüllt ist.
+
+            //    LogCentral.Current.Warn(e);
+
+            //    lcs = new TranslationLanguageInfo[] { };
+
+            //    Host.NotifyAboutException(e);
+            //}
 
             foreach (var languageCode in languageCodes)
             {
@@ -206,8 +217,8 @@
                             {
                                 UserReadableName =
                                     $@"{
-                                        LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName
-                                    } ({languageCode})",
+                                            LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName
+                                        } ({languageCode})",
                                 LanguageCode = languageCode
                             });
                     }
@@ -227,10 +238,11 @@
 
             _ignore = true;
             if (referenceLanguageGroupBox.SelectedIndex < 0 &&
-                 referenceLanguageGroupBox.Properties.Items.Count > 0)
+                referenceLanguageGroupBox.Properties.Items.Count > 0)
             {
                 referenceLanguageGroupBox.SelectedIndex = 0;
             }
+
             _ignore = false;
         }
 
@@ -345,13 +357,10 @@
 
             languagesToTranslateCheckListBox.Items.Clear();
 
-            string appID;
-            string appID2;
-
             TranslationHelper.GetTranslationAppID(
                 MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
-                out appID,
-                out appID2);
+                out var appID,
+                out var appID2);
 
             var forbidden =
                 referenceLanguageGroupBox.SelectedIndex >= 0 &&
@@ -368,7 +377,7 @@
             foreach (var languageCode in languageCodes)
             {
                 if (!string.IsNullOrEmpty(languageCode) &&
-                     languageCode != forbidden)
+                    languageCode != forbidden)
                 {
                     // Only add those that are supported.
                     if (TranslationHelper.IsSupportedLanguage(
@@ -379,8 +388,8 @@
                             {
                                 UserReadableName =
                                     $@"{
-                                        LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName
-                                    } ({languageCode})",
+                                            LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName
+                                        } ({languageCode})",
                                 LanguageCode = languageCode
                             });
 
@@ -540,7 +549,8 @@
 
                             var imtc = new InMemoryTranslationSnapshotController();
                             var imss = useExistingTranslations
-                                ? imtc.CreateSnapshot(_project, toTranslateLanguageCodes.Concat(new[] { refLanguageCode }).ToArray(),
+                                ? imtc.CreateSnapshot(_project,
+                                    toTranslateLanguageCodes.Concat(new[] { refLanguageCode }).ToArray(),
                                     bw)
                                 : null;
 
@@ -581,8 +591,8 @@
 
                                 TranslationHelper.GetTranslationAppID(
                                     MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
-                                    out string appID,
-                                    out string appID2);
+                                    out var appID,
+                                    out var appID2);
 
                                 foreach (DataColumn column in table.Columns)
                                 {
@@ -674,7 +684,7 @@
                             cancelled = a.Cancelled;
                         },
                         BackgroundWorkerLongProgressGui.CancellationMode.Cancelable
-                        ))
+                    ))
                 {
                 }
             }
@@ -926,6 +936,7 @@
                             {
                                 throw new OperationCanceledException();
                             }
+
                             if (delayMilliseconds > 0)
                             {
                                 Thread.Sleep(delayMilliseconds);

@@ -357,7 +357,7 @@ e.g. "[basename][optionaldefaulttypes].[extension]"</value>
 	<data name="SR_EmptyResourceFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
 		<value>..\Resources\SR_EmptyResourceFile.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
 	</data>
-	<data name="AutoTranslateForm_CheckShowNewTranslationInfos_Google_changed_their_translation_settings__Do_you_want_to_read_how_you_can_continue_using_Google_Translate_" xml:space="preserve">
+	<data name="HowToGoogleTranslate" xml:space="preserve">
     <value>Google and Microsoft Bing changed their translation services. Do you want to read how you can continue using Google Translate and Bing Translate?</value>
   </data>
 	<data name="AutoTranslateForm_CheckShowAppIDsMissing" xml:space="preserve">

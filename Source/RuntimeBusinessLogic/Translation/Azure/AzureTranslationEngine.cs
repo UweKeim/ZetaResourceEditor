@@ -113,14 +113,19 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
             string[] wordsToProtect,
             string[] wordsToRemove)
         {
-            text = TranslationHelper.ProtectWords(
-                TranslationHelper.RemoveWords(
-                    text,
-                    wordsToRemove),
-                wordsToProtect);
+            var removed = TranslationHelper.RemoveWords(
+                text,
+                wordsToRemove);
+
+            var prot = TranslationHelper.ProtectWords(
+                new TranslationHelper.ProtectionInfo
+                {
+                    UnprotectedText = removed,
+                    WordsToProtect = wordsToProtect
+                });
 
             var uri =
-                $@"https://api.microsofttranslator.com/v2/Http.svc/Translate?text={HttpUtility.UrlEncode(text)}&from={
+                $@"https://api.microsofttranslator.com/v2/Http.svc/Translate?text={HttpUtility.UrlEncode(prot.ProtectedText)}&from={
                         sourceLanguageCode
                     }&to={destinationLanguageCode}";
 
@@ -132,7 +137,15 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
                 var dcs = new DataContractSerializer(typeof(string));
                 var translation = (string)dcs.ReadObject(stream);
 
-                return TranslationHelper.UnprotectWords(translation, wordsToProtect);
+                var protres = new TranslationHelper.ProtectionResult
+                {
+                    ProtectedText = translation,
+                    UnprotectedToProtectedMapping = prot.UnprotectedToProtectedMapping,
+                    WordsToProtect = prot.WordsToProtect
+                };
+
+                var unprot = TranslationHelper.UnprotectWords(protres);
+                return unprot.UnprotectedText;
             }
         }
 
@@ -160,17 +173,25 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
                        @"</Options>" +
                        @"<Texts>";
 
+            var protectionResults = new List<TranslationHelper.ProtectionResult>();
+
             foreach (var text in texts)
             {
-                var preparedText = TranslationHelper.ProtectWords(
-                    TranslationHelper.RemoveWords(
-                        text,
-                        wordsToRemove),
-                    wordsToProtect);
+                var removed = TranslationHelper.RemoveWords(
+                    text,
+                    wordsToRemove);
 
-                preparedText = escapeXml(preparedText);
+                var preparedText = TranslationHelper.ProtectWords(new TranslationHelper.ProtectionInfo
+                {
+                    UnprotectedText = removed,
+                    WordsToProtect = wordsToProtect
+                });
 
-                body += $@"<string xmlns=""http://schemas.microsoft.com/2003/10/Serialization/Arrays"">{preparedText}</string>";
+                protectionResults.Add(preparedText);
+
+                var esc = escapeXml(preparedText.ProtectedText);
+
+                body += $@"<string xmlns=""http://schemas.microsoft.com/2003/10/Serialization/Arrays"">{esc}</string>";
             }
 
             body +=
@@ -209,10 +230,19 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
 
                         var result = new List<string>();
 
+                        // Sum up all mappings.
+                        var dic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
+
                         foreach (var xe in doc.Descendants(ns + @"TranslateArrayResponse"))
                         {
-                            result.AddRange(xe.Elements(ns + @"TranslatedText")
-                                .Select(node => TranslationHelper.UnprotectWords(node.Value, wordsToProtect)));
+                            result.AddRange(xe.Elements(ns + @"TranslatedText").Select(node => TranslationHelper.UnprotectWords(
+                                new TranslationHelper.ProtectionResult
+                                {
+                                    ProtectedText = node.Value,
+                                    WordsToProtect = wordsToProtect,
+                                    UnprotectedToProtectedMapping = dic
+                                }
+                                ).UnprotectedText));
                         }
 
                         return result.ToArray();

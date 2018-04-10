@@ -10,6 +10,7 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using System.Text.RegularExpressions;
     using Zeta.VoyagerLibrary.Tools;
     using ZetaLongPaths;
 
@@ -19,12 +20,27 @@
         {
             new AzureTranslationEngine(),
             new GoogleRestfulTranslationEngine()
-            //new BingSoapTranslationEngine()
         };
 
+        public static Dictionary<string, string> JoinUnprotectedToProtectedMapping(
+            IEnumerable<ProtectionResult> results)
+        {
+            var dic = new Dictionary<string, string>();
+
+            foreach (var protectionResult in results)
+            {
+                foreach (var pair in protectionResult.UnprotectedToProtectedMapping)
+                {
+                    dic[pair.Key] = pair.Value;
+                }
+            }
+
+            return dic;
+        }
+
         public static bool IsSupportedLanguage(
-            string languageCode,
-            IEnumerable<TranslationLanguageInfo> languageInfos)
+                    string languageCode,
+                    IEnumerable<TranslationLanguageInfo> languageInfos)
         {
             var ci = CultureHelper.CreateCultureErrorTolerant(languageCode);
 
@@ -65,66 +81,275 @@
             }
             else
             {
-                return wordsToRemove.Aggregate(text, (current, word) => current.Replace(word, string.Empty));
-            }
-        }
+                const string regexPrefix = @"[RX]";
+                const string wildcardPrefix = @"[WC]";
 
-        public static string[] ProtectWords(
-            string[] texts,
-            string[] wordsToProtect)
-        {
-            if (texts == null || texts.Length <= 0 || wordsToProtect == null || wordsToProtect.Length <= 0)
-            {
-                return texts;
-            }
-            else
-            {
-                return texts.Select(text => ProtectWords(text, wordsToProtect)).ToArray();
-            }
-        }
+                var result = text;
 
-        public static string ProtectWords(
-            string text,
-            string[] wordsToProtect)
-        {
-            if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToProtect == null || wordsToProtect.Length <= 0)
-            {
-                return text;
-            }
-            else
-            {
-                var index = 0;
-                foreach (var word in wordsToProtect)
+                foreach (var word in wordsToRemove)
                 {
-                    text = text.Replace(word, $@"3213213{index}4234234");
-                    index++;
+                    var isRegex = word.StartsWithNoCase(regexPrefix);
+                    var isWildcard = word.StartsWithNoCase(wildcardPrefix);
+
+                    if (isRegex || isWildcard)
+                    {
+                        string pattern;
+                        if (isRegex)
+                        {
+                            pattern = word.Substring(regexPrefix.Length);
+                        }
+                        else
+                        {
+                            pattern = word.Substring(wildcardPrefix.Length);
+                            pattern = convertWildcardToRegex(pattern);
+                        }
+
+                        var matches = Regex.Matches(result, pattern);
+
+                        foreach (Match match in matches)
+                        {
+                            var actualWord = match.Value;
+                            result = result.Replace(actualWord, string.Empty);
+                        }
+                    }
+                    else
+                    {
+                        result = result.Replace(word, string.Empty);
+                    }
                 }
 
-                return text;
+                return result;
             }
         }
 
-        public static string UnprotectWords(
-            string text,
-            string[] wordsToProtect)
+        private static string convertWildcardToRegex(string pattern)
         {
-            if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToProtect == null || wordsToProtect.Length <= 0)
+            // http://stackoverflow.com/a/6907849/107625
+            // http://www.codeproject.com/Articles/11556/Converting-Wildcards-to-Regexes
+
+            return @"^" + Regex.Escape(pattern).
+                       Replace(@"\*", @".*").
+                       Replace(@"\?", @".") + @"$";
+        }
+
+        // TODO.
+
+        public sealed class ProtectionInfo
+        {
+            public string UnprotectedText { get; set; }
+            public string[] WordsToProtect { get; set; }
+        }
+
+        public sealed class ProtectionResult
+        {
+            public string ProtectedText { get; set; }
+            public string[] WordsToProtect { get; set; }
+            public Dictionary<string, string> UnprotectedToProtectedMapping { get; set; }
+        }
+
+        public sealed class UnprotectionInfo
+        {
+            public string UnprotectedText { get; set; }
+        }
+
+        public static ProtectionResult[] ProtectWords(
+            IEnumerable<ProtectionInfo> inputs)
+        {
+            return inputs.Select(ProtectWords).ToArray();
+        }
+
+        //public static string[] ProtectWords(
+        //    string[] texts,
+        //    string[] wordsToProtect)
+        //{
+        //    if (texts == null || texts.Length <= 0 || wordsToProtect == null || wordsToProtect.Length <= 0)
+        //    {
+        //        return texts;
+        //    }
+        //    else
+        //    {
+        //        return texts.Select(text => ProtectWords(text, wordsToProtect)).ToArray();
+        //    }
+        //}
+
+        public static ProtectionResult ProtectWords(
+            ProtectionInfo input)
+        {
+            if (StringExtensionMethods.IsNullOrWhiteSpace(input?.UnprotectedText) || input?.WordsToProtect == null || input.WordsToProtect.Length <= 0)
             {
-                return text;
+                return new ProtectionResult
+                {
+                    ProtectedText = input?.UnprotectedText,
+                    WordsToProtect = input?.WordsToProtect,
+                    UnprotectedToProtectedMapping = new Dictionary<string, string>()
+                };
             }
             else
             {
-                var index = 0;
-                foreach (var word in wordsToProtect)
+                var result = new ProtectionResult
                 {
-                    text = text.Replace($@"3213213{index}4234234", word);
-                    index++;
+                    WordsToProtect = input.WordsToProtect,
+                    ProtectedText = input.UnprotectedText
+                };
+
+                const string regexPrefix = @"[RX]";
+                const string wildcardPrefix = @"[WC]";
+
+                var index = 0;
+                foreach (var word in input.WordsToProtect)
+                {
+                    var isRegex = word.StartsWithNoCase(regexPrefix);
+                    var isWildcard = word.StartsWithNoCase(wildcardPrefix);
+
+                    if (isRegex || isWildcard)
+                    {
+                        string pattern;
+                        if (isRegex)
+                        {
+                            pattern = word.Substring(regexPrefix.Length);
+                        }
+                        else
+                        {
+                            pattern = word.Substring(wildcardPrefix.Length);
+                            pattern = convertWildcardToRegex(pattern);
+                        }
+
+                        var matches = Regex.Matches(result.ProtectedText, pattern);
+
+                        foreach (Match match in matches)
+                        {
+                            var replacement = $@"3213213{index}4234234";
+                            index++;
+
+                            var actualWord = match.Value;
+                            result.ProtectedText = result.ProtectedText.Replace(actualWord, replacement);
+
+                            result.UnprotectedToProtectedMapping[actualWord] = replacement;
+                        }
+                    }
+                    else
+                    {
+                        var replacement = $@"3213213{index}4234234";
+                        index++;
+
+                        result.ProtectedText = result.ProtectedText.Replace(word, replacement);
+
+                        result.UnprotectedToProtectedMapping[word] = replacement;
+                    }
                 }
 
-                // Remove multiple white-spaces.
-                return text /*.Replace(@"  ", @" ").Replace(@"  ", @" ")*/;
+                return result;
             }
         }
+
+        //public static string ProtectWords(
+        //    string text,
+        //    string[] wordsToProtect)
+        //{
+        //    if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToProtect == null || wordsToProtect.Length <= 0)
+        //    {
+        //        return text;
+        //    }
+        //    else
+        //    {
+        //        var index = 0;
+        //        foreach (var word in wordsToProtect)
+        //        {
+        //            text = text.Replace(word, $@"3213213{index}4234234");
+        //            index++;
+        //        }
+
+        //        return text;
+        //    }
+        //}
+
+        public static UnprotectionInfo UnprotectWords(
+            ProtectionResult input)
+        {
+            if (string.IsNullOrWhiteSpace(input?.ProtectedText) || input.UnprotectedToProtectedMapping == null ||
+                input.UnprotectedToProtectedMapping.Count <= 0)
+            {
+                return new UnprotectionInfo
+                {
+                    UnprotectedText = input?.ProtectedText
+                };
+            }
+            else
+            {
+                var result = new UnprotectionInfo { UnprotectedText = input.ProtectedText };
+
+                foreach (var pair in input.UnprotectedToProtectedMapping)
+                {
+                    result.UnprotectedText = result.UnprotectedText.Replace(pair.Value, pair.Key);
+                }
+
+                return result;
+            }
+        }
+
+        //public static string UnprotectWords(
+        //    string text,
+        //    string[] wordsToProtect)
+        //{
+        //    if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToProtect == null || wordsToProtect.Length <= 0)
+        //    {
+        //        return text;
+        //    }
+        //    else
+        //    {
+        //        var index = 0;
+        //        foreach (var word in wordsToProtect)
+        //        {
+        //            text = text.Replace($@"3213213{index}4234234", word);
+        //            index++;
+        //        }
+
+        //        // Remove multiple white-spaces.
+        //        return text /*.Replace(@"  ", @" ").Replace(@"  ", @" ")*/;
+        //    }
+        //}
+
+        //public static string UnprotectWords(
+        //    string text,
+        //    string[] wordsToProtect)
+        //{
+        //    if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToProtect == null || wordsToProtect.Length <= 0)
+        //    {
+        //        return text;
+        //    }
+        //    else
+        //    {
+        //        const string regexPrefix = @"[RX]";
+        //        const string wildcardPrefix = @"[WC]";
+
+        //        var index = 0;
+        //        foreach (var word in wordsToProtect)
+        //        {
+        //            if (word.StartsWithNoCase(regexPrefix))
+        //            {
+        //                var pattern = word.Substring(regexPrefix.Length);
+
+        //                text = Regex.Replace(text, pattern, )
+        //            }
+        //            else if (word.StartsWithNoCase(wildcardPrefix))
+        //            {
+        //                var pattern = word.Substring(regexPrefix.Length);
+        //                pattern = convertWildcardToRegex(pattern);
+
+
+        //            }
+        //            else
+        //            {
+        //                text = text.Replace($@"3213213{index}4234234", word);
+        //            }
+
+        //            index++;
+        //        }
+
+        //        // Remove multiple white-spaces.
+        //        return text /*.Replace(@"  ", @" ").Replace(@"  ", @" ")*/;
+        //    }
+        //}
 
         public static void ResetSelectedEngine()
         {

@@ -1,6 +1,5 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Google
 {
-    using Bing;
     using Newtonsoft.Json;
     using Properties;
     using System;
@@ -17,21 +16,22 @@
     public class GoogleRestfulTranslationEngine :
         ITranslationEngine
     {
-        public bool Has2AppIDs => false;
+        bool ITranslationEngine.Has2AppIDs => false;
 
-        public string AppID1Name => Resources.GoogleRestfulTranslationEngine_AppID1Name_App_ID;
+        string ITranslationEngine.AppID1Name => Resources.GoogleRestfulTranslationEngine_AppID1Name_App_ID;
 
-        public string AppID2Name => Resources.GoogleRestfulTranslationEngine_AppID1Name_App_ID;
+        string ITranslationEngine.AppID2Name => Resources.GoogleRestfulTranslationEngine_AppID1Name_App_ID;
 
-        public bool IsUserSelectable => true;
+        bool ITranslationEngine.IsUserSelectable => true;
 
-        public bool IsDefault => true;
+        bool ITranslationEngine.IsDefault => true;
 
-        public string UniqueInternalName => @"9efb237c-ce92-450f-9ef1-850091762d63";
+        string ITranslationEngine.UniqueInternalName => @"9efb237c-ce92-450f-9ef1-850091762d63";
 
-        public string UserReadableName => Resources.GoogleRestfulTranslationEngine_UserReadableName_Google_Translate;
+        string ITranslationEngine.UserReadableName =>
+            Resources.GoogleRestfulTranslationEngine_UserReadableName_Google_Translate;
 
-        public bool AreAppIDsSyntacticallyValid(string appID, string appID2)
+        bool ITranslationEngine.AreAppIDsSyntacticallyValid(string appID, string appID2)
         {
             return !string.IsNullOrEmpty(appID);
         }
@@ -44,19 +44,14 @@
             if (!url.EndsWith(@"?")) url += @"?";
 
             parameters.Add(new MyTuple<string, string>(@"key", appID));
-            //parameters.Add(new MyTuple<string, string>(@"userip", currentIPAddress));
 
             var ps = string.Empty;
 
-            // ReSharper disable LoopCanBeConvertedToQuery
             foreach (var pair in parameters)
-            // ReSharper restore LoopCanBeConvertedToQuery
             {
                 if (!string.IsNullOrEmpty(pair.Item2))
                 {
-                    var p =
-                        $@"{pair.Item1}={HttpUtility.UrlEncode(pair.Item2)}&";
-
+                    var p = $@"{pair.Item1}={HttpUtility.UrlEncode(pair.Item2)}&";
                     ps += p;
                 }
             }
@@ -118,7 +113,7 @@
 
         private TranslationLanguageInfo[] _sourceLanguages;
 
-        public TranslationLanguageInfo[] GetSourceLanguages(string appID, string appID2)
+        TranslationLanguageInfo[] ITranslationEngine.GetSourceLanguages(string appID, string appID2)
         {
             if (_sourceLanguages == null)
             {
@@ -140,7 +135,7 @@
                     // ReSharper restore LoopCanBeConvertedToQuery
                     {
                         var languageCode = xmlNode.InnerText;
-                        var ci = BingSoapTranslationEngine.IntelligentGetCultureInfo(languageCode);
+                        var ci = IntelligentGetCultureInfo(languageCode);
 
                         if (ci != null)
                         {
@@ -160,16 +155,33 @@
             return _sourceLanguages;
         }
 
-        public TranslationLanguageInfo[] GetDestinationLanguages(string appID, string appID2)
+        private static CultureInfo IntelligentGetCultureInfo(string iso6391Code)
         {
-            return GetSourceLanguages(appID, appID2);
+            // ReSharper disable LoopCanBeConvertedToQuery
+            foreach (var cultureInfo in CultureInfo.GetCultures(CultureTypes.AllCultures))
+            // ReSharper restore LoopCanBeConvertedToQuery
+            {
+                if (string.Compare(iso6391Code, cultureInfo.TwoLetterISOLanguageName,
+                        StringComparison.OrdinalIgnoreCase) == 0 ||
+                    string.Compare(iso6391Code, cultureInfo.Name, StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    return cultureInfo;
+                }
+            }
+
+            return null;
         }
 
-        public int MaxArraySize => 25;
+        TranslationLanguageInfo[] ITranslationEngine.GetDestinationLanguages(string appID, string appID2)
+        {
+            return ((ITranslationEngine)this).GetSourceLanguages(appID, appID2);
+        }
 
-        public string AppIDLink => @"https://zeta.li/zre-translation-appid-google";
+        int ITranslationEngine.MaxArraySize => 25;
 
-        public string[] TranslateArray(
+        string ITranslationEngine.AppIDLink => @"https://zeta.li/zre-translation-appid-google";
+
+        string[] ITranslationEngine.TranslateArray(
             string appID,
             string appID2,
             string[] texts,
@@ -180,27 +192,31 @@
         {
             var dic =
                 new List<MyTuple<string, string>>
-                    {
-                        new MyTuple<string, string>(@"source", sourceLanguageCode),
-                        new MyTuple<string, string>(@"target", destinationLanguageCode),
-                    };
+                {
+                    new MyTuple<string, string>(@"source", sourceLanguageCode),
+                    new MyTuple<string, string>(@"target", destinationLanguageCode),
+                };
 
-            // ReSharper disable LoopCanBeConvertedToQuery
+            var protectionResults = new List<TranslationHelper.ProtectionResult>();
+
             foreach (var text in texts)
-            // ReSharper restore LoopCanBeConvertedToQuery
             {
-                dic.Add(
-                    new MyTuple<string, string>(
-                        @"q",
-                        TranslationHelper.ProtectWords(
-                            TranslationHelper.RemoveWords(text, wordsToRemove), wordsToProtect)));
+                var removed = TranslationHelper.RemoveWords(
+                    text,
+                    wordsToRemove);
+
+                var preparedText = TranslationHelper.ProtectWords(new TranslationHelper.ProtectionInfo
+                {
+                    UnprotectedText = removed,
+                    WordsToProtect = wordsToProtect
+                });
+
+                protectionResults.Add(preparedText);
+
+                dic.Add(new MyTuple<string, string>(@"q", preparedText.ProtectedText));
             }
 
-            var json =
-                makeRestCallPost(
-                    appID,
-                    @"https://www.googleapis.com/language/translate/v2",
-                    dic);
+            var json = makeRestCallPost(appID, @"https://www.googleapis.com/language/translate/v2", dic);
 
             // --
 
@@ -210,43 +226,54 @@
 
             if (nodes != null)
             {
-                // ReSharper disable LoopCanBeConvertedToQuery
+                // Sum up all mappings.
+                var dicDic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
+
                 foreach (XmlNode xmlNode in nodes)
-                // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     var translatedText = xmlNode.InnerText;
 
                     result.Add(
                         TranslationHelper.UnprotectWords(
-                            translatedText,
-                            wordsToProtect));
+                            new TranslationHelper.ProtectionResult
+                            {
+                                ProtectedText = translatedText,
+                                WordsToProtect = wordsToProtect,
+                                UnprotectedToProtectedMapping = dicDic
+                            }
+                        ).UnprotectedText);
                 }
             }
 
             return result.ToArray();
         }
 
-        public bool IsSourceLanguageSupported(string appID, string appID2, string languageCode)
+        bool ITranslationEngine.IsSourceLanguageSupported(string appID, string appID2, string languageCode)
         {
-            return TranslationHelper.IsSupportedLanguage(languageCode, GetSourceLanguages(appID, appID2));
+            return TranslationHelper.IsSupportedLanguage(languageCode,
+                ((ITranslationEngine)this).GetSourceLanguages(appID, appID2));
         }
 
-        public bool IsDestinationLanguageSupported(string appID, string appID2, string languageCode)
+        bool ITranslationEngine.IsDestinationLanguageSupported(string appID, string appID2, string languageCode)
         {
-            return TranslationHelper.IsSupportedLanguage(languageCode, GetDestinationLanguages(appID, appID2));
+            return TranslationHelper.IsSupportedLanguage(languageCode,
+                ((ITranslationEngine)this).GetDestinationLanguages(appID, appID2));
         }
 
-        public string MapCultureToSourceLanguageCode(string appID, string appID2, CultureInfo cultureInfo)
+        string ITranslationEngine.MapCultureToSourceLanguageCode(string appID, string appID2, CultureInfo cultureInfo)
         {
-            return TranslationHelper.DoMapCultureToLanguageCode(GetSourceLanguages(appID, appID2), cultureInfo);
+            return TranslationHelper.DoMapCultureToLanguageCode(
+                ((ITranslationEngine)this).GetSourceLanguages(appID, appID2), cultureInfo);
         }
 
-        public string MapCultureToDestinationLanguageCode(string appID, string appID2, CultureInfo cultureInfo)
+        string ITranslationEngine.MapCultureToDestinationLanguageCode(string appID, string appID2,
+            CultureInfo cultureInfo)
         {
-            return TranslationHelper.DoMapCultureToLanguageCode(GetDestinationLanguages(appID, appID2), cultureInfo);
+            return TranslationHelper.DoMapCultureToLanguageCode(
+                ((ITranslationEngine)this).GetDestinationLanguages(appID, appID2), cultureInfo);
         }
 
-        public string Translate(
+        string ITranslationEngine.Translate(
             string appID,
             string appID2,
             string text,
@@ -255,35 +282,41 @@
             string[] wordsToProtect,
             string[] wordsToRemove)
         {
+            var removed = TranslationHelper.RemoveWords(
+                text,
+                wordsToRemove);
+
+            var prot = TranslationHelper.ProtectWords(
+                new TranslationHelper.ProtectionInfo
+                {
+                    UnprotectedText = removed,
+                    WordsToProtect = wordsToProtect
+                });
+
             var json =
                 makeRestCallPost(
                     appID,
                     @"https://www.googleapis.com/language/translate/v2",
                     new List<MyTuple<string, string>>
-                        {
-                            new MyTuple<string, string>(@"source", sourceLanguageCode),
-                            new MyTuple<string, string>(@"target", destinationLanguageCode),
-                            new MyTuple<string, string>(
-                                @"q",
-                                TranslationHelper.ProtectWords(
-                                    TranslationHelper.RemoveWords(text, wordsToRemove), wordsToProtect))
-                        });
-
-            //var responseStatusNode = json.SelectSingleNode(@"/root/data/responseStatus");
-            //var statusCode = ConvertHelper.ToInt32(
-            //    responseStatusNode == null
-            //        ? string.Empty
-            //        : responseStatusNode.InnerText);
+                    {
+                        new MyTuple<string, string>(@"source", sourceLanguageCode),
+                        new MyTuple<string, string>(@"target", destinationLanguageCode),
+                        new MyTuple<string, string>(@"q", prot.ProtectedText)
+                    });
 
             var translatedTextNode = json.SelectSingleNode(@"/root/data/translations/translatedText");
-            //var responseDetailsNode = json.SelectSingleNode(@"/root/data/responseDetails");
 
-            return
-                TranslationHelper.UnprotectWords(
-                         //statusCode == 200
-                         (translatedTextNode == null ? string.Empty : translatedTextNode.InnerText),
-                    //: (responseDetailsNode == null ? string.Empty : responseDetailsNode.InnerText),
-                    wordsToProtect);
+            var translation = translatedTextNode?.InnerText ?? string.Empty;
+
+            var protres = new TranslationHelper.ProtectionResult
+            {
+                ProtectedText = translation,
+                UnprotectedToProtectedMapping = prot.UnprotectedToProtectedMapping,
+                WordsToProtect = prot.WordsToProtect
+            };
+
+            var unprot = TranslationHelper.UnprotectWords(protres);
+            return unprot.UnprotectedText;
         }
 
         public bool SupportsArrayTranslation => true;
