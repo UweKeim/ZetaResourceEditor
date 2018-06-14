@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+    using ZetaLongPaths;
 
     /*
      * https://cloud.google.com/translate/docs/reference/libraries
@@ -34,22 +35,26 @@
         {
             if (_sourceLanguages == null)
             {
-                var result = new List<TranslationLanguageInfo>();
+                ZlpSimpleFileAccessProtector.Protect(
+                    delegate
+                    {
+                        var result = new List<TranslationLanguageInfo>();
 
-                var client = TranslationClient.Create(GoogleCredential.FromJson(appID));
-                var nodes = client.ListLanguages(@"en");
+                        var client = TranslationClient.Create(GoogleCredential.FromJson(appID));
+                        var nodes = client.ListLanguages(@"en");
 
-                foreach (var language in nodes)
-                {
-                    result.Add(
-                        new TranslationLanguageInfo
+                        foreach (var language in nodes)
                         {
-                            LanguageCode = language.Code,
-                            UserReadableName = language.Name,
-                        });
-                }
+                            result.Add(
+                                new TranslationLanguageInfo
+                                {
+                                    LanguageCode = language.Code,
+                                    UserReadableName = language.Name,
+                                });
+                        }
 
-                _sourceLanguages = result.ToArray();
+                        _sourceLanguages = result.ToArray();
+                    });
             }
 
             return _sourceLanguages;
@@ -89,12 +94,18 @@
                 protectionResults.Add(preparedText);
             }
 
-            // Das eigentliche Übersetzen.
-            var client = TranslationClient.Create(GoogleCredential.FromJson(appID));
-            var tr = client.TranslateText(
-                protectionResults.Select(x => x.ProtectedText),
-                destinationLanguageCode,
-                sourceLanguageCode).ToList();
+            var tr = new List<TranslationResult>();
+
+            ZlpSimpleFileAccessProtector.Protect(
+                delegate
+                {
+                    // Das eigentliche Übersetzen.
+                    var client = TranslationClient.Create(GoogleCredential.FromJson(appID));
+                    tr = client.TranslateText(
+                        protectionResults.Select(x => x.ProtectedText),
+                        destinationLanguageCode,
+                        sourceLanguageCode).ToList();
+                });
 
             var dicDic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
 
