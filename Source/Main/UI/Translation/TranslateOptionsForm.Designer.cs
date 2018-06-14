@@ -33,8 +33,6 @@ namespace ZetaResourceEditor.UI.Translation
             this.engineTabPage = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
             this.appIDLinkControl = new ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit();
             this.labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.appID2Label = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.appID2TextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
             this.engineComboBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
             this.appIDLabel = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.appIDTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
@@ -49,18 +47,18 @@ namespace ZetaResourceEditor.UI.Translation
             this.wordsToProtectMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
             this.labelControl5 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.wordsToRemoveTabPage = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
+            this.myLabelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.labelControl6 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.wordsToRemoveMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
             this.buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.myLabelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.appIDMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.engineTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appIDLinkControl.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appID2TextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.engineComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appIDTextEdit.Properties)).BeginInit();
             this.settingsTabPage.SuspendLayout();
@@ -70,6 +68,7 @@ namespace ZetaResourceEditor.UI.Translation
             ((System.ComponentModel.ISupportInitialize)(this.wordsToProtectMemoEdit.Properties)).BeginInit();
             this.wordsToRemoveTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wordsToRemoveMemoEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appIDMemoEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -87,8 +86,8 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             // xtraTabControl1
             // 
-            this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.xtraTabControl1.AppearancePage.Header.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.xtraTabControl1.AppearancePage.Header.Options.UseFont = true;
@@ -105,10 +104,9 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             // engineTabPage
             // 
+            this.engineTabPage.Controls.Add(this.appIDMemoEdit);
             this.engineTabPage.Controls.Add(this.appIDLinkControl);
             this.engineTabPage.Controls.Add(this.labelControl2);
-            this.engineTabPage.Controls.Add(this.appID2Label);
-            this.engineTabPage.Controls.Add(this.appID2TextEdit);
             this.engineTabPage.Controls.Add(this.engineComboBox);
             this.engineTabPage.Controls.Add(this.appIDLabel);
             this.engineTabPage.Controls.Add(this.appIDTextEdit);
@@ -120,11 +118,11 @@ namespace ZetaResourceEditor.UI.Translation
             // appIDLinkControl
             // 
             this.appIDLinkControl.AllowAutoWidth = true;
-            this.appIDLinkControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.appIDLinkControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.appIDLinkControl.CausesValidation = false;
             this.appIDLinkControl.EditValue = "How to get an API key?";
-            this.appIDLinkControl.Location = new System.Drawing.Point(12, 178);
+            this.appIDLinkControl.Location = new System.Drawing.Point(12, 62);
             this.appIDLinkControl.Name = "appIDLinkControl";
             this.appIDLinkControl.Properties.AllowFocused = false;
             this.appIDLinkControl.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -136,7 +134,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.appIDLinkControl.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.appIDLinkControl.Properties.ReadOnly = true;
             this.appIDLinkControl.Size = new System.Drawing.Size(419, 22);
-            this.appIDLinkControl.TabIndex = 6;
+            this.appIDLinkControl.TabIndex = 2;
             this.appIDLinkControl.TabStop = false;
             this.appIDLinkControl.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.appIDLinkControl_OpenLink);
             // 
@@ -150,38 +148,9 @@ namespace ZetaResourceEditor.UI.Translation
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Translation service to use:";
             // 
-            // appID2Label
-            // 
-            this.appID2Label.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.appID2Label.Appearance.Options.UseFont = true;
-            this.appID2Label.Location = new System.Drawing.Point(12, 118);
-            this.appID2Label.Name = "appID2Label";
-            this.appID2Label.Size = new System.Drawing.Size(107, 17);
-            this.appID2Label.TabIndex = 4;
-            this.appID2Label.Text = "{0} for this service:";
-            // 
-            // appID2TextEdit
-            // 
-            this.appID2TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.appID2TextEdit.Bold = false;
-            this.appID2TextEdit.CueText = null;
-            this.appID2TextEdit.Location = new System.Drawing.Point(12, 138);
-            this.appID2TextEdit.MaximumSize = new System.Drawing.Size(0, 24);
-            this.appID2TextEdit.MinimumSize = new System.Drawing.Size(0, 24);
-            this.appID2TextEdit.Name = "appID2TextEdit";
-            this.appID2TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.appID2TextEdit.Properties.Appearance.Options.UseFont = true;
-            this.appID2TextEdit.Properties.Mask.EditMask = null;
-            this.appID2TextEdit.Properties.MaxLength = 400;
-            this.appID2TextEdit.Properties.NullValuePrompt = null;
-            this.appID2TextEdit.Size = new System.Drawing.Size(419, 24);
-            this.appID2TextEdit.TabIndex = 5;
-            this.appID2TextEdit.EditValueChanged += new System.EventHandler(this.translationDelayTextEdit_EditValueChanged);
-            // 
             // engineComboBox
             // 
-            this.engineComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.engineComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.engineComboBox.CueText = null;
             this.engineComboBox.Location = new System.Drawing.Point(12, 32);
@@ -200,19 +169,19 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             this.appIDLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.appIDLabel.Appearance.Options.UseFont = true;
-            this.appIDLabel.Location = new System.Drawing.Point(12, 68);
+            this.appIDLabel.Location = new System.Drawing.Point(12, 104);
             this.appIDLabel.Name = "appIDLabel";
             this.appIDLabel.Size = new System.Drawing.Size(107, 17);
-            this.appIDLabel.TabIndex = 2;
+            this.appIDLabel.TabIndex = 3;
             this.appIDLabel.Text = "{0} for this service:";
             // 
             // appIDTextEdit
             // 
-            this.appIDTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.appIDTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.appIDTextEdit.Bold = false;
             this.appIDTextEdit.CueText = null;
-            this.appIDTextEdit.Location = new System.Drawing.Point(12, 88);
+            this.appIDTextEdit.Location = new System.Drawing.Point(12, 124);
             this.appIDTextEdit.MaximumSize = new System.Drawing.Size(0, 24);
             this.appIDTextEdit.MinimumSize = new System.Drawing.Size(0, 24);
             this.appIDTextEdit.Name = "appIDTextEdit";
@@ -222,7 +191,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.appIDTextEdit.Properties.MaxLength = 400;
             this.appIDTextEdit.Properties.NullValuePrompt = null;
             this.appIDTextEdit.Size = new System.Drawing.Size(419, 24);
-            this.appIDTextEdit.TabIndex = 3;
+            this.appIDTextEdit.TabIndex = 4;
             this.appIDTextEdit.EditValueChanged += new System.EventHandler(this.translationDelayTextEdit_EditValueChanged);
             // 
             // settingsTabPage
@@ -310,7 +279,7 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             // labelControl4
             // 
-            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
@@ -328,8 +297,8 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             // wordsToProtectMemoEdit
             // 
-            this.wordsToProtectMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.wordsToProtectMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wordsToProtectMemoEdit.CueText = null;
             this.wordsToProtectMemoEdit.Location = new System.Drawing.Point(12, 32);
@@ -360,6 +329,24 @@ namespace ZetaResourceEditor.UI.Translation
             this.wordsToRemoveTabPage.Size = new System.Drawing.Size(443, 343);
             this.wordsToRemoveTabPage.Text = "Words to remove";
             // 
+            // myLabelControl1
+            // 
+            this.myLabelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.myLabelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.myLabelControl1.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.myLabelControl1.Appearance.Options.UseFont = true;
+            this.myLabelControl1.Appearance.Options.UseForeColor = true;
+            this.myLabelControl1.Appearance.Options.UseTextOptions = true;
+            this.myLabelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.myLabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.myLabelControl1.Location = new System.Drawing.Point(12, 296);
+            this.myLabelControl1.Name = "myLabelControl1";
+            this.myLabelControl1.Size = new System.Drawing.Size(419, 35);
+            this.myLabelControl1.TabIndex = 4;
+            this.myLabelControl1.Text = "(One word/sentence per line. [WC] prefix for wildcards, [RX] prefix for Regular E" +
+    "xpressions)";
+            // 
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -372,8 +359,8 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             // wordsToRemoveMemoEdit
             // 
-            this.wordsToRemoveMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.wordsToRemoveMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wordsToRemoveMemoEdit.CueText = null;
             this.wordsToRemoveMemoEdit.Location = new System.Drawing.Point(12, 32);
@@ -411,23 +398,19 @@ namespace ZetaResourceEditor.UI.Translation
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.WantDrawFocusRectangle = true;
             // 
-            // myLabelControl1
+            // appIDMemoEdit
             // 
-            this.myLabelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.appIDMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.myLabelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.myLabelControl1.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.myLabelControl1.Appearance.Options.UseFont = true;
-            this.myLabelControl1.Appearance.Options.UseForeColor = true;
-            this.myLabelControl1.Appearance.Options.UseTextOptions = true;
-            this.myLabelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.myLabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.myLabelControl1.Location = new System.Drawing.Point(12, 296);
-            this.myLabelControl1.Name = "myLabelControl1";
-            this.myLabelControl1.Size = new System.Drawing.Size(419, 35);
-            this.myLabelControl1.TabIndex = 4;
-            this.myLabelControl1.Text = "(One word/sentence per line. [WC] prefix for wildcards, [RX] prefix for Regular E" +
-    "xpressions)";
+            this.appIDMemoEdit.CueText = null;
+            this.appIDMemoEdit.Location = new System.Drawing.Point(12, 154);
+            this.appIDMemoEdit.Name = "appIDMemoEdit";
+            this.appIDMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.appIDMemoEdit.Properties.Appearance.Options.UseFont = true;
+            this.appIDMemoEdit.Properties.NullValuePrompt = null;
+            this.appIDMemoEdit.Size = new System.Drawing.Size(419, 177);
+            this.appIDMemoEdit.TabIndex = 5;
             // 
             // TranslateOptionsForm
             // 
@@ -456,7 +439,6 @@ namespace ZetaResourceEditor.UI.Translation
             this.engineTabPage.ResumeLayout(false);
             this.engineTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appIDLinkControl.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appID2TextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.engineComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appIDTextEdit.Properties)).EndInit();
             this.settingsTabPage.ResumeLayout(false);
@@ -469,6 +451,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.wordsToRemoveTabPage.ResumeLayout(false);
             this.wordsToRemoveTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wordsToRemoveMemoEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appIDMemoEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -497,9 +480,8 @@ namespace ZetaResourceEditor.UI.Translation
         private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl appIDLabel;
         private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit appIDTextEdit;
         private ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit appIDLinkControl;
-        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl appID2Label;
-        private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit appID2TextEdit;
         private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage engineTabPage;
         private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl myLabelControl1;
+        private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit appIDMemoEdit;
     }
 }

@@ -12,10 +12,10 @@
     public class AzureAuthToken
     {
         /// URL of the token service
-        private static readonly Uri ServiceUrl = new Uri("https://api.cognitive.microsoft.com/sts/v1.0/issueToken");
+        private static readonly Uri ServiceUrl = new Uri(@"https://api.cognitive.microsoft.com/sts/v1.0/issueToken");
 
         /// Name of header used to pass the subscription key to the token service
-        private const string OcpApimSubscriptionKeyHeader = "Ocp-Apim-Subscription-Key";
+        private const string OcpApimSubscriptionKeyHeader = @"Ocp-Apim-Subscription-Key";
 
         /// After obtaining a valid token, this class will cache it for this duration.
         /// Use a duration of 5 minutes, which is less than the actual token lifetime of 10 minutes.
@@ -44,8 +44,8 @@
                 throw new ArgumentNullException(nameof(key), "A subscription key is required");
             }
 
-            this.SubscriptionKey = key;
-            this.RequestStatusCode = HttpStatusCode.InternalServerError;
+            SubscriptionKey = key;
+            RequestStatusCode = HttpStatusCode.InternalServerError;
         }
 
         /// <summary>
@@ -61,7 +61,7 @@
         /// </remarks>
         public async Task<string> GetAccessTokenAsync()
         {
-            if (string.IsNullOrWhiteSpace(this.SubscriptionKey))
+            if (string.IsNullOrWhiteSpace(SubscriptionKey))
             {
                 return string.Empty;
             }
@@ -78,10 +78,10 @@
                 request.Method = HttpMethod.Post;
                 request.RequestUri = ServiceUrl;
                 request.Content = new StringContent(string.Empty);
-                request.Headers.TryAddWithoutValidation(OcpApimSubscriptionKeyHeader, this.SubscriptionKey);
+                request.Headers.TryAddWithoutValidation(OcpApimSubscriptionKeyHeader, SubscriptionKey);
                 client.Timeout = TimeSpan.FromSeconds(2);
                 var response = await client.SendAsync(request);
-                this.RequestStatusCode = response.StatusCode;
+                RequestStatusCode = response.StatusCode;
                 response.EnsureSuccessStatusCode();
                 var token = await response.Content.ReadAsStringAsync();
                 _storedTokenTime = DateTime.Now;
@@ -111,25 +111,24 @@
             }
 
             string accessToken = null;
-            var task = Task.Run(async () =>
-            {
-                accessToken = await this.GetAccessTokenAsync();
-            });
+            var task = Task.Run(async () => { accessToken = await GetAccessTokenAsync(); });
 
             while (!task.IsCompleted)
             {
                 System.Threading.Thread.Yield();
             }
+
             if (task.IsFaulted)
             {
-                throw task.Exception;
+                throw task.Exception ?? new Exception("Task is faulted.");
             }
+
             if (task.IsCanceled)
             {
                 throw new Exception("Timeout obtaining access token.");
             }
+
             return accessToken;
         }
-
     }
 }

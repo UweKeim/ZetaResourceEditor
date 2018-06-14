@@ -5,19 +5,23 @@
     using System.Threading;
     using System.Web;
     using Zeta.VoyagerLibrary.Common;
+    using Zeta.VoyagerLibrary.Logging;
     using Zeta.VoyagerLibrary.WebForms.Base;
 
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
         protected void Application_Start(object sender, EventArgs e)
         {
-            Zeta.VoyagerLibrary.Logging.LogCentral.FindConfigurationFilePath +=
+            LogCentral.FindConfigurationFilePath +=
                 logCentral_FindConfigurationFilePath;
         }
 
-        private static string logCentral_FindConfigurationFilePath(object sender)
+        private static LogCentralFindConfigurationFilePathResult logCentral_FindConfigurationFilePath(object sender)
         {
-            return HttpContext.Current.Server.MapPath(@"~/Web.config");
+            return new LogCentralFindConfigurationFilePathResult
+            {
+                LogFileConfigurationPath = HttpContext.Current.Server.MapPath(@"~/Web.config")
+            };
         }
 
         protected void Application_Error(object sender, EventArgs e)
@@ -30,7 +34,7 @@
                 var x = Server.GetLastError().GetBaseException();
                 if (!(x is ThreadAbortException))
                 {
-                    Zeta.VoyagerLibrary.Logging.LogCentral.Current.LogError(
+                    LogCentral.Current.LogError(
                         @"Application_Error occurred",
                         x);
 
@@ -42,10 +46,7 @@
 
                         // --
 
-                        Response.Redirect(
-                            PageBase.ReplaceTilde(
-                                    @"~/UI/Error.aspx"),
-                            true);
+                        Response.Redirect(PageBase.ReplaceTilde(@"~/UI/Error.aspx"), true);
                     }
                 }
             }

@@ -1,6 +1,7 @@
 namespace ZetaResourceEditor.UI.Translation
 {
     using DevExpress.XtraEditors.Controls;
+    using ExtendedControlsLibrary;
     using Helper.Base;
     using RuntimeBusinessLogic.Projects;
     using RuntimeBusinessLogic.Translation;
@@ -22,11 +23,20 @@ namespace ZetaResourceEditor.UI.Translation
         public TranslateOptionsForm()
         {
             InitializeComponent();
+
+            if (!DesignModeHelper.IsDesignMode)
+            {
+                // Positioning the multi-line text box.
+
+                var delta = appIDMemoEdit.Top - appIDTextEdit.Top;
+                appIDMemoEdit.Top = appIDTextEdit.Top;
+                appIDMemoEdit.Height += delta;
+            }
         }
 
         private class EngineHelper
         {
-            public ITranslationEngine Engine { get; private set; }
+            public ITranslationEngine Engine { get; }
 
             public EngineHelper(
                 ITranslationEngine engine)
@@ -40,9 +50,9 @@ namespace ZetaResourceEditor.UI.Translation
             }
         }
 
-        public bool TranslationProviderChanged => engineComboBox.SelectedIndex != _initialIndex ||
-                                                  appIDTextEdit.Text.Trim() != _initialAppID ||
-                                                  appID2TextEdit.Text.Trim() != _initialAppID2;
+        public bool TranslationProviderChanged =>
+            engineComboBox.SelectedIndex != _initialIndex ||
+            appIDTextEdit.Text.Trim() != _initialAppID;
 
         protected override void InitiallyFillLists()
         {
@@ -50,8 +60,7 @@ namespace ZetaResourceEditor.UI.Translation
 
             foreach (var engine in TranslationHelper.Engines)
             {
-                engineComboBox.Properties.Items.Add(
-                    new EngineHelper(engine));
+                engineComboBox.Properties.Items.Add(new EngineHelper(engine));
             }
         }
 
@@ -76,7 +85,6 @@ namespace ZetaResourceEditor.UI.Translation
             loadAppID(engineComboBox.SelectedIndex);
 
             _initialAppID = appIDTextEdit.Text.Trim();
-            _initialAppID2 = appID2TextEdit.Text.Trim();
         }
 
         private void selectEngine(string un)
@@ -107,11 +115,12 @@ namespace ZetaResourceEditor.UI.Translation
 
             _project.TranslationDelayMilliseconds = ConvertHelper.ToInt32(translationDelayTextEdit.Text.Trim());
             _project.TranslationContinueOnErrors = checkEditContinueOnErrors.Checked;
-            _project.TranslationEngineUniqueInternalName = ((EngineHelper)engineComboBox.SelectedItem).Engine.UniqueInternalName;
+            _project.TranslationEngineUniqueInternalName =
+                ((EngineHelper)engineComboBox.SelectedItem).Engine.UniqueInternalName;
             _project.TranslationWordsToProtect = wordsToProtectMemoEdit.Text.Trim().Split(new[] { Environment.NewLine },
-                                                                                          StringSplitOptions.RemoveEmptyEntries);
+                StringSplitOptions.RemoveEmptyEntries);
             _project.TranslationWordsToRemove = wordsToRemoveMemoEdit.Text.Trim().Split(new[] { Environment.NewLine },
-                                                                                        StringSplitOptions.RemoveEmptyEntries);
+                StringSplitOptions.RemoveEmptyEntries);
 
             saveAppID(engineComboBox.SelectedIndex);
 
@@ -135,8 +144,6 @@ namespace ZetaResourceEditor.UI.Translation
             EventArgs e)
         {
             _appIDLabelText = appIDLabel.Text;
-            _appID2LabelText = appID2Label.Text;
-
 
             WinFormsPersistanceHelper.RestoreState(this);
             CenterToParent();
@@ -233,18 +240,17 @@ namespace ZetaResourceEditor.UI.Translation
                 {
                     var eh = (EngineHelper)engineComboBox.Properties.Items[engineComboBoxIndex];
 
-                    appIDTextEdit.Text = dic.TryGetValue(eh.Engine.UniqueInternalName, out string appID)
+                    appIDTextEdit.Text = dic.TryGetValue(eh.Engine.UniqueInternalName, out var appID)
                         ? appID
                         : string.Empty;
-                    appID2TextEdit.Text = dic.TryGetValue(eh.Engine.UniqueInternalName + @"-2", out string appID2)
-                        ? appID2
+                    appIDMemoEdit.Text = dic.TryGetValue(eh.Engine.UniqueInternalName, out appID)
+                        ? appID
                         : string.Empty;
 
-                    appID2Label.Visible = eh.Engine.Has2AppIDs;
-                    appID2TextEdit.Visible = eh.Engine.Has2AppIDs;
-
                     appIDLabel.Text = string.Format(_appIDLabelText, eh.Engine.AppID1Name);
-                    appID2Label.Text = string.Format(_appID2LabelText, eh.Engine.AppID2Name);
+
+                    appIDTextEdit.Visible = !eh.Engine.IsAppIDMultiLine;
+                    appIDMemoEdit.Visible = eh.Engine.IsAppIDMultiLine;
                 }
             }
             else
@@ -261,17 +267,14 @@ namespace ZetaResourceEditor.UI.Translation
                 var key = eh.Engine.UniqueInternalName;
 
                 var dic = _localDic;
-                dic[key] = appIDTextEdit.Text.Trim();
-                dic[key + @"-2"] = appID2TextEdit.Text.Trim();
+                dic[key] = eh.Engine.IsAppIDMultiLine ? appIDMemoEdit.Text.Trim() : appIDTextEdit.Text.Trim();
                 _localDic = dic;
             }
         }
 
         private Dictionary<string, string> _localDic;
         private string _appIDLabelText;
-        private string _appID2LabelText;
         private string _initialAppID;
-        private string _initialAppID2;
 
         private void appIDLinkControl_OpenLink(object sender, OpenLinkEventArgs e)
         {

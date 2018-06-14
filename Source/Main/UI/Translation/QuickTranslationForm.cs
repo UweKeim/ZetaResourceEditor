@@ -15,6 +15,8 @@
 
     public partial class QuickTranslationForm : FormBase
     {
+        private bool _isException;
+
         public static void CheckRestoreShowForm()
         {
             if (closedByFormOwner)
@@ -36,8 +38,7 @@
 
             foreach (Form form in Application.OpenForms)
             {
-                var cf = form as QuickTranslationForm;
-                if (cf != null)
+                if (form is QuickTranslationForm cf)
                 {
                     isOpen = true;
 
@@ -82,16 +83,15 @@
 
             TranslationHelper.GetTranslationAppID(
                 project ?? Project.Empty,
-                out string appID,
-                out string appID2);
+                out var appID);
 
             var sls =
-                engine.AreAppIDsSyntacticallyValid(appID, appID2)
-                    ? new List<TranslationLanguageInfo>(engine.GetSourceLanguages(appID, appID2))
+                engine.AreAppIDsSyntacticallyValid(appID)
+                    ? new List<TranslationLanguageInfo>(engine.GetSourceLanguages(appID))
                     : new List<TranslationLanguageInfo>();
             var dls =
-                engine.AreAppIDsSyntacticallyValid(appID, appID2)
-                    ? new List<TranslationLanguageInfo>(engine.GetDestinationLanguages(appID, appID2))
+                engine.AreAppIDsSyntacticallyValid(appID)
+                    ? new List<TranslationLanguageInfo>(engine.GetDestinationLanguages(appID))
                     : new List<TranslationLanguageInfo>();
 
             sls.Sort((x, y) => string.CompareOrdinal(x.UserReadableName, y.UserReadableName));
@@ -109,11 +109,6 @@
             {
                 destinationLanguageComboBox.Properties.Items.Add(destinationLanguage);
             }
-
-            //if (project == null || project.IsInMemoryOnly)
-            //{
-            //    buttonSettings.Visible = false;
-            //}
         }
 
         public QuickTranslationForm()
@@ -206,11 +201,20 @@
 
         private void QuickTranslationForm_Load(object sender, EventArgs e)
         {
-            WinFormsPersistanceHelper.RestoreState(this);
+            try
+            {
+                WinFormsPersistanceHelper.RestoreState(this);
 
-            DoInitiallyFillListsAndFillItemToControls();
+                DoInitiallyFillListsAndFillItemToControls();
 
-            UpdateUI();
+                UpdateUI();
+            }
+            catch (Exception)
+            {
+                _isException = true;
+                Close();
+                throw;
+            }
         }
 
         private void DoInitiallyFillListsAndFillItemToControls()
@@ -228,12 +232,21 @@
 
         private void QuickTranslationForm_Shown(object sender, EventArgs e)
         {
-            sourceTextTextBox.Focus();
-            AutoTranslateForm.CheckShowNewTranslationInfos();
-
-            if (AutoTranslateForm.CheckShowAppIDsMissing())
+            try
             {
-                DoInitiallyFillListsAndFillItemToControls();
+                sourceTextTextBox.Focus();
+                AutoTranslateForm.CheckShowNewTranslationInfos();
+
+                if (AutoTranslateForm.CheckShowAppIDsMissing())
+                {
+                    DoInitiallyFillListsAndFillItemToControls();
+                }
+            }
+            catch (Exception)
+            {
+                _isException = true;
+                Close();
+                throw;
             }
         }
 
@@ -241,8 +254,11 @@
         {
             closedByFormOwner = e.CloseReason == CloseReason.FormOwnerClosing;
 
-            WinFormsPersistanceHelper.SaveState(this);
-            FillControlsToItem();
+            if (!_isException)
+            {
+                WinFormsPersistanceHelper.SaveState(this);
+                FillControlsToItem();
+            }
         }
 
         private static bool closedByFormOwner
@@ -295,13 +311,11 @@
 
                     TranslationHelper.GetTranslationAppID(
                         project,
-                        out string appID,
-                        out string appID2);
+                        out var appID);
 
                     destinationTextTextBox.Text =
                         TranslationHelper.GetTranslationEngine(project).Translate(
                             appID,
-                            appID2,
                             sourceTextTextBox.Text.Trim(),
                             ((TranslationLanguageInfo)sourceLanguageComboBox.SelectedItem).LanguageCode,
                             ((TranslationLanguageInfo)destinationLanguageComboBox.SelectedItem).LanguageCode,

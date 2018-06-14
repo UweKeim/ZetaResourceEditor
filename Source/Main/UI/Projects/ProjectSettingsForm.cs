@@ -7,11 +7,14 @@
     using Properties;
     using Runtime;
     using RuntimeBusinessLogic.Projects;
+    using RuntimeBusinessLogic.Translation;
     using RuntimeUserInterface.Shell;
     using System;
     using System.Diagnostics;
     using System.Windows.Forms;
+    using Translation;
     using Zeta.VoyagerLibrary.Tools;
+    using Zeta.VoyagerLibrary.WinForms.Common;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
     using ZetaLongPaths;
 
@@ -130,6 +133,8 @@
             persistGridSettingsCheckEdit.Checked = _project.PersistGridSettings;
             colorifyNullCellsCheckEdit.Checked = _project.ColorifyNullCells;
             enableExcelExportSnapshotsCheckEdit.Checked = _project.EnableExcelExportSnapshots;
+
+            DoInitiallyFillListsAndFillItemToControls();
         }
 
         private static void selectReadOnlyBehaviour(
@@ -201,8 +206,7 @@
 
         private void hyperLinkEdit1_OpenLink(object sender, OpenLinkEventArgs e)
         {
-            Process.Start(
-                @"http://extensions.services.openoffice.org/dictionary");
+            Process.Start(@"http://extensions.services.openoffice.org/dictionary");
         }
 
         private void buttonSendProject_Click(object sender, EventArgs e)
@@ -212,6 +216,33 @@
                 form.Initialize(_project);
                 form.ShowDialog(this);
             }
+        }
+
+        private void buttonTranslationSettings_Click(object sender, EventArgs e)
+        {
+            using (var form = new TranslateOptionsForm())
+            {
+                form.Initialize(_project);
+
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    if (form.TranslationProviderChanged)
+                    {
+                        using (new WaitCursor(this))
+                        {
+                            DoInitiallyFillListsAndFillItemToControls();
+                        }
+                    }
+
+                    UpdateUI();
+                }
+            }
+        }
+
+        private void DoInitiallyFillListsAndFillItemToControls()
+        {
+            var ti = TranslationHelper.GetTranslationEngine(_project);
+            myLabelControl2.Text = ti.UserReadableName;
         }
     }
 }

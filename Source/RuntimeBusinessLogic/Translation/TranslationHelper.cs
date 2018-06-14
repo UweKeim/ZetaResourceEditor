@@ -189,7 +189,8 @@
                 var result = new ProtectionResult
                 {
                     WordsToProtect = input.WordsToProtect,
-                    ProtectedText = input.UnprotectedText
+                    ProtectedText = input.UnprotectedText,
+                    UnprotectedToProtectedMapping = new Dictionary<string, string>()
                 };
 
                 const string regexPrefix = @"[RX]";
@@ -356,7 +357,6 @@
             _translationEngine = null;
             _translationAppIDSet = false;
             _translationAppID = null;
-            _translationAppID2 = null;
         }
 
         public static ITranslationEngine GetTranslationEngine(
@@ -397,12 +397,10 @@
 
         private static bool _translationAppIDSet;
         private static string _translationAppID;
-        private static string _translationAppID2;
 
         public static void GetTranslationAppID(
             Project project,
-            out string appID,
-            out string appID2)
+            out string appID)
         {
             if (!_translationAppIDSet)
             {
@@ -420,10 +418,8 @@
                                 {
                                     _translationAppIDSet = true;
                                     _translationAppID = safeGetValue(project.TranslationAppIDs, key);
-                                    _translationAppID2 = safeGetValue(project.TranslationAppIDs, key + @"-2");
 
                                     appID = _translationAppID;
-                                    appID2 = _translationAppID2;
                                     return;
                                 }
                             }
@@ -433,7 +429,6 @@
             }
 
             appID = _translationAppID;
-            appID2 = _translationAppID2;
         }
 
         private static string safeGetValue(Dictionary<string, string> dic, string key)

@@ -62,6 +62,8 @@
             this.labelControl4 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.xtraTabControl1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
             this.xtraTabPage1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
+            this.myLabelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+            this.buttonTranslationSettings = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.enableExcelExportSnapshotsCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
             this.ResXIndentCharTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
             this.myLabelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
@@ -158,6 +160,7 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager;
             this.barDockControlTop.Size = new System.Drawing.Size(516, 0);
             // 
             // barDockControlBottom
@@ -165,6 +168,7 @@
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 544);
+            this.barDockControlBottom.Manager = this.barManager;
             this.barDockControlBottom.Size = new System.Drawing.Size(516, 0);
             // 
             // barDockControlLeft
@@ -172,6 +176,7 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 544);
             // 
             // barDockControlRight
@@ -179,13 +184,14 @@
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(516, 0);
+            this.barDockControlRight.Manager = this.barManager;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 544);
             // 
             // openButton
             // 
             this.openButton.Caption = "&Open folder";
             this.openButton.Id = 0;
-            this.openButton.ImageIndex = 0;
+            this.openButton.ImageOptions.ImageIndex = 0;
             this.openButton.Name = "openButton";
             this.openButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openButton_ItemClick);
             // 
@@ -207,8 +213,8 @@
             this.button1.Appearance.Options.UseFont = true;
             this.button1.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
             this.button1.DropDownControl = this.optionsPopupMenu;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.button1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("button1.ImageOptions.Image")));
+            this.button1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.button1.Location = new System.Drawing.Point(461, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(24, 24);
@@ -496,6 +502,8 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.myLabelControl2);
+            this.xtraTabPage1.Controls.Add(this.buttonTranslationSettings);
             this.xtraTabPage1.Controls.Add(this.readOnlySaveBehaviourComboBox);
             this.xtraTabPage1.Controls.Add(this.enableExcelExportSnapshotsCheckEdit);
             this.xtraTabPage1.Controls.Add(this.ResXIndentCharTextEdit);
@@ -513,6 +521,32 @@
             this.xtraTabPage1.Padding = new System.Windows.Forms.Padding(9);
             this.xtraTabPage1.Size = new System.Drawing.Size(498, 468);
             this.xtraTabPage1.Text = "Settings";
+            // 
+            // myLabelControl2
+            // 
+            this.myLabelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.myLabelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.myLabelControl2.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.myLabelControl2.Appearance.Options.UseFont = true;
+            this.myLabelControl2.Appearance.Options.UseForeColor = true;
+            this.myLabelControl2.Location = new System.Drawing.Point(152, 283);
+            this.myLabelControl2.Name = "myLabelControl2";
+            this.myLabelControl2.Size = new System.Drawing.Size(18, 17);
+            this.myLabelControl2.TabIndex = 13;
+            this.myLabelControl2.Text = "<>";
+            // 
+            // buttonTranslationSettings
+            // 
+            this.buttonTranslationSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonTranslationSettings.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.buttonTranslationSettings.Appearance.Options.UseFont = true;
+            this.buttonTranslationSettings.Location = new System.Drawing.Point(11, 277);
+            this.buttonTranslationSettings.Name = "buttonTranslationSettings";
+            this.buttonTranslationSettings.Size = new System.Drawing.Size(135, 28);
+            this.buttonTranslationSettings.TabIndex = 11;
+            this.buttonTranslationSettings.Text = "Translation settings";
+            this.buttonTranslationSettings.WantDrawFocusRectangle = true;
+            this.buttonTranslationSettings.Click += new System.EventHandler(this.buttonTranslationSettings_Click);
             // 
             // enableExcelExportSnapshotsCheckEdit
             // 
@@ -889,6 +923,7 @@
             this.xtraTabPage2.ResumeLayout(false);
             this.xtraTabPage2.PerformLayout();
             this.xtraTabPage3.ResumeLayout(false);
+            this.xtraTabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hideFileGroupFilesInTreeCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorifyNullCellsCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hideTranslatedRowsCheck.Properties)).EndInit();
@@ -968,5 +1003,7 @@
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonSendProject;
         private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit ResXIndentCharTextEdit;
         private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl myLabelControl1;
+        private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonTranslationSettings;
+        private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl myLabelControl2;
     }
 }

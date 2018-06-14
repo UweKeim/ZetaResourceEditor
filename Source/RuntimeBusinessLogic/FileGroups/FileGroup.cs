@@ -1287,21 +1287,21 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
             // --
 
-            TranslationHelper.GetTranslationAppID(project, out var appID, out var appID2);
+            TranslationHelper.GetTranslationAppID(project, out var appID);
 
             var ti = TranslationHelper.GetTranslationEngine(project);
 
             // 2017-03-11, Uwe Keim: Only translate if supported.
-            if (ti.IsSourceLanguageSupported(appID, appID2, sourceLanguageCode) &&
-                ti.IsDestinationLanguageSupported(appID, appID2, destinationLanguageCode))
+            if (ti.IsSourceLanguageSupported(appID, sourceLanguageCode) &&
+                ti.IsDestinationLanguageSupported(appID, destinationLanguageCode))
             {
                 var slc =
                     ti.MapCultureToSourceLanguageCode(
-                        appID, appID2,
+                        appID,
                         CultureHelper.CreateCultureErrorTolerant(sourceLanguageCode));
                 var dlc =
                     ti.MapCultureToDestinationLanguageCode(
-                        appID, appID2,
+                        appID,
                         CultureHelper.CreateCultureErrorTolerant(destinationLanguageCode));
 
                 // --
@@ -1323,7 +1323,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                                 prefix +
                                 ti.Translate(
                                     appID,
-                                    appID2,
                                     sourceText,
                                     slc,
                                     dlc,

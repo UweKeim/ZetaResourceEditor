@@ -24,10 +24,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
     public sealed class AzureTranslationEngine :
         ITranslationEngine
     {
-        public bool Has2AppIDs => false;
         string ITranslationEngine.AppID1Name => Resources.BingSoapTranslationEngine_AppID2Name_Client_secret;
-        string ITranslationEngine.AppID2Name => Resources.BingSoapTranslationEngine_AppID2Name_Client_secret;
-        bool ITranslationEngine.IsUserSelectable => true;
+        bool ITranslationEngine.IsAppIDMultiLine => false;
         bool ITranslationEngine.IsDefault => false;
         string ITranslationEngine.UniqueInternalName => @"1e8232f6-d1ee-4b22-8b78-2c8a01a17a0a";
         string ITranslationEngine.UserReadableName => "Microsoft Translator (Azure)";
@@ -35,10 +33,10 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
         int ITranslationEngine.MaxArraySize => 25;
         public string AppIDLink => @"https://zeta.li/zre-translation-appid-bing";
 
-        bool ITranslationEngine.AreAppIDsSyntacticallyValid(string appID, string appID2) =>
+        bool ITranslationEngine.AreAppIDsSyntacticallyValid(string appID) =>
             !string.IsNullOrEmpty(appID);
 
-        TranslationLanguageInfo[] ITranslationEngine.GetSourceLanguages(string appID, string appID2)
+        TranslationLanguageInfo[] ITranslationEngine.GetSourceLanguages(string appID)
         {
             const string uri = @"https://api.microsofttranslator.com/v2/Http.svc/GetLanguagesForTranslate";
 
@@ -74,39 +72,38 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
             return authToken;
         }
 
-        TranslationLanguageInfo[] ITranslationEngine.GetDestinationLanguages(string appID, string appID2)
+        TranslationLanguageInfo[] ITranslationEngine.GetDestinationLanguages(string appID)
         {
-            return ((ITranslationEngine)this).GetSourceLanguages(appID, appID2);
+            return ((ITranslationEngine)this).GetSourceLanguages(appID);
         }
 
-        bool ITranslationEngine.IsSourceLanguageSupported(string appID, string appID2, string languageCode)
-        {
-            return TranslationHelper.IsSupportedLanguage(languageCode,
-                ((ITranslationEngine)this).GetSourceLanguages(appID, appID2));
-        }
-
-        bool ITranslationEngine.IsDestinationLanguageSupported(string appID, string appID2, string languageCode)
+        bool ITranslationEngine.IsSourceLanguageSupported(string appID, string languageCode)
         {
             return TranslationHelper.IsSupportedLanguage(languageCode,
-                ((ITranslationEngine)this).GetDestinationLanguages(appID, appID2));
+                ((ITranslationEngine)this).GetSourceLanguages(appID));
         }
 
-        string ITranslationEngine.MapCultureToSourceLanguageCode(string appID, string appID2, CultureInfo cultureInfo)
+        bool ITranslationEngine.IsDestinationLanguageSupported(string appID, string languageCode)
+        {
+            return TranslationHelper.IsSupportedLanguage(languageCode,
+                ((ITranslationEngine)this).GetDestinationLanguages(appID));
+        }
+
+        string ITranslationEngine.MapCultureToSourceLanguageCode(string appID, CultureInfo cultureInfo)
         {
             return TranslationHelper.DoMapCultureToLanguageCode(
-                ((ITranslationEngine)this).GetSourceLanguages(appID, appID2), cultureInfo);
+                ((ITranslationEngine)this).GetSourceLanguages(appID), cultureInfo);
         }
 
-        string ITranslationEngine.MapCultureToDestinationLanguageCode(string appID, string appID2,
+        string ITranslationEngine.MapCultureToDestinationLanguageCode(string appID,
             CultureInfo cultureInfo)
         {
             return TranslationHelper.DoMapCultureToLanguageCode(
-                ((ITranslationEngine)this).GetDestinationLanguages(appID, appID2), cultureInfo);
+                ((ITranslationEngine)this).GetDestinationLanguages(appID), cultureInfo);
         }
 
         string ITranslationEngine.Translate(
             string appID,
-            string appID2,
             string text,
             string sourceLanguageCode,
             string destinationLanguageCode,
@@ -151,7 +148,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
 
         string[] ITranslationEngine.TranslateArray(
             string appID,
-            string appID2,
             string[] texts,
             string sourceLanguageCode,
             string destinationLanguageCode,

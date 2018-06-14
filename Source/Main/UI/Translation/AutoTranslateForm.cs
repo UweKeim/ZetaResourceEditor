@@ -1,9 +1,5 @@
 ﻿namespace ZetaResourceEditor.UI.Translation
 {
-    #region Using directives.
-
-    // ----------------------------------------------------------------------
-
     using DevExpress.XtraEditors;
     using DevExpress.XtraEditors.Controls;
     using Helper;
@@ -33,13 +29,11 @@
     using Zeta.VoyagerLibrary.WinForms.Common;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
 
-    // ----------------------------------------------------------------------
-
-    #endregion
-
     public partial class AutoTranslateForm :
         FormBase
     {
+        private bool _isException;
+
         public static bool CheckShowAppIDsMissing()
         {
             var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
@@ -48,10 +42,9 @@
 
             TranslationHelper.GetTranslationAppID(
                 project,
-                out var appID,
-                out var appID2);
+                out var appID);
 
-            if (ti.AreAppIDsSyntacticallyValid(appID, appID2))
+            if (ti.AreAppIDsSyntacticallyValid(appID))
             {
                 return false;
             }
@@ -171,8 +164,7 @@
 
             TranslationHelper.GetTranslationAppID(
                 MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
-                out var appID,
-                out var appID2);
+                out var appID);
 
             var ti = TranslationHelper.GetTranslationEngine(_project);
 
@@ -180,8 +172,8 @@
 
             //try
             //{
-            lcs = ti.AreAppIDsSyntacticallyValid(appID, appID2)
-                ? ti.GetSourceLanguages(appID, appID2)
+            lcs = ti.AreAppIDsSyntacticallyValid(appID)
+                ? ti.GetSourceLanguages(appID)
                 : new TranslationLanguageInfo[] { };
             //}
             //catch (Exception e) when (e is WebException || e is HttpException)
@@ -359,8 +351,7 @@
 
             TranslationHelper.GetTranslationAppID(
                 MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
-                out var appID,
-                out var appID2);
+                out var appID);
 
             var forbidden =
                 referenceLanguageGroupBox.SelectedIndex >= 0 &&
@@ -370,8 +361,8 @@
                     : string.Empty;
 
             var lcs =
-                ti.AreAppIDsSyntacticallyValid(appID, appID2)
-                    ? ti.GetDestinationLanguages(appID, appID2)
+                ti.AreAppIDsSyntacticallyValid(appID)
+                    ? ti.GetDestinationLanguages(appID)
                     : new TranslationLanguageInfo[] { };
 
             foreach (var languageCode in languageCodes)
@@ -401,31 +392,43 @@
 
         private void autoTranslateForm_Load(object sender, EventArgs e)
         {
-            WinFormsPersistanceHelper.RestoreState(this);
-            CenterToParent();
+            try
+            {
+                WinFormsPersistanceHelper.RestoreState(this);
+                CenterToParent();
 
-            InitiallyFillLists();
-            FillItemToControls();
+                InitiallyFillLists();
+                FillItemToControls();
 
-            _initialAllowUpdatingDetails = _fileGroupControl.AllowUpdatingDetails;
-            _fileGroupControl.AllowUpdatingDetails = false;
+                _initialAllowUpdatingDetails = _fileGroupControl.AllowUpdatingDetails;
+                _fileGroupControl.AllowUpdatingDetails = false;
 
-            UpdateUI();
+                UpdateUI();
+            }
+            catch (Exception)
+            {
+                _isException = true;
+                Close();
+                throw;
+            }
         }
 
         private void autoTranslateForm_FormClosing(
             object sender,
             FormClosingEventArgs e)
         {
-            _fileGroupControl.AllowUpdatingDetails = _initialAllowUpdatingDetails;
-
-            WinFormsPersistanceHelper.SaveState(this);
-
-            if (_project != null)
+            if (!_isException)
             {
-                using (new SilentProjectStoreGuard(_project))
+                _fileGroupControl.AllowUpdatingDetails = _initialAllowUpdatingDetails;
+
+                WinFormsPersistanceHelper.SaveState(this);
+
+                if (_project != null)
                 {
-                    saveState(_project.DynamicSettingsGlobalHierarchical);
+                    using (new SilentProjectStoreGuard(_project))
+                    {
+                        saveState(_project.DynamicSettingsGlobalHierarchical);
+                    }
                 }
             }
         }
@@ -482,13 +485,22 @@
 
         private void autoTranslateForm_Shown(object sender, EventArgs e)
         {
-            updateUITimer.Start();
-            CheckShowNewTranslationInfos();
-
-            if (CheckShowAppIDsMissing())
+            try
             {
-                InitiallyFillLists();
-                FillItemToControls();
+                updateUITimer.Start();
+                CheckShowNewTranslationInfos();
+
+                if (CheckShowAppIDsMissing())
+                {
+                    InitiallyFillLists();
+                    FillItemToControls();
+                }
+            }
+            catch (Exception)
+            {
+                _isException = true;
+                Close();
+                throw;
             }
         }
 
@@ -591,8 +603,7 @@
 
                                 TranslationHelper.GetTranslationAppID(
                                     MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
-                                    out var appID,
-                                    out var appID2);
+                                    out var appID);
 
                                 foreach (DataColumn column in table.Columns)
                                 {
@@ -614,7 +625,6 @@
                                                 translationSuccessCount =
                                                     translateArray(
                                                         appID,
-                                                        appID2,
                                                         ti,
                                                         table,
                                                         refLanguageCode,
@@ -639,7 +649,6 @@
                                                 translationSuccessCount =
                                                     translateSingle(
                                                         appID,
-                                                        appID2,
                                                         ti,
                                                         table,
                                                         refLanguageCode,
@@ -730,7 +739,6 @@
 
         private int translateSingle(
             string appID,
-            string appID2,
             ITranslationEngine ti,
             DataTable table,
             string refLanguageCode,
@@ -773,10 +781,10 @@
                         try
                         {
                             var sourceLanguageCode = ti.MapCultureToSourceLanguageCode(
-                                appID, appID2,
+                                appID,
                                 CultureHelper.CreateCultureErrorTolerant(refLanguageCode));
                             var destinationLanguageCode = ti.MapCultureToDestinationLanguageCode(
-                                appID, appID2,
+                                appID,
                                 CultureHelper.CreateCultureErrorTolerant(raw));
 
                             var doIt = true;
@@ -801,7 +809,7 @@
                                 var destinationText =
                                     prefixSuccess +
                                     ti.Translate(
-                                        appID, appID2,
+                                        appID,
                                         sourceText,
                                         sourceLanguageCode,
                                         destinationLanguageCode,
@@ -851,7 +859,6 @@
 
         private int translateArray(
             string appID,
-            string appID2,
             ITranslationEngine ti,
             DataTable table,
             string refLanguageCode,
@@ -947,10 +954,10 @@
                             try
                             {
                                 var sourceLanguageCode = ti.MapCultureToSourceLanguageCode(
-                                    appID, appID2,
+                                    appID,
                                     CultureHelper.CreateCultureErrorTolerant(refLanguageCode));
                                 var destinationLanguageCode = ti.MapCultureToDestinationLanguageCode(
-                                    appID, appID2,
+                                    appID,
                                     CultureHelper.CreateCultureErrorTolerant(raw));
 
                                 if (useExistingTranslations)
@@ -976,7 +983,6 @@
                                     var destinationTexts =
                                         ti.TranslateArray(
                                             appID,
-                                            appID2,
                                             sourceTexts.ToArray(),
                                             sourceLanguageCode,
                                             destinationLanguageCode,
