@@ -5,8 +5,10 @@ namespace ZetaResourceEditor.Code
     using Properties;
     using RuntimeBusinessLogic.Projects;
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
+    using System.Reflection;
     using System.Threading;
     using System.Windows.Forms;
     using UI.Helper.ErrorHandling;
@@ -18,6 +20,9 @@ namespace ZetaResourceEditor.Code
 
     internal sealed class Host
     {
+        private static readonly IDictionary<string, Assembly> _additional =
+            new Dictionary<string, Assembly>();
+
         private static ZlpDirectoryInfo _cacheForCurrentUserStorageBaseFolderPath;
 
         /// <summary>
@@ -58,9 +63,9 @@ namespace ZetaResourceEditor.Code
                     new PersistentXmlFilePairStorage
                     {
                         FilePath =
-                                ZlpPathHelper.Combine(
-                                    CurrentUserStorageBaseFolderPath.FullName,
-                                    @"zeta-resource-editor-settings.xml")
+                            ZlpPathHelper.Combine(
+                                CurrentUserStorageBaseFolderPath.FullName,
+                                @"zeta-resource-editor-settings.xml")
                     };
                 persistentStorage.Error += storageError;
 
@@ -77,6 +82,28 @@ namespace ZetaResourceEditor.Code
                 AppDomain.CurrentDomain.UnhandledException += currentDomainUnhandledException;
                 Application.ThreadException += applicationThreadException;
 
+                // --
+                // http://stackoverflow.com/a/9180843/107625
+
+                var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+                foreach (var assemblyName in Directory.GetFiles(dir, @"*.dll"))
+                {
+                    try
+                    {
+                        var assembly = Assembly.LoadFile(assemblyName);
+                        _additional.Add(assembly.GetName().Name, assembly);
+                    }
+                    catch (BadImageFormatException)
+                    {
+                        // Ignorieren.
+                    }
+                }
+
+                AppDomain.CurrentDomain.ReflectionOnlyAssemblyResolve += CurrentDomain_ResolveAssembly;
+                AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_ResolveAssembly;
+
+                // --
+
                 test();
 
                 initializeLanguage();
@@ -87,6 +114,17 @@ namespace ZetaResourceEditor.Code
             {
                 doHandleException(x);
             }
+        }
+
+        private static Assembly CurrentDomain_ResolveAssembly(object sender, ResolveEventArgs e)
+        {
+            // Hier mache ich quasi mein eigenes, automatisches, Binding-Redirect.
+            // (z.B. Newtonsoft.Json 6.0.0.0 nach 9.0.0.0).
+
+            var name = e.Name.Substring(0, e.Name.IndexOf(','));
+
+            _additional.TryGetValue(name, out var res);
+            return res;
         }
 
         public static void ApplyLanguageSettingsToCurrentThread()
@@ -102,13 +140,13 @@ namespace ZetaResourceEditor.Code
                     {
                         Thread.CurrentThread.CurrentCulture =
                             Thread.CurrentThread.CurrentUICulture =
-                            Application.CurrentCulture = new CultureInfo(@"de-DE");
+                                Application.CurrentCulture = new CultureInfo(@"de-DE");
                     }
                     else if (f.StartsWith(@"en"))
                     {
                         Thread.CurrentThread.CurrentCulture =
                             Thread.CurrentThread.CurrentUICulture =
-                            Application.CurrentCulture = new CultureInfo(@"en-US");
+                                Application.CurrentCulture = new CultureInfo(@"en-US");
                     }
                 }
             }
