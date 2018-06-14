@@ -14,6 +14,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
     using System.Text;
     using System.Web;
     using System.Xml.Linq;
+    using ZetaLongPaths;
 
     // Beispiele siehe:
     //
@@ -38,19 +39,28 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
 
         TranslationLanguageInfo[] ITranslationEngine.GetSourceLanguages(string appID)
         {
-            const string uri = @"https://api.microsofttranslator.com/v2/Http.svc/GetLanguagesForTranslate";
+            return ZlpSimpleFileAccessProtector.Protect(
+                delegate
+                {
+                    const string uri = @"https://api.microsofttranslator.com/v2/Http.svc/GetLanguagesForTranslate";
 
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
-            httpWebRequest.Headers.Add(@"Authorization", getAuthToken(appID));
-            using (var response = httpWebRequest.GetResponse())
-            using (var stream = response.GetResponseStream())
-            {
-                var dcs = new DataContractSerializer(typeof(List<string>));
-                var languagesForTranslate = ((List<string>)dcs.ReadObject(stream)).ToHashSet();
+                    var httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
+                    httpWebRequest.Headers.Add(@"Authorization", getAuthToken(appID));
+                    using (var response = httpWebRequest.GetResponse())
+                    using (var stream = response.GetResponseStream())
+                    {
+                        var dcs = new DataContractSerializer(typeof(List<string>));
+                        var languagesForTranslate = ((List<string>)dcs.ReadObject(stream)).ToHashSet();
 
-                return languagesForTranslate
-                    .Select(l => new TranslationLanguageInfo { LanguageCode = l, UserReadableName = tryGetLanguageName(l) }).ToArray();
-            }
+                        return languagesForTranslate
+                            .Select(l =>
+                                new TranslationLanguageInfo
+                                {
+                                    LanguageCode = l,
+                                    UserReadableName = tryGetLanguageName(l)
+                                }).ToArray();
+                    }
+                });
         }
 
         private string tryGetLanguageName(string s)
@@ -110,40 +120,44 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
             string[] wordsToProtect,
             string[] wordsToRemove)
         {
-            var removed = TranslationHelper.RemoveWords(
-                text,
-                wordsToRemove);
-
-            var prot = TranslationHelper.ProtectWords(
-                new TranslationHelper.ProtectionInfo
+            return ZlpSimpleFileAccessProtector.Protect(
+                delegate
                 {
-                    UnprotectedText = removed,
-                    WordsToProtect = wordsToProtect
+                    var removed = TranslationHelper.RemoveWords(
+                        text,
+                        wordsToRemove);
+
+                    var prot = TranslationHelper.ProtectWords(
+                        new TranslationHelper.ProtectionInfo
+                        {
+                            UnprotectedText = removed,
+                            WordsToProtect = wordsToProtect
+                        });
+
+                    var uri =
+                        $@"https://api.microsofttranslator.com/v2/Http.svc/Translate?text={HttpUtility.UrlEncode(prot.ProtectedText)}&from={
+                                sourceLanguageCode
+                            }&to={destinationLanguageCode}";
+
+                    var httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
+                    httpWebRequest.Headers.Add(@"Authorization", getAuthToken(appID));
+                    using (var response = httpWebRequest.GetResponse())
+                    using (var stream = response.GetResponseStream())
+                    {
+                        var dcs = new DataContractSerializer(typeof(string));
+                        var translation = (string)dcs.ReadObject(stream);
+
+                        var protres = new TranslationHelper.ProtectionResult
+                        {
+                            ProtectedText = translation,
+                            UnprotectedToProtectedMapping = prot.UnprotectedToProtectedMapping,
+                            WordsToProtect = prot.WordsToProtect
+                        };
+
+                        var unprot = TranslationHelper.UnprotectWords(protres);
+                        return unprot.UnprotectedText;
+                    }
                 });
-
-            var uri =
-                $@"https://api.microsofttranslator.com/v2/Http.svc/Translate?text={HttpUtility.UrlEncode(prot.ProtectedText)}&from={
-                        sourceLanguageCode
-                    }&to={destinationLanguageCode}";
-
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
-            httpWebRequest.Headers.Add(@"Authorization", getAuthToken(appID));
-            using (var response = httpWebRequest.GetResponse())
-            using (var stream = response.GetResponseStream())
-            {
-                var dcs = new DataContractSerializer(typeof(string));
-                var translation = (string)dcs.ReadObject(stream);
-
-                var protres = new TranslationHelper.ProtectionResult
-                {
-                    ProtectedText = translation,
-                    UnprotectedToProtectedMapping = prot.UnprotectedToProtectedMapping,
-                    WordsToProtect = prot.WordsToProtect
-                };
-
-                var unprot = TranslationHelper.UnprotectWords(protres);
-                return unprot.UnprotectedText;
-            }
         }
 
         string[] ITranslationEngine.TranslateArray(
@@ -154,99 +168,107 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
             string[] wordsToProtect,
             string[] wordsToRemove)
         {
-            const string uri = @"https://api.microsofttranslator.com/v2/Http.svc/TranslateArray";
-
-            var body = @"<TranslateArrayRequest>" +
-                       @"<AppId />" +
-                       $@"<From>{sourceLanguageCode}</From>" +
-                       @"<Options>" +
-                       @" <Category xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
-                       @"<ContentType xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"">text/plain</ContentType>" +
-                       @"<ReservedFlags xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
-                       @"<State xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
-                       @"<Uri xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
-                       @"<User xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
-                       @"</Options>" +
-                       @"<Texts>";
-
-            var protectionResults = new List<TranslationHelper.ProtectionResult>();
-
-            foreach (var text in texts)
-            {
-                var removed = TranslationHelper.RemoveWords(
-                    text,
-                    wordsToRemove);
-
-                var preparedText = TranslationHelper.ProtectWords(new TranslationHelper.ProtectionInfo
+            return ZlpSimpleFileAccessProtector.Protect(
+                delegate
                 {
-                    UnprotectedText = removed,
-                    WordsToProtect = wordsToProtect
-                });
+                    const string uri = @"https://api.microsofttranslator.com/v2/Http.svc/TranslateArray";
 
-                protectionResults.Add(preparedText);
+                    var body = @"<TranslateArrayRequest>" +
+                               @"<AppId />" +
+                               $@"<From>{sourceLanguageCode}</From>" +
+                               @"<Options>" +
+                               @" <Category xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
+                               @"<ContentType xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"">text/plain</ContentType>" +
+                               @"<ReservedFlags xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
+                               @"<State xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
+                               @"<Uri xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
+                               @"<User xmlns=""http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"" />" +
+                               @"</Options>" +
+                               @"<Texts>";
 
-                var esc = escapeXml(preparedText.ProtectedText);
+                    var protectionResults = new List<TranslationHelper.ProtectionResult>();
 
-                body += $@"<string xmlns=""http://schemas.microsoft.com/2003/10/Serialization/Arrays"">{esc}</string>";
-            }
+                    foreach (var text in texts)
+                    {
+                        var removed = TranslationHelper.RemoveWords(
+                            text,
+                            wordsToRemove);
 
-            body +=
-                @"</Texts>" +
-                $@"<To>{destinationLanguageCode}</To>" +
-                @"</TranslateArrayRequest>";
-
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Content = new StringContent(body, Encoding.UTF8, @"text/xml");
-                request.Headers.Add(@"Authorization", getAuthToken(appID));
-
-                HttpResponseMessage response = null;
-                string responseBody = null;
-
-                // https://github.com/tejacques/AsyncBridge#example-usage
-                using (var A = AsyncHelper.Wait)
-                {
-                    A.Run(client.SendAsync(request), res => response = res);
-                }
-                using (var A = AsyncHelper.Wait)
-                {
-                    A.Run(response?.Content.ReadAsStringAsync(), res => responseBody = res);
-                }
-
-                if (response == null) throw new HttpException();
-
-                switch (response?.StatusCode)
-                {
-                    case HttpStatusCode.OK:
-                        var doc = XDocument.Parse(responseBody);
-                        var ns = XNamespace.Get(@"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2");
-
-                        var result = new List<string>();
-
-                        // Sum up all mappings.
-                        var dic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
-
-                        foreach (var xe in doc.Descendants(ns + @"TranslateArrayResponse"))
+                        var preparedText = TranslationHelper.ProtectWords(new TranslationHelper.ProtectionInfo
                         {
-                            result.AddRange(xe.Elements(ns + @"TranslatedText").Select(node => TranslationHelper.UnprotectWords(
-                                new TranslationHelper.ProtectionResult
-                                {
-                                    ProtectedText = node.Value,
-                                    WordsToProtect = wordsToProtect,
-                                    UnprotectedToProtectedMapping = dic
-                                }
-                                ).UnprotectedText));
+                            UnprotectedText = removed,
+                            WordsToProtect = wordsToProtect
+                        });
+
+                        protectionResults.Add(preparedText);
+
+                        var esc = escapeXml(preparedText.ProtectedText);
+
+                        body +=
+                            $@"<string xmlns=""http://schemas.microsoft.com/2003/10/Serialization/Arrays"">{esc}</string>";
+                    }
+
+                    body +=
+                        @"</Texts>" +
+                        $@"<To>{destinationLanguageCode}</To>" +
+                        @"</TranslateArrayRequest>";
+
+                    using (var client = new HttpClient())
+                    using (var request = new HttpRequestMessage())
+                    {
+                        request.Method = HttpMethod.Post;
+                        request.RequestUri = new Uri(uri);
+                        request.Content = new StringContent(body, Encoding.UTF8, @"text/xml");
+                        request.Headers.Add(@"Authorization", getAuthToken(appID));
+
+                        HttpResponseMessage response = null;
+                        string responseBody = null;
+
+                        // https://github.com/tejacques/AsyncBridge#example-usage
+                        using (var A = AsyncHelper.Wait)
+                        {
+                            A.Run(client.SendAsync(request), res => response = res);
                         }
 
-                        return result.ToArray();
+                        using (var A = AsyncHelper.Wait)
+                        {
+                            A.Run(response?.Content.ReadAsStringAsync(), res => responseBody = res);
+                        }
 
-                    default:
-                        throw new HttpException((int)response.StatusCode, responseBody);
-                }
-            }
+                        if (response == null) throw new HttpException();
+
+                        switch (response?.StatusCode)
+                        {
+                            case HttpStatusCode.OK:
+                                var doc = XDocument.Parse(responseBody);
+                                var ns = XNamespace.Get(
+                                    @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2");
+
+                                var result = new List<string>();
+
+                                // Sum up all mappings.
+                                var dic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
+
+                                foreach (var xe in doc.Descendants(ns + @"TranslateArrayResponse"))
+                                {
+                                    result.AddRange(xe.Elements(ns + @"TranslatedText").Select(node => TranslationHelper
+                                        .UnprotectWords(
+                                            new TranslationHelper.ProtectionResult
+                                            {
+                                                ProtectedText = node.Value,
+                                                WordsToProtect = wordsToProtect,
+                                                UnprotectedToProtectedMapping = dic
+                                            }
+                                        ).UnprotectedText));
+                                }
+
+                                return result.ToArray();
+
+                            default:
+                                throw new HttpException((int)response.StatusCode, responseBody);
+                        }
+                    }
+                });
         }
 
         private static string escapeXml(string text)
