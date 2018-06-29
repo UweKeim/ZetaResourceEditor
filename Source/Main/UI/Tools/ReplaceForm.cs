@@ -165,7 +165,7 @@
         private void restoreReplaceComboBox()
         {
             var temp = TextToReplaceWith;
-            WinFormsPersistanceHelper.RestoreState(textToReplaceComboBox);
+            //WinFormsPersistanceHelper.RestoreState(textToReplaceComboBox);
 
             var count =
                 ConvertHelper.ToInt32(
