@@ -19,8 +19,8 @@
     using System.Windows.Forms;
     using Zeta.VoyagerLibrary.Common;
     using Zeta.VoyagerLibrary.Logging;
-    using Zeta.VoyagerLibrary.Tools;
     using Zeta.VoyagerLibrary.Tools.Storage;
+    using Zeta.VoyagerLibrary.Tools.Text;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
     using ZetaLongPaths;
 

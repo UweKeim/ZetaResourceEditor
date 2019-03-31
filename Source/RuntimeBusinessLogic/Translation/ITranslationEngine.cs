@@ -6,6 +6,7 @@
     {
         string AppID1Name { get; }
         bool IsAppIDMultiLine { get; }
+        bool IsJson { get; }
 
         bool IsDefault { get; }
         string UniqueInternalName { get; }

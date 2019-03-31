@@ -1,8 +1,10 @@
 namespace ZetaResourceEditor.UI.Translation
 {
+    using DevExpress.XtraEditors;
     using DevExpress.XtraEditors.Controls;
     using ExtendedControlsLibrary;
     using Helper.Base;
+    using RuntimeBusinessLogic.Helpers;
     using RuntimeBusinessLogic.Projects;
     using RuntimeBusinessLogic.Translation;
     using System;
@@ -251,6 +253,7 @@ namespace ZetaResourceEditor.UI.Translation
 
                     appIDTextEdit.Visible = !eh.Engine.IsAppIDMultiLine;
                     appIDMemoEdit.Visible = eh.Engine.IsAppIDMultiLine;
+                    myHyperLinkEdit1.Visible = eh.Engine.IsJson;
                 }
             }
             else
@@ -269,6 +272,17 @@ namespace ZetaResourceEditor.UI.Translation
                 var dic = _localDic;
                 dic[key] = eh.Engine.IsAppIDMultiLine ? appIDMemoEdit.Text.Trim() : appIDTextEdit.Text.Trim();
                 _localDic = dic;
+
+                if (eh.Engine.IsJson && !string.IsNullOrWhiteSpace(appIDMemoEdit.Text.Trim()) &&
+                    !JsonHelper.IsValidJson(appIDMemoEdit.Text.Trim()))
+                {
+                    XtraMessageBox.Show(
+                        ActiveForm,
+                        "Your entered JSON seems to be invalid. Please ensure that you enter a valid JSON document.",
+                        @"Zeta Resource Editor",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -278,6 +292,8 @@ namespace ZetaResourceEditor.UI.Translation
 
         private void appIDLinkControl_OpenLink(object sender, OpenLinkEventArgs e)
         {
+            e.Handled = true;
+
             if (engineComboBox.SelectedIndex >= 0 &&
                 engineComboBox.SelectedIndex < engineComboBox.Properties.Items.Count)
             {
@@ -290,6 +306,12 @@ namespace ZetaResourceEditor.UI.Translation
         private void TranslateOptionsForm_Shown(object sender, EventArgs e)
         {
             AutoTranslateForm.CheckShowNewTranslationInfos();
+        }
+
+        private void myHyperLinkEdit1_OpenLink(object sender, OpenLinkEventArgs e)
+        {
+            e.Handled = true;
+            Process.Start(@"http://zeta.li/json-validator");
         }
     }
 }

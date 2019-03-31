@@ -11,7 +11,7 @@
     using System.Globalization;
     using System.Linq;
     using System.Text.RegularExpressions;
-    using Zeta.VoyagerLibrary.Tools;
+    using Zeta.VoyagerLibrary.Tools.Text;
     using ZetaLongPaths;
 
     public static class TranslationHelper

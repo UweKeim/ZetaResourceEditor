@@ -25,8 +25,8 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
     using Zeta.VoyagerLibrary.Common;
     using Zeta.VoyagerLibrary.Common.Collections;
     using Zeta.VoyagerLibrary.Logging;
-    using Zeta.VoyagerLibrary.Tools;
     using Zeta.VoyagerLibrary.Tools.Storage;
+    using Zeta.VoyagerLibrary.Tools.Text;
     using Zeta.VoyagerLibrary.WinForms.Common;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
     using ZetaLongPaths;

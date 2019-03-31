@@ -12,7 +12,7 @@ using Zeta.VoyagerLibrary.Logging;
 
 namespace Web.Code
 {
-    using Zeta.VoyagerLibrary.Tools;
+    using Zeta.VoyagerLibrary.Tools.Text;
 
     /// <summary>
     /// Grabs a web page, makes all links absolute to the base URI and splits

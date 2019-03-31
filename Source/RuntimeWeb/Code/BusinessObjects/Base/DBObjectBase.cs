@@ -1,14 +1,14 @@
 ﻿namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects.Base
 {
-	using System;
-	using System.Data;
-	using System.Diagnostics;
-	using System.Text.RegularExpressions;
-	using Sys;
-	using Zeta.VoyagerLibrary.Data;
-	using Zeta.VoyagerLibrary.Tools;
+    using Sys;
+    using System;
+    using System.Data;
+    using System.Diagnostics;
+    using System.Text.RegularExpressions;
+    using Zeta.VoyagerLibrary.Data;
+    using Zeta.VoyagerLibrary.Tools.Text;
 
-	[DebuggerDisplay(@"ID = {_id}, Type = ""{GetType()}""")]
+    [DebuggerDisplay(@"ID = {_id}, Type = ""{GetType()}""")]
 	public abstract class DBObjectBase
 	{
 	    #region Formatting.

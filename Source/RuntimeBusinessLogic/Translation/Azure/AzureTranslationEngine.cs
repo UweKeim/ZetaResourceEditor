@@ -27,6 +27,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
     {
         string ITranslationEngine.AppID1Name => Resources.BingSoapTranslationEngine_AppID2Name_Client_secret;
         bool ITranslationEngine.IsAppIDMultiLine => false;
+        bool ITranslationEngine.IsJson => false;
         bool ITranslationEngine.IsDefault => false;
         string ITranslationEngine.UniqueInternalName => @"1e8232f6-d1ee-4b22-8b78-2c8a01a17a0a";
         string ITranslationEngine.UserReadableName => "Microsoft Translator (Azure)";

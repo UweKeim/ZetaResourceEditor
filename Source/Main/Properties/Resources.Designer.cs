@@ -82,6 +82,15 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to overwrite the read-only file &apos;{0}&apos;?.
+        /// </summary>
+        internal static string ConfirmOverwrite {
+            get {
+                return ResourceManager.GetString("ConfirmOverwrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The resource file for the language you selected was already present and simply was added, but not created..
         /// </summary>
         internal static string CreateNewFileForm_buttonOK_Click_The_resource_file_for_the_language_you_selected_was_already_present_and_simply_was_added__but_not_created_ {
@@ -444,16 +453,6 @@ namespace ZetaResourceEditor.Properties {
         internal static string SR_MainForm_buttonDonateOne_ItemClick_zre_donate_one_currency {
             get {
                 return ResourceManager.GetString("SR_MainForm_buttonDonateOne_ItemClick_zre_donate_one_currency", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Do you want to overwrite the read-only file &apos;{0}&apos;?.
-        /// </summary>
-        internal static string SR_MainForm_dataProcessing_CanOverwrite_Do_you_want_to_overwrite_the_read_only_file___0___ {
-            get {
-                return ResourceManager.GetString("SR_MainForm_dataProcessing_CanOverwrite_Do_you_want_to_overwrite_the_read_only_fi" +
-                        "le___0___", resourceCulture);
             }
         }
         

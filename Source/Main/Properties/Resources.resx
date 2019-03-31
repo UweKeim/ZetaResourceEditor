@@ -267,7 +267,7 @@ Do you want to open the Excel document now?</value>
 	<data name="SR_ProjectFilesUserControl_removeNodeAndchilds_Unexpected_node_type" xml:space="preserve">
     <value>Unexpected node type '{0}' while removing.</value>
   </data>
-	<data name="SR_MainForm_dataProcessing_CanOverwrite_Do_you_want_to_overwrite_the_read_only_file___0___" xml:space="preserve">
+	<data name="ConfirmOverwrite" xml:space="preserve">
     <value>Do you want to overwrite the read-only file '{0}'?</value>
   </data>
 	<data name="Str_404EMailMessageSubject" xml:space="preserve">

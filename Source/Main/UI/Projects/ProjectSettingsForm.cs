@@ -13,7 +13,7 @@
     using System.Diagnostics;
     using System.Windows.Forms;
     using Translation;
-    using Zeta.VoyagerLibrary.Tools;
+    using Zeta.VoyagerLibrary.Tools.Text;
     using Zeta.VoyagerLibrary.WinForms.Common;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
     using ZetaLongPaths;

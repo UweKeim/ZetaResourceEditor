@@ -3,10 +3,12 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
     using Base;
     using DevExpress.XtraBars;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.Reflection;
     using System.Windows.Forms;
     using Zeta.VoyagerLibrary.Logging;
+    using ZetaLongPaths;
 
     public partial class ErrorForm : FormBase
     {
@@ -28,10 +30,34 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
         {
             _exception = e;
 
-            if (_exception is TargetInvocationException && _exception.InnerException != null)
-                _exception = e.InnerException;
+            memoEdit1.Text = getEffectiveErrorMessage(e);
+        }
 
-            memoEdit1.Text = (_exception ?? e).Message;
+        private static string getEffectiveErrorMessage(Exception e)
+        {
+            var y = e;
+            while ((y is TargetInvocationException || y is ZlpSimpleFileAccessProtectorException) &&
+                   y.InnerException != null)
+            {
+                y = y.InnerException;
+            }
+
+            // --
+
+            var lines = new List<string> { y.Message };
+
+            y = y.InnerException;
+            while (y != null)
+            {
+                if (!(y is TargetInvocationException) && !(y is ZlpSimpleFileAccessProtectorException))
+                {
+                    lines.Add(y.Message);
+                }
+
+                y = y.InnerException;
+            }
+
+            return string.Join(Environment.NewLine + Environment.NewLine, lines).Trim();
         }
 
         private void errorForm_Load(object sender, EventArgs e)

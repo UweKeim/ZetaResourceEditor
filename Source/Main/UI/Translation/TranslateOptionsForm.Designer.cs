@@ -31,6 +31,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
             this.xtraTabControl1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
             this.engineTabPage = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
+            this.appIDMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
             this.appIDLinkControl = new ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit();
             this.labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.engineComboBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
@@ -52,12 +53,13 @@ namespace ZetaResourceEditor.UI.Translation
             this.wordsToRemoveMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
             this.buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.appIDMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
+            this.myHyperLinkEdit1 = new ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.engineTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appIDMemoEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appIDLinkControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.engineComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appIDTextEdit.Properties)).BeginInit();
@@ -68,7 +70,7 @@ namespace ZetaResourceEditor.UI.Translation
             ((System.ComponentModel.ISupportInitialize)(this.wordsToProtectMemoEdit.Properties)).BeginInit();
             this.wordsToRemoveTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wordsToRemoveMemoEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appIDMemoEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myHyperLinkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -105,6 +107,7 @@ namespace ZetaResourceEditor.UI.Translation
             // engineTabPage
             // 
             this.engineTabPage.Controls.Add(this.appIDMemoEdit);
+            this.engineTabPage.Controls.Add(this.myHyperLinkEdit1);
             this.engineTabPage.Controls.Add(this.appIDLinkControl);
             this.engineTabPage.Controls.Add(this.labelControl2);
             this.engineTabPage.Controls.Add(this.engineComboBox);
@@ -114,6 +117,20 @@ namespace ZetaResourceEditor.UI.Translation
             this.engineTabPage.Padding = new System.Windows.Forms.Padding(9);
             this.engineTabPage.Size = new System.Drawing.Size(443, 343);
             this.engineTabPage.Text = "Service";
+            // 
+            // appIDMemoEdit
+            // 
+            this.appIDMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.appIDMemoEdit.CueText = null;
+            this.appIDMemoEdit.Location = new System.Drawing.Point(12, 154);
+            this.appIDMemoEdit.Name = "appIDMemoEdit";
+            this.appIDMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.appIDMemoEdit.Properties.Appearance.Options.UseFont = true;
+            this.appIDMemoEdit.Properties.NullValuePrompt = null;
+            this.appIDMemoEdit.Size = new System.Drawing.Size(419, 149);
+            this.appIDMemoEdit.TabIndex = 5;
             // 
             // appIDLinkControl
             // 
@@ -398,19 +415,27 @@ namespace ZetaResourceEditor.UI.Translation
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.WantDrawFocusRectangle = true;
             // 
-            // appIDMemoEdit
+            // myHyperLinkEdit1
             // 
-            this.appIDMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.appIDMemoEdit.CueText = null;
-            this.appIDMemoEdit.Location = new System.Drawing.Point(12, 154);
-            this.appIDMemoEdit.Name = "appIDMemoEdit";
-            this.appIDMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.appIDMemoEdit.Properties.Appearance.Options.UseFont = true;
-            this.appIDMemoEdit.Properties.NullValuePrompt = null;
-            this.appIDMemoEdit.Size = new System.Drawing.Size(419, 177);
-            this.appIDMemoEdit.TabIndex = 5;
+            this.myHyperLinkEdit1.AllowAutoWidth = true;
+            this.myHyperLinkEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.myHyperLinkEdit1.CausesValidation = false;
+            this.myHyperLinkEdit1.EditValue = "JSON validator";
+            this.myHyperLinkEdit1.Location = new System.Drawing.Point(330, 309);
+            this.myHyperLinkEdit1.Name = "myHyperLinkEdit1";
+            this.myHyperLinkEdit1.Properties.AllowFocused = false;
+            this.myHyperLinkEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.myHyperLinkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.myHyperLinkEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.myHyperLinkEdit1.Properties.Appearance.Options.UseFont = true;
+            this.myHyperLinkEdit1.Properties.Appearance.Options.UseTextOptions = true;
+            this.myHyperLinkEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.myHyperLinkEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.myHyperLinkEdit1.Properties.ReadOnly = true;
+            this.myHyperLinkEdit1.Size = new System.Drawing.Size(101, 22);
+            this.myHyperLinkEdit1.TabIndex = 2;
+            this.myHyperLinkEdit1.TabStop = false;
+            this.myHyperLinkEdit1.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.myHyperLinkEdit1_OpenLink);
             // 
             // TranslateOptionsForm
             // 
@@ -438,6 +463,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.xtraTabControl1.ResumeLayout(false);
             this.engineTabPage.ResumeLayout(false);
             this.engineTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appIDMemoEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appIDLinkControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.engineComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appIDTextEdit.Properties)).EndInit();
@@ -451,7 +477,7 @@ namespace ZetaResourceEditor.UI.Translation
             this.wordsToRemoveTabPage.ResumeLayout(false);
             this.wordsToRemoveTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wordsToRemoveMemoEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appIDMemoEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myHyperLinkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -483,5 +509,6 @@ namespace ZetaResourceEditor.UI.Translation
         private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage engineTabPage;
         private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl myLabelControl1;
         private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit appIDMemoEdit;
+        private ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit myHyperLinkEdit1;
     }
 }

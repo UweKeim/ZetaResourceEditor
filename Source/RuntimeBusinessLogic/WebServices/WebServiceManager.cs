@@ -9,8 +9,8 @@
     using Web_References.UpdateChecker;
     using Web_References.ZetaUploader;
     using Zeta.VoyagerLibrary.Logging;
-    using Zeta.VoyagerLibrary.Tools;
     using Zeta.VoyagerLibrary.Tools.Storage;
+    using Zeta.VoyagerLibrary.Tools.Text;
 
     // ----------------------------------------------------------------------
 
@@ -281,9 +281,7 @@
                     _bypassProxyOnLocal = webProxy.BypassProxyOnLocal;
                     _useDefaultCredentials = webProxy.UseDefaultCredentials;
 
-                    var c = webProxy.Credentials as NetworkCredential;
-
-                    if (c != null)
+                    if (webProxy.Credentials is NetworkCredential c)
                     {
                         _domain = c.Domain;
                         _password = c.Password;

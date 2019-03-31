@@ -17,6 +17,7 @@
         string ITranslationEngine.AppID1Name => "JSON key credentials";
 
         bool ITranslationEngine.IsAppIDMultiLine => true;
+        bool ITranslationEngine.IsJson => true;
 
         bool ITranslationEngine.IsDefault => true;
 

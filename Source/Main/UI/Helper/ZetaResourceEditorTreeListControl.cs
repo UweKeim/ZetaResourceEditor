@@ -31,16 +31,11 @@ namespace ZetaResourceEditor.UI.Helper
 
         private const string DummyNode = @"8f6daa3-3e1c-4a55-b53c-6ca8e68a282a";
 
-        protected override bool OnBeforeChangeExpanded(
-            TreeListNode node,
-            bool newVal)
+        protected override bool RaiseBeforeExpand(
+            TreeListNode node)
         {
-            if (newVal)
-            {
-                CheckExpandDynamicNodes(node);
-            }
-
-            return base.OnBeforeChangeExpanded(node, newVal);
+            CheckExpandDynamicNodes(node);
+            return base.RaiseBeforeExpand(node);
         }
 
         public event EventHandler<ExpandDynamicChildrenEventArgs> ExpandDynamicChildren;

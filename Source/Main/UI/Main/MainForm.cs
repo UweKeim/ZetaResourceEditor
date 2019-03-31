@@ -725,12 +725,9 @@ namespace ZetaResourceEditor.UI.Main
 
         private AskOverwriteResult dataProcessing_CanOverwrite(ZlpFileInfo filePath)
         {
-            var dr = MessageBox.Show(
+            var dr = XtraMessageBox.Show(
                 this,
-                string.Format(
-                    Resources
-                        .SR_MainForm_dataProcessing_CanOverwrite_Do_you_want_to_overwrite_the_read_only_file___0___,
-                    filePath.Name),
+                string.Format(Resources.ConfirmOverwrite, filePath.Name),
                 @"Zeta Resource Editor",
                 MessageBoxButtons.YesNoCancel,
                 MessageBoxIcon.Question);
