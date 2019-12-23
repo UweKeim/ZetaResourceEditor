@@ -112,7 +112,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(395, 258);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(395, 253);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // mainDataGrid
@@ -122,7 +122,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.mainDataGrid.MainView = this.mainGridView;
             this.mainDataGrid.MenuManager = this.barManager;
             this.mainDataGrid.Name = "mainDataGrid";
-            this.mainDataGrid.Size = new System.Drawing.Size(389, 231);
+            this.mainDataGrid.Size = new System.Drawing.Size(389, 226);
             this.mainDataGrid.TabIndex = 1;
             this.mainDataGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.mainGridView});
@@ -139,7 +139,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.mainGridView.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.mainGridView.OptionsSelection.EnableAppearanceHideSelection = false;
             this.mainGridView.OptionsSelection.MultiSelect = true;
-            this.mainGridView.OptionsView.EnableAppearanceEvenRow = true;
             this.mainGridView.OptionsView.RowAutoHeight = true;
             this.mainGridView.OptionsView.ShowGroupPanel = false;
             this.mainGridView.OptionsView.ShowIndicator = false;
@@ -176,6 +175,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager;
             this.barDockControlTop.Size = new System.Drawing.Size(399, 0);
             // 
             // barDockControlBottom
@@ -183,6 +183,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 467);
+            this.barDockControlBottom.Manager = this.barManager;
             this.barDockControlBottom.Size = new System.Drawing.Size(399, 0);
             // 
             // barDockControlLeft
@@ -190,6 +191,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 467);
             // 
             // barDockControlRight
@@ -197,53 +199,54 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(399, 0);
+            this.barDockControlRight.Manager = this.barManager;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 467);
             // 
             // buttonAddTag
             // 
             this.buttonAddTag.Caption = "Add new tag";
-            this.buttonAddTag.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonAddTag.Glyph")));
             this.buttonAddTag.Id = 3;
+            this.buttonAddTag.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddTag.ImageOptions.Image")));
             this.buttonAddTag.Name = "buttonAddTag";
             this.buttonAddTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonAddTag_ItemClick);
             // 
             // buttonEditTag
             // 
             this.buttonEditTag.Caption = "Edit tag";
-            this.buttonEditTag.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonEditTag.Glyph")));
             this.buttonEditTag.Id = 4;
+            this.buttonEditTag.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditTag.ImageOptions.Image")));
             this.buttonEditTag.Name = "buttonEditTag";
             this.buttonEditTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonEditTag_ItemClick);
             // 
             // buttonDeleteTag
             // 
             this.buttonDeleteTag.Caption = "Delete tag";
-            this.buttonDeleteTag.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonDeleteTag.Glyph")));
             this.buttonDeleteTag.Id = 5;
+            this.buttonDeleteTag.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteTag.ImageOptions.Image")));
             this.buttonDeleteTag.Name = "buttonDeleteTag";
             this.buttonDeleteTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonDeleteTag_ItemClick);
             // 
             // buttonSelectAllInGrid
             // 
             this.buttonSelectAllInGrid.Caption = "Select all rows";
-            this.buttonSelectAllInGrid.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonSelectAllInGrid.Glyph")));
             this.buttonSelectAllInGrid.Id = 6;
+            this.buttonSelectAllInGrid.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectAllInGrid.ImageOptions.Image")));
             this.buttonSelectAllInGrid.Name = "buttonSelectAllInGrid";
             this.buttonSelectAllInGrid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonSelectAllInGrid_ItemClick);
             // 
             // buttonCopySelectedRowsToClipboard
             // 
             this.buttonCopySelectedRowsToClipboard.Caption = "Copy selected rows to clipboard";
-            this.buttonCopySelectedRowsToClipboard.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonCopySelectedRowsToClipboard.Glyph")));
             this.buttonCopySelectedRowsToClipboard.Id = 7;
+            this.buttonCopySelectedRowsToClipboard.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCopySelectedRowsToClipboard.ImageOptions.Image")));
             this.buttonCopySelectedRowsToClipboard.Name = "buttonCopySelectedRowsToClipboard";
             this.buttonCopySelectedRowsToClipboard.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonCopySelectedRowsToClipboard_ItemClick);
             // 
             // buttonDeleteRowContents
             // 
             this.buttonDeleteRowContents.Caption = "Delete row contents";
-            this.buttonDeleteRowContents.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonDeleteRowContents.Glyph")));
             this.buttonDeleteRowContents.Id = 8;
+            this.buttonDeleteRowContents.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteRowContents.ImageOptions.Image")));
             this.buttonDeleteRowContents.Name = "buttonDeleteRowContents";
             this.buttonDeleteRowContents.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonDeleteRowContents_ItemClick);
             // 
@@ -274,6 +277,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fileNameTextEdit.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.fileNameTextEdit.Appearance.Options.UseFont = true;
             this.fileNameTextEdit.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.fileNameTextEdit.Location = new System.Drawing.Point(25, 3);
             this.fileNameTextEdit.Name = "fileNameTextEdit";
@@ -332,7 +336,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             // xtraTabPage1
             // 
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(377, 97);
+            this.xtraTabPage1.Size = new System.Drawing.Size(381, 100);
             this.xtraTabPage1.Text = "<L>";
             // 
             // updateInGridButton
@@ -351,6 +355,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl1.Location = new System.Drawing.Point(3, 3);
@@ -417,6 +422,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusPictureBox)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
