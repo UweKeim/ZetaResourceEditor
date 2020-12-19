@@ -20,7 +20,7 @@
         private Project _project { get; set; }
         private Font _boldFont;
 
-        private Font boldFont => _boldFont ?? (_boldFont = new Font(Font, FontStyle.Bold));
+        private Font boldFont => _boldFont ??= new Font(Font, FontStyle.Bold);
 
         public FileGroupSelectionControl()
         {
@@ -189,11 +189,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileGroupSelectionControl));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(FileGroupSelectionControl));
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeImageList = new DevExpress.Utils.ImageCollection(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.treeImageList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)this.treeImageList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             this.SuspendLayout();
             // 
             // treeListColumn1
@@ -212,7 +212,7 @@
             // 
             // treeImageList
             // 
-            this.treeImageList.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("treeImageList.ImageStream")));
+            this.treeImageList.ImageStream = (DevExpress.Utils.ImageCollectionStreamer)resources.GetObject("treeImageList.ImageStream");
             this.treeImageList.Images.SetKeyName(0, "root");
             this.treeImageList.Images.SetKeyName(1, "group");
             this.treeImageList.Images.SetKeyName(2, "file");
@@ -238,8 +238,8 @@
             this.SelectImageList = this.treeImageList;
             this.NodeCellStyle += new DevExpress.XtraTreeList.GetCustomNodeCellStyleEventHandler(this.treeView_NodeCellStyle);
             this.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.FileGroupSelectionControl_AfterCheckNode);
-            ((System.ComponentModel.ISupportInitialize)(this.treeImageList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)this.treeImageList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)this).EndInit();
             this.ResumeLayout(false);
 
         }

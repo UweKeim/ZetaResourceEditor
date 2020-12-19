@@ -60,24 +60,22 @@
 			// http://stackoverflow.com/questions/73110/how-can-i-show-scrollbars-on-a-system-windows-forms-textbox-only-when-the-text-d
 
 			var vi = (MemoEditViewInfo)_edit.GetViewInfo();
-			using (var cache = new GraphicsCache(_edit.CreateGraphics()))
-			{
-				var h = ((IHeightAdaptable)vi).CalcHeight(
-					cache,
-					vi.MaskBoxRect.Width);
+            using var cache = new GraphicsCache(_edit.CreateGraphics());
+            var h = ((IHeightAdaptable)vi).CalcHeight(
+                cache,
+                vi.MaskBoxRect.Width);
 
-				var args = new ObjectInfoArgs
-				{
-					Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h)
-				};
+            var args = new ObjectInfoArgs
+            {
+                Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h)
+            };
 
-				var rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);
-				_edit.Properties.ScrollBars =
-					rect.Height > _edit.Height
-						? ScrollBars.Vertical
-						: ScrollBars.None;
-			}
-		}
+            var rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);
+            _edit.Properties.ScrollBars =
+                rect.Height > _edit.Height
+                    ? ScrollBars.Vertical
+                    : ScrollBars.None;
+        }
 
 	}
 }

@@ -75,14 +75,7 @@
                 ConvertRXOptionsFromString(flags);
 
             var rx = new Regex(pattern, options);
-            if (flags.Contains(@"g"))
-            {
-                return rx.Replace(text, replacement);
-            }
-            else
-            {
-                return rx.Replace(text, replacement, 1);
-            }
+            return flags.Contains(@"g") ? rx.Replace(text, replacement) : rx.Replace(text, replacement, 1);
         }
 
         public static bool RXTest(
@@ -109,9 +102,7 @@
         public static RegexOptions ConvertRXOptionsFromString(
             string flags)
         {
-            RegexOptions options;
-
-            if (RecentRegexOptions.TryGetValue(flags, out options))
+            if (RecentRegexOptions.TryGetValue(flags, out var options))
             {
                 return options;
             }

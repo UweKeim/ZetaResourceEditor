@@ -1,8 +1,5 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Import
 {
-    #region Using directives.
-    // ----------------------------------------------------------------------
-
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -22,9 +19,6 @@
     using Zeta.VoyagerLibrary.Common.Collections;
     using ZetaLongPaths;
 
-    // ----------------------------------------------------------------------
-    #endregion
-
     public class ExcelImportController
     {
         private ExcelImportInformation _information;
@@ -40,9 +34,7 @@
             string filePath)
         {
             if (string.IsNullOrEmpty(filePath) ||
-                (
                 StringExtensionMethods.ToLowerInvariantIntelligent(ZlpPathHelper.GetExtension(filePath)) != @".xlsx"
-                )
                 ||
                 !ZlpIOHelper.FileExists(filePath))
             {
@@ -50,12 +42,10 @@
             }
             else
             {
-                using (var tfc = new TemporaryFileCloner(filePath))
-                {
-                    var ds = CoreExcelImporter.ImportExcelFromFile(tfc.FilePath);
+                using var tfc = new TemporaryFileCloner(filePath);
+                var ds = CoreExcelImporter.ImportExcelFromFile(tfc.FilePath);
 
-                    return detectFileGroupsFromWorkbook(project, ds);
-                }
+                return detectFileGroupsFromWorkbook(project, ds);
             }
         }
 
@@ -69,17 +59,14 @@
 
             foreach (DataTable table in dataSet.Tables)
             {
-                int totalChecksumRows;
-                var ix = extractColumnCheckSums(table, out totalChecksumRows);
+                var ix = extractColumnCheckSums(table, out _);
                 foreach (var pair in ix)
                 {
                     checkSums.Add(pair.Item1);
                 }
             }
 
-            // ReSharper disable LoopCanBeConvertedToQuery
             foreach (var checkSum in checkSums)
-            // ReSharper restore LoopCanBeConvertedToQuery
             {
                 var group = getFileGroupForCheckSum(project, checkSum);
 
@@ -105,7 +92,7 @@
 
             if (table.Columns.Count >= 1)
             {
-                for (var rowIndex = 0/*1*/; rowIndex < table.Rows.Count; rowIndex++)
+                for (var rowIndex = 0 /*1*/; rowIndex < table.Rows.Count; rowIndex++)
                 {
                     // Could have column 0 or column 1 (or none at all) as the checksum.
                     for (var columnIndex = 0; columnIndex < 2; ++columnIndex)
@@ -125,9 +112,7 @@
                                 totalChecksumRows++;
                                 var found = false;
 
-                                // ReSharper disable LoopCanBeConvertedToQuery
                                 foreach (var pair in result)
-                                // ReSharper restore LoopCanBeConvertedToQuery
                                 {
                                     if (pair.Item1 == checkSum)
                                     {
@@ -153,9 +138,7 @@
             Project project,
             long checkSum)
         {
-            // ReSharper disable LoopCanBeConvertedToQuery
             foreach (var fileGroup in project.FileGroups)
-            // ReSharper restore LoopCanBeConvertedToQuery
             {
                 if (fileGroup.GetChecksum(project) == checkSum)
                 {
@@ -170,20 +153,16 @@
             string filePath)
         {
             if (string.IsNullOrEmpty(filePath) ||
-                (
-                StringExtensionMethods.ToLowerInvariantIntelligent(ZlpPathHelper.GetExtension(filePath)) != @".xlsx"
-                ) ||
+                StringExtensionMethods.ToLowerInvariantIntelligent(ZlpPathHelper.GetExtension(filePath)) != @".xlsx" ||
                 !ZlpIOHelper.FileExists(filePath))
             {
                 return null;
             }
             else
             {
-                using (var tfc = new TemporaryFileCloner(filePath))
-                {
-                    var wb = CoreExcelImporter.ImportExcelFromFile(tfc.FilePath);
-                    return detectLanguagesFromWorkbook(wb);
-                }
+                using var tfc = new TemporaryFileCloner(filePath);
+                var wb = CoreExcelImporter.ImportExcelFromFile(tfc.FilePath);
+                return detectLanguagesFromWorkbook(wb);
             }
         }
 
@@ -217,8 +196,8 @@
             for (var columnIndex = columnStartIndex + 0; columnIndex < table.Columns.Count; ++columnIndex)
             {
                 var languageCode = string.IsNullOrEmpty(table.Columns[columnIndex].Caption)
-                                       ? table.Columns[columnIndex].ColumnName
-                                       : table.Columns[columnIndex].Caption;
+                    ? table.Columns[columnIndex].ColumnName
+                    : table.Columns[columnIndex].Caption;
 
                 if (languageCode != Resources.SR_CommandProcessorSend_Process_Name &&
                     languageCode != Resources.SR_CommandProcessorSend_Process_Comment &&
@@ -236,9 +215,7 @@
                         {
                             var found = false;
 
-                            // ReSharper disable LoopCanBeConvertedToQuery
                             foreach (var pair in result)
-                            // ReSharper restore LoopCanBeConvertedToQuery
                             {
                                 if (pair.Item1 == lc)
                                 {
@@ -262,32 +239,30 @@
         public ExcelImportResult Process(
             BackgroundWorker bw)
         {
-            using (var tfc = new TemporaryFileCloner(_information.SourceFilePath))
+            using var tfc = new TemporaryFileCloner(_information.SourceFilePath);
+            var dataSet = CoreExcelImporter.ImportExcelFromFile(tfc.FilePath);
+
+            var result = new ExcelImportResult();
+
+            var tableIndex = 0;
+            foreach (DataTable table in dataSet.Tables)
             {
-                var dataSet = CoreExcelImporter.ImportExcelFromFile(tfc.FilePath);
-
-                var result = new ExcelImportResult();
-
-                var tableIndex = 0;
-                foreach (DataTable table in dataSet.Tables)
+                if (bw.CancellationPending)
                 {
-                    if (bw.CancellationPending)
-                    {
-                        throw new OperationCanceledException();
-                    }
-
-                    processTableFileIntelligent(
-                        result,
-                        tableIndex,
-                        dataSet,
-                        table,
-                        bw);
-
-                    tableIndex++;
+                    throw new OperationCanceledException();
                 }
 
-                return result;
+                processTableFileIntelligent(
+                    result,
+                    tableIndex,
+                    dataSet,
+                    table,
+                    bw);
+
+                tableIndex++;
             }
+
+            return result;
         }
 
         private void processTableFileIntelligent(
@@ -303,12 +278,10 @@
             var checksumColumnIndex = getChecksumTableColumnIndex(table);
             var nameColumnIndex = getNameTableColumnIndex(table);
 
-            int referenceLanguageColumnIndex;
-            string referenceLanguageName;
             getReferenceLanguageTableColumnIndex(
                 table,
-                out referenceLanguageColumnIndex,
-                out referenceLanguageName);
+                out var referenceLanguageColumnIndex,
+                out var referenceLanguageName);
 
             var hasChecksumColumn = checksumColumnIndex >= 0;
             var hasNameColumn = nameColumnIndex >= 0;
@@ -332,14 +305,12 @@
 
                     // --
 
-                    DBFileGroupCacheHelper ch;
-
-                    if (!fgCache.TryGetValue(fileGroup.UniqueID, out ch))
+                    if (!fgCache.TryGetValue(fileGroup.UniqueID, out var ch))
                     {
                         ch = new DBFileGroupCacheHelper
-                                {
-                                    DB = new DataProcessing(fileGroup)
-                                };
+                        {
+                            DB = new DataProcessing(fileGroup)
+                        };
 
                         ch.Table = ch.DB.GetDataTableFromResxFiles(_information.Project);
 
@@ -367,10 +338,10 @@
                                     sourceRowIndex + 1,
                                     sourceRowCount,
                                     (int)
-                                    (((sourceRowIndex + 1.0) /
-                                      (table.Rows.Count) *
-                                      ((tableIndex + 1.0) /
-                                       (dataSet.Tables.Count))) * 100)));
+                                    ((sourceRowIndex + 1.0) /
+                                     table.Rows.Count *
+                                     ((tableIndex + 1.0) /
+                                      dataSet.Tables.Count) * 100)));
                         }
 
                         // --
@@ -472,7 +443,8 @@
                                 else
                                 {
                                     throw new Exception(
-                                        Resources.ExcelImportController_processWorkSheetFileIntelligent_Neither_name_column_nor_reference_language_column_present_);
+                                        Resources
+                                            .ExcelImportController_processWorkSheetFileIntelligent_Neither_name_column_nor_reference_language_column_present_);
                                 }
 
                                 // --
@@ -516,9 +488,7 @@
             var saveCount = 0;
             var saveIndex = 0;
 
-            // ReSharper disable LoopCanBeConvertedToQuery
             foreach (var p in fgCache)
-            // ReSharper restore LoopCanBeConvertedToQuery
             {
                 saveCount += p.Value.HasAnychanges ? 1 : 0;
             }
@@ -577,10 +547,11 @@
             for (var columnIndex = columnStartIndex + 0; columnIndex < table.Columns.Count; ++columnIndex)
             {
                 var headerCaption = string.IsNullOrEmpty(table.Columns[columnIndex].Caption)
-                                        ? table.Columns[columnIndex].ColumnName
-                                        : table.Columns[columnIndex].Caption;
+                    ? table.Columns[columnIndex].ColumnName
+                    : table.Columns[columnIndex].Caption;
 
-                if (string.Compare(headerCaption, Resources.SR_CommandProcessorSend_Process_Name, StringComparison.OrdinalIgnoreCase) == 0)
+                if (string.Compare(headerCaption, Resources.SR_CommandProcessorSend_Process_Name,
+                    StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     return columnIndex;
                 }
@@ -595,9 +566,9 @@
         private static int getChecksumTableColumnIndex(
             DataTable table)
         {
-            int totalChecksumRows;
-            var ps = extractColumnCheckSums(table, out totalChecksumRows);
-            // The following was set to compare totalChecksumRows to count -1 but the header row is already removed in the ExcelLibrary.DatasetHelper.CreateDataSet (using PopulateDataTable(ws) method)
+            var ps = extractColumnCheckSums(table, out var totalChecksumRows);
+            // The following was set to compare totalChecksumRows to count -1 but the header row is already removed
+            // in the ExcelLibrary.DatasetHelper.CreateDataSet (using PopulateDataTable(ws) method)
             if (ps.Count <= 0 || totalChecksumRows != table.Rows.Count)
             {
                 return -1;
@@ -621,7 +592,7 @@
                     var lc =
                         ExcelExportController.IsFileName(column.ColumnName)
                             ? new LanguageCodeDetection(
-                                _information.Project)
+                                    _information.Project)
                                 .DetectLanguageCodeFromFileName(
                                     settings,
                                     column.ColumnName)
@@ -647,7 +618,7 @@
                     var lc =
                         ExcelExportController.IsFileName(column.ColumnName)
                             ? new LanguageCodeDetection(
-                                _information.Project)
+                                    _information.Project)
                                 .DetectLanguageCodeFromFileName(
                                     settings,
                                     column.ColumnName)
@@ -677,7 +648,8 @@
             if (string.IsNullOrEmpty(tagName))
             {
                 throw new ArgumentException(
-                    Resources.ExcelImportController_getDestinationTableRowsByTagName_Reference_tag_name_must_be_provided_but_is_currently_NULL_or_empty_,
+                    Resources
+                        .ExcelImportController_getDestinationTableRowsByTagName_Reference_tag_name_must_be_provided_but_is_currently_NULL_or_empty_,
                     nameof(tagName));
             }
             else
@@ -686,9 +658,7 @@
 
                 // --
 
-                // ReSharper disable LoopCanBeConvertedToQuery
                 foreach (DataRow row in table.Rows)
-                // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     var lk = ConvertHelper.ToString(row[1]); // Column 0=FileGroup checksum, column 1=Tag name.
 
@@ -737,9 +707,7 @@
 
                 // --
 
-                // ReSharper disable LoopCanBeConvertedToQuery
                 foreach (DataRow row in table.Rows)
-                // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     var lk = ConvertHelper.ToString(row[referenceLanguageDestinationColumnIndex]);
                     if (string.Compare(lk, referenceLanguageValue, StringComparison.OrdinalIgnoreCase) == 0 &&
@@ -756,7 +724,8 @@
                 {
                     var nr = table.NewRow();
                     nr[0] = string.Empty; // Column 0=FileGroup checksum, column 1=Tag name.
-                    nr[1] = referenceLanguageValue.GenerateMatchCode(); // Column 0=FileGroup checksum, column 1=Tag name.
+                    nr[1] = referenceLanguageValue
+                        .GenerateMatchCode(); // Column 0=FileGroup checksum, column 1=Tag name.
                     nr[referenceLanguageDestinationColumnIndex] = referenceLanguageValue;
                     table.Rows.Add(nr);
 

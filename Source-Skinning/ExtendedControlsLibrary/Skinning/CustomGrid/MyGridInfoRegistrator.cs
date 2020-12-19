@@ -10,15 +10,9 @@
     public class MyGridInfoRegistrator :
 		GridInfoRegistrator
 	{
-		public override string ViewName
-		{
-			get
-			{
-				return typeof(MyGridView).Name;
-			}
-		}
+		public override string ViewName => typeof(MyGridView).Name;
 
-		public override BaseView CreateView(GridControl grid)
+        public override BaseView CreateView(GridControl grid)
 		{
 			return new MyGridView(grid);
 		}

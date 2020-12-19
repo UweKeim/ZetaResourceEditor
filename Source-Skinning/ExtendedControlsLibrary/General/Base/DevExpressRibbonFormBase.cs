@@ -17,17 +17,11 @@
 			KeyPreview = true;
 		}
 
-		protected IGuiEnvironment GuiHost
-		{
-			get { return InternalHost; }
-		}
+		protected IGuiEnvironment GuiHost => InternalHost;
 
-		public static IGuiEnvironment InternalHost { get; protected set; }
+        public static IGuiEnvironment InternalHost { get; protected set; }
 
-        protected UpdateUIController UuiController
-        {
-            get { return _uuiController ?? (_uuiController = new UpdateUIController(this)); }
-        }
+        protected UpdateUIController UuiController => _uuiController ?? (_uuiController = new UpdateUIController(this));
 
         public virtual void DoUpdateUI(
             UpdateUIInformation information)

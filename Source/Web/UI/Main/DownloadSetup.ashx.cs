@@ -127,7 +127,7 @@
                         // Flush the data to the HTML output.
                         response.Flush();
 
-                        dataToRead = dataToRead - length;
+                        dataToRead -= length;
                     }
                     else
                     {

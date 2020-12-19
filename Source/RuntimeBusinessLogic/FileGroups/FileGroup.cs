@@ -75,16 +75,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
                 if (projectFolder == null)
                 {
-                    if (project == null)
-                    {
-                        // When opening without a project,
-                        // use a dummy project.
-                        return Project.Empty;
-                    }
-                    else
-                    {
-                        return project;
-                    }
+                    // When opening without a project,
+                    // use a dummy project.
+                    return project ?? Project.Empty;
                 }
                 else
                 {
@@ -432,16 +425,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         {
             var name = row[@"Name"] as string;
 
-            if (string.IsNullOrEmpty(name) ||
-                name.StartsWith(@">>") ||
-                (!name.Equals(@"$this.Text") && name.StartsWith(@"$this.")))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return string.IsNullOrEmpty(name) ||
+                   name.StartsWith(@">>") ||
+                   !name.Equals(@"$this.Text") && name.StartsWith(@"$this.");
         }
 
         public static string ExtractPlaceholders(
@@ -655,19 +641,23 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                         var parentFolderPath = folderPath.Parent;
                         if (parentFolderPath == null)
                         {
-                            return _name;
+                            return project == null || !project.DisplayFileGroupWithoutFolder
+                                ? _name
+                                : ZlpPathHelper.GetFileNameFromFilePath(_name);
                         }
                         else
                         {
                             //CHANGED: append fileName, otherwise name is not complete.
                             var pathToMakeRelative = ZlpPathHelper.Combine(parentFolderPath.FullName, filePath.Name);
                             return
-                                shortenFilePath(
-                                    ZlpPathHelper.GetRelativePath(
-                                        project == null
-                                            ? string.Empty
-                                            : project.ProjectConfigurationFilePath.DirectoryName,
-                                        pathToMakeRelative));
+                                project == null || !project.DisplayFileGroupWithoutFolder
+                                    ? shortenFilePath(
+                                        ZlpPathHelper.GetRelativePath(
+                                            project == null
+                                                ? string.Empty
+                                                : project.ProjectConfigurationFilePath.DirectoryName,
+                                            pathToMakeRelative))
+                                    : filePath.Name;
                         }
                     }
                     else if (@"App_LocalResources".EqualsNoCase(folderPath.Name))
@@ -682,22 +672,29 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                         var ext = ZlpPathHelper.GetExtension(name);
                         var result = name.Substring(0, name.Length - ext.Length);
 
-                        return shortenFilePath(result);
+                        return
+                            project == null || !project.DisplayFileGroupWithoutFolder
+                                ? shortenFilePath(result)
+                                : filePath.Name;
                     }
                     else
                     {
                         return
-                            shortenFilePath(
-                                ZlpPathHelper.GetRelativePath(
-                                    project == null
-                                        ? string.Empty
-                                        : project.ProjectConfigurationFilePath.DirectoryName,
-                                    filePath.FullName));
+                            project == null || !project.DisplayFileGroupWithoutFolder
+                                ? shortenFilePath(
+                                    ZlpPathHelper.GetRelativePath(
+                                        project == null
+                                            ? string.Empty
+                                            : project.ProjectConfigurationFilePath.DirectoryName,
+                                        filePath.FullName))
+                                : filePath.Name;
                     }
                 }
                 else
                 {
-                    return _name;
+                    return project == null || !project.DisplayFileGroupWithoutFolder
+                        ? _name
+                        : ZlpPathHelper.GetFileNameFromFilePath(_name);
                 }
             }
         }

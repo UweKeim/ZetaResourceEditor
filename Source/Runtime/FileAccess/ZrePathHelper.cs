@@ -71,43 +71,28 @@
 			}
 		}
 
-		private static bool isValidFileNameChar(
-			char ch)
-		{
-			return isValidFileNameChar(ch, null);
-		}
-
-		private static bool isValidFileNameChar(
+        private static bool isValidFileNameChar(
 			char ch,
-			ICollection<char> additionalValidChars)
+			ICollection<char> additionalValidChars = null)
 		{
-			if (!((ch >= 'a' && ch <= 'z') ||
-				(ch >= 'A' && ch <= 'Z') ||
-				(ch >= '0' && ch <= '9') ||
-				(ch == '$') ||
-				(ch == '-') ||
-				(ch == '_') ||
-				(ch == '.') ||
-				(ch == '+') ||
-				(ch == '!') ||
-				(ch == '\'') ||
-				(ch == '(') ||
-				(ch == ')') ||
-				(ch == '{') ||
-				(ch == '}') ||
-				(ch == ',')))
-			{
-				if ((additionalValidChars == null ||
-					additionalValidChars.Count <= 0) ||
-					!additionalValidChars.Contains(ch))
-				{
-					return false;
-				}
-				else
-				{
-					return true;
-				}
-			}
+			if (!(ch >= 'a' && ch <= 'z' ||
+				ch >= 'A' && ch <= 'Z' ||
+				ch >= '0' && ch <= '9' ||
+				ch == '$' ||
+				ch == '-' ||
+				ch == '_' ||
+				ch == '.' ||
+				ch == '+' ||
+				ch == '!' ||
+				ch == '\'' ||
+				ch == '(' ||
+				ch == ')' ||
+				ch == '{' ||
+				ch == '}' ||
+				ch == ','))
+            {
+                return additionalValidChars != null && additionalValidChars.Count > 0 && additionalValidChars.Contains(ch);
+            }
 			else
 			{
 				return true;
@@ -182,7 +167,7 @@
 						}
 					}
 					// pathname is just a root and fileName
-					else if ( (root.Length + 4 + elements[filenameIndex].Length) >
+					else if ( root.Length + 4 + elements[filenameIndex].Length >
 						maximumPathLength )
 					{
 						root += @"...\";
@@ -194,7 +179,7 @@
 						}
 						else
 						{
-							if ( (root.Length + 6) >= maximumPathLength )
+							if ( root.Length + 6 >= maximumPathLength )
 							{
 								len = 3;
 							}

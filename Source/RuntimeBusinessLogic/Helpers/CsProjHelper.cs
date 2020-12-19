@@ -13,7 +13,7 @@
 
         public static CsProjectWithFileResult GetProjectContainingFile(ZlpFileInfo file)
         {
-            var maxRecursionLevelForProject = 5;
+            const int maxRecursionLevelForProject = 5;
             var recursionLevelForProject = 1;
 
             var currentDirectory = file.Directory;

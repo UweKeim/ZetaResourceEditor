@@ -20,18 +20,20 @@
 		[DefaultValue(false)]
 		public bool HasPadding
 		{
-			get { return Padding.Left > 0; }
-			set { base.Padding = value ? new Padding(12, 12, 12, 12) : new Padding(0); }
-		}
+			get => Padding.Left > 0;
+            set => base.Padding = value ? new Padding(12, 12, 12, 12) : new Padding(0);
+        }
 
 		[Browsable(false)]
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new Padding Padding { get { return base.Padding; } set { base.Padding = value; } }
+		public new Padding Padding { get => base.Padding;
+            set => base.Padding = value;
+        }
 
 		[Browsable(false)]
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public override AppearanceObject AppearanceCaption { get { return base.AppearanceCaption; } }
-	}
+		public override AppearanceObject AppearanceCaption => base.AppearanceCaption;
+    }
 }

@@ -1,12 +1,9 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel
 {
-	using System.Drawing;
+    using System.Drawing;
 
-	public class SafeExcelColors
+    public static class SafeExcelColors
     {
-        #region Static fields.
-        // ------------------------------------------------------------------
-
         public static readonly Color Black = Color.FromArgb(0, 0, 0);
         public static readonly Color White = Color.FromArgb(255, 255, 255);
         public static readonly Color Red = Color.FromArgb(255, 0, 0);
@@ -63,8 +60,5 @@
         public static readonly Color Color54 = Color.FromArgb(153, 51, 102);
         public static readonly Color Color55 = Color.FromArgb(51, 51, 153);
         public static readonly Color Color56 = Color.FromArgb(51, 51, 51);
-
-        // ------------------------------------------------------------------
-        #endregion
     }
 }

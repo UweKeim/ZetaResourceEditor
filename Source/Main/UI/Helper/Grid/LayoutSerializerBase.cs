@@ -63,14 +63,7 @@
 
 				// --
 
-				if (useRootObj)
-				{
-					return new FilterSerializeHelper(rootObj);
-				}
-				else
-				{
-					return new FilterSerializeHelper();
-				}
+				return useRootObj ? new FilterSerializeHelper(rootObj) : new FilterSerializeHelper();
 			}
 		}
 
@@ -90,34 +83,30 @@
 		}
 
 		public void Save()
-		{
-			using (var ms = new MemoryStream())
-			{
-				saveSettings(gridView, ms, XtraGridAppName);
-				ms.Seek(0, SeekOrigin.Begin);
+        {
+            using var ms = new MemoryStream();
+            saveSettings(gridView, ms, XtraGridAppName);
+            ms.Seek(0, SeekOrigin.Begin);
 
-				string s;
-				using (var sr = new StreamReader(ms, Encoding.UTF8))
-				{
-					s = sr.ReadToEnd();
-				}
+            string s;
+            using (var sr = new StreamReader(ms, Encoding.UTF8))
+            {
+                s = sr.ReadToEnd();
+            }
 
-				PersistanceHelper.SaveValue(_storage, key, s);
-			}
-		}
+            PersistanceHelper.SaveValue(_storage, key, s);
+        }
 
 		public void Restore()
 		{
 			var s = ConvertHelper.ToString(PersistanceHelper.RestoreValue(_storage, key));
 
 			if (!string.IsNullOrEmpty(s))
-			{
-				using (var ms =
-					new MemoryStream(Encoding.UTF8.GetBytes(s)))
-				{
-					loadSettings(gridView, ms, XtraGridAppName);
-				}
-			}
+            {
+                using var ms =
+                    new MemoryStream(Encoding.UTF8.GetBytes(s));
+                loadSettings(gridView, ms, XtraGridAppName);
+            }
 		}
 
 		public virtual void Reset()
@@ -181,16 +170,9 @@
 				object obj,
 				PropertyDescriptor prop,
 				XtraSerializableProperty xtraSerializableProperty)
-			{
-				if (CheckFilter(obj.GetType(), prop.Name))
-				{
-					return false;
-				}
-				else
-				{
-					return base.ShouldSerializeProperty(helper, obj, prop, xtraSerializableProperty);
-				}
-			}
+            {
+                return !CheckFilter(obj.GetType(), prop.Name) && base.ShouldSerializeProperty(helper, obj, prop, xtraSerializableProperty);
+            }
 
 			private bool CheckFilter(Type key, string propertyName)
 			{

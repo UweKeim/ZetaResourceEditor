@@ -2,18 +2,15 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
 {
     using AsyncBridge;
     using Language;
-    using MoreLinq;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
     using Properties;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using System.Net;
     using System.Net.Http;
-    using System.Runtime.Serialization;
     using System.Text;
-    using System.Web;
-    using System.Xml.Linq;
     using ZetaLongPaths;
 
     // Beispiele siehe:
@@ -43,24 +40,74 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
             return ZlpSimpleFileAccessProtector.Protect(
                 delegate
                 {
+                    // https://docs.microsoft.com/de-de/azure/cognitive-services/translator/reference/v3-0-languages#request-url
+                    // https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp/blob/master/Languages.cs
+
+                    var subscriptionKey = appID;
+                    const string endpoint = @"https://api.cognitive.microsofttranslator.com/";
+
+                    // Input and output languages are defined as parameters.
+                    const string route = @"/languages?api-version=3.0&scope=translation";
+
+                    using var client = new HttpClient();
+                    using var request = new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Get,
+                        RequestUri = new Uri(endpoint + route),
+                    };
+
+                    // Build the request.
+                    request.Headers.Add(@"Ocp-Apim-Subscription-Key", /*getAuthToken*/(subscriptionKey));
+                    /*request.Headers.Add("Ocp-Apim-Subscription-Region", location);*/
+
+                    // Send the request and get response.
+                    HttpResponseMessage response = null;
+                    using (var A = AsyncHelper.Wait)
+                    {
+                        A.Run(client.SendAsync(request), res => response = res);
+                    }
+
+                    // Read response as a string.
+                    string result = null;
+                    using (var B = AsyncHelper.Wait)
+                    {
+                        B.Run(response.Content.ReadAsStringAsync(), res => result = res);
+                    }
+
+                    // https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm
+                    var o = JObject.Parse(result);
+                    var t = o[@"translation"]?.Values<JProperty>();
+
+                    return t
+                        ?.Select(l =>
+                            new TranslationLanguageInfo
+                            {
+                                LanguageCode = ((JProperty)l).Name,
+                                UserReadableName = tryGetLanguageName(((JProperty)l).Name)
+                            }).ToArray();
+
+
+
+
+
+                    /*
                     const string uri = @"https://api.microsofttranslator.com/v2/Http.svc/GetLanguagesForTranslate";
 
                     var httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
                     httpWebRequest.Headers.Add(@"Authorization", getAuthToken(appID));
-                    using (var response = httpWebRequest.GetResponse())
-                    using (var stream = response.GetResponseStream())
-                    {
-                        var dcs = new DataContractSerializer(typeof(List<string>));
-                        var languagesForTranslate = ((List<string>)dcs.ReadObject(stream)).ToHashSet();
+                    using var response = httpWebRequest.GetResponse();
+                    using var stream = response.GetResponseStream();
+                    var dcs = new DataContractSerializer(typeof(List<string>));
+                    var languagesForTranslate = ((List<string>)dcs.ReadObject(stream)).ToHashSet();
 
-                        return languagesForTranslate
-                            .Select(l =>
-                                new TranslationLanguageInfo
-                                {
-                                    LanguageCode = l,
-                                    UserReadableName = tryGetLanguageName(l)
-                                }).ToArray();
-                    }
+                    return languagesForTranslate
+                        .Select(l =>
+                            new TranslationLanguageInfo
+                            {
+                                LanguageCode = l,
+                                UserReadableName = tryGetLanguageName(l)
+                            }).ToArray();
+                    */
                 });
         }
 
@@ -69,19 +116,17 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
             return CultureHelper.CreateCultureErrorTolerant(s).DisplayName;
         }
 
-        private string getAuthToken(string appID)
-        {
-            var authTokenSource = new AzureAuthToken(appID.Trim());
-            var authToken = string.Empty;
+        //private string getAuthToken(string appID)
+        //{
+        //    var authTokenSource = new AzureAuthToken(appID.Trim());
+        //    var authToken = string.Empty;
 
-            // https://github.com/tejacques/AsyncBridge#example-usage
-            using (var A = AsyncHelper.Wait)
-            {
-                A.Run(authTokenSource.GetAccessTokenAsync(), res => authToken = res);
-            }
+        //    // https://github.com/tejacques/AsyncBridge#example-usage
+        //    using var A = AsyncHelper.Wait;
+        //    A.Run(authTokenSource.GetAccessTokenAsync(), res => authToken = res);
 
-            return authToken;
-        }
+        //    return authToken;
+        //}
 
         TranslationLanguageInfo[] ITranslationEngine.GetDestinationLanguages(string appID)
         {
@@ -124,9 +169,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
             return ZlpSimpleFileAccessProtector.Protect(
                 delegate
                 {
-                    var removed = TranslationHelper.RemoveWords(
-                        text,
-                        wordsToRemove);
+                    var removed = TranslationHelper.RemoveWords(text, wordsToRemove);
 
                     var prot = TranslationHelper.ProtectWords(
                         new TranslationHelper.ProtectionInfo
@@ -135,29 +178,56 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
                             WordsToProtect = wordsToProtect
                         });
 
-                    var uri =
-                        $@"https://api.microsofttranslator.com/v2/Http.svc/Translate?text={HttpUtility.UrlEncode(prot.ProtectedText)}&from={
-                                sourceLanguageCode
-                            }&to={destinationLanguageCode}";
+                    // https://docs.microsoft.com/de-de/azure/cognitive-services/Translator/quickstart-translator?tabs=csharp#translate-text
 
-                    var httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
-                    httpWebRequest.Headers.Add(@"Authorization", getAuthToken(appID));
-                    using (var response = httpWebRequest.GetResponse())
-                    using (var stream = response.GetResponseStream())
+                    var subscriptionKey = appID;
+                    const string endpoint = @"https://api.cognitive.microsofttranslator.com/";
+
+                    // Input and output languages are defined as parameters.
+                    var route = @$"/translate?api-version=3.0&from={sourceLanguageCode}&to={destinationLanguageCode}";
+                    var textToTranslate = prot.ProtectedText;
+                    var body = new object[] { new { Text = textToTranslate } };
+                    var requestBody = JsonConvert.SerializeObject(body);
+
+                    using var client = new HttpClient();
+                    using var request = new HttpRequestMessage
                     {
-                        var dcs = new DataContractSerializer(typeof(string));
-                        var translation = (string)dcs.ReadObject(stream);
+                        Method = HttpMethod.Post,
+                        RequestUri = new Uri(endpoint + route),
+                        Content = new StringContent(requestBody, Encoding.UTF8, @"application/json")
+                    };
 
-                        var protres = new TranslationHelper.ProtectionResult
-                        {
-                            ProtectedText = translation,
-                            UnprotectedToProtectedMapping = prot.UnprotectedToProtectedMapping,
-                            WordsToProtect = prot.WordsToProtect
-                        };
+                    // Build the request.
+                    request.Headers.Add(@"Ocp-Apim-Subscription-Key", /*getAuthToken*/(subscriptionKey));
+                    /*request.Headers.Add("Ocp-Apim-Subscription-Region", location);*/
 
-                        var unprot = TranslationHelper.UnprotectWords(protres);
-                        return unprot.UnprotectedText;
+                    // Send the request and get response.
+                    HttpResponseMessage response = null;
+                    using (var A = AsyncHelper.Wait)
+                    {
+                        A.Run(client.SendAsync(request), res => response = res);
                     }
+
+                    // Read response as a string.
+                    string result = null;
+                    using (var B = AsyncHelper.Wait)
+                    {
+                        B.Run(response.Content.ReadAsStringAsync(), res => result = res);
+                    }
+
+                    // https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm
+                    var o = JArray.Parse(result);
+                    var t = o[0][@"translations"]?[0]?[@"text"];
+
+                    var protres = new TranslationHelper.ProtectionResult
+                    {
+                        ProtectedText = t?.Value<string>() ?? string.Empty,
+                        UnprotectedToProtectedMapping = prot.UnprotectedToProtectedMapping,
+                        WordsToProtect = prot.WordsToProtect
+                    };
+
+                    var unprot = TranslationHelper.UnprotectWords(protres);
+                    return unprot.UnprotectedText;
                 });
         }
 
@@ -169,6 +239,104 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
             string[] wordsToProtect,
             string[] wordsToRemove)
         {
+            var protectionResults = new List<TranslationHelper.ProtectionResult>();
+
+            foreach (var text in texts)
+            {
+                var removed = TranslationHelper.RemoveWords(text, wordsToRemove);
+
+                var preparedText = TranslationHelper.ProtectWords(new TranslationHelper.ProtectionInfo
+                {
+                    UnprotectedText = removed,
+                    WordsToProtect = wordsToProtect
+                });
+
+                protectionResults.Add(preparedText);
+            }
+
+            var tr = new List<string>();
+
+            ZlpSimpleFileAccessProtector.Protect(
+                delegate
+                {
+                    // Das eigentliche Übersetzen.
+
+                    // https://docs.microsoft.com/de-de/azure/cognitive-services/Translator/quickstart-translator?tabs=csharp#translate-text
+
+                    var subscriptionKey = appID;
+                    const string endpoint = @"https://api.cognitive.microsofttranslator.com/";
+
+                    // Input and output languages are defined as parameters.
+                    var route = @$"/translate?api-version=3.0&from={sourceLanguageCode}&to={destinationLanguageCode}";
+
+                    //var textToTranslate = prot.ProtectedText;
+                    //var body = new object[] {new {Text = textToTranslate}};
+
+                    var body = protectionResults.Select(x => new { Text = x.ProtectedText }).Cast<object>();
+                    var requestBody = JsonConvert.SerializeObject(body);
+
+                    using var client = new HttpClient();
+                    using var request = new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Post,
+                        RequestUri = new Uri(endpoint + route),
+                        Content = new StringContent(requestBody, Encoding.UTF8, @"application/json")
+                    };
+
+                    // Build the request.
+                    request.Headers.Add(@"Ocp-Apim-Subscription-Key", /*getAuthToken*/(subscriptionKey));
+                    /*request.Headers.Add("Ocp-Apim-Subscription-Region", location);*/
+
+                    // Send the request and get response.
+                    HttpResponseMessage response = null;
+                    using (var A = AsyncHelper.Wait)
+                    {
+                        A.Run(client.SendAsync(request), res => response = res);
+                    }
+
+                    // Read response as a string.
+                    string result = null;
+                    using (var B = AsyncHelper.Wait)
+                    {
+                        B.Run(response.Content.ReadAsStringAsync(), res => result = res);
+                    }
+
+                    // https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm
+                    var o = JArray.Parse(result);
+                    var t = o[0][@"translations"];
+                    //dynamic o = JsonConvert.DeserializeObject(result);
+                    //var t = o == null ? null : o[0].translations; //[0].text;
+
+                    if (t != null)
+                    {
+                        foreach (var u in t)
+                        {
+                            tr.Add(u[@"text"]?.Value<string>());
+                        }
+                    }
+                }
+            );
+
+            var dicDic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
+
+            var result = new List<string>();
+
+            foreach (var translatedText in tr)
+            {
+                result.Add(
+                    TranslationHelper.UnprotectWords(
+                        new TranslationHelper.ProtectionResult
+                        {
+                            ProtectedText = translatedText,
+                            WordsToProtect = wordsToProtect,
+                            UnprotectedToProtectedMapping = dicDic
+                        }
+                    ).UnprotectedText);
+            }
+
+            return result.ToArray();
+
+#if false
             return ZlpSimpleFileAccessProtector.Protect(
                 delegate
                 {
@@ -214,62 +382,64 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
                         $@"<To>{destinationLanguageCode}</To>" +
                         @"</TranslateArrayRequest>";
 
-                    using (var client = new HttpClient())
-                    using (var request = new HttpRequestMessage())
+                    using var client = new HttpClient();
+                    using var request = new HttpRequestMessage
                     {
-                        request.Method = HttpMethod.Post;
-                        request.RequestUri = new Uri(uri);
-                        request.Content = new StringContent(body, Encoding.UTF8, @"text/xml");
-                        request.Headers.Add(@"Authorization", getAuthToken(appID));
+                        Method = HttpMethod.Post,
+                        RequestUri = new Uri(uri),
+                        Content = new StringContent(body, Encoding.UTF8, @"text/xml")
+                    };
 
-                        HttpResponseMessage response = null;
-                        string responseBody = null;
+                    request.Headers.Add(@"Authorization", getAuthToken(appID));
 
-                        // https://github.com/tejacques/AsyncBridge#example-usage
-                        using (var A = AsyncHelper.Wait)
-                        {
-                            A.Run(client.SendAsync(request), res => response = res);
-                        }
+                    HttpResponseMessage response = null;
+                    string responseBody = null;
 
-                        using (var A = AsyncHelper.Wait)
-                        {
-                            A.Run(response?.Content.ReadAsStringAsync(), res => responseBody = res);
-                        }
+                    // https://github.com/tejacques/AsyncBridge#example-usage
+                    using (var A = AsyncHelper.Wait)
+                    {
+                        A.Run(client.SendAsync(request), res => response = res);
+                    }
 
-                        if (response == null) throw new HttpException();
+                    using (var A = AsyncHelper.Wait)
+                    {
+                        A.Run(response?.Content.ReadAsStringAsync(), res => responseBody = res);
+                    }
 
-                        switch (response?.StatusCode)
-                        {
-                            case HttpStatusCode.OK:
-                                var doc = XDocument.Parse(responseBody);
-                                var ns = XNamespace.Get(
-                                    @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2");
+                    if (response == null) throw new HttpException();
 
-                                var result = new List<string>();
+                    switch (response?.StatusCode)
+                    {
+                        case HttpStatusCode.OK:
+                            var doc = XDocument.Parse(responseBody);
+                            var ns = XNamespace.Get(
+                                @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2");
 
-                                // Sum up all mappings.
-                                var dic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
+                            var result = new List<string>();
 
-                                foreach (var xe in doc.Descendants(ns + @"TranslateArrayResponse"))
-                                {
-                                    result.AddRange(xe.Elements(ns + @"TranslatedText").Select(node => TranslationHelper
-                                        .UnprotectWords(
-                                            new TranslationHelper.ProtectionResult
-                                            {
-                                                ProtectedText = node.Value,
-                                                WordsToProtect = wordsToProtect,
-                                                UnprotectedToProtectedMapping = dic
-                                            }
-                                        ).UnprotectedText));
-                                }
+                            // Sum up all mappings.
+                            var dic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
 
-                                return result.ToArray();
+                            foreach (var xe in doc.Descendants(ns + @"TranslateArrayResponse"))
+                            {
+                                result.AddRange(xe.Elements(ns + @"TranslatedText").Select(node => TranslationHelper
+                                    .UnprotectWords(
+                                        new TranslationHelper.ProtectionResult
+                                        {
+                                            ProtectedText = node.Value,
+                                            WordsToProtect = wordsToProtect,
+                                            UnprotectedToProtectedMapping = dic
+                                        }
+                                    ).UnprotectedText));
+                            }
 
-                            default:
-                                throw new HttpException((int)response.StatusCode, responseBody);
-                        }
+                            return result.ToArray();
+
+                        default:
+                            throw new HttpException((int)response.StatusCode, responseBody);
                     }
                 });
+#endif
         }
 
         private static string escapeXml(string text)

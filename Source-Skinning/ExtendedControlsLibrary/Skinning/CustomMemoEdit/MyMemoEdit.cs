@@ -36,7 +36,7 @@
         [DefaultValue(true)]
         public bool HideScrollbarsIfContentMatches
         {
-            get { return _adjuster != null; }
+            get => _adjuster != null;
             set
             {
                 if (value && !_everAttached)

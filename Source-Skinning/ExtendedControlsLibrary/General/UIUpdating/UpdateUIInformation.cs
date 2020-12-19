@@ -14,7 +14,7 @@
 
 		public object UserState { get; private set; }
 
-        public Guid Token { get { return _token; } }
-		public DateTime CreatedAt { get { return _createdAt; } }
-	}
+        public Guid Token => _token;
+        public DateTime CreatedAt => _createdAt;
+    }
 }

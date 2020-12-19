@@ -12,17 +12,11 @@ namespace ExtendedControlsLibrary.General.Base
 	{
         private UpdateUIController _uuiController;
 
-        public IGuiEnvironment GuiHost
-        {
-            get { return DevExpressXtraFormBase.InternalHost; }
-        }
+        public IGuiEnvironment GuiHost => DevExpressXtraFormBase.InternalHost;
 
-        protected UpdateUIController UuiController
-		{
-			get { return _uuiController ?? (_uuiController = new UpdateUIController(this)); }
-		}
+        protected UpdateUIController UuiController => _uuiController ?? (_uuiController = new UpdateUIController(this));
 
-		public virtual void DoUpdateUI(
+        public virtual void DoUpdateUI(
 			UpdateUIInformation information)
 		{
 			// Does nothing.

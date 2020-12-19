@@ -292,26 +292,23 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                                 MessageBoxButtons.YesNoCancel,
                                 MessageBoxIcon.Question);
 
-                        if (r2 == DialogResult.Yes)
+                        switch (r2)
                         {
-                            _data.SaveDataTableToResxFiles(
-                                project,
-                                dataSource,
-                                createBackups,
-                                omitEmptyStrings);
+                            case DialogResult.Yes:
+                                _data.SaveDataTableToResxFiles(
+                                    project,
+                                    dataSource,
+                                    createBackups,
+                                    omitEmptyStrings);
 
-                            markDetailsContentAsUnmodified(); // 2009-08-25, Uwe Keim.
-                            markGridContentAsUnmodified();
+                                markDetailsContentAsUnmodified(); // 2009-08-25, Uwe Keim.
+                                markGridContentAsUnmodified();
 
-                            return DialogResult.OK;
-                        }
-                        else if (r2 == DialogResult.No)
-                        {
-                            return DialogResult.OK;
-                        }
-                        else
-                        {
-                            return DialogResult.Cancel;
+                                return DialogResult.OK;
+                            case DialogResult.No:
+                                return DialogResult.OK;
+                            default:
+                                return DialogResult.Cancel;
                         }
                     }
                 }
@@ -679,31 +676,29 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         {
             var rowHandle = selectedRowHandle;
 
-            using (var form = new RenameTagForm(DistinctTagNames))
+            using var form = new RenameTagForm(DistinctTagNames);
+            var oldName = mainGridHelper.GetRowCellValue(rowHandle, 1) as string;
+            form.TagName = oldName;
+
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                var oldName = mainGridHelper.GetRowCellValue(rowHandle, 1) as string;
-                form.TagName = oldName;
+                var newName = form.TagName;
 
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    var newName = form.TagName;
+                //--
+                // Rename visually.
 
-                    //--
-                    // Rename visually.
+                // Column 0=FileGroup checksum, column 1=Tag name.
+                mainGridHelper.SetRowCellValue(rowHandle, 1, newName);
 
-                    // Column 0=FileGroup checksum, column 1=Tag name.
-                    mainGridHelper.SetRowCellValue(rowHandle, 1, newName);
+                // --
+                // Rename in Dataobject
 
-                    // --
-                    // Rename in Dataobject
+                _data.RenameTag(
+                    oldName,
+                    newName);
 
-                    _data.RenameTag(
-                        oldName,
-                        newName);
-
-                    MarkGridContentAsModified();
-                    UpdateUI();
-                }
+                MarkGridContentAsModified();
+                UpdateUI();
             }
         }
 
@@ -751,31 +746,29 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
         public void AddTag()
         {
-            using (var form = new AddTagForm(DistinctTagNames))
+            using var form = new AddTagForm(DistinctTagNames);
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    var newTagName = form.TagName;
+                var newTagName = form.TagName;
 
-                    //--
-                    // Add visually.
+                //--
+                // Add visually.
 
-                    var dataRow = createNewDataRow();
-                    // Column 0=FileGroup checksum, column 1=Tag name.
-                    dataRow[0] =
-                        GridEditableData.GetChecksum(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
-                    dataRow[1] = newTagName;
-                    ((DataTable)mainDataGrid.DataSource).Rows.Add(dataRow);
+                var dataRow = createNewDataRow();
+                // Column 0=FileGroup checksum, column 1=Tag name.
+                dataRow[0] =
+                    GridEditableData.GetChecksum(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+                dataRow[1] = newTagName;
+                ((DataTable)mainDataGrid.DataSource).Rows.Add(dataRow);
 
-                    // --
-                    // Add to DataObject
+                // --
+                // Add to DataObject
 
-                    _data.AddTag(
-                        newTagName);
+                _data.AddTag(
+                    newTagName);
 
-                    MarkGridContentAsModified();
-                    UpdateUI();
-                }
+                MarkGridContentAsModified();
+                UpdateUI();
             }
         }
 
@@ -1098,166 +1091,165 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
             // --
 
-            if (e.Column.AbsoluteIndex == 0)
+            switch (e.Column.AbsoluteIndex)
             {
-                // Column 0=FileGroup checksum, column 1=Tag name.
+                case 0:
+                    // Column 0=FileGroup checksum, column 1=Tag name.
 
-                // Do nothing.
-            }
-            else if (e.Column.AbsoluteIndex == 1)
-            {
-                if (isCompleteRowEmpty(row))
-                {
+                    // Do nothing.
+                    break;
+                case 1 when isCompleteRowEmpty(row):
                     e.Appearance.Font = italicFont;
                     e.Appearance.ForeColor =
                         isRowSelected
                             ? currentSkin.TranslateColor(SystemColors.HighlightText)
                             : currentSkin.TranslateColor(GridColors.CompleteRowEmptyForeColor);
-                }
-                else
-                {
+                    break;
+                case 1:
                     e.Appearance.Font = regularFont;
                     e.Appearance.ForeColor =
                         isRowSelected
                             ? currentSkin.TranslateColor(SystemColors.HighlightText)
                             : currentSkin.TranslateColor(GridColors.TagNameForeColor);
-                }
-            }
-            else
-            {
-                // --
-                // Make empty cells colored.
-
-                if (ConvertHelper.ToString(e.CellValue, string.Empty).Trim().Length <= 0)
+                    break;
+                default:
                 {
-                    if (!isRowSelected)
+                    // --
+                    // Make empty cells colored.
+
+                    if (ConvertHelper.ToString(e.CellValue, string.Empty).Trim().Length <= 0)
                     {
-                        if (isCompleteRowEmpty(row))
+                        if (!isRowSelected)
                         {
-                            e.Appearance.ForeColor =
-                                currentSkin.TranslateColor(GridColors.CompleteRowEmptyForeColor);
-
-                            var color =
-                                currentSkin.TranslateColor(
-                                    SystemColors.ControlLight);
-
-                            e.Appearance.BackColor = color;
-                            e.Appearance.BackColor2 = color;
-                        }
-                        else
-                        {
-                            if (!DataProcessing.CommentsAreVisible(
-                                    MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
-                                    row.Row,
-                                    CommentVisibilityScope.VisualGrid) ||
-                                e.Column.AbsoluteIndex != mainGridView.Columns.Count - 1)
+                            if (isCompleteRowEmpty(row))
                             {
+                                e.Appearance.ForeColor =
+                                    currentSkin.TranslateColor(GridColors.CompleteRowEmptyForeColor);
+
                                 var color =
                                     currentSkin.TranslateColor(
-                                        GridColors.EmptyCellBackColor);
-
-                                // http://www.codeproject.com/Messages/3403105/Re-Null-vs-empty-resource-value.aspx
-                                if (e.CellValue == null || DBNull.Value == e.CellValue)
-                                {
-                                    if (colorifyNullValues)
-                                    {
-                                        color = GridColors.NullCellBackColor;
-                                    }
-                                }
+                                        SystemColors.ControlLight);
 
                                 e.Appearance.BackColor = color;
                                 e.Appearance.BackColor2 = color;
                             }
-                        }
-                    }
-                }
-
-                // --
-                // Make rows with different number of placeholders colored.
-
-                // AJ CHANGE, don't count the comments column.
-                // Column 0=FileGroup checksum, column 1=Tag name.
-                if (e.Column.AbsoluteIndex > 1)
-                {
-                    var comments =
-                        DataProcessing.CommentsAreVisible(
-                            MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
-                            row.Row,
-                            CommentVisibilityScope.VisualGrid);
-
-                    if (mainGridView.Columns.Count > (comments ? 3 : 2))
-                    {
-                        var neutralCode = neutralLanguageCode;
-                        var neutralColumnIndex = findColumnIndex(row.Row.Table, neutralCode, 2);
-
-                        var firstColumnContent = ConvertHelper.ToString(row[neutralColumnIndex]);
-
-                        var firstPlaceholderCount =
-                            FileGroup.ExtractPlaceholders(firstColumnContent);
-
-                        // 2010-10-23, Uwe Keim: Check all others, too.
-                        var yes = false;
-                        for (var i = 1 + 1; i < mainGridView.Columns.Count - (comments ? 1 : 0); i++)
-                        {
-                            if (i != neutralColumnIndex)
+                            else
                             {
-                                var columnContent = ConvertHelper.ToString(row[i]);
-
-                                // 2011-11-16, Uwe Keim: Only check if non-empty, non-default-language.
-                                if (!string.IsNullOrEmpty(columnContent))
+                                if (!DataProcessing.CommentsAreVisible(
+                                        MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                                        row.Row,
+                                        CommentVisibilityScope.VisualGrid) ||
+                                    e.Column.AbsoluteIndex != mainGridView.Columns.Count - 1)
                                 {
-                                    var other = FileGroup.ExtractPlaceholders(columnContent);
+                                    var color =
+                                        currentSkin.TranslateColor(
+                                            GridColors.EmptyCellBackColor);
 
-                                    if (other != firstPlaceholderCount)
+                                    // http://www.codeproject.com/Messages/3403105/Re-Null-vs-empty-resource-value.aspx
+                                    if (e.CellValue == null || DBNull.Value == e.CellValue)
                                     {
-                                        yes = true;
-                                        break;
+                                        if (colorifyNullValues)
+                                        {
+                                            color = GridColors.NullCellBackColor;
+                                        }
                                     }
+
+                                    e.Appearance.BackColor = color;
+                                    e.Appearance.BackColor2 = color;
                                 }
                             }
                         }
+                    }
 
-                        if (yes)
+                    // --
+                    // Make rows with different number of placeholders colored.
+
+                    // AJ CHANGE, don't count the comments column.
+                    // Column 0=FileGroup checksum, column 1=Tag name.
+                    if (e.Column.AbsoluteIndex > 1)
+                    {
+                        var comments =
+                            DataProcessing.CommentsAreVisible(
+                                MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                                row.Row,
+                                CommentVisibilityScope.VisualGrid);
+
+                        if (mainGridView.Columns.Count > (comments ? 3 : 2))
+                        {
+                            var neutralCode = neutralLanguageCode;
+                            var neutralColumnIndex = findColumnIndex(row.Row.Table, neutralCode, 2);
+
+                            var firstColumnContent = ConvertHelper.ToString(row[neutralColumnIndex]);
+
+                            var firstPlaceholderCount =
+                                FileGroup.ExtractPlaceholders(firstColumnContent);
+
+                            // 2010-10-23, Uwe Keim: Check all others, too.
+                            var yes = false;
+                            for (var i = 1 + 1; i < mainGridView.Columns.Count - (comments ? 1 : 0); i++)
+                            {
+                                if (i != neutralColumnIndex)
+                                {
+                                    var columnContent = ConvertHelper.ToString(row[i]);
+
+                                    // 2011-11-16, Uwe Keim: Only check if non-empty, non-default-language.
+                                    if (!string.IsNullOrEmpty(columnContent))
+                                    {
+                                        var other = FileGroup.ExtractPlaceholders(columnContent);
+
+                                        if (other != firstPlaceholderCount)
+                                        {
+                                            yes = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (yes)
+                            {
+                                e.Appearance.ForeColor =
+                                    isRowSelected
+                                        ? currentSkin.TranslateColor(SystemColors.HighlightText)
+                                        : currentSkin.TranslateColor(GridColors.PlaceHolderMismatchForeColor);
+                            }
+                        }
+                    }
+
+                    // --
+                    // Make translated cells that need to be reviewed different color.
+
+                    // Column 0=FileGroup checksum, column 1=Tag name.
+                    if (e.Column.AbsoluteIndex > 1)
+                    {
+                        var value =
+                            ConvertHelper.ToString(e.CellValue);
+
+                        if (!string.IsNullOrEmpty(value) &&
+                            value.StartsWith(FileGroup.DefaultTranslatedPrefix))
                         {
                             e.Appearance.ForeColor =
                                 isRowSelected
                                     ? currentSkin.TranslateColor(SystemColors.HighlightText)
-                                    : currentSkin.TranslateColor(GridColors.PlaceHolderMismatchForeColor);
+                                    : currentSkin.TranslateColor(GridColors.TranslationSuccessForeColor);
+                            e.Appearance.Font = boldFont;
+                        }
+                        else if (!string.IsNullOrEmpty(value) &&
+                                 value.StartsWith(FileGroup.DefaultTranslationErrorPrefix))
+                        {
+                            e.Appearance.ForeColor =
+                                isRowSelected
+                                    ? currentSkin.TranslateColor(SystemColors.HighlightText)
+                                    : currentSkin.TranslateColor(GridColors.TranslationErrorForeColor);
+                            e.Appearance.Font = boldFont;
+                        }
+                        else
+                        {
+                            e.Appearance.Font = regularFont;
                         }
                     }
-                }
 
-                // --
-                // Make translated cells that need to be reviewed different color.
-
-                // Column 0=FileGroup checksum, column 1=Tag name.
-                if (e.Column.AbsoluteIndex > 1)
-                {
-                    var value =
-                        ConvertHelper.ToString(e.CellValue);
-
-                    if (!string.IsNullOrEmpty(value) &&
-                        value.StartsWith(FileGroup.DefaultTranslatedPrefix))
-                    {
-                        e.Appearance.ForeColor =
-                            isRowSelected
-                                ? currentSkin.TranslateColor(SystemColors.HighlightText)
-                                : currentSkin.TranslateColor(GridColors.TranslationSuccessForeColor);
-                        e.Appearance.Font = boldFont;
-                    }
-                    else if (!string.IsNullOrEmpty(value) &&
-                             value.StartsWith(FileGroup.DefaultTranslationErrorPrefix))
-                    {
-                        e.Appearance.ForeColor =
-                            isRowSelected
-                                ? currentSkin.TranslateColor(SystemColors.HighlightText)
-                                : currentSkin.TranslateColor(GridColors.TranslationErrorForeColor);
-                        e.Appearance.Font = boldFont;
-                    }
-                    else
-                    {
-                        e.Appearance.Font = regularFont;
-                    }
+                    break;
                 }
             }
         }
@@ -1568,43 +1560,39 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
         public void Find()
         {
-            using (var form = new FindForm())
-            {
-                form.TextToFind = _findText;
+            using var form = new FindForm();
+            form.TextToFind = _findText;
 
-                if (form.ShowDialog(this) == DialogResult.OK)
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                _findText = form.TextToFind;
+                if (!FindNext())
                 {
-                    _findText = form.TextToFind;
-                    if (!FindNext())
-                    {
-                        XtraMessageBox.Show(
-                            Resources.SR_ResourceEditorUserControl_Find_TheTextWasNotFound,
-                            @"Zeta Resource Editor",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
+                    XtraMessageBox.Show(
+                        Resources.SR_ResourceEditorUserControl_Find_TheTextWasNotFound,
+                        @"Zeta Resource Editor",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                 }
             }
         }
 
         public void Replace()
         {
-            using (var form = new ReplaceForm())
+            using var form = new ReplaceForm();
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                if (form.ShowDialog(this) == DialogResult.OK)
+                int count;
+                using (new WaitCursor(this, WaitCursorOption.ShortSleep))
                 {
-                    int count;
-                    using (new WaitCursor(this, WaitCursorOption.ShortSleep))
-                    {
-                        count = replaceAll(form.TextToFind, form.TextToReplaceWith);
-                    }
-
-                    XtraMessageBox.Show(
-                        count <= 0 ? "The text was not found." : $"{count} occurrences have been replaced.",
-                        @"Zeta Resource Editor",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    count = replaceAll(form.TextToFind, form.TextToReplaceWith);
                 }
+
+                XtraMessageBox.Show(
+                    count <= 0 ? "The text was not found." : $"{count} occurrences have been replaced.",
+                    @"Zeta Resource Editor",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
         }
 
@@ -1947,8 +1935,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                     GridEditableData.ParentSettings,
                     name);
 
-                SpellChecker gridSpellChecker;
-                if (!_gridSpellCheckers.TryGetValue(culture, out gridSpellChecker))
+                if (!_gridSpellCheckers.TryGetValue(culture, out var gridSpellChecker))
                 {
                     gridSpellChecker = CultureHelper.CreateSpellChecker(culture);
                     if (gridSpellChecker != null)
@@ -2079,48 +2066,46 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
         private void DeleteRowContentsWithDialog()
         {
-            using (var form = new DeleteRowContentsForm())
+            using var form = new DeleteRowContentsForm();
+            form.Initialize(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+
+            if (form.ShowDialog(ParentForm) == DialogResult.OK)
             {
-                form.Initialize(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+                var languagesToDelete = new List<string>(form.GetLanguagesToDelete());
 
-                if (form.ShowDialog(ParentForm) == DialogResult.OK)
+                var rowHandles = new List<int>(selectedRowHandles);
+                rowHandles.Sort((x, y) => -x.CompareTo(y));
+
+                foreach (var rowHandle in rowHandles)
                 {
-                    var languagesToDelete = new List<string>(form.GetLanguagesToDelete());
+                    var row = (DataRowView)mainGridView.GetRow(rowHandle);
 
-                    var rowHandles = new List<int>(selectedRowHandles);
-                    rowHandles.Sort((x, y) => -x.CompareTo(y));
+                    var comments =
+                        DataProcessing.CommentsAreVisible(
+                            MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                            row.Row,
+                            CommentVisibilityScope.VisualGrid);
 
-                    foreach (var rowHandle in rowHandles)
+                    var sub = !comments || form.WantDeleteComments ? 0 : 1;
+
+                    // Column 0=FileGroup checksum, column 1=Tag name.
+                    for (var i = 2; i < mainGridView.Columns.Count - sub; ++i)
                     {
-                        var row = (DataRowView)mainGridView.GetRow(rowHandle);
+                        var languageName =
+                            DataProcessing.ExtractCultureNameFromColumnCaption(
+                                mainGridView.Columns[i].GetCaption());
 
-                        var comments =
-                            DataProcessing.CommentsAreVisible(
-                                MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
-                                row.Row,
-                                CommentVisibilityScope.VisualGrid);
-
-                        var sub = !comments || form.WantDeleteComments ? 0 : 1;
-
-                        // Column 0=FileGroup checksum, column 1=Tag name.
-                        for (var i = 2; i < mainGridView.Columns.Count - sub; ++i)
+                        if (!StringExtensionMethods.IsNullOrWhiteSpace(
+                            languagesToDelete.Find(
+                                y => string.Compare(y, languageName, StringComparison.OrdinalIgnoreCase) == 0)))
                         {
-                            var languageName =
-                                DataProcessing.ExtractCultureNameFromColumnCaption(
-                                    mainGridView.Columns[i].GetCaption());
-
-                            if (!StringExtensionMethods.IsNullOrWhiteSpace(
-                                languagesToDelete.Find(
-                                    y => String.Compare(y, languageName, StringComparison.OrdinalIgnoreCase) == 0)))
-                            {
-                                mainGridHelper.SetRowCellValue(rowHandle, i, null);
-                            }
+                            mainGridHelper.SetRowCellValue(rowHandle, i, null);
                         }
                     }
-
-                    MarkGridContentAsModified();
-                    UpdateUI();
                 }
+
+                MarkGridContentAsModified();
+                UpdateUI();
             }
         }
 

@@ -38,10 +38,5 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
 		public bool UseCrypticExcelExportSheetNames { get; set; }
 
 		public bool ExportReferenceLanguageColumn { get; set; }
-
-		public bool SendFilesWithZetaUploader { get; set; }
-		public string SendFilesEMailReceivers { get; set; }
-		public string SendFilesEMailSubject { get; set; }
-		public string SendFilesEMailBody { get; set; }
 	}
 }

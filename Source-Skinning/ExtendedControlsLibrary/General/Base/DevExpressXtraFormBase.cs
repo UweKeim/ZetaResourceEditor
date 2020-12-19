@@ -27,10 +27,10 @@
         MyXtraForm,
         IUpdateUI
     {
-        /// <summary>
-        /// Helper function for replacing regular tabs with a list box, like in
-        /// the new Microsoft Office option dialogs.
-        /// </summary>
+        ///// <summary>
+        ///// Helper function for replacing regular tabs with a list box, like in
+        ///// the new Microsoft Office option dialogs.
+        ///// </summary>
         //protected void PutTabNavigationToListView(
         //    XtraTabControl tabControl,
         //    BaseImageListBoxControl listControl)
@@ -417,7 +417,7 @@
                             throw new Exception(@"FixedPanel must be Panel2.");
                         }
 
-                        if ((c.Width - realDistance) > 0)
+                        if (c.Width - realDistance > 0)
                         {
                             c.SplitterPosition = c.Width - realDistance;
                         }
@@ -440,7 +440,7 @@
                             throw new Exception(@"You must set one panel inside a splitter to be fixed.");
                         }
 
-                        if ((c.Height - realDistance) > 0)
+                        if (c.Height - realDistance > 0)
                         {
                             c.SplitterPosition = c.Height - realDistance;
                         }
@@ -473,7 +473,7 @@
                     realDistance = c.Width - c.SplitterPosition;
                 }
 
-                percentageDistance = ((double)c.SplitterPosition / c.Width) * 100.0;
+                percentageDistance = (double)c.SplitterPosition / c.Width * 100.0;
             }
             else
             {
@@ -492,7 +492,7 @@
                     realDistance = c.Height - c.SplitterPosition;
                 }
 
-                percentageDistance = ((double)c.SplitterPosition / c.Height) * 100.0;
+                percentageDistance = (double)c.SplitterPosition / c.Height * 100.0;
             }
 
             // --
@@ -664,22 +664,20 @@
         {
             var prefix = c.Name;
 
-            using (var tfc = new ZetaTemporaryFileCreator())
-            {
-                c.SaveLayoutToXml(
-                    tfc.FilePath,
-                    new OptionsLayoutTreeList
-                    {
-                        AddNewColumns = false,
-                        RemoveOldColumns = true,
-                        StoreAppearance = false
-                    });
+            using var tfc = new ZetaTemporaryFileCreator();
+            c.SaveLayoutToXml(
+                tfc.FilePath,
+                new OptionsLayoutTreeList
+                {
+                    AddNewColumns = false,
+                    RemoveOldColumns = true,
+                    StoreAppearance = false
+                });
 
-                PersistanceHelper.SaveValue(
-                    storage,
-                    prefix + @".TreeList",
-                    tfc.FileContentString);
-            }
+            PersistanceHelper.SaveValue(
+                storage,
+                prefix + @".TreeList",
+                tfc.FileContentString);
         }
 
         private static void restoreState(
@@ -705,17 +703,15 @@
                             @"//property[@name='OptionsView']"
                         });
 
-                using (var tfc = new ZetaTemporaryFileCreator(xml))
-                {
-                    c.RestoreLayoutFromXml(
-                        tfc.FilePath,
-                        new OptionsLayoutTreeList
-                        {
-                            AddNewColumns = false,
-                            RemoveOldColumns = true,
-                            StoreAppearance = false
-                        });
-                }
+                using var tfc = new ZetaTemporaryFileCreator(xml);
+                c.RestoreLayoutFromXml(
+                    tfc.FilePath,
+                    new OptionsLayoutTreeList
+                    {
+                        AddNewColumns = false,
+                        RemoveOldColumns = true,
+                        StoreAppearance = false
+                    });
             }
         }
 
@@ -725,23 +721,21 @@
         {
             var prefix = c.Name;
 
-            using (var tfc = new ZetaTemporaryFileCreator())
-            {
-                c.SaveLayoutToXml(
-                    tfc.FilePath,
-                        new OptionsLayoutGrid
-                        {
-                            StoreAllOptions = false,
-                            StoreDataSettings = true,
-                            StoreVisualOptions = false,
-                            StoreAppearance = false
-                        });
+            using var tfc = new ZetaTemporaryFileCreator();
+            c.SaveLayoutToXml(
+                tfc.FilePath,
+                new OptionsLayoutGrid
+                {
+                    StoreAllOptions = false,
+                    StoreDataSettings = true,
+                    StoreVisualOptions = false,
+                    StoreAppearance = false
+                });
 
-                PersistanceHelper.SaveValue(
-                    storage,
-                    prefix + @".GridView",
-                    tfc.FileContentString);
-            }
+            PersistanceHelper.SaveValue(
+                storage,
+                prefix + @".GridView",
+                tfc.FileContentString);
         }
 
         private static void restoreState(
@@ -774,18 +768,16 @@
                 //            @"//property[@name='OptionsView']",
                 //        });
 
-                using (var tfc = new ZetaTemporaryFileCreator(xml))
-                {
-                    c.RestoreLayoutFromXml(
-                        tfc.FilePath,
-                        new OptionsLayoutGrid
-                        {
-                            StoreAllOptions = false,
-                            StoreDataSettings = true,
-                            StoreVisualOptions = false,
-                            StoreAppearance = false
-                        });
-                }
+                using var tfc = new ZetaTemporaryFileCreator(xml);
+                c.RestoreLayoutFromXml(
+                    tfc.FilePath,
+                    new OptionsLayoutGrid
+                    {
+                        StoreAllOptions = false,
+                        StoreDataSettings = true,
+                        StoreVisualOptions = false,
+                        StoreAppearance = false
+                    });
             }
         }
 

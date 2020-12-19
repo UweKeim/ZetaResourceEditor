@@ -12,16 +12,9 @@
 		protected override SerializeHelper CreateSerializeHelper(
 			object rootObj,
 			bool useRootObj)
-		{
-			if (useRootObj)
-			{
-				return new FilterSerializeHelper(rootObj);
-			}
-			else
-			{
-				return new FilterSerializeHelper();
-			}
-		}
+        {
+            return useRootObj ? new FilterSerializeHelper(rootObj) : new FilterSerializeHelper();
+        }
 
 		protected override void DeserializeObject(
 			object obj,
@@ -74,8 +67,7 @@
 
 		public void RemoveProperty(Type key, string propertyName)
 		{
-			string filter;
-			if (!_filters.TryGetValue(key, out filter)) return;
+            if (!_filters.TryGetValue(key, out var filter)) return;
 
 			_filters[key] = filter.Replace(string.Concat(propertyName, @";"), string.Empty);
 		}

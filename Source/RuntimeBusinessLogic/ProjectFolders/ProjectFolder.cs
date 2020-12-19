@@ -71,14 +71,7 @@
                 var result = ConvertHelper.ToString(
                     _dynSettings.RetrieveValue(@"NonNeutralLanguageFileNamePattern"));
 
-                if (string.IsNullOrEmpty(result))
-                {
-                    return @"[basename][optionaldefaulttypes].[languagecode].[extension]";
-                }
-                else
-                {
-                    return result;
-                }
+                return string.IsNullOrEmpty(result) ? @"[basename][optionaldefaulttypes].[languagecode].[extension]" : result;
             }
             set => _dynSettings.PersistValue(@"NonNeutralLanguageFileNamePattern", value);
         }
@@ -290,14 +283,7 @@
 
                 // --
 
-                if (result == FileGroupStateColor.None)
-                {
-                    return FileGroupStateColor.Grey;
-                }
-                else
-                {
-                    return result;
-                }
+                return result == FileGroupStateColor.None ? FileGroupStateColor.Grey : result;
             }
         }
 

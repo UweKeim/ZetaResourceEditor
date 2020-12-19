@@ -82,9 +82,7 @@
 
             foreach (var text in texts)
             {
-                var removed = TranslationHelper.RemoveWords(
-                    text,
-                    wordsToRemove);
+                var removed = TranslationHelper.RemoveWords(text, wordsToRemove);
 
                 var preparedText = TranslationHelper.ProtectWords(new TranslationHelper.ProtectionInfo
                 {

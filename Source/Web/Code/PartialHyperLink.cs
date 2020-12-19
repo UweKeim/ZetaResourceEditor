@@ -1,5 +1,6 @@
 ﻿namespace Web.Code
 {
+    using System;
     using System.ComponentModel;
     using System.Web.UI;
     using System.Web.UI.WebControls;
@@ -20,17 +21,10 @@
 		public string NavigateUrl
 		{
 			get
-			{
-				var str = (string)ViewState[@"NavigateUrl"];
-				if ( str == null )
-				{
-					return string.Empty;
-				}
-				else
-				{
-					return str;
-				}
-			}
+            {
+                var str = (string)ViewState[@"NavigateUrl"];
+                return str ?? string.Empty;
+            }
 			set => ViewState[@"NavigateUrl"] = value;
 		}
 
@@ -42,17 +36,10 @@
 		public string Text
 		{
 			get
-			{
-				var str = (string)ViewState[@"Text"];
-				if ( str == null )
-				{
-					return string.Empty;
-				}
-				else
-				{
-					return str;
-				}
-			}
+            {
+                var str = (string)ViewState[@"Text"];
+                return str ?? string.Empty;
+            }
 			set => ViewState[@"Text"] = value;
 		}
 
@@ -64,17 +51,10 @@
 		public virtual string ImageUrl
 		{
 			get
-			{
-				var str = (string)ViewState[@"ImageUrl"];
-				if ( str != null )
-				{
-					return str;
-				}
-				else
-				{
-					return string.Empty;
-				}
-			}
+            {
+                var str = (string)ViewState[@"ImageUrl"];
+                return str ?? string.Empty;
+            }
 			set => ViewState[@"ImageUrl"] = value;
 		}
 
@@ -85,17 +65,10 @@
 		public string Target
 		{
 			get
-			{
-				var str = (string)ViewState[@"Target"];
-				if ( str != null )
-				{
-					return str;
-				}
-				else
-				{
-					return string.Empty;
-				}
-			}
+            {
+                var str = (string)ViewState[@"Target"];
+                return str ?? string.Empty;
+            }
 			set => ViewState[@"Target"] = value;
 		}
 
@@ -113,23 +86,23 @@
 
 				if ( text.Contains( startToken ) && text.Contains( endToken ) )
 				{
-					beforeText = text.Substring( 0, text.IndexOf( startToken ) );
+					beforeText = text.Substring( 0, text.IndexOf( startToken, StringComparison.Ordinal) );
 					hyperlinkText = text.Substring(
-						text.IndexOf( startToken ) + startToken.Length,
-						text.IndexOf( endToken ) - (text.IndexOf( startToken ) + startToken.Length) );
-					afterText = text.Substring( text.IndexOf( endToken ) + endToken.Length );
+                        text.IndexOf( startToken, StringComparison.Ordinal) + startToken.Length,
+                        text.IndexOf( endToken, StringComparison.Ordinal) - (text.IndexOf( startToken, StringComparison.Ordinal) + startToken.Length) );
+					afterText = text.Substring( text.IndexOf( endToken, StringComparison.Ordinal) + endToken.Length );
 				}
 				else if ( text.Contains( startToken ) )
 				{
-					beforeText = text.Substring( 0, text.IndexOf( startToken ) );
-					hyperlinkText = text.Substring( text.IndexOf( startToken ) + startToken.Length );
+					beforeText = text.Substring( 0, text.IndexOf( startToken, StringComparison.Ordinal) );
+					hyperlinkText = text.Substring( text.IndexOf( startToken, StringComparison.Ordinal) + startToken.Length );
 					afterText = null;
 				}
 				else if ( text.Contains( endToken ) )
 				{
 					beforeText = null;
-					hyperlinkText = text.Substring( 0, text.IndexOf( endToken ) );
-					afterText = text.Substring( text.IndexOf( endToken ) + endToken.Length );
+					hyperlinkText = text.Substring( 0, text.IndexOf( endToken, StringComparison.Ordinal) );
+					afterText = text.Substring( text.IndexOf( endToken, StringComparison.Ordinal) + endToken.Length );
 				}
 				else
 				{

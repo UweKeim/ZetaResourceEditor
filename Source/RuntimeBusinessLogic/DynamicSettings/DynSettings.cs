@@ -54,8 +54,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
                 {
                     if (settingNode.Attributes != null)
                     {
-                        string name;
-                        XmlHelper.ReadAttribute(out name, settingNode.Attributes[@"name"]);
+                        XmlHelper.ReadAttribute(out string name, settingNode.Attributes[@"name"]);
 
                         var value = settingNode.SelectSingleNode(@"value");
                         if (value != null)
@@ -120,8 +119,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
             }
             else
             {
-                string result;
-                return DirectValues.TryGetValue(name, out result) ? result : null;
+                return DirectValues.TryGetValue(name, out var result) ? result : null;
             }
         }
 

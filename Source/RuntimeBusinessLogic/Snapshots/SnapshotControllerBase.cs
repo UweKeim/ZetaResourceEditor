@@ -25,18 +25,16 @@
         {
             if (!StringExtensionMethods.IsNullOrWhiteSpace(key))
             {
-                using (var connection = new SQLiteConnection(connectionString))
-                {
-                    connection.Open();
-                    var cmd =
-                        new SQLiteCommand(connection)
-                        {
-                            CommandText = @"DELETE FROM ZreSettings WHERE Value1=@Value1"
-                        };
-                    cmd.Parameters.Add(new SQLiteParameter(@"@Value1") { Value = key });
+                using var connection = new SQLiteConnection(connectionString);
+                connection.Open();
+                var cmd =
+                    new SQLiteCommand(connection)
+                    {
+                        CommandText = @"DELETE FROM ZreSettings WHERE Value1=@Value1"
+                    };
+                cmd.Parameters.Add(new SQLiteParameter(@"@Value1") { Value = key });
 
-                    cmd.ExecuteNonQuery();
-                }
+                cmd.ExecuteNonQuery();
             }
         }
 
@@ -50,19 +48,17 @@
 
                 if (!string.IsNullOrEmpty(value))
                 {
-                    using (var connection = new SQLiteConnection(connectionString))
-                    {
-                        connection.Open();
-                        var cmd =
-                            new SQLiteCommand(connection)
-                            {
-                                CommandText = @"INSERT INTO ZreSettings (Value1, Value2) VALUES (@Value1, @Value2)"
-                            };
-                        cmd.Parameters.Add(new SQLiteParameter(@"@Value1") { Value = key });
-                        cmd.Parameters.Add(new SQLiteParameter(@"@Value2") { Value = value });
+                    using var connection = new SQLiteConnection(connectionString);
+                    connection.Open();
+                    var cmd =
+                        new SQLiteCommand(connection)
+                        {
+                            CommandText = @"INSERT INTO ZreSettings (Value1, Value2) VALUES (@Value1, @Value2)"
+                        };
+                    cmd.Parameters.Add(new SQLiteParameter(@"@Value1") { Value = key });
+                    cmd.Parameters.Add(new SQLiteParameter(@"@Value2") { Value = value });
 
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
@@ -76,18 +72,16 @@
             }
             else
             {
-                using (var connection = new SQLiteConnection(connectionString))
-                {
-                    connection.Open();
-                    var cmd =
-                        new SQLiteCommand(connection)
-                        {
-                            CommandText = @"SELECT Value2 FROM ZreSettings WHERE Value1=@Value1"
-                        };
-                    cmd.Parameters.Add(new SQLiteParameter(@"@Value1") { Value = key });
+                using var connection = new SQLiteConnection(connectionString);
+                connection.Open();
+                var cmd =
+                    new SQLiteCommand(connection)
+                    {
+                        CommandText = @"SELECT Value2 FROM ZreSettings WHERE Value1=@Value1"
+                    };
+                cmd.Parameters.Add(new SQLiteParameter(@"@Value1") { Value = key });
 
-                    return cmd.ExecuteScalar() as string;
-                }
+                return cmd.ExecuteScalar() as string;
             }
         }
 
@@ -101,13 +95,12 @@
 
             if (!doesTableExist(@"ZreSettings"))
             {
-                using (var connection = new SQLiteConnection(connectionString))
+                using var connection = new SQLiteConnection(connectionString);
+                connection.Open();
+                new SQLiteCommand(connection)
                 {
-                    connection.Open();
-                    new SQLiteCommand(connection)
-                    {
-                        CommandText =
-                                @"CREATE TABLE ZreSettings
+                    CommandText =
+                        @"CREATE TABLE ZreSettings
 								(
 									ID INTEGER PRIMARY KEY ASC,
 									Value1,
@@ -115,8 +108,7 @@
 									Value3,
 									Value4
 								)"
-                    }.ExecuteNonQuery();
-                }
+                }.ExecuteNonQuery();
             }
         }
 
@@ -127,11 +119,9 @@
         private bool doesTableExist(
             string tableName)
         {
-            using (var connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
-                return doesTableExist(connection, tableName);
-            }
+            using var connection = new SQLiteConnection(connectionString);
+            connection.Open();
+            return doesTableExist(connection, tableName);
         }
 
         private static bool doesTableExist(

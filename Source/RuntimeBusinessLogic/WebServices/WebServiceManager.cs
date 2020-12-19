@@ -6,8 +6,7 @@
     using System;
     using System.ComponentModel;
     using System.Net;
-    using Web_References.UpdateChecker;
-    using Web_References.ZetaUploader;
+    using UpdateChecker;
     using Zeta.VoyagerLibrary.Logging;
     using Zeta.VoyagerLibrary.Tools.Storage;
     using Zeta.VoyagerLibrary.Tools.Text;
@@ -104,22 +103,21 @@
         {
             get
             {
-                if (WebProxyUsage == WebProxyUsage.NoProxy)
+                switch (WebProxyUsage)
                 {
-                    return null;
-                }
-                else if (WebProxyUsage == WebProxyUsage.DefaultProxy)
-                {
-                    return WebRequest.GetSystemWebProxy();
-                }
-                else
-                {
-                    var s =
-                        StringHelper.DeserializeFromString(
-                                PersistanceHelper.RestoreValue(@"WebServiceProxy") as string)
-                            as WebProxySerializator;
+                    case WebProxyUsage.NoProxy:
+                        return null;
+                    case WebProxyUsage.DefaultProxy:
+                        return WebRequest.GetSystemWebProxy();
+                    default:
+                    {
+                        var s =
+                            StringHelper.DeserializeFromString(
+                                    PersistanceHelper.RestoreValue(@"WebServiceProxy") as string)
+                                as WebProxySerializator;
 
-                    return s?.WebProxy;
+                        return s?.WebProxy;
+                    }
                 }
             }
             set
@@ -155,7 +153,6 @@
 
                 // Reset web services.
                 _updateCheckerWS = null;
-                _zetaUploaderWS = null;
             }
         }
 
@@ -173,7 +170,7 @@
                     _updateCheckerWS =
                         new UpdateCheckerService
                         {
-                            Timeout = (3600 * 1000),
+                            Timeout = 3600 * 1000,
                             AllowAutoRedirect = true
                         };
 
@@ -190,44 +187,6 @@
                 return _updateCheckerWS;
             }
         }
-
-        /// <summary>
-        /// Returns a ready-to-use (with optional proxy) web service client
-        /// instance to access the zeta uploader web service.
-        /// </summary>
-        /// <value>The zeta uploader WS.</value>
-        public ZetaUploaderCommunication ZetaUploaderWS
-        {
-            get
-            {
-                if (_zetaUploaderWS == null)
-                {
-                    _zetaUploaderWS =
-                        new ZetaUploaderCommunication
-                        {
-                            Timeout = (3600 * 1000),
-                            AllowAutoRedirect = true
-                        };
-
-                    var proxy = WebServiceProxy;
-                    if (proxy != null)
-                    {
-                        _zetaUploaderWS.Proxy = proxy;
-                    }
-
-                    //#if !DEBUG
-                    //                    _zetaUploaderWS.Url =
-                    //                        @"http://www.zeta-uploader.com/Communication.asmx";
-                    //#endif
-
-                    LogCentral.Current.LogInfo(
-                        $@"Using WebService at URL '{_zetaUploaderWS.Url}'.");
-                }
-
-                return _zetaUploaderWS;
-            }
-        }
-
         // ------------------------------------------------------------------
 
         #endregion
@@ -366,7 +325,6 @@
         private static readonly object TypeLock = new object();
 
         private UpdateCheckerService _updateCheckerWS;
-        private ZetaUploaderCommunication _zetaUploaderWS;
 
         private static volatile WebServiceManager _current;
 

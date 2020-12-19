@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel;
+    using System.Linq;
     using System.Windows.Forms;
     using DevExpress.XtraEditors;
 
@@ -15,10 +16,10 @@
 		[Browsable(false)]
 		public new AutoScaleMode AutoScaleMode
 		{
-			get { return AutoScaleMode.None; } 
-// ReSharper disable ValueParameterNotUsed
-			set { base.AutoScaleMode = AutoScaleMode.None; }
-// ReSharper restore ValueParameterNotUsed
+			get => AutoScaleMode.None;
+            // ReSharper disable ValueParameterNotUsed
+			set => base.AutoScaleMode = AutoScaleMode.None;
+            // ReSharper restore ValueParameterNotUsed
 		}
 
         protected override void OnLoad(EventArgs e)
@@ -72,18 +73,10 @@
 				return true;
 			}
 			else
-			{
-				// Recurse.
-				foreach (Control cc in c.Controls)
-				{
-					if (IsFocused(cc))
-					{
-						return true;
-					}
-				}
-
-				return false;
-			}
+            {
+                // Recurse.
+                return c.Controls.Cast<Control>().Any(IsFocused);
+            }
 		}
 
 		public static Control GetFocused(
@@ -98,19 +91,10 @@
 				return c;
 			}
 			else
-			{
-				// Recurse.
-				foreach (Control cc in c.Controls)
-				{
-					var cs = GetFocused(cc);
-					if (cs != null)
-					{
-						return cs;
-					}
-				}
-
-				return null;
-			}
+            {
+                // Recurse.
+                return c.Controls.Cast<Control>().Select(GetFocused).FirstOrDefault(cs => cs != null);
+            }
 		}
 
 		/// <summary>

@@ -48,7 +48,6 @@
         /// 
         /// </summary>
         private static readonly AdResponse[] stockResponses =
-            new[]
             {
                 /*
 			new AdResponse(

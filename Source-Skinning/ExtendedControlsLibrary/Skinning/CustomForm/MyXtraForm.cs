@@ -21,17 +21,7 @@
 
         public IDXMenuManager GetMenuBarManager()
         {
-            if (_menuBarManager == null)
-            {
-                _menuBarManager = findManager();
-                //var components = findComponent();
-                //_menuBarManager = components == null ? new BarManager() : new BarManager(components);
-
-                //_menuBarManager.BeginInit();
-                //_menuBarManager.EndInit();
-            }
-
-            return _menuBarManager;
+            return _menuBarManager ??= findManager();
         }
 
         private BarManager findManager()
@@ -72,10 +62,7 @@
         {
             if (c == null || c.IsDisposed) return null;
 
-            var form = c.FindForm() as MyXtraForm;
-            if (form == null || form.IsDisposed) return null;
-
-            return form.GetMenuBarManager();
+            return !(c.FindForm() is MyXtraForm form) || form.IsDisposed ? null : form.GetMenuBarManager();
 
             //var t = form.GetType();
 
@@ -94,9 +81,9 @@
         [Browsable(false)]
         public new AutoScaleMode AutoScaleMode
         {
-            get { return AutoScaleMode.None; }
+            get => AutoScaleMode.None;
             // ReSharper disable ValueParameterNotUsed
-            set { base.AutoScaleMode = AutoScaleMode.None; }
+            set => base.AutoScaleMode = AutoScaleMode.None;
             // ReSharper restore ValueParameterNotUsed
         }
 

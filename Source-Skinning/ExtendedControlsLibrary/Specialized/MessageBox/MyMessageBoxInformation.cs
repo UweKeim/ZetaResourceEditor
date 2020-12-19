@@ -41,10 +41,7 @@
 
 		public Dictionary<DialogResult, string> ButtonTexts { get; private set; }
 
-		internal IWin32Window EffectiveOwner
-		{
-			get { return findOwner(Owner); }
-		}
+		internal IWin32Window EffectiveOwner => findOwner(Owner);
 
         public MyMessageBoxInformation SetButtonText(
             DialogResult button,
@@ -55,39 +52,28 @@
         }
 
         internal static IWin32Window findOwner(IWin32Window owner)
-		{
-			if (owner == null)
-			{
-				return checkForm(Form.ActiveForm);
-			}
-			else
-			{
-				if (owner is Form)
-				{
-					return checkForm(owner as Form);
-				}
-				else
-				{
-					var c = Control.FromHandle(owner.Handle);
-					if (c == null)
-					{
-						return checkForm(Form.ActiveForm);
-					}
-					else
-					{
-						var f = c.FindForm();
-						if (f == null)
-						{
-							return checkForm(Form.ActiveForm);
-						}
-						else
-						{
-							return checkForm(f);
-						}
-					}
-				}
-			}
-		}
+        {
+            switch (owner)
+            {
+                case null:
+                    return checkForm(Form.ActiveForm);
+                case Form form:
+                    return checkForm(form);
+                default:
+                {
+                    var c = Control.FromHandle(owner.Handle);
+                    if (c == null)
+                    {
+                        return checkForm(Form.ActiveForm);
+                    }
+                    else
+                    {
+                        var f = c.FindForm();
+                        return checkForm(f ?? Form.ActiveForm);
+                    }
+                }
+            }
+        }
 
 		private static IWin32Window checkForm(Form form)
 		{

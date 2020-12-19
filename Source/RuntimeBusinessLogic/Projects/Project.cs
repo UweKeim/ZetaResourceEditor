@@ -1,14 +1,11 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Projects
 {
-    #region Using directives.
-
     using DL;
     using DynamicSettings;
     using FileGroups;
     using FileInformations;
     using Language;
     using ProjectFolders;
-    // ----------------------------------------------------------------------
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -23,15 +20,6 @@
     using Zeta.VoyagerLibrary.Tools.Storage;
     using ZetaLongPaths;
 
-    // ----------------------------------------------------------------------
-
-    #endregion
-
-    /////////////////////////////////////////////////////////////////////////
-
-    /// <summary>
-    ///
-    /// </summary>
     public class Project :
         ITranslationStateInformation,
         IUniqueID,
@@ -176,14 +164,7 @@
 
                 // --
 
-                if (result == FileGroupStateColor.None)
-                {
-                    return FileGroupStateColor.Grey;
-                }
-                else
-                {
-                    return result;
-                }
+                return result == FileGroupStateColor.None ? FileGroupStateColor.Grey : result;
             }
         }
 
@@ -193,7 +174,6 @@
         private IPersistentPairStorage _dynamicSettingsUserHierarchical;
 
         public static readonly string[] DefaultWordsToProtect =
-            new[]
             {
                 @"{0}",
                 @"{1}",
@@ -393,14 +373,7 @@
                 var result = ConvertHelper.ToString(
                     DynamicSettingsGlobal.RetrieveValue(@"NeutralLanguageFileNamePattern"));
 
-                if (string.IsNullOrEmpty(result))
-                {
-                    return @"[basename][optionaldefaulttypes].[extension]";
-                }
-                else
-                {
-                    return result;
-                }
+                return string.IsNullOrEmpty(result) ? @"[basename][optionaldefaulttypes].[extension]" : result;
             }
             set => DynamicSettingsGlobal.PersistValue(@"NeutralLanguageFileNamePattern", value);
         }
@@ -412,14 +385,9 @@
                 var result = ConvertHelper.ToString(
                     DynamicSettingsGlobal.RetrieveValue(@"NonNeutralLanguageFileNamePattern"));
 
-                if (string.IsNullOrEmpty(result))
-                {
-                    return @"[basename][optionaldefaulttypes].[languagecode].[extension]";
-                }
-                else
-                {
-                    return result;
-                }
+                return string.IsNullOrEmpty(result)
+                    ? @"[basename][optionaldefaulttypes].[languagecode].[extension]"
+                    : result;
             }
             set => DynamicSettingsGlobal.PersistValue(@"NonNeutralLanguageFileNamePattern", value);
         }
@@ -503,6 +471,17 @@
                 value);
         }
 
+        public bool DisplayFileGroupWithoutFolder
+        {
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobal.RetrieveValue(
+                    @"DisplayFileGroupWithoutFolder"),
+                false);
+            set => DynamicSettingsGlobal.PersistValue(
+                @"DisplayFileGroupWithoutFolder",
+                value);
+        }
+
         public ReadOnlyFileOverwriteBehaviour ReadOnlyFileOverwriteBehaviour
         {
             get => (ReadOnlyFileOverwriteBehaviour) ConvertHelper.ToInt32(
@@ -544,6 +523,21 @@
                 true);
             set => DynamicSettingsGlobal.PersistValue(
                 @"EnableExcelExportSnapshots",
+                value);
+        }
+
+        [DefaultValue(false)]
+        public bool KeepFolderStructureOnImport
+        {
+            // 2020-10-22, Uwe Keim:
+            // Ergänzt auf Wunsch von Claire C.
+
+            get => ConvertHelper.ToBoolean(
+                DynamicSettingsGlobal.RetrieveValue(
+                    @"KeepFolderStructureOnImport"),
+                false);
+            set => DynamicSettingsGlobal.PersistValue(
+                @"KeepFolderStructureOnImport",
                 value);
         }
 
@@ -885,9 +879,8 @@
                 {
                     if (globalSettingsNode.Attributes != null)
                     {
-                        string name;
                         XmlHelper.ReadAttribute(
-                            out name,
+                            out string name,
                             globalSettingsNode.Attributes[@"name"]);
 
                         var value = globalSettingsNode.InnerText;
@@ -913,9 +906,8 @@
                 {
                     if (userSettingsNode.Attributes != null)
                     {
-                        string name;
                         XmlHelper.ReadAttribute(
-                            out name,
+                            out string name,
                             userSettingsNode.Attributes[@"name"]);
 
                         var value = userSettingsNode.InnerText;
@@ -1086,14 +1078,7 @@
             get
             {
                 var sfg = UseShallowGridDataCumulation ? GetRootFileGroups() : FileGroups;
-                if (sfg.Count <= 0)
-                {
-                    return FileGroupStates.Empty;
-                }
-                else
-                {
-                    return sfg[0].InMemoryState;
-                }
+                return sfg.Count <= 0 ? FileGroupStates.Empty : sfg[0].InMemoryState;
             }
             set
             {
@@ -1239,14 +1224,13 @@
             {
                 if (node.Attributes != null)
                 {
-                    int i;
-                    XmlHelper.ReadAttribute(out i, node.Attributes[@"type"]);
+                    XmlHelper.ReadAttribute(out int i, node.Attributes[@"type"]);
                     Type = (GridSourceType) i;
 
-                    long l;
-                    XmlHelper.ReadAttribute(out l, node.Attributes[@"checksum"]);
+                    XmlHelper.ReadAttribute(out long l, node.Attributes[@"checksum"]);
                     Checksum = l;
                 }
+
                 return this;
             }
         }
@@ -1358,7 +1342,7 @@
         /// <summary>
         /// Sometimes an empty project is needed. Use this here centrally.
         /// </summary>
-        public static Project Empty => _emptyProject ?? (_emptyProject = new Project
+        public static Project Empty => _emptyProject ??= new Project
         {
             IsInMemoryOnly = true,
             ProjectConfigurationFilePath =
@@ -1366,7 +1350,7 @@
                     ZlpPathHelper.Combine(
                         Path.GetTempPath(),
                         $@"Dummy{ProjectFileExtension}"))
-        });
+        };
 
         public Dictionary<string, string> TranslationAppIDs
         {
@@ -1442,14 +1426,9 @@
                         DynamicSettingsGlobalHierarchical.RetrieveValue(
                             @"Project-TranslationWordsToProtect"));
 
-                if (r == null)
-                {
-                    return DefaultWordsToProtect;
-                }
-                else
-                {
-                    return r.Trim().Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
-                }
+                return r == null
+                    ? DefaultWordsToProtect
+                    : r.Trim().Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
             }
             set => DynamicSettingsGlobalHierarchical.PersistValue(
                 @"Project-TranslationWordsToProtect",
@@ -1465,14 +1444,9 @@
                         DynamicSettingsGlobalHierarchical.RetrieveValue(
                             @"Project-TranslationWordsToRemove"));
 
-                if (r == null)
-                {
-                    return new string[] { };
-                }
-                else
-                {
-                    return r.Trim().Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
-                }
+                return r == null
+                    ? new string[] { }
+                    : r.Trim().Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
             }
             set => DynamicSettingsGlobalHierarchical.PersistValue(
                 @"Project-TranslationWordsToRemove",
@@ -1538,6 +1512,7 @@
                             return projectFolder;
                         }
                     }
+
                     return null;
 
                 case GridSourceType.FileGroup:
@@ -1548,6 +1523,7 @@
                             return fileGroup;
                         }
                     }
+
                     return null;
 
                 default:
@@ -1560,6 +1536,4 @@
             return string.Compare(cultureInfo.Name, _neutralLanguageCode, StringComparison.OrdinalIgnoreCase) == 0;
         }
     }
-
-    /////////////////////////////////////////////////////////////////////////
 }

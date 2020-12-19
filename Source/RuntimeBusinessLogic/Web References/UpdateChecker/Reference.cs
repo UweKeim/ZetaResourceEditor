@@ -13,494 +13,413 @@
 // 
 #pragma warning disable 1591
 
-namespace ZetaResourceEditor.RuntimeBusinessLogic.Web_References.UpdateChecker
-{
+namespace ZetaResourceEditor.RuntimeBusinessLogic.UpdateChecker {
     using System;
-    using System.ComponentModel;
-    using System.Diagnostics;
     using System.Web.Services;
+    using System.Diagnostics;
     using System.Web.Services.Protocols;
     using System.Xml.Serialization;
-
+    using System.ComponentModel;
+    
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    [DebuggerStepThrough()]
-    [DesignerCategory("code")]
-    [WebServiceBinding(Name = "UpdateCheckerServiceSoap", Namespace = "http://www.zeta-resource-editor.com/")]
-    public partial class UpdateCheckerService : System.Web.Services.Protocols.SoapHttpClientProtocol
-    {
-
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="UpdateCheckerServiceSoap", Namespace="http://www.zeta-resource-editor.com/")]
+    public partial class UpdateCheckerService : System.Web.Services.Protocols.SoapHttpClientProtocol {
+        
         private System.Threading.SendOrPostCallback IsUpdateAvailable2OperationCompleted;
-
+        
         private System.Threading.SendOrPostCallback DownloadUpdate2OperationCompleted;
-
+        
         private System.Threading.SendOrPostCallback IsUpdateAvailableOperationCompleted;
-
+        
         private bool useDefaultCredentialsSetExplicitly;
-
+        
         /// <remarks/>
-        public UpdateCheckerService()
-        {
+        public UpdateCheckerService() {
             this.Url = "https://www.zeta-resource-editor.com/backend/UpdateCheckerService.asmx";
-            if ((this.IsLocalFileSystemWebService(this.Url) == true))
-            {
+            if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
             }
-            else
-            {
+            else {
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
-
-        public new string Url
-        {
-            get
-            {
+        
+        public new string Url {
+            get {
                 return base.Url;
             }
-            set
-            {
-                if ((((this.IsLocalFileSystemWebService(base.Url) == true)
-                            && (this.useDefaultCredentialsSetExplicitly == false))
-                            && (this.IsLocalFileSystemWebService(value) == false)))
-                {
+            set {
+                if ((((this.IsLocalFileSystemWebService(base.Url) == true) 
+                            && (this.useDefaultCredentialsSetExplicitly == false)) 
+                            && (this.IsLocalFileSystemWebService(value) == false))) {
                     base.UseDefaultCredentials = false;
                 }
                 base.Url = value;
             }
         }
-
-        public new bool UseDefaultCredentials
-        {
-            get
-            {
+        
+        public new bool UseDefaultCredentials {
+            get {
                 return base.UseDefaultCredentials;
             }
-            set
-            {
+            set {
                 base.UseDefaultCredentials = value;
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
-
+        
         /// <remarks/>
         public event IsUpdateAvailable2CompletedEventHandler IsUpdateAvailable2Completed;
-
+        
         /// <remarks/>
         public event DownloadUpdate2CompletedEventHandler DownloadUpdate2Completed;
-
+        
         /// <remarks/>
         public event IsUpdateAvailableCompletedEventHandler IsUpdateAvailableCompleted;
-
+        
         /// <remarks/>
-        [SoapDocumentMethod("http://www.zeta-resource-editor.com/IsUpdateAvailable2", RequestNamespace = "http://www.zeta-resource-editor.com/", ResponseNamespace = "http://www.zeta-resource-editor.com/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public UpdatePresentResult2 IsUpdateAvailable2(UpdateCheckInfo2 info)
-        {
-            var results = this.Invoke("IsUpdateAvailable2", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.zeta-resource-editor.com/IsUpdateAvailable2", RequestNamespace="http://www.zeta-resource-editor.com/", ResponseNamespace="http://www.zeta-resource-editor.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public UpdatePresentResult2 IsUpdateAvailable2(UpdateCheckInfo2 info) {
+            object[] results = this.Invoke("IsUpdateAvailable2", new object[] {
                         info});
             return ((UpdatePresentResult2)(results[0]));
         }
-
+        
         /// <remarks/>
-        public void IsUpdateAvailable2Async(UpdateCheckInfo2 info)
-        {
+        public void IsUpdateAvailable2Async(UpdateCheckInfo2 info) {
             this.IsUpdateAvailable2Async(info, null);
         }
-
+        
         /// <remarks/>
-        public void IsUpdateAvailable2Async(UpdateCheckInfo2 info, object userState)
-        {
-            if ((this.IsUpdateAvailable2OperationCompleted == null))
-            {
+        public void IsUpdateAvailable2Async(UpdateCheckInfo2 info, object userState) {
+            if ((this.IsUpdateAvailable2OperationCompleted == null)) {
                 this.IsUpdateAvailable2OperationCompleted = new System.Threading.SendOrPostCallback(this.OnIsUpdateAvailable2OperationCompleted);
             }
             this.InvokeAsync("IsUpdateAvailable2", new object[] {
                         info}, this.IsUpdateAvailable2OperationCompleted, userState);
         }
-
-        private void OnIsUpdateAvailable2OperationCompleted(object arg)
-        {
-            if ((this.IsUpdateAvailable2Completed != null))
-            {
-                var invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+        
+        private void OnIsUpdateAvailable2OperationCompleted(object arg) {
+            if ((this.IsUpdateAvailable2Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.IsUpdateAvailable2Completed(this, new IsUpdateAvailable2CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-
+        
         /// <remarks/>
-        [SoapDocumentMethod("http://www.zeta-resource-editor.com/DownloadUpdate2", RequestNamespace = "http://www.zeta-resource-editor.com/", ResponseNamespace = "http://www.zeta-resource-editor.com/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public UpdateInformationResult2 DownloadUpdate2(UpdateCheckInfo2 info)
-        {
-            var results = this.Invoke("DownloadUpdate2", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.zeta-resource-editor.com/DownloadUpdate2", RequestNamespace="http://www.zeta-resource-editor.com/", ResponseNamespace="http://www.zeta-resource-editor.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public UpdateInformationResult2 DownloadUpdate2(UpdateCheckInfo2 info) {
+            object[] results = this.Invoke("DownloadUpdate2", new object[] {
                         info});
             return ((UpdateInformationResult2)(results[0]));
         }
-
+        
         /// <remarks/>
-        public void DownloadUpdate2Async(UpdateCheckInfo2 info)
-        {
+        public void DownloadUpdate2Async(UpdateCheckInfo2 info) {
             this.DownloadUpdate2Async(info, null);
         }
-
+        
         /// <remarks/>
-        public void DownloadUpdate2Async(UpdateCheckInfo2 info, object userState)
-        {
-            if ((this.DownloadUpdate2OperationCompleted == null))
-            {
+        public void DownloadUpdate2Async(UpdateCheckInfo2 info, object userState) {
+            if ((this.DownloadUpdate2OperationCompleted == null)) {
                 this.DownloadUpdate2OperationCompleted = new System.Threading.SendOrPostCallback(this.OnDownloadUpdate2OperationCompleted);
             }
             this.InvokeAsync("DownloadUpdate2", new object[] {
                         info}, this.DownloadUpdate2OperationCompleted, userState);
         }
-
-        private void OnDownloadUpdate2OperationCompleted(object arg)
-        {
-            if ((this.DownloadUpdate2Completed != null))
-            {
-                var invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+        
+        private void OnDownloadUpdate2OperationCompleted(object arg) {
+            if ((this.DownloadUpdate2Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.DownloadUpdate2Completed(this, new DownloadUpdate2CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-
+        
         /// <remarks/>
-        [SoapDocumentMethod("http://www.zeta-resource-editor.com/IsUpdateAvailable", RequestNamespace = "http://www.zeta-resource-editor.com/", ResponseNamespace = "http://www.zeta-resource-editor.com/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string IsUpdateAvailable(string assemblyVersion)
-        {
-            var results = this.Invoke("IsUpdateAvailable", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.zeta-resource-editor.com/IsUpdateAvailable", RequestNamespace="http://www.zeta-resource-editor.com/", ResponseNamespace="http://www.zeta-resource-editor.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string IsUpdateAvailable(string assemblyVersion) {
+            object[] results = this.Invoke("IsUpdateAvailable", new object[] {
                         assemblyVersion});
             return ((string)(results[0]));
         }
-
+        
         /// <remarks/>
-        public void IsUpdateAvailableAsync(string assemblyVersion)
-        {
+        public void IsUpdateAvailableAsync(string assemblyVersion) {
             this.IsUpdateAvailableAsync(assemblyVersion, null);
         }
-
+        
         /// <remarks/>
-        public void IsUpdateAvailableAsync(string assemblyVersion, object userState)
-        {
-            if ((this.IsUpdateAvailableOperationCompleted == null))
-            {
+        public void IsUpdateAvailableAsync(string assemblyVersion, object userState) {
+            if ((this.IsUpdateAvailableOperationCompleted == null)) {
                 this.IsUpdateAvailableOperationCompleted = new System.Threading.SendOrPostCallback(this.OnIsUpdateAvailableOperationCompleted);
             }
             this.InvokeAsync("IsUpdateAvailable", new object[] {
                         assemblyVersion}, this.IsUpdateAvailableOperationCompleted, userState);
         }
-
-        private void OnIsUpdateAvailableOperationCompleted(object arg)
-        {
-            if ((this.IsUpdateAvailableCompleted != null))
-            {
-                var invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+        
+        private void OnIsUpdateAvailableOperationCompleted(object arg) {
+            if ((this.IsUpdateAvailableCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.IsUpdateAvailableCompleted(this, new IsUpdateAvailableCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-
+        
         /// <remarks/>
-        public new void CancelAsync(object userState)
-        {
+        public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
-
-        private bool IsLocalFileSystemWebService(string url)
-        {
-            if (((url == null)
-                        || (url == string.Empty)))
-            {
+        
+        private bool IsLocalFileSystemWebService(string url) {
+            if (((url == null) 
+                        || (url == string.Empty))) {
                 return false;
             }
-            var wsUri = new System.Uri(url);
-            if (((wsUri.Port >= 1024)
-                        && (string.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) == 0)))
-            {
+            System.Uri wsUri = new System.Uri(url);
+            if (((wsUri.Port >= 1024) 
+                        && (string.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) == 0))) {
                 return true;
             }
             return false;
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [Serializable()]
-    [DebuggerStepThrough()]
-    [DesignerCategory("code")]
-    [XmlType(Namespace = "http://www.zeta-resource-editor.com/")]
-    public partial class UpdateCheckInfo2
-    {
-
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.zeta-resource-editor.com/")]
+    public partial class UpdateCheckInfo2 {
+        
         private string apiKeyField;
-
+        
         private System.DateTime versionDateField;
-
+        
         private string versionNumberField;
-
+        
         private int cultureField;
-
+        
         /// <remarks/>
-        public string ApiKey
-        {
-            get
-            {
+        public string ApiKey {
+            get {
                 return this.apiKeyField;
             }
-            set
-            {
+            set {
                 this.apiKeyField = value;
             }
         }
-
+        
         /// <remarks/>
-        public System.DateTime VersionDate
-        {
-            get
-            {
+        public System.DateTime VersionDate {
+            get {
                 return this.versionDateField;
             }
-            set
-            {
+            set {
                 this.versionDateField = value;
             }
         }
-
+        
         /// <remarks/>
-        public string VersionNumber
-        {
-            get
-            {
+        public string VersionNumber {
+            get {
                 return this.versionNumberField;
             }
-            set
-            {
+            set {
                 this.versionNumberField = value;
             }
         }
-
+        
         /// <remarks/>
-        public int Culture
-        {
-            get
-            {
+        public int Culture {
+            get {
                 return this.cultureField;
             }
-            set
-            {
+            set {
                 this.cultureField = value;
             }
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [Serializable()]
-    [DebuggerStepThrough()]
-    [DesignerCategory("code")]
-    [XmlType(Namespace = "http://www.zeta-resource-editor.com/")]
-    public partial class UpdateInformationResult2
-    {
-
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.zeta-resource-editor.com/")]
+    public partial class UpdateInformationResult2 {
+        
         private string apiKeyField;
-
+        
         private bool isPresentField;
-
+        
         private string fileNameField;
-
+        
         private byte[] fileContentField;
-
+        
         private string alternativeFallbackDownloadUrlField;
-
+        
         /// <remarks/>
-        public string ApiKey
-        {
-            get
-            {
+        public string ApiKey {
+            get {
                 return this.apiKeyField;
             }
-            set
-            {
+            set {
                 this.apiKeyField = value;
             }
         }
-
+        
         /// <remarks/>
-        public bool IsPresent
-        {
-            get
-            {
+        public bool IsPresent {
+            get {
                 return this.isPresentField;
             }
-            set
-            {
+            set {
                 this.isPresentField = value;
             }
         }
-
+        
         /// <remarks/>
-        public string FileName
-        {
-            get
-            {
+        public string FileName {
+            get {
                 return this.fileNameField;
             }
-            set
-            {
+            set {
                 this.fileNameField = value;
             }
         }
-
+        
         /// <remarks/>
-        [XmlElement(DataType = "base64Binary")]
-        public byte[] FileContent
-        {
-            get
-            {
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] FileContent {
+            get {
                 return this.fileContentField;
             }
-            set
-            {
+            set {
                 this.fileContentField = value;
             }
         }
-
+        
         /// <remarks/>
-        public string AlternativeFallbackDownloadUrl
-        {
-            get
-            {
+        public string AlternativeFallbackDownloadUrl {
+            get {
                 return this.alternativeFallbackDownloadUrlField;
             }
-            set
-            {
+            set {
                 this.alternativeFallbackDownloadUrlField = value;
             }
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [Serializable()]
-    [DebuggerStepThrough()]
-    [DesignerCategory("code")]
-    [XmlType(Namespace = "http://www.zeta-resource-editor.com/")]
-    public partial class UpdatePresentResult2
-    {
-
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.zeta-resource-editor.com/")]
+    public partial class UpdatePresentResult2 {
+        
         private bool isPresentField;
-
+        
         private string downloadWebsiteUrlField;
-
+        
         /// <remarks/>
-        public bool IsPresent
-        {
-            get
-            {
+        public bool IsPresent {
+            get {
                 return this.isPresentField;
             }
-            set
-            {
+            set {
                 this.isPresentField = value;
             }
         }
-
+        
         /// <remarks/>
-        public string DownloadWebsiteUrl
-        {
-            get
-            {
+        public string DownloadWebsiteUrl {
+            get {
                 return this.downloadWebsiteUrlField;
             }
-            set
-            {
+            set {
                 this.downloadWebsiteUrlField = value;
             }
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void IsUpdateAvailable2CompletedEventHandler(object sender, IsUpdateAvailable2CompletedEventArgs e);
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    [DebuggerStepThrough()]
-    [DesignerCategory("code")]
-    public partial class IsUpdateAvailable2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
-    {
-
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class IsUpdateAvailable2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
         private object[] results;
-
-        internal IsUpdateAvailable2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
-                base(exception, cancelled, userState)
-        {
+        
+        internal IsUpdateAvailable2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
             this.results = results;
         }
-
+        
         /// <remarks/>
-        public UpdatePresentResult2 Result
-        {
-            get
-            {
+        public UpdatePresentResult2 Result {
+            get {
                 this.RaiseExceptionIfNecessary();
                 return ((UpdatePresentResult2)(this.results[0]));
             }
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void DownloadUpdate2CompletedEventHandler(object sender, DownloadUpdate2CompletedEventArgs e);
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    [DebuggerStepThrough()]
-    [DesignerCategory("code")]
-    public partial class DownloadUpdate2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
-    {
-
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DownloadUpdate2CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
         private object[] results;
-
-        internal DownloadUpdate2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
-                base(exception, cancelled, userState)
-        {
+        
+        internal DownloadUpdate2CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
             this.results = results;
         }
-
+        
         /// <remarks/>
-        public UpdateInformationResult2 Result
-        {
-            get
-            {
+        public UpdateInformationResult2 Result {
+            get {
                 this.RaiseExceptionIfNecessary();
                 return ((UpdateInformationResult2)(this.results[0]));
             }
         }
     }
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void IsUpdateAvailableCompletedEventHandler(object sender, IsUpdateAvailableCompletedEventArgs e);
-
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    [DebuggerStepThrough()]
-    [DesignerCategory("code")]
-    public partial class IsUpdateAvailableCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
-    {
-
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class IsUpdateAvailableCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
         private object[] results;
-
-        internal IsUpdateAvailableCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
-                base(exception, cancelled, userState)
-        {
+        
+        internal IsUpdateAvailableCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
             this.results = results;
         }
-
+        
         /// <remarks/>
-        public string Result
-        {
-            get
-            {
+        public string Result {
+            get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
             }

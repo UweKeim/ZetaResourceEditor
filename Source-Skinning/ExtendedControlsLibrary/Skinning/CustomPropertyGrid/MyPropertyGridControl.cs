@@ -20,7 +20,7 @@
 
         public new object SelectedObject
         {
-            get { return base.SelectedObject; }
+            get => base.SelectedObject;
             set
             {
                 base.SelectedObject = value;
@@ -37,7 +37,7 @@
         [DefaultValue(false)]
         public bool WantAlternatingRows
         {
-            get { return _wantAlternatingRows; }
+            get => _wantAlternatingRows;
             set
             {
                 _wantAlternatingRows = value;
@@ -105,14 +105,9 @@
 
             if (WantAlternatingRows && !(e.Row is CategoryRow) && FocusedRow != e.Row)
             {
-                if (e.Row.VisibleIndex%2 == 0)
-                {
-                    e.Appearance.Combine(_alternatingRowStyle);
-                }
-                else
-                {
-                    e.Appearance.Combine(checkGetNormalRowStyle(e.Row));
-                }
+                e.Appearance.Combine(e.Row.VisibleIndex % 2 == 0
+                    ? _alternatingRowStyle
+                    : checkGetNormalRowStyle(e.Row));
 
                 return true;
             }
@@ -124,12 +119,11 @@
 
         private AppearanceObject checkGetNormalRowStyle(BaseRow row)
         {
-            return _normalRowStyle ??
-                   (_normalRowStyle = new AppearanceObject
-                   {
-                       BackColor =
-                           row.Appearance.BackColor == Color.Empty ? SystemColors.Window : row.Appearance.BackColor
-                   });
+            return _normalRowStyle ??= new AppearanceObject
+            {
+                BackColor =
+                    row.Appearance.BackColor == Color.Empty ? SystemColors.Window : row.Appearance.BackColor
+            };
         }
 
         protected override void OnCreateControl()

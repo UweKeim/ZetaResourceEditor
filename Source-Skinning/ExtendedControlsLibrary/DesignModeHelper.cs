@@ -6,7 +6,7 @@
 
     public static class DesignModeHelper
     {
-        public static bool IsDesignMode { get { return GetDesignMode(); } }
+        public static bool IsDesignMode => GetDesignMode();
 
         /// <summary>
         /// Call this in your Main function.
@@ -33,13 +33,11 @@
         {
             // http://stackoverflow.com/questions/113989/test-if-a-font-is-installed
 
-            using (var testFont = new Font(fontName, 8))
-            {
-                return 0 == String.Compare(
-                    fontName,
-                    testFont.Name,
-                    StringComparison.InvariantCultureIgnoreCase);
-            }
+            using var testFont = new Font(fontName, 8);
+            return 0 == string.Compare(
+                fontName,
+                testFont.Name,
+                StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }

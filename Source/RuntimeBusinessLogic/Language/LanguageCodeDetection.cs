@@ -64,45 +64,33 @@
         public string GetBaseName(
             FileGroup fileGroup)
         {
-            string baseName;
-            string extension;
-            string optionalDefaultType;
-
             doGetBaseName(
                 fileGroup,
-                out baseName,
-                out extension,
-                out optionalDefaultType);
+                out var baseName,
+                out var extension,
+                out var optionalDefaultType);
             return baseName;
         }
 
         public string GetBaseExtension(
             FileGroup fileGroup)
         {
-            string baseName;
-            string extension;
-            string optionalDefaultType;
-
             doGetBaseName(
                 fileGroup,
-                out baseName,
-                out extension,
-                out optionalDefaultType);
+                out var baseName,
+                out var extension,
+                out var optionalDefaultType);
             return extension;
         }
 
         public string GetBaseOptionalDefaultType(
             FileGroup fileGroup)
         {
-            string baseName;
-            string extension;
-            string optionalDefaultType;
-
             doGetBaseName(
                 fileGroup,
-                out baseName,
-                out extension,
-                out optionalDefaultType);
+                out var baseName,
+                out var extension,
+                out var optionalDefaultType);
             return optionalDefaultType;
         }
 
@@ -155,8 +143,7 @@
                     }
                     else
                     {
-                        string longCultureName;
-                        if (isValueCultureName(cultureName, out longCultureName))
+                        if (isValueCultureName(cultureName, out var longCultureName))
                         {
                             try
                             {
@@ -266,15 +253,13 @@
 
             // --
 
-            CultureInfo r;
-            if (CacheForMakeValidCulture.TryGetValue(cultureName, out r))
+            if (CacheForMakeValidCulture.TryGetValue(cultureName, out var r))
             {
                 return r;
             }
             else
             {
-                string longCultureName;
-                if (isValueCultureName(cultureName, out longCultureName))
+                if (isValueCultureName(cultureName, out var longCultureName))
                 {
                     var c = CultureHelper.CreateCultureErrorTolerant(longCultureName);
 
@@ -320,15 +305,9 @@
                 fileName = removeOptionalDefaultTypes(settings, fileName, null);
 
                 // Check for non-neutral, first.
-                if (IsNonNeutralLanguageFileName(settings, fileName))
-                {
-                    return extractBlock(settings, fileName, PhLanguagecode);
-                }
-                else
-                {
-                    // Is neutral language.
-                    return settings.EffectiveNeutralLanguageCode;
-                }
+                return IsNonNeutralLanguageFileName(settings, fileName)
+                    ? extractBlock(settings, fileName, PhLanguagecode)
+                    : settings.EffectiveNeutralLanguageCode;
             }
         }
 

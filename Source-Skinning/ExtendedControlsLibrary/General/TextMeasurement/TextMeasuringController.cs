@@ -111,11 +111,10 @@
                     }
                     else if (information.MaxHeight != null)
                     {
-                        bool isCropped;
                         result.Size =
                             Size.Round(gc.CalcTextSize(information.Text, information.Font,
                                 information.Format ?? new StringFormat(),
-                                information.MaxWidth.Value, information.MaxHeight.Value, out isCropped));
+                                information.MaxWidth.Value, information.MaxHeight.Value, out var isCropped));
                         result.IsCropped = isCropped;
                     }
                 }

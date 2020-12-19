@@ -21,13 +21,19 @@ namespace ExtendedControlsLibrary.Skinning.CustomWizard
 			base.UpdateButtonsState();
 			
 			var fi = typeof(WizardViewInfo).GetField(@"prevButtonInfo", BindingFlags.Instance | BindingFlags.NonPublic);
-			var prevButtonInfo = (ButtonInfo)fi.GetValue(this);
-			prevButtonInfo.Visible = true;
+            if (fi != null)
+            {
+                var prevButtonInfo = (ButtonInfo)fi.GetValue(this);
+                prevButtonInfo.Visible = true;
 
-			fi = typeof(ButtonInfo).GetField(@"button", BindingFlags.Instance | BindingFlags.NonPublic);
-			var button = (WizardButton)fi.GetValue(prevButtonInfo);
-			button.Enabled = WizardControl.SelectedPageIndex > 0 && SelectedPage.AllowBack;
-		}
+                fi = typeof(ButtonInfo).GetField(@"button", BindingFlags.Instance | BindingFlags.NonPublic);
+                if (fi != null)
+                {
+                    var button = (WizardButton)fi.GetValue(prevButtonInfo);
+                    button.Enabled = WizardControl.SelectedPageIndex > 0 && SelectedPage.AllowBack;
+                }
+            }
+        }
 
 		internal WizardControl GetOwnerInternal() { return WizardControl; }
 

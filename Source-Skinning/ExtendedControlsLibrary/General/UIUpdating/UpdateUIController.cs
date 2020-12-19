@@ -43,9 +43,9 @@
                 doShouldProcess() &&
                 (_controlBase != null || _formBase != null || _ribbonFormBase != null) &&
                 (
-                    (_controlBase != null && !_controlBase.DesignMode) ||
-                    (_formBase != null && !_formBase.DesignMode) ||
-                    (_ribbonFormBase != null && !_ribbonFormBase.DesignMode)
+                    _controlBase != null && !_controlBase.DesignMode ||
+                    _formBase != null && !_formBase.DesignMode ||
+                    _ribbonFormBase != null && !_ribbonFormBase.DesignMode
                 ) &&
                 !HasProcessed(information);
         }

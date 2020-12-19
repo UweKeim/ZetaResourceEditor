@@ -64,6 +64,7 @@
             this.xtraTabPage1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
             this.myLabelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.buttonTranslationSettings = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+            this.keepFolderStructureOnImportCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
             this.enableExcelExportSnapshotsCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
             this.ResXIndentCharTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
             this.myLabelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
@@ -87,8 +88,8 @@
             this.labelControl10 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.neutralLanguageFileNamePatternTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
             this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            this.buttonSendProject = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.defaultToolTipController1 = new DevExpress.Utils.DefaultToolTipController(this.components);
+            this.displayFileGroupWithoutFolderCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.readOnlySaveBehaviourComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ignoreWindowsFormsDesignerFiles.Properties)).BeginInit();
@@ -107,6 +108,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.keepFolderStructureOnImportCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enableExcelExportSnapshotsCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResXIndentCharTextEdit.Properties)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
@@ -125,6 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.neutralLanguageFileNamePatternTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.displayFileGroupWithoutFolderCheckEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // readOnlySaveBehaviourComboBox
@@ -140,6 +143,7 @@
             this.readOnlySaveBehaviourComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.readOnlySaveBehaviourComboBox.Properties.NullValuePrompt = null;
+            this.readOnlySaveBehaviourComboBox.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.readOnlySaveBehaviourComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.readOnlySaveBehaviourComboBox.Size = new System.Drawing.Size(363, 24);
             this.readOnlySaveBehaviourComboBox.TabIndex = 6;
@@ -203,7 +207,7 @@
             this.ignoreWindowsFormsDesignerFiles.Properties.Appearance.Options.UseFont = true;
             this.ignoreWindowsFormsDesignerFiles.Properties.AutoWidth = true;
             this.ignoreWindowsFormsDesignerFiles.Properties.Caption = "Ignore Windows Forms resource files with \"*.Designer.*\" files";
-            this.ignoreWindowsFormsDesignerFiles.Size = new System.Drawing.Size(375, 21);
+            this.ignoreWindowsFormsDesignerFiles.Size = new System.Drawing.Size(376, 21);
             this.ignoreWindowsFormsDesignerFiles.TabIndex = 11;
             // 
             // button1
@@ -235,7 +239,7 @@
             this.omitEmptyItemsCheckBox.Properties.Appearance.Options.UseFont = true;
             this.omitEmptyItemsCheckBox.Properties.AutoWidth = true;
             this.omitEmptyItemsCheckBox.Properties.Caption = "&Do not write empty strings into the resource file";
-            this.omitEmptyItemsCheckBox.Size = new System.Drawing.Size(301, 21);
+            this.omitEmptyItemsCheckBox.Size = new System.Drawing.Size(302, 21);
             this.omitEmptyItemsCheckBox.TabIndex = 10;
             // 
             // createBackupsCheckBox
@@ -246,7 +250,7 @@
             this.createBackupsCheckBox.Properties.Appearance.Options.UseFont = true;
             this.createBackupsCheckBox.Properties.AutoWidth = true;
             this.createBackupsCheckBox.Properties.Caption = "&Automatically create backups";
-            this.createBackupsCheckBox.Size = new System.Drawing.Size(191, 21);
+            this.createBackupsCheckBox.Size = new System.Drawing.Size(192, 21);
             this.createBackupsCheckBox.TabIndex = 9;
             // 
             // nameTextBox
@@ -264,6 +268,7 @@
             this.nameTextBox.Properties.Mask.EditMask = null;
             this.nameTextBox.Properties.NullValuePrompt = null;
             this.nameTextBox.Properties.ReadOnly = true;
+            this.nameTextBox.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.nameTextBox.Size = new System.Drawing.Size(334, 24);
             this.nameTextBox.TabIndex = 3;
             // 
@@ -282,6 +287,7 @@
             this.locationTextBox.Properties.Mask.EditMask = null;
             this.locationTextBox.Properties.NullValuePrompt = null;
             this.locationTextBox.Properties.ReadOnly = true;
+            this.locationTextBox.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.locationTextBox.Size = new System.Drawing.Size(365, 24);
             this.locationTextBox.TabIndex = 1;
             // 
@@ -323,7 +329,7 @@
             this.hideInternalDesignerRowsCheckEdit.Properties.Appearance.Options.UseFont = true;
             this.hideInternalDesignerRowsCheckEdit.Properties.AutoWidth = true;
             this.hideInternalDesignerRowsCheckEdit.Properties.Caption = "Hide rows starting with \">>\" (Windows Forms internal resources)";
-            this.hideInternalDesignerRowsCheckEdit.Size = new System.Drawing.Size(401, 21);
+            this.hideInternalDesignerRowsCheckEdit.Size = new System.Drawing.Size(402, 21);
             this.hideInternalDesignerRowsCheckEdit.TabIndex = 2;
             // 
             // shallowCumulationCheckEdit
@@ -334,7 +340,7 @@
             this.shallowCumulationCheckEdit.Properties.Appearance.Options.UseFont = true;
             this.shallowCumulationCheckEdit.Properties.AutoWidth = true;
             this.shallowCumulationCheckEdit.Properties.Caption = "Shallow cumulation of child resource files in data grids";
-            this.shallowCumulationCheckEdit.Size = new System.Drawing.Size(340, 21);
+            this.shallowCumulationCheckEdit.Size = new System.Drawing.Size(341, 21);
             this.shallowCumulationCheckEdit.TabIndex = 4;
             // 
             // showCommentsColumnInGridCheckEdit
@@ -345,7 +351,7 @@
             this.showCommentsColumnInGridCheckEdit.Properties.Appearance.Options.UseFont = true;
             this.showCommentsColumnInGridCheckEdit.Properties.AutoWidth = true;
             this.showCommentsColumnInGridCheckEdit.Properties.Caption = "Show comments column in data grid";
-            this.showCommentsColumnInGridCheckEdit.Size = new System.Drawing.Size(235, 21);
+            this.showCommentsColumnInGridCheckEdit.Size = new System.Drawing.Size(236, 21);
             this.showCommentsColumnInGridCheckEdit.TabIndex = 3;
             // 
             // hideEmptyRowsCheck
@@ -356,7 +362,7 @@
             this.hideEmptyRowsCheck.Properties.Appearance.Options.UseFont = true;
             this.hideEmptyRowsCheck.Properties.AutoWidth = true;
             this.hideEmptyRowsCheck.Properties.Caption = "Hide empty rows";
-            this.hideEmptyRowsCheck.Size = new System.Drawing.Size(121, 21);
+            this.hideEmptyRowsCheck.Size = new System.Drawing.Size(122, 21);
             this.hideEmptyRowsCheck.TabIndex = 0;
             // 
             // neutralLanguageCodeTextEdit
@@ -372,6 +378,7 @@
             this.neutralLanguageCodeTextEdit.Properties.Appearance.Options.UseFont = true;
             this.neutralLanguageCodeTextEdit.Properties.Mask.EditMask = null;
             this.neutralLanguageCodeTextEdit.Properties.NullValuePrompt = null;
+            this.neutralLanguageCodeTextEdit.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.neutralLanguageCodeTextEdit.Size = new System.Drawing.Size(100, 24);
             this.neutralLanguageCodeTextEdit.TabIndex = 2;
             // 
@@ -431,7 +438,7 @@
             this.useSpellCheckingCheckEdit.Properties.Appearance.Options.UseFont = true;
             this.useSpellCheckingCheckEdit.Properties.AutoWidth = true;
             this.useSpellCheckingCheckEdit.Properties.Caption = "Use spell checking";
-            this.useSpellCheckingCheckEdit.Size = new System.Drawing.Size(129, 21);
+            this.useSpellCheckingCheckEdit.Size = new System.Drawing.Size(130, 21);
             this.useSpellCheckingCheckEdit.TabIndex = 0;
             // 
             // hyperLinkEdit1
@@ -505,6 +512,7 @@
             this.xtraTabPage1.Controls.Add(this.myLabelControl2);
             this.xtraTabPage1.Controls.Add(this.buttonTranslationSettings);
             this.xtraTabPage1.Controls.Add(this.readOnlySaveBehaviourComboBox);
+            this.xtraTabPage1.Controls.Add(this.keepFolderStructureOnImportCheckEdit);
             this.xtraTabPage1.Controls.Add(this.enableExcelExportSnapshotsCheckEdit);
             this.xtraTabPage1.Controls.Add(this.ResXIndentCharTextEdit);
             this.xtraTabPage1.Controls.Add(this.ignoreWindowsFormsDesignerFiles);
@@ -519,7 +527,7 @@
             this.xtraTabPage1.Controls.Add(this.nameTextBox);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Padding = new System.Windows.Forms.Padding(9);
-            this.xtraTabPage1.Size = new System.Drawing.Size(498, 468);
+            this.xtraTabPage1.Size = new System.Drawing.Size(502, 471);
             this.xtraTabPage1.Text = "Settings";
             // 
             // myLabelControl2
@@ -529,10 +537,10 @@
             this.myLabelControl2.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
             this.myLabelControl2.Appearance.Options.UseFont = true;
             this.myLabelControl2.Appearance.Options.UseForeColor = true;
-            this.myLabelControl2.Location = new System.Drawing.Point(152, 283);
+            this.myLabelControl2.Location = new System.Drawing.Point(162, 310);
             this.myLabelControl2.Name = "myLabelControl2";
             this.myLabelControl2.Size = new System.Drawing.Size(18, 17);
-            this.myLabelControl2.TabIndex = 13;
+            this.myLabelControl2.TabIndex = 15;
             this.myLabelControl2.Text = "<>";
             // 
             // buttonTranslationSettings
@@ -540,24 +548,35 @@
             this.buttonTranslationSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonTranslationSettings.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonTranslationSettings.Appearance.Options.UseFont = true;
-            this.buttonTranslationSettings.Location = new System.Drawing.Point(11, 277);
+            this.buttonTranslationSettings.Location = new System.Drawing.Point(12, 304);
             this.buttonTranslationSettings.Name = "buttonTranslationSettings";
             this.buttonTranslationSettings.Size = new System.Drawing.Size(135, 28);
-            this.buttonTranslationSettings.TabIndex = 11;
+            this.buttonTranslationSettings.TabIndex = 14;
             this.buttonTranslationSettings.Text = "Translation settings";
             this.buttonTranslationSettings.WantDrawFocusRectangle = true;
             this.buttonTranslationSettings.Click += new System.EventHandler(this.buttonTranslationSettings_Click);
             // 
+            // keepFolderStructureOnImportCheckEdit
+            // 
+            this.keepFolderStructureOnImportCheckEdit.Location = new System.Drawing.Point(11, 233);
+            this.keepFolderStructureOnImportCheckEdit.Name = "keepFolderStructureOnImportCheckEdit";
+            this.keepFolderStructureOnImportCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.keepFolderStructureOnImportCheckEdit.Properties.Appearance.Options.UseFont = true;
+            this.keepFolderStructureOnImportCheckEdit.Properties.AutoWidth = true;
+            this.keepFolderStructureOnImportCheckEdit.Properties.Caption = "Keep folder structure while importing";
+            this.keepFolderStructureOnImportCheckEdit.Size = new System.Drawing.Size(241, 21);
+            this.keepFolderStructureOnImportCheckEdit.TabIndex = 12;
+            // 
             // enableExcelExportSnapshotsCheckEdit
             // 
-            this.enableExcelExportSnapshotsCheckEdit.Location = new System.Drawing.Point(11, 233);
+            this.enableExcelExportSnapshotsCheckEdit.Location = new System.Drawing.Point(12, 260);
             this.enableExcelExportSnapshotsCheckEdit.Name = "enableExcelExportSnapshotsCheckEdit";
             this.enableExcelExportSnapshotsCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.enableExcelExportSnapshotsCheckEdit.Properties.Appearance.Options.UseFont = true;
             this.enableExcelExportSnapshotsCheckEdit.Properties.AutoWidth = true;
             this.enableExcelExportSnapshotsCheckEdit.Properties.Caption = "Enable snapshots for Excel export";
-            this.enableExcelExportSnapshotsCheckEdit.Size = new System.Drawing.Size(220, 21);
-            this.enableExcelExportSnapshotsCheckEdit.TabIndex = 12;
+            this.enableExcelExportSnapshotsCheckEdit.Size = new System.Drawing.Size(221, 21);
+            this.enableExcelExportSnapshotsCheckEdit.TabIndex = 13;
             // 
             // ResXIndentCharTextEdit
             // 
@@ -573,6 +592,7 @@
             this.ResXIndentCharTextEdit.Properties.Appearance.Options.UseFont = true;
             this.ResXIndentCharTextEdit.Properties.Mask.EditMask = null;
             this.ResXIndentCharTextEdit.Properties.NullValuePrompt = null;
+            this.ResXIndentCharTextEdit.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.ResXIndentCharTextEdit.Size = new System.Drawing.Size(364, 24);
             this.ResXIndentCharTextEdit.TabIndex = 8;
             // 
@@ -597,13 +617,14 @@
             this.xtraTabPage2.Controls.Add(this.labelControl2);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Padding = new System.Windows.Forms.Padding(9);
-            this.xtraTabPage2.Size = new System.Drawing.Size(498, 468);
+            this.xtraTabPage2.Size = new System.Drawing.Size(502, 471);
             this.xtraTabPage2.Text = "Spell checker";
             // 
             // xtraTabPage3
             // 
             this.xtraTabPage3.Controls.Add(this.showCommentsColumnInGridCheckEdit);
             this.xtraTabPage3.Controls.Add(this.hideEmptyRowsCheck);
+            this.xtraTabPage3.Controls.Add(this.displayFileGroupWithoutFolderCheckEdit);
             this.xtraTabPage3.Controls.Add(this.hideFileGroupFilesInTreeCheckEdit);
             this.xtraTabPage3.Controls.Add(this.hideInternalDesignerRowsCheckEdit);
             this.xtraTabPage3.Controls.Add(this.colorifyNullCellsCheckEdit);
@@ -612,7 +633,7 @@
             this.xtraTabPage3.Controls.Add(this.shallowCumulationCheckEdit);
             this.xtraTabPage3.Name = "xtraTabPage3";
             this.xtraTabPage3.Padding = new System.Windows.Forms.Padding(9);
-            this.xtraTabPage3.Size = new System.Drawing.Size(498, 468);
+            this.xtraTabPage3.Size = new System.Drawing.Size(502, 471);
             this.xtraTabPage3.Text = "Grid and UI settings";
             // 
             // hideFileGroupFilesInTreeCheckEdit
@@ -623,7 +644,7 @@
             this.hideFileGroupFilesInTreeCheckEdit.Properties.Appearance.Options.UseFont = true;
             this.hideFileGroupFilesInTreeCheckEdit.Properties.AutoWidth = true;
             this.hideFileGroupFilesInTreeCheckEdit.Properties.Caption = "Hide file groups in the tree";
-            this.hideFileGroupFilesInTreeCheckEdit.Size = new System.Drawing.Size(179, 21);
+            this.hideFileGroupFilesInTreeCheckEdit.Size = new System.Drawing.Size(180, 21);
             this.hideFileGroupFilesInTreeCheckEdit.TabIndex = 7;
             // 
             // colorifyNullCellsCheckEdit
@@ -634,7 +655,7 @@
             this.colorifyNullCellsCheckEdit.Properties.Appearance.Options.UseFont = true;
             this.colorifyNullCellsCheckEdit.Properties.AutoWidth = true;
             this.colorifyNullCellsCheckEdit.Properties.Caption = "Highlight NULL string cells";
-            this.colorifyNullCellsCheckEdit.Size = new System.Drawing.Size(175, 21);
+            this.colorifyNullCellsCheckEdit.Size = new System.Drawing.Size(176, 21);
             this.colorifyNullCellsCheckEdit.TabIndex = 6;
             // 
             // hideTranslatedRowsCheck
@@ -645,7 +666,7 @@
             this.hideTranslatedRowsCheck.Properties.Appearance.Options.UseFont = true;
             this.hideTranslatedRowsCheck.Properties.AutoWidth = true;
             this.hideTranslatedRowsCheck.Properties.Caption = "Hide completely translated rows";
-            this.hideTranslatedRowsCheck.Size = new System.Drawing.Size(210, 21);
+            this.hideTranslatedRowsCheck.Size = new System.Drawing.Size(211, 21);
             this.hideTranslatedRowsCheck.TabIndex = 1;
             // 
             // persistGridSettingsCheckEdit
@@ -656,7 +677,7 @@
             this.persistGridSettingsCheckEdit.Properties.Appearance.Options.UseFont = true;
             this.persistGridSettingsCheckEdit.Properties.AutoWidth = true;
             this.persistGridSettingsCheckEdit.Properties.Caption = "Save and restore filter and sorting in the data grids";
-            this.persistGridSettingsCheckEdit.Size = new System.Drawing.Size(322, 21);
+            this.persistGridSettingsCheckEdit.Size = new System.Drawing.Size(323, 21);
             this.persistGridSettingsCheckEdit.TabIndex = 5;
             // 
             // xtraTabPage4
@@ -675,7 +696,7 @@
             this.xtraTabPage4.Controls.Add(this.neutralLanguageFileNamePatternTextEdit);
             this.xtraTabPage4.Name = "xtraTabPage4";
             this.xtraTabPage4.Padding = new System.Windows.Forms.Padding(9);
-            this.xtraTabPage4.Size = new System.Drawing.Size(498, 468);
+            this.xtraTabPage4.Size = new System.Drawing.Size(502, 471);
             this.xtraTabPage4.Text = "File name pattern";
             // 
             // pictureBox8
@@ -782,6 +803,7 @@
             this.defaultTypesTextEdit.Properties.Appearance.Options.UseFont = true;
             this.defaultTypesTextEdit.Properties.Mask.EditMask = null;
             this.defaultTypesTextEdit.Properties.NullValuePrompt = null;
+            this.defaultTypesTextEdit.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.defaultTypesTextEdit.Size = new System.Drawing.Size(452, 24);
             this.defaultTypesTextEdit.TabIndex = 8;
             // 
@@ -809,6 +831,7 @@
             this.nonNeutralLanguageFileNamePatternTextEdit.Properties.Appearance.Options.UseFont = true;
             this.nonNeutralLanguageFileNamePatternTextEdit.Properties.Mask.EditMask = null;
             this.nonNeutralLanguageFileNamePatternTextEdit.Properties.NullValuePrompt = null;
+            this.nonNeutralLanguageFileNamePatternTextEdit.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.nonNeutralLanguageFileNamePatternTextEdit.Size = new System.Drawing.Size(452, 24);
             this.nonNeutralLanguageFileNamePatternTextEdit.TabIndex = 3;
             // 
@@ -836,6 +859,7 @@
             this.neutralLanguageFileNamePatternTextEdit.Properties.Appearance.Options.UseFont = true;
             this.neutralLanguageFileNamePatternTextEdit.Properties.Mask.EditMask = null;
             this.neutralLanguageFileNamePatternTextEdit.Properties.NullValuePrompt = null;
+            this.neutralLanguageFileNamePatternTextEdit.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.neutralLanguageFileNamePatternTextEdit.Size = new System.Drawing.Size(452, 24);
             this.neutralLanguageFileNamePatternTextEdit.TabIndex = 1;
             // 
@@ -843,7 +867,6 @@
             // 
             this.defaultToolTipController1.SetAllowHtmlText(this.panelControl1, DevExpress.Utils.DefaultBoolean.Default);
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.buttonSendProject);
             this.panelControl1.Controls.Add(this.xtraTabControl1);
             this.panelControl1.Controls.Add(this.buttonCancel);
             this.panelControl1.Controls.Add(this.buttonOK);
@@ -855,25 +878,23 @@
             this.panelControl1.Size = new System.Drawing.Size(516, 544);
             this.panelControl1.TabIndex = 0;
             // 
-            // buttonSendProject
-            // 
-            this.buttonSendProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSendProject.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonSendProject.Appearance.Options.UseFont = true;
-            this.buttonSendProject.Location = new System.Drawing.Point(6, 510);
-            this.buttonSendProject.Name = "buttonSendProject";
-            this.buttonSendProject.Size = new System.Drawing.Size(104, 28);
-            this.buttonSendProject.TabIndex = 11;
-            this.buttonSendProject.Text = "Send project";
-            this.buttonSendProject.WantDrawFocusRectangle = true;
-            this.buttonSendProject.Click += new System.EventHandler(this.buttonSendProject_Click);
-            // 
             // defaultToolTipController1
             // 
             // 
             // 
             // 
             this.defaultToolTipController1.DefaultController.AutoPopDelay = 50000;
+            // 
+            // displayFileGroupWithoutFolderCheckEdit
+            // 
+            this.displayFileGroupWithoutFolderCheckEdit.Location = new System.Drawing.Point(12, 228);
+            this.displayFileGroupWithoutFolderCheckEdit.Name = "displayFileGroupWithoutFolderCheckEdit";
+            this.displayFileGroupWithoutFolderCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.displayFileGroupWithoutFolderCheckEdit.Properties.Appearance.Options.UseFont = true;
+            this.displayFileGroupWithoutFolderCheckEdit.Properties.AutoWidth = true;
+            this.displayFileGroupWithoutFolderCheckEdit.Properties.Caption = "Show only file names, not folders in the tree";
+            this.displayFileGroupWithoutFolderCheckEdit.Size = new System.Drawing.Size(279, 21);
+            this.displayFileGroupWithoutFolderCheckEdit.TabIndex = 8;
             // 
             // ProjectSettingsForm
             // 
@@ -889,11 +910,11 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.IconOptions.ShowIcon = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(532, 582);
+            this.MinimumSize = new System.Drawing.Size(518, 576);
             this.Name = "ProjectSettingsForm";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit project settings";
@@ -918,6 +939,7 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.keepFolderStructureOnImportCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enableExcelExportSnapshotsCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResXIndentCharTextEdit.Properties)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
@@ -939,6 +961,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.neutralLanguageFileNamePatternTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.displayFileGroupWithoutFolderCheckEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1000,10 +1023,11 @@
 		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit hideTranslatedRowsCheck;
 		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit enableExcelExportSnapshotsCheckEdit;
 		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage xtraTabPage4;
-		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonSendProject;
         private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit ResXIndentCharTextEdit;
         private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl myLabelControl1;
         private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonTranslationSettings;
         private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl myLabelControl2;
+        private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit keepFolderStructureOnImportCheckEdit;
+        private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit displayFileGroupWithoutFolderCheckEdit;
     }
 }

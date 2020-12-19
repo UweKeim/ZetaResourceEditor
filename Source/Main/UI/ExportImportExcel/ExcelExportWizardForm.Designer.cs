@@ -96,13 +96,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.labelControl4 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.labelControl8 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.btnConnectionStringExpander = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.sendWithZetaUploaderWizardPage = new DevExpress.XtraWizard.WizardPage();
-            this.buttonZulReset = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.labelControl10 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.zulBodyTextEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
-            this.zulSubjectTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.zulReceiversTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.sendFilesToEMailReceiversCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
             this.progressBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl)).BeginInit();
@@ -143,11 +136,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             ((System.ComponentModel.ISupportInitialize)(this.exportOnlyRowsWithChangedTextsCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exportCompletelyEmptyRowsCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exportWithoutDestinationTranslationOnlyCheckEdit.Properties)).BeginInit();
-            this.sendWithZetaUploaderWizardPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zulBodyTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zulSubjectTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zulReceiversTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sendFilesToEMailReceiversCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -164,11 +152,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.wizardControl.Controls.Add(this.errorOccurredWizardPage);
             this.wizardControl.Controls.Add(this.successWizardPage);
             this.wizardControl.Controls.Add(this.advancedOptionsWizardPage);
-            this.wizardControl.Controls.Add(this.sendWithZetaUploaderWizardPage);
             this.wizardControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wizardControl.FinishText = "Finish";
             this.wizardControl.HelpText = "Help";
-            this.wizardControl.Location = new System.Drawing.Point(0, 0);
             this.wizardControl.Name = "wizardControl";
             this.wizardControl.NextText = "Next >";
             this.wizardControl.Pages.AddRange(new DevExpress.XtraWizard.BaseWizardPage[] {
@@ -177,7 +163,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.optionsWizardPage,
             this.advancedOptionsWizardPage,
             this.destinationFileWizardPage,
-            this.sendWithZetaUploaderWizardPage,
             this.progressWizardPage,
             this.errorOccurredWizardPage,
             this.successWizardPage});
@@ -201,7 +186,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.fileGroupSelectionWizardPage.Controls.Add(this.labelControl2);
             this.fileGroupSelectionWizardPage.Name = "fileGroupSelectionWizardPage";
             this.fileGroupSelectionWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.fileGroupSelectionWizardPage.Size = new System.Drawing.Size(567, 471);
+            this.fileGroupSelectionWizardPage.Size = new System.Drawing.Size(567, 472);
             this.fileGroupSelectionWizardPage.Text = "Select file groups to export to Microsoft Excel";
             // 
             // invertFileGroupsButton
@@ -209,7 +194,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.invertFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.invertFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.invertFileGroupsButton.Appearance.Options.UseFont = true;
-            this.invertFileGroupsButton.Location = new System.Drawing.Point(174, 431);
+            this.invertFileGroupsButton.Location = new System.Drawing.Point(174, 432);
             this.invertFileGroupsButton.Name = "invertFileGroupsButton";
             this.invertFileGroupsButton.Size = new System.Drawing.Size(75, 28);
             this.invertFileGroupsButton.TabIndex = 4;
@@ -222,7 +207,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.selectNoFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectNoFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.selectNoFileGroupsButton.Appearance.Options.UseFont = true;
-            this.selectNoFileGroupsButton.Location = new System.Drawing.Point(93, 431);
+            this.selectNoFileGroupsButton.Location = new System.Drawing.Point(93, 432);
             this.selectNoFileGroupsButton.Name = "selectNoFileGroupsButton";
             this.selectNoFileGroupsButton.Size = new System.Drawing.Size(75, 28);
             this.selectNoFileGroupsButton.TabIndex = 3;
@@ -235,7 +220,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.selectAllFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectAllFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.selectAllFileGroupsButton.Appearance.Options.UseFont = true;
-            this.selectAllFileGroupsButton.Location = new System.Drawing.Point(12, 431);
+            this.selectAllFileGroupsButton.Location = new System.Drawing.Point(12, 432);
             this.selectAllFileGroupsButton.Name = "selectAllFileGroupsButton";
             this.selectAllFileGroupsButton.Size = new System.Drawing.Size(75, 28);
             this.selectAllFileGroupsButton.TabIndex = 2;
@@ -253,7 +238,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.fileGroupsListBox.CheckOnClick = true;
             this.fileGroupsListBox.Location = new System.Drawing.Point(12, 31);
             this.fileGroupsListBox.Name = "fileGroupsListBox";
-            this.fileGroupsListBox.Size = new System.Drawing.Size(543, 394);
+            this.fileGroupsListBox.Size = new System.Drawing.Size(543, 395);
             this.fileGroupsListBox.TabIndex = 1;
             this.fileGroupsListBox.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.fileGroupsListBox_ItemCheck);
             this.fileGroupsListBox.SelectedIndexChanged += new System.EventHandler(this.fileGroupsListBox_SelectedIndexChanged);
@@ -261,6 +246,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(12, 12);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(68, 17);
@@ -279,7 +265,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.destinationFileWizardPage.Controls.Add(this.labelControl1);
             this.destinationFileWizardPage.Name = "destinationFileWizardPage";
             this.destinationFileWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.destinationFileWizardPage.Size = new System.Drawing.Size(567, 471);
+            this.destinationFileWizardPage.Size = new System.Drawing.Size(567, 472);
             this.destinationFileWizardPage.Text = "Specify export files";
             // 
             // buttonDecorateSimpleAutomatically
@@ -302,7 +288,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.multipleFilesGroupControl.Controls.Add(this.buttonDecorateAutomatically);
             this.multipleFilesGroupControl.Controls.Add(this.labelControl9);
             this.multipleFilesGroupControl.HasPadding = true;
-            this.multipleFilesGroupControl.Location = new System.Drawing.Point(12, 272);
+            this.multipleFilesGroupControl.Location = new System.Drawing.Point(12, 273);
             this.multipleFilesGroupControl.Name = "multipleFilesGroupControl";
             this.multipleFilesGroupControl.Size = new System.Drawing.Size(543, 187);
             this.multipleFilesGroupControl.TabIndex = 8;
@@ -327,6 +313,8 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Appearance.Options.UseTextOptions = true;
             this.labelControl9.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.labelControl9.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -348,6 +336,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.destinationFileTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.destinationFileTextEdit.Properties.Appearance.Options.UseFont = true;
             this.destinationFileTextEdit.Properties.NullValuePrompt = null;
+            this.destinationFileTextEdit.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.destinationFileTextEdit.Size = new System.Drawing.Size(543, 40);
             this.destinationFileTextEdit.TabIndex = 1;
             this.destinationFileTextEdit.EditValueChanged += new System.EventHandler(this.destinationFileTextEdit_EditValueChanged);
@@ -368,13 +357,15 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(9, 9);
+            this.barDockControlTop.Manager = this.barManager;
             this.barDockControlTop.Size = new System.Drawing.Size(549, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(9, 462);
+            this.barDockControlBottom.Location = new System.Drawing.Point(9, 463);
+            this.barDockControlBottom.Manager = this.barManager;
             this.barDockControlBottom.Size = new System.Drawing.Size(549, 0);
             // 
             // barDockControlLeft
@@ -382,14 +373,16 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(9, 9);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 453);
+            this.barDockControlLeft.Manager = this.barManager;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 454);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(558, 9);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 453);
+            this.barDockControlRight.Manager = this.barManager;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 454);
             // 
             // errorOccurredWizardPage
             // 
@@ -402,7 +395,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.errorOccurredWizardPage.Controls.Add(this.barDockControlTop);
             this.errorOccurredWizardPage.Name = "errorOccurredWizardPage";
             this.errorOccurredWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.errorOccurredWizardPage.Size = new System.Drawing.Size(567, 471);
+            this.errorOccurredWizardPage.Size = new System.Drawing.Size(567, 472);
             this.errorOccurredWizardPage.Text = "An error has occurred";
             // 
             // optionsButton
@@ -412,9 +405,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.optionsButton.Appearance.Options.UseFont = true;
             this.optionsButton.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
             this.optionsButton.DropDownControl = this.optionsPopupMenu;
-            this.optionsButton.Image = ((System.Drawing.Image)(resources.GetObject("optionsButton.Image")));
-            this.optionsButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.optionsButton.Location = new System.Drawing.Point(15, 428);
+            this.optionsButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("optionsButton.ImageOptions.Image")));
+            this.optionsButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.optionsButton.Location = new System.Drawing.Point(15, 429);
             this.optionsButton.Name = "optionsButton";
             this.optionsButton.Size = new System.Drawing.Size(75, 28);
             this.optionsButton.TabIndex = 2;
@@ -432,7 +425,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             // 
             this.detailedErrorsButton.Caption = "Details";
             this.detailedErrorsButton.Id = 0;
-            this.detailedErrorsButton.ImageIndex = 1;
+            this.detailedErrorsButton.ImageOptions.ImageIndex = 1;
             this.detailedErrorsButton.Name = "detailedErrorsButton";
             this.detailedErrorsButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.detailedErrorsButton_ItemClick);
             // 
@@ -447,7 +440,8 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.errorTextMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.errorTextMemoEdit.Properties.Appearance.Options.UseFont = true;
             this.errorTextMemoEdit.Properties.NullValuePrompt = null;
-            this.errorTextMemoEdit.Size = new System.Drawing.Size(537, 407);
+            this.errorTextMemoEdit.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
+            this.errorTextMemoEdit.Size = new System.Drawing.Size(537, 408);
             this.errorTextMemoEdit.TabIndex = 1;
             // 
             // openFolderAfterGeneratingCheckEdit
@@ -459,7 +453,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.openFolderAfterGeneratingCheckEdit.Properties.AutoHeight = false;
             this.openFolderAfterGeneratingCheckEdit.Properties.AutoWidth = true;
             this.openFolderAfterGeneratingCheckEdit.Properties.Caption = "Open containing folder(s) after exporting";
-            this.openFolderAfterGeneratingCheckEdit.Size = new System.Drawing.Size(262, 19);
+            this.openFolderAfterGeneratingCheckEdit.Size = new System.Drawing.Size(263, 19);
             this.openFolderAfterGeneratingCheckEdit.TabIndex = 6;
             // 
             // openFileAfterGeneratingCheckEdit
@@ -472,7 +466,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.openFileAfterGeneratingCheckEdit.Properties.AutoHeight = false;
             this.openFileAfterGeneratingCheckEdit.Properties.AutoWidth = true;
             this.openFileAfterGeneratingCheckEdit.Properties.Caption = "Open file(s) after exporting";
-            this.openFileAfterGeneratingCheckEdit.Size = new System.Drawing.Size(180, 19);
+            this.openFileAfterGeneratingCheckEdit.Size = new System.Drawing.Size(181, 19);
             this.openFileAfterGeneratingCheckEdit.TabIndex = 5;
             // 
             // buttonBrowse
@@ -492,6 +486,8 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl6.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Appearance.Options.UseForeColor = true;
             this.labelControl6.Enabled = false;
             this.labelControl6.Location = new System.Drawing.Point(12, 77);
             this.labelControl6.Name = "labelControl6";
@@ -502,6 +498,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(276, 17);
@@ -519,12 +516,13 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.languagesWizardPage.Controls.Add(this.languagesToExportCheckListBox);
             this.languagesWizardPage.Name = "languagesWizardPage";
             this.languagesWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.languagesWizardPage.Size = new System.Drawing.Size(567, 471);
+            this.languagesWizardPage.Size = new System.Drawing.Size(567, 472);
             this.languagesWizardPage.Text = "Specify languages to export";
             // 
             // label3
             // 
             this.label3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label3.Appearance.Options.UseFont = true;
             this.label3.Location = new System.Drawing.Point(12, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 17);
@@ -545,6 +543,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.referenceLanguageGroupBox.Properties.DropDownRows = 20;
             this.referenceLanguageGroupBox.Properties.NullValuePrompt = null;
+            this.referenceLanguageGroupBox.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.referenceLanguageGroupBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.referenceLanguageGroupBox.Properties.SelectedIndexChanged += new System.EventHandler(this.referenceLanguageGroupBox_SelectedIndexChanged);
             this.referenceLanguageGroupBox.Size = new System.Drawing.Size(543, 24);
@@ -554,6 +553,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             // label2
             // 
             this.label2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label2.Appearance.Options.UseFont = true;
             this.label2.Location = new System.Drawing.Point(12, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 17);
@@ -565,7 +565,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.selectAllLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectAllLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.selectAllLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.selectAllLanguagesToExportButton.Location = new System.Drawing.Point(12, 431);
+            this.selectAllLanguagesToExportButton.Location = new System.Drawing.Point(12, 432);
             this.selectAllLanguagesToExportButton.Name = "selectAllLanguagesToExportButton";
             this.selectAllLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
             this.selectAllLanguagesToExportButton.TabIndex = 4;
@@ -578,7 +578,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.invertLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.invertLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.invertLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.invertLanguagesToExportButton.Location = new System.Drawing.Point(174, 431);
+            this.invertLanguagesToExportButton.Location = new System.Drawing.Point(174, 432);
             this.invertLanguagesToExportButton.Name = "invertLanguagesToExportButton";
             this.invertLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
             this.invertLanguagesToExportButton.TabIndex = 6;
@@ -591,7 +591,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.selectNoLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.selectNoLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.selectNoLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.selectNoLanguagesToExportButton.Location = new System.Drawing.Point(93, 431);
+            this.selectNoLanguagesToExportButton.Location = new System.Drawing.Point(93, 432);
             this.selectNoLanguagesToExportButton.Name = "selectNoLanguagesToExportButton";
             this.selectNoLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
             this.selectNoLanguagesToExportButton.TabIndex = 5;
@@ -609,7 +609,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.languagesToExportCheckListBox.CheckOnClick = true;
             this.languagesToExportCheckListBox.Location = new System.Drawing.Point(12, 86);
             this.languagesToExportCheckListBox.Name = "languagesToExportCheckListBox";
-            this.languagesToExportCheckListBox.Size = new System.Drawing.Size(543, 339);
+            this.languagesToExportCheckListBox.Size = new System.Drawing.Size(543, 340);
             this.languagesToExportCheckListBox.TabIndex = 3;
             this.languagesToExportCheckListBox.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.languagesToExportCheckListBox_ItemCheck);
             this.languagesToExportCheckListBox.SelectedIndexChanged += new System.EventHandler(this.languagesToExportCheckListBox_SelectedIndexChanged);
@@ -624,7 +624,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.optionsWizardPage.Controls.Add(this.exportGroupsAsWorkSheetsCheckEdit);
             this.optionsWizardPage.Name = "optionsWizardPage";
             this.optionsWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.optionsWizardPage.Size = new System.Drawing.Size(567, 471);
+            this.optionsWizardPage.Size = new System.Drawing.Size(567, 472);
             this.optionsWizardPage.Text = "Specify export options";
             // 
             // buttonResetOptions
@@ -632,7 +632,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.buttonResetOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonResetOptions.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonResetOptions.Appearance.Options.UseFont = true;
-            this.buttonResetOptions.Location = new System.Drawing.Point(405, 431);
+            this.buttonResetOptions.Location = new System.Drawing.Point(405, 432);
             this.buttonResetOptions.Name = "buttonResetOptions";
             this.buttonResetOptions.Size = new System.Drawing.Size(150, 28);
             this.buttonResetOptions.TabIndex = 8;
@@ -649,7 +649,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportEachLanguageIntoSeparateExcelFileCheckEdit.Properties.AutoHeight = false;
             this.exportEachLanguageIntoSeparateExcelFileCheckEdit.Properties.AutoWidth = true;
             this.exportEachLanguageIntoSeparateExcelFileCheckEdit.Properties.Caption = "Export each language into a separate Excel file";
-            this.exportEachLanguageIntoSeparateExcelFileCheckEdit.Size = new System.Drawing.Size(295, 19);
+            this.exportEachLanguageIntoSeparateExcelFileCheckEdit.Size = new System.Drawing.Size(296, 19);
             this.exportEachLanguageIntoSeparateExcelFileCheckEdit.TabIndex = 4;
             this.exportEachLanguageIntoSeparateExcelFileCheckEdit.CheckedChanged += new System.EventHandler(this.exportEachLanguageIntoSeparateExcelFileCheckEdit_CheckedChanged);
             // 
@@ -665,13 +665,15 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportGroupsAsOneWorkSheetCheckEdit.Properties.Caption = "Export all file groups together into one work sheet";
             this.exportGroupsAsOneWorkSheetCheckEdit.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
             this.exportGroupsAsOneWorkSheetCheckEdit.Properties.RadioGroupIndex = 0;
-            this.exportGroupsAsOneWorkSheetCheckEdit.Size = new System.Drawing.Size(317, 19);
+            this.exportGroupsAsOneWorkSheetCheckEdit.Size = new System.Drawing.Size(318, 19);
             this.exportGroupsAsOneWorkSheetCheckEdit.TabIndex = 1;
             this.exportGroupsAsOneWorkSheetCheckEdit.CheckedChanged += new System.EventHandler(this.exportGroupsAsOneWorkSheetCheckEdit_CheckedChanged);
             // 
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Appearance.Options.UseTextOptions = true;
             this.labelControl7.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.labelControl7.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl7.Location = new System.Drawing.Point(12, 12);
@@ -691,7 +693,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportGroupsAsExcelFilesCheckEdit.Properties.Caption = "Export each file group into a separate Excel document";
             this.exportGroupsAsExcelFilesCheckEdit.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
             this.exportGroupsAsExcelFilesCheckEdit.Properties.RadioGroupIndex = 0;
-            this.exportGroupsAsExcelFilesCheckEdit.Size = new System.Drawing.Size(339, 19);
+            this.exportGroupsAsExcelFilesCheckEdit.Size = new System.Drawing.Size(340, 19);
             this.exportGroupsAsExcelFilesCheckEdit.TabIndex = 3;
             this.exportGroupsAsExcelFilesCheckEdit.TabStop = false;
             this.exportGroupsAsExcelFilesCheckEdit.CheckedChanged += new System.EventHandler(this.exportGroupsAsExcelFilesCheckEdit_CheckedChanged);
@@ -708,7 +710,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportGroupsAsWorkSheetsCheckEdit.Properties.Caption = "Export each file group into a separate work sheet";
             this.exportGroupsAsWorkSheetsCheckEdit.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
             this.exportGroupsAsWorkSheetsCheckEdit.Properties.RadioGroupIndex = 0;
-            this.exportGroupsAsWorkSheetsCheckEdit.Size = new System.Drawing.Size(311, 19);
+            this.exportGroupsAsWorkSheetsCheckEdit.Size = new System.Drawing.Size(312, 19);
             this.exportGroupsAsWorkSheetsCheckEdit.TabIndex = 2;
             this.exportGroupsAsWorkSheetsCheckEdit.TabStop = false;
             this.exportGroupsAsWorkSheetsCheckEdit.CheckedChanged += new System.EventHandler(this.exportGroupsAsWorkSheetsCheckEdit_CheckedChanged);
@@ -721,7 +723,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.progressWizardPage.Controls.Add(this.progressLabel);
             this.progressWizardPage.Name = "progressWizardPage";
             this.progressWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.progressWizardPage.Size = new System.Drawing.Size(567, 471);
+            this.progressWizardPage.Size = new System.Drawing.Size(567, 472);
             this.progressWizardPage.Text = "Data is being exported. Please wait...";
             // 
             // progressBarControl
@@ -737,6 +739,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             // progressLabel
             // 
             this.progressLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.progressLabel.Appearance.Options.UseFont = true;
             this.progressLabel.Location = new System.Drawing.Point(12, 36);
             this.progressLabel.Name = "progressLabel";
             this.progressLabel.Size = new System.Drawing.Size(179, 17);
@@ -755,12 +758,14 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.successWizardPage.Controls.Add(this.labelControl5);
             this.successWizardPage.Name = "successWizardPage";
             this.successWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.successWizardPage.Size = new System.Drawing.Size(567, 471);
+            this.successWizardPage.Size = new System.Drawing.Size(567, 472);
             this.successWizardPage.Text = "Export finished successfully";
             // 
             // pleaseWaitFinishLabel
             // 
             this.pleaseWaitFinishLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.pleaseWaitFinishLabel.Appearance.Options.UseFont = true;
+            this.pleaseWaitFinishLabel.Appearance.Options.UseTextOptions = true;
             this.pleaseWaitFinishLabel.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.pleaseWaitFinishLabel.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.pleaseWaitFinishLabel.Location = new System.Drawing.Point(75, 60);
@@ -788,12 +793,15 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             | System.Windows.Forms.AnchorStyles.Right)));
             this.warningTextLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.warningTextLabel.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
+            this.warningTextLabel.Appearance.Options.UseFont = true;
+            this.warningTextLabel.Appearance.Options.UseForeColor = true;
+            this.warningTextLabel.Appearance.Options.UseTextOptions = true;
             this.warningTextLabel.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.warningTextLabel.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.warningTextLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.warningTextLabel.Location = new System.Drawing.Point(75, 91);
             this.warningTextLabel.Name = "warningTextLabel";
-            this.warningTextLabel.Size = new System.Drawing.Size(480, 368);
+            this.warningTextLabel.Size = new System.Drawing.Size(480, 369);
             this.warningTextLabel.TabIndex = 0;
             this.warningTextLabel.Text = "<WARNING TEXT, IF ANY>";
             // 
@@ -802,6 +810,8 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Appearance.Options.UseTextOptions = true;
             this.labelControl5.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.labelControl5.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -820,7 +830,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.advancedOptionsWizardPage.Controls.Add(this.btnConnectionStringExpander);
             this.advancedOptionsWizardPage.Name = "advancedOptionsWizardPage";
             this.advancedOptionsWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.advancedOptionsWizardPage.Size = new System.Drawing.Size(567, 471);
+            this.advancedOptionsWizardPage.Size = new System.Drawing.Size(567, 472);
             this.advancedOptionsWizardPage.Text = "Advanced options";
             // 
             // buttonResetAdvancedOptions
@@ -828,7 +838,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.buttonResetAdvancedOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonResetAdvancedOptions.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonResetAdvancedOptions.Appearance.Options.UseFont = true;
-            this.buttonResetAdvancedOptions.Location = new System.Drawing.Point(405, 431);
+            this.buttonResetAdvancedOptions.Location = new System.Drawing.Point(405, 432);
             this.buttonResetAdvancedOptions.Name = "buttonResetAdvancedOptions";
             this.buttonResetAdvancedOptions.Size = new System.Drawing.Size(150, 28);
             this.buttonResetAdvancedOptions.TabIndex = 3;
@@ -868,7 +878,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.useCrypticExcelExportSheetNamesCheckEdit.Properties.AutoHeight = false;
             this.useCrypticExcelExportSheetNamesCheckEdit.Properties.AutoWidth = true;
             this.useCrypticExcelExportSheetNamesCheckEdit.Properties.Caption = "Use unique (but cryptic) Microsoft Office Excel sheet names";
-            this.useCrypticExcelExportSheetNamesCheckEdit.Size = new System.Drawing.Size(368, 19);
+            this.useCrypticExcelExportSheetNamesCheckEdit.Size = new System.Drawing.Size(369, 19);
             this.useCrypticExcelExportSheetNamesCheckEdit.TabIndex = 5;
             this.useCrypticExcelExportSheetNamesCheckEdit.CheckedChanged += new System.EventHandler(this.useCrypticExcelExportSheetNamesCheckEdit_CheckedChanged);
             // 
@@ -882,7 +892,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportFileGroupColumnCheckEdit.Properties.AutoHeight = false;
             this.exportFileGroupColumnCheckEdit.Properties.AutoWidth = true;
             this.exportFileGroupColumnCheckEdit.Properties.Caption = "Export file group column";
-            this.exportFileGroupColumnCheckEdit.Size = new System.Drawing.Size(167, 19);
+            this.exportFileGroupColumnCheckEdit.Size = new System.Drawing.Size(168, 19);
             this.exportFileGroupColumnCheckEdit.TabIndex = 0;
             this.exportFileGroupColumnCheckEdit.CheckedChanged += new System.EventHandler(this.exportFileGroupColumnCheckEdit_CheckedChanged);
             // 
@@ -895,7 +905,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportReferenceLanguageColumnCheckEdit.Properties.AutoHeight = false;
             this.exportReferenceLanguageColumnCheckEdit.Properties.AutoWidth = true;
             this.exportReferenceLanguageColumnCheckEdit.Properties.Caption = "Export reference language column";
-            this.exportReferenceLanguageColumnCheckEdit.Size = new System.Drawing.Size(223, 19);
+            this.exportReferenceLanguageColumnCheckEdit.Size = new System.Drawing.Size(224, 19);
             this.exportReferenceLanguageColumnCheckEdit.TabIndex = 3;
             this.exportReferenceLanguageColumnCheckEdit.CheckedChanged += new System.EventHandler(this.exportReferenceLanguageColumnCheckEdit_CheckedChanged);
             // 
@@ -908,7 +918,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportCommentColumnCheckEdit.Properties.AutoHeight = false;
             this.exportCommentColumnCheckEdit.Properties.AutoWidth = true;
             this.exportCommentColumnCheckEdit.Properties.Caption = "Export comment column";
-            this.exportCommentColumnCheckEdit.Size = new System.Drawing.Size(164, 19);
+            this.exportCommentColumnCheckEdit.Size = new System.Drawing.Size(165, 19);
             this.exportCommentColumnCheckEdit.TabIndex = 2;
             this.exportCommentColumnCheckEdit.CheckedChanged += new System.EventHandler(this.exportCommentColumnCheckEdit_CheckedChanged);
             // 
@@ -922,7 +932,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportNameColumnCheckEdit.Properties.AutoHeight = false;
             this.exportNameColumnCheckEdit.Properties.AutoWidth = true;
             this.exportNameColumnCheckEdit.Properties.Caption = "Export name column";
-            this.exportNameColumnCheckEdit.Size = new System.Drawing.Size(142, 19);
+            this.exportNameColumnCheckEdit.Size = new System.Drawing.Size(143, 19);
             this.exportNameColumnCheckEdit.TabIndex = 1;
             this.exportNameColumnCheckEdit.CheckedChanged += new System.EventHandler(this.exportNameColumnCheckEdit_CheckedChanged);
             // 
@@ -936,7 +946,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.eliminateDuplicateRowsCheckEdit.Properties.AutoHeight = false;
             this.eliminateDuplicateRowsCheckEdit.Properties.AutoWidth = true;
             this.eliminateDuplicateRowsCheckEdit.Properties.Caption = "Eliminate duplicate rows";
-            this.eliminateDuplicateRowsCheckEdit.Size = new System.Drawing.Size(163, 19);
+            this.eliminateDuplicateRowsCheckEdit.Size = new System.Drawing.Size(164, 19);
             this.eliminateDuplicateRowsCheckEdit.TabIndex = 4;
             this.eliminateDuplicateRowsCheckEdit.CheckedChanged += new System.EventHandler(this.eliminateDuplicateRowsCheckEdit_CheckedChanged);
             // 
@@ -951,7 +961,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportOnlyRowsWithChangedTextsCheckEdit.Properties.AutoWidth = true;
             this.exportOnlyRowsWithChangedTextsCheckEdit.Properties.Caption = "Export only texts that were modified (in the reference language) since the last e" +
     "xport";
-            this.exportOnlyRowsWithChangedTextsCheckEdit.Size = new System.Drawing.Size(515, 19);
+            this.exportOnlyRowsWithChangedTextsCheckEdit.Size = new System.Drawing.Size(516, 19);
             this.exportOnlyRowsWithChangedTextsCheckEdit.TabIndex = 8;
             this.exportOnlyRowsWithChangedTextsCheckEdit.CheckedChanged += new System.EventHandler(this.exportOnlyRowsWithChangedTextsCheckEdit_CheckedChanged);
             // 
@@ -965,7 +975,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportCompletelyEmptyRowsCheckEdit.Properties.AutoHeight = false;
             this.exportCompletelyEmptyRowsCheckEdit.Properties.AutoWidth = true;
             this.exportCompletelyEmptyRowsCheckEdit.Properties.Caption = "Export rows that are currently completely empty";
-            this.exportCompletelyEmptyRowsCheckEdit.Size = new System.Drawing.Size(302, 19);
+            this.exportCompletelyEmptyRowsCheckEdit.Size = new System.Drawing.Size(303, 19);
             this.exportCompletelyEmptyRowsCheckEdit.TabIndex = 7;
             this.exportCompletelyEmptyRowsCheckEdit.CheckedChanged += new System.EventHandler(this.exportWithoutDestinationTranslationOnlyCheckEdit_CheckedChanged);
             // 
@@ -979,7 +989,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.exportWithoutDestinationTranslationOnlyCheckEdit.Properties.AutoHeight = false;
             this.exportWithoutDestinationTranslationOnlyCheckEdit.Properties.AutoWidth = true;
             this.exportWithoutDestinationTranslationOnlyCheckEdit.Properties.Caption = "Export only rows with no existing translation";
-            this.exportWithoutDestinationTranslationOnlyCheckEdit.Size = new System.Drawing.Size(279, 19);
+            this.exportWithoutDestinationTranslationOnlyCheckEdit.Size = new System.Drawing.Size(280, 19);
             this.exportWithoutDestinationTranslationOnlyCheckEdit.TabIndex = 6;
             this.exportWithoutDestinationTranslationOnlyCheckEdit.CheckedChanged += new System.EventHandler(this.exportWithoutDestinationTranslationOnlyCheckEdit_CheckedChanged);
             // 
@@ -989,6 +999,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Appearance.Options.UseForeColor = true;
+            this.labelControl4.Appearance.Options.UseTextOptions = true;
             this.labelControl4.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.labelControl4.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -1002,6 +1015,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Location = new System.Drawing.Point(36, 14);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(105, 17);
@@ -1020,108 +1034,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.btnConnectionStringExpander.Text = "+";
             this.btnConnectionStringExpander.WantDrawFocusRectangle = true;
             this.btnConnectionStringExpander.Click += new System.EventHandler(this.btnConnectionStringExpander_Click);
-            // 
-            // sendWithZetaUploaderWizardPage
-            // 
-            this.sendWithZetaUploaderWizardPage.Controls.Add(this.buttonZulReset);
-            this.sendWithZetaUploaderWizardPage.Controls.Add(this.labelControl10);
-            this.sendWithZetaUploaderWizardPage.Controls.Add(this.zulBodyTextEdit);
-            this.sendWithZetaUploaderWizardPage.Controls.Add(this.zulSubjectTextEdit);
-            this.sendWithZetaUploaderWizardPage.Controls.Add(this.zulReceiversTextEdit);
-            this.sendWithZetaUploaderWizardPage.Controls.Add(this.sendFilesToEMailReceiversCheckEdit);
-            this.sendWithZetaUploaderWizardPage.Name = "sendWithZetaUploaderWizardPage";
-            this.sendWithZetaUploaderWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.sendWithZetaUploaderWizardPage.Size = new System.Drawing.Size(567, 471);
-            this.sendWithZetaUploaderWizardPage.Text = "Send file to e-mail receivers";
-            // 
-            // buttonZulReset
-            // 
-            this.buttonZulReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonZulReset.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonZulReset.Appearance.Options.UseFont = true;
-            this.buttonZulReset.Location = new System.Drawing.Point(480, 431);
-            this.buttonZulReset.Name = "buttonZulReset";
-            this.buttonZulReset.Size = new System.Drawing.Size(75, 28);
-            this.buttonZulReset.TabIndex = 6;
-            this.buttonZulReset.Text = "Reset";
-            this.buttonZulReset.WantDrawFocusRectangle = true;
-            this.buttonZulReset.Click += new System.EventHandler(this.buttonZulReset_Click);
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl10.Location = new System.Drawing.Point(12, 76);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(166, 17);
-            this.labelControl10.TabIndex = 2;
-            this.labelControl10.Text = "E-mail subject and message:";
-            // 
-            // zulBodyTextEdit
-            // 
-            this.zulBodyTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.zulBodyTextEdit.CueText = null;
-            this.zulBodyTextEdit.EditValue = "Please download the Excel documents in the link to translate the project \"{Projec" +
-    "tName}\".\r\n\r\nTo send me the translated files back, simply use https://www.zeta-up" +
-    "loader.com\r\n\r\nKind regards";
-            this.zulBodyTextEdit.Location = new System.Drawing.Point(12, 125);
-            this.zulBodyTextEdit.MenuManager = this.barManager;
-            this.zulBodyTextEdit.Name = "zulBodyTextEdit";
-            this.zulBodyTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.zulBodyTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.zulBodyTextEdit.Properties.NullValuePrompt = null;
-            this.zulBodyTextEdit.Size = new System.Drawing.Size(543, 300);
-            this.zulBodyTextEdit.TabIndex = 4;
-            // 
-            // zulSubjectTextEdit
-            // 
-            this.zulSubjectTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.zulSubjectTextEdit.Bold = false;
-            this.zulSubjectTextEdit.CueText = null;
-            this.zulSubjectTextEdit.EditValue = "[ZRE] Excel files for translating project \"{ProjectName}\"";
-            this.zulSubjectTextEdit.Location = new System.Drawing.Point(12, 95);
-            this.zulSubjectTextEdit.MaximumSize = new System.Drawing.Size(0, 24);
-            this.zulSubjectTextEdit.MinimumSize = new System.Drawing.Size(0, 24);
-            this.zulSubjectTextEdit.Name = "zulSubjectTextEdit";
-            this.zulSubjectTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.zulSubjectTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.zulSubjectTextEdit.Properties.NullValuePrompt = null;
-            this.zulSubjectTextEdit.Size = new System.Drawing.Size(543, 24);
-            this.zulSubjectTextEdit.TabIndex = 3;
-            // 
-            // zulReceiversTextEdit
-            // 
-            this.zulReceiversTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.zulReceiversTextEdit.Bold = false;
-            this.zulReceiversTextEdit.CueText = null;
-            this.zulReceiversTextEdit.EditValue = "someone@example.org, someone-other@example.org";
-            this.zulReceiversTextEdit.Location = new System.Drawing.Point(12, 37);
-            this.zulReceiversTextEdit.MaximumSize = new System.Drawing.Size(0, 24);
-            this.zulReceiversTextEdit.MenuManager = this.barManager;
-            this.zulReceiversTextEdit.MinimumSize = new System.Drawing.Size(0, 24);
-            this.zulReceiversTextEdit.Name = "zulReceiversTextEdit";
-            this.zulReceiversTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.zulReceiversTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.zulReceiversTextEdit.Properties.NullValuePrompt = null;
-            this.zulReceiversTextEdit.Size = new System.Drawing.Size(543, 24);
-            this.zulReceiversTextEdit.TabIndex = 1;
-            this.zulReceiversTextEdit.EditValueChanged += new System.EventHandler(this.zulReceiversTextEdit_EditValueChanged);
-            // 
-            // sendFilesToEMailReceiversCheckEdit
-            // 
-            this.sendFilesToEMailReceiversCheckEdit.Location = new System.Drawing.Point(10, 12);
-            this.sendFilesToEMailReceiversCheckEdit.Name = "sendFilesToEMailReceiversCheckEdit";
-            this.sendFilesToEMailReceiversCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.sendFilesToEMailReceiversCheckEdit.Properties.Appearance.Options.UseFont = true;
-            this.sendFilesToEMailReceiversCheckEdit.Properties.AutoHeight = false;
-            this.sendFilesToEMailReceiversCheckEdit.Properties.AutoWidth = true;
-            this.sendFilesToEMailReceiversCheckEdit.Properties.Caption = "Send exported files to the following e-mail receivers:";
-            this.sendFilesToEMailReceiversCheckEdit.Size = new System.Drawing.Size(329, 19);
-            this.sendFilesToEMailReceiversCheckEdit.TabIndex = 0;
-            this.sendFilesToEMailReceiversCheckEdit.CheckedChanged += new System.EventHandler(this.sendFilesToEMailReceiversCheckEdit_CheckedChanged);
             // 
             // progressBackgroundWorker
             // 
@@ -1150,11 +1062,11 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.ClientSize = new System.Drawing.Size(611, 601);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.IconOptions.ShowIcon = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(627, 639);
+            this.MinimumSize = new System.Drawing.Size(613, 633);
             this.Name = "ExcelExportWizardForm";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Export data to Microsoft Excel";
@@ -1207,12 +1119,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             ((System.ComponentModel.ISupportInitialize)(this.exportOnlyRowsWithChangedTextsCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exportCompletelyEmptyRowsCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exportWithoutDestinationTranslationOnlyCheckEdit.Properties)).EndInit();
-            this.sendWithZetaUploaderWizardPage.ResumeLayout(false);
-            this.sendWithZetaUploaderWizardPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zulBodyTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zulSubjectTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zulReceiversTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sendFilesToEMailReceiversCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panel1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1287,13 +1193,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl4;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl8;
 		protected ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton btnConnectionStringExpander;
-		private DevExpress.XtraWizard.WizardPage sendWithZetaUploaderWizardPage;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl10;
-		private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit zulBodyTextEdit;
-		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit zulSubjectTextEdit;
-		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit zulReceiversTextEdit;
-		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit sendFilesToEMailReceiversCheckEdit;
-		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonZulReset;
 		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit exportCompletelyEmptyRowsCheckEdit;
         private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panel1;
     }

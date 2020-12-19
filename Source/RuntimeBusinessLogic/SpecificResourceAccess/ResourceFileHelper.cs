@@ -115,14 +115,7 @@
         private static string normalizeExtension(
             string extension)
         {
-            if (string.IsNullOrEmpty(extension))
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return extension.Trim(' ', '.').ToLowerInvariant();
-            }
+            return string.IsNullOrEmpty(extension) ? string.Empty : extension.Trim(' ', '.').ToLowerInvariant();
         }
 
         /// <summary>

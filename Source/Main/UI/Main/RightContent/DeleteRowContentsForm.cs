@@ -133,8 +133,8 @@
 
             buttonOK.Enabled =
                 displayAllLanguagesCheckEdit.Checked ||
-                (displayCertainLanguagesCheckEdit.Checked &&
-                languagesToDisplayCheckListBox.CheckedIndices.Count > 0);
+                displayCertainLanguagesCheckEdit.Checked &&
+                languagesToDisplayCheckListBox.CheckedIndices.Count > 0;
         }
 
         private void refillLanguagesToTranslate()

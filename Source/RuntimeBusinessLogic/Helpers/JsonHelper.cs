@@ -9,8 +9,8 @@
         public static bool IsValidJson(string strInput)
         {
             strInput = strInput.Trim();
-            if ((strInput.StartsWith("{") && strInput.EndsWith("}")) || //For object
-                (strInput.StartsWith("[") && strInput.EndsWith("]"))) //For array
+            if (strInput.StartsWith("{") && strInput.EndsWith("}") || //For object
+                strInput.StartsWith("[") && strInput.EndsWith("]")) //For array
             {
                 try
                 {

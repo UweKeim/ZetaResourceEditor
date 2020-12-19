@@ -123,8 +123,8 @@
                 _project.HideInternalDesignerRows;
             shallowCumulationCheckEdit.Checked =
                 _project.UseShallowGridDataCumulation;
-            hideFileGroupFilesInTreeCheckEdit.Checked =
-                _project.HideFileGroupFilesInTree;
+            hideFileGroupFilesInTreeCheckEdit.Checked = _project.HideFileGroupFilesInTree;
+            displayFileGroupWithoutFolderCheckEdit.Checked = _project.DisplayFileGroupWithoutFolder;
 
             neutralLanguageFileNamePatternTextEdit.Text = _project.NeutralLanguageFileNamePattern;
             nonNeutralLanguageFileNamePatternTextEdit.Text = _project.NonNeutralLanguageFileNamePattern;
@@ -133,6 +133,7 @@
             persistGridSettingsCheckEdit.Checked = _project.PersistGridSettings;
             colorifyNullCellsCheckEdit.Checked = _project.ColorifyNullCells;
             enableExcelExportSnapshotsCheckEdit.Checked = _project.EnableExcelExportSnapshots;
+            keepFolderStructureOnImportCheckEdit.Checked = _project.KeepFolderStructureOnImport;
 
             DoInitiallyFillListsAndFillItemToControls();
         }
@@ -177,6 +178,7 @@
                 hideInternalDesignerRowsCheckEdit.Checked;
             _project.UseShallowGridDataCumulation = shallowCumulationCheckEdit.Checked;
             _project.HideFileGroupFilesInTree = hideFileGroupFilesInTreeCheckEdit.Checked;
+            _project.DisplayFileGroupWithoutFolder = displayFileGroupWithoutFolderCheckEdit.Checked;
 
             _project.NeutralLanguageFileNamePattern = neutralLanguageFileNamePatternTextEdit.Text.Trim();
             _project.NonNeutralLanguageFileNamePattern = nonNeutralLanguageFileNamePatternTextEdit.Text.Trim();
@@ -185,6 +187,7 @@
             _project.PersistGridSettings = persistGridSettingsCheckEdit.Checked;
             _project.ColorifyNullCells = colorifyNullCellsCheckEdit.Checked;
             _project.EnableExcelExportSnapshots = enableExcelExportSnapshotsCheckEdit.Checked;
+            _project.KeepFolderStructureOnImport = keepFolderStructureOnImportCheckEdit.Checked;
 
             _project.MarkAsModified();
         }
@@ -209,33 +212,22 @@
             Process.Start(@"http://extensions.services.openoffice.org/dictionary");
         }
 
-        private void buttonSendProject_Click(object sender, EventArgs e)
-        {
-            using (var form = new SendProjectWizardForm())
-            {
-                form.Initialize(_project);
-                form.ShowDialog(this);
-            }
-        }
-
         private void buttonTranslationSettings_Click(object sender, EventArgs e)
         {
-            using (var form = new TranslateOptionsForm())
+            using var form = new TranslateOptionsForm();
+            form.Initialize(_project);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.Initialize(_project);
-
-                if (form.ShowDialog(this) == DialogResult.OK)
+                if (form.TranslationProviderChanged)
                 {
-                    if (form.TranslationProviderChanged)
+                    using (new WaitCursor(this))
                     {
-                        using (new WaitCursor(this))
-                        {
-                            DoInitiallyFillListsAndFillItemToControls();
-                        }
+                        DoInitiallyFillListsAndFillItemToControls();
                     }
-
-                    UpdateUI();
                 }
+
+                UpdateUI();
             }
         }
 

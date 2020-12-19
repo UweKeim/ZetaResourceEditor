@@ -5,7 +5,6 @@ namespace ZetaResourceEditor.UI.FileGroups
     using Helper;
     using Helper.Base;
     using Helper.ErrorHandling;
-    using Helper.ExtendedFolderBrowser;
     using Helper.Progress;
     using Main;
     using Properties;
@@ -454,37 +453,37 @@ namespace ZetaResourceEditor.UI.FileGroups
 
         private void baseFolderSelectButton_Click(object sender, EventArgs e)
         {
-            using (var dialog = new ExtendedFolderBrowserDialog())
+            using var dialog = new FolderBrowserDialog
             {
-                dialog.Description =
-                    Resources.AddNewFileGroupForm_baseFolderSelectButton_Click_Please_select_the_base_folder_where_to_create_the_files_;
+                Description = Resources
+                    .AddNewFileGroupForm_baseFolderSelectButton_Click_Please_select_the_base_folder_where_to_create_the_files_
+            };
 
-                var initialDir =
-                    ConvertHelper.ToString(
-                        PersistanceHelper.RestoreValue(
-                            MainForm.UserStorageIntelligent,
-                            @"filesInitialDir"));
-
-                if (string.IsNullOrEmpty(initialDir) || !ZlpIOHelper.DirectoryExists(initialDir))
-                {
-                    var d = _project.ProjectConfigurationFilePath.Directory;
-                    initialDir = d.FullName;
-                }
-
-                dialog.SelectedPath = initialDir;
-                dialog.ShowEditBox = true;
-
-                if (dialog.ShowDialog(this) == DialogResult.OK)
-                {
-                    PersistanceHelper.SaveValue(
+            var initialDir =
+                ConvertHelper.ToString(
+                    PersistanceHelper.RestoreValue(
                         MainForm.UserStorageIntelligent,
-                        @"filesInitialDir",
-                        dialog.SelectedPath);
+                        @"filesInitialDir"));
 
-                    baseFolderTextEdit.Text = dialog.SelectedPath;
+            if (string.IsNullOrEmpty(initialDir) || !ZlpIOHelper.DirectoryExists(initialDir))
+            {
+                var d = _project.ProjectConfigurationFilePath.Directory;
+                initialDir = d.FullName;
+            }
 
-                    UpdateUI();
-                }
+            dialog.SelectedPath = initialDir;
+            //dialog.ShowEditBox = true;
+
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                PersistanceHelper.SaveValue(
+                    MainForm.UserStorageIntelligent,
+                    @"filesInitialDir",
+                    dialog.SelectedPath);
+
+                baseFolderTextEdit.Text = dialog.SelectedPath;
+
+                UpdateUI();
             }
         }
 

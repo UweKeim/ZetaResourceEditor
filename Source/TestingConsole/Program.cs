@@ -13,7 +13,7 @@
 
     public class Program
     {
-        static void Main()
+        private static void Main()
         {
             var at = getAccessToken("ZetaResourceEditor", "");
             Console.WriteLine(at.Token);
@@ -94,15 +94,11 @@
         {
             var ps = string.Empty;
 
-            // ReSharper disable LoopCanBeConvertedToQuery
-            foreach (var pair in parameters)
-            // ReSharper restore LoopCanBeConvertedToQuery
+            foreach (var (item1, item2) in parameters)
             {
-                if (!string.IsNullOrEmpty(pair.Item2))
+                if (!string.IsNullOrEmpty(item2))
                 {
-                    var p =
-                        $@"{pair.Item1}={HttpUtility.UrlEncode(pair.Item2)}&";
-
+                    var p = $@"{item1}={HttpUtility.UrlEncode(item2)}&";
                     ps += p;
                 }
             }
@@ -125,9 +121,9 @@
 
             if (headers != null && headers.Count > 0)
             {
-                foreach (var header in headers)
+                foreach (var (item1, item2) in headers)
                 {
-                    request.Headers.Add(header.Item1, header.Item2);
+                    request.Headers.Add(item1, item2);
                 }
             }
 
@@ -160,10 +156,8 @@
                 }
                 else
                 {
-                    using (var readStream = new StreamReader(responseStream, Encoding.UTF8))
-                    {
-                        rawResult = readStream.ReadToEnd();
-                    }
+                    using var readStream = new StreamReader(responseStream, Encoding.UTF8);
+                    rawResult = readStream.ReadToEnd();
                 }
             }
 
@@ -281,29 +275,25 @@
             try
             {
                 response = request.GetResponse();
-                using (var stream = response.GetResponseStream())
+                using var stream = response.GetResponseStream();
+                if (stream != null)
                 {
-                    if (stream != null)
-                    {
-                        using (var rdr = new StreamReader(stream, Encoding.UTF8))
-                        {
-                            // Deserialize the response
-                            var strResponse = rdr.ReadToEnd();
-                            var translateResponseArray = TranslationDeserializer.Deserialize<ArrayOfTranslateArrayResponse>(strResponse);
+                    using var rdr = new StreamReader(stream, Encoding.UTF8);
+                    // Deserialize the response
+                    var strResponse = rdr.ReadToEnd();
+                    var translateResponseArray = TranslationDeserializer.Deserialize<ArrayOfTranslateArrayResponse>(strResponse);
 
-                            // Print the response
-                            // ReSharper disable LoopCanBeConvertedToQuery
-                            foreach (var translateResponse in translateResponseArray.TranslateArrayResponse)
-                            // ReSharper restore LoopCanBeConvertedToQuery
+                    // Print the response
+                    // ReSharper disable LoopCanBeConvertedToQuery
+                    foreach (var translateResponse in translateResponseArray.TranslateArrayResponse)
+                        // ReSharper restore LoopCanBeConvertedToQuery
+                    {
+                        result.Add(
+                            new TranslationResult
                             {
-                                result.Add(
-                                    new TranslationResult
-                                    {
-                                        Error = translateResponse.Error,
-                                        Translation = translateResponse.TranslatedText
-                                    });
-                            }
-                        }
+                                Error = translateResponse.Error,
+                                Translation = translateResponse.TranslatedText
+                            });
                     }
                 }
             }
@@ -345,10 +335,8 @@
                 }
                 else
                 {
-                    using (var readStream = new StreamReader(responseStream, Encoding.UTF8))
-                    {
-                        rawResult = readStream.ReadToEnd();
-                    }
+                    using var readStream = new StreamReader(responseStream, Encoding.UTF8);
+                    rawResult = readStream.ReadToEnd();
                 }
             }
 
@@ -385,53 +373,51 @@
 
                 var serializer = new XmlSerializer(typeof(T));
 
-                using (var read = new StringReader(restResponse))
-                using (var reader = new XmlTextReader(read))
-                {
-                    var responseType = (T)serializer.Deserialize(reader);
-                    return responseType;
-                }
+                using var read = new StringReader(restResponse);
+                using var reader = new XmlTextReader(read);
+                var responseType = (T)serializer.Deserialize(reader);
+                return responseType;
             }
         }
 
-        [SerializableAttribute]
-        [XmlTypeAttribute(Namespace = @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2")]
-        [XmlRootAttribute(Namespace = @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2", IsNullable = true)]
+        [Serializable]
+        [XmlType(Namespace = @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2")]
+        [XmlRoot(Namespace = @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2", IsNullable = true)]
         public class ArrayOfTranslateArrayResponse
         {
-            [XmlElementAttribute(@"TranslateArrayResponse", IsNullable = true)]
+            [XmlElement(@"TranslateArrayResponse", IsNullable = true)]
             // ReSharper disable MemberHidesStaticFromOuterClass
             public TranslateArrayResponse[] TranslateArrayResponse { get; set; }
             // ReSharper restore MemberHidesStaticFromOuterClass
         }
 
-        [SerializableAttribute]
-        [XmlTypeAttribute(Namespace = @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2")]
-        [XmlRootAttribute(Namespace = @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2", IsNullable = true)]
+        [Serializable]
+        [XmlType(Namespace = @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2")]
+        [XmlRoot(Namespace = @"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2", IsNullable = true)]
         public class TranslateArrayResponse
         {
             [XmlElement(IsNullable = true)]
             public string Error { get; set; }
 
-            [XmlElementAttribute(IsNullable = true)]
+            [XmlElement(IsNullable = true)]
             public string From { get; set; }
 
-            [XmlElementAttribute(IsNullable = true)]
+            [XmlElement(IsNullable = true)]
             public ArrayOfint OriginalTextSentenceLengths { get; set; }
 
-            [XmlElementAttribute(IsNullable = true)]
+            [XmlElement(IsNullable = true)]
             public string State { get; set; }
 
-            [XmlElementAttribute(IsNullable = true)]
+            [XmlElement(IsNullable = true)]
             public string TranslatedText { get; set; }
 
-            [XmlElementAttribute(IsNullable = true)]
+            [XmlElement(IsNullable = true)]
             public ArrayOfint TranslatedTextSentenceLengths { get; set; }
         }
 
-        [SerializableAttribute]
-        [XmlTypeAttribute(Namespace = @"http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
-        [XmlRootAttribute(Namespace = @"http://schemas.microsoft.com/2003/10/Serialization/Arrays", IsNullable = true)]
+        [Serializable]
+        [XmlType(Namespace = @"http://schemas.microsoft.com/2003/10/Serialization/Arrays")]
+        [XmlRoot(Namespace = @"http://schemas.microsoft.com/2003/10/Serialization/Arrays", IsNullable = true)]
         public class ArrayOfint
         {
 

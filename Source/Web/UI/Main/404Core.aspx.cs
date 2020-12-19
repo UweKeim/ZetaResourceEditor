@@ -1,6 +1,5 @@
 ﻿namespace Web.UI.Main
 {
-    using App_GlobalResources;
     using Code;
     using Code.Base;
     using System;
@@ -75,10 +74,10 @@
             string userHostName,
             string userHostAddress)
         {
-            var subject = Resources.Str_404EMailMessageSubject;
+            var subject = Resources.Resources.Str_404EMailMessageSubject;
             var body =
                 replacePlaceholders(
-                    Resources.Str_404EMailMessageBody,
+                    Resources.Resources.Str_404EMailMessageBody,
                     url,
                     refererUrl,
                     redirectUrl,
@@ -86,20 +85,18 @@
                     userHostName,
                     userHostAddress);
 
-            using (var message = new MailMessage())
-            {
-                message.IsBodyHtml = true;
-                message.Subject = subject;
-                message.Body = body;
+            using var message = new MailMessage();
+            message.IsBodyHtml = true;
+            message.Subject = subject;
+            message.Body = body;
 
-                message.From = Host.Current.ElementManager.OwnerEMailAddress;
-                message.To.Add(receivers);
+            message.From = Host.Current.ElementManager.OwnerEMailAddress;
+            message.To.Add(receivers);
 
-                MailHelper.WriteMailToFile(
-                    message,
-                    @"Zeta Producer Shop - Main_404.html");
-                EMailHelper.SendEMailMessage(message);
-            }
+            MailHelper.WriteMailToFile(
+                message,
+                @"Zeta Producer Shop - Main_404.html");
+            EMailHelper.SendEMailMessage(message);
         }
 
         private static string replacePlaceholders(

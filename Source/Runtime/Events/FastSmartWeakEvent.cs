@@ -160,8 +160,7 @@
 		{
 			lock ( _forwarders )
 			{
-				ForwarderDelegate d;
-				if ( _forwarders.TryGetValue( method, out d ) )
+                if ( _forwarders.TryGetValue( method, out var d ) )
 				{
 					return d;
 				}
@@ -172,8 +171,6 @@
 			{
 				throw new ArgumentException( @"Cannot create weak event to anonymous method with closure." );
 			}
-
-			Debug.Assert( _getTarget != null );
 
 			var dm = new DynamicMethod(
 				@"FastSmartWeakEvent", typeof( bool ), _forwarderParameters, method.DeclaringType );

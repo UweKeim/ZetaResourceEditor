@@ -44,9 +44,9 @@ namespace ZetaResourceEditor.UI.Helper
             TreeListNode node)
         {
             if (
-                (node.Nodes.Count > 0 &&
-                 node.Nodes[0][0] as string == DummyNode) ||
-                (node[0] as string == DummyNode))
+                node.Nodes.Count > 0 &&
+                node.Nodes[0][0] as string == DummyNode ||
+                node[0] as string == DummyNode)
             {
                 ExpandDynamicChildren?.Invoke(this, new ExpandDynamicChildrenEventArgs(node));
             }
@@ -69,7 +69,7 @@ namespace ZetaResourceEditor.UI.Helper
             }
         }
 
-        public void ClearSelection()
+        public new void ClearSelection()
         {
             var prevCount = Selection.Count + 1;
             while (Selection.Count > 0 && prevCount > Selection.Count)

@@ -51,8 +51,7 @@ namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects
             ConfigurationManager.AppSettings[@"web.ownerEMailAddress"],
             ConfigurationManager.AppSettings[@"web.ownerEMailDisplayName"]);
 
-        public FourZeroFourManager FourZeroFourManager => _fourZeroFourManager ??
-                                                          (_fourZeroFourManager = new FourZeroFourManager(this));
+        public FourZeroFourManager FourZeroFourManager => _fourZeroFourManager ??= new FourZeroFourManager(this);
 
         public DataCacheManager CacheManager { get; }
 

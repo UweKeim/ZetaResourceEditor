@@ -9,16 +9,14 @@
         public static DataSet ImportExcelFromFile(
             string filePath)
         {
-            using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
-            using (var reader = ExcelReaderFactory.CreateReader(stream))
+            using var stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
+            using var reader = ExcelReaderFactory.CreateReader(stream);
+            var result = reader.AsDataSet(new ExcelDataSetConfiguration
             {
-                var result = reader.AsDataSet(new ExcelDataSetConfiguration
-                {
-                    UseColumnDataType = false,
-                    ConfigureDataTable = delegate { return new ExcelDataTableConfiguration { UseHeaderRow = true }; }
-                });
-                return result;
-            }
+                UseColumnDataType = false,
+                ConfigureDataTable = delegate { return new ExcelDataTableConfiguration { UseHeaderRow = true }; }
+            });
+            return result;
         }
     }
 }

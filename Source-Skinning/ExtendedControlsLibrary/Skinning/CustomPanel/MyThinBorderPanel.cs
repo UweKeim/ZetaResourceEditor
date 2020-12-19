@@ -18,7 +18,9 @@
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public new Color BackColor { get { return base.BackColor; } set { base.BackColor = value; } }
+        public new Color BackColor { get => base.BackColor;
+            set => base.BackColor = value;
+        }
 
         //[Browsable(false)]
         //[EditorBrowsable(EditorBrowsableState.Never)]

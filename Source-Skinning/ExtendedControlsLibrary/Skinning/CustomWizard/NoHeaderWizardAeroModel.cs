@@ -14,15 +14,10 @@ namespace ExtendedControlsLibrary.Skinning.CustomWizard
         {
         }
 
-        internal static bool IsGerman
-        {
-            get
-            {
-                return CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.StartsWith(@"de",
-                    StringComparison
-                        .InvariantCultureIgnoreCase);
-            }
-        }
+        internal static bool IsGerman =>
+            CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.StartsWith(@"de",
+                StringComparison
+                    .InvariantCultureIgnoreCase);
 
         public override Rectangle GetBackButtonBounds()
         {
@@ -47,14 +42,20 @@ namespace ExtendedControlsLibrary.Skinning.CustomWizard
             base.UpdateButtonsLocation();
 
             var fi = typeof (WizardViewInfo).GetField(@"prevButtonInfo", BindingFlags.Instance | BindingFlags.NonPublic);
-            var prevButtonInfo = (ButtonInfo) fi.GetValue(ViewInfo);
+            if (fi != null)
+            {
+                var prevButtonInfo = (ButtonInfo) fi.GetValue(ViewInfo);
 
-            fi = typeof (WizardViewInfo).GetField(@"nextButtonInfo", BindingFlags.Instance | BindingFlags.NonPublic);
-            var nextButtonInfo = (ButtonInfo) fi.GetValue(ViewInfo);
+                fi = typeof (WizardViewInfo).GetField(@"nextButtonInfo", BindingFlags.Instance | BindingFlags.NonPublic);
+                if (fi != null)
+                {
+                    var nextButtonInfo = (ButtonInfo) fi.GetValue(ViewInfo);
 
-            prevButtonInfo.Location = new Point(
-                nextButtonInfo.Location.X - prevButtonInfo.Size.Width - 4,
-                GetCommandButtonTopLocation(prevButtonInfo));
+                    prevButtonInfo.Location = new Point(
+                        nextButtonInfo.Location.X - prevButtonInfo.Size.Width - 4,
+                        GetCommandButtonTopLocation(prevButtonInfo));
+                }
+            }
         }
 
         private int GetCommandButtonTopLocation(ButtonInfo button)

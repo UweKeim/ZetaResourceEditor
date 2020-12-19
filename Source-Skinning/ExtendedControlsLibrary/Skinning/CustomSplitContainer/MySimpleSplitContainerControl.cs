@@ -9,10 +9,7 @@
         ISupportInitialize
     {
         private bool _painting;
-        public override bool Focused
-        {
-            get { return !_painting && base.Focused; }
-        }
+        public override bool Focused => !_painting && base.Focused;
 
         void ISupportInitialize.BeginInit()
         {

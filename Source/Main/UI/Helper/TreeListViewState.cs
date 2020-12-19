@@ -95,10 +95,9 @@ namespace ZetaResourceEditor.UI.Helper
 		private List<Guid> getSelected()
 		{
 			var al = new List<Guid>();
-			foreach ( TreeListNode node in TreeList.Selection )
+			foreach ( var node in TreeList.Selection )
 			{
-				var obj = node.Tag as IUniqueID;
-				al.Add(obj == null ? Guid.Empty : obj.UniqueID);
+                al.Add(!(node.Tag is IUniqueID obj) ? Guid.Empty : obj.UniqueID);
 			}
 
 			// Sort ascending to never need to expand dynamic items.
@@ -161,9 +160,7 @@ namespace ZetaResourceEditor.UI.Helper
 		{
 			if ( node != null )
 			{
-				var obj = node.Tag as IUniqueID;
-
-				if ( obj != null )
+                if ( node.Tag is IUniqueID obj )
 				{
 					var oID = obj.UniqueID;
 
@@ -212,8 +209,7 @@ namespace ZetaResourceEditor.UI.Helper
 					TreeList.GetVisibleIndexByNode( node ) -
 					TreeList.TopVisibleNodeIndex;
 
-				var obj = node.Tag as IUniqueID;
-				if ( obj != null )
+                if ( node.Tag is IUniqueID obj )
 				{
 					_focused = obj.UniqueID;
 				}
@@ -243,8 +239,7 @@ namespace ZetaResourceEditor.UI.Helper
 			{
 				if ( node.HasChildren && node.Expanded )
 				{
-					var obj = node.Tag as IUniqueID;
-					if ( obj != null )
+                    if ( node.Tag is IUniqueID obj )
 					{
 						IDs.Add( obj.UniqueID );
 					}

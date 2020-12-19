@@ -103,37 +103,34 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         /// </summary>
         public void OpenWithDialog()
         {
-            using (var ofd = new OpenFileDialog())
-            {
-                ofd.Multiselect = true;
-                ofd.Filter = $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw";
-                ofd.RestoreDirectory = true;
+            using var ofd = new OpenFileDialog();
+            ofd.Multiselect = true;
+            ofd.Filter = $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw";
+            ofd.RestoreDirectory = true;
 
-                var initialDir =
-                    ConvertHelper.ToString(
-                        PersistanceHelper.RestoreValue(
-                            MainForm.UserStorageIntelligent,
-                            @"filesInitialDir"));
-                ofd.InitialDirectory = initialDir;
-
-                if (ofd.ShowDialog(this) == DialogResult.OK)
-                {
-                    PersistanceHelper.SaveValue(
+            var initialDir =
+                ConvertHelper.ToString(
+                    PersistanceHelper.RestoreValue(
                         MainForm.UserStorageIntelligent,
-                        @"filesInitialDir",
-                        ZlpPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
+                        @"filesInitialDir"));
+            ofd.InitialDirectory = initialDir;
 
-                    var fileGroup =
-                        FileGroup.CheckCreate(
-                            MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
-                            ofd.FileNames);
+            if (ofd.ShowDialog(this) == DialogResult.OK)
+            {
+                PersistanceHelper.SaveValue(
+                    MainForm.UserStorageIntelligent,
+                    @"filesInitialDir",
+                    ZlpPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
 
-                    bool isNew;
-                    var editorControl =
-                        checkGetAddEditorControl(fileGroup, out isNew);
+                var fileGroup =
+                    FileGroup.CheckCreate(
+                        MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                        ofd.FileNames);
 
-                    editorControl.OpenWithDialog(fileGroup);
-                }
+                var editorControl =
+                    checkGetAddEditorControl(fileGroup, out var isNew);
+
+                editorControl.OpenWithDialog(fileGroup);
             }
         }
 
@@ -197,9 +194,8 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             IGridEditableData gridEditableData,
             ILanguageColumnFilter filter)
         {
-            bool isNew;
             var editorControl =
-                checkGetAddEditorControl(gridEditableData, out isNew);
+                checkGetAddEditorControl(gridEditableData, out var isNew);
 
             if (!isNew)
             {
@@ -262,8 +258,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             IGridEditableData gridEditableData,
             ILanguageColumnFilter filter)
         {
-            bool isNew;
-            var editorControl = checkGetAddEditorControl(gridEditableData, out isNew);
+            var editorControl = checkGetAddEditorControl(gridEditableData, out var isNew);
 
             if (!isNew)
             {

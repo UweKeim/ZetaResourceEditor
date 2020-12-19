@@ -48,8 +48,8 @@
             else
             {
                 return x.Contains(@".")
-                    ? (x.StartsWithNoCase(y) ? +1 : string.CompareOrdinal(x, y))
-                    : (y.StartsWithNoCase(x) ? -1 : string.CompareOrdinal(x, y));
+                    ? x.StartsWithNoCase(y) ? +1 : string.CompareOrdinal(x, y)
+                    : y.StartsWithNoCase(x) ? -1 : string.CompareOrdinal(x, y);
             }
         }
 

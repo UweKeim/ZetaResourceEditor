@@ -1,33 +1,19 @@
 ﻿namespace ZetaResourceEditor.RuntimeUserInterface.Shell
 {
-	#region Using directives.
-	// ----------------------------------------------------------------------
-	using System.Diagnostics;
+    using System;
+    using System.Diagnostics;
 	using Zeta.VoyagerLibrary.Logging;
 	using ZetaLongPaths;
-
-	// ----------------------------------------------------------------------
-	#endregion
-
-	/////////////////////////////////////////////////////////////////////////
 
 	/// <summary>
 	/// Information for passing to the ShellExecute method.
 	/// </summary>
 	public class ShellExecuteInformation
 	{
-		#region Public methods.
-		// ------------------------------------------------------------------
-
-		/// <summary>
-		/// Executes this instance.
-		/// </summary>
 		public void Execute()
 		{
-			// ReSharper disable InvocationIsSkipped
 			LogCentral.Current.LogInfo(
-			    $@"About to shell-execute the command '{_fileName}'.");
-			// ReSharper restore InvocationIsSkipped
+			    $@"About to shell-execute the command '{FileName}'.");
 
 			checkSplitFileName();
 
@@ -37,7 +23,7 @@
 					{
 						UseShellExecute = true,
 						Verb = Verb,
-						FileName = _fileName,
+						FileName = FileName,
 						Arguments = Arguments,
 						WorkingDirectory = WorkingDirectory,
 						WindowStyle = WindowStyle
@@ -46,79 +32,32 @@
 			Process.Start(info);
 		}
 
-		// ------------------------------------------------------------------
-		#endregion
+        public string FileName { get; set; }
 
-		#region Public properties.
-		// ------------------------------------------------------------------
+        public string Arguments { get; set; }
 
-		/// <summary>
-		/// Gets or sets the name of the file.
-		/// </summary>
-		/// <value>The name of the file.</value>
-		public string FileName
-		{
-			get => _fileName;
-		    set => _fileName = value;
-		}
-
-		/// <summary>
-		/// Gets or sets the arguments.
-		/// </summary>
-		/// <value>The arguments.</value>
-		public string Arguments { get; set; }
-
-	    /// <summary>
-		/// Gets or sets the working directory.
-		/// </summary>
-		/// <value>The working directory.</value>
 		public string WorkingDirectory { get; set; }
 
-	    /// <summary>
-		/// Gets or sets the window style.
-		/// </summary>
-		/// <value>The window style.</value>
 		public ProcessWindowStyle WindowStyle { get; set; }
 
-	    /// <summary>
-		/// Gets or sets the verb.
-		/// </summary>
-		/// <value>The verb.</value>
 		public string Verb { get; set; }
 
-	    /// <summary>
-		/// Gets or sets a value indicating whether [use HTTP post if applicable].
-		/// </summary>
-		/// <value>
-		/// 	<c>true</c> if [use HTTP post if applicable]; otherwise, <c>false</c>.
-		/// </value>
-		public bool UseHttpPostIfApplicable { get; set; } = true;
-
-	    // ------------------------------------------------------------------
-		#endregion
-
-		#region Private methods.
-		// ------------------------------------------------------------------
-
-		/// <summary>
-		/// Splits the file name if it contains an executable AND an argument.
-		/// </summary>
-		private void checkSplitFileName()
+        private void checkSplitFileName()
 		{
-			if (!string.IsNullOrEmpty(_fileName))
+			if (!string.IsNullOrEmpty(FileName))
 			{
-				if (_fileName.IndexOf(@"http://") == 0 ||
-					_fileName.IndexOf(@"https://") == 0)
+				if (FileName.IndexOf(@"http://", StringComparison.Ordinal) == 0 ||
+                    FileName.IndexOf(@"https://", StringComparison.Ordinal) == 0)
 				{
 					// Already a full path, do nothing.
 					return;
 				}
-				else if (ZlpIOHelper.FileExists(_fileName))
+				else if (ZlpIOHelper.FileExists(FileName))
 				{
 					// Already a full path, do nothing.
 					return;
 				}
-				else if (ZlpIOHelper.DirectoryExists(_fileName))
+				else if (ZlpIOHelper.DirectoryExists(FileName))
 				{
 					// Already a full path, do nothing.
 					return;
@@ -126,11 +65,11 @@
 				else
 				{
 					// Remember.
-					var originalFileName = _fileName;
+					var originalFileName = FileName;
 
-					if (!string.IsNullOrEmpty(_fileName))
+					if (!string.IsNullOrEmpty(FileName))
 					{
-						_fileName = _fileName.Trim();
+						FileName = FileName.Trim();
 					}
 
 					if (!string.IsNullOrEmpty(Arguments))
@@ -141,25 +80,25 @@
 					// --
 
 					if (string.IsNullOrEmpty(Arguments) &&
-						!string.IsNullOrEmpty(_fileName) && _fileName.Length > 2)
+						!string.IsNullOrEmpty(FileName) && FileName.Length > 2)
 					{
-						if (_fileName.StartsWith(@""""))
+						if (FileName.StartsWith(@""""))
 						{
-							int pos = _fileName.IndexOf(@"""", 1);
+							var pos = FileName.IndexOf(@"""", 1, StringComparison.Ordinal);
 
-							if (pos > 0 && _fileName.Length > pos + 1)
+							if (pos > 0 && FileName.Length > pos + 1)
 							{
-								Arguments = _fileName.Substring(pos + 1).Trim();
-								_fileName = _fileName.Substring(0, pos + 1).Trim();
+								Arguments = FileName.Substring(pos + 1).Trim();
+								FileName = FileName.Substring(0, pos + 1).Trim();
 							}
 						}
 						else
 						{
-							int pos = _fileName.IndexOf(@" ");
-							if (pos > 0 && _fileName.Length > pos + 1)
+							var pos = FileName.IndexOf(@" ", StringComparison.Ordinal);
+							if (pos > 0 && FileName.Length > pos + 1)
 							{
-								Arguments = _fileName.Substring(pos + 1).Trim();
-								_fileName = _fileName.Substring(0, pos + 1).Trim();
+								Arguments = FileName.Substring(pos + 1).Trim();
+								FileName = FileName.Substring(0, pos + 1).Trim();
 							}
 						}
 					}
@@ -167,34 +106,16 @@
 					// --
 					// Possibly revert back.
 
-					if (!string.IsNullOrEmpty(_fileName))
+					if (!string.IsNullOrEmpty(FileName))
 					{
-						string s = _fileName.Trim('"');
+						var s = FileName.Trim('"');
 						if (!ZlpIOHelper.FileExists(s) && !ZlpIOHelper.DirectoryExists(s))
 						{
-							_fileName = originalFileName;
+							FileName = originalFileName;
 						}
 					}
 				}
 			}
 		}
-
-		// ------------------------------------------------------------------
-		#endregion
-
-		#region Private variables.
-		// ------------------------------------------------------------------
-
-		/// <summary>
-		/// The maximum number of characters allowed without POSTing.
-		/// </summary>
-		//private static readonly int _httpGetLengthLimit = 1000;
-
-		private string _fileName;
-
-	    // ------------------------------------------------------------------
-		#endregion
-	}
-
-	/////////////////////////////////////////////////////////////////////////
+    }
 }

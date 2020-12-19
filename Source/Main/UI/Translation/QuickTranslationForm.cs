@@ -357,22 +357,20 @@
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-            using (var form = new TranslateOptionsForm())
+            using var form = new TranslateOptionsForm();
+            form.Initialize(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.Initialize(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
-
-                if (form.ShowDialog(this) == DialogResult.OK)
+                if (form.TranslationProviderChanged)
                 {
-                    if (form.TranslationProviderChanged)
+                    using (new WaitCursor(this))
                     {
-                        using (new WaitCursor(this))
-                        {
-                            DoInitiallyFillListsAndFillItemToControls();
-                        }
+                        DoInitiallyFillListsAndFillItemToControls();
                     }
-
-                    UpdateUI();
                 }
+
+                UpdateUI();
             }
         }
 

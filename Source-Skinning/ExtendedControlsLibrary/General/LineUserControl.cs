@@ -35,10 +35,10 @@
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override Color BackColor
 		{
-			get { return SkinHelper.LineColorBottom; }
-			// ReSharper disable ValueParameterNotUsed
-			set { base.BackColor = SkinHelper.LineColorBottom; }
-			// ReSharper restore ValueParameterNotUsed
+			get => SkinHelper.LineColorBottom;
+            // ReSharper disable ValueParameterNotUsed
+			set => base.BackColor = SkinHelper.LineColorBottom;
+            // ReSharper restore ValueParameterNotUsed
 		}
 
 		[Browsable(false)]
@@ -46,28 +46,28 @@
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override Size MinimumSize
 		{
-			get { return new Size(2, 2); }
-			set { base.MinimumSize = value; }
-		}
+			get => new Size(2, 2);
+            set => base.MinimumSize = value;
+        }
 
 		[Browsable(false)]
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override Size MaximumSize
 		{
-			get { return new Size(16384, 2); }
-			set { base.MaximumSize = value; }
-		}
+			get => new Size(16384, 2);
+            set => base.MaximumSize = value;
+        }
 
 		[Browsable(false)]
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public new bool TabStop
 		{
-			get { return false; }
-			// ReSharper disable ValueParameterNotUsed
-			set { base.TabStop = false; }
-			// ReSharper restore ValueParameterNotUsed
+			get => false;
+            // ReSharper disable ValueParameterNotUsed
+			set => base.TabStop = false;
+            // ReSharper restore ValueParameterNotUsed
 		}
 
 		protected override void OnPaintBackground(PaintEventArgs e)
@@ -83,14 +83,12 @@
 		private void clear(Graphics g)
 		{
 			if (DesignModeHelper.IsDesignMode)
-			{
-				using (var brush = new SolidBrush(BackColor))
-				{
-					g.FillRectangle(
-					   brush,
-					   ClientRectangle);
-				}
-			}
+            {
+                using var brush = new SolidBrush(BackColor);
+                g.FillRectangle(
+                    brush,
+                    ClientRectangle);
+            }
 			else
 			{
 				g.FillRectangle(
@@ -106,14 +104,12 @@
 			clear(e.Graphics);
 
 			if (DesignModeHelper.IsDesignMode)
-			{
-				using (var pen = new Pen(SystemColors.ControlDark))
-				{
-					e.Graphics.DrawLine(
-						pen,
-						ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width, ClientRectangle.Top);
-				}
-			}
+            {
+                using var pen = new Pen(SystemColors.ControlDark);
+                e.Graphics.DrawLine(
+                    pen,
+                    ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width, ClientRectangle.Top);
+            }
 			else
 			{
 				e.Graphics.DrawLine(

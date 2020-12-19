@@ -58,12 +58,10 @@
                         MessageBoxIcon.Question,
                         MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
-                    using (var form = new TranslateOptionsForm())
-                    {
-                        form.Initialize(project);
+                    using var form = new TranslateOptionsForm();
+                    form.Initialize(project);
 
-                        return form.ShowDialog(ActiveForm) == DialogResult.OK;
-                    }
+                    return form.ShowDialog(ActiveForm) == DialogResult.OK;
                 }
                 else
                 {
@@ -168,11 +166,9 @@
 
             var ti = TranslationHelper.GetTranslationEngine(_project);
 
-            TranslationLanguageInfo[] lcs;
-
             //try
             //{
-            lcs = ti.AreAppIDsSyntacticallyValid(appID)
+            var lcs = ti.AreAppIDsSyntacticallyValid(appID)
                 ? ti.GetSourceLanguages(appID)
                 : new TranslationLanguageInfo[] { };
             //}
@@ -1062,23 +1058,21 @@
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-            using (var form = new TranslateOptionsForm())
+            using var form = new TranslateOptionsForm();
+            form.Initialize(_project);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.Initialize(_project);
-
-                if (form.ShowDialog(this) == DialogResult.OK)
+                if (form.TranslationProviderChanged)
                 {
-                    if (form.TranslationProviderChanged)
+                    using (new WaitCursor(this))
                     {
-                        using (new WaitCursor(this))
-                        {
-                            InitiallyFillLists();
-                            FillItemToControls();
-                        }
+                        InitiallyFillLists();
+                        FillItemToControls();
                     }
-
-                    UpdateUI();
                 }
+
+                UpdateUI();
             }
         }
 

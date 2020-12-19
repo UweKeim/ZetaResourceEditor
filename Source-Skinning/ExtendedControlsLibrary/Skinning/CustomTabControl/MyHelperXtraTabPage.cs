@@ -17,7 +17,9 @@
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public override Color BackColor { get { return base.BackColor; } set { base.BackColor = value; } }
+        public override Color BackColor { get => base.BackColor;
+            set => base.BackColor = value;
+        }
 
         #endregion
 	}

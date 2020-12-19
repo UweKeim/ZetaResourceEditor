@@ -10,7 +10,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
     using Helper;
     using Helper.Base;
     using Helper.ErrorHandling;
-    using Helper.ExtendedFolderBrowser;
     using Helper.Progress;
     using ProjectFolders;
     using Projects;
@@ -71,18 +70,87 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
         private void AddNewResourceFilesWithDialog()
         {
-            using (var form = new AddNewFileGroupForm())
+            using var form = new AddNewFileGroupForm();
+            var p = treeView.SelectedNode.Tag as ProjectFolder;
+
+            form.Initialize(Project, p);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                var p = treeView.SelectedNode.Tag as ProjectFolder;
+                // Reload from in-memory project.
+                new TreeListViewState(treeView).RestoreState(@"projectsTree");
 
-                form.Initialize(Project, p);
+                var node = addFileGroupToTree(treeView.SelectedNode, form.Result);
 
-                if (form.ShowDialog(this) == DialogResult.OK)
+                // --
+
+                sortTree();
+
+                treeView.SelectedNode = node;
+
+                // Immediately open for editing.
+                editResourceFiles();
+
+                UpdateUI();
+            }
+        }
+
+        public void AddExistingResourceFilesWithDialog()
+        {
+            using var ofd = new OpenFileDialog
+            {
+                Multiselect = true,
+                Filter =
+                    $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw",
+                RestoreDirectory = true
+            };
+
+            var initialDir =
+                ConvertHelper.ToString(
+                    PersistanceHelper.RestoreValue(
+                        MainForm.UserStorageIntelligent,
+                        @"filesInitialDir"));
+            ofd.InitialDirectory = initialDir;
+
+            if (ofd.ShowDialog(this) == DialogResult.OK)
+            {
+                PersistanceHelper.SaveValue(
+                    MainForm.UserStorageIntelligent,
+                    @"filesInitialDir",
+                    ZlpPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
+
+                // --
+
+                var fileGroup = new FileGroup(Project);
+
+                foreach (var filePath in ofd.FileNames)
                 {
-                    // Reload from in-memory project.
-                    new TreeListViewState(treeView).RestoreState(@"projectsTree");
+                    fileGroup.Add(new FileInformation(fileGroup)
+                    {
+                        File = new ZlpFileInfo(filePath)
+                    });
+                }
 
-                    var node = addFileGroupToTree(treeView.SelectedNode, form.Result);
+                // Look for same entries.
+                if (Project.FileGroups.HasFileGroupWithChecksum(
+                    fileGroup.GetChecksum(Project)))
+                {
+                    throw new MessageBoxException(
+                        this,
+                        Resources.SR_ProjectFilesUserControl_AddResourceFilesWithDialog_ExistsInTheProject,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    if (treeView.SelectedNode.Tag is ProjectFolder parentProjectFolder)
+                    {
+                        fileGroup.ProjectFolder = parentProjectFolder;
+                    }
+
+                    Project.FileGroups.Add(fileGroup);
+                    Project.MarkAsModified();
+
+                    var node = addFileGroupToTree(treeView.SelectedNode, fileGroup);
 
                     // --
 
@@ -98,186 +166,112 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        public void AddExistingResourceFilesWithDialog()
-        {
-            using (var ofd = new OpenFileDialog())
-            {
-                ofd.Multiselect = true;
-                ofd.Filter =
-                    $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw";
-                ofd.RestoreDirectory = true;
-
-                var initialDir =
-                    ConvertHelper.ToString(
-                        PersistanceHelper.RestoreValue(
-                            MainForm.UserStorageIntelligent,
-                            @"filesInitialDir"));
-                ofd.InitialDirectory = initialDir;
-
-                if (ofd.ShowDialog(this) == DialogResult.OK)
-                {
-                    PersistanceHelper.SaveValue(
-                        MainForm.UserStorageIntelligent,
-                        @"filesInitialDir",
-                        ZlpPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
-
-                    // --
-
-                    var fileGroup = new FileGroup(Project);
-
-                    foreach (var filePath in ofd.FileNames)
-                    {
-                        fileGroup.Add(new FileInformation(fileGroup)
-                        {
-                            File = new ZlpFileInfo(filePath)
-                        });
-                    }
-
-                    // Look for same entries.
-                    if (Project.FileGroups.HasFileGroupWithChecksum(
-                        fileGroup.GetChecksum(Project)))
-                    {
-                        throw new MessageBoxException(
-                            this,
-                            Resources.SR_ProjectFilesUserControl_AddResourceFilesWithDialog_ExistsInTheProject,
-                            MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        var parentProjectFolder =
-                            treeView.SelectedNode.Tag as ProjectFolder;
-
-                        if (parentProjectFolder != null)
-                        {
-                            fileGroup.ProjectFolder = parentProjectFolder;
-                        }
-
-                        Project.FileGroups.Add(fileGroup);
-                        Project.MarkAsModified();
-
-                        var node = addFileGroupToTree(treeView.SelectedNode, fileGroup);
-
-                        // --
-
-                        sortTree();
-
-                        treeView.SelectedNode = node;
-
-                        // Immediately open for editing.
-                        editResourceFiles();
-
-                        UpdateUI();
-                    }
-                }
-            }
-        }
-
         /// <summary>
         /// Automatically adds multiple resource files with dialog.
         /// </summary>
         public void AutomaticallyAddAddResourceFilesWithDialog()
         {
-            using (var dialog = new ExtendedFolderBrowserDialog())
+            using var dialog = new FolderBrowserDialog
             {
-                dialog.Description =
-                    Resources.SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_AddedAutomatically;
+                Description = Resources
+                    .SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_AddedAutomatically
+            };
 
-                var initialDir =
-                    ConvertHelper.ToString(
-                        PersistanceHelper.RestoreValue(
-                            MainForm.UserStorageIntelligent,
-                            @"filesInitialDir"));
+            var initialDir =
+                ConvertHelper.ToString(
+                    PersistanceHelper.RestoreValue(
+                        MainForm.UserStorageIntelligent,
+                        @"filesInitialDir"));
 
-                if (string.IsNullOrEmpty(initialDir) || !ZlpIOHelper.DirectoryExists(initialDir))
+            if (string.IsNullOrEmpty(initialDir) || !ZlpIOHelper.DirectoryExists(initialDir))
+            {
+                var d = Project.ProjectConfigurationFilePath.Directory;
+                initialDir = d.FullName;
+            }
+
+            dialog.SelectedPath = initialDir;
+            //dialog.ShowEditBox = true;
+
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                PersistanceHelper.SaveValue(
+                    MainForm.UserStorageIntelligent,
+                    @"filesInitialDir",
+                    dialog.SelectedPath);
+
+                var folderPath =
+                    dialog.SelectedPath == null
+                        ? null
+                        : new ZlpDirectoryInfo(dialog.SelectedPath);
+
+                var parentProjectFolder =
+                    treeView.SelectedNode.Tag as ProjectFolder;
+
+                // --
+
+                var fileGroupCount = 0;
+                var fileCount = 0;
+
+                var enabled = guiRefreshTimer.Enabled;
+                guiRefreshTimer.Enabled = false;
+
+                using (new BackgroundWorkerLongProgressGui(
+                    delegate (object sender, DoWorkEventArgs args)
+                    {
+                        try
+                        {
+                            doAutomaticallyAddResourceFiles(
+                                (BackgroundWorker)sender,
+                                parentProjectFolder,
+                                ref fileGroupCount,
+                                ref fileCount,
+                                folderPath);
+                        }
+                        catch (OperationCanceledException)
+                        {
+                            // Ignore.
+                        }
+                    },
+                    Resources.SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WillBeAdded,
+                    BackgroundWorkerLongProgressGui.CancellationMode.Cancelable,
+                    this))
                 {
-                    var d = Project.ProjectConfigurationFilePath.Directory;
-                    initialDir = d.FullName;
                 }
 
-                dialog.SelectedPath = initialDir;
-                dialog.ShowEditBox = true;
+                guiRefreshTimer.Enabled = enabled;
 
-                if (dialog.ShowDialog(this) == DialogResult.OK)
+                if (fileGroupCount <= 0)
                 {
-                    PersistanceHelper.SaveValue(
-                        MainForm.UserStorageIntelligent,
-                        @"filesInitialDir",
-                        dialog.SelectedPath);
+                    XtraMessageBox.Show(
+                        this,
+                        Resources.SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WereAdded,
+                        @"Zeta Resource Editor",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
 
-                    var folderPath =
-                        dialog.SelectedPath == null
-                            ? null
-                            : new ZlpDirectoryInfo(dialog.SelectedPath);
+                    UpdateUI();
+                }
+                else
+                {
+                    XtraMessageBox.Show(
+                        this,
+                        string.Format(
+                            Resources
+                                .SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_OfFilesWereAdded,
+                            fileGroupCount,
+                            fileCount),
+                        @"Zeta Resource Editor",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
-                    var parentProjectFolder =
-                        treeView.SelectedNode.Tag as ProjectFolder;
+                    // Reload from in-memory project.
+                    fillFromProject();
+                    new TreeListViewState(treeView).RestoreState(@"projectsTree");
 
-                    // --
+                    Project.MarkAsModified();
 
-                    var fileGroupCount = 0;
-                    var fileCount = 0;
-
-                    var enabled = guiRefreshTimer.Enabled;
-                    guiRefreshTimer.Enabled = false;
-
-                    using (new BackgroundWorkerLongProgressGui(
-                        delegate (object sender, DoWorkEventArgs args)
-                        {
-                            try
-                            {
-                                doAutomaticallyAddResourceFiles(
-                                    (BackgroundWorker)sender,
-                                    parentProjectFolder,
-                                    ref fileGroupCount,
-                                    ref fileCount,
-                                    folderPath);
-                            }
-                            catch (OperationCanceledException)
-                            {
-                                // Ignore.
-                            }
-                        },
-                        Resources.SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WillBeAdded,
-                        BackgroundWorkerLongProgressGui.CancellationMode.Cancelable,
-                        this))
-                    {
-                    }
-
-                    guiRefreshTimer.Enabled = enabled;
-
-                    if (fileGroupCount <= 0)
-                    {
-                        XtraMessageBox.Show(
-                            this,
-                            Resources.SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WereAdded,
-                            @"Zeta Resource Editor",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-
-                        UpdateUI();
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show(
-                            this,
-                            string.Format(
-                                Resources
-                                    .SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_OfFilesWereAdded,
-                                fileGroupCount,
-                                fileCount),
-                            @"Zeta Resource Editor",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-
-                        // Reload from in-memory project.
-                        fillFromProject();
-                        new TreeListViewState(treeView).RestoreState(@"projectsTree");
-
-                        Project.MarkAsModified();
-
-                        sortTree();
-                        UpdateUI();
-                    }
+                    sortTree();
+                    UpdateUI();
                 }
             }
         }
@@ -311,9 +305,27 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                     filePaths);
             }
 
+            // 2020-10-22, Uwe Keim.
+            var createFolders = Project.KeepFolderStructureOnImport;
+
             // Recurse childs.
             foreach (var childFolderPath in folderPath.GetDirectories())
             {
+                // Neuer Unterordner, falls gewünscht.
+                if (createFolders)
+                {
+                    var pf =
+                        new ProjectFolder(Project)
+                        {
+                            Name = childFolderPath.Name,
+                            Parent = parentProjectFolder
+                        };
+                    Project.ProjectFolders.Add(pf);
+                    Project.MarkAsModified();
+
+                    parentProjectFolder = pf;
+                }
+
                 doAutomaticallyAddResourceFiles(
                     backgroundWorker,
                     parentProjectFolder,
@@ -325,107 +337,104 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
         public void AutomaticallyAddResourceFilesFromSolutionWithDialog()
         {
-            using (var dialog = new OpenFileDialog())
+            using var dialog = new OpenFileDialog {Title = Resources.SR_VSDialogTitle};
+
+            var initialDir =
+                ConvertHelper.ToString(
+                    PersistanceHelper.RestoreValue(
+                        MainForm.UserStorageIntelligent,
+                        @"filesInitialDir"));
+
+            if (string.IsNullOrEmpty(initialDir) ||
+                !ZlpIOHelper.DirectoryExists(initialDir))
             {
-                dialog.Title = Resources.SR_VSDialogTitle;
+                var d = Project.ProjectConfigurationFilePath.Directory;
+                initialDir = d.FullName;
+            }
 
-                var initialDir =
-                    ConvertHelper.ToString(
-                        PersistanceHelper.RestoreValue(
-                            MainForm.UserStorageIntelligent,
-                            @"filesInitialDir"));
+            dialog.InitialDirectory = initialDir;
+            dialog.Filter =
+                $@"{Resources.SR_SlnNames}|*.csproj;*.sln";
 
-                if (string.IsNullOrEmpty(initialDir) ||
-                    !ZlpIOHelper.DirectoryExists(initialDir))
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                var proj = new ZlpFileInfo(dialog.FileName);
+
+                var parentProjectFolder =
+                    treeView.SelectedNode.Tag as ProjectFolder;
+
+                // --
+
+                var fileGroupCount = 0;
+                var fileCount = 0;
+
+                var enabled = guiRefreshTimer.Enabled;
+                guiRefreshTimer.Enabled = false;
+
+                using (new BackgroundWorkerLongProgressGui(
+                    delegate (object sender, DoWorkEventArgs args)
+                    {
+                        try
+                        {
+                            new VisualStudioImporter(Project).DoAutomaticallyAddResourceFilesFromVsProject(
+                                (BackgroundWorker)sender,
+                                parentProjectFolder,
+                                ref fileGroupCount,
+                                ref fileCount,
+                                proj);
+                        }
+                        catch (OperationCanceledException)
+                        {
+                            // Ignore.
+                        }
+                    },
+                    Resources.SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WillBeAdded,
+                    BackgroundWorkerLongProgressGui.CancellationMode.Cancelable,
+                    this))
                 {
-                    var d = Project.ProjectConfigurationFilePath.Directory;
-                    initialDir = d.FullName;
                 }
 
-                dialog.InitialDirectory = initialDir;
-                dialog.Filter =
-                    $@"{Resources.SR_SlnNames}|*.csproj;*.sln";
+                guiRefreshTimer.Enabled = enabled;
 
-                if (dialog.ShowDialog(this) == DialogResult.OK)
+                if (fileGroupCount <= 0)
                 {
-                    var proj = new ZlpFileInfo(dialog.FileName);
+                    XtraMessageBox.Show(
+                        this,
+                        Resources.SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WereAdded,
+                        @"Zeta Resource Editor",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
 
-                    var parentProjectFolder =
-                        treeView.SelectedNode.Tag as ProjectFolder;
+                    UpdateUI();
+                }
+                else
+                {
+                    XtraMessageBox.Show(
+                        this,
+                        string.Format(
+                            Resources
+                                .SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_OfFilesWereAdded,
+                            fileGroupCount,
+                            fileCount),
+                        @"Zeta Resource Editor",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
-                    // --
+                    // Reload from in-memory project.
+                    fillFromProject();
+                    new TreeListViewState(treeView).RestoreState(@"projectsTree");
 
-                    var fileGroupCount = 0;
-                    var fileCount = 0;
+                    Project.MarkAsModified();
 
-                    var enabled = guiRefreshTimer.Enabled;
-                    guiRefreshTimer.Enabled = false;
+                    sortTree();
+                    UpdateUI();
 
-                    using (new BackgroundWorkerLongProgressGui(
-                        delegate (object sender, DoWorkEventArgs args)
-                        {
-                            try
-                            {
-                                new VisualStudioImporter(Project).DoAutomaticallyAddResourceFilesFromVsProject(
-                                    (BackgroundWorker)sender,
-                                    parentProjectFolder,
-                                    ref fileGroupCount,
-                                    ref fileCount,
-                                    proj);
-                            }
-                            catch (OperationCanceledException)
-                            {
-                                // Ignore.
-                            }
-                        },
-                        Resources.SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WillBeAdded,
-                        BackgroundWorkerLongProgressGui.CancellationMode.Cancelable,
-                        this))
-                    {
-                    }
-
-                    guiRefreshTimer.Enabled = enabled;
-
-                    if (fileGroupCount <= 0)
-                    {
-                        XtraMessageBox.Show(
-                            this,
-                            Resources.SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_WereAdded,
-                            @"Zeta Resource Editor",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-
-                        UpdateUI();
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show(
-                            this,
-                            string.Format(
-                                Resources
-                                    .SR_ProjectFilesUserControl_AutomaticallyAddAddResourceFilesWithDialog_OfFilesWereAdded,
-                                fileGroupCount,
-                                fileCount),
-                            @"Zeta Resource Editor",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-
-                        // Reload from in-memory project.
-                        fillFromProject();
-                        new TreeListViewState(treeView).RestoreState(@"projectsTree");
-
-                        Project.MarkAsModified();
-
-                        sortTree();
-                        UpdateUI();
-
-                        var node = treeView.SelectedNode;
-                        // ReSharper disable ConditionIsAlwaysTrueOrFalse
-                        if (node != null)
+                    var node = treeView.SelectedNode;
+                    // ReSharper disable ConditionIsAlwaysTrueOrFalse
+                    if (node != null)
                         // ReSharper restore ConditionIsAlwaysTrueOrFalse
-                        {
-                            node.Expanded = true;
-                        }
+                    {
+                        node.Expanded = true;
                     }
                 }
             }
@@ -454,10 +463,10 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 }
 
                 // ReSharper disable ConditionIsAlwaysTrueOrFalse
-                if (node?.Tag is FileGroup)
+                if (node?.Tag is FileGroup tag)
                 // ReSharper restore ConditionIsAlwaysTrueOrFalse
                 {
-                    Project.FileGroups.Remove((FileGroup)node.Tag);
+                    Project.FileGroups.Remove(tag);
                     Project.MarkAsModified();
 
                     node.ParentNode.Nodes.Remove(node);
@@ -506,10 +515,9 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         {
             get
             {
-                if (Project != null && Project != Project.Empty && treeView.SelectedNode?.Tag is FileGroup)
+                if (Project != null && Project != Project.Empty && treeView.SelectedNode?.Tag is FileGroup fg)
                 {
                     // To add a new one, we must clone an existing one.
-                    var fg = (FileGroup)treeView.SelectedNode.Tag;
                     return fg.FilePaths.Length > 0;
                 }
                 else
@@ -536,23 +544,17 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         public bool CanMoveUp
             =>
                 Project != null && Project != Project.Empty && treeView.SelectedNode?.ParentNode != null &&
-                treeView.SelectedNode.ParentNode.Nodes.Count > 1 && (
-                    treeView.SelectedNode.Tag is IOrderPosition
-                );
+                treeView.SelectedNode.ParentNode.Nodes.Count > 1 && treeView.SelectedNode.Tag is IOrderPosition;
 
         private bool CanSortChildrenAlphabetically => Project != null && Project != Project.Empty &&
                                                       treeView.SelectedNode != null &&
                                                       treeView.SelectedNode.Nodes.Count > 1 &&
-                                                      (
-                                                          treeView.SelectedNode.Nodes[0].Tag is IOrderPosition
-                                                      );
+                                                      treeView.SelectedNode.Nodes[0].Tag is IOrderPosition;
 
         public bool CanMoveDown
             =>
                 Project != null && Project != Project.Empty && treeView.SelectedNode?.ParentNode != null &&
-                treeView.SelectedNode.ParentNode.Nodes.Count > 1 && (
-                    treeView.SelectedNode.Tag is IOrderPosition
-                );
+                treeView.SelectedNode.ParentNode.Nodes.Count > 1 && treeView.SelectedNode.Tag is IOrderPosition;
 
         public bool CanRemoveFileFromFileGroup
             => Project != null && Project != Project.Empty && treeView.SelectedNode?.Tag is FileInformation;
@@ -734,9 +736,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         {
             if (node != null)
             {
-                var si = node.Tag as ITranslationStateInformation;
-
-                if (si != null)
+                if (node.Tag is ITranslationStateInformation si)
                 {
                     if (asynchronous == AsynchronousMode.Synchronous)
                     {
@@ -965,28 +965,28 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
         internal void OpenWithDialog()
         {
-            using (var ofd = new OpenFileDialog())
+            using var ofd = new OpenFileDialog
             {
-                ofd.Multiselect = false;
-                ofd.Filter = string.Format(@"{0} (*{1})|*{1}",
+                Multiselect = false,
+                Filter = string.Format(@"{0} (*{1})|*{1}",
                     Resources.SR_ProjectFilesUserControl_OpenWithDialog_EditorProjectFiles,
-                    Project.ProjectFileExtension);
-                ofd.RestoreDirectory = true;
+                    Project.ProjectFileExtension),
+                RestoreDirectory = true
+            };
 
-                var initialDir =
-                    ConvertHelper.ToString(
-                        PersistanceHelper.RestoreValue(
-                            @"zreprojInitialDir"));
-                ofd.InitialDirectory = initialDir;
+            var initialDir =
+                ConvertHelper.ToString(
+                    PersistanceHelper.RestoreValue(
+                        @"zreprojInitialDir"));
+            ofd.InitialDirectory = initialDir;
 
-                if (ofd.ShowDialog(this) == DialogResult.OK)
-                {
-                    PersistanceHelper.SaveValue(
-                        @"zreprojInitialDir",
-                        ZlpPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
+            if (ofd.ShowDialog(this) == DialogResult.OK)
+            {
+                PersistanceHelper.SaveValue(
+                    @"zreprojInitialDir",
+                    ZlpPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
 
-                    DoLoadProject(new ZlpFileInfo(ofd.FileName));
-                }
+                DoLoadProject(new ZlpFileInfo(ofd.FileName));
             }
         }
 
@@ -1020,20 +1020,17 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                                     MessageBoxButtons.YesNoCancel,
                                     MessageBoxIcon.Question);
 
-                            if (r2 == DialogResult.Yes)
+                            switch (r2)
                             {
-                                addToMru();
-                                Project.Store();
+                                case DialogResult.Yes:
+                                    addToMru();
+                                    Project.Store();
 
-                                return DialogResult.OK;
-                            }
-                            else if (r2 == DialogResult.No)
-                            {
-                                return DialogResult.OK;
-                            }
-                            else
-                            {
-                                return DialogResult.Cancel;
+                                    return DialogResult.OK;
+                                case DialogResult.No:
+                                    return DialogResult.OK;
+                                default:
+                                    return DialogResult.Cancel;
                             }
                         }
                     }
@@ -1065,84 +1062,97 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
         public void EditProjectSettingsWithDialog()
         {
-            using (var form = new ProjectSettingsForm())
+            using var form = new ProjectSettingsForm();
+            form.Initialize(Project);
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.Initialize(Project);
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    Project.MarkAsModified();
-                }
+                Project.MarkAsModified();
             }
         }
 
         public void EditFileGroupSettingsWithDialog()
         {
-            using (var form = new FileGroupSettingsForm())
+            using var form = new FileGroupSettingsForm();
+            form.Initialize((FileGroup)treeView.SelectedNode.Tag);
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.Initialize((FileGroup)treeView.SelectedNode.Tag);
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    Project.MarkAsModified();
+                Project.MarkAsModified();
 
-                    updateFileGroupInTree(
-                        treeView.SelectedNode,
-                        (FileGroup)treeView.SelectedNode.Tag);
-                }
+                updateFileGroupInTree(
+                    treeView.SelectedNode,
+                    (FileGroup)treeView.SelectedNode.Tag);
             }
         }
 
         public void CreateNewFileWithDialog()
         {
-            using (var form = new CreateNewFileForm())
+            using var form = new CreateNewFileForm();
+            form.Initialize((FileGroup)treeView.SelectedNode.Tag);
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.Initialize((FileGroup)treeView.SelectedNode.Tag);
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    Project.MarkAsModified();
+                Project.MarkAsModified();
 
-                    addFileGroupFilesToTree(
-                        treeView.SelectedNode);
+                addFileGroupFilesToTree(
+                    treeView.SelectedNode);
 
-                    updateFileGroupInTree(
-                        treeView.SelectedNode,
-                        (FileGroup)treeView.SelectedNode.Tag);
+                updateFileGroupInTree(
+                    treeView.SelectedNode,
+                    (FileGroup)treeView.SelectedNode.Tag);
 
-                    UpdateUI();
-                }
+                UpdateUI();
             }
         }
 
         public void CreateNewFilesWithDialog()
         {
-            using (var form = new CreateNewFilesForm())
+            using var form = new CreateNewFilesForm();
+            var p = treeView.SelectedNode.Tag as ProjectFolder;
+
+            form.Initialize(Project, p);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                var p = treeView.SelectedNode.Tag as ProjectFolder;
+                // Reload from in-memory project.
+                fillFromProject();
+                new TreeListViewState(treeView).RestoreState(@"projectsTree");
 
-                form.Initialize(Project, p);
+                Project.MarkAsModified();
 
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    // Reload from in-memory project.
-                    fillFromProject();
-                    new TreeListViewState(treeView).RestoreState(@"projectsTree");
-
-                    Project.MarkAsModified();
-
-                    sortTree();
-                    UpdateUI();
-                }
+                sortTree();
+                UpdateUI();
             }
         }
 
         private void DeleteLanguageWithDialog()
         {
-            using (var form = new DeleteLanguageForm())
+            using var form = new DeleteLanguageForm();
+            var p = treeView.SelectedNode.Tag as ProjectFolder;
+
+            form.Initialize(Project, p);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                var p = treeView.SelectedNode.Tag as ProjectFolder;
+                // Reload from in-memory project.
+                fillFromProject();
+                new TreeListViewState(treeView).RestoreState(@"projectsTree");
 
-                form.Initialize(Project, p);
+                Project.MarkAsModified();
 
-                if (form.ShowDialog(this) == DialogResult.OK)
+                sortTree();
+                UpdateUI();
+            }
+        }
+
+        private void MergeFilesWithDialog()
+        {
+            using var form = new MergeFileGroupForm();
+            var p = (FileGroup)treeView.SelectedNode.Tag;
+
+            form.Initialize(p, Project);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                if (form.DidAnything)
                 {
                     // Reload from in-memory project.
                     fillFromProject();
@@ -1152,31 +1162,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
                     sortTree();
                     UpdateUI();
-                }
-            }
-        }
-
-        private void MergeFilesWithDialog()
-        {
-            using (var form = new MergeFileGroupForm())
-            {
-                var p = (FileGroup)treeView.SelectedNode.Tag;
-
-                form.Initialize(p, Project);
-
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    if (form.DidAnything)
-                    {
-                        // Reload from in-memory project.
-                        fillFromProject();
-                        new TreeListViewState(treeView).RestoreState(@"projectsTree");
-
-                        Project.MarkAsModified();
-
-                        sortTree();
-                        UpdateUI();
-                    }
                 }
             }
         }
@@ -1241,25 +1226,23 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
         public void CreateNewProject()
         {
-            using (var form = new CreateNewProjectForm())
+            using var form = new CreateNewProjectForm();
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                if (form.ShowDialog(this) == DialogResult.OK)
+                var r = DoSaveFile(
+                    SaveOptions.OnlyIfModified |
+                    SaveOptions.AskConfirm);
+
+                if (r == DialogResult.OK)
                 {
-                    var r = DoSaveFile(
-                        SaveOptions.OnlyIfModified |
-                        SaveOptions.AskConfirm);
+                    closeProject();
 
-                    if (r == DialogResult.OK)
-                    {
-                        closeProject();
+                    // Only assign if successfully loaded.
+                    Project = Project.CreateNew(
+                        form.ProjectConfigurationFilePath);
+                    Project.ModifyStateChanged += project_ModifyStateChanged;
 
-                        // Only assign if successfully loaded.
-                        Project = Project.CreateNew(
-                            form.ProjectConfigurationFilePath);
-                        Project.ModifyStateChanged += project_ModifyStateChanged;
-
-                        fillFromProject();
-                    }
+                    fillFromProject();
                 }
             }
         }
@@ -1335,63 +1318,63 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
         public void AddFilesToFileGroupWithDialog()
         {
-            using (var ofd = new OpenFileDialog())
+            using var ofd = new OpenFileDialog
             {
-                ofd.Multiselect = true;
-                ofd.Filter =
-                    $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw";
-                ofd.RestoreDirectory = true;
+                Multiselect = true,
+                Filter =
+                    $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw",
+                RestoreDirectory = true
+            };
 
-                var fileGroup = (FileGroup)treeView.SelectedNode.Tag;
+            var fileGroup = (FileGroup)treeView.SelectedNode.Tag;
 
-                ofd.InitialDirectory = fileGroup.FolderPath.FullName;
+            ofd.InitialDirectory = fileGroup.FolderPath.FullName;
 
-                if (ofd.ShowDialog(this) == DialogResult.OK)
+            if (ofd.ShowDialog(this) == DialogResult.OK)
+            {
+                foreach (var fileName in ofd.FileNames)
                 {
-                    foreach (var fileName in ofd.FileNames)
+                    var filePath = new ZlpFileInfo(fileName);
+
+                    if (string.Compare(
+                        filePath.Directory.FullName,
+                        fileGroup.FolderPath.FullName, StringComparison.OrdinalIgnoreCase) != 0)
                     {
-                        var filePath = new ZlpFileInfo(fileName);
-
-                        if (string.Compare(
-                                filePath.Directory.FullName,
-                                fileGroup.FolderPath.FullName, StringComparison.OrdinalIgnoreCase) != 0)
-                        {
-                            throw new MessageBoxException(
-                                this,
-                                Resources.SR_ProjectFilesUserControl_AddFilesToFileGroupWithDialog_AlreadyPresent,
-                                MessageBoxIcon.Error);
-                        }
+                        throw new MessageBoxException(
+                            this,
+                            Resources.SR_ProjectFilesUserControl_AddFilesToFileGroupWithDialog_AlreadyPresent,
+                            MessageBoxIcon.Error);
                     }
-
-                    // --
-
-                    var parentNode = treeView.SelectedNode;
-
-                    foreach (var fileName in ofd.FileNames)
-                    {
-                        var fileInfo =
-                            new FileInformation(fileGroup)
-                            {
-                                File = new ZlpFileInfo(fileName)
-                            };
-
-                        if (!fileGroup.Contains(fileInfo))
-                        {
-                            fileGroup.Add(fileInfo);
-
-                            if (!Project.HideFileGroupFilesInTree)
-                            {
-                                var node = addFileToTree(parentNode, fileInfo);
-                                treeView.SelectedNode = node;
-                            }
-                        }
-                    }
-
-                    sortTree();
-
-                    Project.MarkAsModified();
-                    UpdateUI();
                 }
+
+                // --
+
+                var parentNode = treeView.SelectedNode;
+
+                foreach (var fileName in ofd.FileNames)
+                {
+                    var fileInfo =
+                        new FileInformation(fileGroup)
+                        {
+                            File = new ZlpFileInfo(fileName)
+                        };
+
+                    if (!fileGroup.Contains(fileInfo))
+                    {
+                        fileGroup.Add(fileInfo);
+
+                        if (!Project.HideFileGroupFilesInTree)
+                        {
+                            var node = addFileToTree(parentNode, fileInfo);
+                            treeView.SelectedNode = node;
+                        }
+                    }
+                }
+
+                sortTree();
+
+                Project.MarkAsModified();
+                UpdateUI();
             }
         }
 
@@ -1412,13 +1395,13 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             {
                 var node = treeView.SelectedNode;
 
-                if (node?.Tag is FileInformation)
+                if (node?.Tag is FileInformation tag)
                 {
                     var parentNode = node.ParentNode;
 
                     var fileGroup = (FileGroup)node.ParentNode.Tag;
 
-                    fileGroup.RemoveFileInfo((FileInformation)node.Tag);
+                    fileGroup.RemoveFileInfo(tag);
                     Project.MarkAsModified();
 
                     if (parentNode != null)
@@ -1448,14 +1431,12 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
         public void ConfigureLanguageColumns()
         {
-            using (var form = new ConfigureLanguageColumnsForm())
-            {
-                form.Initialize(Project);
+            using var form = new ConfigureLanguageColumnsForm();
+            form.Initialize(Project);
 
-                if (form.ShowDialog(ParentForm) == DialogResult.OK)
-                {
-                    MainForm.Current.GroupFilesControl.CloseAllDocuments();
-                }
+            if (form.ShowDialog(ParentForm) == DialogResult.OK)
+            {
+                MainForm.Current.GroupFilesControl.CloseAllDocuments();
             }
         }
 
@@ -1539,9 +1520,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 {
                     if (result == null)
                     {
-                        var fg = n.Tag as IGridEditableData;
-
-                        if (fg != null && fg.GetChecksum(Project) == fileGroup.GetChecksum(Project))
+                        if (n.Tag is IGridEditableData fg && fg.GetChecksum(Project) == fileGroup.GetChecksum(Project))
                         {
                             result = n;
                         }
@@ -1674,32 +1653,25 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 var n = treeView.SelectedNode;
                 var t = n?.Tag;
 
-                if (t == null)
+                switch (t)
                 {
-                    popupMenuNone.ShowPopup(MousePosition);
-                }
-                else
-                {
-                    if (t is Project)
-                    {
+                    case null:
+                        popupMenuNone.ShowPopup(MousePosition);
+                        break;
+                    case Project _:
                         popupMenuProject.ShowPopup(MousePosition);
-                    }
-                    else if (t is ProjectFolder)
-                    {
+                        break;
+                    case ProjectFolder:
                         popupMenuProjectFolder.ShowPopup(MousePosition);
-                    }
-                    else if (t is FileGroup)
-                    {
+                        break;
+                    case FileGroup:
                         popupMenuFileGroup.ShowPopup(MousePosition);
-                    }
-                    else if (t is FileInformation)
-                    {
+                        break;
+                    case FileInformation:
                         popupMenuFile.ShowPopup(MousePosition);
-                    }
-                    else
-                    {
+                        break;
+                    default:
                         throw new Exception(t.GetType().ToString());
-                    }
                 }
             }
         }
@@ -1719,11 +1691,9 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             var tx = e.Node1;
             var ty = e.Node2;
 
-            var tag = tx.Tag as FileInformation;
-            if (tag != null && ty.Tag is FileInformation)
+            if (tx.Tag is FileInformation tag && ty.Tag is FileInformation v)
             {
                 var u = tag;
-                var v = (FileInformation)ty.Tag;
 
                 e.Result = u.CompareTo(v);
             }
@@ -1742,8 +1712,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         {
             // http://www.devexpress.com/Support/Center/KB/p/A474.aspx
 
-            var list = e.SelectedControl as TreeList;
-            if (list != null)
+            if (e.SelectedControl is TreeList list)
             {
                 var tree = list;
                 var hit = tree.CalcHitInfo(e.ControlMousePosition);
@@ -1752,22 +1721,12 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 {
                     var cellInfo = new TreeListCellToolTipInfo(hit.Node, hit.Column, null);
 
-                    var fg = hit.Node.Tag as FileGroup;
-                    var fsi = hit.Node.Tag as ZlpFileInfo;
-
-                    string tt;
-                    if (fg != null)
+                    var tt = hit.Node.Tag switch
                     {
-                        tt = fg.GetFullNameIntelligent(Project);
-                    }
-                    else if (fsi != null)
-                    {
-                        tt = fsi.FullName;
-                    }
-                    else
-                    {
-                        tt = null;
-                    }
+                        FileGroup fg => fg.GetFullNameIntelligent(Project),
+                        ZlpFileInfo fsi => fsi.FullName,
+                        _ => null
+                    };
 
                     if (tt != null)
                     {
@@ -1779,57 +1738,50 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
         private void buttonAddProjectFolder_ItemClick(object sender, ItemClickEventArgs e)
         {
-            using (var form = new ProjectFolderEditForm())
-            {
-                var pf =
-                    new ProjectFolder(Project)
-                    {
-                        Name = Resources.SR_ProjectFilesUserControl_buttonAddProjectFolderItemClick_NewProjectFolder
-                    };
-
-                form.Initialize(pf);
-
-                if (form.ShowDialog(this) == DialogResult.OK)
+            using var form = new ProjectFolderEditForm();
+            var pf =
+                new ProjectFolder(Project)
                 {
-                    var parentProjectFolder =
-                        treeView.SelectedNode.Tag as ProjectFolder;
+                    Name = Resources.SR_ProjectFilesUserControl_buttonAddProjectFolderItemClick_NewProjectFolder
+                };
 
-                    if (parentProjectFolder != null)
-                    {
-                        pf.Parent = parentProjectFolder;
-                    }
+            form.Initialize(pf);
 
-                    Project.ProjectFolders.Add(pf);
-                    Project.MarkAsModified();
-
-                    var node = addProjectFolderToTree(treeView.SelectedNode, pf);
-
-                    // --
-
-                    sortTree();
-
-                    treeView.SelectedNode = node;
-
-                    UpdateUI();
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                if (treeView.SelectedNode.Tag is ProjectFolder parentProjectFolder)
+                {
+                    pf.Parent = parentProjectFolder;
                 }
+
+                Project.ProjectFolders.Add(pf);
+                Project.MarkAsModified();
+
+                var node = addProjectFolderToTree(treeView.SelectedNode, pf);
+
+                // --
+
+                sortTree();
+
+                treeView.SelectedNode = node;
+
+                UpdateUI();
             }
         }
 
         private void buttonEditProjectFolder_ItemClick(object sender, ItemClickEventArgs e)
         {
-            using (var form = new ProjectFolderEditForm())
+            using var form = new ProjectFolderEditForm();
+            form.Initialize((ProjectFolder)treeView.SelectedNode.Tag);
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.Initialize((ProjectFolder)treeView.SelectedNode.Tag);
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    Project.MarkAsModified();
+                Project.MarkAsModified();
 
-                    updateProjectFolderInTree(
-                        treeView.SelectedNode,
-                        (ProjectFolder)treeView.SelectedNode.Tag);
+                updateProjectFolderInTree(
+                    treeView.SelectedNode,
+                    (ProjectFolder)treeView.SelectedNode.Tag);
 
-                    UpdateUI();
-                }
+                UpdateUI();
             }
         }
 
@@ -1856,34 +1808,33 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         {
             if (node != null)
             {
-                var tag = node.Tag as ProjectFolder;
-                if (tag != null)
+                switch (node.Tag)
                 {
-                    // Recurse children.
-                    while (node.Nodes.Count > 0)
+                    case ProjectFolder tag:
                     {
-                        removeNodeAndchilds(node.Nodes[0]);
+                        // Recurse children.
+                        while (node.Nodes.Count > 0)
+                        {
+                            removeNodeAndchilds(node.Nodes[0]);
+                        }
+
+                        Project.ProjectFolders.Remove(tag);
+                        Project.MarkAsModified();
+
+                        node.ParentNode.Nodes.Remove(node);
+                        break;
                     }
+                    case FileGroup tag:
+                        Project.FileGroups.Remove(tag);
+                        Project.MarkAsModified();
 
-                    Project.ProjectFolders.Remove(tag);
-                    Project.MarkAsModified();
-
-                    node.ParentNode.Nodes.Remove(node);
-
-                }
-                else if (node.Tag is FileGroup)
-                {
-                    Project.FileGroups.Remove((FileGroup)node.Tag);
-                    Project.MarkAsModified();
-
-                    node.ParentNode.Nodes.Remove(node);
-                }
-                else
-                {
-                    throw new Exception(
-                        string.Format(
-                            Resources.SR_ProjectFilesUserControl_removeNodeAndchilds_Unexpected_node_type,
-                            node.Tag?.GetType().Name ?? @"null"));
+                        node.ParentNode.Nodes.Remove(node);
+                        break;
+                    default:
+                        throw new Exception(
+                            string.Format(
+                                Resources.SR_ProjectFilesUserControl_removeNodeAndchilds_Unexpected_node_type,
+                                node.Tag?.GetType().Name ?? @"null"));
                 }
             }
         }
@@ -1992,18 +1943,16 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
             var newParentProjectFolder = targetNode.Tag as ProjectFolder;
 
-            var tag = dragNode.Tag as FileGroup;
-            if (tag != null)
+            switch (dragNode.Tag)
             {
-                tag.ProjectFolder = newParentProjectFolder;
-            }
-            else if (dragNode.Tag is ProjectFolder)
-            {
-                ((ProjectFolder)dragNode.Tag).Parent = newParentProjectFolder;
-            }
-            else
-            {
-                throw new ArgumentException();
+                case FileGroup tag:
+                    tag.ProjectFolder = newParentProjectFolder;
+                    break;
+                case ProjectFolder folder:
+                    folder.Parent = newParentProjectFolder;
+                    break;
+                default:
+                    throw new ArgumentException();
             }
 
             // --
@@ -2049,7 +1998,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             CreateNewFilesWithDialog();
         }
 
-        private Font boldFont => _boldFont ?? (_boldFont = new Font(Appearance.Font, FontStyle.Bold));
+        private Font boldFont => _boldFont ??= new Font(Appearance.Font, FontStyle.Bold);
 
         private void treeView_NodeCellStyle(object sender, GetCustomNodeCellStyleEventArgs e)
         {

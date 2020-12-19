@@ -64,7 +64,7 @@
         <member name="T:JetBrains.Annotations.StringFormatMethodAttribute">
             <summary>
             Indicates that the marked method builds string by the format pattern and (optional) arguments.
-            The parameter, which contains the format string, should be given in constructor. The format string
+            The parameter, which contains the format string, should be given in the constructor. The format string
             should be in <see cref="M:System.String.Format(System.IFormatProvider,System.String,System.Object[])"/>-like form.
             </summary>
             <example><code>
@@ -109,6 +109,32 @@
                }
              }
              </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.ValueRangeAttribute">
+            <summary>
+            Indicates that the integral value falls into the specified interval.
+            It's allowed to specify multiple non-intersecting intervals.
+            Values of interval boundaries are inclusive.
+            </summary>
+            <example><code>
+            void Foo([ValueRange(0, 100)] int value) {
+              if (value == -1) { // Warning: Expression is always 'false'
+                ...
+              }
+            }
+            </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.NonNegativeValueAttribute">
+            <summary>
+            Indicates that the integral value never falls below zero.
+            </summary>
+            <example><code>
+            void Foo([NonNegativeValue] int value) {
+              if (value == -1) { // Warning: Expression is always 'false'
+                ...
+              }
+            }
+            </code></example>
         </member>
         <member name="T:JetBrains.Annotations.InvokerParameterNameAttribute">
             <summary>
@@ -181,7 +207,7 @@
             means that the method doesn't return normally (throws or terminates the process).<br/>
             Value <c>canbenull</c> is only applicable for output parameters.<br/>
             You can use multiple <c>[ContractAnnotation]</c> for each FDT row, or use single attribute
-            with rows separated by semicolon. There is no notion of order rows, all rows are checked
+            with rows separated by the semicolon. There is no notion of order rows, all rows are checked
             for applicability and applied per each program state tracked by the analysis engine.<br/>
             </syntax>
             <examples><list>
@@ -258,20 +284,35 @@
         <member name="T:JetBrains.Annotations.UsedImplicitlyAttribute">
             <summary>
             Indicates that the marked symbol is used implicitly (e.g. via reflection, in external library),
-            so this symbol will not be reported as unused (as well as by other usage inspections).
+            so this symbol will be ignored by usage-checking inspections. <br/>
+            You can use <see cref="T:JetBrains.Annotations.ImplicitUseKindFlags"/> and <see cref="T:JetBrains.Annotations.ImplicitUseTargetFlags"/>
+            to configure how this attribute is applied.
             </summary>
+            <example><code>
+            [UsedImplicitly] 
+            public class TypeConverter {}
+            
+            public class SummaryData
+            {
+              [UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
+              public SummaryData() {}
+            }
+            
+            [UsedImplicitly(ImplicitUseTargetFlags.WithInheritors | ImplicitUseTargetFlags.Default)]
+            public interface IService {}
+            </code></example>
         </member>
         <member name="T:JetBrains.Annotations.MeansImplicitUseAttribute">
             <summary>
             Can be applied to attributes, type parameters, and parameters of a type assignable from <see cref="T:System.Type"/> .
             When applied to an attribute, the decorated attribute behaves the same as <see cref="T:JetBrains.Annotations.UsedImplicitlyAttribute"/>.
-            When applied to a type parameter or to a parameter of type <see cref="T:System.Type"/>,  indicates that the corresponding type
-            is used implicitly.
+            When applied to a type parameter or to a parameter of type <see cref="T:System.Type"/>,
+            indicates that the corresponding type is used implicitly.
             </summary>
         </member>
         <member name="T:JetBrains.Annotations.ImplicitUseKindFlags">
             <summary>
-            Specify the details of implicitly used symbol when it is marked
+            Specifies the details of implicitly used symbol when it is marked
             with <see cref="T:JetBrains.Annotations.MeansImplicitUseAttribute"/> or <see cref="T:JetBrains.Annotations.UsedImplicitlyAttribute"/>.
             </summary>
         </member>
@@ -292,25 +333,28 @@
         </member>
         <member name="T:JetBrains.Annotations.ImplicitUseTargetFlags">
             <summary>
-            Specify what is considered to be used implicitly when marked
+            Specifies what is considered to be used implicitly when marked
             with <see cref="T:JetBrains.Annotations.MeansImplicitUseAttribute"/> or <see cref="T:JetBrains.Annotations.UsedImplicitlyAttribute"/>.
             </summary>
         </member>
         <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.Members">
-            <summary>Members of entity marked with attribute are considered used.</summary>
+            <summary>Members of the type marked with the attribute are considered used.</summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.WithInheritors">
+            <summary> Inherited entities are considered used. </summary>
         </member>
         <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.WithMembers">
-            <summary>Entity marked with attribute and all its members considered used.</summary>
+            <summary>Entity marked with the attribute and all its members considered used.</summary>
         </member>
         <member name="T:JetBrains.Annotations.PublicAPIAttribute">
             <summary>
-            This attribute is intended to mark publicly available API
+            This attribute is intended to mark publicly available API,
             which should not be removed and so is treated as used.
             </summary>
         </member>
         <member name="T:JetBrains.Annotations.InstantHandleAttribute">
             <summary>
-            Tells code analysis engine if the parameter is completely handled when the invoked method is on stack.
+            Tells the code analysis engine if the parameter is completely handled when the invoked method is on stack.
             If the parameter is a delegate, indicates that delegate is executed while the method is executed.
             If the parameter is an enumerable, indicates that it is enumerated while the method is executed.
             </summary>
@@ -324,7 +368,7 @@
             [Pure] int Multiply(int x, int y) => x * y;
             
             void M() {
-              Multiply(123, 42); // Waring: Return value of pure method is not used
+              Multiply(123, 42); // Warning: Return value of pure method is not used
             }
             </code></example>
         </member>
@@ -336,8 +380,8 @@
             Methods decorated with this attribute (in contrast to pure methods) might change state,
             but make no sense without using their return value. <br/>
             Similarly to <see cref="T:JetBrains.Annotations.PureAttribute"/>, this attribute
-            will help detecting usages of the method when the return value in not used.
-            Additionally, you can optionally specify a custom message, which will be used when showing warnings, e.g.
+            will help to detect usages of the method when the return value is not used.
+            Optionally, you can specify a message to use when showing warnings, e.g.
             <code>[MustUseReturnValue("Use the return value to...")]</code>.
             </remarks>
         </member>
@@ -637,7 +681,7 @@
         </member>
         <member name="T:JetBrains.Annotations.LinqTunnelAttribute">
             <summary>
-            Indicates that method is pure LINQ method, with postponed enumeration (like Enumerable.Select,
+            Indicates that the method is a pure LINQ method, with postponed enumeration (like Enumerable.Select,
             .Where). This annotation allows inference of [InstantHandle] annotation for parameters
             of delegate type by analyzing LINQ method chains.
             </summary>
@@ -662,7 +706,7 @@
         </member>
         <member name="T:JetBrains.Annotations.RegexPatternAttribute">
             <summary>
-            Indicates that the marked parameter is a regular expression pattern.
+            Indicates that the marked parameter, field, or property is a regular expression pattern.
             </summary>
         </member>
         <member name="T:JetBrains.Annotations.NoReorderAttribute">
@@ -688,6 +732,33 @@
             <remarks>
             Property should have the tree ancestor of the <c>ItemsControl</c> type or
             marked with the <see cref="T:JetBrains.Annotations.XamlItemsControlAttribute"/> attribute.
+            </remarks>
+        </member>
+        <member name="T:JetBrains.Annotations.XamlItemStyleOfItemsControlAttribute">
+            <summary>
+            XAML attribute. Indicates the property of some <c>Style</c>-derived type, that
+            is used to style items of <c>ItemsControl</c>-derived type. This annotation will
+            enable the <c>DataContext</c> type resolve for XAML bindings for such properties.
+            </summary>
+            <remarks>
+            Property should have the tree ancestor of the <c>ItemsControl</c> type or
+            marked with the <see cref="T:JetBrains.Annotations.XamlItemsControlAttribute"/> attribute.
+            </remarks>
+        </member>
+        <member name="T:JetBrains.Annotations.XamlOneWayBindingModeByDefaultAttribute">
+            <summary>
+            XAML attribute. Indicates that DependencyProperty has <c>OneWay</c> binding mode by default.
+            </summary>
+            <remarks>
+            This attribute must be applied to DependencyProperty's CLR accessor property if it is present, to DependencyProperty descriptor field otherwise.
+            </remarks>
+        </member>
+        <member name="T:JetBrains.Annotations.XamlTwoWayBindingModeByDefaultAttribute">
+            <summary>
+            XAML attribute. Indicates that DependencyProperty has <c>TwoWay</c> binding mode by default.
+            </summary>
+            <remarks>
+            This attribute must be applied to DependencyProperty's CLR accessor property if it is present, to DependencyProperty descriptor field otherwise.
             </remarks>
         </member>
     </members>

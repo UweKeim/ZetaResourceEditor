@@ -74,7 +74,7 @@
             string baseKey,
             string languageCode)
         {
-            return (baseKey + (/*languageCode.Length > 2 ? languageCode.Substring(0, 2) :*/ languageCode)).ToLowerInvariant();
+            return (baseKey + languageCode).ToLowerInvariant();
         }
 
         private void doTakeSnapshot(

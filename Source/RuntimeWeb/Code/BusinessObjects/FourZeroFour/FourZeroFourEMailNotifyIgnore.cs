@@ -98,16 +98,14 @@
 
 						default:
 							throw new ArgumentOutOfRangeException(
-								@"_detectType",
+								nameof(_detectType),
 								@"Invalid detect type.");
 					}
 
 					if (string.IsNullOrEmpty(check))
 					{
 						LogCentral.Current.LogInfo(
-						    $@"[404 notify e-mail ignore] NOT matching: pattern to check = '{_pattern}', against string '{
-						            @"(NULL/empty)"
-						        }', of detect type '{_detectType}' with pattern type '{_patternType}'.");
+						    $@"[404 notify e-mail ignore] NOT matching: pattern to check = '{_pattern}', against string '(NULL/empty)', of detect type '{_detectType}' with pattern type '{_patternType}'.");
 
 						return false;
 					}
@@ -140,7 +138,7 @@
 
 				default:
 					throw new ArgumentOutOfRangeException(
-						@"_patternType",
+						nameof(_patternType),
 						@"Invalid pattern type.");
 			}
 		}

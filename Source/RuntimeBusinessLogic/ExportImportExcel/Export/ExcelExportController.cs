@@ -8,7 +8,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
     using Projects;
     using Properties;
     using Runtime;
-    using Runtime.FileAccess;
     using Snapshots;
     using System;
     using System.Collections.Generic;
@@ -18,10 +17,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
     using System.IO;
     using System.Linq;
     using System.Text;
-    using Web_References.ZetaUploader;
-    using WebServices;
     using Zeta.VoyagerLibrary.Common;
-    using Zeta.VoyagerLibrary.Common.IO.Compression;
     using ZetaLongPaths;
 
     public class ExcelExportController
@@ -299,104 +295,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                     _preparedInformations.FileGroupsLength,
                     savedFiles);
             }
-
-            // --
-
-            if (_preparedInformations.OriginalInformation.SendFilesWithZetaUploader)
-            {
-                doSendFilesWithZetaUploader(bw, savedFiles.ToArray());
-            }
-        }
-
-        private void doSendFilesWithZetaUploader(BackgroundWorker bw, string[] filePathsToSend)
-        {
-            if (filePathsToSend.Length > 0)
-            {
-                bw.ReportProgress(
-                    0,
-                    new ExcelProgressInformation
-                    {
-                        TemporaryProgressMessage =
-                                string.Format(
-                                    Resources.ExcelExportController_doSendFilesWithZetaUploader_Sending__0__files_through_Zeta_Uploader___,
-                                    filePathsToSend.Length)
-                    });
-
-                var sendInfo =
-                    new ZetaUploaderCommunicationClientTransferInformation2
-                    {
-                        EMailReceiverAddresses =
-                                splitEMailAddresses(
-                                    _preparedInformations.OriginalInformation.SendFilesEMailReceivers),
-                        EMailSubject =
-                                replaceEMailPlaceholders(
-                                    _preparedInformations.OriginalInformation.SendFilesEMailSubject),
-                        AdditionalRemarks =
-                                replaceEMailPlaceholders(
-                                    _preparedInformations.OriginalInformation.SendFilesEMailBody),
-                        Language =
-                                CultureHelper.GetSupportedUICultureFromThreeLetterWindowsLanguageName(
-                                    CultureInfo.CurrentUICulture.ThreeLetterWindowsLanguageName).TwoLetterISOLanguageName,
-                        UserStates = new[] { new ZulPair { Name = @"allow-browse", Value = bool.FalseString } },
-                    };
-
-                // --
-
-                if (filePathsToSend.Length == 1)
-                {
-                    sendInfo.FileName = ZlpPathHelper.GetFileNameFromFilePath(filePathsToSend[0]);
-                    sendInfo.FileContent = ZlpIOHelper.ReadAllBytes(filePathsToSend[0]);
-                }
-                else
-                {
-                    sendInfo.FileName = replaceEMailPlaceholders(@"ZRE-Files-To-Translate-{SafeProjectName}.zip");
-
-                    var compressInfos = new CompressHeterogeneousInfos();
-
-                    compressInfos.AddFiles(filePathsToSend);
-
-                    sendInfo.FileContent =
-                        CompressionHelper.CompressHeterogeneous(
-                            compressInfos);
-                }
-
-                var ws = WebServiceManager.Current.ZetaUploaderWS;
-                ws.SendFile2(sendInfo);
-            }
-        }
-
-        private string replaceEMailPlaceholders(string text)
-        {
-            if (string.IsNullOrEmpty(text))
-            {
-                return text;
-            }
-            else
-            {
-                text = text.Replace(@"{ProjectName}", _preparedInformations.OriginalInformation.Project.Name);
-                text = text.Replace(@"{SafeProjectName}", ZrePathHelper.MakeValidObjectID(_preparedInformations.OriginalInformation.Project.Name));
-
-                return text;
-            }
-        }
-
-        private static string[] splitEMailAddresses(string sendFilesEMailReceivers)
-        {
-            var result = new List<string>();
-
-            // ReSharper disable LoopCanBeConvertedToQuery
-            foreach (var email in sendFilesEMailReceivers.Split(','))
-            // ReSharper restore LoopCanBeConvertedToQuery
-            {
-                var e = email.Trim();
-
-                if (e.Length > 0)
-                {
-                    result.Add(e);
-                }
-            }
-
-            return result.ToArray();
         }
 
         private static void doProcess(
@@ -536,10 +434,10 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                                             fileGroupsLength,
                                             rowIndex + 1,
                                             table.Rows.Count,
-                                            (int)(((rowIndex + 1.0) /
-                                                    (table.Rows.Count) *
-                                                    ((fileGroupIndex + 1.0) /
-                                                     (fileGroupsLength))) * 100))
+                                            (int)((rowIndex + 1.0) /
+                                                  table.Rows.Count *
+                                                  ((fileGroupIndex + 1.0) /
+                                                   fileGroupsLength) * 100))
                             });
 
                         if (bw.CancellationPending)
@@ -603,7 +501,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                                     !isReferenceLanguage)
                                 {
                                     checkEnsureRowPresent(dataTable, currentRowIndex);
-                                    var columnIndex = (columnStartIndex - 1) + effectiveDestinationColumnIndex + offset;
+                                    var columnIndex = columnStartIndex - 1 + effectiveDestinationColumnIndex + offset;
                                     rows[currentRowIndex][columnIndex] = languageValue;
 
                                     if (isReferenceLanguage)
@@ -624,7 +522,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                             {
                                 // Comment.
                                 checkEnsureRowPresent(dataTable, currentRowIndex);
-                                rows[currentRowIndex][(columnStartIndex - 1) + effectiveDestinationColumnIndex + offset]
+                                rows[currentRowIndex][columnStartIndex - 1 + effectiveDestinationColumnIndex + offset]
                                     = DataProcessing.GetComment(preparedInformation.Project, row);
 
                                 /*offset++;*/
@@ -856,8 +754,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
             DataRow row,
             CommentVisibilityScope commentVisibilityScope)
         {
-            if ((FileGroup.IsCompleteRowEmpty(row) &&
-                !preparedInformation.ExportCompletelyEmptyRows) ||
+            if (FileGroup.IsCompleteRowEmpty(row) &&
+                !preparedInformation.ExportCompletelyEmptyRows ||
                 // http://www.codeproject.com/KB/aspnet/ZetaResourceEditor.aspx?msg=3367544#xx3367544xx)
                 FileGroup.IsInternalRow(row))
             {
@@ -896,8 +794,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                 if (preparedInformation.Project.EnableExcelExportSnapshots)
                 {
                     return emptyCount > 0 ||
-                           (preparedInformation.OnlyExportRowsWithChangedTexts &&
-                            hasChangedTextSinceLastExport(ssc, preparedInformation, settings, row));
+                           preparedInformation.OnlyExportRowsWithChangedTexts &&
+                           hasChangedTextSinceLastExport(ssc, preparedInformation, settings, row);
                 }
                 else
                 {

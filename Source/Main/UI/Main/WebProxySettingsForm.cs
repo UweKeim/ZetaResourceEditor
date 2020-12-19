@@ -31,15 +31,11 @@
 											useCustomProxyRadioButton.Checked;
 
 			CmdOK.Enabled =
-				(
-					useIEProxyRadioButton.Checked ||
-						useNoProxyRadioButton.Checked
-					)
+				useIEProxyRadioButton.Checked ||
+                useNoProxyRadioButton.Checked
 						||
-						(
-							useCustomProxyRadioButton.Checked &&
-								ProxyAddressTextBox.Text.Trim().Length > 0
-							);
+						useCustomProxyRadioButton.Checked &&
+                        ProxyAddressTextBox.Text.Trim().Length > 0;
 		}
 
 		/// <summary>
@@ -92,10 +88,7 @@
 
 						ProxyAddressTextBox.Text = value.Address.ToString();
 
-						var credentials =
-							value.Credentials as NetworkCredential;
-
-						if (credentials != null)
+                        if (value.Credentials is NetworkCredential credentials)
 						{
 							ProxyUserNameTextBox.Text = credentials.UserName;
 							ProxyPasswordTextBox.Text = credentials.Password;

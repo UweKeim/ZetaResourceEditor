@@ -10,21 +10,11 @@
 		{
 		}
 
-        protected new MyRibbonControl Ribbon
-		{
-			get { return base.Ribbon as MyRibbonControl; }
-		}
+        protected new MyRibbonControl Ribbon => base.Ribbon as MyRibbonControl;
 
         protected override RibbonPanelViewInfo CreatePanelInfo()
         {
-            if (DesignModeHelper.IsDesignMode)
-            {
-                return base.CreatePanelInfo();
-            }
-            else
-            {
-                return new MyRibbonPanelViewInfo(this);
-            }
+            return DesignModeHelper.IsDesignMode ? base.CreatePanelInfo() : new MyRibbonPanelViewInfo(this);
         }
 	}
 }

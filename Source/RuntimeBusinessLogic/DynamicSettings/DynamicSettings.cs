@@ -89,15 +89,7 @@
             }
             else
             {
-                string result;
-                if (DirectValues.TryGetValue(addPrefix(name), out result))
-                {
-                    return result;
-                }
-                else
-                {
-                    return null;
-                }
+                return DirectValues.TryGetValue(addPrefix(name), out var result) ? result : null;
             }
         }
 
@@ -109,15 +101,7 @@
             }
             else
             {
-                string result;
-                if (DirectValues.TryGetValue(addPrefix(name), out result))
-                {
-                    return result;
-                }
-                else
-                {
-                    return fallBackValue;
-                }
+                return DirectValues.TryGetValue(addPrefix(name), out var result) ? result : fallBackValue;
             }
         }
 

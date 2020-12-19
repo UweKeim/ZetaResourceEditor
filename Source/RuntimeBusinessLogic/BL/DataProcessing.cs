@@ -33,20 +33,18 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                 ZlpSimpleFileAccessProtector.Protect(
                     delegate
                     {
-                        using (var reader = XmlReader.Create(item.File.FullName))
-                        {
-                            var doc = new XmlDocument();
-                            doc.Load(reader);
-                            doc.Normalize();
+                        using var reader = XmlReader.Create(item.File.FullName);
+                        var doc = new XmlDocument();
+                        doc.Load(reader);
+                        doc.Normalize();
 
-                            _resxFiles.Add(
-                                new ResxFile
-                                {
-                                    FileInformation = item,
-                                    FilePath = item.File,
-                                    Document = doc
-                                });
-                        }
+                        _resxFiles.Add(
+                            new ResxFile
+                            {
+                                FileInformation = item,
+                                FilePath = item.File,
+                                Document = doc
+                            });
                     });
             }
         }
@@ -124,15 +122,13 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                 ZlpSimpleFileAccessProtector.Protect(
                     delegate
                     {
-                        using (var sw = new StreamWriter(
+                        using var sw = new StreamWriter(
                             resxFile.FilePath.FullName,
                             false,
-                            new UTF8Encoding(true))) // https://github.com/UweKeim/ZetaResourceEditor/issues/24
-                        using (var write = XmlWriter.Create(sw, settings))
-                        {
-                            var doc = resxFile.Document;
-                            doc.Save(write);
-                        }
+                            new UTF8Encoding(true));
+                        using var write = XmlWriter.Create(sw, settings);
+                        var doc = resxFile.Document;
+                        doc.Save(write);
                     });
             }
         }
@@ -384,8 +380,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
             string cultureCaption,
             string text)
         {
-            int columnIndex;
-            if (captionIndexCache.TryGetValue(cultureCaption, out columnIndex))
+            if (captionIndexCache.TryGetValue(cultureCaption, out var columnIndex))
             {
                 row[columnIndex] = text;
             }
@@ -645,14 +640,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
         private static string escapeXsltChars(
             string query)
         {
-            if (string.IsNullOrEmpty(query))
-            {
-                return query;
-            }
-            else
-            {
-                return query.Replace(@"'", @"&acute;").Replace(@"""", @"&quot;");
-            }
+            return string.IsNullOrEmpty(query) ? query : query.Replace(@"'", @"&acute;").Replace(@"""", @"&quot;");
         }
 
         private void backupFiles()

@@ -27,7 +27,6 @@
         /// See http://code.google.com/intl/en-US/apis/ajaxlanguage/documentation/reference.html#LangNameArray
         /// </summary>
         private readonly TranslationMode3[] _validSourceTranslationModes =
-            new[]
             {
                 //new TranslationMode3(@"auto"),
                 new TranslationMode3(@"af"),
@@ -127,7 +126,6 @@
         /// See http://code.google.com/intl/en-US/apis/ajaxlanguage/documentation/reference.html#LangNameArray
         /// </summary>
         private readonly TranslationMode3[] _validDestinationTranslationModes =
-            new[]
             {
                 new TranslationMode3(@"af"),
                 new TranslationMode3(@"sq"),

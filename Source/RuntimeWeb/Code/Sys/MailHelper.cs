@@ -42,12 +42,10 @@
 
 				// --
 
-				using (var sw =
-					new StreamWriter(filePath, false, message.BodyEncoding ?? Encoding.UTF8))
-				{
-					sw.Write(message.Body);
-				}
-			}
+                using var sw =
+                    new StreamWriter(filePath, false, message.BodyEncoding ?? Encoding.UTF8);
+                sw.Write(message.Body);
+            }
 		}
 	}
 }

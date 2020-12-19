@@ -15,7 +15,6 @@ namespace ZetaResourceEditor.UI.Main
     using RuntimeBusinessLogic.DL;
     using RuntimeBusinessLogic.FileGroups;
     using RuntimeBusinessLogic.Projects;
-    using RuntimeBusinessLogic.Web_References.UpdateChecker;
     using RuntimeBusinessLogic.WebServices;
     using RuntimeUserInterface.Shell;
     using System;
@@ -26,6 +25,7 @@ namespace ZetaResourceEditor.UI.Main
     using System.IO;
     using System.Reflection;
     using System.Windows.Forms;
+    using RuntimeBusinessLogic.UpdateChecker;
     using Tools;
     using Translation;
     using Zeta.VoyagerLibrary.Common;
@@ -686,14 +686,14 @@ namespace ZetaResourceEditor.UI.Main
         {
             DataProcessing.CanOverwrite += dataProcessing_CanOverwrite;
 
-            WinFormsPersistanceHelper.RestoreState(
+            var rr = WinFormsPersistanceHelper.RestoreState(
                 this,
                 new RestoreInformation
                 {
                     SuggestZoomPercent = 90,
                     RespectWindowRatio = false
                 });
-            CenterToScreen();
+            if( !rr.DidMoveForm) CenterToScreen();
 
             ribbon.SelectedPage = ribbonPage1;
             FormBase.RestoreState(ribbon);
@@ -732,17 +732,14 @@ namespace ZetaResourceEditor.UI.Main
                 MessageBoxButtons.YesNoCancel,
                 MessageBoxIcon.Question);
 
-            if (dr == DialogResult.Yes)
+            switch (dr)
             {
-                return AskOverwriteResult.Overwrite;
-            }
-            else if (dr == DialogResult.No)
-            {
-                return AskOverwriteResult.Skip;
-            }
-            else
-            {
-                return AskOverwriteResult.Fail;
+                case DialogResult.Yes:
+                    return AskOverwriteResult.Overwrite;
+                case DialogResult.No:
+                    return AskOverwriteResult.Skip;
+                default:
+                    return AskOverwriteResult.Fail;
             }
         }
 
@@ -983,10 +980,10 @@ namespace ZetaResourceEditor.UI.Main
                     new UpdateCheckInfo2
                     {
                         ApiKey = @"658b513f-8c69-482c-86ab-4be029377d18",
-                        VersionNumber = FileVersionHelper.GetAssemblyVersion(Assembly.GetEntryAssembly().Location)
+                        VersionNumber = FileVersionHelper.GetAssemblyVersion(Assembly.GetEntryAssembly()?.Location)
                             .ToString(),
                         // ReSharper disable once AssignNullToNotNullAttribute
-                        VersionDate = File.GetLastWriteTime(Assembly.GetEntryAssembly().Location),
+                        VersionDate = File.GetLastWriteTime(Assembly.GetEntryAssembly()?.Location),
                         Culture = CultureInfo.CurrentUICulture.LCID
                     };
 
@@ -1179,14 +1176,12 @@ namespace ZetaResourceEditor.UI.Main
             object sender,
             ItemClickEventArgs e)
         {
-            using (var form = new AutoTranslateForm())
+            using var form = new AutoTranslateForm();
+            form.Initialize(GroupFilesControl.CurrentFileGroupControl);
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.Initialize(GroupFilesControl.CurrentFileGroupControl);
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    GroupFilesControl.CurrentFileGroupControl.UpdateUI();
-                    UpdateUI();
-                }
+                GroupFilesControl.CurrentFileGroupControl.UpdateUI();
+                UpdateUI();
             }
         }
 
@@ -1215,15 +1210,13 @@ namespace ZetaResourceEditor.UI.Main
                 }
             }
 
-            using (var wizard = new ExcelExportWizardForm())
-            {
-                wizard.Initialize(groups, ProjectFilesControl.Project);
+            using var wizard = new ExcelExportWizardForm();
+            wizard.Initialize(groups, ProjectFilesControl.Project);
 
-                if (wizard.ShowDialog(this) == DialogResult.OK)
-                {
-                    ProjectFilesControl.RefreshItems();
-                    UpdateUI();
-                }
+            if (wizard.ShowDialog(this) == DialogResult.OK)
+            {
+                ProjectFilesControl.RefreshItems();
+                UpdateUI();
             }
         }
 
@@ -1243,15 +1236,13 @@ namespace ZetaResourceEditor.UI.Main
                 }
             }
 
-            using (var wizard = new ExcelImportWizardForm())
-            {
-                wizard.Initialize(groups, ProjectFilesControl.Project);
+            using var wizard = new ExcelImportWizardForm();
+            wizard.Initialize(groups, ProjectFilesControl.Project);
 
-                if (wizard.ShowDialog(this) == DialogResult.OK)
-                {
-                    ProjectFilesControl.RefreshItems();
-                    UpdateUI();
-                }
+            if (wizard.ShowDialog(this) == DialogResult.OK)
+            {
+                ProjectFilesControl.RefreshItems();
+                UpdateUI();
             }
         }
 

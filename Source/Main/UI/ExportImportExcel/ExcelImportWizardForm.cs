@@ -327,31 +327,29 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
-            using (var form = new OpenFileDialog())
+            using var form = new OpenFileDialog();
+            form.InitialDirectory =
+                (string)
+                PersistanceHelper.RestoreValue(
+                    @"receiveFileFromTranslator.destinationFilePathTextEdit.InitialDirectory",
+                    _project.ProjectConfigurationFilePath.DirectoryName);
+
+            form.Multiselect = false;
+            form.CheckFileExists = true;
+            form.CheckPathExists = true;
+            form.Filter = Resources.SR_ExportWizard_buttonBrowseClick_ExcelFilesXlsxls;
+
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.InitialDirectory =
-                    (string)
-                    PersistanceHelper.RestoreValue(
-                        @"receiveFileFromTranslator.destinationFilePathTextEdit.InitialDirectory",
-                        _project.ProjectConfigurationFilePath.DirectoryName);
+                PersistanceHelper.SaveValue(
+                    @"receiveFileFromTranslator.destinationFilePathTextEdit.InitialDirectory",
+                    Path.GetDirectoryName(form.FileName));
 
-                form.Multiselect = false;
-                form.CheckFileExists = true;
-                form.CheckPathExists = true;
-                form.Filter = Resources.SR_ExportWizard_buttonBrowseClick_ExcelFilesXlsxls;
+                sourceFileTextEdit.Text = form.FileName;
 
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    PersistanceHelper.SaveValue(
-                        @"receiveFileFromTranslator.destinationFilePathTextEdit.InitialDirectory",
-                        Path.GetDirectoryName(form.FileName));
-
-                    sourceFileTextEdit.Text = form.FileName;
-
-                    parseFileGroups();
-                    parseLanguageCode();
-                    UpdateUI();
-                }
+                parseFileGroups();
+                parseLanguageCode();
+                UpdateUI();
             }
         }
 
@@ -507,13 +505,11 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 
         private void detailedErrorsButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            using (var form = new TextBoxForm())
-            {
-                var message = Logger.MakeTraceMessage(_exception);
-                form.Initialize(message);
+            using var form = new TextBoxForm();
+            var message = Logger.MakeTraceMessage(_exception);
+            form.Initialize(message);
 
-                form.ShowDialog(this);
-            }
+            form.ShowDialog(this);
         }
 
         private void progressBackgroundWorker_DoWork(
@@ -637,10 +633,8 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 
         private void cmdImportFormatInfo_Click(object sender, EventArgs e)
         {
-            using (var form = new ExcelImportFormatInformationForm())
-            {
-                form.ShowDialog(this);
-            }
+            using var form = new ExcelImportFormatInformationForm();
+            form.ShowDialog(this);
         }
     }
 }

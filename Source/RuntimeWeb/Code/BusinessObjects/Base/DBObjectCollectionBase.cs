@@ -34,7 +34,7 @@
 		{
 			var result = new List<int>();
 
-			foreach ( T t in this )
+			foreach ( var t in this )
 			{
 				result.Add( t.ID );
 			}

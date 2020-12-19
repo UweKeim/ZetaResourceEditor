@@ -36,20 +36,11 @@
 			}
 		}
 
-        protected override bool UseSharedIcon
-		{
-			get { return false; }
-		}
+        protected override bool UseSharedIcon => false;
 
-        public static int MaximumFormWidth
-        {
-            get { return (int)Math.Min(SystemInformation.WorkingArea.Width * 0.75f, 600); }
-        }
+        public static int MaximumFormWidth => (int)Math.Min(SystemInformation.WorkingArea.Width * 0.75f, 600);
 
-        public static int MaximumFormHeight
-        {
-            get { return (int)(SystemInformation.WorkingArea.Height * 0.85f); }
-        }
+        public static int MaximumFormHeight => (int)(SystemInformation.WorkingArea.Height * 0.85f);
 
         internal void Initialize(
             MyMessageBoxInformation info)
@@ -61,8 +52,7 @@
 		{
 			// http://stackoverflow.com/questions/3300977/arrow-key-events-not-arriving
 
-			DialogResult dr;
-			if (_keyMap.TryGetValue(keyData, out dr))
+            if (_keyMap.TryGetValue(keyData, out var dr))
 			{
 				DialogResult = dr;
 				Close();
@@ -385,16 +375,17 @@
 					throw new ArgumentOutOfRangeException();
 			}
 
-			if (buttonCount == 2)
-			{
-				Width -= buttonDelta;
-				//_minWidth -= buttonDelta;
-			}
-			else if (buttonCount == 1)
-			{
-				Width -= buttonDelta * 2;
-				//_minWidth -= buttonDelta * 2;
-			}
+			switch (buttonCount)
+            {
+                case 2:
+                    Width -= buttonDelta;
+                    //_minWidth -= buttonDelta;
+                    break;
+                case 1:
+                    Width -= buttonDelta * 2;
+                    //_minWidth -= buttonDelta * 2;
+                    break;
+            }
 
             // Merken um Timer schön zu formatieren.
             if (AcceptButton != null && _info.VisualCloseCountDown && _info.CloseCountDown > TimeSpan.Zero)
@@ -436,18 +427,16 @@
 		private void resizeButton(Control button)
 		{
 			if (button.Visible)
-			{
-				using (var g = CreateGraphics())
-				{
-					var size = g.MeasureString(button.Text, SkinHelper.StandardFont);
+            {
+                using var g = CreateGraphics();
+                var size = g.MeasureString(button.Text, SkinHelper.StandardFont);
 
-					var borderDistance = button.Height * 0.5; // One height as distance.
-					if (button.Width - 2 * borderDistance - size.Width < 0)
-					{
-						button.Width = (int)(size.Width + 2 * borderDistance);
-					}
-				}
-			}
+                var borderDistance = button.Height * 0.5; // One height as distance.
+                if (button.Width - 2 * borderDistance - size.Width < 0)
+                {
+                    button.Width = (int)(size.Width + 2 * borderDistance);
+                }
+            }
 		}
 
 		private string findButtonKey(

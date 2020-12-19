@@ -31,14 +31,14 @@
 
         public override Size MinimumSize
         {
-            get { return new Size(base.MinimumSize.Width, 24); }
-            set { base.MinimumSize = new Size(value.Width, 24); }
+            get => new Size(base.MinimumSize.Width, 24);
+            set => base.MinimumSize = new Size(value.Width, 24);
         }
 
         public override Size MaximumSize
         {
-            get { return new Size(base.MaximumSize.Width, 24); }
-            set { base.MaximumSize = new Size(value.Width, 24); }
+            get => new Size(base.MaximumSize.Width, 24);
+            set => base.MaximumSize = new Size(value.Width, 24);
         }
     }
 }

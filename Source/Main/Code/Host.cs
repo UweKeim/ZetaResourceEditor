@@ -33,6 +33,8 @@ namespace ZetaResourceEditor.Code
         {
             try
             {
+                BindingRedirectsHelper.Initialize();
+                
                 LogCentral.Current.ConfigureLogging();
 
                 // --
@@ -121,6 +123,8 @@ namespace ZetaResourceEditor.Code
             // Hier mache ich quasi mein eigenes, automatisches, Binding-Redirect.
             // (z.B. Newtonsoft.Json 6.0.0.0 nach 9.0.0.0).
 
+            if (e.Name.IndexOf(',') < 0) return null;
+
             var name = e.Name.Substring(0, e.Name.IndexOf(','));
 
             _additional.TryGetValue(name, out var res);
@@ -189,46 +193,51 @@ namespace ZetaResourceEditor.Code
 
             bool handleException;
 
-            if (e is MessageBoxException exception)
+            switch (e)
             {
-                var mbx = exception;
-
-                XtraMessageBox.Show(
-                    mbx.Parent,
-                    mbx.Message,
-                    @"Zeta Resource Editor",
-                    mbx.Buttons,
-                    mbx.Icon);
-
-                handleException = false;
-            }
-            else if (e is PersistentPairStorageException)
-            {
-                // 2009-06-22, Uwe Keim:
-                // http://zeta-producer.de/Pages/AdvancedForumIndex.aspx?DataID=9514
-                LogCentral.Current.LogWarn(
-                    @"PersistentPairStorageException occurred.", e);
-
-                if (e.InnerException == null)
+                case MessageBoxException exception:
                 {
-                    handleException = true;
+                    var mbx = exception;
+
+                    XtraMessageBox.Show(
+                        mbx.Parent,
+                        mbx.Message,
+                        @"Zeta Resource Editor",
+                        mbx.Buttons,
+                        mbx.Icon);
+
+                    handleException = false;
+                    break;
                 }
-                else
+                case PersistentPairStorageException _:
                 {
-                    if (e.InnerException is UnauthorizedAccessException ||
-                        e.InnerException is IOException)
-                    {
-                        handleException = false;
-                    }
-                    else
+                    // 2009-06-22, Uwe Keim:
+                    // http://zeta-producer.de/Pages/AdvancedForumIndex.aspx?DataID=9514
+                    LogCentral.Current.LogWarn(
+                        @"PersistentPairStorageException occurred.", e);
+
+                    if (e.InnerException == null)
                     {
                         handleException = true;
                     }
+                    else
+                    {
+                        if (e.InnerException is UnauthorizedAccessException ||
+                            e.InnerException is IOException)
+                        {
+                            handleException = false;
+                        }
+                        else
+                        {
+                            handleException = true;
+                        }
+                    }
+
+                    break;
                 }
-            }
-            else
-            {
-                handleException = true;
+                default:
+                    handleException = true;
+                    break;
             }
 
             // --
@@ -243,16 +252,14 @@ namespace ZetaResourceEditor.Code
                 {
                     // --
 
-                    using (var form = new ErrorForm())
-                    {
-                        form.Initialize(e);
-                        var result = form.ShowDialog(Form.ActiveForm);
+                    using var form = new ErrorForm();
+                    form.Initialize(e);
+                    var result = form.ShowDialog(Form.ActiveForm);
 
-                        if (result == DialogResult.Abort)
-                        {
-                            System.Diagnostics.Process.GetCurrentProcess().Kill();
-                            Application.Exit();
-                        }
+                    if (result == DialogResult.Abort)
+                    {
+                        System.Diagnostics.Process.GetCurrentProcess().Kill();
+                        Application.Exit();
                     }
                 }
                 catch (Exception x)

@@ -111,9 +111,9 @@ namespace ZetaResourceEditor.UI.FileGroups
 
         private void updateIncludeFileInCsprojControls()
         {
-            var csProjs = _project.FileGroups.Select(t => t.GetConnectedCsProject());
+            var csProjs = _project.FileGroups.Select(t => t.GetConnectedCsProject()).ToList();
             var groupedProjectFiles = csProjs.GroupBy(t => t?.Project?.FullPath)
-                .Where(t => !string.IsNullOrEmpty(t.Key)).Select(s => new ZlpFileInfo(s.Key));
+                .Where(t => !string.IsNullOrEmpty(t.Key)).Select(s => new ZlpFileInfo(s.Key)).ToList();
 
             IncludeFileInCsprojChecBox.Enabled = groupedProjectFiles.Any();
             AddFileAsDependantUponCheckBox.Enabled = IncludeFileInCsprojChecBox.Checked &&
@@ -125,7 +125,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             }
 
             labelCsProjectToAdd.Text =
-                $"({string.Join(Environment.NewLine, groupedProjectFiles.Select(t => t?.Name))})";
+                $@"({string.Join(Environment.NewLine, groupedProjectFiles.Select(t => t.Name))})";
         }
 
         public override void UpdateUI()
@@ -592,24 +592,22 @@ namespace ZetaResourceEditor.UI.FileGroups
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-            using (var form = new TranslateOptionsForm())
+            using var form = new TranslateOptionsForm();
+            form.Initialize(_project);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.Initialize(_project);
-
-                if (form.ShowDialog(this) == DialogResult.OK)
+                if (form.TranslationProviderChanged)
                 {
-                    if (form.TranslationProviderChanged)
+                    using (new WaitCursor(this))
                     {
-                        using (new WaitCursor(this))
-                        {
-                            //InitiallyFillLists();
-                            //FillItemToControls();
-                            fillTranslationEngine();
-                        }
+                        //InitiallyFillLists();
+                        //FillItemToControls();
+                        fillTranslationEngine();
                     }
-
-                    UpdateUI();
                 }
+
+                UpdateUI();
             }
         }
 

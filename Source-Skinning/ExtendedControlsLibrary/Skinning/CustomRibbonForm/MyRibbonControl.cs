@@ -20,16 +20,9 @@
 		}
 
 		protected override RibbonViewInfo CreateViewInfo()
-		{
-			if (DesignModeHelper.IsDesignMode)
-			{
-				return base.CreateViewInfo();
-			}
-			else
-			{
-				return new MyRibbonViewInfo(this);
-			}
-		}
+        {
+            return DesignModeHelper.IsDesignMode ? base.CreateViewInfo() : new MyRibbonViewInfo(this);
+        }
 	}
 
 	public class MyRibbonBarManager : RibbonBarManager

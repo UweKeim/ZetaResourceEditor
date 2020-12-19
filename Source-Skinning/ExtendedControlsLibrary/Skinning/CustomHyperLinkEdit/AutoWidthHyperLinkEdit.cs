@@ -37,8 +37,8 @@
 
         public bool AllowAutoWidth
 		{
-			get { return _allowAutoWidth; }
-			set { _allowAutoWidth = value; if (value) { Width = GetWidth(); } }
+			get => _allowAutoWidth;
+            set { _allowAutoWidth = value; if (value) { Width = GetWidth(); } }
 		}
 
 		protected override void OnEditValueChanged()

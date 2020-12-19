@@ -80,13 +80,11 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 
         private void detailedErrorsButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            using (var form = new TextBoxForm())
-            {
-                var message = Logger.MakeTraceMessage(_exception);
-                form.Initialize(message);
+            using var form = new TextBoxForm();
+            var message = Logger.MakeTraceMessage(_exception);
+            form.Initialize(message);
 
-                form.ShowDialog(this);
-            }
+            form.ShowDialog(this);
         }
 
         private void optionsPopupMenu_BeforePopup(

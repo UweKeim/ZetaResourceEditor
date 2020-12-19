@@ -1,12 +1,12 @@
 ﻿namespace ZetaResourceEditor.Code
 {
     using Properties;
-    using RuntimeBusinessLogic.Web_References.UpdateChecker;
     using System;
     using System.Configuration;
     using System.Diagnostics;
     using System.IO;
     using System.Windows.Forms;
+    using RuntimeBusinessLogic.UpdateChecker;
     using UI.Helper.Progress;
     using Zeta.VoyagerLibrary.Logging;
     using ZetaLongPaths;

@@ -1,6 +1,7 @@
 ﻿namespace ZetaResourceEditor.UI.Main.RightContent
 {
-	using System.Drawing;
+    using System;
+    using System.Drawing;
 	using System.Windows.Forms;
 	using DevExpress.Accessibility;
 	using DevExpress.XtraEditors;
@@ -58,7 +59,7 @@
 
 			if (viewInfo.MatchedStringUseContains)
 			{
-				containsIndex = text.IndexOf(matched);
+				containsIndex = text.IndexOf(matched, StringComparison.Ordinal);
 				if (containsIndex > -1)
 				{
 					return true;
@@ -76,7 +77,7 @@
 					}
 					if (viewInfo.MatchedStringUseContains)
 					{
-						containsIndex = text.IndexOf(matched);
+						containsIndex = text.IndexOf(matched, StringComparison.Ordinal);
 						if (containsIndex > -1)
 						{
 							return true;
@@ -100,8 +101,7 @@
 			if (vi.MatchedString.Length > 0)
 			{
 				var matchedText = vi.MatchedString;
-				int containsIndex, matchedLength;
-				if (IsTextMatch(vi, out containsIndex, out matchedLength))
+                if (IsTextMatch(vi, out var containsIndex, out var matchedLength))
 				{
 					matchedText = matchedText.Substring(0, matchedLength);
 					if (!vi.MatchedStringUseContains)
@@ -185,7 +185,7 @@
 		{
 			var editorInfo =
 				new EditorClassInfo(
-					typeof(RtlMemoEdit).Name,
+					nameof(RtlMemoEdit),
 					typeof(RtlMemoEdit),
 					typeof(RtlRepositoryItemMemoEdit),
 					typeof(RtlMemoEditViewInfo),

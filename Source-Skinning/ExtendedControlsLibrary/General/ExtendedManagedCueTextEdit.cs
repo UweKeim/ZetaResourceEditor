@@ -28,7 +28,7 @@
         [Localizable(true)]
         public string CueText
         {
-            get { return _cueText; }
+            get => _cueText;
             set
             {
                 _cueText = value;
@@ -38,7 +38,7 @@
 
         public override string Text
         {
-            get { return base.Text; }
+            get => base.Text;
             set
             {
                 base.Text = value;
@@ -48,7 +48,7 @@
 
         public override Color BackColor
         {
-            get { return base.BackColor; }
+            get => base.BackColor;
             set
             {
                 base.BackColor = value;

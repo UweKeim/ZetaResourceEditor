@@ -1,7 +1,6 @@
 namespace ZetaResourceEditor.UI.Projects
 {
     using Helper.Base;
-    using Helper.ExtendedFolderBrowser;
     using Properties;
     using RuntimeBusinessLogic.Projects;
     using RuntimeUserInterface.Shell;
@@ -59,7 +58,7 @@ namespace ZetaResourceEditor.UI.Projects
 
         private void CreateNewProjectForm_Load(object sender, EventArgs e)
         {
-            WinFormsPersistanceHelper.RestoreState(this);
+            //WinFormsPersistanceHelper.RestoreState(this);
             CenterToParent();
 
             var defaultFolderPath =
@@ -116,18 +115,18 @@ namespace ZetaResourceEditor.UI.Projects
 
         private void browseButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            using (var form = new ExtendedFolderBrowserDialog())
+            using var form = new FolderBrowserDialog
             {
-                form.SelectedPath = locationTextBox.Text;
-                form.ShowNewFolderButton = true;
-                form.Description = Resources.SR_CreateNewProjectForm_browseToolStripMenuItemClick_TheProjectTo;
-                form.ShowEditBox = true;
+                SelectedPath = locationTextBox.Text,
+                ShowNewFolderButton = true,
+                Description = Resources.SR_CreateNewProjectForm_browseToolStripMenuItemClick_TheProjectTo
+            };
+            //form.ShowEditBox = true;
 
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    locationTextBox.Text = form.SelectedPath;
-                    UpdateUI();
-                }
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                locationTextBox.Text = form.SelectedPath;
+                UpdateUI();
             }
         }
 

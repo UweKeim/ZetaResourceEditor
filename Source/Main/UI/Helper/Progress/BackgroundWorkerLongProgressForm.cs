@@ -339,8 +339,6 @@ namespace ZetaResourceEditor.UI.Helper.Progress
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 		private void BackgroundWorkerLongProgressForm_Shown( object sender, EventArgs e )
 		{
-			Debug.Assert( _addedCount == 1 );
-
 			BackgroundWorker.RunWorkerAsync( AsyncArgument );
 		}
 
@@ -365,8 +363,7 @@ namespace ZetaResourceEditor.UI.Helper.Progress
 			else
 			{
 				LogCentral.Current.LogError(
-					string.Format(
-						@"Received exception from async worker function. Forwarding." ),
+					@"Received exception from async worker function. Forwarding.",
 					e.Error );
 
 				DialogResult = DialogResult.Cancel;

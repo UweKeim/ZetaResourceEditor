@@ -82,7 +82,7 @@
 			ListeningReference = new WeakReference( listeningObject );
 		}
 
-		EventHandler MakeDeregisterCodeAndWeakEventHandler
+        private EventHandler MakeDeregisterCodeAndWeakEventHandler
 			<TEventSource, TEventListener>
 			(
 				TEventSource senderObject,
@@ -176,7 +176,7 @@
 			return weh;
 		}
 
-		static EventHandler<TEventArgs> MakeDeregisterCodeAndWeakEventHandler
+        private static EventHandler<TEventArgs> MakeDeregisterCodeAndWeakEventHandler
 			<TEventSource, TEventListener>
 			(
 				WeakEventHandler weh,

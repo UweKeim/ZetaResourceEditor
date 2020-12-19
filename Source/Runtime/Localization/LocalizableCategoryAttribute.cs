@@ -74,14 +74,7 @@ namespace ZetaResourceEditor.Runtime.Localization
 					null,
 					new object[] {} ) as CultureInfo;
 
-			if ( resMan == null )
-			{
-				return value;
-			}
-			else
-			{
-				return resMan.GetString( value, culture );
-			}
+			return resMan == null ? value : resMan.GetString( value, culture );
 		}
 
 		// ------------------------------------------------------------------

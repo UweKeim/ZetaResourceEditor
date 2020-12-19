@@ -67,27 +67,25 @@
             }
 
             // Re-use the cached token if there is one.
-            if ((DateTime.Now - _storedTokenTime) < TokenCacheDuration)
+            if (DateTime.Now - _storedTokenTime < TokenCacheDuration)
             {
                 return _storedTokenValue;
             }
 
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = ServiceUrl;
-                request.Content = new StringContent(string.Empty);
-                request.Headers.TryAddWithoutValidation(OcpApimSubscriptionKeyHeader, SubscriptionKey);
-                client.Timeout = TimeSpan.FromSeconds(2);
-                var response = await client.SendAsync(request);
-                RequestStatusCode = response.StatusCode;
-                response.EnsureSuccessStatusCode();
-                var token = await response.Content.ReadAsStringAsync();
-                _storedTokenTime = DateTime.Now;
-                _storedTokenValue = "Bearer " + token;
-                return _storedTokenValue;
-            }
+            using var client = new HttpClient();
+            using var request = new HttpRequestMessage();
+            request.Method = HttpMethod.Post;
+            request.RequestUri = ServiceUrl;
+            request.Content = new StringContent(string.Empty);
+            request.Headers.TryAddWithoutValidation(OcpApimSubscriptionKeyHeader, SubscriptionKey);
+            client.Timeout = TimeSpan.FromSeconds(2);
+            var response = await client.SendAsync(request);
+            RequestStatusCode = response.StatusCode;
+            response.EnsureSuccessStatusCode();
+            var token = await response.Content.ReadAsStringAsync();
+            _storedTokenTime = DateTime.Now;
+            _storedTokenValue = "Bearer " + token;
+            return _storedTokenValue;
         }
 
         /// <summary>
@@ -105,7 +103,7 @@
         public string GetAccessToken()
         {
             // Re-use the cached token if there is one.
-            if ((DateTime.Now - _storedTokenTime) < TokenCacheDuration)
+            if (DateTime.Now - _storedTokenTime < TokenCacheDuration)
             {
                 return _storedTokenValue;
             }

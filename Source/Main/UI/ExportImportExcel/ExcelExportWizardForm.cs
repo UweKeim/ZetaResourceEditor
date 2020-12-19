@@ -26,7 +26,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
     using Zeta.VoyagerLibrary.Common.Collections;
     using Zeta.VoyagerLibrary.Logging;
     using Zeta.VoyagerLibrary.Tools.Storage;
-    using Zeta.VoyagerLibrary.Tools.Text;
     using Zeta.VoyagerLibrary.WinForms.Common;
     using Zeta.VoyagerLibrary.WinForms.Persistance;
     using ZetaLongPaths;
@@ -41,8 +40,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
         private bool _canResetAdvancedOptions = true;
         private ExcelExportInformation _latestExportInformation;
         private bool _ignoreReferenceLanguageChanges;
-        private readonly string _initialZulSubject;
-        private readonly string _initialZulBody;
 
         public ExcelExportWizardForm()
         {
@@ -56,9 +53,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
                     destinationFileTextEdit,
                     AutoCompleteMode.SuggestAppend,
                     AutoCompleteSource.FileSystem);
-
-                _initialZulSubject = zulSubjectTextEdit.Text.Trim();
-                _initialZulBody = zulBodyTextEdit.Text.Trim();
             }
         }
 
@@ -83,7 +77,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
                 foreach (
                     var lc in
                         _groups.SelectMany(
-                            @group => @group.GetLanguageCodes(_project).Where(lc => !string.IsNullOrEmpty(lc))))
+                            group => group.GetLanguageCodes(_project).Where(lc => !string.IsNullOrEmpty(lc))))
                 {
                     codes.Add(lc);
                 }
@@ -280,31 +274,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
                         @"sendFileToTranslator.useCrypticExcelExportSheetNamesCheckEdit.Checked",
                         useCrypticExcelExportSheetNamesCheckEdit.Checked));
 
-            sendFilesToEMailReceiversCheckEdit.Checked =
-                ConvertHelper.ToBoolean(
-                    PersistanceHelper.RestoreValue(
-                        storage,
-                        @"sendFileToTranslator.sendFilesToEMailReceivers2CheckEdit.Checked",
-                        sendFilesToEMailReceiversCheckEdit.Checked));
-            zulReceiversTextEdit.Text =
-                ConvertHelper.ToString(
-                    PersistanceHelper.RestoreValue(
-                        storage,
-                        @"sendFileToTranslator.zulReceiversTextEdit.Text",
-                        zulReceiversTextEdit.Text));
-            zulSubjectTextEdit.Text =
-                ConvertHelper.ToString(
-                    PersistanceHelper.RestoreValue(
-                        storage,
-                        @"sendFileToTranslator.zulSubjectTextEdit.Text",
-                        zulSubjectTextEdit.Text));
-            zulBodyTextEdit.Text =
-                ConvertHelper.ToString(
-                    PersistanceHelper.RestoreValue(
-                        storage,
-                        @"sendFileToTranslator.zulBodyTextEdit.Text",
-                        zulBodyTextEdit.Text));
-
             _ignoreReferenceLanguageChanges = false;
 
             // --
@@ -398,23 +367,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
                     storage,
                     @"sendFileToTranslator.useCrypticExcelExportSheetNamesCheckEdit.Checked",
                     useCrypticExcelExportSheetNamesCheckEdit.Checked);
-
-                PersistanceHelper.SaveValue(
-                    storage,
-                    @"sendFileToTranslator.sendFilesToEMailReceivers2CheckEdit.Checked",
-                    sendFilesToEMailReceiversCheckEdit.Checked);
-                PersistanceHelper.SaveValue(
-                    storage,
-                    @"sendFileToTranslator.zulReceiversTextEdit.Text",
-                    zulReceiversTextEdit.Text);
-                PersistanceHelper.SaveValue(
-                    storage,
-                    @"sendFileToTranslator.zulSubjectTextEdit.Text",
-                    zulSubjectTextEdit.Text);
-                PersistanceHelper.SaveValue(
-                    storage,
-                    @"sendFileToTranslator.zulBodyTextEdit.Text",
-                    zulBodyTextEdit.Text);
             }
         }
 
@@ -441,7 +393,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             foreach (var languageCode in languageCodes)
             {
                 if (!string.IsNullOrEmpty(languageCode) &&
-                     languageCode.ToLowerInvariant() != forbidden.ToLowerInvariant())
+                     !string.Equals(languageCode, forbidden, StringComparison.InvariantCultureIgnoreCase))
                 {
                     var index = languagesToExportCheckListBox.Items.Add(
                         new MyTuple<string, string>(
@@ -519,19 +471,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
                 selectedPage.AllowNext =
                     destinationFileTextEdit.Text.Trim().Length > 0 &&
                     ZlpPathHelper.GetExtension(destinationFileTextEdit.Text.Trim().ToLowerInvariant()) == @".xlsx";
-            }
-            else if (selectedPage == sendWithZetaUploaderWizardPage)
-            {
-                zulReceiversTextEdit.Enabled =
-                    labelControl10.Visible =
-                    zulSubjectTextEdit.Visible =
-                    zulBodyTextEdit.Visible =
-                    buttonZulReset.Visible =
-                    sendFilesToEMailReceiversCheckEdit.Checked;
-
-                selectedPage.AllowNext =
-                    !sendFilesToEMailReceiversCheckEdit.Checked ||
-                    StringHelper.IsValidEMailAddress(zulReceiversTextEdit.Text.Trim());
             }
             else if (selectedPage == progressWizardPage)
             {
@@ -696,34 +635,32 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
-            using (var form = new OpenFileDialog())
+            using var form = new OpenFileDialog();
+            form.InitialDirectory =
+                (string)
+                PersistanceHelper.RestoreValue(
+                    _project.DynamicSettingsGlobalHierarchical,
+                    @"sendFileToTranslator.destinationFilePathTextEdit.InitialDirectory",
+                    _project.ProjectConfigurationFilePath.DirectoryName);
+
+            form.Multiselect = false;
+            form.CheckFileExists = false;
+            form.CheckPathExists = true;
+            form.Filter = Resources.SR_ExportWizard_buttonBrowseClick_ExcelFilesXlsxls;
+
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-                form.InitialDirectory =
-                    (string)
-                    PersistanceHelper.RestoreValue(
+                using (new SilentProjectStoreGuard(_project))
+                {
+                    PersistanceHelper.SaveValue(
                         _project.DynamicSettingsGlobalHierarchical,
                         @"sendFileToTranslator.destinationFilePathTextEdit.InitialDirectory",
-                        _project.ProjectConfigurationFilePath.DirectoryName);
-
-                form.Multiselect = false;
-                form.CheckFileExists = false;
-                form.CheckPathExists = true;
-                form.Filter = Resources.SR_ExportWizard_buttonBrowseClick_ExcelFilesXlsxls;
-
-                if (form.ShowDialog(this) == DialogResult.OK)
-                {
-                    using (new SilentProjectStoreGuard(_project))
-                    {
-                        PersistanceHelper.SaveValue(
-                            _project.DynamicSettingsGlobalHierarchical,
-                            @"sendFileToTranslator.destinationFilePathTextEdit.InitialDirectory",
-                            ZlpPathHelper.GetDirectoryPathNameFromFilePath(form.FileName));
-                    }
-
-                    destinationFileTextEdit.Text = form.FileName;
-
-                    UpdateUI();
+                        ZlpPathHelper.GetDirectoryPathNameFromFilePath(form.FileName));
                 }
+
+                destinationFileTextEdit.Text = form.FileName;
+
+                UpdateUI();
             }
         }
 
@@ -745,13 +682,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             object sender,
             ProgressChangedEventArgs e)
         {
-            var s = e.UserState as ExcelProgressInformation;
-
-            if (s == null)
+            if (!(e.UserState is ExcelProgressInformation s))
             {
-                var t = e.UserState as string;
-
-                if (t == null)
+                if (!(e.UserState is string t))
                 {
                     progressLabel.Visible = false;
                     progressLabel.Text = string.Empty;
@@ -885,7 +818,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             object sender,
             WizardCommandButtonClickEventArgs e)
         {
-            if (e.Page == sendWithZetaUploaderWizardPage)
+            if (e.Page == destinationFileWizardPage)
             {
                 e.Handled = true;
                 wizardControl.SelectedPage = progressWizardPage;
@@ -900,7 +833,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
         {
             if (e.Page == errorOccurredWizardPage)
             {
-                wizardControl.SelectedPage = sendWithZetaUploaderWizardPage;
+                wizardControl.SelectedPage = destinationFileWizardPage;
                 e.Handled = true;
             }
         }
@@ -964,10 +897,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
                     ExportReferenceLanguageColumn = exportReferenceLanguageColumnCheckEdit.Checked,
                     ExportEachLanguageIntoSeparateExcelFile = exportEachLanguageIntoSeparateExcelFileCheckEdit.Checked,
                     UseCrypticExcelExportSheetNames = useCrypticExcelExportSheetNamesCheckEdit.Checked,
-                    SendFilesWithZetaUploader = sendFilesToEMailReceiversCheckEdit.Checked,
-                    SendFilesEMailReceivers = zulReceiversTextEdit.Text.Trim(),
-                    SendFilesEMailSubject = zulSubjectTextEdit.Text.Trim(),
-                    SendFilesEMailBody = zulBodyTextEdit.Text.Trim(),
                     FileGroups = (from CheckedListBoxItem item in fileGroupsListBox.CheckedItems
                                   select (MyTuple<string, FileGroup>)item.Value
                         into p
@@ -986,13 +915,11 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 
         private void detailedErrorsButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            using (var form = new TextBoxForm())
-            {
-                var message = Logger.MakeTraceMessage(_exception);
-                form.Initialize(message);
+            using var form = new TextBoxForm();
+            var message = Logger.MakeTraceMessage(_exception);
+            form.Initialize(message);
 
-                form.ShowDialog(this);
-            }
+            form.ShowDialog(this);
         }
 
         private void optionsPopupMenu_BeforePopup(object sender, CancelEventArgs e)
@@ -1189,22 +1116,6 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
         {
             UpdateUI();
             _canResetAdvancedOptions = true;
-        }
-
-        private void sendFilesToEMailReceiversCheckEdit_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void zulReceiversTextEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void buttonZulReset_Click(object sender, EventArgs e)
-        {
-            zulSubjectTextEdit.Text = _initialZulSubject;
-            zulBodyTextEdit.Text = _initialZulBody;
         }
     }
 }

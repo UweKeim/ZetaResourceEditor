@@ -74,13 +74,7 @@
 		/// </summary>
 		public string FilePath { get; private set; }
 
-		public string FileContentString
-		{
-			get
-			{
-				return ZlpIOHelper.FileExists(FilePath) ? ZlpIOHelper.ReadAllText(FilePath) : null;
-			}
-		}
+		public string FileContentString => ZlpIOHelper.FileExists(FilePath) ? ZlpIOHelper.ReadAllText(FilePath) : null;
 
         #region Implementation of IDisposable
 
@@ -128,7 +122,7 @@
                     {
                         ZlpIOHelper.SetFileAttributes(
                             filePath,
-                            attributes & (~(FileAttributes.Readonly)));
+                            attributes & ~FileAttributes.Readonly);
                     }
 
                     ZlpSafeFileOperations.SafeDeleteFile(filePath);

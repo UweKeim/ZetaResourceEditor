@@ -233,7 +233,7 @@ namespace ZetaResourceEditor.UI.Helper.Base
 							c.FixedPanel == SplitFixedPanel.Panel2,
 							@"You must set one panel inside a splitter to be fixed." );
 
-						if ( (c.Height - realDistance) > 0 )
+						if ( c.Height - realDistance > 0 )
 						{
 							c.SplitterPosition = c.Height - realDistance;
 						}
@@ -255,7 +255,7 @@ namespace ZetaResourceEditor.UI.Helper.Base
 							c.FixedPanel == SplitFixedPanel.Panel2,
 							@"FixedPanel must be Panel2." );
 
-						if ( (c.Width - realDistance) > 0 )
+						if ( c.Width - realDistance > 0 )
 						{
 							c.SplitterPosition = c.Width - realDistance;
 						}
@@ -287,7 +287,7 @@ namespace ZetaResourceEditor.UI.Helper.Base
 					realDistance = c.Height - c.SplitterPosition;
 				}
 
-				percentageDistance = ((double) c.SplitterPosition/c.Height)*100.0;
+				percentageDistance = (double) c.SplitterPosition/c.Height*100.0;
 			}
 			else
 			{
@@ -305,7 +305,7 @@ namespace ZetaResourceEditor.UI.Helper.Base
 					realDistance = c.Width - c.SplitterPosition;
 				}
 
-				percentageDistance = ((double) c.SplitterPosition/c.Width)*100.0;
+				percentageDistance = (double) c.SplitterPosition/c.Width*100.0;
 			}
 
 			// --
@@ -337,30 +337,26 @@ namespace ZetaResourceEditor.UI.Helper.Base
 			var s = ConvertHelper.ToString(PersistanceHelper.RestoreValue(ribbon.Name+@".Toolbar"));
 
 			if (!string.IsNullOrEmpty(s))
-			{
-				using (var ms =
-					new MemoryStream(Encoding.UTF8.GetBytes(s)))
-				{
-					ribbon.Toolbar.RestoreLayoutFromStream(ms);
-				}
-			}
+            {
+                using var ms =
+                    new MemoryStream(Encoding.UTF8.GetBytes(s));
+                ribbon.Toolbar.RestoreLayoutFromStream(ms);
+            }
 		}
 
 		public static void SaveState(RibbonControl ribbon)
-		{
-			using (var ms = new MemoryStream())
-			{
-				ribbon.Toolbar.SaveLayoutToStream(ms);
-				ms.Seek(0, SeekOrigin.Begin);
+        {
+            using var ms = new MemoryStream();
+            ribbon.Toolbar.SaveLayoutToStream(ms);
+            ms.Seek(0, SeekOrigin.Begin);
 
-				string s;
-				using (var sr = new StreamReader(ms, Encoding.UTF8))
-				{
-					s = sr.ReadToEnd();
-				}
+            string s;
+            using (var sr = new StreamReader(ms, Encoding.UTF8))
+            {
+                s = sr.ReadToEnd();
+            }
 
-				PersistanceHelper.SaveValue(ribbon.Name + @".Toolbar", s);
-			}
-		}
+            PersistanceHelper.SaveValue(ribbon.Name + @".Toolbar", s);
+        }
 	}
 }

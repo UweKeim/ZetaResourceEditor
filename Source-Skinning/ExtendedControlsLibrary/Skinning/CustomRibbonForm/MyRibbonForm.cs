@@ -10,19 +10,16 @@
     public class MyRibbonForm :
         RibbonForm
     {
-        public new bool DesignMode
-        {
-            get { return base.DesignMode || DesignModeHelper.IsDesignMode; }
-        }
+        public new bool DesignMode => base.DesignMode || DesignModeHelper.IsDesignMode;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [Browsable(false)]
         public new AutoScaleMode AutoScaleMode
         {
-            get { return AutoScaleMode.None; }
+            get => AutoScaleMode.None;
             // ReSharper disable ValueParameterNotUsed
-            set { base.AutoScaleMode = AutoScaleMode.None; }
+            set => base.AutoScaleMode = AutoScaleMode.None;
             // ReSharper restore ValueParameterNotUsed
         }
 

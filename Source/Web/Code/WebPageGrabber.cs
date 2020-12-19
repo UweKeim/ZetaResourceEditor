@@ -79,10 +79,10 @@ namespace Web.Code
 
                 cache.CachedContent = html;
             }
-            XmlReader xml = getDocReader( html, baseUrl );
+            var xml = getDocReader( html, baseUrl );
 
-            IEnumerable<string> links = findAllLinks( xml, baseUrl );
-            string newHtml = replaceAllLinks( html, links, baseUrl );
+            var links = findAllLinks( xml, baseUrl );
+            var newHtml = replaceAllLinks( html, links, baseUrl );
             newHtml = insertHeader( newHtml, header );
 
             splitHtml( newHtml, placeholder );
@@ -214,10 +214,10 @@ namespace Web.Code
             else
             {
                 // Decode with default encoding to detect the .
-                string html = Encoding.Default.GetString( content );
+                var html = Encoding.Default.GetString( content );
 
                 // Find.
-                Match match = Regex.Match(
+                var match = Regex.Match(
                     html,
                     Htmlcontentencodingpattern,
                     RegexOptions.Singleline |
@@ -238,42 +238,40 @@ namespace Web.Code
 
             var req = (HttpWebRequest)WebRequest.Create( url );
 
-            using ( var resp = (HttpWebResponse)req.GetResponse() )
-            using ( var stream = resp.GetResponseStream() )
+            using var resp = (HttpWebResponse)req.GetResponse();
+            using var stream = resp.GetResponseStream();
+            byte[] content;
+            using ( var mem = new MemoryStream() )
             {
-                byte[] content;
-                using ( var mem = new MemoryStream() )
+                const int blockSize = 16384;
+                var blockBuffer = new byte[blockSize];
+                int read;
+
+                while ( stream != null && (read = stream.Read( blockBuffer, 0, blockSize )) > 0 )
                 {
-                    const int blockSize = 16384;
-                    var blockBuffer = new byte[blockSize];
-                    int read;
-
-                    while ( stream != null && (read = stream.Read( blockBuffer, 0, blockSize )) > 0 )
-                    {
-                        mem.Write( blockBuffer, 0, read );
-                    }
-
-                    // --
-
-                    mem.Seek( 0, SeekOrigin.Begin );
-
-                    var temporaryContent = mem.GetBuffer();
-
-                    content = resp.ContentLength > 0 ? new byte[Math.Min( temporaryContent.Length, resp.ContentLength )] : new byte[temporaryContent.Length];
-
-                    Array.Copy( temporaryContent, content, content.Length );
+                    mem.Write( blockBuffer, 0, read );
                 }
 
-                _sourcePageEncodingName = detectEncodingName( content );
+                // --
 
-                LogCentral.Current.LogInfo(
-                    $@"Detected encoding '{_sourcePageEncodingName}' for remote HTML document from URL '{url}'.");
+                mem.Seek( 0, SeekOrigin.Begin );
 
-                _sourcePageEncoding = getEncodingByName( _sourcePageEncodingName );
-                string html = _sourcePageEncoding.GetString( content );
+                var temporaryContent = mem.GetBuffer();
 
-                return html;
+                content = resp.ContentLength > 0 ? new byte[Math.Min( temporaryContent.Length, resp.ContentLength )] : new byte[temporaryContent.Length];
+
+                Array.Copy( temporaryContent, content, content.Length );
             }
+
+            _sourcePageEncodingName = detectEncodingName( content );
+
+            LogCentral.Current.LogInfo(
+                $@"Detected encoding '{_sourcePageEncodingName}' for remote HTML document from URL '{url}'.");
+
+            _sourcePageEncoding = getEncodingByName( _sourcePageEncodingName );
+            var html = _sourcePageEncoding.GetString( content );
+
+            return html;
         }
 
         /// <summary>
@@ -310,17 +308,16 @@ namespace Web.Code
                 {
                     // Added 2006-03-27: Inside comments, too.
                     case XmlNodeType.Comment:
-                        XmlReader childXml = getDocReader( xml.Value, baseUrl );
+                        var childXml = getDocReader( xml.Value, baseUrl );
 
-                        IEnumerable<string> childLinks = findAllLinks( childXml, baseUrl );
+                        var childLinks = findAllLinks( childXml, baseUrl );
                         links.AddRange( childLinks );
                         break;
 
                     // A node element.
                     case XmlNodeType.Element:
-                        string[] linkAttributeNames;
                         // If this is a link element, store the URLs to modify.
-                        if ( isLinkElement( xml.Name, out linkAttributeNames ) )
+                        if ( isLinkElement( xml.Name, out var linkAttributeNames ) )
                         {
                             while ( xml.MoveToNextAttribute() )
                             {
@@ -330,12 +327,12 @@ namespace Web.Code
                                     links );
 
 // ReSharper disable LoopCanBeConvertedToQuery
-                                foreach ( string a in linkAttributeNames )
+                                foreach ( var a in linkAttributeNames )
 // ReSharper restore LoopCanBeConvertedToQuery
                                 {
-                                    if ( a.ToLower() == xml.Name.ToLower() )
+                                    if ( string.Equals(a, xml.Name, StringComparison.CurrentCultureIgnoreCase) )
                                     {
-                                        string linkUrl = xml.Value;
+                                        var linkUrl = xml.Value;
 
                                         if ( !isAbsoluteUrl( linkUrl ) )
                                         {
@@ -370,11 +367,11 @@ namespace Web.Code
         {
             if ( attributeName.ToLower() == @"style" )
             {
-                string[] linkUrls = extractStyleUrls( attributeValue );
+                var linkUrls = extractStyleUrls( attributeValue );
 
                 if ( linkUrls != null && linkUrls.Length > 0 )
                 {
-                    foreach ( string linkUrl in linkUrls )
+                    foreach ( var linkUrl in linkUrls )
                     {
                         if ( !isAbsoluteUrl( linkUrl ) )
                         {
@@ -399,7 +396,7 @@ namespace Web.Code
             }
             else
             {
-                MatchCollection matchs = Regex.Matches(
+                var matchs = Regex.Matches(
                     styleValue,
                     @"url\s*\(\s*([^\)\s]+)\s*\)",
                     RegexOptions.Singleline | RegexOptions.IgnoreCase );
@@ -418,14 +415,7 @@ namespace Web.Code
                         }
                     }
 
-                    if ( result.Count <= 0 )
-                    {
-                        return null;
-                    }
-                    else
-                    {
-                        return result.ToArray();
-                    }
+                    return result.Count <= 0 ? null : result.ToArray();
                 }
                 else
                 {
@@ -440,15 +430,8 @@ namespace Web.Code
         private static bool isAbsoluteUrl(
             string url )
         {
-            int dotPos = url.IndexOf( @":" );
-            if ( dotPos <= 0 )
-            {
-                return false;
-            }
-            else
-            {
-                return Uri.CheckSchemeName( url.Substring( 0, dotPos ) );
-            }
+            var dotPos = url.IndexOf( @":", StringComparison.Ordinal);
+            return dotPos > 0 && Uri.CheckSchemeName( url.Substring( 0, dotPos ) );
         }
 
         /// <summary>
@@ -463,7 +446,7 @@ namespace Web.Code
             var baseWS = baseUrl.TrimEnd( '/' ) + '/';
             var baseOS = baseUrl.TrimEnd( '/' );
 
-            foreach ( string link in links )
+            foreach ( var link in links )
             {
                 if ( link.Length > 0 )
                 {
@@ -603,7 +586,7 @@ namespace Web.Code
             out string[] linkAttributeNames )
         {
             name = name.ToLower();
-            foreach ( LinkElement e in _linkElements )
+            foreach ( var e in _linkElements )
             {
                 if ( name == e.Name )
                 {
@@ -623,7 +606,7 @@ namespace Web.Code
         private static Encoding getEncodingByName(
             string encodingName )
         {
-            Encoding encoding = Encoding.Default;
+            var encoding = Encoding.Default;
 
             if ( !string.IsNullOrEmpty( encodingName ) )
             {
@@ -705,8 +688,7 @@ namespace Web.Code
         /// This list was taken from the Perl module 'HTML-Tagset-3.03\blib\lib\HTML\Tagset.pm',
         /// '%linkElements' hash.
         /// </summary>
-        private readonly LinkElement[] _linkElements = new[] 
-        { 
+        private readonly LinkElement[] _linkElements = { 
             new LinkElement( @"a", @"href" ),
             new LinkElement( @"applet", @"archive", @"codebase", @"code" ),
             new LinkElement( @"area", @"href" ),
@@ -773,7 +755,7 @@ namespace Web.Code
                     {
                         if ( IsCachedVersionAvailable )
                         {
-                            TimeSpan span = DateTime.Now - cachedDate;
+                            var span = DateTime.Now - cachedDate;
                             return span < _cacheDuration;
                         }
                         else
