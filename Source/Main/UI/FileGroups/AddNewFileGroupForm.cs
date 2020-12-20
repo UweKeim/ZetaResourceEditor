@@ -191,7 +191,7 @@ namespace ZetaResourceEditor.UI.FileGroups
                 var created = 0;
 
                 using (new BackgroundWorkerLongProgressGui(
-                    delegate (object snd, DoWorkEventArgs args)
+                    delegate (object snd, DoWorkEventArgs _)
                     {
                         try
                         {

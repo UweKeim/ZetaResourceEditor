@@ -11,9 +11,8 @@
 	using DevExpress.XtraGrid.Views.Grid;
 	using Zeta.VoyagerLibrary.Common;
 	using Zeta.VoyagerLibrary.Tools.Storage;
-	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
-	// http://www.devexpress.com/Support/Center/p/Q249609.aspx
+    // http://www.devexpress.com/Support/Center/p/Q249609.aspx
 	// http://www.devexpress.com/Support/Center/e/E600.aspx
 	// http://www.devexpress.com/Support/Center/KB/p/AK9157.aspx
 	// http://www.devexpress.com/Support/Center/p/Q104945.aspx
@@ -46,7 +45,7 @@
 	    private readonly IPersistentPairStorage _storage;
 		private readonly string _key;
 		private static FilterSerializationContext _instance;
-		private static readonly object TypeLock =new object();
+		private static readonly object TypeLock =new();
 
 		protected override SerializeHelper CreateSerializeHelper(
 			object rootObj,
@@ -72,10 +71,8 @@
 			IXtraPropertyCollection store,
 			OptionsLayoutBase options)
 		{
-			if (options == null)
-				options = OptionsLayoutBase.FullLayout;
-			if (store == null)
-				return;
+			options ??= OptionsLayoutBase.FullLayout;
+			if (store == null) return;
 			var coll = new XtraPropertyCollection();
 			coll.AddRange(store);
 			var helper = new DeserializeHelper(obj, false);
@@ -153,7 +150,7 @@
 		private class FilterSerializationContext :
 			SerializationContext
 		{
-			private readonly Dictionary<Type, string> _filters = new Dictionary<Type, string>();
+			private readonly Dictionary<Type, string> _filters = new();
 
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 			private bool Exclusive { get; set; }

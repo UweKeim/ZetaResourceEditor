@@ -327,17 +327,17 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
-            using var form = new OpenFileDialog();
-            form.InitialDirectory =
-                (string)
-                PersistanceHelper.RestoreValue(
-                    @"receiveFileFromTranslator.destinationFilePathTextEdit.InitialDirectory",
-                    _project.ProjectConfigurationFilePath.DirectoryName);
-
-            form.Multiselect = false;
-            form.CheckFileExists = true;
-            form.CheckPathExists = true;
-            form.Filter = Resources.SR_ExportWizard_buttonBrowseClick_ExcelFilesXlsxls;
+            using var form = new OpenFileDialog
+            {
+                InitialDirectory = (string)
+                    PersistanceHelper.RestoreValue(
+                        @"receiveFileFromTranslator.destinationFilePathTextEdit.InitialDirectory",
+                        _project.ProjectConfigurationFilePath.DirectoryName),
+                Multiselect = false,
+                CheckFileExists = true,
+                CheckPathExists = true,
+                Filter = Resources.SR_ExportWizard_buttonBrowseClick_ExcelFilesXlsxls
+            };
 
             if (form.ShowDialog(this) == DialogResult.OK)
             {

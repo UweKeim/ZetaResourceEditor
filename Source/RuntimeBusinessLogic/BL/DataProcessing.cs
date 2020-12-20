@@ -20,7 +20,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
     {
         private List<ResxFile> _resxFiles;
         private readonly IGridEditableData _gridEditableData;
-        private readonly object _backupLock = new object();
+        private readonly object _backupLock = new();
 
         public static event AskOverwriteDelegate<ZlpFileInfo> CanOverwrite;
 

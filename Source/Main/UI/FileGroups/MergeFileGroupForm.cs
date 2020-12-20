@@ -63,7 +63,7 @@
             var didAnything = false;
 
             using (new BackgroundWorkerLongProgressGui(
-                delegate (object s, DoWorkEventArgs a)
+                delegate (object s, DoWorkEventArgs _)
                 {
                     try
                     {

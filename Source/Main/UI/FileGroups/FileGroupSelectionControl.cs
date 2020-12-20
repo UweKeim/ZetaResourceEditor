@@ -108,8 +108,7 @@
             }
         }
 
-        private TreeListNode addProjectFolderToTree(
-            TreeListNode parentNode,
+        private void addProjectFolderToTree(TreeListNode parentNode,
             ProjectFolder projectFolder)
         {
             var projectFolderNode =
@@ -139,8 +138,6 @@
             }
 
             // --
-
-            return projectFolderNode;
         }
 
         private void updateProjectFolderInTree(
@@ -152,11 +149,10 @@
             projectFolderNode.Tag = projectFolder;
         }
 
-        private TreeListNode addFileGroupToTree(
-            TreeListNode parentNode,
+        private void addFileGroupToTree(TreeListNode parentNode,
             FileGroup fileGroup)
         {
-            if (_ignoreFileGroup != null && _ignoreFileGroup.UniqueID == fileGroup.UniqueID) return null;
+            if (_ignoreFileGroup != null && _ignoreFileGroup.UniqueID == fileGroup.UniqueID) return;
 
             var fileGroupNode =
                 AppendNode(
@@ -171,10 +167,6 @@
             updateFileGroupInTree(
                 fileGroupNode,
                 fileGroup);
-
-            // --
-
-            return fileGroupNode;
         }
 
         private void updateFileGroupInTree(
@@ -221,14 +213,14 @@
             // FileGroupSelectionControl
             // 
             this.AllowDrop = true;
-            this.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.Columns.AddRange(new[] {
             this.treeListColumn1});
             this.OptionsBehavior.AllowExpandOnDblClick = false;
             this.OptionsBehavior.AllowIncrementalSearch = true;
             this.OptionsBehavior.ImmediateEditor = false;
             this.OptionsDragAndDrop.DragNodesMode = DevExpress.XtraTreeList.DragNodesMode.Single;
             this.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.None;
+            this.OptionsView.FocusRectStyle = DrawFocusRectStyle.None;
             this.OptionsView.ShowCheckBoxes = true;
             this.OptionsView.ShowColumns = false;
             this.OptionsView.ShowHorzLines = false;
@@ -236,8 +228,8 @@
             this.OptionsView.ShowRoot = false;
             this.OptionsView.ShowVertLines = false;
             this.SelectImageList = this.treeImageList;
-            this.NodeCellStyle += new DevExpress.XtraTreeList.GetCustomNodeCellStyleEventHandler(this.treeView_NodeCellStyle);
-            this.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.FileGroupSelectionControl_AfterCheckNode);
+            this.NodeCellStyle += this.treeView_NodeCellStyle;
+            this.AfterCheckNode += this.FileGroupSelectionControl_AfterCheckNode;
             ((System.ComponentModel.ISupportInitialize)this.treeImageList).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             this.ResumeLayout(false);

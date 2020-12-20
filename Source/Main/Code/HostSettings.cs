@@ -3,7 +3,7 @@ namespace ZetaResourceEditor.Code
     internal sealed class HostSettings
     {
         private static volatile HostSettings _current;
-        private static readonly object TypeLock = new object();
+        private static readonly object TypeLock = new();
 
         public static HostSettings Current
         {
@@ -13,10 +13,7 @@ namespace ZetaResourceEditor.Code
                 {
                     lock (TypeLock)
                     {
-                        if (_current == null)
-                        {
-                            _current = new HostSettings();
-                        }
+                        _current ??= new HostSettings();
                     }
                 }
 

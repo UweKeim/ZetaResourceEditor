@@ -44,7 +44,7 @@ namespace ZetaResourceEditor.UI.Projects
         /// Only valid if closed with OK.
         /// </summary>
         /// <value>The project configuration file path.</value>
-        public ZlpFileInfo ProjectConfigurationFilePath => new ZlpFileInfo(
+        public ZlpFileInfo ProjectConfigurationFilePath => new(
             ZlpPathHelper.Combine(
                 locationTextBox.Text,
                 nameTextBox.Text.Trim() + Project.ProjectFileExtension));

@@ -932,7 +932,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
 
         private FileGroupStates? _inMemoryState;
         private Guid _uniqueID;
-        private readonly List<FileInformation> _fileInfos = new List<FileInformation>();
+        private readonly List<FileInformation> _fileInfos = new();
 
         public FileGroupStates InMemoryState
         {
@@ -1265,7 +1265,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
             string destinationLanguageCode,
             string prefix)
         {
-            project = project ?? Project.Empty;
+            project ??= Project.Empty;
             var continueOnErrors = project.TranslationContinueOnErrors;
 
             var delayMilliseconds = project.TranslationDelayMilliseconds;

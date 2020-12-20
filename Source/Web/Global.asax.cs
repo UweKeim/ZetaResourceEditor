@@ -18,7 +18,7 @@
 
         private static LogCentralFindConfigurationFilePathResult logCentral_FindConfigurationFilePath(object sender)
         {
-            return new LogCentralFindConfigurationFilePathResult
+            return new()
             {
                 LogFileConfigurationPath = HttpContext.Current.Server.MapPath(@"~/Web.config")
             };

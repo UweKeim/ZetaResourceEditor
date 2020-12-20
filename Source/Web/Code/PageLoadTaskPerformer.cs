@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace Web.Code
 {
@@ -68,7 +67,7 @@ namespace Web.Code
 
         public PageBase Page { get; }
 
-        public QueryString QueryString { get; } = new QueryString();
+        public QueryString QueryString { get; } = new();
 
         public void Redirect()
         {

@@ -56,12 +56,12 @@
 			new AdResponse(
 			    @"SR_AdService_stockResponses_ZetaUploader",
 			    @"http://zeta-software.de/links/zre-link--zeta-uploader" ),*/
-                new AdResponse(
+                new(
                     @"SR_AdService_stockResponses_ZetaTest",
                     @"http://zeta-software.de/links/zre-link--zeta-test" ),
             };
 
-        private static readonly Random _rnd = new Random();
+        private static readonly Random _rnd = new();
 
         #region Web methods.
         // ----------------------------------------------------------------------

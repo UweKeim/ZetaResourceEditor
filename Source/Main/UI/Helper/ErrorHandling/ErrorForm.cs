@@ -12,7 +12,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 
     public partial class ErrorForm : FormBase
     {
-        private readonly MemoEditScrollbarAdjuster _adjuster = new MemoEditScrollbarAdjuster();
+        private readonly MemoEditScrollbarAdjuster _adjuster = new();
 
         private Exception _exception;
 

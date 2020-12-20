@@ -5,9 +5,8 @@
 	using System.Windows.Forms;
 	using DevExpress.XtraEditors;
 	using Zeta.VoyagerLibrary.Tools.Storage;
-	using Zeta.VoyagerLibrary.WinForms.Persistance;
 
-	internal static class DevExpressExtensionMethods
+    internal static class DevExpressExtensionMethods
 	{
 		public static void MakeAutoComplete(
 			TextEdit textEdit,

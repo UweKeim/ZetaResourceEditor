@@ -141,7 +141,7 @@ namespace ZetaResourceEditor.UI.FileGroups
                 var notdeleted = 0;
 
                 using (new BackgroundWorkerLongProgressGui(
-                    delegate (object snd, DoWorkEventArgs args)
+                    delegate (object snd, DoWorkEventArgs _)
                     {
                         try
                         {

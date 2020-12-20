@@ -37,7 +37,7 @@
         }
 
         private static readonly Dictionary<CultureInfo, CacheItem> Cache =
-            new Dictionary<CultureInfo, CacheItem>();
+            new();
 
         public static bool HasDictionariesForCulture(
             CultureInfo culture,
@@ -404,8 +404,8 @@
                 var result =
                     new List<CultureInfo>
                     {
-                        new CultureInfo(@"en-US"),
-                        new CultureInfo(@"de-DE")
+                        new(@"en-US"),
+                        new(@"de-DE")
                         // Add more as they become available.
                     };
 

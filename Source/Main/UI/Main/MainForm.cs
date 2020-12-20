@@ -380,7 +380,7 @@ namespace ZetaResourceEditor.UI.Main
             string[] paths)
         {
             var splitted =
-                paths == null || paths.Length < 0
+                paths == null
                     ? string.Empty
                     : string.Join(@"###~~~###", paths);
 
@@ -412,7 +412,7 @@ namespace ZetaResourceEditor.UI.Main
             string[] paths)
         {
             var splitted =
-                paths == null || paths.Length < 0
+                paths == null
                     ? string.Empty
                     : string.Join(@"###~~~###", paths);
 
@@ -1008,22 +1008,14 @@ namespace ZetaResourceEditor.UI.Main
             {
                 if (!e.Cancelled &&
                     e.Error == null &&
-                    e.Result is UpdatePresentResult2)
+                    e.Result is UpdatePresentResult2 result)
                 {
                     // Yes, we do have an update, pass the URL to the
                     // toolbar button and make it visible.
 
-                    buttonUpdateAvailable.Tag = (UpdatePresentResult2)e.Result;
+                    buttonUpdateAvailable.Tag = result;
                     updateRibbonPageGroup.Visible = true;
                     updateAvailableBlinkTimer.Start();
-
-                    //// Make more visible.
-                    //updateAvailableToolStripButton.ForeColor = Color.Green;
-                    //updateAvailableToolStripButton.BackColor = Color.Yellow;
-                    //updateAvailableToolStripButton.Font =
-                    //    new Font(
-                    //        updateAvailableToolStripButton.Font,
-                    //        FontStyle.Bold );
                 }
                 else if (e.Error != null)
                 {

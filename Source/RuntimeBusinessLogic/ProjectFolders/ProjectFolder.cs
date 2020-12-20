@@ -34,7 +34,7 @@
         private string _name;
         private int _orderPosition;
 
-        private readonly DynSettings _dynSettings = new DynSettings();
+        private readonly DynSettings _dynSettings = new();
 
         public bool UseParentFilePatternSettings
         {

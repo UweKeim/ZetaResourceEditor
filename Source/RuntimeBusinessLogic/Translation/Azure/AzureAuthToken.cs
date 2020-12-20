@@ -12,14 +12,14 @@
     public class AzureAuthToken
     {
         /// URL of the token service
-        private static readonly Uri ServiceUrl = new Uri(@"https://api.cognitive.microsoft.com/sts/v1.0/issueToken");
+        private static readonly Uri ServiceUrl = new(@"https://api.cognitive.microsoft.com/sts/v1.0/issueToken");
 
         /// Name of header used to pass the subscription key to the token service
         private const string OcpApimSubscriptionKeyHeader = @"Ocp-Apim-Subscription-Key";
 
         /// After obtaining a valid token, this class will cache it for this duration.
         /// Use a duration of 5 minutes, which is less than the actual token lifetime of 10 minutes.
-        private static readonly TimeSpan TokenCacheDuration = new TimeSpan(0, 5, 0);
+        private static readonly TimeSpan TokenCacheDuration = new(0, 5, 0);
 
         /// Cache the value of the last valid token obtained from the token service.
         private string _storedTokenValue = string.Empty;
@@ -73,10 +73,10 @@
             }
 
             using var client = new HttpClient();
-            using var request = new HttpRequestMessage();
-            request.Method = HttpMethod.Post;
-            request.RequestUri = ServiceUrl;
-            request.Content = new StringContent(string.Empty);
+            using var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post, RequestUri = ServiceUrl, Content = new StringContent(string.Empty)
+            };
             request.Headers.TryAddWithoutValidation(OcpApimSubscriptionKeyHeader, SubscriptionKey);
             client.Timeout = TimeSpan.FromSeconds(2);
             var response = await client.SendAsync(request);

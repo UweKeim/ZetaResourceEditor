@@ -133,6 +133,6 @@
         }
 
         private static readonly Dictionary<string, RegexOptions> RecentRegexOptions =
-                    new Dictionary<string, RegexOptions>();
+                    new();
     }
 }

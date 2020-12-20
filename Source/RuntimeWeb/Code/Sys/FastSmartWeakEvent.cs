@@ -2,8 +2,7 @@
 {
 	using System;
 	using System.Collections.Generic;
-	using System.Diagnostics;
-	using System.Reflection;
+    using System.Reflection;
 	using System.Reflection.Emit;
 	using System.Runtime.CompilerServices;
 
@@ -16,8 +15,7 @@
 	public sealed class FastSmartWeakEvent<T>
 		where T : class
 	{
-		private readonly List<EventEntry> _eventEntries =
-			new List<EventEntry>();
+		private readonly List<EventEntry> _eventEntries = new();
 
 		static FastSmartWeakEvent()
 		{
@@ -122,7 +120,7 @@
 
 		#region Nested type: EventEntry
 
-		private struct EventEntry
+		private readonly struct EventEntry
 		{
 			public readonly FastSmartWeakEventForwarderProvider.ForwarderDelegate Forwarder;
 			public readonly MethodInfo TargetMethod;
@@ -153,7 +151,7 @@
 			};
 
 		private static readonly Dictionary<MethodInfo, ForwarderDelegate> _forwarders =
-			new Dictionary<MethodInfo, ForwarderDelegate>();
+			new();
 
 		private static readonly MethodInfo _getTarget = typeof( WeakReference ).GetMethod( @"get_Target" );
 
@@ -167,7 +165,7 @@
 				}
 			}
 
-			if ( method.DeclaringType.GetCustomAttributes(
+			if ( method.DeclaringType?.GetCustomAttributes(
 				typeof( CompilerGeneratedAttribute ), false ).Length != 0 )
 			{
 				throw new ArgumentException( @"Cannot create weak event to anonymous method with closure." );

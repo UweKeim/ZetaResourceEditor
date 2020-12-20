@@ -85,12 +85,14 @@
                     userHostName,
                     userHostAddress);
 
-            using var message = new MailMessage();
-            message.IsBodyHtml = true;
-            message.Subject = subject;
-            message.Body = body;
+            using var message = new MailMessage
+            {
+                IsBodyHtml = true,
+                Subject = subject,
+                Body = body,
+                From = Host.Current.ElementManager.OwnerEMailAddress
+            };
 
-            message.From = Host.Current.ElementManager.OwnerEMailAddress;
             message.To.Add(receivers);
 
             MailHelper.WriteMailToFile(

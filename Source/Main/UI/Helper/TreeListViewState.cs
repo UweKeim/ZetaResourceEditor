@@ -246,7 +246,7 @@ namespace ZetaResourceEditor.UI.Helper
 				}
 			}
 
-			public List<Guid> IDs { get; } = new List<Guid>();
+			public List<Guid> IDs { get; } = new();
 		}
 	}
 }

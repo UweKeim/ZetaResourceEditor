@@ -103,10 +103,13 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         /// </summary>
         public void OpenWithDialog()
         {
-            using var ofd = new OpenFileDialog();
-            ofd.Multiselect = true;
-            ofd.Filter = $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw";
-            ofd.RestoreDirectory = true;
+            using var ofd = new OpenFileDialog
+            {
+                Multiselect = true,
+                Filter =
+                    $@"{Resources.SR_MainForm_openToolStripMenuItemClick_ResourceFiles} (*.resx;*.resw)|*.resx;*.resw",
+                RestoreDirectory = true
+            };
 
             var initialDir =
                 ConvertHelper.ToString(

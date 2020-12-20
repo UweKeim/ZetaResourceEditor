@@ -113,7 +113,7 @@ namespace ZetaResourceEditor.UI.FileGroups
         {
             var csProjs = _project.FileGroups.Select(t => t.GetConnectedCsProject()).ToList();
             var groupedProjectFiles = csProjs.GroupBy(t => t?.Project?.FullPath)
-                .Where(t => !string.IsNullOrEmpty(t.Key)).Select(s => new ZlpFileInfo(s.Key)).ToList();
+                .Where(t => !string.IsNullOrEmpty(t?.Key)).Select(s => new ZlpFileInfo(s.Key)).ToList();
 
             IncludeFileInCsprojChecBox.Enabled = groupedProjectFiles.Any();
             AddFileAsDependantUponCheckBox.Enabled = IncludeFileInCsprojChecBox.Checked &&
@@ -330,7 +330,7 @@ namespace ZetaResourceEditor.UI.FileGroups
                         : string.Empty;
 
                 using (new BackgroundWorkerLongProgressGui(
-                    delegate (object snd, DoWorkEventArgs args)
+                    delegate (object snd, DoWorkEventArgs _)
                     {
                         try
                         {

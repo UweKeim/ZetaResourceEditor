@@ -93,7 +93,7 @@ namespace ZetaResourceEditor.UI.FileGroups
                 AddFileAsDependantUponCheckBox.Checked = false;
             }
 
-            labelCsProjectToAdd.Text = $"({new ZlpFileInfo(csProject?.Project.FullPath).Name})";
+            labelCsProjectToAdd.Text = $"({new ZlpFileInfo(csProject?.Project?.FullPath??string.Empty).Name})";
         }
 
         public override void UpdateUI()

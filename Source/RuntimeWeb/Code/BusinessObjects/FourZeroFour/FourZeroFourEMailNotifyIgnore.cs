@@ -77,7 +77,7 @@
 							check = request.UserAgent;
 							break;
 						case DetectType.Url:
-							check = request.Url == null ? null : request.Url.OriginalString;
+							check = request.Url.OriginalString;
 							break;
 
 						case DetectType.UrlReferrer:

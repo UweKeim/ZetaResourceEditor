@@ -85,7 +85,7 @@
 
     public sealed class InMemoryTranslationSnapshot
     {
-        private readonly List<InMemoryTranslationSnapshotItem> _items = new List<InMemoryTranslationSnapshotItem>();
+        private readonly List<InMemoryTranslationSnapshotItem> _items = new();
 
         /// <summary>
         /// Liefert NULL zurück, falls nicht gefunden.
@@ -145,7 +145,7 @@
 
     public sealed class InMemoryTranslationSnapshotItem
     {
-        public Dictionary<string, string> LanguageAndTextPairs { get; } = new Dictionary<string, string>();
+        public Dictionary<string, string> LanguageAndTextPairs { get; } = new();
 
     }
 }

@@ -255,7 +255,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                 }
             }
 
-            public ExcelExportInformation OriginalInformation { get; }
+            private ExcelExportInformation OriginalInformation { get; }
         }
 
         /// <summary>

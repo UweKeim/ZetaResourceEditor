@@ -1,14 +1,13 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Helpers
 {
     using Projects;
-    using System;
     using System.Linq;
     using System.Text.RegularExpressions;
     using ZetaLongPaths;
 
     public static class CsProjHelper
     {
-        public static readonly Regex RegexFindMainResourceFile = new Regex(@"(.*?)\.([a-zA-Z-]{2,5}?)\.resx");
+        public static readonly Regex RegexFindMainResourceFile = new(@"(.*?)\.([a-zA-Z-]{2,5}?)\.resx");
         public const string RegexFindMainResourceFileReplacePattern = @"$1.resx";
 
         public static CsProjectWithFileResult GetProjectContainingFile(ZlpFileInfo file)

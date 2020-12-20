@@ -1396,7 +1396,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
                 // --
 
-                if (row.Row.Table != null && ss.Count <= 0)
+                if (ss.Count <= 0)
                 {
                     // Column 0=FileGroup checksum, column 1=Tag name.
                     for (var i = 2; i < row.Row.Table.Columns.Count - sub; ++i)
@@ -1491,15 +1491,12 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
                 // --
 
-                if (row.Row.Table != null)
+                // Column 0=FileGroup checksum, column 1=Tag name.
+                for (var i = 2; i < row.Row.Table.Columns.Count - sub; ++i)
                 {
-                    // Column 0=FileGroup checksum, column 1=Tag name.
-                    for (var i = 2; i < row.Row.Table.Columns.Count - sub; ++i)
+                    if (ConvertHelper.ToString(row[i], string.Empty).Trim().Length > 0)
                     {
-                        if (ConvertHelper.ToString(row[i], string.Empty).Trim().Length > 0)
-                        {
-                            return false;
-                        }
+                        return false;
                     }
                 }
 
@@ -1526,7 +1523,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
         public bool AllowUpdatingDetails
         {
-            get { return _allowUpdatingDetails; }
+            get => _allowUpdatingDetails;
             set
             {
                 if (_allowUpdatingDetails != value)
@@ -1554,14 +1551,10 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         private Font _regularFont;
 
         private Font _italicFont;
-        /*
-                private Font _boldItalicFont;
-        */
 
         public void Find()
         {
-            using var form = new FindForm();
-            form.TextToFind = _findText;
+            using var form = new FindForm {TextToFind = _findText};
 
             if (form.ShowDialog(this) == DialogResult.OK)
             {
@@ -1919,7 +1912,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         }
 
         private readonly Dictionary<CultureInfo, SpellChecker> _gridSpellCheckers =
-            new Dictionary<CultureInfo, SpellChecker>();
+            new();
 
         private bool _canSaveGridLayout;
         private AllLayoutSerializer _layoutSerializer;

@@ -216,12 +216,12 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 guiRefreshTimer.Enabled = false;
 
                 using (new BackgroundWorkerLongProgressGui(
-                    delegate (object sender, DoWorkEventArgs args)
+                    delegate(object sender, DoWorkEventArgs _)
                     {
                         try
                         {
                             doAutomaticallyAddResourceFiles(
-                                (BackgroundWorker)sender,
+                                (BackgroundWorker) sender,
                                 parentProjectFolder,
                                 ref fileGroupCount,
                                 ref fileCount,
@@ -372,12 +372,12 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 guiRefreshTimer.Enabled = false;
 
                 using (new BackgroundWorkerLongProgressGui(
-                    delegate (object sender, DoWorkEventArgs args)
+                    delegate(object sender, DoWorkEventArgs _)
                     {
                         try
                         {
                             new VisualStudioImporter(Project).DoAutomaticallyAddResourceFilesFromVsProject(
-                                (BackgroundWorker)sender,
+                                (BackgroundWorker) sender,
                                 parentProjectFolder,
                                 ref fileGroupCount,
                                 ref fileCount,
@@ -464,7 +464,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
                 // ReSharper disable ConditionIsAlwaysTrueOrFalse
                 if (node?.Tag is FileGroup tag)
-                // ReSharper restore ConditionIsAlwaysTrueOrFalse
+                    // ReSharper restore ConditionIsAlwaysTrueOrFalse
                 {
                     Project.FileGroups.Remove(tag);
                     Project.MarkAsModified();
@@ -479,7 +479,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             if (CanEditResourceFiles)
             {
                 MainForm.Current.GroupFilesControl.EditResourceFiles(
-                    (IGridEditableData)treeView.SelectedNode.Tag,
+                    (IGridEditableData) treeView.SelectedNode.Tag,
                     Project);
             }
         }
@@ -645,12 +645,12 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             {
                 MainForm.Current.Text = $@"{Project.Name} – Zeta Resource Editor";
 
-                var rootNode = treeView.AppendNode(new object[] { null }, null);
+                var rootNode = treeView.AppendNode(new object[] {null}, null);
 
                 rootNode[0] = Project.Name;
                 rootNode.ImageIndex = rootNode.SelectImageIndex = getImageIndex(@"root");
                 rootNode.Tag = Project;
-                rootNode.StateImageIndex = (int)FileGroupStateColor.Grey;
+                rootNode.StateImageIndex = (int) FileGroupStateColor.Grey;
 
                 updateNodeStateImage(rootNode, AsynchronousMode.Asynchronous);
 
@@ -708,7 +708,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
             if (!Project.HideFileGroupFilesInTree)
             {
-                var ffis = ((FileGroup)fileGroupNode.Tag).GetFileInfos();
+                var ffis = ((FileGroup) fileGroupNode.Tag).GetFileInfos();
                 foreach (var filePath in ffis)
                 {
                     addFileToTree(fileGroupNode, filePath);
@@ -723,7 +723,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             fileGroupNode[0] = fileGroup.GetNameIntelligent(Project);
             fileGroupNode.ImageIndex = fileGroupNode.SelectImageIndex = getImageIndex(@"group");
             fileGroupNode.Tag = fileGroup;
-            fileGroupNode.StateImageIndex = (int)FileGroupStateColor.Grey; //(int)fileGroup.TranslationStateColor;
+            fileGroupNode.StateImageIndex = (int) FileGroupStateColor.Grey; //(int)fileGroup.TranslationStateColor;
 
             updateNodeStateImage(fileGroupNode, AsynchronousMode.Asynchronous);
 
@@ -740,7 +740,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 {
                     if (asynchronous == AsynchronousMode.Synchronous)
                     {
-                        var stateImageIndex = (int)si.TranslationStateColor;
+                        var stateImageIndex = (int) si.TranslationStateColor;
 
                         if (node.StateImageIndex != stateImageIndex)
                         {
@@ -758,15 +758,15 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                     else
                     {
                         // Fill with default.
-                        if (node.StateImageIndex != (int)FileGroupStateColor.Grey)
+                        if (node.StateImageIndex != (int) FileGroupStateColor.Grey)
                         {
-                            node.StateImageIndex = (int)FileGroupStateColor.Grey;
+                            node.StateImageIndex = (int) FileGroupStateColor.Grey;
 
                             if (si is FileGroup)
                             {
                                 foreach (TreeListNode childNode in node.Nodes)
                                 {
-                                    childNode.StateImageIndex = (int)FileGroupStateColor.Grey;
+                                    childNode.StateImageIndex = (int) FileGroupStateColor.Grey;
                                 }
                             }
                         }
@@ -774,7 +774,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                         // --
 
                         // Actually calculate, populate when finished calculating.
-                        var info = new AsyncInfo { Node = node, StateInfo = si };
+                        var info = new AsyncInfo {Node = node, StateInfo = si};
                         enqueue(info);
                     }
                 }
@@ -786,7 +786,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             }
         }
 
-        private readonly Queue<AsyncInfo> _queue = new Queue<AsyncInfo>();
+        private readonly Queue<AsyncInfo> _queue = new();
 
         private void enqueue(AsyncInfo info)
         {
@@ -835,8 +835,8 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                             }
                         }
 
-                        info.StateImageIndex = (int)info.StateInfo.TranslationStateColor;
-                        ((BackgroundWorker)sender).ReportProgress(0, info);
+                        info.StateImageIndex = (int) info.StateInfo.TranslationStateColor;
+                        ((BackgroundWorker) sender).ReportProgress(0, info);
                     }
                 }
             }
@@ -853,7 +853,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
         private void updateNodeStateImageBackgroundworker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            var info = (AsyncInfo)e.UserState;
+            var info = (AsyncInfo) e.UserState;
 
             // Apply result to tree.
             if (info.Node.StateImageIndex != info.StateImageIndex)
@@ -891,7 +891,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
             fileNode.ImageIndex = fileNode.SelectImageIndex = getImageIndex(@"file");
             fileNode.Tag = filePath;
-            fileNode.StateImageIndex = (int)FileGroupStateColor.Grey;
+            fileNode.StateImageIndex = (int) FileGroupStateColor.Grey;
 
             updateNodeStateImage(fileNode, AsynchronousMode.Asynchronous);
 
@@ -958,7 +958,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             projectFolderNode[0] = projectFolder.Name;
             projectFolderNode.ImageIndex = projectFolderNode.SelectImageIndex = getImageIndex(@"projectfolder");
             projectFolderNode.Tag = projectFolder;
-            projectFolderNode.StateImageIndex = (int)FileGroupStateColor.Grey;
+            projectFolderNode.StateImageIndex = (int) FileGroupStateColor.Grey;
 
             updateNodeStateImage(projectFolderNode, AsynchronousMode.Asynchronous);
         }
@@ -1045,8 +1045,8 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         internal void CloseAndSaveProject()
         {
             if (DoSaveFile(
-                    SaveOptions.OnlyIfModified |
-                    SaveOptions.AskConfirm) == DialogResult.OK)
+                SaveOptions.OnlyIfModified |
+                SaveOptions.AskConfirm) == DialogResult.OK)
             {
                 closeProject();
             }
@@ -1073,21 +1073,21 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         public void EditFileGroupSettingsWithDialog()
         {
             using var form = new FileGroupSettingsForm();
-            form.Initialize((FileGroup)treeView.SelectedNode.Tag);
+            form.Initialize((FileGroup) treeView.SelectedNode.Tag);
             if (form.ShowDialog(this) == DialogResult.OK)
             {
                 Project.MarkAsModified();
 
                 updateFileGroupInTree(
                     treeView.SelectedNode,
-                    (FileGroup)treeView.SelectedNode.Tag);
+                    (FileGroup) treeView.SelectedNode.Tag);
             }
         }
 
         public void CreateNewFileWithDialog()
         {
             using var form = new CreateNewFileForm();
-            form.Initialize((FileGroup)treeView.SelectedNode.Tag);
+            form.Initialize((FileGroup) treeView.SelectedNode.Tag);
             if (form.ShowDialog(this) == DialogResult.OK)
             {
                 Project.MarkAsModified();
@@ -1097,7 +1097,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 
                 updateFileGroupInTree(
                     treeView.SelectedNode,
-                    (FileGroup)treeView.SelectedNode.Tag);
+                    (FileGroup) treeView.SelectedNode.Tag);
 
                 UpdateUI();
             }
@@ -1146,7 +1146,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         private void MergeFilesWithDialog()
         {
             using var form = new MergeFileGroupForm();
-            var p = (FileGroup)treeView.SelectedNode.Tag;
+            var p = (FileGroup) treeView.SelectedNode.Tag;
 
             form.Initialize(p, Project);
 
@@ -1326,7 +1326,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 RestoreDirectory = true
             };
 
-            var fileGroup = (FileGroup)treeView.SelectedNode.Tag;
+            var fileGroup = (FileGroup) treeView.SelectedNode.Tag;
 
             ofd.InitialDirectory = fileGroup.FolderPath.FullName;
 
@@ -1399,7 +1399,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                 {
                     var parentNode = node.ParentNode;
 
-                    var fileGroup = (FileGroup)node.ParentNode.Tag;
+                    var fileGroup = (FileGroup) node.ParentNode.Tag;
 
                     fileGroup.RemoveFileInfo(tag);
                     Project.MarkAsModified();
@@ -1500,14 +1500,8 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                     1);
 
                 MainForm.Current.FileGroupStateChanged.Add(
-                    (s, args) => updateNodeStateImage(locateNode(args.GridEditableData),
+                    (_, args) => updateNodeStateImage(locateNode(args.GridEditableData),
                         AsynchronousMode.Asynchronous));
-
-                //if (!HostSettings.Current.ShowNewsInMainWindow)
-                //{
-                //    resourceEditorProjectFilesSplitContainer.PanelVisibility =
-                //        SplitPanelVisibility.Panel1;
-                //}
             }
         }
 
@@ -1536,7 +1530,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         }
 
         private static readonly TimeSpan NodeUpdateInterval =
-            new TimeSpan(0, 0, 1);
+            new(0, 0, 1);
 
         private StepwiseTreeIterator _nodeUpdateIterator;
         private bool _formShown;
@@ -1605,7 +1599,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         {
             treeView.SyncInvoke(delegate
             {
-                var project = (Project)sender;
+                var project = (Project) sender;
                 var text = project.Name;
 
                 if (project.IsModified)
@@ -1623,7 +1617,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         private void treeView_MouseUp(object sender, MouseEventArgs e)
         {
             // http://www.devexpress.com/Support/Center/KB/p/A915.aspx.
-            var tree = (TreeList)sender;
+            var tree = (TreeList) sender;
 
             if (e.Button == MouseButtons.Right &&
                 ModifierKeys == Keys.None &&
@@ -1643,6 +1637,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                         {
                             treeView.SelectedNode = info.Node;
                         }
+
                         break;
                 }
 
@@ -1658,7 +1653,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
                     case null:
                         popupMenuNone.ShowPopup(MousePosition);
                         break;
-                    case Project _:
+                    case Project:
                         popupMenuProject.ShowPopup(MousePosition);
                         break;
                     case ProjectFolder:
@@ -1772,14 +1767,14 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
         private void buttonEditProjectFolder_ItemClick(object sender, ItemClickEventArgs e)
         {
             using var form = new ProjectFolderEditForm();
-            form.Initialize((ProjectFolder)treeView.SelectedNode.Tag);
+            form.Initialize((ProjectFolder) treeView.SelectedNode.Tag);
             if (form.ShowDialog(this) == DialogResult.OK)
             {
                 Project.MarkAsModified();
 
                 updateProjectFolderInTree(
                     treeView.SelectedNode,
-                    (ProjectFolder)treeView.SelectedNode.Tag);
+                    (ProjectFolder) treeView.SelectedNode.Tag);
 
                 UpdateUI();
             }
@@ -1919,18 +1914,18 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             object sender,
             DragEventArgs e)
         {
-            var dragNode = (TreeListNode)e.Data.GetData(typeof(TreeListNode));
-            e.Effect = getDragDropEffect((TreeList)sender, dragNode);
+            var dragNode = (TreeListNode) e.Data.GetData(typeof(TreeListNode));
+            e.Effect = getDragDropEffect((TreeList) sender, dragNode);
         }
 
         private void treeView_DragDrop(
             object sender,
             DragEventArgs e)
         {
-            var tree = (TreeList)sender;
+            var tree = (TreeList) sender;
             var p = tree.PointToClient(new Point(e.X, e.Y));
 
-            var dragNode = (TreeListNode)e.Data.GetData(typeof(TreeListNode));
+            var dragNode = (TreeListNode) e.Data.GetData(typeof(TreeListNode));
             var targetNode = tree.CalcHitInfo(p).Node;
 
             // --
@@ -1977,7 +1972,7 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             object sender,
             CalcNodeDragImageIndexEventArgs e)
         {
-            var tree = (TreeList)sender;
+            var tree = (TreeList) sender;
             if (getDragDropEffect(tree, tree.FocusedNode) == DragDropEffects.None)
             {
                 e.ImageIndex = -1; // no icon

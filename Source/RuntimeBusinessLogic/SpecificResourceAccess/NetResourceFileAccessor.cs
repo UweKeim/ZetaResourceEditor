@@ -24,7 +24,7 @@
 		/// Gets the unique class ID.
 		/// </summary>
 		/// <value>The unique class ID.</value>
-		public Guid UniqueClassID => new Guid( @"91680cc0-4eca-4999-bb57-d3a757bd022c" );
+		public Guid UniqueClassID => new( @"91680cc0-4eca-4999-bb57-d3a757bd022c" );
 
 	    /// <summary>
 		/// Gets the supported file extensions. return as e.g. ".RESX".

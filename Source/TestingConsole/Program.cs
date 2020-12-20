@@ -52,10 +52,10 @@
             var dic =
                 new List<MyTuple<string, string>>
                     {
-                        new MyTuple<string, string>(@"grant_type", @"client_credentials"),
-                        new MyTuple<string, string>(@"client_id", clientID),
-                        new MyTuple<string, string>(@"client_secret", clientSecret),
-                        new MyTuple<string, string>(@"scope", @"http://api.microsofttranslator.com"),
+                        new(@"grant_type", @"client_credentials"),
+                        new(@"client_id", clientID),
+                        new(@"client_secret", clientSecret),
+                        new(@"scope", @"http://api.microsofttranslator.com"),
                     };
 
             var xml = makeTranslateRestCallPost(@"https://datamarket.accesscontrol.windows.net/v2/OAuth2-13", dic, null);

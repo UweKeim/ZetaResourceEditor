@@ -37,7 +37,7 @@
         private string _neutralLanguageCode = @"en-US";
         private bool _isModified;
 
-        private readonly List<string> _languagesToDisplay = new List<string>();
+        private readonly List<string> _languagesToDisplay = new();
 
         bool ILanguageColumnFilter.HasLanguageToDisplayFilter => _languagesToDisplay.Count > 0;
 
@@ -309,9 +309,9 @@
         /// <value>The modified char.</value>
         public static string ModifiedChar => @"*";
 
-        public DynamicSettings DynamicSettingsGlobal { get; } = new DynamicSettings(string.Empty);
+        public DynamicSettings DynamicSettingsGlobal { get; } = new(string.Empty);
 
-        public DynamicSettings DynamicSettingsUser { get; } = new DynamicSettings(
+        public DynamicSettings DynamicSettingsUser { get; } = new(
             $@"{Environment.UserName}@{Environment.UserDomainName}");
 
         public IPersistentPairStorage DynamicSettingsGlobalHierarchical
@@ -1026,7 +1026,7 @@
             return result;
         }
 
-        public Guid UniqueID => new Guid(@"09D52927-1300-48F4-8DF1-1437F30D5BC3");
+        public Guid UniqueID => new(@"09D52927-1300-48F4-8DF1-1437F30D5BC3");
 
         public FileGroup GetFileGroupByCheckSum(long checksum)
         {
@@ -1051,7 +1051,7 @@
 
         Project IGridEditableData.Project
         {
-            get { return this; }
+            get => this;
             set
             {
                 // Do nothings.

@@ -14,7 +14,7 @@
             {
                 try
                 {
-                    var obj = JToken.Parse(strInput);
+                    JToken.Parse(strInput);
                     return true;
                 }
                 catch (JsonReaderException jex)

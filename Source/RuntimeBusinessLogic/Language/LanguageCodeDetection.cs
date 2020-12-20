@@ -167,7 +167,7 @@
             }
         }
 
-        private static readonly HashSet<string> CultureCache = new HashSet<string>();
+        private static readonly HashSet<string> CultureCache = new();
 
         private static bool isValueCultureName(string cultureName, out string longCultureName)
         {
@@ -241,7 +241,7 @@
         }
 
         private static readonly Dictionary<string, CultureInfo> CacheForMakeValidCulture =
-            new Dictionary<string, CultureInfo>();
+            new();
 
         public static CultureInfo MakeValidCulture(
             string cultureName)
@@ -288,10 +288,7 @@
             string fileName)
         {
             // Bug_ when no project loaded, therefore create.
-            if (settings == null)
-            {
-                settings = Project.Empty;
-            }
+            settings ??= Project.Empty;
 
             // --
 
@@ -481,10 +478,7 @@
             else
             {
                 // Bug_ when no project loaded, therefore create.
-                if (settings == null)
-                {
-                    settings = Project.Empty;
-                }
+                settings ??= Project.Empty;
 
                 var patternOrigin =
                     IsNonNeutralLanguageFileName(settings, text)

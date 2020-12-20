@@ -47,7 +47,7 @@ namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects
             CacheManager?.StartScavenge();
         }
 
-        public MailAddress OwnerEMailAddress => new MailAddress(
+        public MailAddress OwnerEMailAddress => new(
             ConfigurationManager.AppSettings[@"web.ownerEMailAddress"],
             ConfigurationManager.AppSettings[@"web.ownerEMailDisplayName"]);
 

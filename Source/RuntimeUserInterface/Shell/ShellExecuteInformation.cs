@@ -2,13 +2,13 @@
 {
     using System;
     using System.Diagnostics;
-	using Zeta.VoyagerLibrary.Logging;
-	using ZetaLongPaths;
+    using Zeta.VoyagerLibrary.Logging;
+    using ZetaLongPaths;
 
-	/// <summary>
-	/// Information for passing to the ShellExecute method.
-	/// </summary>
-	public class ShellExecuteInformation
+    /// <summary>
+    /// Information for passing to the ShellExecute method.
+    /// </summary>
+    public class ShellExecuteInformation
 	{
 		public void Execute()
 		{
@@ -50,18 +50,15 @@
                     FileName.IndexOf(@"https://", StringComparison.Ordinal) == 0)
 				{
 					// Already a full path, do nothing.
-					return;
-				}
+                }
 				else if (ZlpIOHelper.FileExists(FileName))
 				{
 					// Already a full path, do nothing.
-					return;
-				}
+                }
 				else if (ZlpIOHelper.DirectoryExists(FileName))
 				{
 					// Already a full path, do nothing.
-					return;
-				}
+                }
 				else
 				{
 					// Remember.

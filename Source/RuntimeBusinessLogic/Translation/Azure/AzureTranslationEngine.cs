@@ -82,8 +82,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
                         ?.Select(l =>
                             new TranslationLanguageInfo
                             {
-                                LanguageCode = ((JProperty)l).Name,
-                                UserReadableName = tryGetLanguageName(((JProperty)l).Name)
+                                LanguageCode = l.Name,
+                                UserReadableName = tryGetLanguageName(l.Name)
                             }).ToArray();
 
 
@@ -295,17 +295,15 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure
                     }
 
                     // Read response as a string.
-                    string result = null;
+                    string r2 = null;
                     using (var B = AsyncHelper.Wait)
                     {
-                        B.Run(response.Content.ReadAsStringAsync(), res => result = res);
+                        B.Run(response.Content.ReadAsStringAsync(), res => r2 = res);
                     }
 
                     // https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm
-                    var o = JArray.Parse(result);
+                    var o = JArray.Parse(r2);
                     var t = o[0][@"translations"];
-                    //dynamic o = JsonConvert.DeserializeObject(result);
-                    //var t = o == null ? null : o[0].translations; //[0].text;
 
                     if (t != null)
                     {

@@ -54,10 +54,7 @@
                     // has an in-deep discussion.
                     lock (TypeLock)
                     {
-                        if (_current == null)
-                        {
-                            _current = new WebServiceManager();
-                        }
+                        _current ??= new WebServiceManager();
                     }
                 }
 
@@ -322,7 +319,7 @@
         /// <summary>
         /// Best practice, see C# MSDN documentation of the "lock" keyword.
         /// </summary>
-        private static readonly object TypeLock = new object();
+        private static readonly object TypeLock = new();
 
         private UpdateCheckerService _updateCheckerWS;
 

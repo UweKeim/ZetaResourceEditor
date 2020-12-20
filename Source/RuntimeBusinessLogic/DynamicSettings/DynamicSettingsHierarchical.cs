@@ -53,8 +53,8 @@
 
 	    public RetrieveValueDelegate ExternalValueRetriever
 	    {
-	        get { return null; }
-	        set {  }
+	        get => null;
+            set {  }
 	    }
 	}
 }

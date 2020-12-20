@@ -248,7 +248,7 @@
 		}
 
 		public readonly FastSmartWeakEvent<EventHandler<ValidateObjectEventArgs>> ValidateObject =
-			new FastSmartWeakEvent<EventHandler<ValidateObjectEventArgs>>();
+			new();
 
 		protected int _id;
 	    private bool _isDeleted;
@@ -272,10 +272,7 @@
 			// Condition added 2008-11-15, Uwe Keim.
 			// Only set if not already set to allow copying between
 			// different projects.
-			if (OwningManager == null)
-			{
-				OwningManager = source.OwningManager;
-			}
+			OwningManager ??= source.OwningManager;
 
 			_id = source._id;
 			Tag = source.Tag;

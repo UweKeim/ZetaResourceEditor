@@ -21,10 +21,8 @@
 			IXtraPropertyCollection store,
 			OptionsLayoutBase options)
 		{
-			if (options == null)
-				options = OptionsLayoutBase.FullLayout;
-			if (store == null)
-				return;
+			options ??= OptionsLayoutBase.FullLayout;
+			if (store == null) return;
 			var coll = new XtraPropertyCollection();
 			coll.AddRange(store);
 			var helper = new DeserializeHelper(obj, false);
@@ -48,11 +46,11 @@
 	public class FilterSerializationContext :
 		SerializationContext
 	{
-		private readonly Dictionary<Type, string> _filters = new Dictionary<Type, string>();
+		private readonly Dictionary<Type, string> _filters = new();
 
 	    public bool Exclusive { get; set; }
 
-		public static FilterSerializationContext Default { get; } = new FilterSerializationContext();
+		public static FilterSerializationContext Default { get; } = new();
 
 	    public void AddProperty(Type key, string propertyName)
 		{

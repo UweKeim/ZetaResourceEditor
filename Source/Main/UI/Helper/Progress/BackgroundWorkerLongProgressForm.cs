@@ -190,11 +190,8 @@ namespace ZetaResourceEditor.UI.Helper.Progress
 		/// </summary>
 		public bool IsCancelable
 		{
-			get
-			{
-				return BackgroundWorker.WorkerSupportsCancellation;
-			}
-			set
+			get => BackgroundWorker.WorkerSupportsCancellation;
+            set
 			{
 				if ( BackgroundWorker.WorkerSupportsCancellation != value )
 				{

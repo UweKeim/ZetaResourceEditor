@@ -70,7 +70,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
             }
         }
 
-        public Dictionary<string, string> DirectValues { get; } = new Dictionary<string, string>();
+        public Dictionary<string, string> DirectValues { get; } = new();
 
         public void PersistValue(string name, string value)
         {

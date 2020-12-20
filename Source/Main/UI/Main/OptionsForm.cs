@@ -63,9 +63,11 @@ namespace ZetaResourceEditor.UI.Main
 
         private void proxyButton_Click(object sender, EventArgs e)
         {
-            using var form = new WebProxySettingsForm();
-            form.WebProxy = WebServiceManager.Current.WebServiceProxy as WebProxy;
-            form.WebProxyUsage = WebServiceManager.Current.WebProxyUsage;
+            using var form = new WebProxySettingsForm
+            {
+                WebProxy = WebServiceManager.Current.WebServiceProxy as WebProxy,
+                WebProxyUsage = WebServiceManager.Current.WebProxyUsage
+            };
 
             if (form.ShowDialog(this) == DialogResult.OK)
             {

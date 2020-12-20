@@ -34,7 +34,7 @@ namespace ZetaResourceEditor.Code
             try
             {
                 BindingRedirectsHelper.Initialize();
-                
+
                 LogCentral.Current.ConfigureLogging();
 
                 // --
@@ -87,7 +87,7 @@ namespace ZetaResourceEditor.Code
                 // --
                 // http://stackoverflow.com/a/9180843/107625
 
-                var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+                var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location ?? string.Empty);
                 foreach (var assemblyName in Directory.GetFiles(dir, @"*.dll"))
                 {
                     try
@@ -196,45 +196,45 @@ namespace ZetaResourceEditor.Code
             switch (e)
             {
                 case MessageBoxException exception:
-                {
-                    var mbx = exception;
-
-                    XtraMessageBox.Show(
-                        mbx.Parent,
-                        mbx.Message,
-                        @"Zeta Resource Editor",
-                        mbx.Buttons,
-                        mbx.Icon);
-
-                    handleException = false;
-                    break;
-                }
-                case PersistentPairStorageException _:
-                {
-                    // 2009-06-22, Uwe Keim:
-                    // http://zeta-producer.de/Pages/AdvancedForumIndex.aspx?DataID=9514
-                    LogCentral.Current.LogWarn(
-                        @"PersistentPairStorageException occurred.", e);
-
-                    if (e.InnerException == null)
                     {
-                        handleException = true;
+                        var mbx = exception;
+
+                        XtraMessageBox.Show(
+                            mbx.Parent,
+                            mbx.Message,
+                            @"Zeta Resource Editor",
+                            mbx.Buttons,
+                            mbx.Icon);
+
+                        handleException = false;
+                        break;
                     }
-                    else
+                case PersistentPairStorageException _:
                     {
-                        if (e.InnerException is UnauthorizedAccessException ||
-                            e.InnerException is IOException)
-                        {
-                            handleException = false;
-                        }
-                        else
+                        // 2009-06-22, Uwe Keim:
+                        // http://zeta-producer.de/Pages/AdvancedForumIndex.aspx?DataID=9514
+                        LogCentral.Current.LogWarn(
+                            @"PersistentPairStorageException occurred.", e);
+
+                        if (e.InnerException == null)
                         {
                             handleException = true;
                         }
-                    }
+                        else
+                        {
+                            if (e.InnerException is UnauthorizedAccessException ||
+                                e.InnerException is IOException)
+                            {
+                                handleException = false;
+                            }
+                            else
+                            {
+                                handleException = true;
+                            }
+                        }
 
-                    break;
-                }
+                        break;
+                    }
                 default:
                     handleException = true;
                     break;

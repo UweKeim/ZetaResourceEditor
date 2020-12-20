@@ -30,7 +30,7 @@ namespace ZetaResourceEditor.Code
             */
 
             // Diese Zeile hier für eine Windows-/Konsolen-Anwendung.
-            var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location??string.Empty);
 
             if (dir != null)
             {

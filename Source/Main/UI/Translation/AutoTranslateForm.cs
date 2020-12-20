@@ -116,10 +116,7 @@
 
             // --
 
-            if (_fileGroupControl.GridEditableData.Project == null)
-            {
-                _fileGroupControl.GridEditableData.Project = _project;
-            }
+            _fileGroupControl.GridEditableData.Project ??= _project;
         }
 
         private IEnumerable<string> languageCodes => _fileGroupControl.GridEditableData.GetLanguageCodes(_project);
@@ -551,7 +548,7 @@
                     new BackgroundWorkerLongProgressGui(
                         delegate (
                             object s,
-                            DoWorkEventArgs a)
+                            DoWorkEventArgs _)
                         {
                             var bw = (BackgroundWorker)s;
 
@@ -681,9 +678,7 @@
                                 MainForm.Current.ProjectFilesControl.WantPauseNodeStateUpdate = prevPause;
                             }
                         },
-                        delegate (
-                            object s,
-                            RunWorkerCompletedEventArgs a)
+                        delegate (object _, RunWorkerCompletedEventArgs a)
                         {
                             success = !a.Cancelled && a.Error == null;
                             cancelled = a.Cancelled;
