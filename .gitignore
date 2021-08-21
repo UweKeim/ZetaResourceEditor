@@ -11,7 +11,7 @@ Bin-LicenseGenerator/
 Bin-Skinning/
 Source/UpdateChecker/App_Data/ZetaResourceEditor.exe
 Source/packages/
-Source/References/Externals/
+Source/References/Externals/CentralDevelopmentTools/
 Source-Skinning/packages/
 
 convert-to-latest-devexpress-version.cmd
