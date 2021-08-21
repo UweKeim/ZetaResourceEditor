@@ -92,20 +92,14 @@
 
         private static int getImageIndex(string key)
         {
-            switch (key)
+            return key switch
             {
-                case @"root":
-                    return 0;
-                case @"group":
-                    return 1;
-                case @"file":
-                    return 2;
-                case @"projectfolder":
-                    return 3;
-
-                default:
-                    throw new ArgumentException();
-            }
+                @"root" => 0,
+                @"group" => 1,
+                @"file" => 2,
+                @"projectfolder" => 3,
+                _ => throw new ArgumentException()
+            };
         }
 
         private void addProjectFolderToTree(TreeListNode parentNode,

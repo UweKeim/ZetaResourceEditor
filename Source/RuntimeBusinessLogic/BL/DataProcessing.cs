@@ -135,7 +135,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
 
         private static bool GetShowCommentColumn(Project project)
         {
-            return project != null && project.ShowCommentsColumnInGrid;
+            return project is { ShowCommentsColumnInGrid: true };
         }
 
         // AJ CHANGE
@@ -150,11 +150,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
                 var colName = table.Columns[table.Columns.Count - 1].ColumnName;
 
                 // Sometimes the comment column gets the prefix col, depends on the visibility state
-                return colName == @"colComment" ||
-                       colName == @"Comment" ||
-                       colName == @"col" + Resources.SR_ColumnCaption_Comment ||
-                       colName == @"col" + Resources.SR_CommandProcessorSend_Process_Comment ||
-                       colName == Resources.SR_ColumnCaption_Comment;
+                return colName is @"colComment" or @"Comment" || colName == @"col" + Resources.SR_ColumnCaption_Comment || colName == @"col" + Resources.SR_CommandProcessorSend_Process_Comment || colName == Resources.SR_ColumnCaption_Comment;
             }
             else
             {
@@ -632,9 +628,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
         }
 
         private static bool SkipSavingRow(DataRow row) {
-            return row.RowState == DataRowState.Deleted 
-                   || row.RowState == DataRowState.Unchanged 
-                   || FileGroup.IsInternalRow(row);
+            return row.RowState is DataRowState.Deleted or DataRowState.Unchanged || FileGroup.IsInternalRow(row);
         }
 
         private static string escapeXsltChars(
@@ -777,8 +771,8 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
             Project project,
             DataTable table)
         {
-            var createBackups = project != null && project.CreateBackupFiles;
-            var omitEmptyStrings = project != null && project.OmitEmptyItems;
+            var createBackups = project is { CreateBackupFiles: true };
+            var omitEmptyStrings = project is { OmitEmptyItems: true };
 
             SaveDataTableToResxFiles(project, table, createBackups, omitEmptyStrings);
         }

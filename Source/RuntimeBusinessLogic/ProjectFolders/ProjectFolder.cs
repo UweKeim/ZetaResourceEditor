@@ -228,7 +228,7 @@
                 else
                 {
                     var parent = ParentSettings;
-                    return parent != null && parent.EffectiveIgnoreDuringExportAndImport;
+                    return parent is { EffectiveIgnoreDuringExportAndImport: true };
                 }
             }
         }
@@ -254,8 +254,7 @@
                 foreach (var fileGroup in ChildFileGroups)
                 {
                     // Shortcut evaluation.
-                    if (result == FileGroupStateColor.Red ||
-                        result == FileGroupStateColor.Yellow)
+                    if (result is FileGroupStateColor.Red or FileGroupStateColor.Yellow)
                     {
                         return result;
                     }
@@ -269,8 +268,7 @@
                 foreach (var projectFolder in ChildProjectFolders)
                 {
                     // Shortcut evaluation.
-                    if (result == FileGroupStateColor.Red ||
-                        result == FileGroupStateColor.Yellow)
+                    if (result is FileGroupStateColor.Red or FileGroupStateColor.Yellow)
                     {
                         return result;
                     }

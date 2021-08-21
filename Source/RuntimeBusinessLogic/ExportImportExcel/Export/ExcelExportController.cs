@@ -41,32 +41,69 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
             {
                 // Multiple files.
 
-                if (oneExcelFilePerGroup && oneExcelFilePerLanguage)
+                switch (oneExcelFilePerGroup)
                 {
-                    // ReSharper disable LoopCanBeConvertedToQuery
-                    foreach (var fileGroup in information.FileGroups)
-                    // ReSharper restore LoopCanBeConvertedToQuery
+                    case true when oneExcelFilePerLanguage:
                     {
                         // ReSharper disable LoopCanBeConvertedToQuery
-                        foreach (var destinationLanguageCode in information.DestinationLanguageCodes)
-                        // ReSharper restore LoopCanBeConvertedToQuery
+                        foreach (var fileGroup in information.FileGroups)
+                            // ReSharper restore LoopCanBeConvertedToQuery
+                        {
+                            // ReSharper disable LoopCanBeConvertedToQuery
+                            foreach (var destinationLanguageCode in information.DestinationLanguageCodes)
+                                // ReSharper restore LoopCanBeConvertedToQuery
+                            {
+                                preparedInformations.Add(
+                                    new PreparedInformation
+                                    {
+                                        DestinationFilePath =
+                                            replacePlaceholders(
+                                                replacePlaceholders(information.DestinationFilePath, destinationLanguageCode),
+                                                fileGroup),
+                                        DestinationLanguageCodes = new[] { destinationLanguageCode },
+                                        EliminateDuplicateRows = information.EliminateDuplicateRows,
+                                        ExportAllGroups =
+                                            information.ExportAllGroupsMode ==
+                                            ExcelExportInformation.ExportFileGroupMode.AllGroupsIntoOneWorksheet,
+                                        ExportNameColumn = information.ExportNameColumn,
+                                        ExportCommentColumn = information.ExportCommentColumn,
+                                        ExportReferenceLanguageColumn = information.ExportReferenceLanguageColumn,
+                                        ExportFileGroupColumn = information.ExportFileGroupColumn,
+                                        UseCrypticExcelExportSheetNames = information.UseCrypticExcelExportSheetNames,
+                                        FileGroups = new[] { fileGroup },
+                                        OnlyExportRowsWithNoTranslation = information.OnlyExportRowsWithNoTranslation,
+                                        ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
+                                        OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
+                                        Project = information.Project,
+                                        ReferenceLanguageCode = information.ReferenceLanguageCode
+                                    });
+                            }
+                        }
+
+                        break;
+                    }
+                    case true:
+                    {
+                        // ReSharper disable LoopCanBeConvertedToQuery
+                        foreach (var fileGroup in information.FileGroups)
+                            // ReSharper restore LoopCanBeConvertedToQuery
                         {
                             preparedInformations.Add(
                                 new PreparedInformation
                                 {
                                     DestinationFilePath =
-                                            replacePlaceholders(
-                                                replacePlaceholders(information.DestinationFilePath, destinationLanguageCode),
-                                                fileGroup),
-                                    DestinationLanguageCodes = new[] { destinationLanguageCode },
+                                        replacePlaceholders(
+                                            replacePlaceholders(information.DestinationFilePath, information.DestinationLanguageCodes[0]),
+                                            fileGroup),
+                                    DestinationLanguageCodes = information.DestinationLanguageCodes,
                                     EliminateDuplicateRows = information.EliminateDuplicateRows,
                                     ExportAllGroups =
-                                            information.ExportAllGroupsMode ==
-                                            ExcelExportInformation.ExportFileGroupMode.AllGroupsIntoOneWorksheet,
+                                        information.ExportAllGroupsMode ==
+                                        ExcelExportInformation.ExportFileGroupMode.AllGroupsIntoOneWorksheet,
+                                    ExportFileGroupColumn = information.ExportFileGroupColumn,
                                     ExportNameColumn = information.ExportNameColumn,
                                     ExportCommentColumn = information.ExportCommentColumn,
                                     ExportReferenceLanguageColumn = information.ExportReferenceLanguageColumn,
-                                    ExportFileGroupColumn = information.ExportFileGroupColumn,
                                     UseCrypticExcelExportSheetNames = information.UseCrypticExcelExportSheetNames,
                                     FileGroups = new[] { fileGroup },
                                     OnlyExportRowsWithNoTranslation = information.OnlyExportRowsWithNoTranslation,
@@ -76,70 +113,43 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Export
                                     ReferenceLanguageCode = information.ReferenceLanguageCode
                                 });
                         }
+
+                        break;
                     }
-                }
-                else if (oneExcelFilePerGroup)
-                {
-                    // ReSharper disable LoopCanBeConvertedToQuery
-                    foreach (var fileGroup in information.FileGroups)
-                    // ReSharper restore LoopCanBeConvertedToQuery
+                    // oneExcelFilePerLanguage.
+                    default:
                     {
-                        preparedInformations.Add(
-                            new PreparedInformation
-                            {
-                                DestinationFilePath =
-                                    replacePlaceholders(
-                                        replacePlaceholders(information.DestinationFilePath, information.DestinationLanguageCodes[0]),
-                                        fileGroup),
-                                DestinationLanguageCodes = information.DestinationLanguageCodes,
-                                EliminateDuplicateRows = information.EliminateDuplicateRows,
-                                ExportAllGroups =
-                                    information.ExportAllGroupsMode ==
-                                    ExcelExportInformation.ExportFileGroupMode.AllGroupsIntoOneWorksheet,
-                                ExportFileGroupColumn = information.ExportFileGroupColumn,
-                                ExportNameColumn = information.ExportNameColumn,
-                                ExportCommentColumn = information.ExportCommentColumn,
-                                ExportReferenceLanguageColumn = information.ExportReferenceLanguageColumn,
-                                UseCrypticExcelExportSheetNames = information.UseCrypticExcelExportSheetNames,
-                                FileGroups = new[] { fileGroup },
-                                OnlyExportRowsWithNoTranslation = information.OnlyExportRowsWithNoTranslation,
-                                ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
-                                OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
-                                Project = information.Project,
-                                ReferenceLanguageCode = information.ReferenceLanguageCode
-                            });
-                    }
-                }
-                else // oneExcelFilePerLanguage.
-                {
-                    // ReSharper disable LoopCanBeConvertedToQuery
-                    foreach (var destinationLanguageCode in information.DestinationLanguageCodes)
-                    // ReSharper restore LoopCanBeConvertedToQuery
-                    {
-                        preparedInformations.Add(
-                            new PreparedInformation
-                            {
-                                DestinationFilePath =
-                                    replacePlaceholders(
-                                        replacePlaceholders(information.DestinationFilePath, destinationLanguageCode),
-                                        information.FileGroups[0]),
-                                DestinationLanguageCodes = new[] { destinationLanguageCode },
-                                EliminateDuplicateRows = information.EliminateDuplicateRows,
-                                ExportAllGroups =
-                                    information.ExportAllGroupsMode ==
-                                    ExcelExportInformation.ExportFileGroupMode.AllGroupsIntoOneWorksheet,
-                                ExportFileGroupColumn = information.ExportFileGroupColumn,
-                                ExportNameColumn = information.ExportNameColumn,
-                                ExportCommentColumn = information.ExportCommentColumn,
-                                ExportReferenceLanguageColumn = information.ExportReferenceLanguageColumn,
-                                UseCrypticExcelExportSheetNames = information.UseCrypticExcelExportSheetNames,
-                                FileGroups = information.FileGroups,
-                                OnlyExportRowsWithNoTranslation = information.OnlyExportRowsWithNoTranslation,
-                                ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
-                                OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
-                                Project = information.Project,
-                                ReferenceLanguageCode = information.ReferenceLanguageCode
-                            });
+                        // ReSharper disable LoopCanBeConvertedToQuery
+                        foreach (var destinationLanguageCode in information.DestinationLanguageCodes)
+                            // ReSharper restore LoopCanBeConvertedToQuery
+                        {
+                            preparedInformations.Add(
+                                new PreparedInformation
+                                {
+                                    DestinationFilePath =
+                                        replacePlaceholders(
+                                            replacePlaceholders(information.DestinationFilePath, destinationLanguageCode),
+                                            information.FileGroups[0]),
+                                    DestinationLanguageCodes = new[] { destinationLanguageCode },
+                                    EliminateDuplicateRows = information.EliminateDuplicateRows,
+                                    ExportAllGroups =
+                                        information.ExportAllGroupsMode ==
+                                        ExcelExportInformation.ExportFileGroupMode.AllGroupsIntoOneWorksheet,
+                                    ExportFileGroupColumn = information.ExportFileGroupColumn,
+                                    ExportNameColumn = information.ExportNameColumn,
+                                    ExportCommentColumn = information.ExportCommentColumn,
+                                    ExportReferenceLanguageColumn = information.ExportReferenceLanguageColumn,
+                                    UseCrypticExcelExportSheetNames = information.UseCrypticExcelExportSheetNames,
+                                    FileGroups = information.FileGroups,
+                                    OnlyExportRowsWithNoTranslation = information.OnlyExportRowsWithNoTranslation,
+                                    ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
+                                    OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
+                                    Project = information.Project,
+                                    ReferenceLanguageCode = information.ReferenceLanguageCode
+                                });
+                        }
+
+                        break;
                     }
                 }
 

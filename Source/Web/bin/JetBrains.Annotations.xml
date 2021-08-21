@@ -81,6 +81,19 @@
             Specifies which parameter of an annotated method should be treated as the format string
             </param>
         </member>
+        <member name="T:JetBrains.Annotations.StructuredMessageTemplateAttribute">
+            <summary>
+            Indicates that the marked parameter is a message template where placeholders are to be replaced by the following arguments
+            in the order in which they appear
+            </summary>
+            <example><code>
+            void LogInfo([StructuredMessageTemplate]string message, params object[] args) { /* do something */ }
+            
+            void Foo() {
+              LogInfo("User created: {username}"); // Warning: Non-existing argument in format string
+            }
+            </code></example>
+        </member>
         <member name="T:JetBrains.Annotations.ValueProviderAttribute">
              <summary>
              Use this annotation to specify a type that contains static or const fields
@@ -289,7 +302,7 @@
             to configure how this attribute is applied.
             </summary>
             <example><code>
-            [UsedImplicitly] 
+            [UsedImplicitly]
             public class TypeConverter {}
             
             public class SummaryData
@@ -383,6 +396,21 @@
             will help to detect usages of the method when the return value is not used.
             Optionally, you can specify a message to use when showing warnings, e.g.
             <code>[MustUseReturnValue("Use the return value to...")]</code>.
+            </remarks>
+        </member>
+        <member name="T:JetBrains.Annotations.RequireStaticDelegateAttribute">
+            <summary>
+            This annotation allows to enforce allocation-less usage patterns of delegates for performance-critical APIs.
+            When this annotation is applied to the parameter of delegate type, IDE checks the input argument of this parameter:
+            * When lambda expression or anonymous method is passed as an argument, IDE verifies that the passed closure
+              has no captures of the containing local variables and the compiler is able to cache the delegate instance
+              to avoid heap allocations. Otherwise the warning is produced.
+            * IDE warns when method name or local function name is passed as an argument as this always results
+              in heap allocation of the delegate instance.
+            </summary>
+            <remarks>
+            In C# 9.0 code IDE would also suggest to annotate the anonymous function with 'static' modifier
+            to make use of the similar analysis provided by the language/compiler.
             </remarks>
         </member>
         <member name="T:JetBrains.Annotations.ProvidesContextAttribute">
@@ -759,6 +787,36 @@
             </summary>
             <remarks>
             This attribute must be applied to DependencyProperty's CLR accessor property if it is present, to DependencyProperty descriptor field otherwise.
+            </remarks>
+        </member>
+        <member name="T:JetBrains.Annotations.RouteTemplateAttribute">
+            <summary>
+            Indicates that the marked parameter, field, or property is a route template.
+            </summary>
+            <remarks>
+            This attribute allows IDE to recognize the use of web frameworks' route templates
+            to enable syntax highlighting, code completion, navigation, rename and other features in string literals.
+            </remarks>
+        </member>
+        <member name="T:JetBrains.Annotations.RouteParameterConstraintAttribute">
+            <summary>
+            Indicates that the marked type is custom route parameter constraint,
+            which is registered in application's Startup with name <c>ConstraintName</c>
+            </summary>
+            <remarks>
+            You can specify <c>ProposedType</c> if target constraint matches only route parameters of specific type,
+            it will allow IDE to create method's parameter from usage in route template
+            with specified type instead of default <c>System.String</c>
+            and check if constraint's proposed type conflicts with matched parameter's type
+            </remarks>
+        </member>
+        <member name="T:JetBrains.Annotations.UriStringAttribute">
+            <summary>
+            Indicates that the marked parameter, field, or property is an URI string.
+            </summary>
+            <remarks>
+            This attribute enables code completion, navigation, rename and other features
+            in URI string literals assigned to annotated parameter, field or property.
             </remarks>
         </member>
     </members>

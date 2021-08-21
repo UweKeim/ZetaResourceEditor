@@ -1,5 +1,6 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Language
 {
+    using DevExpress.XtraSpellChecker;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
@@ -7,7 +8,6 @@
     using System.Reflection;
     using System.Threading;
     using System.Windows.Forms;
-    using DevExpress.XtraSpellChecker;
     using Zeta.VoyagerLibrary.Logging;
     using ZetaLongPaths;
 
@@ -220,10 +220,6 @@
             }
         }
 
-        #region Public methods.
-
-        // ------------------------------------------------------------------
-
         /// <summary>
         /// Gets the name of the supported UI culture from two letter windows 
         /// language.
@@ -279,7 +275,7 @@
             CultureInfo[] cultureInfos,
             CultureInfo cultureInfoToMatch)
         {
-            if (cultureInfos == null || cultureInfos.Length <= 0)
+            if (cultureInfos is not { Length: > 0 })
             {
                 return null;
             }
@@ -321,14 +317,6 @@
             // Fallback.
             return SupportedUICultures[0].ThreeLetterWindowsLanguageName;
         }
-
-        // ------------------------------------------------------------------
-
-        #endregion
-
-        #region Private methods.
-
-        // ------------------------------------------------------------------
 
         private static CultureInfo
             doGetCultureFromTwoLetterWindowsLanguageName(
@@ -385,14 +373,6 @@
             }
         }
 
-        // ------------------------------------------------------------------
-
-        #endregion
-
-        #region Public properties.
-
-        // ------------------------------------------------------------------
-
         /// <summary>
         /// Returns the UI cultures that are supported by Zeta Resource Editor.
         /// (I.e. dialogs, menus, messages, etc).
@@ -404,18 +384,13 @@
                 var result =
                     new List<CultureInfo>
                     {
-                        new(@"en-US"),
-                        new(@"de-DE")
+                        new(@"en-US")
                         // Add more as they become available.
                     };
 
                 return result.ToArray();
             }
         }
-
-        // ------------------------------------------------------------------
-
-        #endregion
 
         public static CultureInfo CreateCultureErrorTolerant(string languageCode)
         {

@@ -273,7 +273,7 @@ namespace ZetaResourceEditor.UI.Helper.Progress
 				BackgroundWorker.CancelAsync();
 			}
 
-			if ( cancelGuardTimer != null && !cancelGuardTimer.Enabled )
+			if ( cancelGuardTimer is { Enabled: false } )
 			{
 				cancelGuardTimer.Start();
 			}
@@ -287,47 +287,38 @@ namespace ZetaResourceEditor.UI.Helper.Progress
 		private void ProgressForm_FormClosing(
 			object sender,
 			FormClosingEventArgs e )
-		{
-			if ( BackgroundWorker.IsBusy && !IsCancelable )
-			{
-				e.Cancel = true;
-				DialogResult = DialogResult.None;
-			}
-			else
-			{
-				if ( BackgroundWorker.IsBusy &&
-					BackgroundWorker.WorkerSupportsCancellation )
-				{
-					StopBusyBar();
+        {
+            switch (BackgroundWorker.IsBusy)
+            {
+                case true when !IsCancelable:
+                    e.Cancel = true;
+                    DialogResult = DialogResult.None;
+                    break;
+                case true when BackgroundWorker.WorkerSupportsCancellation:
+                    StopBusyBar();
 
-					BackgroundWorker.CancelAsync();
+                    BackgroundWorker.CancelAsync();
 
-					// Wait until finished.
-					e.Cancel = false;
-					DialogResult = DialogResult.Cancel;
-				}
-				else if ( BackgroundWorker.IsBusy )
-				{
-					// Already successlessly tried to cancel.
-					if ( cancelGuardTimer == null )
-					{
-						// Yes, really close.
-						e.Cancel = false;
-						DialogResult = DialogResult.Cancel;
-					}
-					else
-					{
-						e.Cancel = true;
-						DialogResult = DialogResult.None;
-					}
-				}
-				else
-				{
-					e.Cancel = false;
-					DialogResult = DialogResult.Cancel;
-				}
-			}
-		}
+                    // Wait until finished.
+                    e.Cancel = false;
+                    DialogResult = DialogResult.Cancel;
+                    break;
+                // Already successlessly tried to cancel.
+                case true when cancelGuardTimer == null:
+                    // Yes, really close.
+                    e.Cancel = false;
+                    DialogResult = DialogResult.Cancel;
+                    break;
+                case true:
+                    e.Cancel = true;
+                    DialogResult = DialogResult.None;
+                    break;
+                default:
+                    e.Cancel = false;
+                    DialogResult = DialogResult.Cancel;
+                    break;
+            }
+        }
 
 		/// <summary>
 		/// Handles the Shown event of the BackgroundWorkerProgressForm control.

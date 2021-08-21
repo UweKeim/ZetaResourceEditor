@@ -61,7 +61,7 @@
             string[] texts,
             string[] wordsToRemove)
         {
-            if (texts == null || texts.Length <= 0 || wordsToRemove == null || wordsToRemove.Length <= 0)
+            if (texts is not { Length: > 0 } || wordsToRemove is not { Length: > 0 })
             {
                 return texts;
             }
@@ -75,7 +75,7 @@
             string text,
             string[] wordsToRemove)
         {
-            if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToRemove == null || wordsToRemove.Length <= 0)
+            if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToRemove is not { Length: > 0 })
             {
                 return text;
             }
@@ -267,8 +267,10 @@
         public static UnprotectionInfo UnprotectWords(
             ProtectionResult input)
         {
-            if (string.IsNullOrWhiteSpace(input?.ProtectedText) || input.UnprotectedToProtectedMapping == null ||
-                input.UnprotectedToProtectedMapping.Count <= 0)
+            if (string.IsNullOrWhiteSpace(input?.ProtectedText) || input.UnprotectedToProtectedMapping is not
+            {
+                Count: > 0
+            })
             {
                 return new UnprotectionInfo
                 {

@@ -75,23 +75,9 @@
 			char ch,
 			ICollection<char> additionalValidChars = null)
 		{
-			if (!(ch >= 'a' && ch <= 'z' ||
-				ch >= 'A' && ch <= 'Z' ||
-				ch >= '0' && ch <= '9' ||
-				ch == '$' ||
-				ch == '-' ||
-				ch == '_' ||
-				ch == '.' ||
-				ch == '+' ||
-				ch == '!' ||
-				ch == '\'' ||
-				ch == '(' ||
-				ch == ')' ||
-				ch == '{' ||
-				ch == '}' ||
-				ch == ','))
+			if (!(ch is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or >= '0' and <= '9' or '$' or '-' or '_' or '.' or '+' or '!' or '\'' or '(' or ')' or '{' or '}' or ','))
             {
-                return additionalValidChars != null && additionalValidChars.Count > 0 && additionalValidChars.Contains(ch);
+                return additionalValidChars is { Count: > 0 } && additionalValidChars.Contains(ch);
             }
 			else
 			{

@@ -238,7 +238,7 @@ namespace ZetaResourceEditor.UI.Translation
             if (engineComboBoxIndex >= 0 && engineComboBoxIndex < engineComboBox.Properties.Items.Count)
             {
                 var dic = _localDic;
-                if (dic != null && dic.Count > 0)
+                if (dic is { Count: > 0 })
                 {
                     var eh = (EngineHelper)engineComboBox.Properties.Items[engineComboBoxIndex];
 

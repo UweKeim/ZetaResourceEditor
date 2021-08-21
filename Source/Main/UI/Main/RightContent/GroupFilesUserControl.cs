@@ -87,11 +87,9 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             }
         }
 
-        public bool CanClose => CurrentFileGroupControl != null &&
-                                CurrentFileGroupControl.CanClose;
+        public bool CanClose => CurrentFileGroupControl is { CanClose: true };
 
-        public bool CanResetLayout => CurrentFileGroupControl != null &&
-                                      CurrentFileGroupControl.CanResetLayout;
+        public bool CanResetLayout => CurrentFileGroupControl is { CanResetLayout: true };
 
         public bool CanCloseAllDocuments => mainTabControl.Visible && mainTabControl.TabPages.Count > 0;
 
@@ -485,8 +483,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         private bool canCloseAllButThis => mainTabControl.SelectedTabPage != null &&
                                            mainTabControl.TabPages.Count > 1;
 
-        public bool CanSave => CurrentFileGroupControl != null &&
-                               CurrentFileGroupControl.CanSave;
+        public bool CanSave => CurrentFileGroupControl is { CanSave: true };
 
         #region Event handler.
         // ------------------------------------------------------------------
@@ -567,8 +564,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                 var pt = mainTabControl.PointToClient(MousePosition);
                 var hi = mainTabControl.CalcHitInfo(pt);
 
-                if (hi.HitTest == XtraTabHitTest.PageHeader ||
-                    hi.HitTest == XtraTabHitTest.PageHeaderButtons)
+                if (hi.HitTest is XtraTabHitTest.PageHeader or XtraTabHitTest.PageHeaderButtons)
                 {
                     mainTabControl.SelectedTabPage = hi.Page;
                 }

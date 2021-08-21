@@ -67,7 +67,7 @@
 
 		private void removeDeadEntries()
 		{
-			_eventEntries.RemoveAll( ee => ee.TargetReference != null && !ee.TargetReference.IsAlive );
+			_eventEntries.RemoveAll( ee => ee.TargetReference is { IsAlive: false } );
 		}
 
 		public void Remove( T eh )

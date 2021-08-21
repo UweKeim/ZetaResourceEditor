@@ -641,7 +641,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                         var parentFolderPath = folderPath.Parent;
                         if (parentFolderPath == null)
                         {
-                            return project == null || !project.DisplayFileGroupWithoutFolder
+                            return project is not { DisplayFileGroupWithoutFolder: true }
                                 ? _name
                                 : ZlpPathHelper.GetFileNameFromFilePath(_name);
                         }
@@ -650,7 +650,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                             //CHANGED: append fileName, otherwise name is not complete.
                             var pathToMakeRelative = ZlpPathHelper.Combine(parentFolderPath.FullName, filePath.Name);
                             return
-                                project == null || !project.DisplayFileGroupWithoutFolder
+                                project is not { DisplayFileGroupWithoutFolder: true }
                                     ? shortenFilePath(
                                         ZlpPathHelper.GetRelativePath(
                                             project == null
@@ -673,14 +673,14 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                         var result = name.Substring(0, name.Length - ext.Length);
 
                         return
-                            project == null || !project.DisplayFileGroupWithoutFolder
+                            project is not { DisplayFileGroupWithoutFolder: true }
                                 ? shortenFilePath(result)
                                 : filePath.Name;
                     }
                     else
                     {
                         return
-                            project == null || !project.DisplayFileGroupWithoutFolder
+                            project is not { DisplayFileGroupWithoutFolder: true }
                                 ? shortenFilePath(
                                     ZlpPathHelper.GetRelativePath(
                                         project == null
@@ -692,7 +692,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
                 }
                 else
                 {
-                    return project == null || !project.DisplayFileGroupWithoutFolder
+                    return project is not { DisplayFileGroupWithoutFolder: true }
                         ? _name
                         : ZlpPathHelper.GetFileNameFromFilePath(_name);
                 }
@@ -783,7 +783,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         public static string JoinFilePaths(
             params string[] paths)
         {
-            if (paths == null || paths.Length <= 0)
+            if (paths is not { Length: > 0 })
             {
                 return string.Empty;
             }
@@ -1409,7 +1409,7 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups
         public CsProjectWithFileResult GetConnectedCsProject()
         {
             CsProjectWithFileResult csProjResult = null;
-            if (FilePaths != null && FilePaths.Length >= 2)
+            if (FilePaths is { Length: >= 2 })
             {
                 var notDefaultLanguageVersion = FilePaths
                     .Select(t => new

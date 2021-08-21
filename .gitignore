@@ -5,16 +5,26 @@
 .svn/
 .vs/
 Deploy/
+Logs/
 Etc/
 Bin-LicenseGenerator/
 Bin-Skinning/
 Source/UpdateChecker/App_Data/ZetaResourceEditor.exe
 Source/packages/
+Source/References/Externals/
 Source-Skinning/packages/
 
 convert-to-latest-devexpress-version.cmd
 convert-to-latest-devexpress-version.cs
 convert-to-latest-devexpress-version.log
+
+replace-newest-nuget-exe.cmd
+replace-newest-nuget-exe.cs
+replace-newest-nuget-exe.log
+
+update-all-nuget-packages.cmd
+update-all-nuget-packages.cs
+update-all-nuget-packages.log
 
 /Bin/
 
@@ -38,6 +48,7 @@ Source/Web/Bin/de/*.dll
 *.suo
 *.user
 *.sln.docstates
+*.afxbuildkey
 
 # Build results
 

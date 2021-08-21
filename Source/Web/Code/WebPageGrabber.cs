@@ -207,7 +207,7 @@ namespace Web.Code
         private static string detectEncodingName(
             byte[] content )
         {
-            if ( content == null || content.Length <= 0 )
+            if ( content is not { Length: > 0 } )
             {
                 return null;
             }
@@ -369,7 +369,7 @@ namespace Web.Code
             {
                 var linkUrls = extractStyleUrls( attributeValue );
 
-                if ( linkUrls != null && linkUrls.Length > 0 )
+                if ( linkUrls is { Length: > 0 } )
                 {
                     foreach ( var linkUrl in linkUrls )
                     {
@@ -409,7 +409,7 @@ namespace Web.Code
                     foreach ( Match match in matchs )
 // ReSharper restore LoopCanBeConvertedToQuery
                     {
-                        if ( match != null && match.Success )
+                        if ( match is { Success: true } )
                         {
                             result.Add( match.Groups[1].Value );
                         }

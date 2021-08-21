@@ -400,51 +400,57 @@ namespace ZetaResourceEditor.UI.FileGroups
 
                 // --
 
-                if (created <= 0)
+                switch (created)
                 {
-                    XtraMessageBox.Show(
-                        this,
-                        Resources.SR_CreateNewFilesForm_Finished01,
-                        @"Zeta Resource Editor",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+                    case <= 0:
+                        XtraMessageBox.Show(
+                            this,
+                            Resources.SR_CreateNewFilesForm_Finished01,
+                            @"Zeta Resource Editor",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
 
-                    UpdateUI();
-                }
-                else if (created > 0 && skipped > 0)
-                {
-                    XtraMessageBox.Show(
-                        this,
-                        string.Format(
-                            Resources.SR_CreateNewFilesForm_Finished02,
-                            created,
-                            skipped),
-                        @"Zeta Resource Editor",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                }
-                else if (notadded > 0)
-                {
-                    XtraMessageBox.Show(
-                        this,
-                        string.Format(
-                            Resources.SR_CreateNewFilesForm_Finished04,
-                            created,
-                            notadded),
-                        @"Zeta Resource Editor",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                }
-                else
-                {
-                    XtraMessageBox.Show(
-                        this,
-                        string.Format(
-                            Resources.SR_CreateNewFilesForm_Finished03,
-                            created),
-                        @"Zeta Resource Editor",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                        UpdateUI();
+                        break;
+                    case > 0 when skipped > 0:
+                        XtraMessageBox.Show(
+                            this,
+                            string.Format(
+                                Resources.SR_CreateNewFilesForm_Finished02,
+                                created,
+                                skipped),
+                            @"Zeta Resource Editor",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        break;
+                    default:
+                    {
+                        if (notadded > 0)
+                        {
+                            XtraMessageBox.Show(
+                                this,
+                                string.Format(
+                                    Resources.SR_CreateNewFilesForm_Finished04,
+                                    created,
+                                    notadded),
+                                @"Zeta Resource Editor",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show(
+                                this,
+                                string.Format(
+                                    Resources.SR_CreateNewFilesForm_Finished03,
+                                    created),
+                                @"Zeta Resource Editor",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                        }
+
+                        break;
+                    }
                 }
             }
         }

@@ -235,11 +235,9 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                 var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
 
                 var createBackups =
-                    project != null &&
-                    project.CreateBackupFiles;
+                    project is { CreateBackupFiles: true };
                 var omitEmptyStrings =
-                    project != null &&
-                    project.OmitEmptyItems;
+                    project is { OmitEmptyItems: true };
 
                 using (new WaitCursor(this))
                 {
@@ -446,7 +444,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
             // --
 
-            if (filter != null && filter.HasLanguageToDisplayFilter)
+            if (filter is { HasLanguageToDisplayFilter: true })
             {
                 // http://www.devexpress.com/Support/Center/p/Q93654.aspx
 
@@ -594,7 +592,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 
             var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
 
-            if (project != null && project.UseSpellChecker)
+            if (project is { UseSpellChecker: true })
             {
                 var culture =
                     new LanguageCodeDetection(project).DetectCultureFromFileName(
@@ -849,8 +847,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         public bool CanAddTag => _data != null &&
                                  // Only allow to add when file group because otherwise
                                  // it cannot be determined for which file group to add.
-                                 GridEditableData != null &&
-                                 GridEditableData.SourceType == GridSourceType.FileGroup;
+                                 GridEditableData is { SourceType: GridSourceType.FileGroup };
 
         public bool CanDeleteTag => _data != null && hasSelectedRow;
 
@@ -903,7 +900,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                 if (_layoutSerializer == null)
                 {
                     var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
-                    if (project != null && project.PersistGridSettings)
+                    if (project is { PersistGridSettings: true })
                     {
                         _layoutSerializer =
                             new AllLayoutSerializer(
@@ -1225,27 +1222,25 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                         var value =
                             ConvertHelper.ToString(e.CellValue);
 
-                        if (!string.IsNullOrEmpty(value) &&
-                            value.StartsWith(FileGroup.DefaultTranslatedPrefix))
+                        switch (string.IsNullOrEmpty(value))
                         {
-                            e.Appearance.ForeColor =
-                                isRowSelected
-                                    ? currentSkin.TranslateColor(SystemColors.HighlightText)
-                                    : currentSkin.TranslateColor(GridColors.TranslationSuccessForeColor);
-                            e.Appearance.Font = boldFont;
-                        }
-                        else if (!string.IsNullOrEmpty(value) &&
-                                 value.StartsWith(FileGroup.DefaultTranslationErrorPrefix))
-                        {
-                            e.Appearance.ForeColor =
-                                isRowSelected
-                                    ? currentSkin.TranslateColor(SystemColors.HighlightText)
-                                    : currentSkin.TranslateColor(GridColors.TranslationErrorForeColor);
-                            e.Appearance.Font = boldFont;
-                        }
-                        else
-                        {
-                            e.Appearance.Font = regularFont;
+                            case false when value.StartsWith(FileGroup.DefaultTranslatedPrefix):
+                                e.Appearance.ForeColor =
+                                    isRowSelected
+                                        ? currentSkin.TranslateColor(SystemColors.HighlightText)
+                                        : currentSkin.TranslateColor(GridColors.TranslationSuccessForeColor);
+                                e.Appearance.Font = boldFont;
+                                break;
+                            case false when value.StartsWith(FileGroup.DefaultTranslationErrorPrefix):
+                                e.Appearance.ForeColor =
+                                    isRowSelected
+                                        ? currentSkin.TranslateColor(SystemColors.HighlightText)
+                                        : currentSkin.TranslateColor(GridColors.TranslationErrorForeColor);
+                                e.Appearance.Font = boldFont;
+                                break;
+                            default:
+                                e.Appearance.Font = regularFont;
+                                break;
                         }
                     }
 
@@ -1292,7 +1287,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             get
             {
                 var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
-                return project != null && project.ColorifyNullCells;
+                return project is { ColorifyNullCells: true };
             }
         }
 
@@ -1921,7 +1916,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
         {
             var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
 
-            if (project != null && project.UseSpellChecker)
+            if (project is { UseSpellChecker: true })
             {
                 var name = mainGridView.FocusedColumn.Caption;
                 var culture = new LanguageCodeDetection(project).DetectCultureFromFileName(
@@ -1953,7 +1948,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             {
                 var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
 
-                if (project != null && project.HideEmptyRows)
+                if (project is { HideEmptyRows: true })
                 {
                     var row =
                         (DataRowView)
@@ -1971,7 +1966,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                     }
                 }
 
-                if (project != null && project.HideTranslatedRows)
+                if (project is { HideTranslatedRows: true })
                 {
                     var row = (DataRowView)mainGridView.GetRow(e.ListSourceRow);
 
@@ -1987,7 +1982,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
                     }
                 }
 
-                if (project != null && project.HideInternalDesignerRows)
+                if (project is { HideInternalDesignerRows: true })
                 {
                     var row =
                         (DataRowView)

@@ -30,7 +30,7 @@ namespace ZetaResourceEditor.Code
             */
 
             // Diese Zeile hier für eine Windows-/Konsolen-Anwendung.
-            var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location??string.Empty);
+            var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location);
 
             if (dir != null)
             {
@@ -40,9 +40,9 @@ namespace ZetaResourceEditor.Code
                 // sie keine managed assemblies sind.
                 var ignores = new[]
                 {
-                    @"assembly-1-to-ignore.dll",
-                    @"assembly-2-to-ignore.dll"
-                };
+                @"assembly-1-to-ignore.dll",
+                @"assembly-2-to-ignore.dll"
+            };
 
                 var assemblyNames = Directory.GetFiles(dir, @"*.dll");
 
@@ -113,8 +113,10 @@ namespace ZetaResourceEditor.Code
             // Hier mache ich quasi mein eigenes, automatisches, Binding-Redirect.
             // (Z. B. Newtonsoft.Json 6.0.0.0 nach 9.0.0.0).
 
-            var index = e.Name.IndexOf(',');
-            var name = index < 0 ? e.Name : e.Name.Substring(0, index);
+            var i = e.Name.IndexOf(',');
+            if (i < 0) return null;
+
+            var name = e.Name.Substring(0, i);
 
             var success = _additional.TryGetValue(name, out var res);
 

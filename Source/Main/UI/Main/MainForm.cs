@@ -595,18 +595,14 @@ namespace ZetaResourceEditor.UI.Main
             buttonCloseResourceFiles.Enabled =
                 GroupFilesControl.CanClose;
             buttonAddNewTag.Enabled =
-                GroupFilesControl.CurrentFileGroupControl != null &&
-                GroupFilesControl.CurrentFileGroupControl.CanAddTag;
+                GroupFilesControl.CurrentFileGroupControl is { CanAddTag: true };
             buttonDeleteTag.Enabled =
-                GroupFilesControl.CurrentFileGroupControl != null &&
-                GroupFilesControl.CurrentFileGroupControl.CanDeleteTag;
+                GroupFilesControl.CurrentFileGroupControl is { CanDeleteTag: true };
             buttonRenameTag.Enabled =
-                GroupFilesControl.CurrentFileGroupControl != null &&
-                GroupFilesControl.CurrentFileGroupControl.CanRenameTag;
+                GroupFilesControl.CurrentFileGroupControl is { CanRenameTag: true };
 
             buttonTranslateMissingLanguages.Enabled =
-                GroupFilesControl.CurrentFileGroupControl != null &&
-                GroupFilesControl.CurrentFileGroupControl.CanAutoTranslateMissingTranslations;
+                GroupFilesControl.CurrentFileGroupControl is { CanAutoTranslateMissingTranslations: true };
 
             buttonCloseAllDocuments.Enabled =
                 GroupFilesControl.CanCloseAllDocuments;
@@ -617,47 +613,45 @@ namespace ZetaResourceEditor.UI.Main
             buttonOpenProjectFile.Enabled =
                 ProjectFilesControl != null && ProjectFilesUserControl.CanOpenProjectFile;
             buttonSaveProjectFile.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanSaveProjectFile;
+                ProjectFilesControl is { CanSaveProjectFile: true };
             buttonCloseProject.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanCloseProjectFile;
+                ProjectFilesControl is { CanCloseProjectFile: true };
             buttonAddFilesToFileGroup.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanAddFilesToFileGroup;
+                ProjectFilesControl is { CanAddFilesToFileGroup: true };
             buttonRemoveFileFromGroup.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanRemoveFileFromFileGroup;
+                ProjectFilesControl is { CanRemoveFileFromFileGroup: true };
             buttonCreateNewFile.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanCreateNewFile;
+                ProjectFilesControl is { CanCreateNewFile: true };
             buttonCreateNewFiles.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanCreateNewFiles;
+                ProjectFilesControl is { CanCreateNewFiles: true };
 
             buttonEditFileGroupSettings.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanEditFileGroupSettings;
+                ProjectFilesControl is { CanEditFileGroupSettings: true };
 
             buttonCreateNewProject.Enabled =
                 ProjectFilesControl != null && ProjectFilesUserControl.CanCreateNewProject;
             buttonAddFileGroupToProject.Enabled =
                 buttonAutomaticallyAddFileGroupsToProject.Enabled =
                     buttonAddFromVisualStudio.Enabled =
-                        ProjectFilesControl != null && ProjectFilesControl.CanAddResourceFilesToProject;
+                        ProjectFilesControl is { CanAddResourceFilesToProject: true };
             buttonRemoveFileGroupFromProject.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanRemoveResourceFilesFromProject;
+                ProjectFilesControl is { CanRemoveResourceFilesFromProject: true };
             buttonEditProjectSettings.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanEditProjectSettings;
+                ProjectFilesControl is { CanEditProjectSettings: true };
 
             buttonFind.Enabled =
                 buttonReplace.Enabled =
-                    GroupFilesControl.CurrentFileGroupControl != null &&
-                    GroupFilesControl.CurrentFileGroupControl.CanFind;
+                    GroupFilesControl.CurrentFileGroupControl is { CanFind: true };
             buttonFindNext.Enabled =
-                GroupFilesControl.CurrentFileGroupControl != null &&
-                GroupFilesControl.CurrentFileGroupControl.CanFindNext;
+                GroupFilesControl.CurrentFileGroupControl is { CanFindNext: true };
 
             buttonRefresh.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanRefresh;
+                ProjectFilesControl is { CanRefresh: true };
 
             buttonMoveUp.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanMoveUp;
+                ProjectFilesControl is { CanMoveUp: true };
             buttonMoveDown.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanMoveDown;
+                ProjectFilesControl is { CanMoveDown: true };
 
             if (mainFormMainSplitContainer.PanelVisibility ==
                 SplitPanelVisibility.Both)
@@ -674,10 +668,10 @@ namespace ZetaResourceEditor.UI.Main
             }
 
             resetLayoutButton.Enabled =
-                GroupFilesControl != null && GroupFilesControl.CanResetLayout;
+                GroupFilesControl is { CanResetLayout: true };
 
             buttonConfigureLanguageColumns.Enabled =
-                ProjectFilesControl != null && ProjectFilesControl.CanConfigureLanguageColumns;
+                ProjectFilesControl is { CanConfigureLanguageColumns: true };
         }
 
         private void mainForm_Load(
@@ -732,15 +726,12 @@ namespace ZetaResourceEditor.UI.Main
                 MessageBoxButtons.YesNoCancel,
                 MessageBoxIcon.Question);
 
-            switch (dr)
+            return dr switch
             {
-                case DialogResult.Yes:
-                    return AskOverwriteResult.Overwrite;
-                case DialogResult.No:
-                    return AskOverwriteResult.Skip;
-                default:
-                    return AskOverwriteResult.Fail;
-            }
+                DialogResult.Yes => AskOverwriteResult.Overwrite,
+                DialogResult.No => AskOverwriteResult.Skip,
+                _ => AskOverwriteResult.Fail
+            };
         }
 
         /// <summary>
@@ -1077,7 +1068,7 @@ namespace ZetaResourceEditor.UI.Main
                 var files = (string[])e.Data.GetData(
                     DataFormats.FileDrop);
 
-                if (files != null && files.Length > 0)
+                if (files is { Length: > 0 })
                 {
                     foreach (var file in files)
                     {
@@ -1101,7 +1092,7 @@ namespace ZetaResourceEditor.UI.Main
             {
                 var files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
-                if (files != null && files.Length > 0)
+                if (files is { Length: > 0 })
                 {
                     foreach (var file in files)
                     {

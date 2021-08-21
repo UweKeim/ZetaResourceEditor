@@ -35,14 +35,12 @@
 				_lastNodeUpdateDate = DateTime.Now;
 
 				// Reset a possibly removed node.
-				if ( _nextUpdateNodeToProcess != null &&
-					_nextUpdateNodeToProcess.TreeList == null )
+				if ( _nextUpdateNodeToProcess is { TreeList: null } )
 				{
 					_nextUpdateNodeToProcess = null;
 				}
 				// Reset a possibly removed node.
-				if ( _lastUpdateRootNode != null &&
-					_lastUpdateRootNode.TreeList == null )
+				if ( _lastUpdateRootNode is { TreeList: null } )
 				{
 					_lastUpdateRootNode = null;
 				}

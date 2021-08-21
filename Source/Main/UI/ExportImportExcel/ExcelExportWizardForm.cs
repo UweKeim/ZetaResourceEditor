@@ -105,7 +105,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             foreach (var group in _groups)
             {
                 if (!group.IgnoreDuringExportAndImport &&
-                    (group.ParentSettings == null || !group.ParentSettings.EffectiveIgnoreDuringExportAndImport))
+                    @group.ParentSettings is not { EffectiveIgnoreDuringExportAndImport: true })
                 {
                     var index = fileGroupsListBox.Items.Add(
                         new MyTuple<string, FileGroup>(
@@ -682,9 +682,9 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             object sender,
             ProgressChangedEventArgs e)
         {
-            if (!(e.UserState is ExcelProgressInformation s))
+            if (e.UserState is not ExcelProgressInformation s)
             {
-                if (!(e.UserState is string t))
+                if (e.UserState is not string t)
                 {
                     progressLabel.Visible = false;
                     progressLabel.Text = string.Empty;

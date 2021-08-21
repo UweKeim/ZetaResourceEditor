@@ -36,7 +36,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
         private static string getEffectiveErrorMessage(Exception e)
         {
             var y = e;
-            while ((y is TargetInvocationException || y is ZlpSimpleFileAccessProtectorException) &&
+            while (y is TargetInvocationException or ZlpSimpleFileAccessProtectorException &&
                    y.InnerException != null)
             {
                 y = y.InnerException;
@@ -49,7 +49,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             y = y.InnerException;
             while (y != null)
             {
-                if (!(y is TargetInvocationException) && !(y is ZlpSimpleFileAccessProtectorException))
+                if (y is not TargetInvocationException && y is not ZlpSimpleFileAccessProtectorException)
                 {
                     lines.Add(y.Message);
                 }

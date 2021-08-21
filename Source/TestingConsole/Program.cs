@@ -119,7 +119,7 @@
             request.ContentLength = postSourceData.Length;
             request.UserAgent = @"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)";
 
-            if (headers != null && headers.Count > 0)
+            if (headers is { Count: > 0 })
             {
                 foreach (var (item1, item2) in headers)
                 {

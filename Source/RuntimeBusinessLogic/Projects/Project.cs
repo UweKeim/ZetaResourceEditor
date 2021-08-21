@@ -1387,7 +1387,7 @@
             {
                 var raw = string.Empty;
 
-                if (value != null && value.Count > 0)
+                if (value is { Count: > 0 })
                 {
                     foreach (var key in value.Keys)
                     {

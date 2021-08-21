@@ -69,40 +69,23 @@
 			switch (_patternType)
 			{
 				case PatternType.SubString:
-					string check;
 
-					switch (_detectType)
-					{
-						case DetectType.UserAgent:
-							check = request.UserAgent;
-							break;
-						case DetectType.Url:
-							check = request.Url.OriginalString;
-							break;
+                    var check = _detectType switch
+                    {
+                        DetectType.UserAgent => request.UserAgent,
+                        DetectType.Url => request.Url.OriginalString,
+                        DetectType.UrlReferrer => request.UrlReferrer == null
+                            ? null
+                            : request.UrlReferrer.OriginalString,
+                        DetectType.UserHostAddress => request.UserHostAddress,
+                        DetectType.UserHostName => GetUserHostName(request.UserHostAddress),
+                        DetectType.UserLanguages => request.UserLanguages == null
+                            ? null
+                            : string.Join(@", ", request.UserLanguages),
+                        _ => throw new ArgumentOutOfRangeException(nameof(_detectType), @"Invalid detect type.")
+                    };
 
-						case DetectType.UrlReferrer:
-							check = request.UrlReferrer == null ? null : request.UrlReferrer.OriginalString;
-							break;
-
-						case DetectType.UserHostAddress:
-							check = request.UserHostAddress;
-							break;
-
-						case DetectType.UserHostName:
-							check = GetUserHostName(request.UserHostAddress);
-							break;
-
-						case DetectType.UserLanguages:
-							check = request.UserLanguages == null ? null : string.Join(@", ", request.UserLanguages);
-							break;
-
-						default:
-							throw new ArgumentOutOfRangeException(
-								nameof(_detectType),
-								@"Invalid detect type.");
-					}
-
-					if (string.IsNullOrEmpty(check))
+                    if (string.IsNullOrEmpty(check))
 					{
 						LogCentral.Current.LogInfo(
 						    $@"[404 notify e-mail ignore] NOT matching: pattern to check = '{_pattern}', against string '(NULL/empty)', of detect type '{_detectType}' with pattern type '{_patternType}'.");

@@ -28,7 +28,7 @@
             if (!requestFilePath.Contains(@"error.aspx"))
             {
                 var x = Server.GetLastError().GetBaseException();
-                if (!(x is ThreadAbortException))
+                if (x is not ThreadAbortException)
                 {
                     LogCentral.Current.LogError(@"Application_Error occurred", x);
 

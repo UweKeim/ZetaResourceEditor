@@ -59,7 +59,7 @@
         {
             var all = AllAvailableResourceFileAccessors;
 
-            if (all == null || all.Length <= 0)
+            if (all is not { Length: > 0 })
             {
                 return null;
             }
@@ -73,8 +73,7 @@
                     var supportedExtensions =
                         accessor.SupportedFileExtensions;
 
-                    if (supportedExtensions != null &&
-                        supportedExtensions.Length > 0)
+                    if (supportedExtensions is { Length: > 0 })
                     {
                         foreach (var supportedExtension in supportedExtensions)
                         {

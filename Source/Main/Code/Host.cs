@@ -25,9 +25,6 @@ namespace ZetaResourceEditor.Code
 
         private static ZlpDirectoryInfo _cacheForCurrentUserStorageBaseFolderPath;
 
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         private static void Main()
         {
@@ -88,7 +85,7 @@ namespace ZetaResourceEditor.Code
                 // http://stackoverflow.com/a/9180843/107625
 
                 var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location ?? string.Empty);
-                foreach (var assemblyName in Directory.GetFiles(dir, @"*.dll"))
+                foreach (var assemblyName in Directory.GetFiles(dir ?? string.Empty, @"*.dll"))
                 {
                     try
                     {
@@ -163,7 +160,6 @@ namespace ZetaResourceEditor.Code
 
         private static void test()
         {
-            //var s = Resources.SR_Test;
         }
 
         private static void currentDomainUnhandledException(
@@ -216,21 +212,18 @@ namespace ZetaResourceEditor.Code
                         LogCentral.Current.LogWarn(
                             @"PersistentPairStorageException occurred.", e);
 
-                        if (e.InnerException == null)
+                        switch (e.InnerException)
                         {
-                            handleException = true;
-                        }
-                        else
-                        {
-                            if (e.InnerException is UnauthorizedAccessException ||
-                                e.InnerException is IOException)
-                            {
-                                handleException = false;
-                            }
-                            else
-                            {
+                            case null:
                                 handleException = true;
-                            }
+                                break;
+                            case UnauthorizedAccessException:
+                            case IOException:
+                                handleException = false;
+                                break;
+                            default:
+                                handleException = true;
+                                break;
                         }
 
                         break;
@@ -250,8 +243,6 @@ namespace ZetaResourceEditor.Code
                 // Application.ThreadException would eat them anyway.
                 try
                 {
-                    // --
-
                     using var form = new ErrorForm();
                     form.Initialize(e);
                     var result = form.ShowDialog(Form.ActiveForm);
@@ -296,42 +287,8 @@ namespace ZetaResourceEditor.Code
             {
                 args.Result = CheckHandleExceptionResult.Ignore;
             }
-
-            /*
-			if ( e.Exception == null )
-			{
-				e.Cancel = false;
-			}
-			else
-			{
-				// 2009-06-22, Uwe Keim:
-				// http://zeta-producer.de/Pages/AdvancedForumIndex.aspx?DataID=9514
-				LogCentral.Current.LogWarn(
-					@"PersistentPairStorageException occurred.", e.Exception );
-
-				if ( e.Exception.InnerException == null )
-				{
-					e.Cancel = true;
-				}
-				else
-				{
-					if ( e.Exception.InnerException is UnauthorizedAccessException ||
-						e.Exception.InnerException is IOException )
-					{
-						e.Cancel = false;
-					}
-					else
-					{
-						e.Cancel = true;
-					}
-				}
-			}*/
         }
 
-        /// <summary>
-        /// Gets the current user storage base folder path.
-        /// </summary>
-        /// <value>The current user storage base folder path.</value>
         public static ZlpDirectoryInfo CurrentUserStorageBaseFolderPath
         {
             get

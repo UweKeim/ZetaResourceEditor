@@ -97,7 +97,7 @@ namespace ZetaResourceEditor.UI.Helper
 			var al = new List<Guid>();
 			foreach ( var node in TreeList.Selection )
 			{
-                al.Add(!(node.Tag is IUniqueID obj) ? Guid.Empty : obj.UniqueID);
+                al.Add(node.Tag is not IUniqueID obj ? Guid.Empty : obj.UniqueID);
 			}
 
 			// Sort ascending to never need to expand dynamic items.

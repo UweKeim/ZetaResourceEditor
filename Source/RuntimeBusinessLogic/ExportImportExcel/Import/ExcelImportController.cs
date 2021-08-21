@@ -73,7 +73,7 @@
                 if (group != null)
                 {
                     if (!group.IgnoreDuringExportAndImport &&
-                        (group.ParentSettings == null || !group.ParentSettings.EffectiveIgnoreDuringExportAndImport))
+                        @group.ParentSettings is not { EffectiveIgnoreDuringExportAndImport: true })
                     {
                         result.Add(group);
                     }
@@ -449,7 +449,7 @@
 
                                 // --
 
-                                if (destinationRows != null && destinationRows.Count > 0)
+                                if (destinationRows is { Count: > 0 })
                                 {
                                     foreach (var row in destinationRows)
                                     {

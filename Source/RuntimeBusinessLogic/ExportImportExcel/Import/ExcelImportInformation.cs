@@ -11,6 +11,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Import
         public string[] LanguageCodes { get; set; }
         public string SourceFilePath { get; set; }
 
-        public bool HasFileGroups => FileGroups != null && FileGroups.Length > 0;
+        public bool HasFileGroups => FileGroups is { Length: > 0 };
     }
 }

@@ -18,8 +18,7 @@
         private void Page_Load(object sender, EventArgs e)
         {
             var lc =
-                Request.UserLanguages != null &&
-                Request.UserLanguages.Length > 0
+                Request.UserLanguages is { Length: > 0 }
                     ? Request.UserLanguages[0]
                     : @"en";
 

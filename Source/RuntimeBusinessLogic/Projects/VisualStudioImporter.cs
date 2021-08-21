@@ -35,7 +35,7 @@
             {
                 throw new OperationCanceledException();
             }
-            else if (vsProjectPath != null && vsProjectPath.Exists)
+            else if (vsProjectPath is { Exists: true })
             {
                 if (@".sln" == vsProjectPath.Extension.ToLowerInvariant())
                 {
@@ -118,7 +118,7 @@
             {
                 throw new OperationCanceledException();
             }
-            else if (fileList != null && fileList.Count > 0)
+            else if (fileList is { Count: > 0 })
             {
                 var fileGroups = Project.FileGroups;
                 //if (parentProjectFolder != null)
@@ -220,7 +220,7 @@
             ref int fileCount,
             ZlpFileInfo vsSolutionPath)
         {
-            if (vsSolutionPath != null && vsSolutionPath.Exists)
+            if (vsSolutionPath is { Exists: true })
             {
                 string solutionText;
                 //using (var sr = vsSolutionPath.OpenText())
@@ -254,7 +254,7 @@
                     }
 
                     var g = m.Groups[@"projectType"];
-                    if (g == null || !g.Success)
+                    if (g is not { Success: true })
                     {
                         continue;
                     }

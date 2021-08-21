@@ -219,8 +219,7 @@ namespace ZetaResourceEditor.UI.Helper.Base
 
 				if ( c.Horizontal )
 				{
-					if ( c.FixedPanel == SplitFixedPanel.Panel1 ||
-						c.FixedPanel == SplitFixedPanel.None )
+					if ( c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None )
 					{
 						if ( realDistance > 0 )
 						{
@@ -241,8 +240,7 @@ namespace ZetaResourceEditor.UI.Helper.Base
 				}
 				else
 				{
-					if ( c.FixedPanel == SplitFixedPanel.Panel1 ||
-						c.FixedPanel == SplitFixedPanel.None )
+					if ( c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None )
 					{
 						if ( realDistance > 0 )
 						{
@@ -273,8 +271,7 @@ namespace ZetaResourceEditor.UI.Helper.Base
 
 			if (c.Horizontal)
 			{
-				if (c.FixedPanel == SplitFixedPanel.Panel1 ||
-				    c.FixedPanel == SplitFixedPanel.None)
+				if (c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None)
 				{
 					realDistance = c.SplitterPosition;
 				}
@@ -291,8 +288,7 @@ namespace ZetaResourceEditor.UI.Helper.Base
 			}
 			else
 			{
-				if (c.FixedPanel == SplitFixedPanel.Panel1 ||
-				    c.FixedPanel == SplitFixedPanel.None)
+				if (c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None)
 				{
 					realDistance = c.SplitterPosition;
 				}
