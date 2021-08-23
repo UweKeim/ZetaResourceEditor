@@ -449,16 +449,28 @@
             IEnumerable<TranslationLanguageInfo> availableLanguageInfos,
             CultureInfo cultureInfo)
         {
-            foreach (var translationLanguageInfo in availableLanguageInfos)
+            var all = availableLanguageInfos.ToList();
+
+            // 2021-08-23, Uwe Keim: Multiple passes.
+
+            foreach (var translationLanguageInfo in all)
             {
+                var ci = CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode);
+
                 if (
                     translationLanguageInfo.LanguageCode.EqualsNoCase(cultureInfo.TwoLetterISOLanguageName) ||
+                    ci.Name.EqualsNoCase(cultureInfo.Name) )
+                {
+                    return translationLanguageInfo.LanguageCode;
+                }
+            }
 
-                    CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name.EqualsNoCase(
-                        cultureInfo.Name) ||
+            foreach (var translationLanguageInfo in all)
+            {
+                var ci = CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode);
 
-                    CultureHelper.CreateCultureErrorTolerant(translationLanguageInfo.LanguageCode).Name
-                        .SubstringIntelligent(0, 2).EqualsNoCase(cultureInfo.Name.SubstringIntelligent(0, 2)))
+                if (
+                    ci.Name.SubstringIntelligent(0, 2).EqualsNoCase(cultureInfo.Name.SubstringIntelligent(0, 2)))
                 {
                     return translationLanguageInfo.LanguageCode;
                 }
