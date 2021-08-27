@@ -18,7 +18,7 @@ This is a small utility application that enables you to edit *string* resources 
 
 When translating the resources of a .NET application into other languages, the biggest and most difficult task for me was to translate string resources:
 
-The [recommended way](https://msdn2.microsoft.com/en-us/library/8bxdx003.aspx) (at least what I know) is to create one single .RESX file for every language you want the strings to be translated to. I.e. one "Resources.resx" for neutral/English, one "Resources.de.resx" for German, one "Resources.fr.resx" for French, etc.
+The [recommended way](https://docs.microsoft.com/en-us/dotnet/framework/tools/winres-exe-windows-forms-resource-editor) (at least what I know) is to create one single .RESX file for every language you want the strings to be translated to. I.e. one "Resources.resx" for neutral/English, one "Resources.de.resx" for German, one "Resources.fr.resx" for French, etc.
 
 Since I had to duplicate the resource keys into each RESX file, I often did not manage to keep the resource keys synchronal among all RESX files.
 
