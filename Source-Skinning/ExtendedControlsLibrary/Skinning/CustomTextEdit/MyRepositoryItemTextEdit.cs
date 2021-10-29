@@ -1,10 +1,9 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomTextEdit
-{
-    using DevExpress.XtraEditors.Repository;
+﻿namespace ExtendedControlsLibrary.Skinning.CustomTextEdit;
 
-    public class MyRepositoryItemTextEdit :
-        RepositoryItemTextEdit
-    {
-        // TODO: Font setzen.
-    }
+using DevExpress.XtraEditors.Repository;
+
+public class MyRepositoryItemTextEdit :
+    RepositoryItemTextEdit
+{
+    // TODO: Font setzen.
 }

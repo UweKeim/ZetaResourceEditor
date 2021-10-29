@@ -1,13 +1,12 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit
-{
-	public class MyBoldLargeColoredHyperLinkEdit :
-		AutoWidthHyperLinkEdit
-	{
-		protected override void OnCreateControl()
-		{
-			base.OnCreateControl();
+﻿namespace ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit;
 
-			ViewInfo.Appearance.Font = SkinHelper.LargeFontBold;
-		}
-	}
+public class MyBoldLargeColoredHyperLinkEdit :
+    AutoWidthHyperLinkEdit
+{
+    protected override void OnCreateControl()
+    {
+        base.OnCreateControl();
+
+        ViewInfo.Appearance.Font = SkinHelper.LargeFontBold;
+    }
 }

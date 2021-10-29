@@ -1,6 +1,5 @@
 ﻿namespace Test
 {
-    using System;
     using DevExpress.XtraWizard;
     using ExtendedControlsLibrary.General.Base;
 

@@ -1,10 +1,9 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomButtonEdit
-{
-    using DevExpress.XtraEditors.Repository;
+﻿namespace ExtendedControlsLibrary.Skinning.CustomButtonEdit;
 
-    public class MyRepositoryItemButtonEdit :
-        RepositoryItemButtonEdit
-    {
-        // TODO: Font setzen.
-    }
+using DevExpress.XtraEditors.Repository;
+
+public class MyRepositoryItemButtonEdit :
+    RepositoryItemButtonEdit
+{
+    // TODO: Font setzen.
 }

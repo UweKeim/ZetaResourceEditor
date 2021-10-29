@@ -1,15 +1,14 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomPanel
+﻿namespace ExtendedControlsLibrary.Skinning.CustomPanel;
+
+using DevExpress.XtraEditors;
+
+public class MyPanelControl :
+    PanelControl
 {
-    using DevExpress.XtraEditors;
+    protected override void OnCreateControl()
+    {
+        base.OnCreateControl();
 
-    public class MyPanelControl :
-		PanelControl
-	{
-		protected override void OnCreateControl()
-		{
-			base.OnCreateControl();
-
-			ViewInfo.Appearance.Font = SkinHelper.StandardFont;
-		}
-	}
+        ViewInfo.Appearance.Font = SkinHelper.StandardFont;
+    }
 }

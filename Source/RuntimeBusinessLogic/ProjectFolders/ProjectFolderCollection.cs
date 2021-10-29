@@ -1,77 +1,76 @@
-namespace ZetaResourceEditor.RuntimeBusinessLogic.ProjectFolders
+namespace ZetaResourceEditor.RuntimeBusinessLogic.ProjectFolders;
+
+#region Using directives.
+// ----------------------------------------------------------------------
+using System.Collections.Generic;
+using System.Xml;
+using Projects;
+
+// ----------------------------------------------------------------------
+#endregion
+
+/////////////////////////////////////////////////////////////////////////
+
+/// <summary>
+/// 
+/// </summary>
+public class ProjectFolderCollection :
+    List<ProjectFolder>
 {
-	#region Using directives.
-	// ----------------------------------------------------------------------
-	using System.Collections.Generic;
-	using System.Xml;
-	using Projects;
+    public ProjectFolderCollection(
+        Project project )
+    {
+        Project = project;
+    }
 
-	// ----------------------------------------------------------------------
-	#endregion
+    public Project Project { get; }
 
-	/////////////////////////////////////////////////////////////////////////
+    internal void StoreToXml(
+        XmlElement parentNode )
+    {
+        if (parentNode.OwnerDocument != null)
+        {
+            var groupsNode =
+                parentNode.OwnerDocument.CreateElement( @"projectFolders" );
+            parentNode.AppendChild( groupsNode );
 
-	/// <summary>
-	/// 
-	/// </summary>
-	public class ProjectFolderCollection :
-		List<ProjectFolder>
-	{
-	    public ProjectFolderCollection(
-			Project project )
-		{
-			Project = project;
-		}
+            foreach ( var projectFolder in this )
+            {
+                if (parentNode.OwnerDocument != null)
+                {
+                    var projectFolderNode =
+                        parentNode.OwnerDocument.CreateElement( @"projectFolder" );
+                    groupsNode.AppendChild( projectFolderNode );
 
-		public Project Project { get; }
+                    projectFolder.StoreToXml( projectFolderNode );
+                }
+            }
+        }
+    }
 
-	    internal void StoreToXml(
-			XmlElement parentNode )
-		{
-			if (parentNode.OwnerDocument != null)
-			{
-				var groupsNode =
-					parentNode.OwnerDocument.CreateElement( @"projectFolders" );
-				parentNode.AppendChild( groupsNode );
+    internal void LoadFromXml(
+        XmlNode parentNode )
+    {
+        Clear();
 
-				foreach ( var projectFolder in this )
-				{
-					if (parentNode.OwnerDocument != null)
-					{
-						var projectFolderNode =
-							parentNode.OwnerDocument.CreateElement( @"projectFolder" );
-						groupsNode.AppendChild( projectFolderNode );
+        var projectFolderNodes =
+            parentNode.SelectNodes( @"projectFolders/projectFolder" );
 
-						projectFolder.StoreToXml( projectFolderNode );
-					}
-				}
-			}
-		}
+        if ( projectFolderNodes != null )
+        {
+            foreach ( XmlNode projectFolderNode in projectFolderNodes )
+            {
+                var projectFolder = new ProjectFolder( Project );
+                projectFolder.LoadFromXml( projectFolderNode );
 
-		internal void LoadFromXml(
-			XmlNode parentNode )
-		{
-			Clear();
+                Add(projectFolder);
+            }
+        }
 
-			var projectFolderNodes =
-				parentNode.SelectNodes( @"projectFolders/projectFolder" );
+        // --
 
-			if ( projectFolderNodes != null )
-			{
-				foreach ( XmlNode projectFolderNode in projectFolderNodes )
-				{
-					var projectFolder = new ProjectFolder( Project );
-					projectFolder.LoadFromXml( projectFolderNode );
-
-					Add(projectFolder);
-				}
-			}
-
-			// --
-
-			Sort();
-		}
-	}
-
-	/////////////////////////////////////////////////////////////////////////
+        Sort();
+    }
 }
+
+/////////////////////////////////////////////////////////////////////////

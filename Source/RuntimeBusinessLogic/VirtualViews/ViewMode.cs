@@ -1,12 +1,11 @@
-﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.VirtualViews
+﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.VirtualViews;
+
+using System.ComponentModel;
+
+public enum ViewMode
 {
-	using System.ComponentModel;
+    Unknown,
 
-	public enum ViewMode
-	{
-		Unknown,
-
-		[Description("All file groups of the parent project folder (or root) cumulated")]
-		AllFileGroupsInParentProjectFolder
-	}
+    [Description("All file groups of the parent project folder (or root) cumulated")]
+    AllFileGroupsInParentProjectFolder
 }

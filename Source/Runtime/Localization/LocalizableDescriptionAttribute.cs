@@ -1,105 +1,104 @@
-namespace ZetaResourceEditor.Runtime.Localization
+namespace ZetaResourceEditor.Runtime.Localization;
+
+#region Public methods.
+// ----------------------------------------------------------------------
+using System;
+using System.Resources;
+using System.Reflection;
+using System.Globalization;
+using System.ComponentModel;
+
+// ----------------------------------------------------------------------
+#endregion
+
+/////////////////////////////////////////////////////////////////////////
+
+/// <summary>
+/// Attribute for localization.
+/// </summary>
+[AttributeUsage(
+    AttributeTargets.All,
+    Inherited = false,
+    AllowMultiple = true )]
+public sealed class LocalizableDescriptionAttribute :
+    DescriptionAttribute
 {
-	#region Public methods.
-	// ----------------------------------------------------------------------
-	using System;
-	using System.Resources;
-	using System.Reflection;
-	using System.Globalization;
-	using System.ComponentModel;
+    #region Public methods.
+    // ------------------------------------------------------------------
 
-	// ----------------------------------------------------------------------
-	#endregion
+    /// <summary>
+    /// Initializes a new instance of the <see cref="LocalizableDescriptionAttribute"/> class.
+    /// </summary>
+    /// <param name="description">The description.</param>
+    /// <param name="resourcesType">Type of the resources.</param>
+    public LocalizableDescriptionAttribute(
+        string description,
+        Type resourcesType )
+        :
+        base( description )
+    {
+        _resourcesType = resourcesType;
+    }
 
-	/////////////////////////////////////////////////////////////////////////
+    // ------------------------------------------------------------------
+    #endregion
 
-	/// <summary>
-	/// Attribute for localization.
-	/// </summary>
-	[AttributeUsage(
-		AttributeTargets.All,
-		Inherited = false,
-		AllowMultiple = true )]
-	public sealed class LocalizableDescriptionAttribute :
-		DescriptionAttribute
-	{
-		#region Public methods.
-		// ------------------------------------------------------------------
+    #region Public properties.
+    // ------------------------------------------------------------------
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="LocalizableDescriptionAttribute"/> class.
-		/// </summary>
-		/// <param name="description">The description.</param>
-		/// <param name="resourcesType">Type of the resources.</param>
-		public LocalizableDescriptionAttribute(
-			string description,
-			Type resourcesType )
-			:
-				base( description )
-		{
-			_resourcesType = resourcesType;
-		}
+    /// <summary>
+    /// Get the string value from the resources.
+    /// </summary>
+    /// <value></value>
+    /// <returns>The description stored in this attribute.</returns>
+    public override string Description
+    {
+        get
+        {
+            if ( !_isLocalized )
+            {
+                var resMan =
+                    _resourcesType.InvokeMember(
+                        @"ResourceManager",
+                        BindingFlags.GetProperty | BindingFlags.Static |
+                        BindingFlags.Public | BindingFlags.NonPublic,
+                        null,
+                        null,
+                        new object[] {} ) as ResourceManager;
 
-		// ------------------------------------------------------------------
-		#endregion
+                var culture =
+                    _resourcesType.InvokeMember(
+                        @"Culture",
+                        BindingFlags.GetProperty | BindingFlags.Static |
+                        BindingFlags.Public | BindingFlags.NonPublic,
+                        null,
+                        null,
+                        new object[] {} ) as CultureInfo;
 
-		#region Public properties.
-		// ------------------------------------------------------------------
+                _isLocalized = true;
 
-		/// <summary>
-		/// Get the string value from the resources.
-		/// </summary>
-		/// <value></value>
-		/// <returns>The description stored in this attribute.</returns>
-		public override string Description
-		{
-			get
-			{
-				if ( !_isLocalized )
-				{
-					var resMan =
-						_resourcesType.InvokeMember(
-							@"ResourceManager",
-							BindingFlags.GetProperty | BindingFlags.Static |
-								BindingFlags.Public | BindingFlags.NonPublic,
-							null,
-							null,
-							new object[] {} ) as ResourceManager;
+                if ( resMan != null )
+                {
+                    DescriptionValue =
+                        resMan.GetString( DescriptionValue, culture );
+                }
+            }
 
-					var culture =
-						_resourcesType.InvokeMember(
-							@"Culture",
-							BindingFlags.GetProperty | BindingFlags.Static |
-								BindingFlags.Public | BindingFlags.NonPublic,
-							null,
-							null,
-							new object[] {} ) as CultureInfo;
+            return DescriptionValue;
+        }
+    }
 
-					_isLocalized = true;
+    // ------------------------------------------------------------------
+    #endregion
 
-					if ( resMan != null )
-					{
-						DescriptionValue =
-							resMan.GetString( DescriptionValue, culture );
-					}
-				}
+    #region Private variables.
+    // ------------------------------------------------------------------
 
-				return DescriptionValue;
-			}
-		}
+    private readonly Type _resourcesType;
+    private bool _isLocalized;
 
-		// ------------------------------------------------------------------
-		#endregion
-
-		#region Private variables.
-		// ------------------------------------------------------------------
-
-		private readonly Type _resourcesType;
-		private bool _isLocalized;
-
-		// ------------------------------------------------------------------
-		#endregion
-	}
-
-	/////////////////////////////////////////////////////////////////////////
+    // ------------------------------------------------------------------
+    #endregion
 }
+
+/////////////////////////////////////////////////////////////////////////

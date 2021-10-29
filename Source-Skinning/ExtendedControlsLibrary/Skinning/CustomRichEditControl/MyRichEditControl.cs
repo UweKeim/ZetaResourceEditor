@@ -1,9 +1,8 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomRichEditControl
-{
-    using DevExpress.XtraRichEdit;
+﻿namespace ExtendedControlsLibrary.Skinning.CustomRichEditControl;
 
-    public class MyRichEditControl :
-        RichEditControl
-    {
-    }
+using DevExpress.XtraRichEdit;
+
+public class MyRichEditControl :
+    RichEditControl
+{
 }

@@ -1,34 +1,33 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomPanel
+﻿namespace ExtendedControlsLibrary.Skinning.CustomPanel;
+
+using System.ComponentModel;
+using System.Windows.Forms;
+
+public class MyPureBorderlessPanelControl :
+    Panel,
+    ISupportInitialize
 {
-    using System.ComponentModel;
-    using System.Windows.Forms;
-
-    public class MyPureBorderlessPanelControl :
-        Panel,
-        ISupportInitialize
+    public MyPureBorderlessPanelControl()
     {
-        public MyPureBorderlessPanelControl()
-        {
-            // Default-Wert.
-            base.BackColor = SkinHelper.DialogBackgroundColor;
-        }
+        // Default-Wert.
+        base.BackColor = SkinHelper.DialogBackgroundColor;
+    }
 
-        protected override Padding DefaultMargin => new Padding(0, 0, 0, 0);
+    protected override Padding DefaultMargin => new Padding(0, 0, 0, 0);
 
-        protected override void OnCreateControl()
-        {
-            base.OnCreateControl();
+    protected override void OnCreateControl()
+    {
+        base.OnCreateControl();
 
-            BorderStyle = BorderStyle.None;
-            Font = SkinHelper.StandardFont;
-        }
+        BorderStyle = BorderStyle.None;
+        Font = SkinHelper.StandardFont;
+    }
 
-        public void BeginInit()
-        {
-        }
+    public void BeginInit()
+    {
+    }
 
-        public void EndInit()
-        {
-        }
+    public void EndInit()
+    {
     }
 }

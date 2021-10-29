@@ -1,12 +1,12 @@
-﻿namespace ExtendedControlsLibrary.General.TextMeasurement
-{
-    using System.Drawing;
-    using System.Windows.Forms;
+﻿namespace ExtendedControlsLibrary.General.TextMeasurement;
 
-    public sealed class MeasureTextInformation
-    {
-        public string Text { get; set; }
-        public Font Font { get; set; }
+using System.Drawing;
+using System.Windows.Forms;
+
+public sealed class MeasureTextInformation
+{
+    public string Text { get; set; }
+    public Font Font { get; set; }
 
 #if MEASURETEXT_USE_TEXTRENDERER
 
@@ -16,12 +16,11 @@
 
 #elif MEASURETEXT_USE_DEVEXPRESS
 
-        public Control Control { get; set; }
-        public Graphics Graphics { get; set; }
-        public StringFormat Format { get; set; }
-        public int? MaxWidth { get; set; }
-        public int? MaxHeight { get; set; }
+    public Control Control { get; set; }
+    public Graphics Graphics { get; set; }
+    public StringFormat Format { get; set; }
+    public int? MaxWidth { get; set; }
+    public int? MaxHeight { get; set; }
 
 #endif
-    }
 }

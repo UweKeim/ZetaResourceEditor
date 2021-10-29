@@ -1,71 +1,70 @@
-namespace ZetaResourceEditor.UI.Helper.ErrorHandling
+namespace ZetaResourceEditor.UI.Helper.ErrorHandling;
+
+using Base;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using Zeta.VoyagerLibrary.WinForms.Persistance;
+
+public partial class TextBoxForm :
+    FormBase
 {
-    using Base;
-    using System;
-    using System.Drawing;
-    using System.Windows.Forms;
-    using Zeta.VoyagerLibrary.WinForms.Persistance;
+    private static bool _hasConsolas;
+    private static bool _hasConsolasChecked;
 
-    public partial class TextBoxForm :
-        FormBase
+    public TextBoxForm()
     {
-        private static bool _hasConsolas;
-        private static bool _hasConsolasChecked;
+        InitializeComponent();
+    }
 
-        public TextBoxForm()
+    public void Initialize(
+        string text)
+    {
+        textMemoEdit.Text = text;
+    }
+
+    private void textBoxForm_Load(object sender, EventArgs e)
+    {
+        WinFormsPersistanceHelper.RestoreState(this);
+        CenterToParent();
+
+        if (!DesignMode)
         {
-            InitializeComponent();
-        }
-
-        public void Initialize(
-            string text)
-        {
-            textMemoEdit.Text = text;
-        }
-
-        private void textBoxForm_Load(object sender, EventArgs e)
-        {
-            WinFormsPersistanceHelper.RestoreState(this);
-            CenterToParent();
-
-            if (!DesignMode)
+            if (!_hasConsolasChecked)
             {
-                if (!_hasConsolasChecked)
+                _hasConsolasChecked = true;
+
+                var families = FontFamily.Families;
+
+                foreach (var family in families)
                 {
-                    _hasConsolasChecked = true;
-
-                    var families = FontFamily.Families;
-
-                    foreach (var family in families)
+                    if (string.Compare(family.Name, @"Consolas", StringComparison.OrdinalIgnoreCase) == 0)
                     {
-                        if (string.Compare(family.Name, @"Consolas", StringComparison.OrdinalIgnoreCase) == 0)
-                        {
-                            _hasConsolas = true;
-                            break;
-                        }
+                        _hasConsolas = true;
+                        break;
                     }
                 }
-
-                if (_hasConsolas)
-                {
-                    textMemoEdit.Font = new Font(@"Consolas", textMemoEdit.Font.Size);
-                }
             }
-        }
 
-        private void textBoxForm_FormClosing(
-            object sender,
-            FormClosingEventArgs e)
-        {
-            WinFormsPersistanceHelper.SaveState(this);
-        }
-
-        private void textMemoEdit_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.A)
+            if (_hasConsolas)
             {
-                textMemoEdit.SelectAll();
+                textMemoEdit.Font = new Font(@"Consolas", textMemoEdit.Font.Size);
             }
+        }
+    }
+
+    private void textBoxForm_FormClosing(
+        object sender,
+        FormClosingEventArgs e)
+    {
+        WinFormsPersistanceHelper.SaveState(this);
+    }
+
+    private void textMemoEdit_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Control && e.KeyCode == Keys.A)
+        {
+            textMemoEdit.SelectAll();
         }
     }
 }

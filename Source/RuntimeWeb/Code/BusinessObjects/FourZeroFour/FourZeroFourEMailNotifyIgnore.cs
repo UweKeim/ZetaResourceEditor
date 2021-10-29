@@ -1,129 +1,128 @@
-﻿namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects.FourZeroFour
+﻿namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects.FourZeroFour;
+
+using System;
+using System.Data;
+using System.Net;
+using System.Net.Sockets;
+using System.Web;
+using Zeta.VoyagerLibrary.Data;
+using Zeta.VoyagerLibrary.Logging;
+
+public class FourZeroFourEMailNotifyIgnore
 {
-	using System;
-	using System.Data;
-	using System.Net;
-	using System.Net.Sockets;
-	using System.Web;
-	using Zeta.VoyagerLibrary.Data;
-	using Zeta.VoyagerLibrary.Logging;
+    private enum DetectType
+    {
+        UserAgent,
+        Url,
+        UrlReferrer,
+        UserHostAddress,
+        UserHostName,
+        UserLanguages
+    }
 
-	public class FourZeroFourEMailNotifyIgnore
-	{
-		private enum DetectType
-		{
-			UserAgent,
-			Url,
-			UrlReferrer,
-			UserHostAddress,
-			UserHostName,
-			UserLanguages
-		}
+    private enum PatternType
+    {
+        SubString
+    }
 
-		private enum PatternType
-		{
-			SubString
-		}
+    private string _pattern;
+    private DetectType _detectType;
+    private PatternType _patternType;
 
-		private string _pattern;
-		private DetectType _detectType;
-		private PatternType _patternType;
+    public FourZeroFourEMailNotifyIgnore Load(
+        DataRow row)
+    {
+        DBHelper.ReadField(out _pattern, row[@"Pattern"]);
+        DBHelper.ReadField(out _detectType, row[@"DetectType"], EnumMode.String);
+        DBHelper.ReadField(out _patternType, row[@"PatternType"], EnumMode.String);
 
-		public FourZeroFourEMailNotifyIgnore Load(
-			DataRow row)
-		{
-			DBHelper.ReadField(out _pattern, row[@"Pattern"]);
-			DBHelper.ReadField(out _detectType, row[@"DetectType"], EnumMode.String);
-			DBHelper.ReadField(out _patternType, row[@"PatternType"], EnumMode.String);
+        return this;
+    }
 
-			return this;
-		}
+    public static string GetUserHostName(string hostAddress)
+    {
+        var hostname = hostAddress;
+        try
+        {
+            LogCentral.Current.LogInfo(
+                $@"Trying to resolve host name of '{hostAddress}'.");
 
-		public static string GetUserHostName(string hostAddress)
-		{
-			var hostname = hostAddress;
-			try
-			{
-				LogCentral.Current.LogInfo(
-				    $@"Trying to resolve host name of '{hostAddress}'.");
+            // Example from 
+            // http://www.microsoft.com/communities/newsgroups/en-us/default.aspx?dg=microsoft.public.de.german.entwickler.dotnet.asp&tid=83bde397-291d-417e-b2b8-b2a1a6c7e06a&p=1
 
-				// Example from 
-				// http://www.microsoft.com/communities/newsgroups/en-us/default.aspx?dg=microsoft.public.de.german.entwickler.dotnet.asp&tid=83bde397-291d-417e-b2b8-b2a1a6c7e06a&p=1
+            var host = Dns.GetHostEntry(hostAddress);
+            hostname = host.HostName;
+        }
+        catch (SocketException e)
+        {
+            //-- Fallback if lookup failed.
+            LogCentral.Current.LogInfo(
+                $@"Failed to resolve host name of '{hostAddress}' - Using IP address.",
+                e);
+        }
 
-				var host = Dns.GetHostEntry(hostAddress);
-				hostname = host.HostName;
-			}
-			catch (SocketException e)
-			{
-				//-- Fallback if lookup failed.
-				LogCentral.Current.LogInfo(
-				    $@"Failed to resolve host name of '{hostAddress}' - Using IP address.",
-					e);
-			}
+        return hostname;
+    }
 
-			return hostname;
-		}
+    public bool IsMatch(HttpRequest request)
+    {
+        switch (_patternType)
+        {
+            case PatternType.SubString:
 
-		public bool IsMatch(HttpRequest request)
-		{
-			switch (_patternType)
-			{
-				case PatternType.SubString:
+                var check = _detectType switch
+                {
+                    DetectType.UserAgent => request.UserAgent,
+                    DetectType.Url => request.Url.OriginalString,
+                    DetectType.UrlReferrer => request.UrlReferrer == null
+                        ? null
+                        : request.UrlReferrer.OriginalString,
+                    DetectType.UserHostAddress => request.UserHostAddress,
+                    DetectType.UserHostName => GetUserHostName(request.UserHostAddress),
+                    DetectType.UserLanguages => request.UserLanguages == null
+                        ? null
+                        : string.Join(@", ", request.UserLanguages),
+                    _ => throw new ArgumentOutOfRangeException(nameof(_detectType), @"Invalid detect type.")
+                };
 
-                    var check = _detectType switch
+                if (string.IsNullOrEmpty(check))
+                {
+                    LogCentral.Current.LogInfo(
+                        $@"[404 notify e-mail ignore] NOT matching: pattern to check = '{_pattern}', against string '(NULL/empty)', of detect type '{_detectType}' with pattern type '{_patternType}'.");
+
+                    return false;
+                }
+                else
+                {
+                    var match =
+                        check.IndexOf(
+                            _pattern,
+                            StringComparison.InvariantCultureIgnoreCase) >= 0;
+
+                    if (match)
                     {
-                        DetectType.UserAgent => request.UserAgent,
-                        DetectType.Url => request.Url.OriginalString,
-                        DetectType.UrlReferrer => request.UrlReferrer == null
-                            ? null
-                            : request.UrlReferrer.OriginalString,
-                        DetectType.UserHostAddress => request.UserHostAddress,
-                        DetectType.UserHostName => GetUserHostName(request.UserHostAddress),
-                        DetectType.UserLanguages => request.UserLanguages == null
-                            ? null
-                            : string.Join(@", ", request.UserLanguages),
-                        _ => throw new ArgumentOutOfRangeException(nameof(_detectType), @"Invalid detect type.")
-                    };
+                        LogCentral.Current.LogInfo(
+                            $@"[404 notify e-mail ignore] IS matching: pattern to check = '{_pattern}', against string '{
+                                check
+                            }', of detect type '{_detectType}' with pattern type '{_patternType}'.");
 
-                    if (string.IsNullOrEmpty(check))
-					{
-						LogCentral.Current.LogInfo(
-						    $@"[404 notify e-mail ignore] NOT matching: pattern to check = '{_pattern}', against string '(NULL/empty)', of detect type '{_detectType}' with pattern type '{_patternType}'.");
+                        return true;
+                    }
+                    else
+                    {
+                        LogCentral.Current.LogInfo(
+                            $@"[404 notify e-mail ignore] NOT matching: pattern to check = '{_pattern}', against string '{
+                                check
+                            }', of detect type '{_detectType}' with pattern type '{_patternType}'.");
 
-						return false;
-					}
-					else
-					{
-						var match =
-							check.IndexOf(
-								_pattern,
-								StringComparison.InvariantCultureIgnoreCase) >= 0;
+                        return false;
+                    }
+                }
 
-						if (match)
-						{
-							LogCentral.Current.LogInfo(
-							    $@"[404 notify e-mail ignore] IS matching: pattern to check = '{_pattern}', against string '{
-							            check
-							        }', of detect type '{_detectType}' with pattern type '{_patternType}'.");
-
-							return true;
-						}
-						else
-						{
-							LogCentral.Current.LogInfo(
-							    $@"[404 notify e-mail ignore] NOT matching: pattern to check = '{_pattern}', against string '{
-							            check
-							        }', of detect type '{_detectType}' with pattern type '{_patternType}'.");
-
-							return false;
-						}
-					}
-
-				default:
-					throw new ArgumentOutOfRangeException(
-						nameof(_patternType),
-						@"Invalid pattern type.");
-			}
-		}
-	}
+            default:
+                throw new ArgumentOutOfRangeException(
+                    nameof(_patternType),
+                    @"Invalid pattern type.");
+        }
+    }
 }

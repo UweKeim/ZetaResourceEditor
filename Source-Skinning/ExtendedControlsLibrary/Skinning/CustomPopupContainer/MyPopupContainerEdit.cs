@@ -1,15 +1,14 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomPopupContainer
+﻿namespace ExtendedControlsLibrary.Skinning.CustomPopupContainer;
+
+using DevExpress.XtraEditors;
+
+public class MyPopupContainerEdit :
+    PopupContainerEdit
 {
-    using DevExpress.XtraEditors;
+    protected override void OnCreateControl()
+    {
+        base.OnCreateControl();
 
-    public class MyPopupContainerEdit :
-		PopupContainerEdit
-	{
-		protected override void OnCreateControl()
-		{
-			base.OnCreateControl();
-
-			Font = SkinHelper.StandardFont;
-		}
-	}
+        Font = SkinHelper.StandardFont;
+    }
 }

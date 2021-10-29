@@ -1,31 +1,30 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomTreeList
+﻿namespace ExtendedControlsLibrary.Skinning.CustomTreeList;
+
+using CustomForm;
+using General.ExtendedTree;
+
+public class MyTreeList :
+    ExtendedTreeListControl
 {
-    using CustomForm;
-    using General.ExtendedTree;
+    protected override void OnCreateControl()
+    {
+        base.OnCreateControl();
 
-    public class MyTreeList :
-		ExtendedTreeListControl
-	{
-		protected override void OnCreateControl()
-		{
-			base.OnCreateControl();
+        Font = SkinHelper.StandardFont;
+        ViewInfo.PaintAppearance.Empty.Font = SkinHelper.StandardFont;
+        ViewInfo.PaintAppearance.HeaderPanel.Font = SkinHelper.StandardFont;
+        ViewInfo.PaintAppearance.OddRow.Font = SkinHelper.StandardFont;
+        ViewInfo.PaintAppearance.EvenRow.Font = SkinHelper.StandardFont;
+        ViewInfo.PaintAppearance.Row.Font = SkinHelper.StandardFont;
+    }
 
-			Font = SkinHelper.StandardFont;
-			ViewInfo.PaintAppearance.Empty.Font = SkinHelper.StandardFont;
-			ViewInfo.PaintAppearance.HeaderPanel.Font = SkinHelper.StandardFont;
-			ViewInfo.PaintAppearance.OddRow.Font = SkinHelper.StandardFont;
-			ViewInfo.PaintAppearance.EvenRow.Font = SkinHelper.StandardFont;
-			ViewInfo.PaintAppearance.Row.Font = SkinHelper.StandardFont;
-        }
+    protected override void OnLoaded()
+    {
+        base.OnLoaded();
 
-        protected override void OnLoaded()
+        if (!DesignModeHelper.IsDesignMode)
         {
-            base.OnLoaded();
-
-            if (!DesignModeHelper.IsDesignMode)
-            {
-                MenuManager = MyXtraForm.CheckGetMenuBarManager(this);
-            }
+            MenuManager = MyXtraForm.CheckGetMenuBarManager(this);
         }
     }
 }

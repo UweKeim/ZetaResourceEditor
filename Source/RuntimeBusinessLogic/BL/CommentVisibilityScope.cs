@@ -1,8 +1,7 @@
-﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
+﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.BL;
+
+public enum CommentVisibilityScope
 {
-	public enum CommentVisibilityScope
-	{
-		VisualGrid,
-		InMemory
-	}
+    VisualGrid,
+    InMemory
 }

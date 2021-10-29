@@ -1,9 +1,8 @@
-﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.DL
+﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.DL;
+
+public enum GridSourceType
 {
-	public enum GridSourceType
-	{
-		Project,
-		ProjectFolder,
-		FileGroup
-	}
+    Project,
+    ProjectFolder,
+    FileGroup
 }

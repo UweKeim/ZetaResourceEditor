@@ -1,34 +1,33 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomGrid
+﻿namespace ExtendedControlsLibrary.Skinning.CustomGrid;
+
+using CustomForm;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Registrator;
+using DevExpress.XtraGrid.Views.Base;
+
+// http://www.devexpress.com/Support/Center/p/A859.aspx
+
+public class MyGridControl :
+    GridControl
 {
-    using CustomForm;
-    using DevExpress.XtraGrid;
-    using DevExpress.XtraGrid.Registrator;
-    using DevExpress.XtraGrid.Views.Base;
+    protected override BaseView CreateDefaultView()
+    {
+        return CreateView(@"MyGridView");
+    }
 
-    // http://www.devexpress.com/Support/Center/p/A859.aspx
+    protected override void RegisterAvailableViewsCore(InfoCollection collection)
+    {
+        base.RegisterAvailableViewsCore(collection);
+        collection.Add(new MyGridInfoRegistrator());
+    }
 
-	public class MyGridControl :
-		GridControl
-	{
-		protected override BaseView CreateDefaultView()
-		{
-			return CreateView(@"MyGridView");
-		}
+    protected override void OnLoaded()
+    {
+        base.OnLoaded();
 
-		protected override void RegisterAvailableViewsCore(InfoCollection collection)
-		{
-			base.RegisterAvailableViewsCore(collection);
-			collection.Add(new MyGridInfoRegistrator());
-        }
-
-        protected override void OnLoaded()
+        if (!DesignModeHelper.IsDesignMode)
         {
-            base.OnLoaded();
-
-            if (!DesignModeHelper.IsDesignMode)
-            {
-                MenuManager = MyXtraForm.CheckGetMenuBarManager(this);
-            }
+            MenuManager = MyXtraForm.CheckGetMenuBarManager(this);
         }
     }
 }

@@ -1,15 +1,14 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomPropertyGrid
+﻿namespace ExtendedControlsLibrary.Skinning.CustomPropertyGrid;
+
+using DevExpress.XtraVerticalGrid;
+
+public class MyPropertyDescriptionControl :
+    PropertyDescriptionControl
 {
-    using DevExpress.XtraVerticalGrid;
+    protected override void OnCreateControl()
+    {
+        base.OnCreateControl();
 
-    public class MyPropertyDescriptionControl :
-		PropertyDescriptionControl
-	{
-		protected override void OnCreateControl()
-		{
-			base.OnCreateControl();
-
-			Font = SkinHelper.StandardFont;
-		}
-	}
+        Font = SkinHelper.StandardFont;
+    }
 }

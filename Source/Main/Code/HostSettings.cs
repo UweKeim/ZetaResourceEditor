@@ -1,24 +1,23 @@
-namespace ZetaResourceEditor.Code
+namespace ZetaResourceEditor.Code;
+
+internal sealed class HostSettings
 {
-    internal sealed class HostSettings
+    private static volatile HostSettings _current;
+    private static readonly object TypeLock = new();
+
+    public static HostSettings Current
     {
-        private static volatile HostSettings _current;
-        private static readonly object TypeLock = new();
-
-        public static HostSettings Current
+        get
         {
-            get
+            if (_current == null)
             {
-                if (_current == null)
+                lock (TypeLock)
                 {
-                    lock (TypeLock)
-                    {
-                        _current ??= new HostSettings();
-                    }
+                    _current ??= new HostSettings();
                 }
-
-                return _current;
             }
+
+            return _current;
         }
     }
 }

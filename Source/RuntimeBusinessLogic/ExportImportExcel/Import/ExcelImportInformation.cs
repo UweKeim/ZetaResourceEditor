@@ -1,16 +1,15 @@
-namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Import
+namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Import;
+
+using FileGroups;
+using Projects;
+
+public class ExcelImportInformation
 {
-	using FileGroups;
-	using Projects;
+    public Project Project { get; set; }
+    public FileGroup[] FileGroups { get; set; }
 
-    public class ExcelImportInformation
-    {
-        public Project Project { get; set; }
-        public FileGroup[] FileGroups { get; set; }
+    public string[] LanguageCodes { get; set; }
+    public string SourceFilePath { get; set; }
 
-        public string[] LanguageCodes { get; set; }
-        public string SourceFilePath { get; set; }
-
-        public bool HasFileGroups => FileGroups is { Length: > 0 };
-    }
+    public bool HasFileGroups => FileGroups is { Length: > 0 };
 }

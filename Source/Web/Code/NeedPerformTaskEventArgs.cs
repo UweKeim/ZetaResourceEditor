@@ -1,18 +1,17 @@
 ﻿using System;
 
-namespace Web.Code
+namespace Web.Code;
+
+public class NeedPerformTaskEventArgs :
+    EventArgs
 {
-    public class NeedPerformTaskEventArgs :
-        EventArgs
+    public NeedPerformTaskEventArgs(
+        PageLoadTaskPerformer taskPerformer )
     {
-        public NeedPerformTaskEventArgs(
-            PageLoadTaskPerformer taskPerformer )
-        {
-            TaskPerformer = taskPerformer;
-        }
-
-        public PageLoadTaskPerformer TaskPerformer { get; }
-
-        public bool HasPerformed { get; set; }
+        TaskPerformer = taskPerformer;
     }
+
+    public PageLoadTaskPerformer TaskPerformer { get; }
+
+    public bool HasPerformed { get; set; }
 }

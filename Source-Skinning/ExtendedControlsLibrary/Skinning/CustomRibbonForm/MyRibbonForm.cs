@@ -1,98 +1,97 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomRibbonForm
+﻿namespace ExtendedControlsLibrary.Skinning.CustomRibbonForm;
+
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
+using CustomForm;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
+
+public class MyRibbonForm :
+    RibbonForm
 {
-    using System;
-    using System.ComponentModel;
-    using System.Windows.Forms;
-    using CustomForm;
-    using DevExpress.XtraBars.Ribbon;
-    using DevExpress.XtraEditors;
+    public new bool DesignMode => base.DesignMode || DesignModeHelper.IsDesignMode;
 
-    public class MyRibbonForm :
-        RibbonForm
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    [Browsable(false)]
+    public new AutoScaleMode AutoScaleMode
     {
-        public new bool DesignMode => base.DesignMode || DesignModeHelper.IsDesignMode;
+        get => AutoScaleMode.None;
+        // ReSharper disable ValueParameterNotUsed
+        set => base.AutoScaleMode = AutoScaleMode.None;
+        // ReSharper restore ValueParameterNotUsed
+    }
 
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        [Browsable(false)]
-        public new AutoScaleMode AutoScaleMode
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+
+        // Do this even in design mode to have valid UI.
+        AutoScaleMode = AutoScaleMode.None;
+        Appearance.Font = SkinHelper.StandardFont;
+    }
+
+    public event EventHandler<WantProcessDialogKeyEventArgs> WantProcessDialogKey;
+
+    protected override bool ProcessDialogKey(Keys keyData)
+    {
+        var h = WantProcessDialogKey;
+        if (h != null)
         {
-            get => AutoScaleMode.None;
-            // ReSharper disable ValueParameterNotUsed
-            set => base.AutoScaleMode = AutoScaleMode.None;
-            // ReSharper restore ValueParameterNotUsed
-        }
+            var args = new WantProcessDialogKeyEventArgs(keyData);
+            h(this, args);
 
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            // Do this even in design mode to have valid UI.
-            AutoScaleMode = AutoScaleMode.None;
-            Appearance.Font = SkinHelper.StandardFont;
-        }
-
-        public event EventHandler<WantProcessDialogKeyEventArgs> WantProcessDialogKey;
-
-        protected override bool ProcessDialogKey(Keys keyData)
-        {
-            var h = WantProcessDialogKey;
-            if (h != null)
+            if (args.Result.HasValue)
             {
-                var args = new WantProcessDialogKeyEventArgs(keyData);
-                h(this, args);
-
-                if (args.Result.HasValue)
-                {
-                    return args.Result.Value;
-                }
+                return args.Result.Value;
             }
-
-            // --
-
-            //if ( keyData == (Keys.Control | Keys.Enter) )
-            //{
-            //    if (checkDoPressOKButton())
-            //    {
-            //        return true;
-            //    }
-            //}
-
-            // --
-
-            return base.ProcessDialogKey(keyData);
         }
 
-        protected virtual void InitiallyFillLists()
-        {
-            // Does nothing.
-        }
+        // --
 
-        protected virtual void FillItemToControls()
-        {
-            // Does nothing.
-        }
+        //if ( keyData == (Keys.Control | Keys.Enter) )
+        //{
+        //    if (checkDoPressOKButton())
+        //    {
+        //        return true;
+        //    }
+        //}
 
-        protected virtual void FillControlsToItem()
-        {
-            // Does nothing.
-        }
+        // --
 
-        protected static int FindListControlIndex(
-            ComboBoxEdit listControl,
-            Predicate<object> finder)
+        return base.ProcessDialogKey(keyData);
+    }
+
+    protected virtual void InitiallyFillLists()
+    {
+        // Does nothing.
+    }
+
+    protected virtual void FillItemToControls()
+    {
+        // Does nothing.
+    }
+
+    protected virtual void FillControlsToItem()
+    {
+        // Does nothing.
+    }
+
+    protected static int FindListControlIndex(
+        ComboBoxEdit listControl,
+        Predicate<object> finder)
+    {
+        var index = 0;
+        foreach (var o in listControl.Properties.Items)
         {
-            var index = 0;
-            foreach (var o in listControl.Properties.Items)
+            if (finder(o))
             {
-                if (finder(o))
-                {
-                    return index;
-                }
-                index++;
+                return index;
             }
-
-            return -1;
+            index++;
         }
+
+        return -1;
     }
 }

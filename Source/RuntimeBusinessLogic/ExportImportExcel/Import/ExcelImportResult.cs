@@ -1,10 +1,9 @@
-﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Import
-{
-    using System.Collections.Generic;
+﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Import;
 
-    public class ExcelImportResult
-    {
-        public int ImportedRowCount { get; internal set; }
-        public List<string> ImportMessages { get; } = new();
-    }
+using System.Collections.Generic;
+
+public class ExcelImportResult
+{
+    public int ImportedRowCount { get; internal set; }
+    public List<string> ImportMessages { get; } = new();
 }

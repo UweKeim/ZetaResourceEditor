@@ -101,6 +101,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             // 
             // labelCsProjectToAdd
             // 
+            this.labelCsProjectToAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelCsProjectToAdd.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelCsProjectToAdd.Appearance.Options.UseFont = true;
             this.labelCsProjectToAdd.Location = new System.Drawing.Point(164, 403);
@@ -111,24 +112,26 @@ namespace ZetaResourceEditor.UI.FileGroups
             // 
             // AddFileAsDependantUponCheckBox
             // 
+            this.AddFileAsDependantUponCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddFileAsDependantUponCheckBox.Location = new System.Drawing.Point(14, 428);
             this.AddFileAsDependantUponCheckBox.Name = "AddFileAsDependantUponCheckBox";
             this.AddFileAsDependantUponCheckBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.AddFileAsDependantUponCheckBox.Properties.Appearance.Options.UseFont = true;
             this.AddFileAsDependantUponCheckBox.Properties.AutoWidth = true;
             this.AddFileAsDependantUponCheckBox.Properties.Caption = "&Add files as dependantUpon (to main resource file)";
-            this.AddFileAsDependantUponCheckBox.Size = new System.Drawing.Size(321, 21);
+            this.AddFileAsDependantUponCheckBox.Size = new System.Drawing.Size(322, 21);
             this.AddFileAsDependantUponCheckBox.TabIndex = 18;
             // 
             // IncludeFileInCsprojChecBox
             // 
+            this.IncludeFileInCsprojChecBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.IncludeFileInCsprojChecBox.Location = new System.Drawing.Point(14, 401);
             this.IncludeFileInCsprojChecBox.Name = "IncludeFileInCsprojChecBox";
             this.IncludeFileInCsprojChecBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.IncludeFileInCsprojChecBox.Properties.Appearance.Options.UseFont = true;
             this.IncludeFileInCsprojChecBox.Properties.AutoWidth = true;
             this.IncludeFileInCsprojChecBox.Properties.Caption = "&Include files in csproj";
-            this.IncludeFileInCsprojChecBox.Size = new System.Drawing.Size(144, 21);
+            this.IncludeFileInCsprojChecBox.Size = new System.Drawing.Size(145, 21);
             this.IncludeFileInCsprojChecBox.TabIndex = 16;
             this.IncludeFileInCsprojChecBox.CheckedChanged += new System.EventHandler(this.IncludeFileInCsprojChecBox_CheckedChanged);
             // 
@@ -304,6 +307,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.prefixTextBox.Properties.Appearance.Options.UseFont = true;
             this.prefixTextBox.Properties.Mask.EditMask = null;
             this.prefixTextBox.Properties.NullValuePrompt = null;
+            this.prefixTextBox.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.prefixTextBox.Size = new System.Drawing.Size(100, 24);
             this.prefixTextBox.TabIndex = 14;
             this.prefixTextBox.EditValueChanged += new System.EventHandler(this.prefixTextBox_EditValueChanged);
@@ -327,7 +331,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.prefixCheckBox.Properties.Appearance.Options.UseFont = true;
             this.prefixCheckBox.Properties.AutoWidth = true;
             this.prefixCheckBox.Properties.Caption = "Prefix translated texts with:";
-            this.prefixCheckBox.Size = new System.Drawing.Size(177, 21);
+            this.prefixCheckBox.Size = new System.Drawing.Size(178, 21);
             this.prefixCheckBox.TabIndex = 13;
             this.prefixCheckBox.CheckedChanged += new System.EventHandler(this.prefixCheckBox_CheckedChanged);
             // 
@@ -356,6 +360,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.parentElementTextBox.Properties.Mask.EditMask = null;
             this.parentElementTextBox.Properties.NullValuePrompt = null;
             this.parentElementTextBox.Properties.ReadOnly = true;
+            this.parentElementTextBox.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.parentElementTextBox.Size = new System.Drawing.Size(414, 24);
             this.parentElementTextBox.TabIndex = 2;
             // 
@@ -372,6 +377,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.referenceLanguageComboBox.Properties.DropDownRows = 20;
             this.referenceLanguageComboBox.Properties.NullValuePrompt = null;
+            this.referenceLanguageComboBox.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
             this.referenceLanguageComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.referenceLanguageComboBox.Properties.SelectedIndexChanged += new System.EventHandler(this.referenceLanguageGroupBox_SelectedIndexChanged);
             this.referenceLanguageComboBox.Size = new System.Drawing.Size(414, 24);
@@ -387,7 +393,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.automaticallyTranslateCheckBox.Properties.Appearance.Options.UseFont = true;
             this.automaticallyTranslateCheckBox.Properties.AutoWidth = true;
             this.automaticallyTranslateCheckBox.Properties.Caption = "&Automatically translate from reference language";
-            this.automaticallyTranslateCheckBox.Size = new System.Drawing.Size(302, 21);
+            this.automaticallyTranslateCheckBox.Size = new System.Drawing.Size(303, 21);
             this.automaticallyTranslateCheckBox.TabIndex = 12;
             this.automaticallyTranslateCheckBox.CheckedChanged += new System.EventHandler(this.automaticallyTranslateCheckBox_CheckedChanged);
             // 
@@ -400,7 +406,7 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.copyTextsCheckBox.Properties.Appearance.Options.UseFont = true;
             this.copyTextsCheckBox.Properties.AutoWidth = true;
             this.copyTextsCheckBox.Properties.Caption = "&Copy texts from reference language";
-            this.copyTextsCheckBox.Size = new System.Drawing.Size(232, 21);
+            this.copyTextsCheckBox.Size = new System.Drawing.Size(233, 21);
             this.copyTextsCheckBox.TabIndex = 11;
             this.copyTextsCheckBox.CheckedChanged += new System.EventHandler(this.copyTextsCheckBox_CheckedChanged);
             // 
@@ -413,11 +419,11 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.ClientSize = new System.Drawing.Size(565, 516);
             this.Controls.Add(this.panelControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.IconOptions.ShowIcon = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(555, 555);
+            this.MinimumSize = new System.Drawing.Size(555, 548);
             this.Name = "CreateNewFilesForm";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create multiple new files";

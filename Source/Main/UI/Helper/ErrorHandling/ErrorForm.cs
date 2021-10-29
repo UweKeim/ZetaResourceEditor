@@ -1,116 +1,115 @@
-namespace ZetaResourceEditor.UI.Helper.ErrorHandling
+namespace ZetaResourceEditor.UI.Helper.ErrorHandling;
+
+using Base;
+using DevExpress.XtraBars;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection;
+using System.Windows.Forms;
+using Zeta.VoyagerLibrary.Logging;
+using ZetaLongPaths;
+
+public partial class ErrorForm : FormBase
 {
-    using Base;
-    using DevExpress.XtraBars;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Reflection;
-    using System.Windows.Forms;
-    using Zeta.VoyagerLibrary.Logging;
-    using ZetaLongPaths;
+    private readonly MemoEditScrollbarAdjuster _adjuster = new();
 
-    public partial class ErrorForm : FormBase
+    private Exception _exception;
+
+    protected override bool WantSetGlobalIcon => false;
+
+    public ErrorForm()
     {
-        private readonly MemoEditScrollbarAdjuster _adjuster = new();
+        InitializeComponent();
 
-        private Exception _exception;
+        AcceptButton = buttonContinue;
+        CancelButton = buttonContinue;
+    }
 
-        protected override bool WantSetGlobalIcon => false;
+    public void Initialize(Exception e)
+    {
+        _exception = e;
 
-        public ErrorForm()
+        memoEdit1.Text = getEffectiveErrorMessage(e);
+    }
+
+    private static string getEffectiveErrorMessage(Exception e)
+    {
+        var y = e;
+        while (y is TargetInvocationException or ZlpSimpleFileAccessProtectorException &&
+               y.InnerException != null)
         {
-            InitializeComponent();
-
-            AcceptButton = buttonContinue;
-            CancelButton = buttonContinue;
+            y = y.InnerException;
         }
 
-        public void Initialize(Exception e)
-        {
-            _exception = e;
+        // --
 
-            memoEdit1.Text = getEffectiveErrorMessage(e);
-        }
+        var lines = new List<string> { y.Message };
 
-        private static string getEffectiveErrorMessage(Exception e)
+        y = y.InnerException;
+        while (y != null)
         {
-            var y = e;
-            while (y is TargetInvocationException or ZlpSimpleFileAccessProtectorException &&
-                   y.InnerException != null)
+            if (y is not TargetInvocationException && y is not ZlpSimpleFileAccessProtectorException)
             {
-                y = y.InnerException;
+                lines.Add(y.Message);
             }
-
-            // --
-
-            var lines = new List<string> { y.Message };
 
             y = y.InnerException;
-            while (y != null)
-            {
-                if (y is not TargetInvocationException && y is not ZlpSimpleFileAccessProtectorException)
-                {
-                    lines.Add(y.Message);
-                }
-
-                y = y.InnerException;
-            }
-
-            return string.Join(Environment.NewLine + Environment.NewLine, lines).Trim();
         }
 
-        private void errorForm_Load(object sender, EventArgs e)
-        {
-            RestoreState();
-            CenterToParent();
+        return string.Join(Environment.NewLine + Environment.NewLine, lines).Trim();
+    }
 
-            _adjuster.Attach(memoEdit1);
+    private void errorForm_Load(object sender, EventArgs e)
+    {
+        RestoreState();
+        CenterToParent();
 
-            InitiallyFillLists();
-            FillItemToControls();
+        _adjuster.Attach(memoEdit1);
 
-            UpdateUI();
-        }
+        InitiallyFillLists();
+        FillItemToControls();
 
-        private void errorForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            PersistState();
-        }
+        UpdateUI();
+    }
 
-        private void detailedErrorsButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            using var form = new TextBoxForm();
-            var message = Logger.MakeTraceMessage(_exception);
-            form.Initialize(message);
+    private void errorForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        PersistState();
+    }
 
-            form.ShowDialog(this);
-        }
+    private void detailedErrorsButton_ItemClick(object sender, ItemClickEventArgs e)
+    {
+        using var form = new TextBoxForm();
+        var message = Logger.MakeTraceMessage(_exception);
+        form.Initialize(message);
 
-        private void optionsPopupMenu_BeforePopup(
-            object sender,
-            CancelEventArgs e)
-        {
-            UpdateUI();
-        }
+        form.ShowDialog(this);
+    }
 
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //if (XtraMessageBox.Show(
-            //        this,
-            //        Resources.SR_ErrorForm_button2Click_QuitTheApplication,
-            //        @"Zeta Resource Editor",
-            //        MessageBoxButtons.YesNo,
-            //        MessageBoxIcon.Question,
-            //        MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            //{
-            DialogResult = DialogResult.Abort;
-            Close();
-            //}
-            //else
-            //{
-            //    DialogResult = DialogResult.None;
-            //}
-        }
+    private void optionsPopupMenu_BeforePopup(
+        object sender,
+        CancelEventArgs e)
+    {
+        UpdateUI();
+    }
+
+    private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+    {
+        //if (XtraMessageBox.Show(
+        //        this,
+        //        Resources.SR_ErrorForm_button2Click_QuitTheApplication,
+        //        @"Zeta Resource Editor",
+        //        MessageBoxButtons.YesNo,
+        //        MessageBoxIcon.Question,
+        //        MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+        //{
+        DialogResult = DialogResult.Abort;
+        Close();
+        //}
+        //else
+        //{
+        //    DialogResult = DialogResult.None;
+        //}
     }
 }

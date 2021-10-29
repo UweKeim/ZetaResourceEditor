@@ -1,82 +1,81 @@
-﻿namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects.FourZeroFour
+﻿namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects.FourZeroFour;
+
+using System;
+using System.Data;
+using System.Text.RegularExpressions;
+using Zeta.VoyagerLibrary.Data;
+using Zeta.VoyagerLibrary.Logging;
+
+public class FourZeroFourRedirect
 {
-    using System;
-    using System.Data;
-    using System.Text.RegularExpressions;
-    using Zeta.VoyagerLibrary.Data;
-    using Zeta.VoyagerLibrary.Logging;
+    private string _pattern;
+    private string _redirectTo;
+    private bool _isPermanent;
 
-    public class FourZeroFourRedirect
+    public bool IsPermanent => _isPermanent;
+
+    public FourZeroFourRedirect Load(
+        DataRow row)
     {
-        private string _pattern;
-        private string _redirectTo;
-        private bool _isPermanent;
+        DBHelper.ReadField(out _pattern, row[@"Pattern"]);
+        DBHelper.ReadField(out _redirectTo, row[@"RedirectTo"]);
+        DBHelper.ReadField(out _isPermanent, row[@"IsPermanent"]);
 
-        public bool IsPermanent => _isPermanent;
+        return this;
+    }
 
-        public FourZeroFourRedirect Load(
-            DataRow row)
+    public string MatchUrl(string url)
+    {
+        var original = url;
+
+        var match = Regex.Match(url, _pattern, RegexOptions.IgnoreCase);
+
+        if (match.Success)
         {
-            DBHelper.ReadField(out _pattern, row[@"Pattern"]);
-            DBHelper.ReadField(out _redirectTo, row[@"RedirectTo"]);
-            DBHelper.ReadField(out _isPermanent, row[@"IsPermanent"]);
+            var replaced = replaceMatch(match, _redirectTo);
 
-            return this;
-        }
-
-        public string MatchUrl(string url)
-        {
-            var original = url;
-
-            var match = Regex.Match(url, _pattern, RegexOptions.IgnoreCase);
-
-            if (match.Success)
+            if (string.Compare(original, replaced, StringComparison.OrdinalIgnoreCase) == 0)
             {
-                var replaced = replaceMatch(match, _redirectTo);
+                LogCentral.Current.LogInfo(
+                    $@"[404 redirect] NOT matching: original URL = '{original}', replaced URL = '{replaced}', pattern = '{_pattern}', redirect to = '{_redirectTo}'.");
 
-                if (string.Compare(original, replaced, StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    LogCentral.Current.LogInfo(
-                        $@"[404 redirect] NOT matching: original URL = '{original}', replaced URL = '{replaced}', pattern = '{_pattern}', redirect to = '{_redirectTo}'.");
-
-                    return null;
-                }
-                else
-                {
-                    LogCentral.Current.LogInfo(
-                        $@"[404 redirect] IS matching: original URL = '{original}', replaced URL = '{replaced}', pattern = '{_pattern}', redirect to = '{_redirectTo}'.");
-
-                    return replaced;
-                }
+                return null;
             }
             else
             {
                 LogCentral.Current.LogInfo(
-                    $@"[404 redirect] IS NO MATCH: original URL = '{original}', pattern = '{_pattern}', redirect to = '{_redirectTo}'.");
+                    $@"[404 redirect] IS matching: original URL = '{original}', replaced URL = '{replaced}', pattern = '{_pattern}', redirect to = '{_redirectTo}'.");
 
-                return null;
+                return replaced;
             }
         }
-
-        private static string replaceMatch(
-            Group match,
-            string text)
+        else
         {
-            if (string.IsNullOrEmpty(text) || !text.Contains(@"$"))
-            {
-                return text;
-            }
-            else
-            {
-                // Count down, not up.
-                for (var index = match.Captures.Count - 1; index >= 0; index--)
-                {
-                    var c = match.Captures[index];
-                    text = text.Replace($@"${index}", c.Value);
-                }
+            LogCentral.Current.LogInfo(
+                $@"[404 redirect] IS NO MATCH: original URL = '{original}', pattern = '{_pattern}', redirect to = '{_redirectTo}'.");
 
-                return text;
+            return null;
+        }
+    }
+
+    private static string replaceMatch(
+        Group match,
+        string text)
+    {
+        if (string.IsNullOrEmpty(text) || !text.Contains(@"$"))
+        {
+            return text;
+        }
+        else
+        {
+            // Count down, not up.
+            for (var index = match.Captures.Count - 1; index >= 0; index--)
+            {
+                var c = match.Captures[index];
+                text = text.Replace($@"${index}", c.Value);
             }
+
+            return text;
         }
     }
 }

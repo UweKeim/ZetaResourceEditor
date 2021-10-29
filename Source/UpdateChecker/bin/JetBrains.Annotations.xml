@@ -368,8 +368,17 @@
         <member name="T:JetBrains.Annotations.InstantHandleAttribute">
             <summary>
             Tells the code analysis engine if the parameter is completely handled when the invoked method is on stack.
-            If the parameter is a delegate, indicates that delegate is executed while the method is executed.
+            If the parameter is a delegate, indicates that delegate can only be invoked during method execution
+            (the delegate can be invoked zero or multiple times, but not stored to some field and invoked later,
+            when the containing method is no longer on the execution stack).
             If the parameter is an enumerable, indicates that it is enumerated while the method is executed.
+            If <see cref="P:JetBrains.Annotations.InstantHandleAttribute.RequireAwait"/> is true, the attribute will only takes effect if the method invocation is located under the 'await' expression.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.InstantHandleAttribute.RequireAwait">
+            <summary>
+            Require the method invocation to be used under the 'await' expression for this attribute to take effect on code analysis engine.
+            Can be used for delegate/enumerable parameters of 'async' methods.
             </summary>
         </member>
         <member name="T:JetBrains.Annotations.PureAttribute">
@@ -626,6 +635,9 @@
             <summary>
             Indicates how method, constructor invocation, or property access
             over collection type affects the contents of the collection.
+            When applied to a return value of a method indicates if the returned collection
+            is created exclusively for the caller (CollectionAccessType.UpdatedContent) or
+            can be read/updated from outside (CollectionAccessType.Read | CollectionAccessType.UpdatedContent)
             Use <see cref="P:JetBrains.Annotations.CollectionAccessAttribute.CollectionAccessType"/> to specify the access type.
             </summary>
             <remarks>
@@ -737,6 +749,32 @@
             Indicates that the marked parameter, field, or property is a regular expression pattern.
             </summary>
         </member>
+        <member name="T:JetBrains.Annotations.InjectedLanguage">
+            <summary>
+            Language of injected code fragment inside marked by <see cref="T:JetBrains.Annotations.LanguageInjectionAttribute"/> string literal.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.LanguageInjectionAttribute">
+            <summary>
+            Indicates that the marked parameter, field, or property is accepting a string literal
+            containing code fragment in a language specified by the <see cref="P:JetBrains.Annotations.LanguageInjectionAttribute.InjectedLanguage"/>.
+            </summary>
+            <example><code>
+            void Foo([LanguageInjection(InjectedLanguage.CSS, Prefix = "body{", Suffix = "}")] string cssProps)
+            {
+              // cssProps should only contains a list of CSS properties
+            }
+            </code></example>
+        </member>
+        <member name="P:JetBrains.Annotations.LanguageInjectionAttribute.InjectedLanguage">
+            <summary>Specify a language of injected code fragment.</summary>
+        </member>
+        <member name="P:JetBrains.Annotations.LanguageInjectionAttribute.Prefix">
+            <summary>Specify a string that "precedes" injected string literal.</summary>
+        </member>
+        <member name="P:JetBrains.Annotations.LanguageInjectionAttribute.Suffix">
+            <summary>Specify a string that "follows" injected string literal.</summary>
+        </member>
         <member name="T:JetBrains.Annotations.NoReorderAttribute">
             <summary>
             Prevents the Member Reordering feature from tossing members of the marked class.
@@ -818,6 +856,186 @@
             This attribute enables code completion, navigation, rename and other features
             in URI string literals assigned to annotated parameter, field or property.
             </remarks>
+        </member>
+        <member name="T:JetBrains.Annotations.CodeTemplateAttribute">
+            <summary>
+            <para>
+            Defines the code search template using the Structural Search and Replace syntax.
+            It allows you to find and, if necessary, replace blocks of code that match a specific pattern.
+            Search and replace patterns consist of a textual part and placeholders.
+            Textural part must contain only identifiers allowed in the target language and will be matched exactly (white spaces, tabulation characters, and line breaks are ignored).
+            Placeholders allow matching variable parts of the target code blocks.
+            A placeholder has the following format: $placeholder_name$- where placeholder_name is an arbitrary identifier.
+            </para>
+            <para>
+            Available placeholders:
+            <list type="bullet">
+            <item>$this$ - expression of containing type</item>
+            <item>$thisType$ - containing type</item>
+            <item>$member$ - current member placeholder</item>
+            <item>$qualifier$ - this placeholder is available in the replace pattern and can be used to insert qualifier expression matched by the $member$ placeholder.
+            (Note that if $qualifier$ placeholder is used, then $member$ placeholder will match only qualified references)</item>
+            <item>$expression$ - expression of any type</item>
+            <item>$identifier$ - identifier placeholder</item>
+            <item>$args$ - any number of arguments</item>
+            <item>$arg$ - single argument</item>
+            <item>$arg1$ ... $arg10$ - single argument</item>
+            <item>$stmts$ - any number of statements</item>
+            <item>$stmt$ - single statement</item>
+            <item>$stmt1$ ... $stmt10$ - single statement</item>
+            <item>$name{Expression, 'Namespace.FooType'}$ - expression with 'Namespace.FooType' type</item>
+            <item>$expression{'Namespace.FooType'}$ - expression with 'Namespace.FooType' type</item>
+            <item>$name{Type, 'Namespace.FooType'}$ - 'Namespace.FooType' type</item>
+            <item>$type{'Namespace.FooType'}$ - 'Namespace.FooType' type</item>
+            <item>$statement{1,2}$ - 1 or 2 statements</item>
+            </list>
+            </para>
+            <para>
+            Note that you can also define your own placeholders of the supported types and specify arguments for each placeholder type.
+            This can be done using the following format: $name{type, arguments}$. Where 'name' - is the name of your placeholder,
+            'type' - is the type of your placeholder (one of the following: Expression, Type, Identifier, Statement, Argument, Member),
+            'arguments' - arguments list for your placeholder. Each placeholder type supports it's own arguments, check examples below for mode details.
+            Placeholder type may be omitted and determined from the placeholder name, if name has one of the following prefixes:
+            <list type="bullet">
+            <item>expr, expression - expression placeholder, e.g. $exprPlaceholder{}$, $expressionFoo{}$</item>
+            <item>arg, argument - argument placeholder, e.g. $argPlaceholder{}$, $argumentFoo{}$</item>
+            <item>ident, identifier - identifier placeholder, e.g. $identPlaceholder{}$, $identifierFoo{}$</item>
+            <item>stmt, statement - statement placeholder, e.g. $stmtPlaceholder{}$, $statementFoo{}$</item>
+            <item>type - type placeholder, e.g. $typePlaceholder{}$, $typeFoo{}$</item>
+            <item>member - member placeholder, e.g. $memberPlaceholder{}$, $memberFoo{}$</item>
+            </list>
+            </para>
+            <para>
+            Expression placeholder arguments:
+            <list type="bullet">
+            <item>expressionType - string value in single quotes, specifies full type name to match (empty string by default)</item>
+            <item>exactType - boolean value, specifies if expression should have exact type match (false by default)</item>
+            </list>
+            Examples:
+            <list type="bullet">
+            <item>$myExpr{Expression, 'Namespace.FooType', true}$ - defines expression placeholder, matching expressions of the 'Namespace.FooType' type with exact matching.</item>
+            <item>$myExpr{Expression, 'Namespace.FooType'}$ - defines expression placeholder, matching expressions of the 'Namespace.FooType' type or expressions which can be implicitly converted to 'Namespace.FooType'.</item>
+            <item>$myExpr{Expression}$ - defines expression placeholder, matching expressions of any type.</item>
+            <item>$exprFoo{'Namespace.FooType', true}$ - defines expression placeholder, matching expressions of the 'Namespace.FooType' type with exact matching.</item>
+            </list>
+            </para>
+            <para>
+            Type placeholder arguments:
+            <list type="bullet">
+            <item>type - string value in single quotes, specifies full type name to match (empty string by default)</item>
+            <item>exactType - boolean value, specifies if expression should have exact type match (false by default)</item>
+            </list>
+            Examples:
+            <list type="bullet">
+            <item>$myType{Type, 'Namespace.FooType', true}$ - defines type placeholder, matching 'Namespace.FooType' types with exact matching.</item>
+            <item>$myType{Type, 'Namespace.FooType'}$ - defines type placeholder, matching 'Namespace.FooType' types or types, which can be implicitly converted to 'Namespace.FooType'.</item>
+            <item>$myType{Type}$ - defines type placeholder, matching any type.</item>
+            <item>$typeFoo{'Namespace.FooType', true}$ - defines types placeholder, matching 'Namespace.FooType' types with exact matching.</item>
+            </list>
+            </para>
+            <para>
+            Identifier placeholder arguments:
+            <list type="bullet">
+            <item>nameRegex - string value in single quotes, specifies regex to use for matching (empty string by default)</item>
+            <item>nameRegexCaseSensitive - boolean value, specifies if name regex is case sensitive (true by default)</item>
+            <item>type - string value in single quotes, specifies full type name to match (empty string by default)</item>
+            <item>exactType - boolean value, specifies if expression should have exact type match (false by default)</item>
+            </list>
+            Examples:
+            <list type="bullet">
+            <item>$myIdentifier{Identifier, 'my.*', false, 'Namespace.FooType', true}$ - defines identifier placeholder, matching identifiers (ignoring case) starting with 'my' prefix with 'Namespace.FooType' type.</item>
+            <item>$myIdentifier{Identifier, 'my.*', true, 'Namespace.FooType', true}$ - defines identifier placeholder, matching identifiers (case sensitively) starting with 'my' prefix with 'Namespace.FooType' type.</item>
+            <item>$identFoo{'my.*'}$ - defines identifier placeholder, matching identifiers (case sensitively) starting with 'my' prefix.</item>
+            </list>
+            </para>
+            <para>
+            Statement placeholder arguments:
+            <list type="bullet">
+            <item>minimalOccurrences - minimal number of statements to match (-1 by default)</item>
+            <item>maximalOccurrences - maximal number of statements to match (-1 by default)</item>
+            </list>
+            Examples:
+            <list type="bullet">
+            <item>$myStmt{Statement, 1, 2}$ - defines statement placeholder, matching 1 or 2 statements.</item>
+            <item>$myStmt{Statement}$ - defines statement placeholder, matching any number of statements.</item>
+            <item>$stmtFoo{1, 2}$ - defines statement placeholder, matching 1 or 2 statements.</item>
+            </list>
+            </para>
+            <para>
+            Argument placeholder arguments:
+            <list type="bullet">
+            <item>minimalOccurrences - minimal number of arguments to match (-1 by default)</item>
+            <item>maximalOccurrences - maximal number of arguments to match (-1 by default)</item>
+            </list>
+            Examples:
+            <list type="bullet">
+            <item>$myArg{Argument, 1, 2}$ - defines argument placeholder, matching 1 or 2 arguments.</item>
+            <item>$myArg{Argument}$ - defines argument placeholder, matching any number of arguments.</item>
+            <item>$argFoo{1, 2}$ - defines argument placeholder, matching 1 or 2 arguments.</item>
+            </list>
+            </para>
+            <para>
+            Member placeholder arguments:
+            <list type="bullet">
+            <item>docId - string value in single quotes, specifies XML documentation id of the member to match (empty by default)</item>
+            </list>
+            Examples:
+            <list type="bullet">
+            <item>$myMember{Member, 'M:System.String.IsNullOrEmpty(System.String)'}$ - defines member placeholder, matching 'IsNullOrEmpty' member of the 'System.String' type.</item>
+            <item>$memberFoo{'M:System.String.IsNullOrEmpty(System.String)'}$ - defines member placeholder, matching 'IsNullOrEmpty' member of the 'System.String' type.</item>
+            </list>
+            </para>
+            <para>
+            For more information please refer to the <a href="https://www.jetbrains.com/help/resharper/Navigation_and_Search__Structural_Search_and_Replace.html">Structural Search and Replace</a> article.
+            </para>
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.CodeTemplateAttribute.SearchTemplate">
+            <summary>
+            Structural search pattern to use in the code template.
+            Pattern includes textual part, which must contain only identifiers allowed in the target language,
+            and placeholders, which allow matching variable parts of the target code blocks.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.CodeTemplateAttribute.Message">
+            <summary>
+            Message to show when the search pattern was found.
+            You can also prepend the message text with "Error:", "Warning:", "Suggestion:" or "Hint:" prefix to specify the pattern severity.
+            Code patterns with replace template produce suggestions by default.
+            However, if replace template is not provided, then warning severity will be used.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.CodeTemplateAttribute.ReplaceTemplate">
+            <summary>
+            Structural search replace pattern to use in code template replacement.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.CodeTemplateAttribute.ReplaceMessage">
+            <summary>
+            Replace message to show in the light bulb.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.CodeTemplateAttribute.FormatAfterReplace">
+            <summary>
+            Apply code formatting after code replacement.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.CodeTemplateAttribute.MatchSimilarConstructs">
+            <summary>
+            Whether similar code blocks should be matched.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.CodeTemplateAttribute.ShortenReferences">
+            <summary>
+            Automatically insert namespace import directives or remove qualifiers that become redundant after the template is applied.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.CodeTemplateAttribute.SuppressionKey">
+            <summary>
+            String to use as a suppression key.
+            By default the following suppression key is used 'CodeTemplate_SomeType_SomeMember',
+            where 'SomeType' and 'SomeMember' are names of the associated containing type and member to which this attribute is applied.
+            </summary>
         </member>
     </members>
 </doc>

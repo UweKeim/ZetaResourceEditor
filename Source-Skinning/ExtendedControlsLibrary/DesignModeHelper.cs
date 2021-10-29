@@ -1,43 +1,42 @@
-﻿namespace ExtendedControlsLibrary
+﻿namespace ExtendedControlsLibrary;
+
+using System;
+using System.Drawing;
+using System.Threading;
+
+public static class DesignModeHelper
 {
-    using System;
-    using System.Drawing;
-    using System.Threading;
+    public static bool IsDesignMode => GetDesignMode();
 
-    public static class DesignModeHelper
+    /// <summary>
+    /// Call this in your Main function.
+    /// </summary>
+    public static void TurnOffDesignMode()
     {
-        public static bool IsDesignMode => GetDesignMode();
+        Thread.SetData(Thread.GetNamedDataSlot(@"isDesignMode"), false);
+    }
 
-        /// <summary>
-        /// Call this in your Main function.
-        /// </summary>
-        public static void TurnOffDesignMode()
+    private static bool GetDesignMode()
+    {
+        var d = Thread.GetData(Thread.GetNamedDataSlot(@"isDesignMode"));
+        if (d == null)
         {
-            Thread.SetData(Thread.GetNamedDataSlot(@"isDesignMode"), false);
+            return true;
         }
-
-        private static bool GetDesignMode()
+        else
         {
-            var d = Thread.GetData(Thread.GetNamedDataSlot(@"isDesignMode"));
-            if (d == null)
-            {
-                return true;
-            }
-            else
-            {
-                return d.ToString().ToLowerInvariant() != @"false";
-            }
+            return d.ToString().ToLowerInvariant() != @"false";
         }
+    }
 
-        public static bool IsFontInstalled(string fontName)
-        {
-            // http://stackoverflow.com/questions/113989/test-if-a-font-is-installed
+    public static bool IsFontInstalled(string fontName)
+    {
+        // http://stackoverflow.com/questions/113989/test-if-a-font-is-installed
 
-            using var testFont = new Font(fontName, 8);
-            return 0 == string.Compare(
-                fontName,
-                testFont.Name,
-                StringComparison.InvariantCultureIgnoreCase);
-        }
+        using var testFont = new Font(fontName, 8);
+        return 0 == string.Compare(
+            fontName,
+            testFont.Name,
+            StringComparison.InvariantCultureIgnoreCase);
     }
 }

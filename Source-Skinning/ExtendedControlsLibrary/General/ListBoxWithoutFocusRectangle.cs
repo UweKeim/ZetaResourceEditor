@@ -1,53 +1,52 @@
-﻿namespace ExtendedControlsLibrary.General
+﻿namespace ExtendedControlsLibrary.General;
+
+using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Drawing;
+using DevExpress.XtraEditors.ViewInfo;
+using Skinning.CustomListBox;
+
+// http://www.devexpress.com/Support/Center/e/E1079.aspx
+
+public class ListBoxWithoutFocusRectangle :
+    MyListBoxControl
 {
-    using System.Windows.Forms;
-    using DevExpress.XtraEditors;
-    using DevExpress.XtraEditors.Drawing;
-    using DevExpress.XtraEditors.ViewInfo;
-    using Skinning.CustomListBox;
+    protected override BaseStyleControlViewInfo CreateViewInfo() { return new ListBoxWithoutFocusRectangleViewInfo(this); }
 
-    // http://www.devexpress.com/Support/Center/e/E1079.aspx
+    public void ClearSelection()
+    {
+        // http://www.devexpress.com/Support/Center/p/CQ65915.aspx
 
-	public class ListBoxWithoutFocusRectangle :
-		MyListBoxControl
-	{
-		protected override BaseStyleControlViewInfo CreateViewInfo() { return new ListBoxWithoutFocusRectangleViewInfo(this); }
+        var oldSelectionMode = SelectionMode;
+        SelectionMode = SelectionMode.None;
+        SelectionMode = oldSelectionMode;
+        Refresh();
+    }
+}
 
-		public void ClearSelection()
-		{
-			// http://www.devexpress.com/Support/Center/p/CQ65915.aspx
+public class ListBoxWithoutFocusRectangleItemPainter :
+    ListBoxItemPainter
+{
+    protected override void DrawItemBar(ListBoxItemObjectInfoArgs e)
+    {
+        e.PaintAppearance.FillRectangle(e.Cache, e.Bounds);
+    }
+}
 
-			var oldSelectionMode = SelectionMode;
-			SelectionMode = SelectionMode.None;
-			SelectionMode = oldSelectionMode;
-			Refresh();
-		}
-	}
+public class ListBoxWithoutFocusRectangleViewInfo :
+    BaseListBoxViewInfo
+{
+    public ListBoxWithoutFocusRectangleViewInfo(BaseListBoxControl owner) : base(owner) { }
 
-	public class ListBoxWithoutFocusRectangleItemPainter :
-		ListBoxItemPainter
-	{
-		protected override void DrawItemBar(ListBoxItemObjectInfoArgs e)
-		{
-			e.PaintAppearance.FillRectangle(e.Cache, e.Bounds);
-		}
-	}
+    protected override BaseListBoxItemPainter CreateItemPainter()
+    {
+        if (IsSkinnedHighlightingEnabled) return new ListBoxWithoutFocusRectangleSkinItemPainter();
+        return new ListBoxWithoutFocusRectangleItemPainter();
+    }
+}
 
-	public class ListBoxWithoutFocusRectangleViewInfo :
-		BaseListBoxViewInfo
-	{
-		public ListBoxWithoutFocusRectangleViewInfo(BaseListBoxControl owner) : base(owner) { }
-
-		protected override BaseListBoxItemPainter CreateItemPainter()
-		{
-			if (IsSkinnedHighlightingEnabled) return new ListBoxWithoutFocusRectangleSkinItemPainter();
-			return new ListBoxWithoutFocusRectangleItemPainter();
-		}
-	}
-
-	public class ListBoxWithoutFocusRectangleSkinItemPainter :
-		ListBoxSkinItemPainter
-	{
-		protected override void DrawItemBar(ListBoxItemObjectInfoArgs e) { DrawItemBarCore(e); }
-	}
+public class ListBoxWithoutFocusRectangleSkinItemPainter :
+    ListBoxSkinItemPainter
+{
+    protected override void DrawItemBar(ListBoxItemObjectInfoArgs e) { DrawItemBarCore(e); }
 }

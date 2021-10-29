@@ -1,101 +1,117 @@
-﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.FileInformations
+﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.FileInformations;
+
+using DL;
+using FileGroups;
+using Projects;
+using System;
+using System.Diagnostics;
+using System.Xml;
+using Zeta.VoyagerLibrary.Common;
+using ZetaLongPaths;
+
+[DebuggerDisplay(@"File = {File.Name}")]
+public class FileInformation :
+    ITranslationStateInformation,
+    IComparable,
+    IComparable<FileInformation>,
+    IUniqueID
 {
-    using DL;
-    using FileGroups;
-    using Projects;
-    using System;
-    using System.Diagnostics;
-    using System.Xml;
-    using Zeta.VoyagerLibrary.Common;
-    using ZetaLongPaths;
+    private Guid _uniqueID;
 
-    [DebuggerDisplay(@"File = {File.Name}")]
-    public class FileInformation :
-        ITranslationStateInformation,
-        IComparable,
-        IComparable<FileInformation>,
-        IUniqueID
+    public FileInformation(
+        FileGroup fileGroup)
     {
-        private Guid _uniqueID;
+        FileGroup = fileGroup;
+    }
 
-        public FileInformation(
-            FileGroup fileGroup)
+    public FileGroup FileGroup { get; }
+
+    public FileGroupStateColor TranslationStateColor => FileGroup.TranslationStateColor;
+
+    public ZlpFileInfo File { get; set; }
+
+    public int CompareTo(object obj)
+    {
+        return CompareTo((FileInformation)obj);
+    }
+
+    public int CompareTo(FileInformation other)
+    {
+        var x = ZlpPathHelper.GetFileNameWithoutExtension(File.FullName);
+        var y = ZlpPathHelper.GetFileNameWithoutExtension(other.File.FullName);
+
+        if (x.Contains(@".") && y.Contains(@".") ||
+            !x.Contains(@".") && !y.Contains(@"."))
         {
-            FileGroup = fileGroup;
+            return string.CompareOrdinal(x, y);
+        }
+        else
+        {
+            return x.Contains(@".")
+                ? x.StartsWithNoCase(y) ? +1 : string.CompareOrdinal(x, y)
+                : y.StartsWithNoCase(x) ? -1 : string.CompareOrdinal(x, y);
+        }
+    }
+
+    public void StoreToXml(Project project, XmlElement parentNode)
+    {
+        if (parentNode.OwnerDocument != null)
+        {
+            var a = parentNode.OwnerDocument.CreateAttribute(@"filePath");
+            a.Value = project.MakeRelativeFilePath(File.FullName);
+            parentNode.Attributes.Append(a);
+
+            a = parentNode.OwnerDocument.CreateAttribute(@"absoluteFilePath");
+            a.Value = File.FullName;
+            parentNode.Attributes.Append(a);
+
+            a = parentNode.OwnerDocument.CreateAttribute(@"uniqueID");
+            a.Value = _uniqueID.ToString();
+            parentNode.Attributes.Append(a);
+        }
+    }
+
+    public bool LoadFromXml(Project project, XmlNode parentNode)
+    {
+        if (parentNode.Attributes != null)
+        {
+            XmlHelper.ReadAttribute(
+                out _uniqueID,
+                parentNode.Attributes[@"uniqueID"]);
         }
 
-        public FileGroup FileGroup { get; }
-
-        public FileGroupStateColor TranslationStateColor => FileGroup.TranslationStateColor;
-
-        public ZlpFileInfo File { get; set; }
-
-        public int CompareTo(object obj)
+        if (_uniqueID == Guid.Empty)
         {
-            return CompareTo((FileInformation)obj);
+            _uniqueID = Guid.NewGuid();
         }
 
-        public int CompareTo(FileInformation other)
-        {
-            var x = ZlpPathHelper.GetFileNameWithoutExtension(File.FullName);
-            var y = ZlpPathHelper.GetFileNameWithoutExtension(other.File.FullName);
+        // --
 
-            if (x.Contains(@".") && y.Contains(@".") ||
-                !x.Contains(@".") && !y.Contains(@"."))
-            {
-                return string.CompareOrdinal(x, y);
-            }
-            else
-            {
-                return x.Contains(@".")
-                    ? x.StartsWithNoCase(y) ? +1 : string.CompareOrdinal(x, y)
-                    : y.StartsWithNoCase(x) ? -1 : string.CompareOrdinal(x, y);
-            }
+        string filePath = null;
+        if (parentNode.Attributes != null)
+        {
+            XmlHelper.ReadAttribute(
+                out filePath,
+                parentNode.Attributes[@"filePath"]);
         }
 
-        public void StoreToXml(Project project, XmlElement parentNode)
+        filePath = project.MakeAbsoluteFilePath(filePath);
+
+        if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
         {
-            if (parentNode.OwnerDocument != null)
-            {
-                var a = parentNode.OwnerDocument.CreateAttribute(@"filePath");
-                a.Value = project.MakeRelativeFilePath(File.FullName);
-                parentNode.Attributes.Append(a);
-
-                a = parentNode.OwnerDocument.CreateAttribute(@"absoluteFilePath");
-                a.Value = File.FullName;
-                parentNode.Attributes.Append(a);
-
-                a = parentNode.OwnerDocument.CreateAttribute(@"uniqueID");
-                a.Value = _uniqueID.ToString();
-                parentNode.Attributes.Append(a);
-            }
+            File = new ZlpFileInfo(filePath);
+            return true;
         }
-
-        public bool LoadFromXml(Project project, XmlNode parentNode)
+        else
         {
-            if (parentNode.Attributes != null)
-            {
-                XmlHelper.ReadAttribute(
-                    out _uniqueID,
-                    parentNode.Attributes[@"uniqueID"]);
-            }
-
-            if (_uniqueID == Guid.Empty)
-            {
-                _uniqueID = Guid.NewGuid();
-            }
-
-            // --
-
-            string filePath = null;
+            // Try absolute file path if relative one fails.
+            filePath = null;
             if (parentNode.Attributes != null)
             {
                 XmlHelper.ReadAttribute(
                     out filePath,
-                    parentNode.Attributes[@"filePath"]);
+                    parentNode.Attributes[@"absoluteFilePath"]);
             }
-
-            filePath = project.MakeAbsoluteFilePath(filePath);
 
             if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
             {
@@ -104,63 +120,46 @@
             }
             else
             {
-                // Try absolute file path if relative one fails.
+                // Try in same folder as project file, if both above failed.
+
                 filePath = null;
                 if (parentNode.Attributes != null)
+                {
+                    XmlHelper.ReadAttribute(
+                        out filePath,
+                        parentNode.Attributes[@"filePath"]);
+                }
+                if (string.IsNullOrEmpty(filePath) && parentNode.Attributes != null)
                 {
                     XmlHelper.ReadAttribute(
                         out filePath,
                         parentNode.Attributes[@"absoluteFilePath"]);
                 }
 
-                if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
+                if (string.IsNullOrEmpty(filePath))
                 {
-                    File = new ZlpFileInfo(filePath);
-                    return true;
+                    File = null;
+                    return false;
                 }
                 else
                 {
-                    // Try in same folder as project file, if both above failed.
+                    filePath = ZlpPathHelper.GetFileNameFromFilePath(filePath);
+                    filePath = project.MakeAbsoluteFilePath(filePath);
 
-                    filePath = null;
-                    if (parentNode.Attributes != null)
+                    if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
                     {
-                        XmlHelper.ReadAttribute(
-                            out filePath,
-                            parentNode.Attributes[@"filePath"]);
+                        File = new ZlpFileInfo(filePath);
+                        return true;
                     }
-                    if (string.IsNullOrEmpty(filePath) && parentNode.Attributes != null)
-                    {
-                        XmlHelper.ReadAttribute(
-                            out filePath,
-                            parentNode.Attributes[@"absoluteFilePath"]);
-                    }
-
-                    if (string.IsNullOrEmpty(filePath))
+                    else
                     {
                         File = null;
                         return false;
                     }
-                    else
-                    {
-                        filePath = ZlpPathHelper.GetFileNameFromFilePath(filePath);
-                        filePath = project.MakeAbsoluteFilePath(filePath);
-
-                        if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
-                        {
-                            File = new ZlpFileInfo(filePath);
-                            return true;
-                        }
-                        else
-                        {
-                            File = null;
-                            return false;
-                        }
-                    }
                 }
             }
         }
-
-        public Guid UniqueID => _uniqueID;
     }
+
+    public Guid UniqueID => _uniqueID;
 }

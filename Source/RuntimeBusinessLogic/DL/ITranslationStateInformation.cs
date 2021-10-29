@@ -1,12 +1,11 @@
-﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.DL
-{
-	using FileGroups;
+﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.DL;
 
-	public interface ITranslationStateInformation
-	{
-		FileGroupStateColor TranslationStateColor
-		{
-			get;
-		}
-	}
+using FileGroups;
+
+public interface ITranslationStateInformation
+{
+    FileGroupStateColor TranslationStateColor
+    {
+        get;
+    }
 }

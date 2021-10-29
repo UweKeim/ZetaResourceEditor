@@ -1,12 +1,11 @@
-﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.DL
+﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.DL;
+
+using System.Globalization;
+
+public interface ILanguageColumnFilter
 {
-	using System.Globalization;
+    bool HasLanguageToDisplayFilter { get; }
 
-	public interface ILanguageColumnFilter
-	{
-		bool HasLanguageToDisplayFilter { get; }
-
-		bool WantDisplayLanguageColumnInGrid(CultureInfo ci);
-		bool WantDisplayLanguageColumnInGrid(string language);
-	}
+    bool WantDisplayLanguageColumnInGrid(CultureInfo ci);
+    bool WantDisplayLanguageColumnInGrid(string language);
 }

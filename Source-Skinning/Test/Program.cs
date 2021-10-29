@@ -1,7 +1,5 @@
 ﻿namespace Test
 {
-    using System;
-    using System.Windows.Forms;
     using ExtendedControlsLibrary.Skinning;
 
     internal static class Program

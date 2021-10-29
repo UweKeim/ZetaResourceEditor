@@ -1,15 +1,14 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomListBox
+﻿namespace ExtendedControlsLibrary.Skinning.CustomListBox;
+
+using DevExpress.XtraEditors;
+
+public class MyCheckedListBoxControl :
+    CheckedListBoxControl
 {
-    using DevExpress.XtraEditors;
-
-    public class MyCheckedListBoxControl :
-        CheckedListBoxControl
+    protected override void OnCreateControl()
     {
-        protected override void OnCreateControl()
-        {
-            base.OnCreateControl();
+        base.OnCreateControl();
 
-            Font = SkinHelper.StandardFont;
-        }
+        Font = SkinHelper.StandardFont;
     }
 }

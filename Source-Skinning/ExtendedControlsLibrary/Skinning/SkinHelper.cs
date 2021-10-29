@@ -1,117 +1,116 @@
-﻿namespace ExtendedControlsLibrary.Skinning
+﻿namespace ExtendedControlsLibrary.Skinning;
+
+using System.Drawing;
+using System.Windows.Forms;
+using CustomRibbonForm;
+using DevExpress.LookAndFeel;
+using DevExpress.Skins;
+using DevExpress.UserSkins;
+using DevExpress.Utils;
+
+public static class SkinHelper
 {
-    using System.Drawing;
-    using System.Windows.Forms;
-    using CustomRibbonForm;
-    using DevExpress.LookAndFeel;
-    using DevExpress.Skins;
-    using DevExpress.UserSkins;
-    using DevExpress.Utils;
+    public const int ButtonHeight = 28;
+    public const string SkinNameMainForm = @"ZetaTestSkin";
+    public const string SkinNameDialogForms = @"ZetaTestSkin";
 
-    public static class SkinHelper
+    public const string FontHeightMeasureString = @"yWÀ|";
+    public static readonly bool IsRealFontInstalled;
+
+    public static readonly Font SmallFont;
+
+    public static readonly Font StandardFont;
+    public static readonly Font StandardFontBold;
+
+    public static readonly Font LargeFont;
+    public static readonly Font LargeFontBold;
+    public static readonly Font LargeFontUnderline;
+
+    private static SkinController _currentSkin;
+    private static MyDefaultBarAndDockingController _badc;
+
+    public static readonly Color DialogTextColor = Color.FromArgb(59, 59, 59);
+    public static readonly Color DialogBackgroundColor = Color.FromArgb(255, 255, 255);
+
+    public static readonly Color LineColorTop = Color.FromArgb(207, 207, 207);
+    public static readonly Color LineColorBottom = Color.FromArgb(245, 245, 245);
+    public static readonly Color ControlBorderColor = Color.FromArgb(200, 200, 200);
+
+    public static readonly Color AlternatingGridRowColors = Color.FromArgb(249, 249, 249);
+
+    internal static readonly Color CueTextColor = Color.Silver;
+
+    static SkinHelper()
     {
-        public const int ButtonHeight = 28;
-        public const string SkinNameMainForm = @"ZetaTestSkin";
-        public const string SkinNameDialogForms = @"ZetaTestSkin";
+        var hasMainFont = DesignModeHelper.IsFontInstalled(@"Segoe UI");
+        IsRealFontInstalled = hasMainFont;
 
-        public const string FontHeightMeasureString = @"yWÀ|";
-        public static readonly bool IsRealFontInstalled;
+        const int standardFontSizePixel = 13;
+        var largeFontSizePixel = hasMainFont ? 17 : 16;
+        const int smallFontSizePixel = 11;
 
-        public static readonly Font SmallFont;
+        SmallFont =
+            hasMainFont
+                ? new Font(@"Segoe UI", smallFontSizePixel, GraphicsUnit.Pixel)
+                : new Font(@"Tahoma", smallFontSizePixel, GraphicsUnit.Pixel);
 
-        public static readonly Font StandardFont;
-        public static readonly Font StandardFontBold;
+        StandardFont =
+            hasMainFont
+                ? new Font(@"Segoe UI", standardFontSizePixel, GraphicsUnit.Pixel)
+                : new Font(@"Tahoma", standardFontSizePixel, GraphicsUnit.Pixel);
 
-        public static readonly Font LargeFont;
-        public static readonly Font LargeFontBold;
-        public static readonly Font LargeFontUnderline;
+        StandardFontBold =
+            hasMainFont
+                ? new Font(@"Segoe UI", standardFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel)
+                : new Font(@"Tahoma", standardFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel);
 
-        private static SkinController _currentSkin;
-        private static MyDefaultBarAndDockingController _badc;
+        LargeFont =
+            hasMainFont
+                ? new Font(@"Segoe UI", largeFontSizePixel, GraphicsUnit.Pixel)
+                : new Font(@"Tahoma", largeFontSizePixel, GraphicsUnit.Pixel);
 
-        public static readonly Color DialogTextColor = Color.FromArgb(59, 59, 59);
-        public static readonly Color DialogBackgroundColor = Color.FromArgb(255, 255, 255);
+        LargeFontBold =
+            hasMainFont
+                ? new Font(@"Segoe UI", largeFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel)
+                : new Font(@"Tahoma", largeFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel);
 
-        public static readonly Color LineColorTop = Color.FromArgb(207, 207, 207);
-        public static readonly Color LineColorBottom = Color.FromArgb(245, 245, 245);
-        public static readonly Color ControlBorderColor = Color.FromArgb(200, 200, 200);
+        LargeFontUnderline =
+            hasMainFont
+                ? new Font(@"Segoe UI", largeFontSizePixel, FontStyle.Underline, GraphicsUnit.Pixel)
+                : new Font(@"Tahoma", largeFontSizePixel, FontStyle.Underline, GraphicsUnit.Pixel);
+    }
 
-        public static readonly Color AlternatingGridRowColors = Color.FromArgb(249, 249, 249);
+    public static SkinController GetCurrentSkin()
+    {
+        // http://www.devexpress.com/Support/Center/KB/p/A2753.aspx
 
-        internal static readonly Color CueTextColor = Color.Silver;
+        var skin = CommonSkins.GetSkin(UserLookAndFeel.Default);
 
-        static SkinHelper()
+        if (_currentSkin == null || _currentSkin.Skin.Name != skin.Name)
         {
-            var hasMainFont = DesignModeHelper.IsFontInstalled(@"Segoe UI");
-            IsRealFontInstalled = hasMainFont;
-
-            const int standardFontSizePixel = 13;
-            var largeFontSizePixel = hasMainFont ? 17 : 16;
-            const int smallFontSizePixel = 11;
-
-            SmallFont =
-                hasMainFont
-                    ? new Font(@"Segoe UI", smallFontSizePixel, GraphicsUnit.Pixel)
-                    : new Font(@"Tahoma", smallFontSizePixel, GraphicsUnit.Pixel);
-
-            StandardFont =
-                hasMainFont
-                    ? new Font(@"Segoe UI", standardFontSizePixel, GraphicsUnit.Pixel)
-                    : new Font(@"Tahoma", standardFontSizePixel, GraphicsUnit.Pixel);
-
-            StandardFontBold =
-                hasMainFont
-                    ? new Font(@"Segoe UI", standardFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel)
-                    : new Font(@"Tahoma", standardFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel);
-
-            LargeFont =
-                hasMainFont
-                    ? new Font(@"Segoe UI", largeFontSizePixel, GraphicsUnit.Pixel)
-                    : new Font(@"Tahoma", largeFontSizePixel, GraphicsUnit.Pixel);
-
-            LargeFontBold =
-                hasMainFont
-                    ? new Font(@"Segoe UI", largeFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel)
-                    : new Font(@"Tahoma", largeFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel);
-
-            LargeFontUnderline =
-                hasMainFont
-                    ? new Font(@"Segoe UI", largeFontSizePixel, FontStyle.Underline, GraphicsUnit.Pixel)
-                    : new Font(@"Tahoma", largeFontSizePixel, FontStyle.Underline, GraphicsUnit.Pixel);
+            _currentSkin = new SkinController(skin);
         }
 
-        public static SkinController GetCurrentSkin()
-        {
-            // http://www.devexpress.com/Support/Center/KB/p/A2753.aspx
+        return _currentSkin;
+    }
 
-            var skin = CommonSkins.GetSkin(UserLookAndFeel.Default);
+    public static void InitializeAll()
+    {
+        DesignModeHelper.TurnOffDesignMode();
 
-            if (_currentSkin == null || _currentSkin.Skin.Name != skin.Name)
-            {
-                _currentSkin = new SkinController(skin);
-            }
+        SkinManager.Default.RegisterAssembly(typeof(ZetaTestSkin).Assembly);
 
-            return _currentSkin;
-        }
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
 
-        public static void InitializeAll()
-        {
-            DesignModeHelper.TurnOffDesignMode();
+        // Below Windows Vista, use form skins.
+        SkinManager.EnableFormSkinsIfNotVista();
 
-            SkinManager.Default.RegisterAssembly(typeof(ZetaTestSkin).Assembly);
+        //UserLookAndFeel.Default.ActiveLookAndFeel.SetSkinStyle(SkinNameDialogForms);
+        UserLookAndFeel.Default.SetSkinStyle(SkinNameDialogForms);
+        AppearanceObject.DefaultFont = StandardFont;
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            // Below Windows Vista, use form skins.
-            SkinManager.EnableFormSkinsIfNotVista();
-
-            //UserLookAndFeel.Default.ActiveLookAndFeel.SetSkinStyle(SkinNameDialogForms);
-            UserLookAndFeel.Default.SetSkinStyle(SkinNameDialogForms);
-            AppearanceObject.DefaultFont = StandardFont;
-
-            _badc = new MyDefaultBarAndDockingController();
-            _badc.Apply();
-        }
+        _badc = new MyDefaultBarAndDockingController();
+        _badc.Apply();
     }
 }

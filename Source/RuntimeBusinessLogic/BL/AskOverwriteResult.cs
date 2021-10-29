@@ -1,9 +1,8 @@
-﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.BL
+﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.BL;
+
+public enum AskOverwriteResult
 {
-	public enum AskOverwriteResult
-	{
-		Overwrite,
-		Skip,
-		Fail
-	}
+    Overwrite,
+    Skip,
+    Fail
 }

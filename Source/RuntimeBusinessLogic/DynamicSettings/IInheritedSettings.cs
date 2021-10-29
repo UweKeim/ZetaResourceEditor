@@ -1,21 +1,20 @@
-﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings
+﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings;
+
+public interface IInheritedSettings
 {
-	public interface IInheritedSettings
-	{
-		IInheritedSettings ParentSettings { get; }
+    IInheritedSettings ParentSettings { get; }
 
-		int EffectiveBaseNameDotCount { get; }
+    int EffectiveBaseNameDotCount { get; }
 
-		bool EffectiveIgnoreDuringExportAndImport { get; }
+    bool EffectiveIgnoreDuringExportAndImport { get; }
 
-		string EffectiveNeutralLanguageFileNamePattern { get; }
+    string EffectiveNeutralLanguageFileNamePattern { get; }
 
-		string EffectiveNonNeutralLanguageFileNamePattern { get; }
+    string EffectiveNonNeutralLanguageFileNamePattern { get; }
 
-		string[] EffectiveDefaultFileTypesToIgnoreArray { get; }
+    string[] EffectiveDefaultFileTypesToIgnoreArray { get; }
 
-		string EffectiveDefaultFileTypesToIgnore { get; }
+    string EffectiveDefaultFileTypesToIgnore { get; }
 
-		string EffectiveNeutralLanguageCode { get; }
-	}
+    string EffectiveNeutralLanguageCode { get; }
 }

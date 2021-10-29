@@ -1,15 +1,14 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomRibbonForm
+﻿namespace ExtendedControlsLibrary.Skinning.CustomRibbonForm;
+
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraBars.Ribbon.ViewInfo;
+
+public class MyRibbonPanelViewInfo : RibbonPanelViewInfo
 {
-    using DevExpress.XtraBars.Ribbon;
-    using DevExpress.XtraBars.Ribbon.ViewInfo;
+    public MyRibbonPanelViewInfo(RibbonViewInfo viewInfo) : base(viewInfo) { }
 
-    public class MyRibbonPanelViewInfo : RibbonPanelViewInfo
-	{
-		public MyRibbonPanelViewInfo(RibbonViewInfo viewInfo) : base(viewInfo) { }
-
-		protected override RibbonPageGroupViewInfo CreateGroupViewInfo(RibbonPageGroup group)
-		{
-			return new MyRibbonPageGroupViewInfo(ViewInfo, group);
-		}
-	}
+    protected override RibbonPageGroupViewInfo CreateGroupViewInfo(RibbonPageGroup group)
+    {
+        return new MyRibbonPageGroupViewInfo(ViewInfo, group);
+    }
 }

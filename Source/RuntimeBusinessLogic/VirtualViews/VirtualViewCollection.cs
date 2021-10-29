@@ -1,134 +1,133 @@
-namespace ZetaResourceEditor.RuntimeBusinessLogic.VirtualViews
+namespace ZetaResourceEditor.RuntimeBusinessLogic.VirtualViews;
+
+#region Using directives.
+// ----------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml;
+using Projects;
+using Zeta.VoyagerLibrary.Common.Collections;
+
+// ----------------------------------------------------------------------
+#endregion
+
+/////////////////////////////////////////////////////////////////////////
+
+/// <summary>
+/// 
+/// </summary>
+public class VirtualViewCollection :
+    List<VirtualView>
 {
-	#region Using directives.
-	// ----------------------------------------------------------------------
-    using System;
-    using System.Collections.Generic;
-	using System.Linq;
-	using System.Xml;
-	using Projects;
-	using Zeta.VoyagerLibrary.Common.Collections;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="VirtualViewCollection"/> class.
+    /// </summary>
+    /// <param name="project">The project.</param>
+    public VirtualViewCollection(
+        Project project)
+    {
+        Project = project;
+    }
 
-	// ----------------------------------------------------------------------
-	#endregion
+    /// <summary>
+    /// Gets the project.
+    /// </summary>
+    /// <value>The project.</value>
+    public Project Project { get; }
 
-	/////////////////////////////////////////////////////////////////////////
+    /// <summary>
+    /// Stores to XML.
+    /// </summary>
+    /// <param name="parentNode">The parent node.</param>
+    internal void StoreToXml(
+        XmlElement parentNode)
+    {
+        if (parentNode.OwnerDocument != null)
+        {
+            var groupsNode =
+                parentNode.OwnerDocument.CreateElement(@"virtualViews");
+            parentNode.AppendChild(groupsNode);
 
-	/// <summary>
-	/// 
-	/// </summary>
-	public class VirtualViewCollection :
-		List<VirtualView>
-	{
-	    /// <summary>
-		/// Initializes a new instance of the <see cref="VirtualViewCollection"/> class.
-		/// </summary>
-		/// <param name="project">The project.</param>
-		public VirtualViewCollection(
-			Project project)
-		{
-			Project = project;
-		}
+            foreach (var virtualView in this)
+            {
+                if (parentNode.OwnerDocument != null)
+                {
+                    var virtualViewNode =
+                        parentNode.OwnerDocument.CreateElement(@"virtualView");
+                    groupsNode.AppendChild(virtualViewNode);
 
-		/// <summary>
-		/// Gets the project.
-		/// </summary>
-		/// <value>The project.</value>
-		public Project Project { get; }
+                    virtualView.StoreToXml(Project, virtualViewNode);
+                }
+            }
+        }
+    }
 
-	    /// <summary>
-		/// Stores to XML.
-		/// </summary>
-		/// <param name="parentNode">The parent node.</param>
-		internal void StoreToXml(
-			XmlElement parentNode)
-		{
-			if (parentNode.OwnerDocument != null)
-			{
-				var groupsNode =
-					parentNode.OwnerDocument.CreateElement(@"virtualViews");
-				parentNode.AppendChild(groupsNode);
+    /// <summary>
+    /// Loads from XML.
+    /// </summary>
+    /// <param name="parentNode">The parent node.</param>
+    internal void LoadFromXml(
+        XmlNode parentNode)
+    {
+        Clear();
 
-				foreach (var virtualView in this)
-				{
-					if (parentNode.OwnerDocument != null)
-					{
-						var virtualViewNode =
-							parentNode.OwnerDocument.CreateElement(@"virtualView");
-						groupsNode.AppendChild(virtualViewNode);
+        var virtualViewNodes =
+            parentNode.SelectNodes(@"virtualViews/virtualView");
 
-						virtualView.StoreToXml(Project, virtualViewNode);
-					}
-				}
-			}
-		}
+        if (virtualViewNodes != null)
+        {
+            foreach (XmlNode virtualViewNode in virtualViewNodes)
+            {
+                var virtualView = new VirtualView(Project);
+                virtualView.LoadFromXml(Project, virtualViewNode);
+                Add(virtualView);
+            }
+        }
 
-		/// <summary>
-		/// Loads from XML.
-		/// </summary>
-		/// <param name="parentNode">The parent node.</param>
-		internal void LoadFromXml(
-			XmlNode parentNode)
-		{
-			Clear();
+        // --
 
-			var virtualViewNodes =
-				parentNode.SelectNodes(@"virtualViews/virtualView");
+        Sort(
+            /*delegate(VirtualView a, VirtualView b)
+                {
+                    if (a.Count <= 0)
+                    {
+                        return +1;
+                    }
+                    else if (b.Count <= 0)
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        return string.Compare(
+                            a.GetNameIntelligent(_project),
+                            b.GetNameIntelligent(_project),
+                            true);
+                    }
+                }*/
+        );
+    }
 
-			if (virtualViewNodes != null)
-			{
-				foreach (XmlNode virtualViewNode in virtualViewNodes)
-				{
-					var virtualView = new VirtualView(Project);
-					virtualView.LoadFromXml(Project, virtualViewNode);
-					Add(virtualView);
-				}
-			}
+    public MyTuple<string, string>[] GetLanguageCodesExtended(
+        Project project)
+    {
+        var result = new HashSet<MyTuple<string, string>>();
 
-			// --
+        foreach (var fg in this)
+        {
+            foreach (var f in fg.GetLanguageCodesExtended(project))
+            {
+                var g = f;
+                if (result.All(x => string.Compare(x.Item1, g.Item1, StringComparison.OrdinalIgnoreCase) != 0))
+                {
+                    result.Add(f);
+                }
+            }
+        }
 
-			Sort(
-				/*delegate(VirtualView a, VirtualView b)
-					{
-						if (a.Count <= 0)
-						{
-							return +1;
-						}
-						else if (b.Count <= 0)
-						{
-							return -1;
-						}
-						else
-						{
-							return string.Compare(
-								a.GetNameIntelligent(_project),
-								b.GetNameIntelligent(_project),
-								true);
-						}
-					}*/
-					   );
-		}
-
-		public MyTuple<string, string>[] GetLanguageCodesExtended(
-			Project project)
-		{
-			var result = new HashSet<MyTuple<string, string>>();
-
-			foreach (var fg in this)
-			{
-				foreach (var f in fg.GetLanguageCodesExtended(project))
-				{
-					var g = f;
-					if (result.All(x => string.Compare(x.Item1, g.Item1, StringComparison.OrdinalIgnoreCase) != 0))
-					{
-						result.Add(f);
-					}
-				}
-			}
-
-			return result.ToArray();
-		}
-	}
-
-	/////////////////////////////////////////////////////////////////////////
+        return result.ToArray();
+    }
 }
+
+/////////////////////////////////////////////////////////////////////////

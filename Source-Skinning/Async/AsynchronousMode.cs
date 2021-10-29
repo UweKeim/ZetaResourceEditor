@@ -1,10 +1,10 @@
-﻿namespace ZetaAsync
-{
-	public enum AsynchronousMode
-	{
-		Synchronous,
-		Asynchronous,
+﻿namespace ZetaAsync;
 
-		Decide
-	}
+[PublicAPI]
+public enum AsynchronousMode
+{
+    Synchronous,
+    Asynchronous,
+
+    Decide
 }

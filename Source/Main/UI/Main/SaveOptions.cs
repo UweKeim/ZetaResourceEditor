@@ -1,12 +1,11 @@
-﻿namespace ZetaResourceEditor.UI.Main
-{
-    using System;
+﻿namespace ZetaResourceEditor.UI.Main;
 
-    [Flags]
-    internal enum SaveOptions
-    {
-        None = 0,
-        AskConfirm = 0x0001,
-        OnlyIfModified = 0x0002
-    }
+using System;
+
+[Flags]
+internal enum SaveOptions
+{
+    None = 0,
+    AskConfirm = 0x0001,
+    OnlyIfModified = 0x0002
 }

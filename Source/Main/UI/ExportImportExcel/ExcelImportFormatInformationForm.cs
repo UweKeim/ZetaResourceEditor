@@ -1,31 +1,30 @@
-﻿namespace ZetaResourceEditor.UI.ExportImportExcel
+﻿namespace ZetaResourceEditor.UI.ExportImportExcel;
+
+using Helper.Base;
+using System;
+using System.Windows.Forms;
+
+public partial class ExcelImportFormatInformationForm :
+    FormBase
 {
-    using Helper.Base;
-    using System;
-    using System.Windows.Forms;
-
-    public partial class ExcelImportFormatInformationForm :
-        FormBase
+    public ExcelImportFormatInformationForm()
     {
-        public ExcelImportFormatInformationForm()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        private void ImportFormatInformationForm_Load(object sender, EventArgs e)
-        {
-            //WinFormsPersistanceHelper.RestoreState(this);
-            CenterToParent();
+    private void ImportFormatInformationForm_Load(object sender, EventArgs e)
+    {
+        //WinFormsPersistanceHelper.RestoreState(this);
+        CenterToParent();
 
-            InitiallyFillLists();
-            FillItemToControls();
+        InitiallyFillLists();
+        FillItemToControls();
 
-            UpdateUI();
-        }
+        UpdateUI();
+    }
 
-        private void ImportFormatInformationForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //WinFormsPersistanceHelper.SaveState(this);
-        }
+    private void ImportFormatInformationForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        //WinFormsPersistanceHelper.SaveState(this);
     }
 }

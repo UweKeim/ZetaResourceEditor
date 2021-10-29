@@ -1,15 +1,14 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomLabelEdit
+﻿namespace ExtendedControlsLibrary.Skinning.CustomLabelEdit;
+
+using DevExpress.XtraEditors;
+
+public class MyLabelBoldControl :
+    LabelControl
 {
-    using DevExpress.XtraEditors;
+    protected override void OnCreateControl()
+    {
+        base.OnCreateControl();
 
-    public class MyLabelBoldControl :
-		LabelControl
-	{
-		protected override void OnCreateControl()
-		{
-			base.OnCreateControl();
-
-			Appearance.Font = SkinHelper.StandardFontBold;
-		}
-	}
+        Appearance.Font = SkinHelper.StandardFontBold;
+    }
 }

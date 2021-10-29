@@ -1,139 +1,138 @@
-﻿namespace ZetaResourceEditor.UI.Helper
+﻿namespace ZetaResourceEditor.UI.Helper;
+
+#region Using directives.
+// ----------------------------------------------------------------------
+
+using System;
+using System.Windows.Forms;
+using System.Drawing;
+using System.ComponentModel;
+
+// ----------------------------------------------------------------------
+#endregion
+
+/////////////////////////////////////////////////////////////////////////
+
+/// <summary>
+/// Control to display information to the user.
+/// </summary>
+public partial class InformationLightUserControl :
+    UserControl
 {
-	#region Using directives.
-	// ----------------------------------------------------------------------
+    #region Public methods.
+    // ------------------------------------------------------------------
 
-	using System;
-	using System.Windows.Forms;
-	using System.Drawing;
-	using System.ComponentModel;
+    /// <summary>
+    ///
+    /// </summary>
+    public InformationLightUserControl()
+    {
+        InitializeComponent();
+    }
 
-	// ----------------------------------------------------------------------
-	#endregion
+    // ------------------------------------------------------------------
+    #endregion
 
-	/////////////////////////////////////////////////////////////////////////
+    #region Public properties.
+    // ------------------------------------------------------------------
 
-	/// <summary>
-	/// Control to display information to the user.
-	/// </summary>
-	public partial class InformationLightUserControl :
-		UserControl
-	{
-		#region Public methods.
-		// ------------------------------------------------------------------
+    /// <summary>
+    /// 
+    /// </summary>
+    [DefaultValue( false )]
+    public bool UseMouseHoverEffect { get; set; }
 
-		/// <summary>
-		///
-		/// </summary>
-		public InformationLightUserControl()
-		{
-			InitializeComponent();
-		}
+    // ------------------------------------------------------------------
+    #endregion
 
-		// ------------------------------------------------------------------
-		#endregion
+    #region Public properties.
+    // ------------------------------------------------------------------
 
-		#region Public properties.
-		// ------------------------------------------------------------------
+    /// <summary>
+    /// 
+    /// </summary>
+    [Localizable( true )]
+    public string DescriptionText
+    {
+        get => descriptionLabel.Text;
+        set => descriptionLabel.Text = value;
+    }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		[DefaultValue( false )]
-		public bool UseMouseHoverEffect { get; set; }
+    // ------------------------------------------------------------------
+    #endregion
 
-	    // ------------------------------------------------------------------
-		#endregion
+    #region Private methods.
+    // ------------------------------------------------------------------
 
-		#region Public properties.
-		// ------------------------------------------------------------------
+    /// <summary>
+    /// 
+    /// </summary>
+    private void InvertColors()
+    {
+        backgroundPanel.BackColor = SystemColors.Highlight;
+        descriptionLabel.ForeColor = SystemColors.HighlightText;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		[Localizable( true )]
-		public string DescriptionText
-		{
-			get => descriptionLabel.Text;
-		    set => descriptionLabel.Text = value;
-		}
+        Cursor = Cursors.Hand;
+    }
 
-		// ------------------------------------------------------------------
-		#endregion
+    /// <summary>
+    /// 
+    /// </summary>
+    private void RestoreColors()
+    {
+        backgroundPanel.BackColor = SystemColors.Info;
+        descriptionLabel.ForeColor = SystemColors.InfoText;
 
-		#region Private methods.
-		// ------------------------------------------------------------------
+        Cursor = Cursors.Default;
+    }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		private void InvertColors()
-		{
-			backgroundPanel.BackColor = SystemColors.Highlight;
-			descriptionLabel.ForeColor = SystemColors.HighlightText;
+    // ------------------------------------------------------------------
+    #endregion
 
-			Cursor = Cursors.Hand;
-		}
+    #region Private event handler.
+    // ------------------------------------------------------------------
 
-		/// <summary>
-		/// 
-		/// </summary>
-		private void RestoreColors()
-		{
-			backgroundPanel.BackColor = SystemColors.Info;
-			descriptionLabel.ForeColor = SystemColors.InfoText;
+    /// <summary>
+    /// 
+    /// </summary>
+    private void InformationLightUserControl_MouseEnter(
+        object sender,
+        EventArgs e )
+    {
+        if ( UseMouseHoverEffect )
+        {
+            InvertColors();
+        }
+    }
 
-			Cursor = Cursors.Default;
-		}
+    /// <summary>
+    /// 
+    /// </summary>
+    private void InformationLightUserControl_MouseLeave(
+        object sender,
+        EventArgs e )
+    {
+        RestoreColors();
+    }
 
-		// ------------------------------------------------------------------
-		#endregion
+    /// <summary>
+    /// 
+    /// </summary>
+    private void InformationLightUserControl_Load(
+        object sender,
+        EventArgs e )
+    {
+        RestoreColors();
+    }
 
-		#region Private event handler.
-		// ------------------------------------------------------------------
+    // ------------------------------------------------------------------
+    #endregion
 
-		/// <summary>
-		/// 
-		/// </summary>
-		private void InformationLightUserControl_MouseEnter(
-			object sender,
-			EventArgs e )
-		{
-			if ( UseMouseHoverEffect )
-			{
-				InvertColors();
-			}
-		}
+    #region Private variables.
+    // ------------------------------------------------------------------
 
-		/// <summary>
-		/// 
-		/// </summary>
-		private void InformationLightUserControl_MouseLeave(
-			object sender,
-			EventArgs e )
-		{
-			RestoreColors();
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void InformationLightUserControl_Load(
-			object sender,
-			EventArgs e )
-		{
-			RestoreColors();
-		}
-
-		// ------------------------------------------------------------------
-		#endregion
-
-		#region Private variables.
-		// ------------------------------------------------------------------
-
-	    // ------------------------------------------------------------------
-		#endregion
-	}
-
-	/////////////////////////////////////////////////////////////////////////
+    // ------------------------------------------------------------------
+    #endregion
 }
+
+/////////////////////////////////////////////////////////////////////////

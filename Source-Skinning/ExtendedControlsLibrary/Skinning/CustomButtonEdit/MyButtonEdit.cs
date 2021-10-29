@@ -1,33 +1,32 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomButtonEdit
+﻿namespace ExtendedControlsLibrary.Skinning.CustomButtonEdit;
+
+using System.ComponentModel;
+using CustomForm;
+using General;
+
+[Designer(
+    @"System.Windows.Forms.Design.ButtonBaseDesigner, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+)]
+public class MyButtonEdit :
+    ExtendedManagedCueButtonEdit
 {
-    using System.ComponentModel;
-    using CustomForm;
-    using General;
+    public bool Bold { get; set; }
 
-    [Designer(
-        @"System.Windows.Forms.Design.ButtonBaseDesigner, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-        )]
-    public class MyButtonEdit :
-        ExtendedManagedCueButtonEdit
+    protected override void OnCreateControl()
     {
-        public bool Bold { get; set; }
+        base.OnCreateControl();
 
-        protected override void OnCreateControl()
+        ViewInfo.Appearance.Font = SkinHelper.StandardFont;
+        //ViewInfo.Appearance.Font = Bold ? SkinHelper.StandardFontBold : SkinHelper.StandardFont;
+    }
+
+    protected override void OnLoaded()
+    {
+        base.OnLoaded();
+
+        if (!DesignModeHelper.IsDesignMode)
         {
-            base.OnCreateControl();
-
-            ViewInfo.Appearance.Font = SkinHelper.StandardFont;
-            //ViewInfo.Appearance.Font = Bold ? SkinHelper.StandardFontBold : SkinHelper.StandardFont;
-        }
-
-        protected override void OnLoaded()
-        {
-            base.OnLoaded();
-
-            if (!DesignModeHelper.IsDesignMode)
-            {
-                MenuManager = MyXtraForm.CheckGetMenuBarManager(this);
-            }
+            MenuManager = MyXtraForm.CheckGetMenuBarManager(this);
         }
     }
 }

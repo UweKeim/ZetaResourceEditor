@@ -1,118 +1,117 @@
-﻿namespace ZetaResourceEditor.RuntimeUserInterface.Shell
+﻿namespace ZetaResourceEditor.RuntimeUserInterface.Shell;
+
+using System;
+using System.Diagnostics;
+using Zeta.VoyagerLibrary.Logging;
+using ZetaLongPaths;
+
+/// <summary>
+/// Information for passing to the ShellExecute method.
+/// </summary>
+public class ShellExecuteInformation
 {
-    using System;
-    using System.Diagnostics;
-    using Zeta.VoyagerLibrary.Logging;
-    using ZetaLongPaths;
+    public void Execute()
+    {
+        LogCentral.Current.LogInfo(
+            $@"About to shell-execute the command '{FileName}'.");
 
-    /// <summary>
-    /// Information for passing to the ShellExecute method.
-    /// </summary>
-    public class ShellExecuteInformation
-	{
-		public void Execute()
-		{
-			LogCentral.Current.LogInfo(
-			    $@"About to shell-execute the command '{FileName}'.");
+        checkSplitFileName();
 
-			checkSplitFileName();
+        // Do 'normal' ShellExecute.
+        var info =
+            new ProcessStartInfo
+            {
+                UseShellExecute = true,
+                Verb = Verb,
+                FileName = FileName,
+                Arguments = Arguments,
+                WorkingDirectory = WorkingDirectory,
+                WindowStyle = WindowStyle
+            };
 
-			// Do 'normal' ShellExecute.
-			var info =
-				new ProcessStartInfo
-					{
-						UseShellExecute = true,
-						Verb = Verb,
-						FileName = FileName,
-						Arguments = Arguments,
-						WorkingDirectory = WorkingDirectory,
-						WindowStyle = WindowStyle
-					};
+        Process.Start(info);
+    }
 
-			Process.Start(info);
-		}
+    public string FileName { get; set; }
 
-        public string FileName { get; set; }
+    public string Arguments { get; set; }
 
-        public string Arguments { get; set; }
+    public string WorkingDirectory { get; set; }
 
-		public string WorkingDirectory { get; set; }
+    public ProcessWindowStyle WindowStyle { get; set; }
 
-		public ProcessWindowStyle WindowStyle { get; set; }
+    public string Verb { get; set; }
 
-		public string Verb { get; set; }
+    private void checkSplitFileName()
+    {
+        if (!string.IsNullOrEmpty(FileName))
+        {
+            if (FileName.IndexOf(@"http://", StringComparison.Ordinal) == 0 ||
+                FileName.IndexOf(@"https://", StringComparison.Ordinal) == 0)
+            {
+                // Already a full path, do nothing.
+            }
+            else if (ZlpIOHelper.FileExists(FileName))
+            {
+                // Already a full path, do nothing.
+            }
+            else if (ZlpIOHelper.DirectoryExists(FileName))
+            {
+                // Already a full path, do nothing.
+            }
+            else
+            {
+                // Remember.
+                var originalFileName = FileName;
 
-        private void checkSplitFileName()
-		{
-			if (!string.IsNullOrEmpty(FileName))
-			{
-				if (FileName.IndexOf(@"http://", StringComparison.Ordinal) == 0 ||
-                    FileName.IndexOf(@"https://", StringComparison.Ordinal) == 0)
-				{
-					// Already a full path, do nothing.
+                if (!string.IsNullOrEmpty(FileName))
+                {
+                    FileName = FileName.Trim();
                 }
-				else if (ZlpIOHelper.FileExists(FileName))
-				{
-					// Already a full path, do nothing.
+
+                if (!string.IsNullOrEmpty(Arguments))
+                {
+                    Arguments = Arguments.Trim();
                 }
-				else if (ZlpIOHelper.DirectoryExists(FileName))
-				{
-					// Already a full path, do nothing.
+
+                // --
+
+                if (string.IsNullOrEmpty(Arguments) &&
+                    !string.IsNullOrEmpty(FileName) && FileName.Length > 2)
+                {
+                    if (FileName.StartsWith(@""""))
+                    {
+                        var pos = FileName.IndexOf(@"""", 1, StringComparison.Ordinal);
+
+                        if (pos > 0 && FileName.Length > pos + 1)
+                        {
+                            Arguments = FileName.Substring(pos + 1).Trim();
+                            FileName = FileName.Substring(0, pos + 1).Trim();
+                        }
+                    }
+                    else
+                    {
+                        var pos = FileName.IndexOf(@" ", StringComparison.Ordinal);
+                        if (pos > 0 && FileName.Length > pos + 1)
+                        {
+                            Arguments = FileName.Substring(pos + 1).Trim();
+                            FileName = FileName.Substring(0, pos + 1).Trim();
+                        }
+                    }
                 }
-				else
-				{
-					// Remember.
-					var originalFileName = FileName;
 
-					if (!string.IsNullOrEmpty(FileName))
-					{
-						FileName = FileName.Trim();
-					}
+                // --
+                // Possibly revert back.
 
-					if (!string.IsNullOrEmpty(Arguments))
-					{
-						Arguments = Arguments.Trim();
-					}
-
-					// --
-
-					if (string.IsNullOrEmpty(Arguments) &&
-						!string.IsNullOrEmpty(FileName) && FileName.Length > 2)
-					{
-						if (FileName.StartsWith(@""""))
-						{
-							var pos = FileName.IndexOf(@"""", 1, StringComparison.Ordinal);
-
-							if (pos > 0 && FileName.Length > pos + 1)
-							{
-								Arguments = FileName.Substring(pos + 1).Trim();
-								FileName = FileName.Substring(0, pos + 1).Trim();
-							}
-						}
-						else
-						{
-							var pos = FileName.IndexOf(@" ", StringComparison.Ordinal);
-							if (pos > 0 && FileName.Length > pos + 1)
-							{
-								Arguments = FileName.Substring(pos + 1).Trim();
-								FileName = FileName.Substring(0, pos + 1).Trim();
-							}
-						}
-					}
-
-					// --
-					// Possibly revert back.
-
-					if (!string.IsNullOrEmpty(FileName))
-					{
-						var s = FileName.Trim('"');
-						if (!ZlpIOHelper.FileExists(s) && !ZlpIOHelper.DirectoryExists(s))
-						{
-							FileName = originalFileName;
-						}
-					}
-				}
-			}
-		}
+                if (!string.IsNullOrEmpty(FileName))
+                {
+                    var s = FileName.Trim('"');
+                    if (!ZlpIOHelper.FileExists(s) && !ZlpIOHelper.DirectoryExists(s))
+                    {
+                        FileName = originalFileName;
+                    }
+                }
+            }
+        }
     }
 }

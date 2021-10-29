@@ -1,68 +1,67 @@
 ﻿// ReSharper disable CheckNamespace
 // ReSharper disable EmptyNamespace
-namespace ZetaResourceEditor.UI.Helper
-// ReSharper restore EmptyNamespace
+namespace ZetaResourceEditor.UI.Helper;
+    // ReSharper restore EmptyNamespace
 // ReSharper restore CheckNamespace
+
+/*
+using System;
+using System.IO;
+using System.Text;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Views.Grid;
+using Zeta.VoyagerLibrary.Common;
+using Zeta.VoyagerLibrary.WinForms.Common;
+
+/// <summary>
+/// See http://www.devexpress.com/Support/Center/kb/p/A1433.aspx.
+/// </summary>
+[Serializable]
+public class XtraGridState
 {
-    /*
-    using System;
-    using System.IO;
-    using System.Text;
-    using DevExpress.Utils;
-    using DevExpress.XtraGrid.Views.Grid;
-    using Zeta.VoyagerLibrary.Common;
-    using Zeta.VoyagerLibrary.WinForms.Common;
+    [NonSerialized]
+    private readonly GridView _gridView;
 
-    /// <summary>
-    /// See http://www.devexpress.com/Support/Center/kb/p/A1433.aspx.
-    /// </summary>
-    [Serializable]
-    public class XtraGridState
+    public XtraGridState(
+        GridView gridView)
     {
-        [NonSerialized]
-        private readonly GridView _gridView;
+        _gridView = gridView;
+    }
 
-        public XtraGridState(
-            GridView gridView)
+    public void PersistsState(string key)
+    {
+        using (var ms = new MemoryStream())
         {
-            _gridView = gridView;
-        }
+            _gridView.SaveLayoutToStream(ms, OptionsLayoutBase.FullLayout);
+            ms.Seek(0, SeekOrigin.Begin);
 
-        public void PersistsState(string key)
-        {
-            using (var ms = new MemoryStream())
+            string s;
+            using (var sr = new StreamReader(ms, Encoding.UTF8))
             {
-                _gridView.SaveLayoutToStream(ms, OptionsLayoutBase.FullLayout);
-                ms.Seek(0, SeekOrigin.Begin);
-
-                string s;
-                using (var sr = new StreamReader(ms, Encoding.UTF8))
-                {
-                    s = sr.ReadToEnd();
-                }
-
-                PersistanceHelper.SaveValue(key, s);
+                s = sr.ReadToEnd();
             }
-        }
 
-        public void RestoreState(string key)
-        {
-            var s = ConvertHelper.ToString(PersistanceHelper.RestoreValue(key));
-
-            if (!string.IsNullOrEmpty(s))
-            {
-                using (var ms =
-                    new MemoryStream(Encoding.UTF8.GetBytes(s)))
-                {
-                    _gridView.RestoreLayoutFromStream(ms, OptionsLayoutBase.FullLayout);
-                }
-            }
-        }
-
-        public void ResetState(string key)
-        {
-            PersistanceHelper.SaveValue(key, string.Empty);
+            PersistanceHelper.SaveValue(key, s);
         }
     }
-       */
+
+    public void RestoreState(string key)
+    {
+        var s = ConvertHelper.ToString(PersistanceHelper.RestoreValue(key));
+
+        if (!string.IsNullOrEmpty(s))
+        {
+            using (var ms =
+                new MemoryStream(Encoding.UTF8.GetBytes(s)))
+            {
+                _gridView.RestoreLayoutFromStream(ms, OptionsLayoutBase.FullLayout);
+            }
+        }
+    }
+
+    public void ResetState(string key)
+    {
+        PersistanceHelper.SaveValue(key, string.Empty);
+    }
 }
+   */

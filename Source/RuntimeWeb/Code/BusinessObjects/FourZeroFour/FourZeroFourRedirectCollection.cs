@@ -1,21 +1,20 @@
-﻿namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects.FourZeroFour
+﻿namespace ZetaResourceEditorWebsite.RuntimeWeb.Code.BusinessObjects.FourZeroFour;
+
+using System.Collections.Generic;
+
+public class FourZeroFourRedirectCollection :
+    List<FourZeroFourRedirect>
 {
-	using System.Collections.Generic;
+    public FourZeroFourRedirectCollection()
+    {
+    }
 
-	public class FourZeroFourRedirectCollection :
-		List<FourZeroFourRedirect>
-	{
-		public FourZeroFourRedirectCollection()
-		{
-		}
-
-		public FourZeroFourRedirectCollection(
-			IEnumerable<FourZeroFourRedirect> collection)
-		{
-			if (collection != null)
-			{
-				AddRange(collection);
-			}
-		}
-	}
+    public FourZeroFourRedirectCollection(
+        IEnumerable<FourZeroFourRedirect> collection)
+    {
+        if (collection != null)
+        {
+            AddRange(collection);
+        }
+    }
 }

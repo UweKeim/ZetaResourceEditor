@@ -1,29 +1,28 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomTreeList
+﻿namespace ExtendedControlsLibrary.Skinning.CustomTreeList;
+
+using DevExpress.XtraTreeList;
+using DevExpress.XtraTreeList.Nodes;
+using JetBrains.Annotations;
+using System.Collections.Generic;
+using System.Linq;
+
+[UsedImplicitly]
+public sealed class MyTreeListNodeList :
+    List<TreeListNode>
 {
-    using DevExpress.XtraTreeList;
-    using DevExpress.XtraTreeList.Nodes;
-    using JetBrains.Annotations;
-    using System.Collections.Generic;
-    using System.Linq;
+    [UsedImplicitly]
+    public TreeList Tree { get; set; }
 
     [UsedImplicitly]
-    public sealed class MyTreeListNodeList :
-        List<TreeListNode>
+    public TreeListNode FirstNode => this.FirstOrDefault();
+
+    public MyTreeListNodeList(IEnumerable<TreeListNode> nodes)
     {
-        [UsedImplicitly]
-        public TreeList Tree { get; set; }
+        if (nodes != null) AddRange(nodes);
+    }
 
-        [UsedImplicitly]
-        public TreeListNode FirstNode => this.FirstOrDefault();
-
-        public MyTreeListNodeList(IEnumerable<TreeListNode> nodes)
-        {
-            if (nodes != null) AddRange(nodes);
-        }
-
-        public MyTreeListNodeList(TreeList tree = null)
-        {
-            Tree = tree;
-        }
+    public MyTreeListNodeList(TreeList tree = null)
+    {
+        Tree = tree;
     }
 }

@@ -1,25 +1,24 @@
-namespace ZetaResourceEditor.UI.Helper.Base
+namespace ZetaResourceEditor.UI.Helper.Base;
+
+using System.ComponentModel;
+using ExtendedControlsLibrary.General.Base;
+
+public partial class UserControlBase :
+    DevExpressXtraUserControlBase
 {
-	using System.ComponentModel;
-	using ExtendedControlsLibrary.General.Base;
-
-    public partial class UserControlBase :
-        DevExpressXtraUserControlBase
+    public UserControlBase()
     {
-		public UserControlBase()
-		{
-			InitializeComponent();
-		}
+        InitializeComponent();
+    }
 
-		public UserControlBase( IContainer container )
-		{
-			container.Add( this );
+    public UserControlBase( IContainer container )
+    {
+        container.Add( this );
 
-			InitializeComponent();
-		}
+        InitializeComponent();
+    }
 
-		public virtual void UpdateUI()
-		{
-		}
-	}
+    public virtual void UpdateUI()
+    {
+    }
 }

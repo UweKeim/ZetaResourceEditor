@@ -1,79 +1,78 @@
-﻿namespace ExtendedControlsLibrary.General.Base
+﻿namespace ExtendedControlsLibrary.General.Base;
+
+using System;
+using System.Windows.Forms;
+using Skinning.CustomRibbonForm;
+using UIUpdating;
+
+public class DevExpressRibbonFormBase :
+    MyRibbonForm,
+    IUpdateUI
 {
-    using System;
-    using System.Windows.Forms;
-    using Skinning.CustomRibbonForm;
-    using UIUpdating;
+    private UpdateUIController _uuiController;
 
-    public class DevExpressRibbonFormBase :
-        MyRibbonForm,
-        IUpdateUI
+    protected DevExpressRibbonFormBase()
     {
-        private UpdateUIController _uuiController;
+        // Allow for capturing the F1 key.
+        KeyPreview = true;
+    }
 
-        protected DevExpressRibbonFormBase()
-		{
-			// Allow for capturing the F1 key.
-			KeyPreview = true;
-		}
+    protected IGuiEnvironment GuiHost => InternalHost;
 
-		protected IGuiEnvironment GuiHost => InternalHost;
+    public static IGuiEnvironment InternalHost { get; protected set; }
 
-        public static IGuiEnvironment InternalHost { get; protected set; }
+    protected UpdateUIController UuiController => _uuiController ?? (_uuiController = new UpdateUIController(this));
 
-        protected UpdateUIController UuiController => _uuiController ?? (_uuiController = new UpdateUIController(this));
+    public virtual void DoUpdateUI(
+        UpdateUIInformation information)
+    {
+        // Does nothing.
+    }
 
-        public virtual void DoUpdateUI(
-            UpdateUIInformation information)
+    public void PerformUpdateUI(object userState = null)
+    {
+        if (!DesignMode)
         {
-            // Does nothing.
+            UuiController.PerformUpdateUI(this, userState);
+        }
+    }
+
+    protected override void OnLoad(
+        EventArgs e)
+    {
+        // 2010-11-25, Uwe Keim. Experimentally.
+        AutoScaleMode = AutoScaleMode.None;
+
+        base.OnLoad(e);
+    }
+
+    protected override void OnKeyDown(
+        KeyEventArgs e)
+    {
+        base.OnKeyDown(e);
+
+        if (e.KeyCode == Keys.F1 && !e.Alt && !e.Control && !e.Shift)
+        {
+            ExecuteHelp();
+            e.Handled = true;
+        }
+    }
+
+    protected override void OnShown(
+        EventArgs e)
+    {
+        if (GuiHost != null)
+        {
+            GuiHost.HideSplash();
         }
 
-        public void PerformUpdateUI(object userState = null)
-        {
-            if (!DesignMode)
-            {
-                UuiController.PerformUpdateUI(this, userState);
-            }
-        }
+        base.OnShown(e);
 
-        protected override void OnLoad(
-			EventArgs e)
-		{
-			// 2010-11-25, Uwe Keim. Experimentally.
-			AutoScaleMode = AutoScaleMode.None;
+        PerformUpdateUI();
+    }
 
-			base.OnLoad(e);
-		}
-
-        protected override void OnKeyDown(
-            KeyEventArgs e)
-        {
-            base.OnKeyDown(e);
-
-            if (e.KeyCode == Keys.F1 && !e.Alt && !e.Control && !e.Shift)
-            {
-                ExecuteHelp();
-                e.Handled = true;
-            }
-        }
-
-        protected override void OnShown(
-            EventArgs e)
-        {
-            if (GuiHost != null)
-            {
-                GuiHost.HideSplash();
-            }
-
-            base.OnShown(e);
-
-            PerformUpdateUI();
-        }
-
-        protected void ExecuteHelp()
-        {
-            GuiHost.ExecuteHelp();
-        }
+    protected void ExecuteHelp()
+    {
+        GuiHost.ExecuteHelp();
     }
 }

@@ -1,14 +1,13 @@
-﻿namespace ExtendedControlsLibrary.Skinning.CustomGrid
-{
-    using DevExpress.XtraGrid.Views.Grid;
-    using DevExpress.XtraGrid.Views.Grid.Handler;
+﻿namespace ExtendedControlsLibrary.Skinning.CustomGrid;
 
-    public class MyGridHandler :
-		GridHandler
-	{
-		public MyGridHandler(GridView gridView) : 
-			base(gridView)
-		{
-		}
-	}
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.Handler;
+
+public class MyGridHandler :
+    GridHandler
+{
+    public MyGridHandler(GridView gridView) : 
+        base(gridView)
+    {
+    }
 }

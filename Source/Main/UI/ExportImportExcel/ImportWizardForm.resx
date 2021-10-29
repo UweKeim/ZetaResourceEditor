@@ -136,7 +136,7 @@
     <value>sourceFileTextEdit</value>
   </data>
   <data name="&gt;&gt;sourceFileTextEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;sourceFileTextEdit.Parent" xml:space="preserve">
     <value>importFileWizardPage</value>
@@ -171,7 +171,7 @@
     <value>buttonOpen</value>
   </data>
   <data name="&gt;&gt;buttonOpen.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;buttonOpen.Parent" xml:space="preserve">
     <value>importFileWizardPage</value>
@@ -218,7 +218,7 @@
     <value>buttonBrowse</value>
   </data>
   <data name="&gt;&gt;buttonBrowse.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;buttonBrowse.Parent" xml:space="preserve">
     <value>importFileWizardPage</value>
@@ -242,7 +242,7 @@
     <value>labelControl2</value>
   </data>
   <data name="&gt;&gt;labelControl2.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;labelControl2.Parent" xml:space="preserve">
     <value>importFileWizardPage</value>
@@ -254,7 +254,7 @@
     <value>barDockControlLeft</value>
   </data>
   <data name="&gt;&gt;barDockControlLeft.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barDockControlLeft.Parent" xml:space="preserve">
     <value>importFileWizardPage</value>
@@ -266,7 +266,7 @@
     <value>barDockControlRight</value>
   </data>
   <data name="&gt;&gt;barDockControlRight.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barDockControlRight.Parent" xml:space="preserve">
     <value>importFileWizardPage</value>
@@ -278,7 +278,7 @@
     <value>barDockControlBottom</value>
   </data>
   <data name="&gt;&gt;barDockControlBottom.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barDockControlBottom.Parent" xml:space="preserve">
     <value>importFileWizardPage</value>
@@ -290,7 +290,7 @@
     <value>barDockControlTop</value>
   </data>
   <data name="&gt;&gt;barDockControlTop.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barDockControlTop.Parent" xml:space="preserve">
     <value>importFileWizardPage</value>
@@ -317,7 +317,7 @@
     <value>importFileWizardPage</value>
   </data>
   <data name="&gt;&gt;importFileWizardPage.Type" xml:space="preserve">
-    <value>DevExpress.XtraWizard.WelcomeWizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraWizard.WelcomeWizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;importFileWizardPage.Parent" xml:space="preserve">
     <value>wizardControl</value>
@@ -440,7 +440,7 @@
   <data name="labelControl5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <assembly alias="DevExpress.XtraEditors.v21.1" name="DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <assembly alias="DevExpress.XtraEditors.v21.1" name="DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="labelControl5.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v21.1">
     <value>None</value>
   </data>
@@ -460,7 +460,7 @@
     <value>labelControl5</value>
   </data>
   <data name="&gt;&gt;labelControl5.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;labelControl5.Parent" xml:space="preserve">
     <value>successWizardPage</value>
@@ -481,7 +481,7 @@
     <value>successWizardPage</value>
   </data>
   <data name="&gt;&gt;successWizardPage.Type" xml:space="preserve">
-    <value>DevExpress.XtraWizard.CompletionWizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraWizard.CompletionWizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;successWizardPage.Parent" xml:space="preserve">
     <value>wizardControl</value>
@@ -508,7 +508,7 @@
     <value>invertFileGroupsButton</value>
   </data>
   <data name="&gt;&gt;invertFileGroupsButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;invertFileGroupsButton.Parent" xml:space="preserve">
     <value>fileGroupsWizardPage</value>
@@ -535,7 +535,7 @@
     <value>selectNoFileGroupsButton</value>
   </data>
   <data name="&gt;&gt;selectNoFileGroupsButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;selectNoFileGroupsButton.Parent" xml:space="preserve">
     <value>fileGroupsWizardPage</value>
@@ -562,7 +562,7 @@
     <value>selectAllFileGroupsButton</value>
   </data>
   <data name="&gt;&gt;selectAllFileGroupsButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;selectAllFileGroupsButton.Parent" xml:space="preserve">
     <value>fileGroupsWizardPage</value>
@@ -586,7 +586,7 @@
     <value>fileGroupsListBox</value>
   </data>
   <data name="&gt;&gt;fileGroupsListBox.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.CheckedListBoxControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.CheckedListBoxControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;fileGroupsListBox.Parent" xml:space="preserve">
     <value>fileGroupsWizardPage</value>
@@ -610,7 +610,7 @@
     <value>labelControl4</value>
   </data>
   <data name="&gt;&gt;labelControl4.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;labelControl4.Parent" xml:space="preserve">
     <value>fileGroupsWizardPage</value>
@@ -634,7 +634,7 @@
     <value>labelControl1</value>
   </data>
   <data name="&gt;&gt;labelControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;labelControl1.Parent" xml:space="preserve">
     <value>fileGroupsWizardPage</value>
@@ -655,7 +655,7 @@
     <value>fileGroupsWizardPage</value>
   </data>
   <data name="&gt;&gt;fileGroupsWizardPage.Type" xml:space="preserve">
-    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;fileGroupsWizardPage.Parent" xml:space="preserve">
     <value>wizardControl</value>
@@ -679,7 +679,7 @@
     <value>labelControl6</value>
   </data>
   <data name="&gt;&gt;labelControl6.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;labelControl6.Parent" xml:space="preserve">
     <value>languagesWizardPage</value>
@@ -703,7 +703,7 @@
     <value>label3</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>languagesWizardPage</value>
@@ -730,7 +730,7 @@
     <value>selectAllLanguagesToExportButton</value>
   </data>
   <data name="&gt;&gt;selectAllLanguagesToExportButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;selectAllLanguagesToExportButton.Parent" xml:space="preserve">
     <value>languagesWizardPage</value>
@@ -757,7 +757,7 @@
     <value>invertLanguagesToExportButton</value>
   </data>
   <data name="&gt;&gt;invertLanguagesToExportButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;invertLanguagesToExportButton.Parent" xml:space="preserve">
     <value>languagesWizardPage</value>
@@ -784,7 +784,7 @@
     <value>selectNoLanguagesToExportButton</value>
   </data>
   <data name="&gt;&gt;selectNoLanguagesToExportButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;selectNoLanguagesToExportButton.Parent" xml:space="preserve">
     <value>languagesWizardPage</value>
@@ -808,7 +808,7 @@
     <value>languagesToImportCheckListBox</value>
   </data>
   <data name="&gt;&gt;languagesToImportCheckListBox.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.CheckedListBoxControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.CheckedListBoxControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;languagesToImportCheckListBox.Parent" xml:space="preserve">
     <value>languagesWizardPage</value>
@@ -829,7 +829,7 @@
     <value>languagesWizardPage</value>
   </data>
   <data name="&gt;&gt;languagesWizardPage.Type" xml:space="preserve">
-    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;languagesWizardPage.Parent" xml:space="preserve">
     <value>wizardControl</value>
@@ -856,7 +856,7 @@
     <value>progressBarControl</value>
   </data>
   <data name="&gt;&gt;progressBarControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.MarqueeProgressBarControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.MarqueeProgressBarControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;progressBarControl.Parent" xml:space="preserve">
     <value>progressWizardPage</value>
@@ -883,7 +883,7 @@
     <value>progressLabel</value>
   </data>
   <data name="&gt;&gt;progressLabel.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;progressLabel.Parent" xml:space="preserve">
     <value>progressWizardPage</value>
@@ -904,7 +904,7 @@
     <value>progressWizardPage</value>
   </data>
   <data name="&gt;&gt;progressWizardPage.Type" xml:space="preserve">
-    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;progressWizardPage.Parent" xml:space="preserve">
     <value>wizardControl</value>
@@ -1044,7 +1044,7 @@
     <value>labelControl3</value>
   </data>
   <data name="&gt;&gt;labelControl3.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;labelControl3.Parent" xml:space="preserve">
     <value>errorOccurredWizardPage</value>
@@ -1070,7 +1070,7 @@
   <metadata name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>135, 17</value>
   </metadata>
-  <assembly alias="DevExpress.Utils.v21.1" name="DevExpress.Utils.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <assembly alias="DevExpress.Utils.v21.1" name="DevExpress.Utils.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v21.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFhEZXZFeHByZXNzLlV0aWxzLnY5LjMsIFZlcnNpb249OS4zLjIu
@@ -1148,7 +1148,7 @@
     <value>optionsButton</value>
   </data>
   <data name="&gt;&gt;optionsButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.DropDownButton, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.DropDownButton, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;optionsButton.Parent" xml:space="preserve">
     <value>errorOccurredWizardPage</value>
@@ -1172,7 +1172,7 @@
     <value>errorTextMemoEdit</value>
   </data>
   <data name="&gt;&gt;errorTextMemoEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.MemoEdit, DevExpress.XtraEditors.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;errorTextMemoEdit.Parent" xml:space="preserve">
     <value>errorOccurredWizardPage</value>
@@ -1193,7 +1193,7 @@
     <value>errorOccurredWizardPage</value>
   </data>
   <data name="&gt;&gt;errorOccurredWizardPage.Type" xml:space="preserve">
-    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraWizard.WizardPage, DevExpress.XtraWizard.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;errorOccurredWizardPage.Parent" xml:space="preserve">
     <value>wizardControl</value>
@@ -1226,7 +1226,7 @@
     <value>wizardControl</value>
   </data>
   <data name="&gt;&gt;wizardControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraWizard.WizardControl, DevExpress.XtraWizard.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraWizard.WizardControl, DevExpress.XtraWizard.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;wizardControl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2820,31 +2820,31 @@
     <value>optionsPopupMenu</value>
   </data>
   <data name="&gt;&gt;optionsPopupMenu.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.PopupMenu, DevExpress.XtraBars.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.PopupMenu, DevExpress.XtraBars.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;detailedErrorsButton.Name" xml:space="preserve">
     <value>detailedErrorsButton</value>
   </data>
   <data name="&gt;&gt;detailedErrorsButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;underylingExceptionButton.Name" xml:space="preserve">
     <value>underylingExceptionButton</value>
   </data>
   <data name="&gt;&gt;underylingExceptionButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barManager.Name" xml:space="preserve">
     <value>barManager</value>
   </data>
   <data name="&gt;&gt;barManager.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarManager, DevExpress.XtraBars.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraBars.BarManager, DevExpress.XtraBars.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;imageCollection1.Name" xml:space="preserve">
     <value>imageCollection1</value>
   </data>
   <data name="&gt;&gt;imageCollection1.Type" xml:space="preserve">
-    <value>DevExpress.Utils.ImageCollection, DevExpress.Utils.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.Utils.ImageCollection, DevExpress.Utils.v21.1, Version=21.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;progressBackgroundWorker.Name" xml:space="preserve">
     <value>progressBackgroundWorker</value>
