@@ -1,8 +1,8 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Snapshots;
 
-using System.Data.SQLite;
 using Projects;
 using Runtime;
+using System.Data.SQLite;
 using ZetaLongPaths;
 
 public abstract class SnapshotControllerBase
@@ -101,13 +101,13 @@ public abstract class SnapshotControllerBase
             {
                 CommandText =
                     @"CREATE TABLE ZreSettings
-								(
-									ID INTEGER PRIMARY KEY ASC,
-									Value1,
-									Value2,
-									Value3,
-									Value4
-								)"
+                    (
+                        ID INTEGER PRIMARY KEY ASC,
+                        Value1,
+                        Value2,
+                        Value3,
+                        Value4
+                    )"
             }.ExecuteNonQuery();
         }
     }

@@ -94,8 +94,11 @@ public class Program
     {
         var ps = string.Empty;
 
-        foreach (var (item1, item2) in parameters)
+        foreach (var tuple in parameters)
         {
+            var item1 = tuple.Item1;
+            var item2 = tuple.Item2;
+
             if (!string.IsNullOrEmpty(item2))
             {
                 var p = $@"{item1}={HttpUtility.UrlEncode(item2)}&";
@@ -121,9 +124,9 @@ public class Program
 
         if (headers is { Count: > 0 })
         {
-            foreach (var (item1, item2) in headers)
+            foreach (var tuple in headers)
             {
-                request.Headers.Add(item1, item2);
+                request.Headers.Add(tuple.Item1, tuple.Item2);
             }
         }
 

@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Zeta Software GmbH")]
 [assembly: AssemblyProduct("Zeta Resource Editor")]
-[assembly: AssemblyCopyright("Copyright © 2006-2021 Zeta Software GmbH")]
+[assembly: AssemblyCopyright("Copyright 2006-2022 Zeta Software GmbH")]
 [assembly: AssemblyTrademark("https://www.zeta-resource-editor.com")]
 [assembly: AssemblyCulture("")]
 
@@ -28,5 +28,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("2.3.0.32")]
-[assembly: AssemblyFileVersion("2.3.0.32")]
+[assembly: AssemblyVersion("2.3.2.33")]
+[assembly: AssemblyFileVersion("2.3.2.33")]

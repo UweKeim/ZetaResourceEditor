@@ -34,26 +34,68 @@
     <Reference Include="AsyncBridge, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AsynchronousBridge.1.2.2\lib\Net45\AsyncBridge.dll</HintPath>
     </Reference>
-    <Reference Include="JetBrains.Annotations, Version=2021.3.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325">
-      <HintPath>..\packages\JetBrains.Annotations.2021.3.0\lib\net20\JetBrains.Annotations.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fizzler, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Fizzler.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=2021.3.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Svg, Version=3.3.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Svg.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Linq" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.InteropServices" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
     <Reference Include="System.Threading.Thread" />
-    <Reference Include="Zeta.VoyagerLibrary.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Externals\ZetaVoyagerLibrary\Zeta.VoyagerLibrary.Common.dll</HintPath>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="ZetaLongPaths, Version=1.0.0.3, Culture=neutral, PublicKeyToken=b764f59068f31f38, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Externals\ZetaVoyagerLibrary\ZetaLongPaths.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.Common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.VoyagerLibrary.Data, Version=1.0.1.0, Culture=neutral, PublicKeyToken=2b1a401181836fde, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.VoyagerLibrary.Logging, Version=1.0.1.0, Culture=neutral, PublicKeyToken=ec9fabac075fa4cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.VoyagerLibrary.Tools, Version=1.0.1.0, Culture=neutral, PublicKeyToken=76bfe3d175ed36e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.VoyagerLibrary.WebForms, Version=1.0.1.0, Culture=neutral, PublicKeyToken=0fcb4b1a682ce648, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeta.VoyagerLibrary.WinForms, Version=1.0.1.0, Culture=neutral, PublicKeyToken=ccd25a13504b7fe2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="ZetaLongPaths, Version=1.0.0.41, Culture=neutral, PublicKeyToken=b764f59068f31f38, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\ZetaLongPaths.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Main\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Events\FastSmartWeakEvent.cs" />
     <Compile Include="Events\WeakEventHandler.cs" />
     <Compile Include="FileAccess\TemporaryFileCloner.cs" />
@@ -62,7 +104,6 @@
     <Compile Include="Localization\LocalizableCategoryAttribute.cs" />
     <Compile Include="Localization\LocalizableDescriptionAttribute.cs" />
     <Compile Include="Localization\LocalizableDisplayNameAttribute.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,6 +119,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Directory.Build.props" />
     <None Include="packages.config" />
   </ItemGroup>
