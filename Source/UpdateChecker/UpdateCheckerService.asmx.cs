@@ -135,7 +135,16 @@ public class UpdateCheckerService :
 
             if (!string.IsNullOrEmpty(exeFilePath) && File.Exists(exeFilePath))
             {
-                result = FileVersionHelper.GetAssemblyVersion(exeFilePath);
+                try
+                {
+                    result = FileVersionHelper.GetAssemblyVersion(exeFilePath);
+                }
+                catch (Exception x)
+                {
+                    LogCentral.Current.Warn(x,
+                        $@"Error trying to get assembly version for file '{exeFilePath}', trying file version now.");
+                    result = FileVersionHelper.GetFileVersion(exeFilePath);
+                }
             }
             else
             {
