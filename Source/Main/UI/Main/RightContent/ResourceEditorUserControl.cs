@@ -1738,14 +1738,7 @@ public partial class ResourceEditorUserControl :
     /// </summary>
     public void OpenFolder()
     {
-        var info =
-            new ProcessStartInfo
-            {
-                FileName = GridEditableData.FolderPath.FullName,
-                UseShellExecute = true
-            };
-
-        Process.Start(info);
+        ProcessStartHelper.OpenFolder(GridEditableData.FolderPath.FullName);
     }
 
     /// <summary>

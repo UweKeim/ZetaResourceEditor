@@ -1,5 +1,6 @@
 ﻿namespace ZetaResourceEditor.UI.Projects;
 
+using Code;
 using Helper.Base;
 using Properties;
 using Runtime;
@@ -199,7 +200,7 @@ public partial class ProjectSettingsForm : FormBase
 
     private void hyperLinkEdit1_OpenLink(object sender, OpenLinkEventArgs e)
     {
-        Process.Start(@"http://extensions.services.openoffice.org/dictionary");
+        ProcessStartHelper.OpenUrl(@"https://extensions.services.openoffice.org/dictionary");
     }
 
     private void buttonTranslationSettings_Click(object sender, EventArgs e)

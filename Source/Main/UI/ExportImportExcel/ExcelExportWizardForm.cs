@@ -756,7 +756,7 @@ public partial class ExcelExportWizardForm :
                             {
                                 if (File.Exists(path))
                                 {
-                                    Process.Start(path);
+                                    ProcessStartHelper.OpenFile(path);
                                 }
                             }
                         }
@@ -770,7 +770,7 @@ public partial class ExcelExportWizardForm :
                             {
                                 if (Directory.Exists(path))
                                 {
-                                    Process.Start(path);
+                                    ProcessStartHelper.OpenFolder(path);
                                 }
                             }
                         }

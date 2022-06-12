@@ -16,6 +16,7 @@ using RuntimeBusinessLogic.WebServices;
 using RuntimeUserInterface.Shell;
 using ServiceReference1;
 using System.IO;
+using ExtendedControlsLibrary;
 using Tools;
 using Translation;
 using Zeta.VoyagerLibrary.Core.Common;
@@ -78,6 +79,36 @@ public partial class MainForm :
     {
         InitializeComponent();
         Current = this;
+
+        if (!DesignModeHelper.IsDesignMode)
+        {
+            ProjectFilesControl = new ProjectFilesUserControl();
+            GroupFilesControl = new GroupFilesUserControl();
+
+            mainFormMainSplitContainer.Panel1.Controls.Add(ProjectFilesControl);
+            mainFormMainSplitContainer.Panel2.Controls.Add(GroupFilesControl);
+
+            // 
+            // projectFilesUserControl
+            // 
+            ProjectFilesControl.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ProjectFilesControl.Appearance.Options.UseFont = true;
+            ProjectFilesControl.Dock = DockStyle.Fill;
+            ProjectFilesControl.Location = new Point(0, 0);
+            ProjectFilesControl.Name = "ProjectFilesControl";
+            ProjectFilesControl.Size = new Size(250, 408);
+            ProjectFilesControl.TabIndex = 0;
+            // 
+            // groupFilesControl
+            // 
+            GroupFilesControl.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+            GroupFilesControl.Appearance.Options.UseFont = true;
+            GroupFilesControl.Dock = DockStyle.Fill;
+            GroupFilesControl.Location = new Point(0, 0);
+            GroupFilesControl.Name = "GroupFilesControl";
+            GroupFilesControl.Size = new Size(430, 408);
+            GroupFilesControl.TabIndex = 0;
+        }
     }
 
     private void saveToolStripMenuItem_Click(
@@ -1111,23 +1142,6 @@ public partial class MainForm :
     {
         ProjectFilesControl.AutomaticallyAddAddResourceFilesWithDialog();
         UpdateUI();
-    }
-
-    private void toolStripStatusLabel1_Click(object sender, ItemClickEventArgs e)
-    {
-        var url = barStaticItem1.Tag as string;
-
-        LogCentral.Current.LogInfo(
-            $@"About to redirect to advertising web page at '{url}'.");
-
-        var si =
-            new ProcessStartInfo
-            {
-                FileName = url ?? string.Empty,
-                UseShellExecute = true
-            };
-
-        Process.Start(si);
     }
 
     private void refreshProjectFilesListToolStripMenuItem_Click(object sender, ItemClickEventArgs e)

@@ -31,8 +31,6 @@ namespace ZetaResourceEditor.UI.Main
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainFormMainSplitContainer = new DevExpress.XtraEditors.SplitContainerControl();
-            this.ProjectFilesControl = new ZetaResourceEditor.UI.Main.LeftTree.ProjectFilesUserControl();
-            this.GroupFilesControl = new ZetaResourceEditor.UI.Main.RightContent.GroupFilesUserControl();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.barSubRecentFiles = new DevExpress.XtraBars.BarSubItem();
@@ -71,7 +69,6 @@ namespace ZetaResourceEditor.UI.Main
             this.barListItem1 = new DevExpress.XtraBars.BarListItem();
             this.buttonUpdateAvailable = new DevExpress.XtraBars.BarButtonItem();
             this.buttonOpenFileGroupFolder = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.buttonExport = new DevExpress.XtraBars.BarButtonItem();
             this.buttonImport = new DevExpress.XtraBars.BarButtonItem();
             this.buttonMoveDown = new DevExpress.XtraBars.BarButtonItem();
@@ -103,6 +100,8 @@ namespace ZetaResourceEditor.UI.Main
             this.updateAvailableCheckerBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.updateAvailableBlinkTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer.Panel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer.Panel2)).BeginInit();
             this.mainFormMainSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
@@ -117,34 +116,15 @@ namespace ZetaResourceEditor.UI.Main
             this.mainFormMainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainFormMainSplitContainer.Location = new System.Drawing.Point(0, 0);
             this.mainFormMainSplitContainer.Name = "mainFormMainSplitContainer";
-            this.mainFormMainSplitContainer.Panel1.Controls.Add(this.ProjectFilesControl);
+            // 
+            // mainFormMainSplitContainer.Panel1
+            // 
             this.mainFormMainSplitContainer.Panel1.MinSize = 250;
             this.mainFormMainSplitContainer.Panel1.Text = "Panel1";
-            this.mainFormMainSplitContainer.Panel2.Controls.Add(this.GroupFilesControl);
-            this.mainFormMainSplitContainer.Size = new System.Drawing.Size(685, 408);
+            this.mainFormMainSplitContainer.Size = new System.Drawing.Size(685, 320);
             this.mainFormMainSplitContainer.SplitterPosition = 200;
             this.mainFormMainSplitContainer.TabIndex = 0;
             this.mainFormMainSplitContainer.Text = "splitContainerControl1";
-            // 
-            // projectFilesUserControl
-            // 
-            this.ProjectFilesControl.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ProjectFilesControl.Appearance.Options.UseFont = true;
-            this.ProjectFilesControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectFilesControl.Location = new System.Drawing.Point(0, 0);
-            this.ProjectFilesControl.Name = "ProjectFilesControl";
-            this.ProjectFilesControl.Size = new System.Drawing.Size(250, 408);
-            this.ProjectFilesControl.TabIndex = 0;
-            // 
-            // groupFilesControl
-            // 
-            this.GroupFilesControl.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.GroupFilesControl.Appearance.Options.UseFont = true;
-            this.GroupFilesControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GroupFilesControl.Location = new System.Drawing.Point(0, 0);
-            this.GroupFilesControl.Name = "GroupFilesControl";
-            this.GroupFilesControl.Size = new System.Drawing.Size(430, 408);
-            this.GroupFilesControl.TabIndex = 0;
             // 
             // ribbon
             // 
@@ -187,7 +167,6 @@ namespace ZetaResourceEditor.UI.Main
             this.barListItem1,
             this.buttonUpdateAvailable,
             this.buttonOpenFileGroupFolder,
-            this.barStaticItem1,
             this.buttonExport,
             this.buttonImport,
             this.barSubRecentFiles,
@@ -200,7 +179,8 @@ namespace ZetaResourceEditor.UI.Main
             this.resetLayoutButton,
             this.buttonAddFromVisualStudio,
             this.buttonConfigureLanguageColumns,
-            this.buttonReplace});
+            this.buttonReplace,
+            this.ribbon.SearchEditItem});
             this.ribbon.ItemsVertAlign = DevExpress.Utils.VertAlignment.Top;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 75;
@@ -212,7 +192,7 @@ namespace ZetaResourceEditor.UI.Main
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit1});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbon.Size = new System.Drawing.Size(685, 143);
+            this.ribbon.Size = new System.Drawing.Size(685, 231);
             // 
             // applicationMenu1
             // 
@@ -568,20 +548,6 @@ namespace ZetaResourceEditor.UI.Main
             this.buttonOpenFileGroupFolder.Name = "buttonOpenFileGroupFolder";
             this.buttonOpenFileGroupFolder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openFolderOfCurrentResourceFileToolStripMenuItem_Click);
             // 
-            // barStaticItem1
-            // 
-            this.barStaticItem1.Caption = "Test Management Software - For Test Cases and Test Plan Templates";
-            this.barStaticItem1.Id = 44;
-            this.barStaticItem1.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Pixel);
-            this.barStaticItem1.ItemAppearance.Normal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(204)))));
-            this.barStaticItem1.ItemAppearance.Normal.Options.UseFont = true;
-            this.barStaticItem1.ItemAppearance.Normal.Options.UseForeColor = true;
-            this.barStaticItem1.ItemClickFireMode = DevExpress.XtraBars.BarItemEventFireMode.Immediate;
-            this.barStaticItem1.Name = "barStaticItem1";
-            this.barStaticItem1.Tag = "http://www.zeta-test.com/";
-            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
-            this.barStaticItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.toolStripStatusLabel1_Click);
-            // 
             // buttonExport
             // 
             this.buttonExport.Caption = "Export to Microsoft Excel";
@@ -700,16 +666,17 @@ namespace ZetaResourceEditor.UI.Main
             // 
             // updateRibbonPageGroup
             // 
-            this.updateRibbonPageGroup.AllowMinimize = false;
             this.updateRibbonPageGroup.AllowTextClipping = false;
+            this.updateRibbonPageGroup.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.updateRibbonPageGroup.ItemLinks.Add(this.buttonUpdateAvailable);
             this.updateRibbonPageGroup.Name = "updateRibbonPageGroup";
-            this.updateRibbonPageGroup.ShowCaptionButton = false;
+            this.updateRibbonPageGroup.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.updateRibbonPageGroup.Text = "Update";
             this.updateRibbonPageGroup.Visible = false;
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup2.ItemLinks.Add(this.buttonOpenProjectFile);
             this.ribbonPageGroup2.ItemLinks.Add(this.buttonCreateNewProject);
             this.ribbonPageGroup2.ItemLinks.Add(this.buttonSaveProjectFile);
@@ -717,48 +684,47 @@ namespace ZetaResourceEditor.UI.Main
             this.ribbonPageGroup2.ItemLinks.Add(this.buttonEditProjectSettings);
             this.ribbonPageGroup2.ItemLinks.Add(this.buttonShowHideProjectPanel);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Project files";
             // 
             // ribbonPageGroup10
             // 
+            this.ribbonPageGroup10.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup10.ItemLinks.Add(this.buttonExport);
             this.ribbonPageGroup10.ItemLinks.Add(this.buttonImport);
             this.ribbonPageGroup10.Name = "ribbonPageGroup10";
-            this.ribbonPageGroup10.ShowCaptionButton = false;
             this.ribbonPageGroup10.Text = "Import/export";
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup1.ItemLinks.Add(this.buttonSaveResourceFiles);
             this.ribbonPageGroup1.ItemLinks.Add(this.buttonSaveAllFiles);
             this.ribbonPageGroup1.ItemLinks.Add(this.buttonOpenResourceFiles);
             this.ribbonPageGroup1.ItemLinks.Add(this.buttonCloseResourceFiles);
             this.ribbonPageGroup1.ItemLinks.Add(this.buttonCloseAllDocuments);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Resource files";
             // 
             // ribbonPageGroup5
             // 
+            this.ribbonPageGroup5.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup5.ItemLinks.Add(this.buttonRefresh);
             this.ribbonPageGroup5.ItemLinks.Add(this.buttonMoveUp);
             this.ribbonPageGroup5.ItemLinks.Add(this.buttonMoveDown);
             this.ribbonPageGroup5.ItemLinks.Add(this.resetLayoutButton);
             this.ribbonPageGroup5.ItemLinks.Add(this.buttonConfigureLanguageColumns);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.ShowCaptionButton = false;
             this.ribbonPageGroup5.Text = "View";
             // 
             // ribbonPageGroup3
             // 
+            this.ribbonPageGroup3.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup3.ItemLinks.Add(this.buttonQuickTranslate);
             this.ribbonPageGroup3.ItemLinks.Add(this.buttonTranslateMissingLanguages);
             this.ribbonPageGroup3.ItemLinks.Add(this.buttonFind);
             this.ribbonPageGroup3.ItemLinks.Add(this.buttonFindNext);
             this.ribbonPageGroup3.ItemLinks.Add(this.buttonReplace);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Edit";
             // 
             // ribbonPage4
@@ -772,6 +738,7 @@ namespace ZetaResourceEditor.UI.Main
             // 
             // ribbonPageGroup8
             // 
+            this.ribbonPageGroup8.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup8.ItemLinks.Add(this.buttonAutomaticallyAddFileGroupsToProject);
             this.ribbonPageGroup8.ItemLinks.Add(this.buttonAddFromVisualStudio);
             this.ribbonPageGroup8.ItemLinks.Add(this.buttonAddFileGroupToProject);
@@ -779,26 +746,25 @@ namespace ZetaResourceEditor.UI.Main
             this.ribbonPageGroup8.ItemLinks.Add(this.buttonRemoveFileGroupFromProject);
             this.ribbonPageGroup8.ItemLinks.Add(this.buttonOpenFileGroupFolder);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.ShowCaptionButton = false;
             this.ribbonPageGroup8.Text = "File groups";
             // 
             // ribbonPageGroup9
             // 
+            this.ribbonPageGroup9.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup9.ItemLinks.Add(this.buttonAddFilesToFileGroup);
             this.ribbonPageGroup9.ItemLinks.Add(this.buttonCreateNewFile);
             this.ribbonPageGroup9.ItemLinks.Add(this.buttonRemoveFileFromGroup);
             this.ribbonPageGroup9.ItemLinks.Add(this.buttonCreateNewFiles);
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-            this.ribbonPageGroup9.ShowCaptionButton = false;
             this.ribbonPageGroup9.Text = "Files";
             // 
             // ribbonPageGroup4
             // 
+            this.ribbonPageGroup4.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup4.ItemLinks.Add(this.buttonAddNewTag);
             this.ribbonPageGroup4.ItemLinks.Add(this.buttonRenameTag);
             this.ribbonPageGroup4.ItemLinks.Add(this.buttonDeleteTag);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.ShowCaptionButton = false;
             this.ribbonPageGroup4.Text = "Tags";
             // 
             // ribbonPage3
@@ -812,24 +778,24 @@ namespace ZetaResourceEditor.UI.Main
             // 
             // ribbonPageGroup7
             // 
+            this.ribbonPageGroup7.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup7.ItemLinks.Add(this.buttonOptions);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.ShowCaptionButton = false;
             this.ribbonPageGroup7.Text = "Extras";
             // 
             // ribbonPageGroup6
             // 
+            this.ribbonPageGroup6.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup6.ItemLinks.Add(this.buttonOnlineManual);
             this.ribbonPageGroup6.ItemLinks.Add(this.buttonWebsite);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.ShowCaptionButton = false;
             this.ribbonPageGroup6.Text = "Help";
             // 
             // ribbonPageGroup11
             // 
+            this.ribbonPageGroup11.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonPageGroup11.ItemLinks.Add(this.infoButton);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            this.ribbonPageGroup11.ShowCaptionButton = false;
             this.ribbonPageGroup11.Text = "Info";
             // 
             // repositoryItemHyperLinkEdit1
@@ -847,9 +813,9 @@ namespace ZetaResourceEditor.UI.Main
             this.clientPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.clientPanel.Controls.Add(this.mainFormMainSplitContainer);
             this.clientPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clientPanel.Location = new System.Drawing.Point(0, 143);
+            this.clientPanel.Location = new System.Drawing.Point(0, 231);
             this.clientPanel.Name = "clientPanel";
-            this.clientPanel.Size = new System.Drawing.Size(685, 408);
+            this.clientPanel.Size = new System.Drawing.Size(685, 320);
             this.clientPanel.TabIndex = 2;
             // 
             // updateAvailableCheckerBackgroundWorker
@@ -870,7 +836,7 @@ namespace ZetaResourceEditor.UI.Main
             this.Controls.Add(this.clientPanel);
             this.Controls.Add(this.ribbon);
             this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("MainForm.IconOptions.Icon")));
             this.Name = "MainForm";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -880,6 +846,8 @@ namespace ZetaResourceEditor.UI.Main
             this.Shown += new System.EventHandler(this.mainForm_Shown);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.mainForm_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.mainForm_DragEnter);
+            ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer.Panel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer.Panel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer)).EndInit();
             this.mainFormMainSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
@@ -946,7 +914,6 @@ namespace ZetaResourceEditor.UI.Main
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup updateRibbonPageGroup;
 	    private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
 		private DevExpress.XtraBars.BarButtonItem buttonOpenFileGroupFolder;
-		private DevExpress.XtraBars.BarStaticItem barStaticItem1;
 		private DevExpress.XtraBars.BarButtonItem buttonExport;
 		private DevExpress.XtraBars.BarButtonItem buttonImport;
 		private DevExpress.XtraBars.BarSubItem barSubRecentFiles;

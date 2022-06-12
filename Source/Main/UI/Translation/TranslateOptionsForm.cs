@@ -1,5 +1,6 @@
 namespace ZetaResourceEditor.UI.Translation;
 
+using Code;
 using ExtendedControlsLibrary;
 using Helper.Base;
 using RuntimeBusinessLogic.Helpers;
@@ -290,7 +291,7 @@ public partial class TranslateOptionsForm :
         {
             var eh = (EngineHelper)engineComboBox.Properties.Items[engineComboBox.SelectedIndex];
 
-            Process.Start(eh.Engine.AppIDLink);
+            ProcessStartHelper.OpenUrl(eh.Engine.AppIDLink);
         }
     }
 
@@ -302,6 +303,6 @@ public partial class TranslateOptionsForm :
     private void myHyperLinkEdit1_OpenLink(object sender, OpenLinkEventArgs e)
     {
         e.Handled = true;
-        Process.Start(@"http://zeta.li/json-validator");
+        ProcessStartHelper.OpenUrl(@"https://zeta.li/json-validator");
     }
 }

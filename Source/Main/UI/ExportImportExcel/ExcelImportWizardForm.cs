@@ -609,7 +609,7 @@ public partial class ExcelImportWizardForm :
 
     private void buttonOpen_Click(object sender, EventArgs e)
     {
-        Process.Start(sourceFileTextEdit.Text.Trim());
+        ProcessStartHelper.OpenFile(sourceFileTextEdit.Text.Trim());
     }
 
     private void wizardControl_SelectedPageChanged(object sender, WizardPageChangedEventArgs e)

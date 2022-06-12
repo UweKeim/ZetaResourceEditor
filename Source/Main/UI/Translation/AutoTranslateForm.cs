@@ -15,6 +15,7 @@ using RuntimeBusinessLogic.Translation;
 using RuntimeBusinessLogic.Translation.Google;
 using System.Data;
 using System.Linq;
+using Code;
 
 public partial class AutoTranslateForm :
     FormBase
@@ -79,7 +80,7 @@ public partial class AutoTranslateForm :
                     MessageBoxIcon.Question,
                     MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
-                Process.Start(((ITranslationEngine)new GoogleRestfulTranslationEngine()).AppIDLink);
+                ProcessStartHelper.OpenUrl(((ITranslationEngine)new GoogleRestfulTranslationEngine()).AppIDLink);
             }
         }
     }

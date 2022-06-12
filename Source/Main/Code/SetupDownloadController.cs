@@ -63,15 +63,7 @@ internal class SetupDownloadController
             LogCentral.Current.LogInfo(
                 $@"About to redirect to update-web page at '{url}' for client with version '{info.VersionNumber}'.");
 
-            var si =
-                new ProcessStartInfo
-                {
-                    FileName = url,
-                    //Arguments = @" /S",
-                    UseShellExecute = true
-                };
-
-            Process.Start(si);
+            ProcessStartHelper.OpenUrl(url);
         }
         else
         {
