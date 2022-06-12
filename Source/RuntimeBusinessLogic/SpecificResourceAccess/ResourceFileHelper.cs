@@ -2,11 +2,9 @@
 
 #region Using directives.
 // ----------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
-using Zeta.VoyagerLibrary.Logging;
-using ZetaLongPaths;
+using Zeta.VoyagerLibrary.Core.Logging;
 
 // ----------------------------------------------------------------------
 #endregion
@@ -55,7 +53,7 @@ internal class ResourceFileHelper
     /// <param name="filePath">The file path.</param>
     /// <returns>Returns NULL if none found.</returns>
     public static IResourceFileAccessor GetAccessorForFile(
-        ZlpFileInfo filePath)
+        FileInfo filePath)
     {
         var all = AllAvailableResourceFileAccessors;
 

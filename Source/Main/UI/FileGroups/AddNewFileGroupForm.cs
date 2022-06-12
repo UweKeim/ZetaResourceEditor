@@ -1,7 +1,5 @@
 namespace ZetaResourceEditor.UI.FileGroups;
 
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
 using Helper;
 using Helper.Base;
 using Helper.ErrorHandling;
@@ -13,18 +11,7 @@ using RuntimeBusinessLogic.FileInformations;
 using RuntimeBusinessLogic.Language;
 using RuntimeBusinessLogic.ProjectFolders;
 using RuntimeBusinessLogic.Projects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
 using System.Linq;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Common.Collections;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Common;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
-using ZetaLongPaths;
 
 public partial class AddNewFileGroupForm :
     FormBase
@@ -213,7 +200,7 @@ public partial class AddNewFileGroupForm :
 
                                        fg.Add(new FileInformation(fg)
                                        {
-                                           File = new ZlpFileInfo(fileName)
+                                           File = new FileInfo(fileName)
                                        });
                                    }
 
@@ -251,7 +238,7 @@ public partial class AddNewFileGroupForm :
                                            {
                                                ffi = new FileInformation(fg)
                                                {
-                                                   File = new ZlpFileInfo(ZlpPathHelper.Combine(baseFolderPath, fileName))
+                                                   File = new FileInfo(ZspPathHelper.Combine(baseFolderPath, fileName))
                                                };
                                                fg.Add(ffi);
                                            }
@@ -264,7 +251,7 @@ public partial class AddNewFileGroupForm :
                                            }
 
                                            // Must create real file.
-                                           ZlpIOHelper.WriteAllText(ffi.File.FullName, Resources.SR_EmptyResourceFile);
+                                           File.WriteAllText(ffi.File.FullName, Resources.SR_EmptyResourceFile);
 
                                            created++;
                                        }
@@ -465,7 +452,7 @@ public partial class AddNewFileGroupForm :
                     MainForm.UserStorageIntelligent,
                     @"filesInitialDir"));
 
-        if (string.IsNullOrEmpty(initialDir) || !ZlpIOHelper.DirectoryExists(initialDir))
+        if (string.IsNullOrEmpty(initialDir) || !Directory.Exists(initialDir))
         {
             var d = _project.ProjectConfigurationFilePath.Directory;
             initialDir = d.FullName;

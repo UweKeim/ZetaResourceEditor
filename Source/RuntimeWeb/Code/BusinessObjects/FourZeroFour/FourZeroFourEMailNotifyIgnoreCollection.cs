@@ -21,14 +21,6 @@ public class FourZeroFourEMailNotifyIgnoreCollection :
 
     public bool IsMatch(HttpRequest request)
     {
-        foreach (var i in this)
-        {
-            if (i.IsMatch(request))
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return this.Any(i => i.IsMatch(request));
     }
 }

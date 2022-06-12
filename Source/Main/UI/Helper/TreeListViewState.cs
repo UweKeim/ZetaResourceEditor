@@ -1,13 +1,6 @@
 namespace ZetaResourceEditor.UI.Helper;
 
-using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraTreeList.Nodes.Operations;
-using System;
-using System.Collections.Generic;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Logging;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.Tools.Text;
 
 /// <summary>
 /// See http://www.devexpress.com/Support/Center/KB/p/A1249.aspx.

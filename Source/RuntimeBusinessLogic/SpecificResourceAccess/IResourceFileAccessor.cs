@@ -1,9 +1,10 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.SpecificResourceAccess;
 
+using System.IO;
+
 #region Using directives.
 // ----------------------------------------------------------------------
-using System;
-using ZetaLongPaths;
+
 
 // ----------------------------------------------------------------------
 #endregion
@@ -64,7 +65,7 @@ internal interface IResourceFileAccessor
     /// <param name="filePath">The file path.</param>
     /// <returns></returns>
     NameValuePair[] LoadFromResourceFile(
-        ZlpFileInfo filePath);
+        FileInfo filePath);
 
     /// <summary>
     /// Stores a list of name/value pairs to the specified resource file.
@@ -72,7 +73,7 @@ internal interface IResourceFileAccessor
     /// <param name="filePath">The file path.</param>
     /// <param name="rows">The rows.</param>
     void StoreToResourceFile(
-        ZlpFileInfo filePath,
+        FileInfo filePath,
         NameValuePair[] rows );
 
     // ------------------------------------------------------------------

@@ -3,13 +3,12 @@
 #region Using directives.
 
 // ----------------------------------------------------------------------
-using System;
 using System.ComponentModel;
 using System.Net;
-using UpdateChecker;
-using Zeta.VoyagerLibrary.Logging;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.Tools.Text;
+using ServiceReference1;
+using Zeta.VoyagerLibrary.Core.Logging;
+using Zeta.VoyagerLibrary.Core.Tools.Storage;
+using Zeta.VoyagerLibrary.Core.Tools.Text;
 
 // ----------------------------------------------------------------------
 
@@ -158,32 +157,57 @@ public sealed class WebServiceManager
     /// instance to access the error reporting web service.
     /// </summary>
     /// <value>The update checker WS.</value>
-    public UpdateCheckerService UpdateCheckerWS
+    public UpdateCheckerServiceSoapClient UpdateCheckerWS
     {
         get
         {
             if (_updateCheckerWS == null)
             {
-                _updateCheckerWS =
-                    new UpdateCheckerService
+                var timeout = TimeSpan.FromSeconds(3600);
+
+                var binding = new System.ServiceModel.BasicHttpBinding
+                {
+                    MaxBufferSize = int.MaxValue,
+                    ReaderQuotas = XmlDictionaryReaderQuotas.Max,
+                    MaxReceivedMessageSize = int.MaxValue,
+                    AllowCookies = true,
+                    SendTimeout = timeout,
+                    CloseTimeout = timeout,
+                    OpenTimeout = timeout,
+                    ReceiveTimeout = timeout,
+                    Security =
                     {
-                        Timeout = 3600 * 1000,
-                        AllowAutoRedirect = true
-                    };
+                        Mode = System.ServiceModel.BasicHttpSecurityMode.Transport
+                    }
+                };
+
+                const string url = @"https://www.zeta-resource-editor.com/backend/UpdateCheckerService.asmx";
+                var uri = new Uri(url);
 
                 var proxy = WebServiceProxy;
-                if (proxy != null)
+                if (proxy == null)
                 {
-                    _updateCheckerWS.Proxy = proxy;
+                    binding.UseDefaultWebProxy = true;
+                }
+                else
+                {
+                    binding.ProxyAddress = proxy.GetProxy(uri);
+                    binding.BypassProxyOnLocal = proxy.IsBypassed(uri);
+                    binding.UseDefaultWebProxy = false;
+                    // TODO: Credentials ggf. auch noch setzen, irgendwie?
                 }
 
+                var adress = new System.ServiceModel.EndpointAddress(uri);
                 LogCentral.Current.LogInfo(
-                    $@"Using WebService at URL '{_updateCheckerWS.Url}'.");
+                    $@"Creating SOAP service call to URL '{adress.Uri}' with Proxy '{binding.ProxyAddress}'.");
+
+                _updateCheckerWS = new UpdateCheckerServiceSoapClient(binding, adress);
             }
 
             return _updateCheckerWS;
         }
     }
+
     // ------------------------------------------------------------------
 
     #endregion
@@ -321,7 +345,7 @@ public sealed class WebServiceManager
     /// </summary>
     private static readonly object TypeLock = new();
 
-    private UpdateCheckerService _updateCheckerWS;
+    private UpdateCheckerServiceSoapClient _updateCheckerWS;
 
     private static volatile WebServiceManager _current;
 

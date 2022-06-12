@@ -1,11 +1,5 @@
 ﻿namespace ZetaResourceEditor.UI.Helper;
 
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using Zeta.VoyagerLibrary.Tools.Storage;
-
 internal static class DevExpressExtensionMethods
 {
     public static void MakeAutoComplete(

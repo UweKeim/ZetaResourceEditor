@@ -1,8 +1,6 @@
 ﻿namespace ZetaResourceEditor.Runtime.FileAccess;
 
-using System;
 using System.IO;
-using ZetaLongPaths;
 
 public class TemporaryFileCloner :
     IDisposable
@@ -10,11 +8,11 @@ public class TemporaryFileCloner :
     public TemporaryFileCloner(string wordDocumentFilePath)
     {
         FilePath =
-            ZlpPathHelper.Combine(
+            ZspPathHelper.Combine(
                 Path.GetTempPath(),
-                $@"{Guid.NewGuid()}-{ZlpPathHelper.GetFileNameWithoutExtension(wordDocumentFilePath)}");
+                $@"{Guid.NewGuid()}-{ZspPathHelper.GetFileNameWithoutExtension(wordDocumentFilePath)}");
 
-        ZlpSafeFileOperations.SafeCopyFile(
+        ZspSafeFileOperations.SafeCopyFile(
             wordDocumentFilePath,
             FilePath);
     }
@@ -31,7 +29,7 @@ public class TemporaryFileCloner :
 
     private void doDispose()
     {
-        ZlpSafeFileOperations.SafeDeleteFile(FilePath);
+        ZspSafeFileOperations.SafeDeleteFile(FilePath);
     }
 
     #endregion

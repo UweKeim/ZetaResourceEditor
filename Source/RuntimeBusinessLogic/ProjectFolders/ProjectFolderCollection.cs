@@ -2,8 +2,6 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.ProjectFolders;
 
 #region Using directives.
 // ----------------------------------------------------------------------
-using System.Collections.Generic;
-using System.Xml;
 using Projects;
 
 // ----------------------------------------------------------------------

@@ -1,22 +1,12 @@
 namespace ZetaResourceEditor.UI.FileGroups;
 
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
 using Helper;
 using Helper.Base;
 using Helper.Progress;
 using Main;
 using RuntimeBusinessLogic.ProjectFolders;
 using RuntimeBusinessLogic.Projects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
 using System.Linq;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common.Collections;
-using Zeta.VoyagerLibrary.WinForms.Common;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class DeleteLanguageForm :
     FormBase

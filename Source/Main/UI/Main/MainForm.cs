@@ -1,9 +1,6 @@
 namespace ZetaResourceEditor.UI.Main;
 
 using Code;
-using DevExpress.Utils;
-using DevExpress.XtraBars;
-using DevExpress.XtraEditors;
 using ExportImportExcel;
 using ExtendedControlsLibrary.General.Base;
 using Helper.Base;
@@ -17,24 +14,15 @@ using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.Projects;
 using RuntimeBusinessLogic.WebServices;
 using RuntimeUserInterface.Shell;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
+using ServiceReference1;
 using System.IO;
-using System.Reflection;
-using System.Windows.Forms;
-using RuntimeBusinessLogic.UpdateChecker;
 using Tools;
 using Translation;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Common.IO;
-using Zeta.VoyagerLibrary.Logging;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Common;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
-using ZetaLongPaths;
+using Zeta.VoyagerLibrary.Core.Common;
+using Zeta.VoyagerLibrary.Core.Common.IO;
+using Zeta.VoyagerLibrary.Core.Tools.Storage;
+using Zeta.VoyagerLibrary.Core.WinForms.Common;
+using Zeta.VoyagerLibrary.Core.WinForms.Persistance;
 
 public partial class MainForm :
     RibbonFormBase
@@ -53,7 +41,7 @@ public partial class MainForm :
         {
             // ReSharper disable ConvertIfStatementToNullCoalescingExpression
             if (_fileGroupStateChanged == null)
-                // ReSharper restore ConvertIfStatementToNullCoalescingExpression
+            // ReSharper restore ConvertIfStatementToNullCoalescingExpression
             {
                 _fileGroupStateChanged =
                     new FastSmartWeakEvent<EventHandler<FileGroupStateChangedEventArgs>>();
@@ -129,7 +117,7 @@ public partial class MainForm :
         result.Items.Add(
             new ToolTipTitleItem
             {
-                Text = ZlpPathHelper.GetFileNameFromFilePath(file.TrimEnd())
+                Text = ZspPathHelper.GetFileNameFromFilePath(file.TrimEnd())
             });
         result.Items.Add(
             new ToolTipItem { Text = file });
@@ -164,7 +152,7 @@ public partial class MainForm :
                         new BarButtonItem
                         {
                             Caption =
-                                $@"{index + 1} {ZlpPathHelper.GetFileNameFromFilePath(splitted[0])}",
+                                $@"{index + 1} {ZspPathHelper.GetFileNameFromFilePath(splitted[0])}",
                             //Description =
                             //    ZrePathHelper.ShortenPathName(
                             //        splitted[0],
@@ -235,7 +223,7 @@ public partial class MainForm :
                     new BarButtonItem
                     {
                         Caption =
-                            $@"{index + 1} {ZlpPathHelper.GetFileNameWithoutExtension(file)}",
+                            $@"{index + 1} {ZspPathHelper.GetFileNameWithoutExtension(file)}",
                         //Description =
                         //    ZrePathHelper.ShortenPathName(
                         //        file,
@@ -344,7 +332,7 @@ public partial class MainForm :
                 //_mruProjectsMenu.SetFirstFile( e.Number );
                 addMruProjectFile(path);
 
-                ProjectFilesControl.DoLoadProject(new ZlpFileInfo(path));
+                ProjectFilesControl.DoLoadProject(new FileInfo(path));
             }
         }
         else
@@ -435,7 +423,7 @@ public partial class MainForm :
                 }
             }
 
-            //if ( ZlpIOHelper.FileExists( file ) )
+            //if ( ZspIOHelper.FileExists( file ) )
             {
                 items.Insert(0, file);
             }
@@ -460,7 +448,7 @@ public partial class MainForm :
                 }
             }
 
-            if (ZlpIOHelper.FileExists(file))
+            if (File.Exists(file))
             {
                 items.Insert(0, file);
             }
@@ -687,7 +675,7 @@ public partial class MainForm :
                 SuggestZoomPercent = 90,
                 RespectWindowRatio = false
             });
-        if( !rr.DidMoveForm) CenterToScreen();
+        if (!rr.DidMoveForm) CenterToScreen();
 
         ribbon.SelectedPage = ribbonPage1;
         FormBase.RestoreState(ribbon);
@@ -717,7 +705,7 @@ public partial class MainForm :
                 : DefaultBoolean.False;
     }
 
-    private AskOverwriteResult dataProcessing_CanOverwrite(ZlpFileInfo filePath)
+    private AskOverwriteResult dataProcessing_CanOverwrite(FileInfo filePath)
     {
         var dr = XtraMessageBox.Show(
             this,
@@ -1041,11 +1029,11 @@ public partial class MainForm :
 
                 if (string.Compare(
                         Project.ProjectFileExtension,
-                        ZlpPathHelper.GetExtension(file),
+                        ZspPathHelper.GetExtension(file),
                         StringComparison.OrdinalIgnoreCase) == 0 &&
-                    ZlpIOHelper.FileExists(file))
+                    File.Exists(file))
                 {
-                    ProjectFilesControl.DoLoadProject(new ZlpFileInfo(file));
+                    ProjectFilesControl.DoLoadProject(new FileInfo(file));
 
                     return true;
                 }
@@ -1063,7 +1051,7 @@ public partial class MainForm :
         object sender,
         DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
+        if (e.Data?.GetDataPresent(DataFormats.FileDrop) ?? false)
         {
             var files = (string[])e.Data.GetData(
                 DataFormats.FileDrop);
@@ -1073,10 +1061,10 @@ public partial class MainForm :
                 foreach (var file in files)
                 {
                     // Allow dropping of project files.
-                    if (string.Compare(Project.ProjectFileExtension, ZlpPathHelper.GetExtension(file),
+                    if (string.Compare(Project.ProjectFileExtension, ZspPathHelper.GetExtension(file),
                             StringComparison.OrdinalIgnoreCase) == 0)
                     {
-                        ProjectFilesControl.DoLoadProject(new ZlpFileInfo(file));
+                        ProjectFilesControl.DoLoadProject(new FileInfo(file));
                         return;
                     }
                 }
@@ -1099,7 +1087,7 @@ public partial class MainForm :
                     // Allow dropping of project files.
                     if (string.Compare(
                             Project.ProjectFileExtension,
-                            ZlpPathHelper.GetExtension(file),
+                            ZspPathHelper.GetExtension(file),
                             StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         e.Effect = DragDropEffects.Copy;
@@ -1305,8 +1293,9 @@ public partial class MainForm :
         if (buttonUpdateAvailable.Visibility == BarItemVisibility.Always)
         {
             _blinkIndex = _blinkIndex == 0 ? 1 : 0;
+            var name = _blinkIndex == 0 ? @"heart-1" : @"heart-2";
 
-            buttonUpdateAvailable.LargeGlyph = blinkImageCollection.Images[_blinkIndex];
+            buttonUpdateAvailable.LargeGlyph = ImageCollectionHelper.Ic32.Images[name];
         }
         else
         {

@@ -1,11 +1,7 @@
 ﻿namespace ZetaResourceEditor.UI.Helper.Grid;
 
-using System;
-using System.ComponentModel;
-using System.Collections.Generic;
 using DevExpress.Utils.Serializing;
 using DevExpress.Utils.Serializing.Helpers;
-using DevExpress.Utils;
 
 public class DXFilterSerializer : XmlXtraSerializer
 {

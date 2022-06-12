@@ -2,10 +2,8 @@
 
 using global::Google.Apis.Auth.OAuth2;
 using global::Google.Cloud.Translation.V2;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using ZetaLongPaths;
 
 /*
  * https://cloud.google.com/translate/docs/reference/libraries
@@ -36,7 +34,7 @@ public class GoogleRestfulTranslationEngine :
     {
         if (_sourceLanguages == null)
         {
-            ZlpSimpleFileAccessProtector.Protect(
+            ZspSimpleFileAccessProtector.Protect(
                 delegate
                 {
                     var result = new List<TranslationLanguageInfo>();
@@ -95,7 +93,7 @@ public class GoogleRestfulTranslationEngine :
 
         var tr = new List<TranslationResult>();
 
-        ZlpSimpleFileAccessProtector.Protect(
+        ZspSimpleFileAccessProtector.Protect(
             delegate
             {
                 // Das eigentliche Übersetzen.

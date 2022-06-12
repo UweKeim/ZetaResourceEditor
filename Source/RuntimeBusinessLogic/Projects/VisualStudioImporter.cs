@@ -4,13 +4,10 @@ using FileGroups;
 using FileInformations;
 using Language;
 using ProjectFolders;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Xml;
-using ZetaLongPaths;
 
 /// <summary>
 /// Import files from a .SLN or .CSPROJ file.
@@ -29,7 +26,7 @@ public class VisualStudioImporter
         ProjectFolder parentProjectFolder,
         ref int fileGroupCount,
         ref int fileCount,
-        ZlpFileInfo vsProjectPath)
+        FileInfo vsProjectPath)
     {
         if (backgroundWorker.CancellationPending)
         {
@@ -53,7 +50,7 @@ public class VisualStudioImporter
                 var pdoc = new XmlDocument();
                 //using (var fs = vsProjectPath.OpenRead())
                 {
-                    pdoc.LoadXml(ZlpIOHelper.ReadAllText(vsProjectPath.FullName));
+                    pdoc.LoadXml(File.ReadAllText(vsProjectPath.FullName));
                 }
 
                 var nameMgr = new XmlNamespaceManager(pdoc.NameTable);
@@ -76,7 +73,7 @@ public class VisualStudioImporter
                     if (r != null) resNodes.AddRange(r.Cast<XmlNode>().ToArray());
                 }
 
-                var filePaths = new List<ZlpFileInfo>(); //get all files
+                var filePaths = new List<FileInfo>(); //get all files
                 foreach (var node in resNodes)
                 {
                     var include = node.Value;
@@ -85,8 +82,8 @@ public class VisualStudioImporter
                         (include.ToLowerInvariant().EndsWith(@".resx") ||
                          include.ToLowerInvariant().EndsWith(@".resw")))
                     {
-                        var fullPath = ZlpPathHelper.Combine(vsProjectPath.DirectoryName, include);
-                        filePaths.Add(new ZlpFileInfo(fullPath));
+                        var fullPath = ZspPathHelper.Combine(vsProjectPath.DirectoryName, include);
+                        filePaths.Add(new FileInfo(fullPath));
                     }
                 }
 
@@ -112,7 +109,7 @@ public class VisualStudioImporter
         ProjectFolder parentProjectFolder,
         ref int fileGroupCount,
         ref int fileCount,
-        ICollection<ZlpFileInfo> fileList)
+        ICollection<FileInfo> fileList)
     {
         if (backgroundWorker.CancellationPending)
         {
@@ -179,7 +176,7 @@ public class VisualStudioImporter
     }
 
     private bool checkWantAddResourceFile(
-        ZlpFileInfo filePath)
+        FileInfo filePath)
     {
         if (filePath == null)
         {
@@ -218,7 +215,7 @@ public class VisualStudioImporter
         ProjectFolder parentProjectFolder,
         ref int fileGroupCount,
         ref int fileCount,
-        ZlpFileInfo vsSolutionPath)
+        FileInfo vsSolutionPath)
     {
         if (vsSolutionPath is { Exists: true })
         {
@@ -226,7 +223,7 @@ public class VisualStudioImporter
             //using (var sr = vsSolutionPath.OpenText())
             {
                 //we can read it line by line to reduce memory usage, but solution files are not very big
-                solutionText = ZlpIOHelper.ReadAllText(vsSolutionPath.FullName); // sr.ReadToEnd();
+                solutionText = File.ReadAllText(vsSolutionPath.FullName); // sr.ReadToEnd();
             }
             //solution files looks like:
             //Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZetaResourceEditor", "Main\ZetaResourceEditor.csproj", "{367758E7-0435-440A-AC76-1F30ABBA3ED8}"
@@ -270,7 +267,7 @@ public class VisualStudioImporter
 
                 var projectRelPath = m.Groups[@"projectRelPath"].Value;
                 var projectFile =
-                    new ZlpFileInfo(ZlpPathHelper.Combine(vsSolutionPath.Directory.FullName, projectRelPath));
+                    new FileInfo(ZspPathHelper.Combine(vsSolutionPath.Directory.FullName, projectRelPath));
 
                 //add all files from project
                 //we can add each using separate sub folder

@@ -2,9 +2,7 @@
 
 using Helper.Base;
 using RuntimeBusinessLogic.WebServices;
-using System;
 using System.Net;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class WebProxySettingsForm : FormBase
 {

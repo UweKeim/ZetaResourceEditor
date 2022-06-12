@@ -1,10 +1,6 @@
 namespace ZetaResourceEditor.UI.Helper.ErrorHandling;
 
 using Base;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class TextBoxForm :
     FormBase

@@ -1,10 +1,6 @@
 namespace ZetaResourceEditor.UI.Main.LeftTree;
 
-using DevExpress.Utils;
-using DevExpress.XtraBars;
-using DevExpress.XtraEditors;
-using DevExpress.XtraTreeList;
-using DevExpress.XtraTreeList.Nodes;
+using Code;
 using DevExpress.XtraTreeList.ViewInfo;
 using FileGroups;
 using Helper;
@@ -20,18 +16,9 @@ using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.FileInformations;
 using RuntimeBusinessLogic.ProjectFolders;
 using RuntimeBusinessLogic.Projects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Threading;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Logging;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Common;
-using ZetaAsync;
-using ZetaLongPaths;
+using Zeta.VoyagerLibrary.Core.Common;
+using Zeta.VoyagerLibrary.Core.Tools.Storage;
+using Zeta.VoyagerLibrary.Core.WinForms.Common;
 
 public partial class ProjectFilesUserControl :
     UserControlBase
@@ -39,12 +26,15 @@ public partial class ProjectFilesUserControl :
     public ProjectFilesUserControl()
     {
         InitializeComponent();
+
+        treeView.SelectImageList = ImageCollectionHelper.Ic16;
+        treeView.StateImageList = ImageCollectionHelper.Ic16;
     }
 
     private void updateNodeInfo(
         TreeListNode node)
     {
-        if (node?.TreeList != null && node.Tag != null)
+        if (node is { TreeList: { }, Tag: { } })
         {
             LogCentral.Current.LogInfo(
                 $@"Updating node info of node '{node[0]}'.");
@@ -117,7 +107,7 @@ public partial class ProjectFilesUserControl :
             PersistanceHelper.SaveValue(
                 MainForm.UserStorageIntelligent,
                 @"filesInitialDir",
-                ZlpPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
+                ZspPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
 
             // --
 
@@ -127,7 +117,7 @@ public partial class ProjectFilesUserControl :
             {
                 fileGroup.Add(new FileInformation(fileGroup)
                 {
-                    File = new ZlpFileInfo(filePath)
+                    File = new FileInfo(filePath)
                 });
             }
 
@@ -183,7 +173,7 @@ public partial class ProjectFilesUserControl :
                     MainForm.UserStorageIntelligent,
                     @"filesInitialDir"));
 
-        if (string.IsNullOrEmpty(initialDir) || !ZlpIOHelper.DirectoryExists(initialDir))
+        if (string.IsNullOrEmpty(initialDir) || !Directory.Exists(initialDir))
         {
             var d = Project.ProjectConfigurationFilePath.Directory;
             initialDir = d.FullName;
@@ -202,7 +192,7 @@ public partial class ProjectFilesUserControl :
             var folderPath =
                 dialog.SelectedPath == null
                     ? null
-                    : new ZlpDirectoryInfo(dialog.SelectedPath);
+                    : new DirectoryInfo(dialog.SelectedPath);
 
             var parentProjectFolder =
                 treeView.SelectedNode.Tag as ProjectFolder;
@@ -281,7 +271,7 @@ public partial class ProjectFilesUserControl :
         ProjectFolder parentProjectFolder,
         ref int fileGroupCount,
         ref int fileCount,
-        ZlpDirectoryInfo folderPath)
+        DirectoryInfo folderPath)
     {
         if (backgroundWorker.CancellationPending)
         {
@@ -289,13 +279,13 @@ public partial class ProjectFilesUserControl :
         }
 
         // Omit hidden or system folders.
-        if ((folderPath.Attributes & ZetaLongPaths.Native.FileAttributes.Hidden) == 0 &&
-            (folderPath.Attributes & ZetaLongPaths.Native.FileAttributes.System) == 0)
+        if (!folderPath.Attributes.HasFlag(FileAttributes.Hidden) &&
+            !folderPath.Attributes.HasFlag(FileAttributes.System) )
         {
             //CHANGED use comon method to look load new files:
 
-            var filePaths = new List<ZlpFileInfo>(folderPath.GetFiles(@"*.resx"));
-            filePaths.AddRange(new List<ZlpFileInfo>(folderPath.GetFiles(@"*.resw")));
+            var filePaths = new List<FileInfo>(folderPath.GetFiles(@"*.resx"));
+            filePaths.AddRange(new List<FileInfo>(folderPath.GetFiles(@"*.resw")));
 
             new VisualStudioImporter(Project).DoAutomaticallyAddResourceFilesFromList(
                 backgroundWorker,
@@ -346,7 +336,7 @@ public partial class ProjectFilesUserControl :
                     @"filesInitialDir"));
 
         if (string.IsNullOrEmpty(initialDir) ||
-            !ZlpIOHelper.DirectoryExists(initialDir))
+            !Directory.Exists(initialDir))
         {
             var d = Project.ProjectConfigurationFilePath.Directory;
             initialDir = d.FullName;
@@ -358,7 +348,7 @@ public partial class ProjectFilesUserControl :
 
         if (dialog.ShowDialog(this) == DialogResult.OK)
         {
-            var proj = new ZlpFileInfo(dialog.FileName);
+            var proj = new FileInfo(dialog.FileName);
 
             var parentProjectFolder =
                 treeView.SelectedNode.Tag as ProjectFolder;
@@ -554,7 +544,7 @@ public partial class ProjectFilesUserControl :
         => Project != null && Project != Project.Empty && treeView.SelectedNode?.Tag is FileInformation;
 
     internal void DoLoadProject(
-        ZlpFileInfo projectFilePath)
+        FileInfo projectFilePath)
     {
         var r = DoSaveFile(
             SaveOptions.OnlyIfModified | SaveOptions.AskConfirm);
@@ -583,14 +573,14 @@ public partial class ProjectFilesUserControl :
     /// </summary>
     /// <param name="projectFilePath">The project file path.</param>
     private static void addToMru(
-        ZlpFileInfo projectFilePath)
+        FileInfo projectFilePath)
     {
         MainForm.AddMruProject(
             projectFilePath.FullName);
     }
 
     private void doLoadProjectFile(
-        ZlpFileInfo projectFilePath)
+        FileInfo projectFilePath)
     {
         closeProject();
 
@@ -644,7 +634,7 @@ public partial class ProjectFilesUserControl :
             rootNode[0] = Project.Name;
             rootNode.ImageIndex = rootNode.SelectImageIndex = getImageIndex(@"root");
             rootNode.Tag = Project;
-            rootNode.StateImageIndex = (int)FileGroupStateColor.Grey;
+            rootNode.StateImageIndex = getStateImageIndex(FileGroupStateColor.Grey);
 
             updateNodeStateImage(rootNode, AsynchronousMode.Asynchronous);
 
@@ -712,12 +702,12 @@ public partial class ProjectFilesUserControl :
 
     private void updateFileGroupInTree(
         TreeListNode fileGroupNode,
-        FileGroup fileGroup)
+        IGridEditableData fileGroup)
     {
         fileGroupNode[0] = fileGroup.GetNameIntelligent(Project);
         fileGroupNode.ImageIndex = fileGroupNode.SelectImageIndex = getImageIndex(@"group");
         fileGroupNode.Tag = fileGroup;
-        fileGroupNode.StateImageIndex = (int)FileGroupStateColor.Grey; //(int)fileGroup.TranslationStateColor;
+        fileGroupNode.StateImageIndex = getStateImageIndex(FileGroupStateColor.Grey); //(int)fileGroup.TranslationStateColor;
 
         updateNodeStateImage(fileGroupNode, AsynchronousMode.Asynchronous);
 
@@ -734,7 +724,7 @@ public partial class ProjectFilesUserControl :
             {
                 if (asynchronous == AsynchronousMode.Synchronous)
                 {
-                    var stateImageIndex = (int)si.TranslationStateColor;
+                    var stateImageIndex = getStateImageIndex(si.TranslationStateColor);
 
                     if (node.StateImageIndex != stateImageIndex)
                     {
@@ -752,15 +742,15 @@ public partial class ProjectFilesUserControl :
                 else
                 {
                     // Fill with default.
-                    if (node.StateImageIndex != (int)FileGroupStateColor.Grey)
+                    if (node.StateImageIndex != getStateImageIndex(FileGroupStateColor.Grey))
                     {
-                        node.StateImageIndex = (int)FileGroupStateColor.Grey;
+                        node.StateImageIndex = getStateImageIndex(FileGroupStateColor.Grey);
 
                         if (si is FileGroup)
                         {
                             foreach (TreeListNode childNode in node.Nodes)
                             {
-                                childNode.StateImageIndex = (int)FileGroupStateColor.Grey;
+                                childNode.StateImageIndex = getStateImageIndex(FileGroupStateColor.Grey);
                             }
                         }
                     }
@@ -798,7 +788,7 @@ public partial class ProjectFilesUserControl :
     private class AsyncInfo
     {
         public ITranslationStateInformation StateInfo { get; set; }
-        public int StateImageIndex { get; set; }
+        public FileGroupStateColor StateImageIndex { get; set; }
 
         public TreeListNode Node { get; set; }
     }
@@ -829,7 +819,7 @@ public partial class ProjectFilesUserControl :
                         }
                     }
 
-                    info.StateImageIndex = (int)info.StateInfo.TranslationStateColor;
+                    info.StateImageIndex = info.StateInfo.TranslationStateColor;
                     ((BackgroundWorker)sender).ReportProgress(0, info);
                 }
             }
@@ -850,15 +840,15 @@ public partial class ProjectFilesUserControl :
         var info = (AsyncInfo)e.UserState;
 
         // Apply result to tree.
-        if (info.Node.StateImageIndex != info.StateImageIndex)
+        if (info.Node.StateImageIndex != getStateImageIndex(info.StateImageIndex))
         {
-            info.Node.StateImageIndex = info.StateImageIndex;
+            info.Node.StateImageIndex = getStateImageIndex(info.StateImageIndex);
 
             if (info.StateInfo is FileGroup)
             {
                 foreach (TreeListNode childNode in info.Node.Nodes)
                 {
-                    childNode.StateImageIndex = info.StateImageIndex;
+                    childNode.StateImageIndex = getStateImageIndex(info.StateImageIndex);
                 }
             }
         }
@@ -885,7 +875,7 @@ public partial class ProjectFilesUserControl :
 
         fileNode.ImageIndex = fileNode.SelectImageIndex = getImageIndex(@"file");
         fileNode.Tag = filePath;
-        fileNode.StateImageIndex = (int)FileGroupStateColor.Grey;
+        fileNode.StateImageIndex = getStateImageIndex(FileGroupStateColor.Grey);
 
         updateNodeStateImage(fileNode, AsynchronousMode.Asynchronous);
 
@@ -894,14 +884,20 @@ public partial class ProjectFilesUserControl :
 
     private static int getImageIndex(string key)
     {
-        return key switch
-        {
-            @"root" => 0,
-            @"group" => 1,
-            @"file" => 2,
-            @"projectfolder" => 3,
-            _ => throw new ArgumentException()
-        };
+        return ImageCollectionHelper.Ic16.Images.Keys.IndexOf(key);
+        //return key switch
+        //{
+        //    @"root" => 0,
+        //    @"group" => 1,
+        //    @"file" => 2,
+        //    @"projectfolder" => 3,
+        //    _ => throw new ArgumentException()
+        //};
+    }
+
+    private static int getStateImageIndex(FileGroupStateColor color)
+    {
+        return ImageCollectionHelper.Ic16.Images.Keys.IndexOf(color.ToString());
     }
 
     private TreeListNode addProjectFolderToTree(
@@ -946,7 +942,7 @@ public partial class ProjectFilesUserControl :
         projectFolderNode[0] = projectFolder.Name;
         projectFolderNode.ImageIndex = projectFolderNode.SelectImageIndex = getImageIndex(@"projectfolder");
         projectFolderNode.Tag = projectFolder;
-        projectFolderNode.StateImageIndex = (int)FileGroupStateColor.Grey;
+        projectFolderNode.StateImageIndex = getStateImageIndex(FileGroupStateColor.Grey);
 
         updateNodeStateImage(projectFolderNode, AsynchronousMode.Asynchronous);
     }
@@ -972,9 +968,9 @@ public partial class ProjectFilesUserControl :
         {
             PersistanceHelper.SaveValue(
                 @"zreprojInitialDir",
-                ZlpPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
+                ZspPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
 
-            DoLoadProject(new ZlpFileInfo(ofd.FileName));
+            DoLoadProject(new FileInfo(ofd.FileName));
         }
     }
 
@@ -1291,9 +1287,9 @@ public partial class ProjectFilesUserControl :
         var filePath =
             PersistanceHelper.RestoreValue(@"RecentProject") as string;
 
-        if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
+        if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
         {
-            DoLoadProject(new ZlpFileInfo(filePath));
+            DoLoadProject(new FileInfo(filePath));
         }
     }
 
@@ -1322,7 +1318,7 @@ public partial class ProjectFilesUserControl :
         {
             foreach (var fileName in ofd.FileNames)
             {
-                var filePath = new ZlpFileInfo(fileName);
+                var filePath = new FileInfo(fileName);
 
                 if (string.Compare(
                         filePath.Directory.FullName,
@@ -1344,7 +1340,7 @@ public partial class ProjectFilesUserControl :
                 var fileInfo =
                     new FileInformation(fileGroup)
                     {
-                        File = new ZlpFileInfo(fileName)
+                        File = new FileInfo(fileName)
                     };
 
                 if (!fileGroup.Contains(fileInfo))
@@ -1466,7 +1462,7 @@ public partial class ProjectFilesUserControl :
 
     private void projectFilesUserControlNew_Load(object sender, EventArgs e)
     {
-        if (!Zeta.VoyagerLibrary.WinForms.Base.UserControlBase.IsDesignMode(this))
+        if (!Zeta.VoyagerLibrary.Core.WinForms.Base.UserControlBase.IsDesignMode(this))
         {
             new TreeListViewState(treeView).RestoreState(@"projectsTree");
 
@@ -1707,7 +1703,7 @@ public partial class ProjectFilesUserControl :
                 var tt = hit.Node.Tag switch
                 {
                     FileGroup fg => fg.GetFullNameIntelligent(Project),
-                    ZlpFileInfo fsi => fsi.FullName,
+                    FileInfo fsi => fsi.FullName,
                     _ => null
                 };
 

@@ -1,17 +1,8 @@
 ﻿namespace TestingConsole;
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
-using System.Net;
-using System.Web;
-using System.Xml;
-using System.Xml.Serialization;
-using Newtonsoft.Json;
-using Zeta.VoyagerLibrary.Common.Collections;
 
-public class Program
+public static class Program
 {
     private static void Main()
     {
@@ -94,11 +85,8 @@ public class Program
     {
         var ps = string.Empty;
 
-        foreach (var tuple in parameters)
+        foreach (var (item1, item2) in parameters)
         {
-            var item1 = tuple.Item1;
-            var item2 = tuple.Item2;
-
             if (!string.IsNullOrEmpty(item2))
             {
                 var p = $@"{item1}={HttpUtility.UrlEncode(item2)}&";

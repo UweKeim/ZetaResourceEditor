@@ -1,6 +1,5 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups;
 
-using System;
 using Properties;
 using Runtime.Localization;
 

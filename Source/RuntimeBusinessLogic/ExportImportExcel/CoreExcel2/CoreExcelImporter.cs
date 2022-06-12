@@ -1,7 +1,6 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.CoreExcel2;
 
 using ExcelDataReader;
-using System.Data;
 using System.IO;
 
 internal static class CoreExcelImporter

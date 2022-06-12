@@ -1,10 +1,10 @@
 namespace ZetaResourceEditor.RuntimeBusinessLogic.DL;
 
+using System.IO;
 using DynamicSettings;
 using FileGroups;
 using FileInformations;
 using Projects;
-using ZetaLongPaths;
 
 /// <summary>
 /// Something that is editable in a grid.
@@ -19,7 +19,7 @@ public interface IGridEditableData
     FileGroup FileGroup { get; }
 
     Project Project { get; set; }
-    ZlpDirectoryInfo FolderPath { get; }
+    DirectoryInfo FolderPath { get; }
 
     FileInformation[] GetFileInformationsSorted();
     //void SortFileFileFileInfos();

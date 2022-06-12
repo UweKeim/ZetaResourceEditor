@@ -4,6 +4,7 @@
 
 .svn/
 .vs/
+.vshistory/
 Deploy/
 Logs/
 Etc/

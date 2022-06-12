@@ -53,13 +53,10 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.statusPictureBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.xtraTabPage1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
             this.updateInGridButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
             this.optionsPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.stateImageList = new DevExpress.Utils.ImageCollection(this.components);
-            this.treeImageList = new DevExpress.Utils.ImageCollection(this.components);
             this.updateDetailsTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.resourceEditorUserControlMainSplitContainer)).BeginInit();
             this.resourceEditorUserControlMainSplitContainer.SuspendLayout();
@@ -73,10 +70,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stateImageList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treeImageList)).BeginInit();
             this.SuspendLayout();
             // 
             // resourceEditorUserControlMainSplitContainer
@@ -318,7 +312,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.AppearancePage.Header.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tabControl1.AppearancePage.Header.Options.UseFont = true;
-            this.tabControl1.Images = this.imageCollection1;
             this.tabControl1.Location = new System.Drawing.Point(3, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedTabPage = this.xtraTabPage1;
@@ -326,12 +319,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.tabControl1.TabIndex = 1;
             this.tabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
-            // 
-            // imageCollection1
-            // 
-            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
-            this.imageCollection1.Images.SetKeyName(0, "document.png");
-            this.imageCollection1.Images.SetKeyName(1, "note.png");
             // 
             // xtraTabPage1
             // 
@@ -376,22 +363,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.optionsPopupMenu.Name = "optionsPopupMenu";
             this.optionsPopupMenu.BeforePopup += new System.ComponentModel.CancelEventHandler(this.optionsPopupMenu_BeforePopup);
             // 
-            // stateImageList
-            // 
-            this.stateImageList.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("stateImageList.ImageStream")));
-            this.stateImageList.Images.SetKeyName(0, "grey");
-            this.stateImageList.Images.SetKeyName(1, "green");
-            this.stateImageList.Images.SetKeyName(2, "yellow");
-            this.stateImageList.Images.SetKeyName(3, "red");
-            this.stateImageList.Images.SetKeyName(4, "blue");
-            // 
-            // treeImageList
-            // 
-            this.treeImageList.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("treeImageList.ImageStream")));
-            this.treeImageList.Images.SetKeyName(0, "root");
-            this.treeImageList.Images.SetKeyName(1, "group");
-            this.treeImageList.Images.SetKeyName(2, "file");
-            // 
             // updateDetailsTimer
             // 
             this.updateDetailsTimer.Interval = 200;
@@ -425,10 +396,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stateImageList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treeImageList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,12 +416,9 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl tabControl1;
 		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage xtraTabPage1;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton updateInGridButton;
-		private DevExpress.Utils.ImageCollection stateImageList;
-		private DevExpress.Utils.ImageCollection treeImageList;
 		private DevExpress.XtraBars.BarButtonItem buttonAddTag;
 		private DevExpress.XtraBars.BarButtonItem buttonEditTag;
 		private DevExpress.XtraBars.BarButtonItem buttonDeleteTag;
-		private DevExpress.Utils.ImageCollection imageCollection1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Timer updateDetailsTimer;

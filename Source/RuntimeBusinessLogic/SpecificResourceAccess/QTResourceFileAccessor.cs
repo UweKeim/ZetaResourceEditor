@@ -2,9 +2,8 @@
 
 #region Using directives.
 // ----------------------------------------------------------------------
-using System;
+using System.IO;
 using Properties;
-using ZetaLongPaths;
 
 // ----------------------------------------------------------------------
 #endregion
@@ -57,7 +56,7 @@ internal class QTResourceFileAccessor :
     /// <param name="filePath">The file path.</param>
     /// <returns></returns>
     public NameValuePair[] LoadFromResourceFile(
-        ZlpFileInfo filePath)
+        FileInfo filePath)
     {
         throw new NotImplementedException();
     }
@@ -68,7 +67,7 @@ internal class QTResourceFileAccessor :
     /// <param name="filePath">The file path.</param>
     /// <param name="rows">The rows.</param>
     public void StoreToResourceFile(
-        ZlpFileInfo filePath, 
+        FileInfo filePath, 
         NameValuePair[] rows )
     {
         throw new NotImplementedException();

@@ -4,13 +4,7 @@ using Helper.Base;
 using Properties;
 using RuntimeBusinessLogic.Projects;
 using RuntimeUserInterface.Shell;
-using System;
-using System.ComponentModel;
 using System.IO;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
-using ZetaLongPaths;
 
 public partial class CreateNewProjectForm :
     FormBase
@@ -29,14 +23,14 @@ public partial class CreateNewProjectForm :
 
         buttonOK.Enabled =
             !string.IsNullOrEmpty(locationTextBox.Text) &&
-            ZlpIOHelper.DirectoryExists(locationTextBox.Text) &&
+            Directory.Exists(locationTextBox.Text) &&
             !string.IsNullOrEmpty(nameTextBox.Text.Trim()) &&
             nameTextBox.Text.Trim().IndexOfAny(Path.GetInvalidFileNameChars()) < 0 &&
             !ProjectConfigurationFilePath.Exists;
 
         openButton.Enabled =
             !string.IsNullOrEmpty(locationTextBox.Text) &&
-            ZlpIOHelper.DirectoryExists(locationTextBox.Text);
+            Directory.Exists(locationTextBox.Text);
     }
 
     /// <summary>
@@ -44,8 +38,8 @@ public partial class CreateNewProjectForm :
     /// Only valid if closed with OK.
     /// </summary>
     /// <value>The project configuration file path.</value>
-    public ZlpFileInfo ProjectConfigurationFilePath => new(
-        ZlpPathHelper.Combine(
+    public FileInfo ProjectConfigurationFilePath => new(
+        ZspPathHelper.Combine(
             locationTextBox.Text,
             nameTextBox.Text.Trim() + Project.ProjectFileExtension));
 
@@ -62,12 +56,12 @@ public partial class CreateNewProjectForm :
         CenterToParent();
 
         var defaultFolderPath =
-            ZlpPathHelper.Combine(
+            ZspPathHelper.Combine(
                 Environment.GetFolderPath(
                     Environment.SpecialFolder.Personal),
                 Resources.SR_CreateNewProjectForm_CreateNewProjectFormLoad_ZetaResourceEditorProjects);
 
-        if (!ZlpIOHelper.DirectoryExists(defaultFolderPath))
+        if (!Directory.Exists(defaultFolderPath))
         {
             Directory.CreateDirectory(defaultFolderPath);
         }
@@ -133,7 +127,7 @@ public partial class CreateNewProjectForm :
     private void openButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
     {
         if (!string.IsNullOrEmpty(locationTextBox.Text) &&
-            ZlpIOHelper.DirectoryExists(locationTextBox.Text))
+            Directory.Exists(locationTextBox.Text))
         {
             var sei =
                 new ShellExecuteInformation

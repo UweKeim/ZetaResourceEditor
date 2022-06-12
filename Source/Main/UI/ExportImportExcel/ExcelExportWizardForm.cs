@@ -1,9 +1,6 @@
 namespace ZetaResourceEditor.UI.ExportImportExcel;
 
 using Code;
-using DevExpress.XtraBars;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraWizard;
 using Helper;
 using Helper.Base;
@@ -15,20 +12,7 @@ using RuntimeBusinessLogic.ExportImportExcel.Export;
 using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.Language;
 using RuntimeBusinessLogic.Projects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Common.Collections;
-using Zeta.VoyagerLibrary.Logging;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Common;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
-using ZetaLongPaths;
 
 public partial class ExcelExportWizardForm :
     FormBase
@@ -470,7 +454,7 @@ public partial class ExcelExportWizardForm :
         {
             selectedPage.AllowNext =
                 destinationFileTextEdit.Text.Trim().Length > 0 &&
-                ZlpPathHelper.GetExtension(destinationFileTextEdit.Text.Trim().ToLowerInvariant()) == @".xlsx";
+                ZspPathHelper.GetExtension(destinationFileTextEdit.Text.Trim().ToLowerInvariant()) == @".xlsx";
         }
         else if (selectedPage == progressWizardPage)
         {
@@ -655,7 +639,7 @@ public partial class ExcelExportWizardForm :
                 PersistanceHelper.SaveValue(
                     _project.DynamicSettingsGlobalHierarchical,
                     @"sendFileToTranslator.destinationFilePathTextEdit.InitialDirectory",
-                    ZlpPathHelper.GetDirectoryPathNameFromFilePath(form.FileName));
+                    ZspPathHelper.GetDirectoryPathNameFromFilePath(form.FileName));
             }
 
             destinationFileTextEdit.Text = form.FileName;
@@ -770,7 +754,7 @@ public partial class ExcelExportWizardForm :
 
                             foreach (var path in paths)
                             {
-                                if (ZlpIOHelper.FileExists(path))
+                                if (File.Exists(path))
                                 {
                                     Process.Start(path);
                                 }
@@ -784,7 +768,7 @@ public partial class ExcelExportWizardForm :
 
                             foreach (var path in paths)
                             {
-                                if (ZlpIOHelper.DirectoryExists(path))
+                                if (Directory.Exists(path))
                                 {
                                     Process.Start(path);
                                 }
@@ -1035,7 +1019,7 @@ public partial class ExcelExportWizardForm :
         /*var existingFilePath = destinationFileTextEdit.Text.Trim();*/
 
         var baseFolderPath = _project.ProjectConfigurationFilePath.DirectoryName;
-        var baseFileName = ZlpPathHelper.GetFileNameWithoutExtension(_project.ProjectConfigurationFilePath.Name);
+        var baseFileName = ZspPathHelper.GetFileNameWithoutExtension(_project.ProjectConfigurationFilePath.Name);
         const string baseExtension = @".xlsx";
 
         // --
@@ -1044,13 +1028,13 @@ public partial class ExcelExportWizardForm :
         {
             case true when exportEachLanguageIntoSeparateExcelFileCheckEdit.Checked:
                 destinationFileTextEdit.Text =
-                    ZlpPathHelper.Combine(
+                    ZspPathHelper.Combine(
                         baseFolderPath,
                         $@"{baseFileName}-{{LanguageName}}-{{FileGroupName}}{baseExtension}");
                 break;
             case true:
                 destinationFileTextEdit.Text =
-                    ZlpPathHelper.Combine(
+                    ZspPathHelper.Combine(
                         baseFolderPath,
                         $@"{baseFileName}-{{FileGroupName}}{baseExtension}");
                 break;
@@ -1059,7 +1043,7 @@ public partial class ExcelExportWizardForm :
                 if (exportEachLanguageIntoSeparateExcelFileCheckEdit.Checked)
                 {
                     destinationFileTextEdit.Text =
-                        ZlpPathHelper.Combine(
+                        ZspPathHelper.Combine(
                             baseFolderPath,
                             $@"{baseFileName}-{{LanguageName}}{baseExtension}");
                 }
@@ -1077,11 +1061,11 @@ public partial class ExcelExportWizardForm :
     private void buttonDecorateSimpleAutomatically_Click(object sender, EventArgs e)
     {
         var baseFolderPath = _project.ProjectConfigurationFilePath.DirectoryName;
-        var baseFileName = ZlpPathHelper.GetFileNameWithoutExtension(_project.ProjectConfigurationFilePath.Name);
+        var baseFileName = ZspPathHelper.GetFileNameWithoutExtension(_project.ProjectConfigurationFilePath.Name);
         const string baseExtension = @".xlsx";
 
         destinationFileTextEdit.Text =
-            ZlpPathHelper.Combine(
+            ZspPathHelper.Combine(
                 baseFolderPath,
                 $@"{baseFileName}{baseExtension}");
     }

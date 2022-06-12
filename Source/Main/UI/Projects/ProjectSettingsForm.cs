@@ -1,22 +1,12 @@
 ﻿namespace ZetaResourceEditor.UI.Projects;
 
-using DevExpress.XtraBars;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
 using Helper.Base;
 using Properties;
 using Runtime;
 using RuntimeBusinessLogic.Projects;
 using RuntimeBusinessLogic.Translation;
 using RuntimeUserInterface.Shell;
-using System;
-using System.Diagnostics;
-using System.Windows.Forms;
 using Translation;
-using Zeta.VoyagerLibrary.Tools.Text;
-using Zeta.VoyagerLibrary.WinForms.Common;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
-using ZetaLongPaths;
 
 public partial class ProjectSettingsForm : FormBase
 {
@@ -34,17 +24,17 @@ public partial class ProjectSettingsForm : FormBase
     /// </summary>
     private void createToolTips()
     {
-        var superToolTip4 = new DevExpress.Utils.SuperToolTip();
-        var toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-        var toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+        var superToolTip4 = new SuperToolTip();
+        var toolTipTitleItem4 = new ToolTipTitleItem();
+        var toolTipItem4 = new ToolTipItem();
 
-        var superToolTip5 = new DevExpress.Utils.SuperToolTip();
-        var toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-        var toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+        var superToolTip5 = new SuperToolTip();
+        var toolTipTitleItem5 = new ToolTipTitleItem();
+        var toolTipItem5 = new ToolTipItem();
 
-        var superToolTip6 = new DevExpress.Utils.SuperToolTip();
-        var toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-        var toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+        var superToolTip6 = new SuperToolTip();
+        var toolTipTitleItem6 = new ToolTipTitleItem();
+        var toolTipItem6 = new ToolTipItem();
 
         // --
 
@@ -106,7 +96,7 @@ public partial class ProjectSettingsForm : FormBase
             readOnlySaveBehaviourComboBox,
             _project.ReadOnlyFileOverwriteBehaviour);
 
-        nameTextBox.Text = ZlpPathHelper.GetFileNameWithoutExtension(
+        nameTextBox.Text = ZspPathHelper.GetFileNameWithoutExtension(
             _project.ProjectConfigurationFilePath.Name);
         locationTextBox.Text = _project.ProjectConfigurationFilePath.DirectoryName;
         neutralLanguageCodeTextEdit.Text = _project.NeutralLanguageCode;
@@ -195,7 +185,7 @@ public partial class ProjectSettingsForm : FormBase
     private void openButton_ItemClick(object sender, ItemClickEventArgs e)
     {
         if (!string.IsNullOrEmpty(locationTextBox.Text) &&
-            ZlpIOHelper.DirectoryExists(locationTextBox.Text))
+            Directory.Exists(locationTextBox.Text))
         {
             var sei =
                 new ShellExecuteInformation

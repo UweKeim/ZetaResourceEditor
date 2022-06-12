@@ -9,16 +9,11 @@ using Projects;
 using Properties;
 using Runtime;
 using Snapshots;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
-using Zeta.VoyagerLibrary.Common;
-using ZetaLongPaths;
+using Zeta.VoyagerLibrary.Core.Common;
 
 public class ExcelExportController
 {
@@ -206,11 +201,11 @@ public class ExcelExportController
                 var guidCount = 0;
                 while (prevFilePaths.Contains(dpl))
                 {
-                    var dir = ZlpPathHelper.GetDirectoryPathNameFromFilePath(dp);
-                    var fn = ZlpPathHelper.GetFileNameWithoutExtension(dp);
-                    var ext = ZlpPathHelper.GetExtension(dp);
+                    var dir = ZspPathHelper.GetDirectoryPathNameFromFilePath(dp);
+                    var fn = ZspPathHelper.GetFileNameWithoutExtension(dp);
+                    var ext = ZspPathHelper.GetExtension(dp);
 
-                    dp = ZlpPathHelper.Combine(dir, $@"{fn}{index}{ext}");
+                    dp = ZspPathHelper.Combine(dir, $@"{fn}{index}{ext}");
 
                     dpl = dp.ToLowerInvariant();
 
@@ -665,7 +660,7 @@ public class ExcelExportController
                     WarningMessage =
                         string.Format(
                             Resources.ExcelExportController_doProcess_Skipping_Excel_document___0___because_it_contains_no_work_sheets_,
-                            ZlpPathHelper.GetFileNameFromFilePath(preparedInformation.DestinationFilePath))
+                            ZspPathHelper.GetFileNameFromFilePath(preparedInformation.DestinationFilePath))
                 });
         }
 

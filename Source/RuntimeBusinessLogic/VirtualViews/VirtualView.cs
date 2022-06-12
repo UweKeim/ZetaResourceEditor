@@ -4,12 +4,9 @@ using DL;
 using FileGroups;
 using ProjectFolders;
 using Projects;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Common.Collections;
+using Zeta.VoyagerLibrary.Core.Common;
+using Zeta.VoyagerLibrary.Core.Common.Collections;
 using ZetaAsync;
 
 public class VirtualView :

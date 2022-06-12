@@ -1,7 +1,5 @@
 ﻿namespace ZetaResourceEditor.UI.Main;
 
-using System;
-
 [Flags]
 internal enum SaveOptions
 {

@@ -7,11 +7,8 @@ using FileGroups;
 using Projects;
 using Properties;
 // ----------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
-using ZetaLongPaths;
 
 // ----------------------------------------------------------------------
 #endregion
@@ -298,7 +295,7 @@ public sealed class LanguageCodeDetection
         }
         else
         {
-            fileName = ZlpPathHelper.GetFileNameFromFilePath(fileName);
+            fileName = ZspPathHelper.GetFileNameFromFilePath(fileName);
             fileName = removeOptionalDefaultTypes(settings, fileName, null);
 
             // Check for non-neutral, first.
@@ -322,8 +319,8 @@ public sealed class LanguageCodeDetection
         }
         else
         {
-            fileName = ZlpPathHelper.GetFileNameFromFilePath(fileName);
-            fileName = ZlpPathHelper.GetFileNameWithoutExtension(fileName);
+            fileName = ZspPathHelper.GetFileNameFromFilePath(fileName);
+            fileName = ZspPathHelper.GetFileNameWithoutExtension(fileName);
             fileName = removeOptionalDefaultTypes(settings, fileName, null);
 
             var baseName = fileName.ToLowerInvariant();
@@ -377,7 +374,7 @@ public sealed class LanguageCodeDetection
         IInheritedSettings settings,
         string filePath)
     {
-        var fn = ZlpPathHelper.GetFileNameFromFilePath(filePath);
+        var fn = ZspPathHelper.GetFileNameFromFilePath(filePath);
         var baseDotCount = settings?.EffectiveBaseNameDotCount ?? 0;
 
         //CHANGED: special case if settings.EffectiveBaseNameDotCount < 0, guess culture from name:
@@ -417,7 +414,7 @@ public sealed class LanguageCodeDetection
         }
         else
         {
-            var fileName = ZlpPathHelper.GetFileNameFromFilePath(fileGroup.FilePaths[0]);
+            var fileName = ZspPathHelper.GetFileNameFromFilePath(fileGroup.FilePaths[0]);
 
             var removedTypes = new List<string>();
 

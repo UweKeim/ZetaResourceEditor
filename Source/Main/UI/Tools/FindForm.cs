@@ -1,11 +1,6 @@
 namespace ZetaResourceEditor.UI.Tools;
 
 using Helper.Base;
-using System;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class FindForm :
     FormBase

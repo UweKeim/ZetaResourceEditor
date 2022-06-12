@@ -3,8 +3,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using ZetaLongPaths;
-using FileAttributes = ZetaLongPaths.Native.FileAttributes;
+using ZetaShortPaths;
 
 /// <summary>
 /// Class for temporary writing a string or binary datato a file and deleting it 
@@ -41,10 +40,9 @@ internal class ZetaTemporaryFileCreator :
     public ZetaTemporaryFileCreator()
     {
         FilePath =
-            ZlpPathHelper.Combine(
+            ZspPathHelper.Combine(
                 Path.GetTempPath(),
-                string.Format(@"{0}.txt",
-                    Guid.NewGuid()));
+                $@"{Guid.NewGuid()}.txt");
     }
 
     /// <summary>
@@ -56,12 +54,12 @@ internal class ZetaTemporaryFileCreator :
         string content)
     {
         FilePath =
-            ZlpPathHelper.Combine(
+            ZspPathHelper.Combine(
                 Path.GetTempPath(),
                 string.Format(@"{0}.txt",
                     Guid.NewGuid()));
 
-        ZlpIOHelper.WriteAllText(FilePath,content??string.Empty);
+        File.WriteAllText(FilePath,content??string.Empty);
         //using (var f = File.CreateText(FilePath))
         //{
         //    f.Write(content ?? string.Empty);
@@ -74,7 +72,7 @@ internal class ZetaTemporaryFileCreator :
     /// </summary>
     public string FilePath { get; private set; }
 
-    public string FileContentString => ZlpIOHelper.FileExists(FilePath) ? ZlpIOHelper.ReadAllText(FilePath) : null;
+    public string FileContentString => File.Exists(FilePath) ? File.ReadAllText(FilePath) : null;
 
     #region Implementation of IDisposable
 
@@ -101,7 +99,7 @@ internal class ZetaTemporaryFileCreator :
     private static bool safeFileExists(
         string filePath)
     {
-        return !string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath);
+        return !string.IsNullOrEmpty(filePath) && File.Exists(filePath);
     }
 
     private static void safeDeleteFile(
@@ -114,18 +112,15 @@ internal class ZetaTemporaryFileCreator :
         {
             try
             {
-                var attributes =
-                    ZlpIOHelper.GetFileAttributes(filePath);
+                var attributes = File.GetAttributes(filePath);
 
                 // Remove read-only attributes.
-                if ((attributes & FileAttributes.Readonly) != 0)
+                if ((attributes & FileAttributes.ReadOnly) != 0)
                 {
-                    ZlpIOHelper.SetFileAttributes(
-                        filePath,
-                        attributes & ~FileAttributes.Readonly);
+                    File.SetAttributes(filePath, attributes & ~FileAttributes.ReadOnly);
                 }
 
-                ZlpSafeFileOperations.SafeDeleteFile(filePath);
+                ZspSafeFileOperations.SafeDeleteFile(filePath);
             }
             catch (UnauthorizedAccessException x)
             {
@@ -143,7 +138,7 @@ internal class ZetaTemporaryFileCreator :
                         newFilePath),
                     x);
 
-                ZlpIOHelper.MoveFile(
+                File.Move(
                     filePath,
                     newFilePath);
             }
@@ -163,7 +158,7 @@ internal class ZetaTemporaryFileCreator :
                         newFilePath),
                     x);
 
-                ZlpIOHelper.MoveFile(
+                File.Move(
                     filePath,
                     newFilePath);
             }

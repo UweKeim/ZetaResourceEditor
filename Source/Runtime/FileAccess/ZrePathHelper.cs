@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using ZetaLongPaths;
 
 public sealed class ZrePathHelper
 {
@@ -120,7 +119,7 @@ public sealed class ZrePathHelper
             }
             else
             {
-                var root = ZlpPathHelper.GetPathRoot( pathName );
+                var root = ZspPathHelper.GetPathRoot( pathName );
                 if ( root.Length > 3 )
                 {
                     root += Path.DirectorySeparatorChar;

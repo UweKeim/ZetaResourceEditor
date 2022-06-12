@@ -1,22 +1,12 @@
 namespace ZetaResourceEditor.UI.Helper.Base;
 
 using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraEditors;
 using DevExpress.XtraSpellChecker;
 using DevExpress.XtraTab;
 using ExtendedControlsLibrary.General.Base;
 using Main;
 using RuntimeBusinessLogic.Language;
-using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
 using System.IO;
-using System.Text;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class FormBase :
     DevExpressXtraFormBase
@@ -39,7 +29,7 @@ public partial class FormBase :
 
     protected override void OnLoad(EventArgs e)
     {
-        if (!DesignMode || !Zeta.VoyagerLibrary.WinForms.Base.UserControlBase.IsDesignMode(this))
+        if (!DesignMode || !Zeta.VoyagerLibrary.Core.WinForms.Base.UserControlBase.IsDesignMode(this))
         {
             if (MainForm.Current != null && WantSetGlobalIcon)
             {
@@ -228,10 +218,6 @@ public partial class FormBase :
                 }
                 else
                 {
-                    Debug.Assert(
-                        c.FixedPanel == SplitFixedPanel.Panel2,
-                        @"You must set one panel inside a splitter to be fixed." );
-
                     if ( c.Height - realDistance > 0 )
                     {
                         c.SplitterPosition = c.Height - realDistance;
@@ -249,10 +235,6 @@ public partial class FormBase :
                 }
                 else
                 {
-                    Debug.Assert(
-                        c.FixedPanel == SplitFixedPanel.Panel2,
-                        @"FixedPanel must be Panel2." );
-
                     if ( c.Width - realDistance > 0 )
                     {
                         c.SplitterPosition = c.Width - realDistance;
@@ -277,10 +259,6 @@ public partial class FormBase :
             }
             else
             {
-                Debug.Assert(
-                    c.FixedPanel == SplitFixedPanel.Panel2,
-                    @"FixedPanel must be Panel2.");
-
                 realDistance = c.Height - c.SplitterPosition;
             }
 
@@ -294,10 +272,6 @@ public partial class FormBase :
             }
             else
             {
-                Debug.Assert(
-                    c.FixedPanel == SplitFixedPanel.Panel2,
-                    @"FixedPanel must be Panel2.");
-
                 realDistance = c.Width - c.SplitterPosition;
             }
 

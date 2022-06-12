@@ -4,11 +4,7 @@ using Helper.Base;
 using Helper.Progress;
 using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.Projects;
-using System;
-using System.ComponentModel;
 using System.Linq;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class MergeFileGroupForm :
     FormBase

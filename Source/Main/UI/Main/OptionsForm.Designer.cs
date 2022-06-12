@@ -28,7 +28,6 @@ namespace ZetaResourceEditor.UI.Main
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsForm));
             this.proxyButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
@@ -62,50 +61,70 @@ namespace ZetaResourceEditor.UI.Main
             // 
             // proxyButton
             // 
-            this.proxyButton.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("proxyButton.Appearance.Font")));
+            this.proxyButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.proxyButton.Appearance.Options.UseFont = true;
-            resources.ApplyResources(this.proxyButton, "proxyButton");
+            this.proxyButton.Location = new System.Drawing.Point(12, 12);
             this.proxyButton.Name = "proxyButton";
+            this.proxyButton.Size = new System.Drawing.Size(193, 28);
+            this.proxyButton.TabIndex = 1;
+            this.proxyButton.Text = "Configure HTTP proxy server";
             this.proxyButton.WantDrawFocusRectangle = true;
             this.proxyButton.Click += new System.EventHandler(this.proxyButton_Click);
             // 
             // buttonCancel
             // 
-            resources.ApplyResources(this.buttonCancel, "buttonCancel");
-            this.buttonCancel.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("buttonCancel.Appearance.Font")));
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonCancel.Appearance.Options.UseFont = true;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(407, 417);
             this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 28);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Cancel";
             this.buttonCancel.WantDrawFocusRectangle = true;
             // 
             // buttonOK
             // 
-            resources.ApplyResources(this.buttonOK, "buttonOK");
-            this.buttonOK.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("buttonOK.Appearance.Font")));
+            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.buttonOK.Appearance.Options.UseFont = true;
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonOK.Location = new System.Drawing.Point(326, 417);
             this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(75, 28);
+            this.buttonOK.TabIndex = 1;
+            this.buttonOK.Text = "OK";
             this.buttonOK.WantDrawFocusRectangle = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // panelControl1
             // 
-            this.panelControl1.Appearance.BackColor = ((System.Drawing.Color)(resources.GetObject("panelControl1.Appearance.BackColor")));
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.xtraTabControl1);
             this.panelControl1.Controls.Add(this.buttonCancel);
             this.panelControl1.Controls.Add(this.buttonOK);
-            resources.ApplyResources(this.panelControl1, "panelControl1");
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Padding = new System.Windows.Forms.Padding(3);
+            this.panelControl1.Size = new System.Drawing.Size(488, 451);
+            this.panelControl1.TabIndex = 0;
             // 
             // xtraTabControl1
             // 
-            resources.ApplyResources(this.xtraTabControl1, "xtraTabControl1");
-            this.xtraTabControl1.AppearancePage.Header.Font = ((System.Drawing.Font)(resources.GetObject("xtraTabControl1.AppearancePage.Header.Font")));
+            this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.xtraTabControl1.AppearancePage.Header.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.xtraTabControl1.AppearancePage.Header.Options.UseFont = true;
+            this.xtraTabControl1.Location = new System.Drawing.Point(6, 6);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(476, 407);
+            this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage3,
             this.xtraTabPage1});
@@ -114,7 +133,9 @@ namespace ZetaResourceEditor.UI.Main
             // 
             this.xtraTabPage1.Controls.Add(this.proxyButton);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            resources.ApplyResources(this.xtraTabPage1, "xtraTabPage1");
+            this.xtraTabPage1.Padding = new System.Windows.Forms.Padding(9);
+            this.xtraTabPage1.Size = new System.Drawing.Size(474, 374);
+            this.xtraTabPage1.Text = "Options";
             // 
             // xtraTabPage3
             // 
@@ -135,103 +156,153 @@ namespace ZetaResourceEditor.UI.Main
             this.xtraTabPage3.Controls.Add(this.labelControl10);
             this.xtraTabPage3.Controls.Add(this.labelControl9);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            resources.ApplyResources(this.xtraTabPage3, "xtraTabPage3");
+            this.xtraTabPage3.Padding = new System.Windows.Forms.Padding(9);
+            this.xtraTabPage3.Size = new System.Drawing.Size(474, 374);
+            this.xtraTabPage3.Text = "Data grid view color information";
             // 
             // panel8
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.panel8, "panel8");
+            this.panel8.Location = new System.Drawing.Point(12, 173);
             this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(16, 16);
+            this.panel8.TabIndex = 3;
             // 
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.panel6, "panel6");
+            this.panel6.Location = new System.Drawing.Point(12, 127);
             this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(16, 16);
+            this.panel6.TabIndex = 3;
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Location = new System.Drawing.Point(12, 58);
             this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(16, 16);
+            this.panel3.TabIndex = 3;
             // 
             // labelControl3
             // 
-            this.labelControl3.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("labelControl3.Appearance.Font")));
-            resources.ApplyResources(this.labelControl3, "labelControl3");
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(34, 11);
             this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(188, 17);
+            this.labelControl3.TabIndex = 2;
+            this.labelControl3.Text = "Foreground color for comments";
             // 
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.panel7, "panel7");
+            this.panel7.Location = new System.Drawing.Point(12, 150);
             this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(16, 16);
+            this.panel7.TabIndex = 3;
             // 
             // labelControl4
             // 
-            this.labelControl4.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("labelControl4.Appearance.Font")));
-            resources.ApplyResources(this.labelControl4, "labelControl4");
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(34, 34);
             this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(257, 17);
+            this.labelControl4.TabIndex = 2;
+            this.labelControl4.Text = "Foreground color for completely empty row";
             // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.panel5, "panel5");
+            this.panel5.Location = new System.Drawing.Point(12, 104);
             this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(16, 16);
+            this.panel5.TabIndex = 3;
             // 
             // labelControl5
             // 
-            this.labelControl5.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("labelControl5.Appearance.Font")));
-            resources.ApplyResources(this.labelControl5, "labelControl5");
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Location = new System.Drawing.Point(34, 57);
             this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(153, 17);
+            this.labelControl5.TabIndex = 2;
+            this.labelControl5.Text = "Foreground color for tags";
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Location = new System.Drawing.Point(12, 35);
             this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(16, 16);
+            this.panel2.TabIndex = 3;
             // 
             // labelControl6
             // 
-            this.labelControl6.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("labelControl6.Appearance.Font")));
-            resources.ApplyResources(this.labelControl6, "labelControl6");
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Location = new System.Drawing.Point(34, 80);
             this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(188, 17);
+            this.labelControl6.TabIndex = 2;
+            this.labelControl6.Text = "Background color for NULL cells";
             // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Location = new System.Drawing.Point(12, 81);
             this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(16, 16);
+            this.panel4.TabIndex = 3;
             // 
             // labelControl7
             // 
-            this.labelControl7.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("labelControl7.Appearance.Font")));
-            resources.ApplyResources(this.labelControl7, "labelControl7");
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(34, 103);
             this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(193, 17);
+            this.labelControl7.TabIndex = 2;
+            this.labelControl7.Text = "Background color for empty cells";
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(16, 16);
+            this.panel1.TabIndex = 3;
             // 
             // labelControl8
             // 
-            this.labelControl8.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("labelControl8.Appearance.Font")));
-            resources.ApplyResources(this.labelControl8, "labelControl8");
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(34, 126);
             this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(296, 17);
+            this.labelControl8.TabIndex = 2;
+            this.labelControl8.Text = "Foreground color for {0}..{n} placeholder mismatch";
             // 
             // labelControl10
             // 
-            this.labelControl10.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("labelControl10.Appearance.Font")));
-            resources.ApplyResources(this.labelControl10, "labelControl10");
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(34, 172);
             this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(304, 17);
+            this.labelControl10.TabIndex = 2;
+            this.labelControl10.Text = "Foreground color for translation success (plus bold)";
             // 
             // labelControl9
             // 
-            this.labelControl9.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("labelControl9.Appearance.Font")));
-            resources.ApplyResources(this.labelControl9, "labelControl9");
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(34, 149);
             this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(296, 17);
+            this.labelControl9.TabIndex = 2;
+            this.labelControl9.Text = "Foreground color for translation errors (plus bold)";
             // 
             // OptionsForm
             // 
@@ -239,13 +310,17 @@ namespace ZetaResourceEditor.UI.Main
             this.Appearance.Options.UseFont = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.buttonCancel;
-            resources.ApplyResources(this, "$this");
+            this.ClientSize = new System.Drawing.Size(488, 451);
             this.Controls.Add(this.panelControl1);
+            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.IconOptions.ShowIcon = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(490, 489);
             this.Name = "OptionsForm";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Options";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OptionsForm_FormClosing);
             this.Load += new System.EventHandler(this.OptionsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

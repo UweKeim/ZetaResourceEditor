@@ -1,5 +1,6 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Helpers;
 
+using System.IO;
 using Projects;
 
 public static class CsProjHelper
@@ -7,7 +8,7 @@ public static class CsProjHelper
     public static readonly Regex RegexFindMainResourceFile = new(@"(.*?)\.([a-zA-Z-]{2,5}?)\.resx");
     public const string RegexFindMainResourceFileReplacePattern = @"$1.resx";
 
-    public static CsProjectWithFileResult GetProjectContainingFile(ZlpFileInfo file)
+    public static CsProjectWithFileResult GetProjectContainingFile(FileInfo file)
     {
         const int maxRecursionLevelForProject = 5;
         var recursionLevelForProject = 1;

@@ -1,7 +1,5 @@
 namespace ZetaResourceEditor.UI.Helper.Progress;
 
-using System.ComponentModel;
-
 /// <summary>
 /// Extended BackgroundWorker component for use in conjunction with
 /// the long progress GUI form.

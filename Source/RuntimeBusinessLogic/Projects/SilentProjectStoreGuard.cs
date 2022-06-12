@@ -1,7 +1,5 @@
 namespace ZetaResourceEditor.RuntimeBusinessLogic.Projects;
 
-using System;
-
 /// <summary>
 /// Enabled to automatically store upon certain modifying operations
 /// that should not be notified to the user because they are not

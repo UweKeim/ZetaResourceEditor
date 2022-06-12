@@ -5,15 +5,15 @@ using Properties;
 using RuntimeBusinessLogic.Projects;
 using UI.Helper.ErrorHandling;
 using UI.Main;
-using Zeta.VoyagerLibrary.Tools.Miscellaneous;
-using Zeta.VoyagerLibrary.Tools.Storage;
+using Zeta.VoyagerLibrary.Core.Tools.Miscellaneous;
+using Zeta.VoyagerLibrary.Core.Tools.Storage;
 
 internal sealed class Host
 {
     private static readonly IDictionary<string, Assembly> _additional =
         new Dictionary<string, Assembly>();
 
-    private static ZlpDirectoryInfo _cacheForCurrentUserStorageBaseFolderPath;
+    private static DirectoryInfo _cacheForCurrentUserStorageBaseFolderPath;
 
     [STAThread]
     private static void Main()
@@ -52,7 +52,7 @@ internal sealed class Host
                 new PersistentXmlFilePairStorage
                 {
                     FilePath =
-                        ZlpPathHelper.Combine(
+                        ZspPathHelper.Combine(
                             CurrentUserStorageBaseFolderPath.FullName,
                             @"zeta-resource-editor-settings.xml")
                 };
@@ -279,7 +279,7 @@ internal sealed class Host
         }
     }
 
-    public static ZlpDirectoryInfo CurrentUserStorageBaseFolderPath
+    public static DirectoryInfo CurrentUserStorageBaseFolderPath
     {
         get
         {
@@ -287,8 +287,8 @@ internal sealed class Host
             {
                 const string folderName = @"Zeta Resource Editor";
 
-                var result = new ZlpDirectoryInfo(
-                    ZlpPathHelper.Combine(
+                var result = new DirectoryInfo(
+                    ZspPathHelper.Combine(
                         Environment.GetFolderPath(
                             Environment.SpecialFolder.LocalApplicationData),
                         folderName));

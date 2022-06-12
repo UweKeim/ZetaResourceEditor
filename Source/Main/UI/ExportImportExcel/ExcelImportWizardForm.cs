@@ -1,9 +1,6 @@
 namespace ZetaResourceEditor.UI.ExportImportExcel;
 
 using Code;
-using DevExpress.XtraBars;
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraWizard;
 using Helper;
 using Helper.Base;
@@ -13,20 +10,9 @@ using RuntimeBusinessLogic.ExportImportExcel.Import;
 using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.Language;
 using RuntimeBusinessLogic.Projects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
-using System.Threading;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Common.Collections;
-using Zeta.VoyagerLibrary.Logging;
-using Zeta.VoyagerLibrary.Tools.Miscellaneous;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
-using ZetaLongPaths;
+using RuntimeBusinessLogic.DL;
+using Zeta.VoyagerLibrary.Core.Tools.Miscellaneous;
 
 public partial class ExcelImportWizardForm :
     FormBase
@@ -73,7 +59,7 @@ public partial class ExcelImportWizardForm :
                 buttonOpen.Enabled =
                     sourceFileTextEdit.Text.Trim().Length > 0 &&
                     Path.GetExtension(sourceFileTextEdit.Text.Trim().ToLowerInvariant()) == @".xlsx" &&
-                    ZlpIOHelper.FileExists(sourceFileTextEdit.Text.Trim());
+                    File.Exists(sourceFileTextEdit.Text.Trim());
 
             buttonOpen.Enabled = buttonOpen.Enabled && HasExcel;
         }
@@ -393,7 +379,7 @@ public partial class ExcelImportWizardForm :
         }
     }
 
-    private bool isMatchingFileGroup(FileGroup group)
+    private bool isMatchingFileGroup(IGridEditableData group)
     {
         foreach (var allowedGroup in _groups)
         {

@@ -1,11 +1,9 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups;
 
 using BL;
+using DL;
 using MoreLinq;
 using Projects;
-using System;
-using System.Data;
-using ZetaLongPaths;
 
 public sealed class FileGroupsMerger
 {
@@ -38,7 +36,7 @@ public sealed class FileGroupsMerger
         _project.MarkAsModified();
     }
 
-    private void ensureSameLanguages(FileGroup fileGroup1, FileGroup fileGroup2)
+    private void ensureSameLanguages(IGridEditableData fileGroup1, IGridEditableData fileGroup2)
     {
         var l1s = fileGroup1.GetLanguageCodes(_project).OrderBy(m => m, OrderByDirection.Ascending);
         var l2s = fileGroup2.GetLanguageCodes(_project).OrderBy(m => m, OrderByDirection.Ascending);
@@ -85,8 +83,8 @@ public sealed class FileGroupsMerger
     }
 
     private void checkUniqueIDs(
-        FileGroup fileGroupDst,
-        FileGroup fileGroupSrc,
+        IGridEditableData fileGroupDst,
+        IGridEditableData fileGroupSrc,
         DataTable tableDst,
         DataTable tableSrc)
     {

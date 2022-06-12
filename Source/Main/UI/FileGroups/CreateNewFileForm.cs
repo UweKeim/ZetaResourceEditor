@@ -1,6 +1,5 @@
 namespace ZetaResourceEditor.UI.FileGroups;
 
-using DevExpress.XtraEditors;
 using Helper.Base;
 using Main;
 using Properties;
@@ -8,18 +7,8 @@ using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.Language;
 using RuntimeBusinessLogic.Projects;
 using RuntimeBusinessLogic.Translation;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
-using System.Windows.Forms;
 using Translation;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Common.Collections;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Common;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
-using ZetaLongPaths;
 
 public partial class CreateNewFileForm :
     FormBase
@@ -93,7 +82,7 @@ public partial class CreateNewFileForm :
             AddFileAsDependantUponCheckBox.Checked = false;
         }
 
-        labelCsProjectToAdd.Text = $"({new ZlpFileInfo(csProject?.Project?.FullPath??string.Empty).Name})";
+        labelCsProjectToAdd.Text = $"({new FileInfo(csProject?.Project?.FullPath??string.Empty).Name})";
     }
 
     public override void UpdateUI()

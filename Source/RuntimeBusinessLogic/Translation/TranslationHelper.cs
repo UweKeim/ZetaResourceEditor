@@ -6,13 +6,10 @@ using Language;
 using Projects;
 using Properties;
 using Runtime;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Zeta.VoyagerLibrary.Tools.Text;
-using ZetaLongPaths;
+using Zeta.VoyagerLibrary.Core.Tools.Text;
 
 public static class TranslationHelper
 {
@@ -433,7 +430,7 @@ public static class TranslationHelper
         appID = _translationAppID;
     }
 
-    private static string safeGetValue(Dictionary<string, string> dic, string key)
+    private static string safeGetValue(IReadOnlyDictionary<string, string> dic, string key)
     {
         if (dic == null || string.IsNullOrEmpty(key))
         {

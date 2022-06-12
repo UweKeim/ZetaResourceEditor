@@ -1,6 +1,5 @@
 namespace ZetaResourceEditor.UI.Helper.Base;
 
-using System.ComponentModel;
 using ExtendedControlsLibrary.General.Base;
 
 public partial class UserControlBase :

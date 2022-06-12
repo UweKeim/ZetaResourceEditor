@@ -1,17 +1,13 @@
 namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation.Azure;
 
-using AsyncBridge;
 using Language;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Properties;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
-using ZetaLongPaths;
+using Runtime;
 
 // Beispiele siehe:
 //
@@ -37,7 +33,7 @@ public sealed class AzureTranslationEngine :
 
     TranslationLanguageInfo[] ITranslationEngine.GetSourceLanguages(string appID)
     {
-        return ZlpSimpleFileAccessProtector.Protect(
+        return ZspSimpleFileAccessProtector.Protect(
             delegate
             {
                 // https://docs.microsoft.com/de-de/azure/cognitive-services/translator/reference/v3-0-languages#request-url
@@ -111,7 +107,7 @@ public sealed class AzureTranslationEngine :
             });
     }
 
-    private string tryGetLanguageName(string s)
+    private static string tryGetLanguageName(string s)
     {
         return CultureHelper.CreateCultureErrorTolerant(s).DisplayName;
     }
@@ -166,7 +162,7 @@ public sealed class AzureTranslationEngine :
         string[] wordsToProtect,
         string[] wordsToRemove)
     {
-        return ZlpSimpleFileAccessProtector.Protect(
+        return ZspSimpleFileAccessProtector.Protect(
             delegate
             {
                 var removed = TranslationHelper.RemoveWords(text, wordsToRemove);
@@ -256,7 +252,7 @@ public sealed class AzureTranslationEngine :
 
         var tr = new List<string>();
 
-        ZlpSimpleFileAccessProtector.Protect(
+        ZspSimpleFileAccessProtector.Protect(
             delegate
             {
                 // Das eigentliche �bersetzen.
@@ -335,7 +331,7 @@ public sealed class AzureTranslationEngine :
         return result.ToArray();
 
 #if false
-            return ZlpSimpleFileAccessProtector.Protect(
+            return ZspSimpleFileAccessProtector.Protect(
                 delegate
                 {
                     const string uri = @"https://api.microsofttranslator.com/v2/Http.svc/TranslateArray";

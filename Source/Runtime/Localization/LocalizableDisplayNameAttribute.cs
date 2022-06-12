@@ -1,21 +1,5 @@
 namespace ZetaResourceEditor.Runtime.Localization;
 
-#region Public methods.
-// ----------------------------------------------------------------------
-using System;
-using System.Resources;
-using System.Reflection;
-using System.Globalization;
-using System.ComponentModel;
-
-// ----------------------------------------------------------------------
-#endregion
-
-/////////////////////////////////////////////////////////////////////////
-
-/// <summary>
-/// Attribute for localization.
-/// </summary>
 [AttributeUsage(
     AttributeTargets.All,
     Inherited = false,
@@ -23,14 +7,6 @@ using System.ComponentModel;
 public sealed class LocalizableDisplayNameAttribute :
     DisplayNameAttribute
 {
-    #region Public methods.
-    // ------------------------------------------------------------------
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="LocalizableDisplayNameAttribute"/> class.
-    /// </summary>
-    /// <param name="displayName">The display name.</param>
-    /// <param name="resourcesType">Type of the resources.</param>
     public LocalizableDisplayNameAttribute(
         string displayName,
         Type resourcesType )
@@ -40,17 +16,6 @@ public sealed class LocalizableDisplayNameAttribute :
         _resourcesType = resourcesType;
     }
 
-    // ------------------------------------------------------------------
-    #endregion
-
-    #region Public properties.
-    // ------------------------------------------------------------------
-
-    /// <summary>
-    /// Get the string value from the resources.
-    /// </summary>
-    /// <value></value>
-    /// <returns>The display name.</returns>
     public override string DisplayName
     {
         get
@@ -88,17 +53,6 @@ public sealed class LocalizableDisplayNameAttribute :
         }
     }
 
-    // ------------------------------------------------------------------
-    #endregion
-
-    #region Private variables.
-    // ------------------------------------------------------------------
-
     private readonly Type _resourcesType;
     private bool _isLocalized;
-
-    // ------------------------------------------------------------------
-    #endregion
 }
-
-/////////////////////////////////////////////////////////////////////////

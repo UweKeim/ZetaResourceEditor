@@ -5,13 +5,6 @@ using Helper.Base;
 using Main;
 using RuntimeBusinessLogic.Projects;
 using RuntimeBusinessLogic.Translation;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Common;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class QuickTranslationForm : FormBase
 {

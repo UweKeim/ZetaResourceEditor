@@ -1,9 +1,7 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.Import;
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.IO;
 using System.Linq;
 using BL;
 using CoreExcel2;
@@ -15,9 +13,8 @@ using Projects;
 using Properties;
 using Runtime;
 using Runtime.FileAccess;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Common.Collections;
-using ZetaLongPaths;
+using Zeta.VoyagerLibrary.Core.Common;
+using Zeta.VoyagerLibrary.Core.Common.Collections;
 
 public class ExcelImportController
 {
@@ -34,9 +31,9 @@ public class ExcelImportController
         string filePath)
     {
         if (string.IsNullOrEmpty(filePath) ||
-            StringExtensionMethods.ToLowerInvariantIntelligent(ZlpPathHelper.GetExtension(filePath)) != @".xlsx"
+            StringExtensionMethods.ToLowerInvariantIntelligent(ZspPathHelper.GetExtension(filePath)) != @".xlsx"
             ||
-            !ZlpIOHelper.FileExists(filePath))
+            !File.Exists(filePath))
         {
             return null;
         }
@@ -153,8 +150,8 @@ public class ExcelImportController
         string filePath)
     {
         if (string.IsNullOrEmpty(filePath) ||
-            StringExtensionMethods.ToLowerInvariantIntelligent(ZlpPathHelper.GetExtension(filePath)) != @".xlsx" ||
-            !ZlpIOHelper.FileExists(filePath))
+            StringExtensionMethods.ToLowerInvariantIntelligent(ZspPathHelper.GetExtension(filePath)) != @".xlsx" ||
+            !File.Exists(filePath))
         {
             return null;
         }

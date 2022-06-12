@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using General.Base;
 using Skinning;
-using Zeta.VoyagerLibrary.WinForms.Common;
+using Zeta.VoyagerLibrary.Core.WinForms.Common;
 
 public partial class MyMessageBoxTemplateForm :
     DevExpressXtraFormBase

@@ -5,12 +5,8 @@ using DL;
 using ExportImportExcel.Export;
 using Language;
 using Projects;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Linq;
-using ZetaLongPaths;
 
 /// <summary>
 /// 2017-04-02, Uwe Keim:
@@ -31,7 +27,7 @@ public sealed class InMemoryTranslationSnapshotController
         return imss;
     }
 
-    private void doTakeSnapshot(
+    private static void doTakeSnapshot(
         InMemoryTranslationSnapshot imss,
         Project project,
         IGridEditableData fileGroup,

@@ -1,6 +1,6 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.DynamicSettings;
 
-using Zeta.VoyagerLibrary.Tools.Storage;
+using Zeta.VoyagerLibrary.Core.Tools.Storage;
 
 public class DynamicSettingsHierarchical :
     IPersistentPairStorage

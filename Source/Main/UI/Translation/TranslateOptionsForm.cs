@@ -1,19 +1,10 @@
 namespace ZetaResourceEditor.UI.Translation;
 
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
 using ExtendedControlsLibrary;
 using Helper.Base;
 using RuntimeBusinessLogic.Helpers;
 using RuntimeBusinessLogic.Projects;
 using RuntimeBusinessLogic.Translation;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class TranslateOptionsForm :
     FormBase

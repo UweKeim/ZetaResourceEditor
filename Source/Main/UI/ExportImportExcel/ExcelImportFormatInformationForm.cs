@@ -1,8 +1,6 @@
 ﻿namespace ZetaResourceEditor.UI.ExportImportExcel;
 
 using Helper.Base;
-using System;
-using System.Windows.Forms;
 
 public partial class ExcelImportFormatInformationForm :
     FormBase

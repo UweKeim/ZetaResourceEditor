@@ -1,8 +1,11 @@
 ﻿global using JetBrains.Annotations;
 global using System;
 global using System.Collections.Generic;
+global using System.Data;
+global using System.Diagnostics;
 global using System.Linq;
 global using System.Text;
 global using System.Threading.Tasks;
 global using System.Text.RegularExpressions;
-global using ZetaLongPaths;
+global using System.Xml;
+global using ZetaShortPaths;

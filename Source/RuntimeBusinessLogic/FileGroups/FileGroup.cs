@@ -10,22 +10,16 @@ using ProjectFolders;
 using Projects;
 using Properties;
 using Runtime.FileAccess;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Xml;
 using Translation;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Common.Collections;
-using Zeta.VoyagerLibrary.Logging;
+using Zeta.VoyagerLibrary.Core.Common;
+using Zeta.VoyagerLibrary.Core.Common.Collections;
+using Zeta.VoyagerLibrary.Core.Logging;
 using ZetaAsync;
-using ZetaLongPaths;
 
 /// <summary>
 /// Groups multiple single files.
@@ -209,12 +203,12 @@ public class FileGroup :
         Project project,
         string[] filePaths)
     {
-        return CheckCreate(project, filePaths.Select(filePath => new ZlpFileInfo(filePath)).ToArray());
+        return CheckCreate(project, filePaths.Select(filePath => new FileInfo(filePath)).ToArray());
     }
 
     public static FileGroup CheckCreate(
         Project project,
-        ZlpFileInfo[] filePaths)
+        FileInfo[] filePaths)
     {
         var result = new FileGroup(project);
 
@@ -632,7 +626,7 @@ public class FileGroup :
 
                 //CHANGED: use base name instead
                 var baseName = LanguageCodeDetection.GetBaseName(project, filePath.Name);
-                filePath = new ZlpFileInfo(ZlpPathHelper.Combine(folderPath.FullName, baseName));
+                filePath = new FileInfo(ZspPathHelper.Combine(folderPath.FullName, baseName));
 
                 if ((@"Properties".EqualsNoCase(folderPath.Name) ||
                      @"App_GlobalResources".EqualsNoCase(folderPath.Name)) &&
@@ -643,16 +637,16 @@ public class FileGroup :
                     {
                         return project is not { DisplayFileGroupWithoutFolder: true }
                             ? _name
-                            : ZlpPathHelper.GetFileNameFromFilePath(_name);
+                            : ZspPathHelper.GetFileNameFromFilePath(_name);
                     }
                     else
                     {
                         //CHANGED: append fileName, otherwise name is not complete.
-                        var pathToMakeRelative = ZlpPathHelper.Combine(parentFolderPath.FullName, filePath.Name);
+                        var pathToMakeRelative = ZspPathHelper.Combine(parentFolderPath.FullName, filePath.Name);
                         return
                             project is not { DisplayFileGroupWithoutFolder: true }
                                 ? shortenFilePath(
-                                    ZlpPathHelper.GetRelativePath(
+                                    ZspPathHelper.GetRelativePath(
                                         project == null
                                             ? string.Empty
                                             : project.ProjectConfigurationFilePath.DirectoryName,
@@ -663,13 +657,13 @@ public class FileGroup :
                 else if (@"App_LocalResources".EqualsNoCase(folderPath.Name))
                 {
                     var name =
-                        ZlpPathHelper.GetRelativePath(
+                        ZspPathHelper.GetRelativePath(
                             project == null
                                 ? string.Empty
                                 : project.ProjectConfigurationFilePath.DirectoryName,
                             filePath.FullName);
 
-                    var ext = ZlpPathHelper.GetExtension(name);
+                    var ext = ZspPathHelper.GetExtension(name);
                     var result = name.Substring(0, name.Length - ext.Length);
 
                     return
@@ -682,7 +676,7 @@ public class FileGroup :
                     return
                         project is not { DisplayFileGroupWithoutFolder: true }
                             ? shortenFilePath(
-                                ZlpPathHelper.GetRelativePath(
+                                ZspPathHelper.GetRelativePath(
                                     project == null
                                         ? string.Empty
                                         : project.ProjectConfigurationFilePath.DirectoryName,
@@ -694,7 +688,7 @@ public class FileGroup :
             {
                 return project is not { DisplayFileGroupWithoutFolder: true }
                     ? _name
-                    : ZlpPathHelper.GetFileNameFromFilePath(_name);
+                    : ZspPathHelper.GetFileNameFromFilePath(_name);
             }
         }
     }
@@ -723,7 +717,7 @@ public class FileGroup :
                         else
                         {
                             return
-                                ZlpPathHelper.Combine(
+                                ZspPathHelper.Combine(
                                     parentFolderPath.Name,
                                     folderPath.Name);
                         }
@@ -731,9 +725,9 @@ public class FileGroup :
                     else if (@"App_LocalResources".EqualsNoCase(folderPath.Name))
                     {
                         return
-                            ZlpPathHelper.Combine(
+                            ZspPathHelper.Combine(
                                 @"App_LocalResources",
-                                ZlpPathHelper.GetFileNameWithoutExtension(filePath.Name));
+                                ZspPathHelper.GetFileNameWithoutExtension(filePath.Name));
                     }
                     else
                     {
@@ -758,7 +752,7 @@ public class FileGroup :
         }
     }
 
-    public ZlpDirectoryInfo FolderPath
+    public DirectoryInfo FolderPath
     {
         get
         {
@@ -1060,13 +1054,13 @@ public class FileGroup :
     {
         if (newFileName.StartsWithNoCase(BaseName) && newFileName.EndsWithNoCase(BaseExtension))
         {
-            var newFilePath = ZlpPathHelper.Combine(baseFolderPath, newFileName);
+            var newFilePath = ZspPathHelper.Combine(baseFolderPath, newFileName);
 
             // Add to myself.
             var ffi =
                 new FileInformation(this)
                 {
-                    File = new ZlpFileInfo(newFilePath)
+                    File = new FileInfo(newFilePath)
                 };
             Add(ffi);
             return ffi;
@@ -1095,13 +1089,13 @@ public class FileGroup :
         if (newFileName.StartsWithNoCase(BaseName) && newFileName.EndsWithNoCase(BaseExtension))
         {
             var newFilePath =
-                ZlpPathHelper.Combine(
-                    ZlpPathHelper.GetDirectoryPathNameFromFilePath(sourceFilePath),
+                ZspPathHelper.Combine(
+                    ZspPathHelper.GetDirectoryPathNameFromFilePath(sourceFilePath),
                     newFileName);
 
             bool didCopy;
 
-            if (ZlpIOHelper.FileExists(newFilePath))
+            if (File.Exists(newFilePath))
             {
                 // Simply ignore and add.
 
@@ -1122,7 +1116,7 @@ public class FileGroup :
             {
                 // Copy only if not exists.
 
-                ZlpIOHelper.CopyFile(sourceFilePath, newFilePath, false);
+                File.Copy(sourceFilePath, newFilePath, false);
                 didCopy = true;
             }
 
@@ -1130,7 +1124,7 @@ public class FileGroup :
             var ffi =
                 new FileInformation(this)
                 {
-                    File = new ZlpFileInfo(newFilePath)
+                    File = new FileInfo(newFilePath)
                 };
             Add(ffi);
 
@@ -1141,7 +1135,7 @@ public class FileGroup :
             {
                 try
                 {
-                    addFileToCsProj(new ZlpFileInfo(sourceFilePath), new ZlpFileInfo(newFilePath),
+                    addFileToCsProj(new FileInfo(sourceFilePath), new FileInfo(newFilePath),
                         includeFileAsDependantUpon);
                 }
                 catch
@@ -1199,7 +1193,7 @@ public class FileGroup :
     //    return null;
     //}
 
-    private void addFileToCsProj(ZlpFileInfo sourceFile, ZlpFileInfo newFile, bool addDependantUpon)
+    private static void addFileToCsProj(FileInfo sourceFile, FileSystemInfo newFile, bool addDependantUpon)
     {
         var newFilePath = newFile.FullName;
         var csProjWithFileResult = CsProjHelper.GetProjectContainingFile(sourceFile);
@@ -1411,7 +1405,7 @@ public class FileGroup :
                         CsProjHelper.RegexFindMainResourceFileReplacePattern),
                     Original = t
                 }).FirstOrDefault(t => t.Original != t.Replaced)?.Original;
-            csProjResult = CsProjHelper.GetProjectContainingFile(new ZlpFileInfo(notDefaultLanguageVersion));
+            csProjResult = CsProjHelper.GetProjectContainingFile(new FileInfo(notDefaultLanguageVersion));
         }
         return csProjResult;
     }

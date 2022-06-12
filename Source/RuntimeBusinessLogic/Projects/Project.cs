@@ -6,19 +6,13 @@ using FileGroups;
 using FileInformations;
 using Language;
 using ProjectFolders;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Xml;
 using VirtualViews;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using ZetaLongPaths;
+using Zeta.VoyagerLibrary.Core.Common;
+using Zeta.VoyagerLibrary.Core.Tools.Storage;
 
 public class Project :
     ITranslationStateInformation,
@@ -271,7 +265,7 @@ public class Project :
     /// Gets the project configuration file path.
     /// </summary>
     /// <value>The project configuration file path.</value>
-    public ZlpFileInfo ProjectConfigurationFilePath { get; private set; }
+    public FileInfo ProjectConfigurationFilePath { get; private set; }
 
     /// <summary>
     /// Gets a value indicating whether this instance is modified.
@@ -286,7 +280,7 @@ public class Project :
     /// Gets the name.
     /// </summary>
     /// <value>The name.</value>
-    public string Name => ZlpPathHelper.GetFileNameWithoutExtension(
+    public string Name => ZspPathHelper.GetFileNameWithoutExtension(
         ProjectConfigurationFilePath.Name);
 
     public string Description { get; set; }
@@ -559,7 +553,7 @@ public class Project :
     /// <param name="projectConfigurationFilePath">The project configuration file path.</param>
     /// <returns></returns>
     public static Project CreateNew(
-        ZlpFileInfo projectConfigurationFilePath)
+        FileInfo projectConfigurationFilePath)
     {
         var project =
             new Project
@@ -577,8 +571,8 @@ public class Project :
     //            {
     //                IsInMemoryOnly = true,
     //                _projectConfigurationFilePath =
-    //                    new ZlpFileInfo(
-    //                    ZlpPathHelper.Combine(
+    //                    new FileInfo(
+    //                    ZspPathHelper.Combine(
     //                        Path.GetTempPath(),
     //                        string.Format(@"Dummy{0}", ProjectFileExtension)))
     //            };
@@ -602,7 +596,7 @@ public class Project :
         }
         else
         {
-            return ZlpPathHelper.GetRelativePath(
+            return ZspPathHelper.GetRelativePath(
                 ProjectConfigurationFilePath.DirectoryName,
                 absoluteFilePath);
         }
@@ -622,7 +616,7 @@ public class Project :
         }
         else
         {
-            return ZlpPathHelper.GetAbsolutePath(
+            return ZspPathHelper.GetAbsolutePath(
                 relativeFilePath,
                 ProjectConfigurationFilePath.DirectoryName);
         }
@@ -634,7 +628,7 @@ public class Project :
     /// <param name="projectConfigurationFilePath">The project configuration
     /// file path.</param>
     public void Load(
-        ZlpFileInfo projectConfigurationFilePath)
+        FileInfo projectConfigurationFilePath)
     {
         ProjectConfigurationFilePath = projectConfigurationFilePath;
 
@@ -680,7 +674,7 @@ public class Project :
     /// <param name="projectConfigurationFilePath">The project configuration
     /// file path.</param>
     public void StoreAs(
-        ZlpFileInfo projectConfigurationFilePath)
+        FileInfo projectConfigurationFilePath)
     {
         ProjectConfigurationFilePath = projectConfigurationFilePath;
 
@@ -1058,7 +1052,7 @@ public class Project :
         }
     }
 
-    ZlpDirectoryInfo IGridEditableData.FolderPath => ProjectConfigurationFilePath.Directory;
+    DirectoryInfo IGridEditableData.FolderPath => ProjectConfigurationFilePath.Directory;
 
     FileInformation[] IGridEditableData.GetFileInformationsSorted()
     {
@@ -1346,8 +1340,8 @@ public class Project :
     {
         IsInMemoryOnly = true,
         ProjectConfigurationFilePath =
-            new ZlpFileInfo(
-                ZlpPathHelper.Combine(
+            new FileInfo(
+                ZspPathHelper.Combine(
                     Path.GetTempPath(),
                     $@"Dummy{ProjectFileExtension}"))
     };

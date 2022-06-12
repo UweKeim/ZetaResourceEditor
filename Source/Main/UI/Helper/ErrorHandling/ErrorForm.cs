@@ -1,14 +1,6 @@
 namespace ZetaResourceEditor.UI.Helper.ErrorHandling;
 
 using Base;
-using DevExpress.XtraBars;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Logging;
-using ZetaLongPaths;
 
 public partial class ErrorForm : FormBase
 {
@@ -36,7 +28,7 @@ public partial class ErrorForm : FormBase
     private static string getEffectiveErrorMessage(Exception e)
     {
         var y = e;
-        while (y is TargetInvocationException or ZlpSimpleFileAccessProtectorException &&
+        while (y is TargetInvocationException or ZspSimpleFileAccessProtectorException &&
                y.InnerException != null)
         {
             y = y.InnerException;
@@ -49,7 +41,7 @@ public partial class ErrorForm : FormBase
         y = y.InnerException;
         while (y != null)
         {
-            if (y is not TargetInvocationException && y is not ZlpSimpleFileAccessProtectorException)
+            if (y is not TargetInvocationException && y is not ZspSimpleFileAccessProtectorException)
             {
                 lines.Add(y.Message);
             }

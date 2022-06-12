@@ -1,10 +1,6 @@
 ﻿namespace ZetaResourceEditor.UI.Main.RightContent;
 
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 using DevExpress.Accessibility;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Drawing;
 using DevExpress.XtraEditors.Registrator;
 using DevExpress.XtraEditors.Repository;

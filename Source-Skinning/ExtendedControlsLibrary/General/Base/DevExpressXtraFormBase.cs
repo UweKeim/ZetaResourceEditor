@@ -17,8 +17,8 @@ using DevExpress.XtraTreeList;
 using Skinning.CustomForm;
 using Skinning.CustomTabControl;
 using UIUpdating;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Tools.Storage;
+using Zeta.VoyagerLibrary.Core.Common;
+using Zeta.VoyagerLibrary.Core.Tools.Storage;
 
 /// <summary>
 /// Base class for devexpress forms.
@@ -101,7 +101,7 @@ public class DevExpressXtraFormBase :
 
     protected virtual bool UseSharedIcon => true;
 
-    protected UpdateUIController UuiController => _uuiController ?? (_uuiController = new UpdateUIController(this));
+    protected UpdateUIController UuiController => _uuiController ??= new UpdateUIController(this);
 
     public virtual void DoUpdateUI(
         UpdateUIInformation information)

@@ -1,9 +1,5 @@
 ﻿namespace ZetaResourceEditor.UI.Main.LeftTree;
 
-using System;
-using DevExpress.XtraTreeList;
-using DevExpress.XtraTreeList.Nodes;
-
 public sealed class StepwiseTreeIterator
 {
     private readonly TreeList _treeList;

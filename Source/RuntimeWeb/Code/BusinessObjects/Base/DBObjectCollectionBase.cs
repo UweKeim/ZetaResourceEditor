@@ -26,19 +26,8 @@ public abstract class DBObjectCollectionBase<T> :
         }
     }
 
-    /// <summary>
-    /// Converts to an ID array.
-    /// </summary>
-    /// <returns></returns>
     public int[] ToIDArray()
     {
-        var result = new List<int>();
-
-        foreach ( var t in this )
-        {
-            result.Add( t.ID );
-        }
-
-        return result.ToArray();
+        return this.Select(t => t.ID).ToArray();
     }
 }

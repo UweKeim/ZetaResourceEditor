@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Web.Code;
+﻿namespace Web.Code;
 
 using Base;
 using Zeta.VoyagerLibrary.WebForms;

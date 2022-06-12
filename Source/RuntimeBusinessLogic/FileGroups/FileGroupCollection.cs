@@ -2,12 +2,9 @@ namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups;
 
 #region Using directives.
 // ----------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
 using Projects;
-using Zeta.VoyagerLibrary.Common.Collections;
+using Zeta.VoyagerLibrary.Core.Common.Collections;
 
 // ----------------------------------------------------------------------
 #endregion

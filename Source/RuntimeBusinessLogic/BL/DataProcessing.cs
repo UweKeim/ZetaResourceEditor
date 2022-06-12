@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace ZetaResourceEditor.RuntimeBusinessLogic.BL;
 
 using DL;
@@ -7,14 +5,8 @@ using FileGroups;
 using Language;
 using Projects;
 using Properties;
-using System;
-using System.Collections.Generic;
-using System.Data;
 using System.IO;
-using System.Text;
-using System.Xml;
-using Zeta.VoyagerLibrary.Common;
-using ZetaLongPaths;
+using Zeta.VoyagerLibrary.Core.Common;
 
 public sealed class DataProcessing
 {
@@ -22,7 +14,7 @@ public sealed class DataProcessing
     private readonly IGridEditableData _gridEditableData;
     private readonly object _backupLock = new();
 
-    public static event AskOverwriteDelegate<ZlpFileInfo> CanOverwrite;
+    public static event AskOverwriteDelegate<FileInfo> CanOverwrite;
 
     private void loadFiles()
     {
@@ -30,7 +22,7 @@ public sealed class DataProcessing
 
         foreach (var item in _gridEditableData.GetFileInformationsSorted())
         {
-            ZlpSimpleFileAccessProtector.Protect(
+            ZspSimpleFileAccessProtector.Protect(
                 delegate
                 {
                     using var reader = XmlReader.Create(item.File.FullName);
@@ -58,8 +50,7 @@ public sealed class DataProcessing
         {
             if (resxFile.FilePath.Exists)
             {
-                if ((ZlpIOHelper.GetFileAttributes(resxFile.FilePath.FullName) &
-                     ZetaLongPaths.Native.FileAttributes.Readonly) != 0)
+                if (resxFile.FilePath.Attributes.HasFlag(FileAttributes.ReadOnly))
                 {
                     if (_gridEditableData?.Project != null)
                     {
@@ -108,7 +99,7 @@ public sealed class DataProcessing
                 }
 
                 removeReadOnlyAttributes(resxFile.FilePath);
-                ZlpSafeFileOperations.SafeDeleteFile(resxFile.FilePath.FullName);
+                ZspSafeFileOperations.SafeDeleteFile(resxFile.FilePath.FullName);
             }
 
             var settings =
@@ -119,7 +110,7 @@ public sealed class DataProcessing
                     Encoding = Encoding.UTF8
                 };
 
-            ZlpSimpleFileAccessProtector.Protect(
+            ZspSimpleFileAccessProtector.Protect(
                 delegate
                 {
                     using var sw = new StreamWriter(
@@ -646,15 +637,15 @@ public sealed class DataProcessing
                 var bak = resxFile.FilePath;
 
                 // Delete old bak files
-                if (ZlpIOHelper.FileExists(bak.FullName + @".bak"))
+                if (File.Exists(bak.FullName + @".bak"))
                 {
                     // Remove ReadOnly-attribute.
                     removeReadOnlyAttributes(
-                        new ZlpFileInfo(bak.FullName + @".bak"));
-                    ZlpSafeFileOperations.SafeDeleteFile(bak + @".bak");
+                        new FileInfo(bak.FullName + @".bak"));
+                    ZspSafeFileOperations.SafeDeleteFile(bak + @".bak");
                 }
 
-                ZlpSafeFileOperations.SafeCopyFile(
+                ZspSafeFileOperations.SafeCopyFile(
                     resxFile.FilePath.FullName,
                     bak.FullName + @".bak");
             }
@@ -662,11 +653,9 @@ public sealed class DataProcessing
     }
 
     private static void removeReadOnlyAttributes(
-        ZlpFileInfo path)
+        FileInfo path)
     {
-        ZlpIOHelper.SetFileAttributes(
-            path.FullName,
-            path.Attributes & ~ZetaLongPaths.Native.FileAttributes.Readonly);
+        path.Attributes &= ~FileAttributes.ReadOnly;
     }
 
     private void rename(

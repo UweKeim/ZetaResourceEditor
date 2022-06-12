@@ -1,19 +1,16 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.ProjectFolders;
 
+using System.IO;
 using DL;
 using DynamicSettings;
 using FileGroups;
 using FileInformations;
 using Language;
 using Projects;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
 using VirtualViews;
-using Zeta.VoyagerLibrary.Common;
+using Zeta.VoyagerLibrary.Core.Common;
 using ZetaAsync;
-using ZetaLongPaths;
 
 public class ProjectFolder :
     ITranslationStateInformation,
@@ -364,7 +361,7 @@ public class ProjectFolder :
 
     public Project Project { get; set; }
 
-    ZlpDirectoryInfo IGridEditableData.FolderPath
+    DirectoryInfo IGridEditableData.FolderPath
     {
         get
         {

@@ -1,14 +1,11 @@
 ﻿namespace ZetaResourceEditor.RuntimeUserInterface.Shell;
 
-using System;
-using System.Diagnostics;
-using Zeta.VoyagerLibrary.Logging;
-using ZetaLongPaths;
+using System.IO;
 
 /// <summary>
 /// Information for passing to the ShellExecute method.
 /// </summary>
-public class ShellExecuteInformation
+public sealed class ShellExecuteInformation
 {
     public void Execute()
     {
@@ -51,11 +48,11 @@ public class ShellExecuteInformation
             {
                 // Already a full path, do nothing.
             }
-            else if (ZlpIOHelper.FileExists(FileName))
+            else if (File.Exists(FileName))
             {
                 // Already a full path, do nothing.
             }
-            else if (ZlpIOHelper.DirectoryExists(FileName))
+            else if (Directory.Exists(FileName))
             {
                 // Already a full path, do nothing.
             }
@@ -106,7 +103,7 @@ public class ShellExecuteInformation
                 if (!string.IsNullOrEmpty(FileName))
                 {
                     var s = FileName.Trim('"');
-                    if (!ZlpIOHelper.FileExists(s) && !ZlpIOHelper.DirectoryExists(s))
+                    if (!File.Exists(s) && !Directory.Exists(s))
                     {
                         FileName = originalFileName;
                     }

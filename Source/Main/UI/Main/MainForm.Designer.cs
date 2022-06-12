@@ -102,7 +102,6 @@ namespace ZetaResourceEditor.UI.Main
             this.clientPanel = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
             this.updateAvailableCheckerBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.updateAvailableBlinkTimer = new System.Windows.Forms.Timer(this.components);
-            this.blinkImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer)).BeginInit();
             this.mainFormMainSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
@@ -110,7 +109,6 @@ namespace ZetaResourceEditor.UI.Main
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientPanel)).BeginInit();
             this.clientPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.blinkImageCollection)).BeginInit();
             this.SuspendLayout();
             // 
             // mainFormMainSplitContainer
@@ -864,13 +862,6 @@ namespace ZetaResourceEditor.UI.Main
             this.updateAvailableBlinkTimer.Interval = 500;
             this.updateAvailableBlinkTimer.Tick += new System.EventHandler(this.updateAvailableBlinkTimer_Tick);
             // 
-            // blinkImageCollection
-            // 
-            this.blinkImageCollection.ImageSize = new System.Drawing.Size(32, 32);
-            this.blinkImageCollection.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("blinkImageCollection.ImageStream")));
-            this.blinkImageCollection.Images.SetKeyName(0, "heart.png");
-            this.blinkImageCollection.Images.SetKeyName(1, "heart_new.png");
-            // 
             // MainForm
             // 
             this.Appearance.Options.UseFont = true;
@@ -896,7 +887,6 @@ namespace ZetaResourceEditor.UI.Main
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientPanel)).EndInit();
             this.clientPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.blinkImageCollection)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -973,7 +963,6 @@ namespace ZetaResourceEditor.UI.Main
 		private DevExpress.XtraBars.BarButtonItem buttonReplace;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
 		private System.Windows.Forms.Timer updateAvailableBlinkTimer;
-		private DevExpress.Utils.ImageCollection blinkImageCollection;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
     }
 }

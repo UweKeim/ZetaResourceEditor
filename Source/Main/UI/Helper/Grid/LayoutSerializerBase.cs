@@ -1,16 +1,9 @@
 ﻿namespace ZetaResourceEditor.UI.Helper.Grid;
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
-using System.Text;
-using DevExpress.Utils;
 using DevExpress.Utils.Serializing;
 using DevExpress.Utils.Serializing.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Tools.Storage;
 
 // http://www.devexpress.com/Support/Center/p/Q249609.aspx
 // http://www.devexpress.com/Support/Center/e/E600.aspx

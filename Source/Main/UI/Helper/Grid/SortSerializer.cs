@@ -1,7 +1,6 @@
 ﻿namespace ZetaResourceEditor.UI.Helper.Grid;
 
 using DevExpress.XtraGrid.Views.Grid;
-using Zeta.VoyagerLibrary.Tools.Storage;
 
 internal class SortSerializer :
     LayoutSerializerBase

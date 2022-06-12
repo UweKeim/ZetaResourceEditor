@@ -43,7 +43,6 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.checkSumTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
             this.locationTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
             this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
@@ -53,18 +52,15 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
             this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            this.imageCollection2 = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ignoreDuringExportAndImportCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parentTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkSumTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.locationTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTextBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection2)).BeginInit();
             this.SuspendLayout();
             // 
             // ignoreDuringExportAndImportCheckEdit
@@ -140,7 +136,6 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.barManager.DockControls.Add(this.barDockControlLeft);
             this.barManager.DockControls.Add(this.barDockControlRight);
             this.barManager.Form = this;
-            this.barManager.Images = this.imageCollection1;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.openButton});
             this.barManager.MaxItemId = 3;
@@ -172,11 +167,6 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(466, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 227);
-            // 
-            // imageCollection1
-            // 
-            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
-            this.imageCollection1.Images.SetKeyName(0, "folder_green.png");
             // 
             // checkSumTextEdit
             // 
@@ -304,11 +294,6 @@ namespace ZetaResourceEditor.UI.FileGroups
             this.panelControl1.Size = new System.Drawing.Size(466, 227);
             this.panelControl1.TabIndex = 0;
             // 
-            // imageCollection2
-            // 
-            this.imageCollection2.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection2.ImageStream")));
-            this.imageCollection2.Images.SetKeyName(0, "box_edit.png");
-            // 
             // FileGroupSettingsForm
             // 
             this.AcceptButton = this.buttonOK;
@@ -337,14 +322,12 @@ namespace ZetaResourceEditor.UI.FileGroups
             ((System.ComponentModel.ISupportInitialize)(this.parentTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkSumTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.locationTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameTextBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,11 +349,9 @@ namespace ZetaResourceEditor.UI.FileGroups
 		private DevExpress.XtraBars.BarDockControl barDockControlBottom;
 		private DevExpress.XtraBars.BarDockControl barDockControlLeft;
 		private DevExpress.XtraBars.BarDockControl barDockControlRight;
-		private DevExpress.Utils.ImageCollection imageCollection1;
 		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit checkSumTextEdit;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
 		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
-		private DevExpress.Utils.ImageCollection imageCollection2;
 		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit parentTextEdit;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl2;
 		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit ignoreDuringExportAndImportCheckEdit;

@@ -3,11 +3,8 @@
 using DL;
 using FileGroups;
 using Projects;
-using System;
-using System.Diagnostics;
-using System.Xml;
-using Zeta.VoyagerLibrary.Common;
-using ZetaLongPaths;
+using System.IO;
+using Zeta.VoyagerLibrary.Core.Common;
 
 [DebuggerDisplay(@"File = {File.Name}")]
 public class FileInformation :
@@ -28,7 +25,7 @@ public class FileInformation :
 
     public FileGroupStateColor TranslationStateColor => FileGroup.TranslationStateColor;
 
-    public ZlpFileInfo File { get; set; }
+    public FileInfo File { get; set; }
 
     public int CompareTo(object obj)
     {
@@ -37,8 +34,8 @@ public class FileInformation :
 
     public int CompareTo(FileInformation other)
     {
-        var x = ZlpPathHelper.GetFileNameWithoutExtension(File.FullName);
-        var y = ZlpPathHelper.GetFileNameWithoutExtension(other.File.FullName);
+        var x = ZspPathHelper.GetFileNameWithoutExtension(File.FullName);
+        var y = ZspPathHelper.GetFileNameWithoutExtension(other.File.FullName);
 
         if (x.Contains(@".") && y.Contains(@".") ||
             !x.Contains(@".") && !y.Contains(@"."))
@@ -97,9 +94,9 @@ public class FileInformation :
 
         filePath = project.MakeAbsoluteFilePath(filePath);
 
-        if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
+        if (!string.IsNullOrEmpty(filePath) && System.IO.File.Exists(filePath))
         {
-            File = new ZlpFileInfo(filePath);
+            File = new FileInfo(filePath);
             return true;
         }
         else
@@ -113,9 +110,9 @@ public class FileInformation :
                     parentNode.Attributes[@"absoluteFilePath"]);
             }
 
-            if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
+            if (!string.IsNullOrEmpty(filePath) && System.IO.File.Exists(filePath))
             {
-                File = new ZlpFileInfo(filePath);
+                File = new FileInfo(filePath);
                 return true;
             }
             else
@@ -143,12 +140,12 @@ public class FileInformation :
                 }
                 else
                 {
-                    filePath = ZlpPathHelper.GetFileNameFromFilePath(filePath);
+                    filePath = ZspPathHelper.GetFileNameFromFilePath(filePath);
                     filePath = project.MakeAbsoluteFilePath(filePath);
 
-                    if (!string.IsNullOrEmpty(filePath) && ZlpIOHelper.FileExists(filePath))
+                    if (!string.IsNullOrEmpty(filePath) && System.IO.File.Exists(filePath))
                     {
-                        File = new ZlpFileInfo(filePath);
+                        File = new FileInfo(filePath);
                         return true;
                     }
                     else

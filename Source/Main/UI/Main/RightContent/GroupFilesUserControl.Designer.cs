@@ -31,7 +31,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupFilesUserControl));
             this.mainTabControl = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -53,7 +52,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.buttonCloseAll = new DevExpress.XtraBars.BarButtonItem();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainTabControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             this.SuspendLayout();
@@ -63,19 +61,11 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.mainTabControl.AppearancePage.Header.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mainTabControl.AppearancePage.Header.Options.UseFont = true;
             this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainTabControl.Images = this.imageCollection1;
             this.mainTabControl.Location = new System.Drawing.Point(0, 0);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.Size = new System.Drawing.Size(150, 150);
             this.mainTabControl.TabIndex = 0;
             this.mainTabControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainTabControl_MouseUp);
-            // 
-            // imageCollection1
-            // 
-            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
-            this.imageCollection1.Images.SetKeyName(0, "project");
-            this.imageCollection1.Images.SetKeyName(1, "projectfolder");
-            this.imageCollection1.Images.SetKeyName(2, "filegroup");
             // 
             // barDockControlTop
             // 
@@ -239,7 +229,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent
             this.Controls.Add(this.barDockControl5);
             this.Name = "GroupFilesUserControl";
             ((System.ComponentModel.ISupportInitialize)(this.mainTabControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             this.ResumeLayout(false);
@@ -270,6 +259,5 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		private DevExpress.XtraBars.BarButtonItem buttonClose;
 		private DevExpress.XtraBars.BarButtonItem buttonCloseAllButThis;
 		private DevExpress.XtraBars.BarButtonItem buttonCloseAll;
-		private DevExpress.Utils.ImageCollection imageCollection1;
 	}
 }

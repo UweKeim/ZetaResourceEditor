@@ -1,6 +1,6 @@
 namespace ZetaResourceEditor.UI.Main.RightContent;
 
-using DevExpress.XtraBars;
+using Code;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using Helper.Base;
@@ -8,13 +8,6 @@ using Properties;
 using RuntimeBusinessLogic.DL;
 using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.Projects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using ZetaLongPaths;
 
 public partial class GroupFilesUserControl :
     UserControlBase
@@ -22,6 +15,8 @@ public partial class GroupFilesUserControl :
     public GroupFilesUserControl()
     {
         InitializeComponent();
+
+        mainTabControl.Images = ImageCollectionHelper.Ic16;
     }
 
     private static ResourceEditorUserControl getFileGroupControlForTabPage(
@@ -121,7 +116,7 @@ public partial class GroupFilesUserControl :
             PersistanceHelper.SaveValue(
                 MainForm.UserStorageIntelligent,
                 @"filesInitialDir",
-                ZlpPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
+                ZspPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
 
             var fileGroup =
                 FileGroup.CheckCreate(
@@ -361,13 +356,13 @@ public partial class GroupFilesUserControl :
                              new[] { @"###***###" },
                              StringSplitOptions.RemoveEmptyEntries))
                 {
-                    var filePaths = new List<ZlpFileInfo>();
+                    var filePaths = new List<FileInfo>();
 
                     foreach (var filePath in filePathsRaw.Split(';'))
                     {
-                        if (ZlpIOHelper.FileExists(filePath))
+                        if (File.Exists(filePath))
                         {
-                            filePaths.Add(new ZlpFileInfo(filePath));
+                            filePaths.Add(new FileInfo(filePath));
                         }
                     }
 

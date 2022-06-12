@@ -1,7 +1,6 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Translation;
 
 using Language;
-using System.Diagnostics;
 
 [DebuggerDisplay(@"{LanguageCode} ({UserReadableName})")]
 public class TranslationLanguageInfo

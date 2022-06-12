@@ -3,9 +3,6 @@
 using Helper.Base;
 using Properties;
 using RuntimeBusinessLogic.ProjectFolders;
-using System;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class ProjectFolderEditForm :
     FormBase

@@ -1,8 +1,5 @@
 namespace ZetaResourceEditor.UI.Helper.ErrorHandling;
 
-using System;
-using System.Windows.Forms;
-
 public class MessageBoxException :
     Exception
 {

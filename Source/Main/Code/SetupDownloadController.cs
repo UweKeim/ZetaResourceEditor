@@ -1,14 +1,14 @@
 ﻿namespace ZetaResourceEditor.Code;
 
 using Properties;
-using RuntimeBusinessLogic.UpdateChecker;
+using ServiceReference1;
 using UI.Helper.Progress;
 
 internal class SetupDownloadController
 {
-    private readonly UpdateCheckerService _ws;
+    private readonly UpdateCheckerServiceSoapClient _ws;
 
-    public SetupDownloadController(UpdateCheckerService ws)
+    public SetupDownloadController(UpdateCheckerServiceSoapClient ws)
     {
         _ws = ws;
     }
@@ -29,7 +29,7 @@ internal class SetupDownloadController
                            var res = _ws.DownloadUpdate2(info);
 
                            localPath =
-                               ZlpPathHelper.Combine(
+                               ZspPathHelper.Combine(
                                    getTempPathIntelligent(),
                                    Path.GetFileNameWithoutExtension(res.FileName) +
                                    Guid.NewGuid() +

@@ -1,16 +1,9 @@
 ﻿namespace ZetaResourceEditor.UI.Main.RightContent;
 
-using DevExpress.XtraEditors.Controls;
 using Helper.Base;
 using RuntimeBusinessLogic.Language;
 using RuntimeBusinessLogic.Projects;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common.Collections;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class DeleteRowContentsForm :
     FormBase

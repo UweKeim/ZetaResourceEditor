@@ -3,7 +3,7 @@
 using Projects;
 using Runtime;
 using System.Data.SQLite;
-using ZetaLongPaths;
+using System.IO;
 
 public abstract class SnapshotControllerBase
 {
@@ -87,7 +87,7 @@ public abstract class SnapshotControllerBase
 
     private void checkTablesCreated()
     {
-        if (!ZlpIOHelper.FileExists(databaseFilePath))
+        if (!File.Exists(databaseFilePath))
         {
             // http://sqlite.phxsoftware.com/forums/t/77.aspx.
             SQLiteConnection.CreateFile(databaseFilePath);
@@ -114,7 +114,7 @@ public abstract class SnapshotControllerBase
 
     private string connectionString => $@"Data Source={databaseFilePath};Pooling=true;FailIfMissing=false";
 
-    protected string databaseFilePath => ZlpPathHelper.ChangeExtension(Project.ProjectConfigurationFilePath.FullName, @".zredb");
+    protected string databaseFilePath => ZspPathHelper.ChangeExtension(Project.ProjectConfigurationFilePath.FullName, @".zredb");
 
     private bool doesTableExist(
         string tableName)

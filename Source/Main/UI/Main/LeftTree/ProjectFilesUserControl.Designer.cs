@@ -32,8 +32,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectFilesUserControl));
             this.treeView = new ZetaResourceEditor.UI.Helper.ZetaResourceEditorTreeListControl();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeImageList = new DevExpress.Utils.ImageCollection(this.components);
-            this.stateImageList = new DevExpress.Utils.ImageCollection(this.components);
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
@@ -72,8 +70,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.popupMenuNone = new DevExpress.XtraBars.PopupMenu(this.components);
             this.updateNodeStateImageBackgroundworker = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.treeView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treeImageList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stateImageList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuProject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuProjectFolder)).BeginInit();
@@ -92,9 +88,9 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.treeView.Location = new System.Drawing.Point(0, 0);
             this.treeView.Name = "treeView";
             this.treeView.OptionsBehavior.AllowExpandOnDblClick = false;
-            this.treeView.OptionsBehavior.AllowIncrementalSearch = true;
-            this.treeView.OptionsBehavior.ImmediateEditor = false;
+            this.treeView.OptionsBehavior.EditorShowMode = DevExpress.XtraTreeList.TreeListEditorShowMode.MouseDownFocused;
             this.treeView.OptionsDragAndDrop.DragNodesMode = DevExpress.XtraTreeList.DragNodesMode.Single;
+            this.treeView.OptionsFind.AllowIncrementalSearch = true;
             this.treeView.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.treeView.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.None;
             this.treeView.OptionsView.ShowColumns = false;
@@ -103,16 +99,14 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.treeView.OptionsView.ShowRoot = false;
             this.treeView.OptionsView.ShowVertLines = false;
             this.treeView.SelectedNode = null;
-            this.treeView.SelectImageList = this.treeImageList;
             this.treeView.Size = new System.Drawing.Size(201, 434);
-            this.treeView.StateImageList = this.stateImageList;
             this.treeView.TabIndex = 1;
             this.treeView.ToolTipController = this.toolTipController1;
             this.treeView.WasDoubleClick = false;
+            this.treeView.CompareNodeValues += new DevExpress.XtraTreeList.CompareNodeValuesEventHandler(this.treeView_CompareNodeValues);
             this.treeView.NodeCellStyle += new DevExpress.XtraTreeList.GetCustomNodeCellStyleEventHandler(this.treeView_NodeCellStyle);
             this.treeView.BeforeExpand += new DevExpress.XtraTreeList.BeforeExpandEventHandler(this.treeView_BeforeExpand);
             this.treeView.BeforeCollapse += new DevExpress.XtraTreeList.BeforeCollapseEventHandler(this.treeView_BeforeCollapse);
-            this.treeView.CompareNodeValues += new DevExpress.XtraTreeList.CompareNodeValuesEventHandler(this.treeView_CompareNodeValues);
             this.treeView.CalcNodeDragImageIndex += new DevExpress.XtraTreeList.CalcNodeDragImageIndexEventHandler(this.treeView_CalcNodeDragImageIndex);
             this.treeView.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeView_DragDrop);
             this.treeView.DragOver += new System.Windows.Forms.DragEventHandler(this.treeView_DragOver);
@@ -133,23 +127,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.treeListColumn1.Visible = true;
             this.treeListColumn1.VisibleIndex = 0;
             this.treeListColumn1.Width = 108;
-            // 
-            // treeImageList
-            // 
-            this.treeImageList.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("treeImageList.ImageStream")));
-            this.treeImageList.Images.SetKeyName(0, "root");
-            this.treeImageList.Images.SetKeyName(1, "group");
-            this.treeImageList.Images.SetKeyName(2, "file");
-            this.treeImageList.Images.SetKeyName(3, "projectfolder");
-            // 
-            // stateImageList
-            // 
-            this.stateImageList.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("stateImageList.ImageStream")));
-            this.stateImageList.Images.SetKeyName(0, "grey");
-            this.stateImageList.Images.SetKeyName(1, "green");
-            this.stateImageList.Images.SetKeyName(2, "yellow");
-            this.stateImageList.Images.SetKeyName(3, "red");
-            this.stateImageList.Images.SetKeyName(4, "blue");
             // 
             // toolTipController1
             // 
@@ -493,8 +470,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
             this.Size = new System.Drawing.Size(201, 434);
             this.Load += new System.EventHandler(this.projectFilesUserControlNew_Load);
             ((System.ComponentModel.ISupportInitialize)(this.treeView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treeImageList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stateImageList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuProject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuProjectFolder)).EndInit();
@@ -509,8 +484,6 @@ namespace ZetaResourceEditor.UI.Main.LeftTree
 		#endregion
 
 		private System.Windows.Forms.Timer guiRefreshTimer;
-		private DevExpress.Utils.ImageCollection treeImageList;
-		private DevExpress.Utils.ImageCollection stateImageList;
 		private ZetaResourceEditor.UI.Helper.ZetaResourceEditorTreeListControl treeView;
 		private DevExpress.XtraBars.BarManager barManager;
 		private DevExpress.XtraBars.BarDockControl barDockControlTop;

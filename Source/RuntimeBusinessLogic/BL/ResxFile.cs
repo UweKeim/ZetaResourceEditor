@@ -1,9 +1,7 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.BL;
 
-using System.Diagnostics;
-using System.Xml;
+using System.IO;
 using FileInformations;
-using ZetaLongPaths;
 
 /// <summary>
 /// Helper class for one .RESX file.
@@ -12,7 +10,7 @@ using ZetaLongPaths;
 internal class ResxFile
 {
     public XmlDocument Document { get; set; }
-    public ZlpFileInfo FilePath { get; set; }
+    public FileInfo FilePath { get; set; }
 
     public FileInformation FileInformation { get; set; }
 }

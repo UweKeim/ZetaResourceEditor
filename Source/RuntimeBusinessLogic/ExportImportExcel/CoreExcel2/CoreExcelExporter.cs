@@ -1,9 +1,7 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.ExportImportExcel.CoreExcel2;
 
+using System.IO;
 using OfficeOpenXml;
-using System.Collections.Generic;
-using System.Data;
-using ZetaLongPaths;
 
 internal static class CoreExcelExporter
 {
@@ -17,7 +15,7 @@ internal static class CoreExcelExporter
         DataSet dataSet,
         string filePath)
     {
-        var p = new ExcelPackage(new ZlpFileInfo(filePath).ToBuiltIn());
+        var p = new ExcelPackage(new FileInfo(filePath));
 
         var wb = p.Workbook;
         var loopCount = 0;
@@ -48,7 +46,7 @@ internal static class CoreExcelExporter
             processSheet(table, ws);
         }
 
-        ZlpSafeFileOperations.SafeDeleteFile(filePath);
+        ZspSafeFileOperations.SafeDeleteFile(filePath);
         p.Save();
     }
 

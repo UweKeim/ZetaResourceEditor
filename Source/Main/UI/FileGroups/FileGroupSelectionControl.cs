@@ -1,21 +1,17 @@
 ﻿namespace ZetaResourceEditor.UI.FileGroups;
 
-using DevExpress.XtraTreeList;
-using DevExpress.XtraTreeList.Nodes;
+using Code;
 using ExtendedControlsLibrary.Skinning.CustomTreeList;
 using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.ProjectFolders;
 using RuntimeBusinessLogic.Projects;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
+using RuntimeBusinessLogic.DL;
 
 public class FileGroupSelectionControl :
     MyTreeList
 {
     private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
-    private DevExpress.Utils.ImageCollection treeImageList;
-    private System.ComponentModel.IContainer components;
+    private IContainer components;
     private FileGroup _ignoreFileGroup;
     private Project _project { get; set; }
     private Font _boldFont;
@@ -134,7 +130,7 @@ public class FileGroupSelectionControl :
         // --
     }
 
-    private void updateProjectFolderInTree(
+    private static void updateProjectFolderInTree(
         TreeListNode projectFolderNode,
         ProjectFolder projectFolder)
     {
@@ -165,7 +161,7 @@ public class FileGroupSelectionControl :
 
     private void updateFileGroupInTree(
         TreeListNode fileGroupNode,
-        FileGroup fileGroup)
+        IGridEditableData fileGroup)
     {
         fileGroupNode[0] = fileGroup.GetNameIntelligent(_project);
         fileGroupNode.ImageIndex = fileGroupNode.SelectImageIndex = getImageIndex(@"group");
@@ -177,8 +173,6 @@ public class FileGroupSelectionControl :
         this.components = new System.ComponentModel.Container();
         var resources = new System.ComponentModel.ComponentResourceManager(typeof(FileGroupSelectionControl));
         this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-        this.treeImageList = new DevExpress.Utils.ImageCollection(this.components);
-        ((System.ComponentModel.ISupportInitialize)this.treeImageList).BeginInit();
         ((System.ComponentModel.ISupportInitialize)this).BeginInit();
         this.SuspendLayout();
         // 
@@ -195,14 +189,6 @@ public class FileGroupSelectionControl :
         this.treeListColumn1.Visible = true;
         this.treeListColumn1.VisibleIndex = 0;
         this.treeListColumn1.Width = 108;
-        // 
-        // treeImageList
-        // 
-        this.treeImageList.ImageStream = (DevExpress.Utils.ImageCollectionStreamer)resources.GetObject("treeImageList.ImageStream");
-        this.treeImageList.Images.SetKeyName(0, "root");
-        this.treeImageList.Images.SetKeyName(1, "group");
-        this.treeImageList.Images.SetKeyName(2, "file");
-        this.treeImageList.Images.SetKeyName(3, "projectfolder");
         // 
         // FileGroupSelectionControl
         // 
@@ -221,10 +207,9 @@ public class FileGroupSelectionControl :
         this.OptionsView.ShowIndicator = false;
         this.OptionsView.ShowRoot = false;
         this.OptionsView.ShowVertLines = false;
-        this.SelectImageList = this.treeImageList;
+        this.SelectImageList = ImageCollectionHelper.Ic16;
         this.NodeCellStyle += this.treeView_NodeCellStyle;
         this.AfterCheckNode += this.FileGroupSelectionControl_AfterCheckNode;
-        ((System.ComponentModel.ISupportInitialize)this.treeImageList).EndInit();
         ((System.ComponentModel.ISupportInitialize)this).EndInit();
         this.ResumeLayout(false);
 

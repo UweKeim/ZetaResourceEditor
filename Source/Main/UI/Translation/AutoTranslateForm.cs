@@ -1,7 +1,5 @@
 ﻿namespace ZetaResourceEditor.UI.Translation;
 
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
 using Helper;
 using Helper.Base;
 using Helper.Progress;
@@ -15,19 +13,8 @@ using RuntimeBusinessLogic.Projects;
 using RuntimeBusinessLogic.Snapshots;
 using RuntimeBusinessLogic.Translation;
 using RuntimeBusinessLogic.Translation.Google;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
-using System.Threading;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Common;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class AutoTranslateForm :
     FormBase

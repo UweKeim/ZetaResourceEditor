@@ -1,6 +1,5 @@
 ﻿namespace ZetaResourceEditor.Runtime.Events;
 
-using System;
 using System.Diagnostics.CodeAnalysis;
 
 public delegate void ZetaAction();

@@ -1,10 +1,6 @@
 namespace ZetaResourceEditor.UI.TagOperations;
 
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using Helper.Base;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class RenameTagForm :
     FormBase

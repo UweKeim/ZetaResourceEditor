@@ -1,10 +1,6 @@
 ﻿namespace ZetaResourceEditor.UI.Helper.ErrorHandling;
 
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 using DevExpress.Utils.Drawing;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
 
 public class MemoEditScrollbarAdjuster

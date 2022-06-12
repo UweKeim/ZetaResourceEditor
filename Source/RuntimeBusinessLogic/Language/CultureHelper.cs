@@ -1,26 +1,23 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Language;
 
 using DevExpress.XtraSpellChecker;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Logging;
-using ZetaLongPaths;
+using Zeta.VoyagerLibrary.Core.Logging;
 
 public static class CultureHelper
 {
-    private static ZlpDirectoryInfo dictionaryBaseFolderPath
+    private static DirectoryInfo dictionaryBaseFolderPath
     {
         get
         {
             var directory =
-                new ZlpDirectoryInfo(
-                    ZlpPathHelper.Combine(
-                        ZlpPathHelper.GetDirectoryPathNameFromFilePath(
+                new DirectoryInfo(
+                    ZspPathHelper.Combine(
+                        ZspPathHelper.GetDirectoryPathNameFromFilePath(
                             Assembly.GetEntryAssembly()?.Location),
                         @"Dictionaries"));
 
@@ -79,9 +76,9 @@ public static class CultureHelper
                     {
                         Available = true,
                         DictionaryFilePath =
-                            ZlpPathHelper.Combine(dictionaryBaseFolderPath.FullName, fileName + @".dic"),
+                            ZspPathHelper.Combine(dictionaryBaseFolderPath.FullName, fileName + @".dic"),
                         GrammarFilePath =
-                            ZlpPathHelper.Combine(dictionaryBaseFolderPath.FullName, fileName + @".aff")
+                            ZspPathHelper.Combine(dictionaryBaseFolderPath.FullName, fileName + @".aff")
                     };
             }
         }
@@ -104,9 +101,9 @@ public static class CultureHelper
                         new CacheItem
                         {
                             Available = true,
-                            DictionaryFilePath = ZlpPathHelper.Combine(dictionaryBaseFolderPath.FullName,
+                            DictionaryFilePath = ZspPathHelper.Combine(dictionaryBaseFolderPath.FullName,
                                 fileName + @".dic"),
-                            GrammarFilePath = ZlpPathHelper.Combine(dictionaryBaseFolderPath.FullName,
+                            GrammarFilePath = ZspPathHelper.Combine(dictionaryBaseFolderPath.FullName,
                                 fileName + @".aff")
                         };
                 }
@@ -130,7 +127,7 @@ public static class CultureHelper
         if (dictionaryBaseFolderPath.Exists)
         {
             var files =
-                new List<ZlpFileInfo>(dictionaryBaseFolderPath.GetFiles());
+                new List<FileInfo>(dictionaryBaseFolderPath.GetFiles());
 
             // ReSharper disable LoopCanBeConvertedToQuery
             foreach (var file in files)
@@ -144,7 +141,7 @@ public static class CultureHelper
                             @".aff",
                             StringComparison.InvariantCultureIgnoreCase)) != null)
                 {
-                    result.Add(ZlpPathHelper.GetFileNameWithoutExtension(file.Name));
+                    result.Add(ZspPathHelper.GetFileNameWithoutExtension(file.Name));
                 }
             }
 
@@ -169,8 +166,8 @@ public static class CultureHelper
                         new SpellCheckerOpenOfficeDictionary
                             {
                                 Culture = CultureInfo.GetCultureInfo( normalizedFileName ),
-                                DictionaryPath = ZlpPathHelper.Combine( dictionaryBaseFolderPath.FullName, fileName + @".dic" ),
-                                GrammarPath = ZlpPathHelper.Combine( dictionaryBaseFolderPath.FullName, fileName + @".aff" )
+                                DictionaryPath = ZspPathHelper.Combine( dictionaryBaseFolderPath.FullName, fileName + @".dic" ),
+                                GrammarPath = ZspPathHelper.Combine( dictionaryBaseFolderPath.FullName, fileName + @".aff" )
                             };
 
                     result.Add( dictionary );

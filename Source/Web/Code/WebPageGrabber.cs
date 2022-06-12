@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml;
@@ -102,7 +99,7 @@ public class WebPageGrabber :
     /// The placeholder parameters (if any) from the last call.
     /// Returns NULL if no parameters.
     /// </summary>
-    public string PlaceholderParameters => _internalPlaceholderParameters;
+    public string PlaceholderParameters { get; private set; }
 
     /// <summary>
     /// Read the HTML string that appears before the placeholder.
@@ -526,17 +523,17 @@ public class WebPageGrabber :
 
             if ( match.Groups.Count > 1 )
             {
-                _internalPlaceholderParameters =
+                PlaceholderParameters =
                     match.Groups[1].Value.Trim().Trim( '(', ')' ).Trim();
 
-                if ( _internalPlaceholderParameters.Length <= 0 )
+                if ( PlaceholderParameters.Length <= 0 )
                 {
-                    _internalPlaceholderParameters = null;
+                    PlaceholderParameters = null;
                 }
             }
             else
             {
-                _internalPlaceholderParameters = null;
+                PlaceholderParameters = null;
             }
         }
 
@@ -649,11 +646,6 @@ public class WebPageGrabber :
     /// The HTML string that appears after the placeholder.
     /// </summary>
     private string _internalHtmlAfter;
-
-    /// <summary>
-    /// Stores placeholder parameters (if any) from the last call.
-    /// </summary>
-    private string _internalPlaceholderParameters;
 
     /// <summary>
     /// Encoding.

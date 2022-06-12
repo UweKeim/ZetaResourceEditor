@@ -1,15 +1,11 @@
 ﻿namespace ZetaResourceEditor.UI.FileGroups;
 
+using Code;
 using Helper.Base;
 using Main;
 using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.Projects;
 using RuntimeUserInterface.Shell;
-using System;
-using System.Globalization;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
-using ZetaLongPaths;
 
 public partial class FileGroupSettingsForm :
     FormBase
@@ -19,6 +15,8 @@ public partial class FileGroupSettingsForm :
     public FileGroupSettingsForm()
     {
         InitializeComponent();
+
+        barManager.Images = ImageCollectionHelper.Ic16;
     }
 
     public override void UpdateUI()
@@ -76,7 +74,7 @@ public partial class FileGroupSettingsForm :
     private void openButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
     {
         if (!string.IsNullOrEmpty(locationTextBox.Text) &&
-            ZlpIOHelper.DirectoryExists(locationTextBox.Text))
+            Directory.Exists(locationTextBox.Text))
         {
             var sei =
                 new ShellExecuteInformation

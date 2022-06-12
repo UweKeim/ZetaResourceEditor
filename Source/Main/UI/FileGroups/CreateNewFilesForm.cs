@@ -1,7 +1,5 @@
 namespace ZetaResourceEditor.UI.FileGroups;
 
-using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
 using Helper;
 using Helper.Base;
 using Helper.Progress;
@@ -12,19 +10,8 @@ using RuntimeBusinessLogic.Language;
 using RuntimeBusinessLogic.ProjectFolders;
 using RuntimeBusinessLogic.Projects;
 using RuntimeBusinessLogic.Translation;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
 using System.Linq;
-using System.Windows.Forms;
 using Translation;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Common.Collections;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Common;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
-using ZetaLongPaths;
 
 public partial class CreateNewFilesForm :
     FormBase
@@ -113,7 +100,7 @@ public partial class CreateNewFilesForm :
     {
         var csProjs = _project.FileGroups.Select(t => t.GetConnectedCsProject()).ToList();
         var groupedProjectFiles = csProjs.GroupBy(t => t?.Project?.FullPath)
-            .Where(t => !string.IsNullOrEmpty(t?.Key)).Select(s => new ZlpFileInfo(s.Key)).ToList();
+            .Where(t => !string.IsNullOrEmpty(t?.Key)).Select(s => new FileInfo(s.Key)).ToList();
 
         IncludeFileInCsprojChecBox.Enabled = groupedProjectFiles.Any();
         AddFileAsDependantUponCheckBox.Enabled = IncludeFileInCsprojChecBox.Checked &&

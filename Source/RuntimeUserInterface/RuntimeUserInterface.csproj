@@ -1,109 +1,37 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FA8763A2-F7D7-4AF0-9C91-768F35B665A7}</ProjectGuid>
+    <TargetFramework>net6.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZetaResourceEditor.RuntimeUserInterface</RootNamespace>
     <AssemblyName>ZetaResourceEditor.RuntimeUserInterface</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Configurations>Release</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Fizzler, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Fizzler.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="JetBrains.Annotations, Version=2021.3.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\JetBrains.Annotations.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Svg, Version=3.3.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Svg.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\System.Buffers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Linq" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.InteropServices" />
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
-    <Reference Include="System.Threading.Thread" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\System.ValueTuple.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.Common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.Data, Version=1.0.1.0, Culture=neutral, PublicKeyToken=2b1a401181836fde, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.Logging, Version=1.0.1.0, Culture=neutral, PublicKeyToken=ec9fabac075fa4cc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.Tools, Version=1.0.1.0, Culture=neutral, PublicKeyToken=76bfe3d175ed36e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.Tools.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.WebForms, Version=1.0.1.0, Culture=neutral, PublicKeyToken=0fcb4b1a682ce648, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.WebForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.WinForms, Version=1.0.1.0, Culture=neutral, PublicKeyToken=ccd25a13504b7fe2, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\Zeta.VoyagerLibrary.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="ZetaLongPaths, Version=1.0.0.41, Culture=neutral, PublicKeyToken=b764f59068f31f38, processorArchitecture=MSIL">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.1\lib\net452-full\ZetaLongPaths.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Main\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="GlobalUsings.cs" />
-    <Compile Include="Shell\ShellExecuteInformation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Directory.Build.props" />
-    <None Include="packages.config" />
+    <PackageReference Include="Fizzler" Version="1.3.0" />
+    <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
+    <PackageReference Include="log4net" Version="2.0.14" />
+    <PackageReference Include="SharpZipLib" Version="1.3.3" />
+    <PackageReference Include="Svg" Version="3.4.2" />
+    <PackageReference Include="System.Memory" Version="4.5.5" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
+    <PackageReference Include="ZetaShortPaths" Version="1.0.20" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.330701">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <Content Include="appsettings.json" />
+  </ItemGroup>
 </Project>

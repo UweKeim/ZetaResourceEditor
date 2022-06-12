@@ -3,10 +3,7 @@ namespace ZetaResourceEditor.UI.Main;
 using Helper.Base;
 using RuntimeBusinessLogic.DL;
 using RuntimeBusinessLogic.WebServices;
-using System;
 using System.Net;
-using System.Windows.Forms;
-using Zeta.VoyagerLibrary.WinForms.Persistance;
 
 public partial class OptionsForm :
     FormBase

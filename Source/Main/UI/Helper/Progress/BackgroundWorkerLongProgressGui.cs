@@ -1,9 +1,5 @@
 namespace ZetaResourceEditor.UI.Helper.Progress;
 
-using System;
-using System.ComponentModel;
-using System.Windows.Forms;
-
 /// <summary>
 /// Use this class for performing longer operations
 /// to let it fully automatically update a progress.

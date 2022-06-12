@@ -3,10 +3,6 @@
 #region Using directives.
 // ----------------------------------------------------------------------
 
-using System;
-using System.Windows.Forms;
-using System.Drawing;
-using System.ComponentModel;
 
 // ----------------------------------------------------------------------
 #endregion

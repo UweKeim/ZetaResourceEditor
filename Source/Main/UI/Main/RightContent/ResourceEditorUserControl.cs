@@ -6,8 +6,6 @@ namespace ZetaResourceEditor.UI.Main.RightContent;
 
 using DevExpress.Data;
 using DevExpress.Skins;
-using DevExpress.XtraBars;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
@@ -25,20 +23,11 @@ using RuntimeBusinessLogic.DL;
 using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.Language;
 using RuntimeBusinessLogic.Projects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Globalization;
 using System.Linq;
-using System.Windows.Forms;
+using Code;
 using TagOperations;
 using Tools;
-using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Tools.Storage;
-using Zeta.VoyagerLibrary.WinForms.Common;
 
 // ----------------------------------------------------------------------
 
@@ -50,6 +39,8 @@ public partial class ResourceEditorUserControl :
     public ResourceEditorUserControl()
     {
         InitializeComponent();
+
+        tabControl1.Images = ImageCollectionHelper.Ic16;
     }
 
     private void resourceEditorUserControlNew_SizeChanged(object sender, EventArgs e)
@@ -1827,9 +1818,9 @@ public partial class ResourceEditorUserControl :
             MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
             table,
             CommentVisibilityScope.VisualGrid);
-        var key = (int)FileGroup.TranslateStateToColorKey(state);
+        var key = FileGroup.TranslateStateToColorKey(state);
 
-        statusPictureBox.Image = stateImageList.Images[key];
+        statusPictureBox.Image = ImageCollectionHelper.Ic16.Images[key.ToString()];
 
         return state;
     }
