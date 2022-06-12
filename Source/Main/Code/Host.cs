@@ -74,6 +74,7 @@ internal sealed class Host
             // --
             // http://stackoverflow.com/a/9180843/107625
 
+#if false
             var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location ?? string.Empty);
             foreach (var assemblyName in Directory.GetFiles(dir ?? string.Empty, @"*.dll"))
             {
@@ -81,6 +82,10 @@ internal sealed class Host
                 {
                     var assembly = Assembly.LoadFile(assemblyName);
                     _additional.Add(assembly.GetName().Name, assembly);
+                }
+                catch (FileLoadException)
+                {
+                    // Ignorieren.
                 }
                 catch (BadImageFormatException)
                 {
@@ -90,6 +95,7 @@ internal sealed class Host
 
             AppDomain.CurrentDomain.ReflectionOnlyAssemblyResolve += CurrentDomain_ResolveAssembly;
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_ResolveAssembly;
+#endif
 
             // --
 
