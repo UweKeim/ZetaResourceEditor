@@ -519,7 +519,11 @@ public partial class AutoTranslateForm :
         {
             var pair = (TranslationLanguageInfo)item.Value;
 
-            toTranslateLanguageCodes.Add(pair.LanguageCode.ToLowerInvariant());
+            // 2022-06-23, Uwe Keim:
+            // Fix für "zh-CN" vs. "zh-Hans".
+            toTranslateLanguageCodes.Add(pair.LanguageCode.EqualsNoCase(@"zh-CN")
+                ? @"zh-Hans".ToLowerInvariant()
+                : pair.LanguageCode.ToLowerInvariant());
         }
 
         // --
