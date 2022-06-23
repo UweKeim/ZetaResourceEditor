@@ -9,6 +9,7 @@ using Properties;
 // ----------------------------------------------------------------------
 using System.Globalization;
 using System.Text.RegularExpressions;
+using Zeta.VoyagerLibrary.Core.Logging;
 
 // ----------------------------------------------------------------------
 #endregion
@@ -184,6 +185,21 @@ public sealed class LanguageCodeDetection
             {
                 return true;
             }
+        }
+
+        // 2022-06-23, Uwe Keim.
+        // Fix: "zh-CN" in .NET Core wohl nicht in Liste aber irgendwie trotzdem aufrufbar.
+        try
+        {
+            var cultureInfo = CultureInfo.GetCultureInfo(cultureName);
+            if (isCultureMatch(cultureName, cultureInfo, true, out longCultureName))
+            {
+                return true;
+            }
+        }
+        catch (Exception x)
+        {
+            LogCentral.Current.Warn(x, $@"Error creating culture '{cultureName}'.");
         }
 
         longCultureName = null;

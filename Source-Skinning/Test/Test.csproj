@@ -25,6 +25,6 @@
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.330701">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="DevExpress.Win.Design" Version="21.2.*-*" />
+    <PackageReference Include="DevExpress.Win.Design" Version="22.1.*-*" />
   </ItemGroup>
 </Project>

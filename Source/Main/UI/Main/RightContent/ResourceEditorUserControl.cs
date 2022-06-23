@@ -90,14 +90,7 @@ public partial class ResourceEditorUserControl :
         get
         {
             var h = selectedRowHandle;
-            if (h == -1)
-            {
-                return null;
-            }
-            else
-            {
-                return (DataRowView)mainGridView.GetRow(h);
-            }
+            return h == -1 ? null : (DataRowView)mainGridView.GetRow(h);
         }
     }
 

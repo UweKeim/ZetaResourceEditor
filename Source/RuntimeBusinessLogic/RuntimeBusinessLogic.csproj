@@ -68,7 +68,7 @@
     <PackageReference Include="System.ServiceModel.Http" Version="4.9.0" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="4.9.0" />
     <PackageReference Include="System.ServiceModel.Security" Version="4.9.0" />
-    <PackageReference Include="System.Text.Json" Version="6.0.4" />
+    <PackageReference Include="System.Text.Json" Version="6.0.5" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
@@ -77,7 +77,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
-    <PackageReference Include="DevExpress.Win.Design" Version="21.2.*-*" />
+    <PackageReference Include="DevExpress.Win.Design" Version="22.1.*-*" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="DL\IUniqueID.cs" />

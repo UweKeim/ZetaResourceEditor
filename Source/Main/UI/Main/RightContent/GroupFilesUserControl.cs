@@ -88,12 +88,10 @@ public partial class GroupFilesUserControl :
 
     public bool CanCloseAllDocuments => mainTabControl.Visible && mainTabControl.TabPages.Count > 0;
 
-    public bool CanOpenFolderOfCurrentResourceFile => mainTabControl.Visible && mainTabControl.SelectedTabPage != null &&
-                                                      CurrentFileGroupControl.CanOpenFolder;
+    public bool CanOpenFolderOfCurrentResourceFile =>
+        mainTabControl.Visible && mainTabControl.SelectedTabPage != null &&
+        CurrentFileGroupControl.CanOpenFolder;
 
-    /// <summary>
-    /// Opens the with dialog.
-    /// </summary>
     public void OpenWithDialog()
     {
         using var ofd = new OpenFileDialog
@@ -130,20 +128,11 @@ public partial class GroupFilesUserControl :
         }
     }
 
-    /// <summary>
-    /// Checks the get add editor control.
-    /// </summary>
-    /// <param name="gridEditableData">The file group.</param>
-    /// <param name="isNew">if set to <c>true</c> [is new].</param>
-    /// <returns></returns>
     private ResourceEditorUserControl checkGetAddEditorControl(
         IGridEditableData gridEditableData,
         out bool isNew)
     {
         var checksum = gridEditableData.GetChecksum(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
-        //FileGroup.BuildChecksum(
-        //MainForm.Current.ProjectFilesControl.Project,
-        //gridEditableData);
 
         foreach (XtraTabPage tabPage in mainTabControl.TabPages)
         {
@@ -161,8 +150,10 @@ public partial class GroupFilesUserControl :
         var newTabPage =
             new XtraTabPage
             {
-                Text = gridEditableData.GetNameIntelligent(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty),
-                Tooltip = gridEditableData.GetFullNameIntelligent(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty),
+                Text = gridEditableData.GetNameIntelligent(
+                    MainForm.Current.ProjectFilesControl.Project ?? Project.Empty),
+                Tooltip = gridEditableData.GetFullNameIntelligent(MainForm.Current.ProjectFilesControl.Project ??
+                                                                  Project.Empty),
                 ImageIndex = (int)gridEditableData.SourceType,
                 Tag = checksum
             };
@@ -183,15 +174,11 @@ public partial class GroupFilesUserControl :
         return editorControl;
     }
 
-    /// <summary>
-    /// Does the load files.
-    /// </summary>
     internal void DoLoadFiles(
         IGridEditableData gridEditableData,
         ILanguageColumnFilter filter)
     {
-        var editorControl =
-            checkGetAddEditorControl(gridEditableData, out var isNew);
+        var editorControl = checkGetAddEditorControl(gridEditableData, out var isNew);
 
         if (!isNew)
         {
@@ -199,9 +186,6 @@ public partial class GroupFilesUserControl :
         }
     }
 
-    /// <summary>
-    /// Closes the and save data grid.
-    /// </summary>
     private bool closeAndSaveDataGrid(
         Control tabPage)
     {
@@ -209,9 +193,6 @@ public partial class GroupFilesUserControl :
             getFileGroupControlForTabPage(tabPage));
     }
 
-    /// <summary>
-    /// Closes the and save data grid.
-    /// </summary>
     private bool closeAndSaveDataGrid(
         ResourceEditorUserControl fileGroupControl)
     {
@@ -239,17 +220,11 @@ public partial class GroupFilesUserControl :
         }
     }
 
-    /// <summary>
-    /// Closes the and save data grid.
-    /// </summary>
     public bool CloseAndSaveDataGrid()
     {
         return closeAndSaveDataGrid(CurrentFileGroupControl);
     }
 
-    /// <summary>
-    /// Edits the resource files.
-    /// </summary>
     internal void EditResourceFiles(
         IGridEditableData gridEditableData,
         ILanguageColumnFilter filter)
@@ -276,17 +251,9 @@ public partial class GroupFilesUserControl :
 
             // Immediately stores.
             MainForm.AddMruFiles(files);
-
-            //if (gridEditableData.Project != null)
-            //{
-            //    gridEditableData.Project.AddMruElement(gridEditableData);
-            //}
         }
     }
 
-    /// <summary>
-    /// Closes all documents.
-    /// </summary>
     public void CloseAllDocuments()
     {
         while (CurrentFileGroupControl != null && CloseAndSaveDataGrid())
@@ -295,9 +262,6 @@ public partial class GroupFilesUserControl :
         }
     }
 
-    /// <summary>
-    /// Saves the recent files info.
-    /// </summary>
     public void SaveRecentFilesInfo()
     {
         var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
@@ -336,9 +300,6 @@ public partial class GroupFilesUserControl :
             text);
     }
 
-    /// <summary>
-    /// Loads the recent files.
-    /// </summary>
     public void LoadRecentFiles(
         Project project)
     {
@@ -384,10 +345,6 @@ public partial class GroupFilesUserControl :
         }
     }
 
-    /// <summary>
-    /// Saves the state.
-    /// </summary>
-    /// <returns></returns>
     internal bool SaveState(
         SaveOptions options)
     {
@@ -404,10 +361,6 @@ public partial class GroupFilesUserControl :
         return true;
     }
 
-    /// <summary>
-    /// Saves the state.
-    /// </summary>
-    /// <returns></returns>
     internal bool SaveState()
     {
         SaveRecentFilesInfo();
@@ -426,37 +379,6 @@ public partial class GroupFilesUserControl :
         return true;
     }
 
-    /*
-            /// <summary>
-            /// Tabs the control hit test.
-            /// </summary>
-            /// <param name="tabControl">The tab CTRL.</param>
-            /// <param name="pt">The pt.</param>
-            /// <returns></returns>
-            private static int tabControlHitTest(
-                XtraTabControl tabControl,
-                Point pt )
-            {
-                // Test each tabs rectangle to see if our point is contained within it.
-                for ( var x = 0; x < tabControl.TabPages.Count; ++x )
-                {
-                    var tabPage = tabControl.TabPages[x];
-
-                    // If tab contians our rectangle return it's index.
-                    if ( tabControl.HeaderLocation.GetTabRect( x ).Contains( pt ) )
-                    {
-                        return x;
-                    }
-                }
-
-                // A tab was not located at specified point.
-                return -1;
-            }
-    */
-
-    /// <summary>
-    /// Update UI states, based on the state of the current selection, etc.
-    /// </summary>
     public override void UpdateUI()
     {
         base.UpdateUI();
@@ -479,9 +401,6 @@ public partial class GroupFilesUserControl :
                                        mainTabControl.TabPages.Count > 1;
 
     public bool CanSave => CurrentFileGroupControl is { CanSave: true };
-
-    #region Event handler.
-    // ------------------------------------------------------------------
 
     private void optionsPopupMenu_BeforePopup(object sender, CancelEventArgs e)
     {
@@ -567,9 +486,6 @@ public partial class GroupFilesUserControl :
             optionsPopupMenu.ShowPopup(MousePosition);
         }
     }
-
-    // ------------------------------------------------------------------
-    #endregion
 
     public void ResetLayout()
     {

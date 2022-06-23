@@ -14,7 +14,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.3.28.0</ApplicationVersion>
+    <ApplicationVersion>2.3.29.0</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -29,8 +29,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-    <AssemblyVersion>2.3.28.0</AssemblyVersion>
-    <FileVersion>2.3.28.0</FileVersion>
+    <AssemblyVersion>2.3.29.0</AssemblyVersion>
+    <FileVersion>2.3.29.0</FileVersion>
     <AssemblyName>ZetaResourceEditor</AssemblyName>
     <Product>Zeta Resource Editor</Product>
     <Authors>Zeta Software GmbH</Authors>
@@ -103,7 +103,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
-    <PackageReference Include="DevExpress.Win.Design" Version="21.2.*-*" />
+    <PackageReference Include="DevExpress.Win.Design" Version="22.1.*-*" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
@@ -119,7 +119,7 @@
     <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.116.0" />
     <PackageReference Include="System.Memory" Version="4.5.5" />
-    <PackageReference Include="System.Text.Json" Version="6.0.4" />
+    <PackageReference Include="System.Text.Json" Version="6.0.5" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
