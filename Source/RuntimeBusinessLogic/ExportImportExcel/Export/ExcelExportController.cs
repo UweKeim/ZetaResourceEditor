@@ -53,9 +53,9 @@ public class ExcelExportController
                                 {
                                     DestinationFilePath =
                                         replacePlaceholders(
-                                            replacePlaceholders(information.DestinationFilePath, destinationLanguageCode),
+                                            replacePlaceholders(information.DestinationFilePath, checkCorrectChina(destinationLanguageCode)),
                                             fileGroup),
-                                    DestinationLanguageCodes = new[] { destinationLanguageCode },
+                                    DestinationLanguageCodes = new[] { checkCorrectChina(destinationLanguageCode) },
                                     EliminateDuplicateRows = information.EliminateDuplicateRows,
                                     ExportAllGroups =
                                         information.ExportAllGroupsMode ==
@@ -70,7 +70,7 @@ public class ExcelExportController
                                     ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
                                     OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
                                     Project = information.Project,
-                                    ReferenceLanguageCode = information.ReferenceLanguageCode
+                                    ReferenceLanguageCode = checkCorrectChina(information.ReferenceLanguageCode)
                                 });
                         }
                     }
@@ -88,9 +88,9 @@ public class ExcelExportController
                             {
                                 DestinationFilePath =
                                     replacePlaceholders(
-                                        replacePlaceholders(information.DestinationFilePath, information.DestinationLanguageCodes[0]),
+                                        replacePlaceholders(information.DestinationFilePath, checkCorrectChina(information.DestinationLanguageCodes[0])),
                                         fileGroup),
-                                DestinationLanguageCodes = information.DestinationLanguageCodes,
+                                DestinationLanguageCodes = information.DestinationLanguageCodes.Select(checkCorrectChina).ToArray(),
                                 EliminateDuplicateRows = information.EliminateDuplicateRows,
                                 ExportAllGroups =
                                     information.ExportAllGroupsMode ==
@@ -105,7 +105,7 @@ public class ExcelExportController
                                 ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
                                 OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
                                 Project = information.Project,
-                                ReferenceLanguageCode = information.ReferenceLanguageCode
+                                ReferenceLanguageCode = checkCorrectChina(information.ReferenceLanguageCode)
                             });
                     }
 
@@ -123,9 +123,9 @@ public class ExcelExportController
                             {
                                 DestinationFilePath =
                                     replacePlaceholders(
-                                        replacePlaceholders(information.DestinationFilePath, destinationLanguageCode),
+                                        replacePlaceholders(information.DestinationFilePath, checkCorrectChina(destinationLanguageCode)),
                                         information.FileGroups[0]),
-                                DestinationLanguageCodes = new[] { destinationLanguageCode },
+                                DestinationLanguageCodes = new[] { checkCorrectChina(destinationLanguageCode) },
                                 EliminateDuplicateRows = information.EliminateDuplicateRows,
                                 ExportAllGroups =
                                     information.ExportAllGroupsMode ==
@@ -140,7 +140,7 @@ public class ExcelExportController
                                 ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
                                 OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
                                 Project = information.Project,
-                                ReferenceLanguageCode = information.ReferenceLanguageCode
+                                ReferenceLanguageCode = checkCorrectChina(information.ReferenceLanguageCode)
                             });
                     }
 
@@ -159,9 +159,9 @@ public class ExcelExportController
                 {
                     DestinationFilePath =
                         replacePlaceholders(
-                            replacePlaceholders(information.DestinationFilePath, information.DestinationLanguageCodes[0]),
+                            replacePlaceholders(information.DestinationFilePath, checkCorrectChina(information.DestinationLanguageCodes[0])),
                             information.FileGroups[0]),
-                    DestinationLanguageCodes = information.DestinationLanguageCodes,
+                    DestinationLanguageCodes = information.DestinationLanguageCodes.Select(checkCorrectChina).ToArray(),
                     EliminateDuplicateRows = information.EliminateDuplicateRows,
                     ExportAllGroups =
                         information.ExportAllGroupsMode ==
@@ -176,13 +176,20 @@ public class ExcelExportController
                     ExportCompletelyEmptyRows = information.ExportCompletelyEmptyRows,
                     OnlyExportRowsWithChangedTexts = information.OnlyExportRowsWithChangedTexts,
                     Project = information.Project,
-                    ReferenceLanguageCode = information.ReferenceLanguageCode
+                    ReferenceLanguageCode = checkCorrectChina(information.ReferenceLanguageCode)
                 });
         }
 
         // --
 
         _preparedInformations = preparedInformations;
+    }
+
+    private static string checkCorrectChina(string code)
+    {
+        // 2022-06-23, Uwe Keim:
+        // Fix für "zh-CN" vs. "zh-Hans".
+        return code.EqualsNoCase(@"zh-CN") ? @"zh-Hans" : code;
     }
 
     private static void ensureFileNamesUnique(
@@ -207,7 +214,7 @@ public class ExcelExportController
 
                     dp = ZspPathHelper.Combine(dir, $@"{fn}{index}{ext}");
 
-                    dpl = dp.ToLowerInvariant();
+                    dpl = dp?.ToLowerInvariant();
 
                     if (!prevFilePaths.Contains(dpl))
                     {
@@ -267,24 +274,24 @@ public class ExcelExportController
     /// Helper class to contain the relevant information for the core
     /// work routine.
     /// </summary>
-    private class PreparedInformation
+    private sealed class PreparedInformation
     {
-        public Project Project { get; set; }
-        public FileGroup[] FileGroups { get; set; }
+        public Project Project { get; init; }
+        public FileGroup[] FileGroups { get; init; }
 
-        public string ReferenceLanguageCode { get; set; }
-        public string[] DestinationLanguageCodes { get; set; }
+        public string ReferenceLanguageCode { get; init; }
+        public string[] DestinationLanguageCodes { get; init; }
         public string DestinationFilePath { get; set; }
-        public bool EliminateDuplicateRows { get; set; }
-        public bool OnlyExportRowsWithNoTranslation { get; set; }
-        public bool ExportCompletelyEmptyRows { get; set; }
-        public bool OnlyExportRowsWithChangedTexts { get; set; }
-        public bool ExportAllGroups { get; set; }
-        public bool ExportFileGroupColumn { get; set; }
-        public bool ExportNameColumn { get; set; }
-        public bool ExportCommentColumn { get; set; }
-        public bool UseCrypticExcelExportSheetNames { get; set; }
-        public bool ExportReferenceLanguageColumn { get; set; }
+        public bool EliminateDuplicateRows { get; init; }
+        public bool OnlyExportRowsWithNoTranslation { get; init; }
+        public bool ExportCompletelyEmptyRows { get; init; }
+        public bool OnlyExportRowsWithChangedTexts { get; init; }
+        public bool ExportAllGroups { get; init; }
+        public bool ExportFileGroupColumn { get; init; }
+        public bool ExportNameColumn { get; init; }
+        public bool ExportCommentColumn { get; init; }
+        public bool UseCrypticExcelExportSheetNames { get; init; }
+        public bool ExportReferenceLanguageColumn { get; init; }
     }
 
     public void Process(
@@ -392,7 +399,7 @@ public class ExcelExportController
                      ++runningColIndex)
                 {
                     var destinationLanguageCode =
-                        preparedInformation.DestinationLanguageCodes[runningColIndex];
+                        checkCorrectChina(preparedInformation.DestinationLanguageCodes[runningColIndex]);
 
                     if (string.Compare(preparedInformation.ReferenceLanguageCode, destinationLanguageCode,
                             StringComparison.OrdinalIgnoreCase) != 0)
@@ -492,12 +499,12 @@ public class ExcelExportController
                         {
                             var languageValue = row[sourceColumnIndex] as string;
                             var languageCode =
-                                IsFileName(table.Columns[sourceColumnIndex].ColumnName)
+                                checkCorrectChina(IsFileName(table.Columns[sourceColumnIndex].ColumnName)
                                     ? new LanguageCodeDetection(preparedInformation.Project)
                                         .DetectLanguageCodeFromFileName(
                                             fileGroup.ParentSettings,
                                             table.Columns[sourceColumnIndex].ColumnName)
-                                    : table.Columns[sourceColumnIndex].ColumnName;
+                                    : table.Columns[sourceColumnIndex].ColumnName);
                             var isReferenceLanguage =
                                 string.Compare(preparedInformation.ReferenceLanguageCode, languageCode,
                                     StringComparison.OrdinalIgnoreCase) == 0;
