@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_2" tag="Element2">
+  <g tag="Element0">
+    <rect x="0" y="0" width="32" height="32" fill="#AFAFAF" class="Paint" tag="Paint0" />
+  </g>
+  <g tag="Element1">
+    <polygon points="0,31 0,32 32,32 32,0 31,0 31,31  " fill="#707070" class="Brush" tag="Brush0" />
+  </g>
+</svg>

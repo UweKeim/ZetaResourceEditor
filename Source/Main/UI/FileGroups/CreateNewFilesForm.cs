@@ -96,8 +96,13 @@ public partial class CreateNewFilesForm :
         labelControl2.Text = ti.UserReadableName;
     }
 
+    private bool _insideUpdateIncludeFileInCsprojControls;
+
     private void updateIncludeFileInCsprojControls()
     {
+        if (_insideUpdateIncludeFileInCsprojControls) return;
+        _insideUpdateIncludeFileInCsprojControls = true;
+
         var csProjs = _project.FileGroups.Select(t => t.GetConnectedCsProject()).ToList();
         var groupedProjectFiles = csProjs.GroupBy(t => t?.Project?.FullPath)
             .Where(t => !string.IsNullOrEmpty(t?.Key)).Select(s => new FileInfo(s.Key)).ToList();
@@ -113,6 +118,8 @@ public partial class CreateNewFilesForm :
 
         labelCsProjectToAdd.Text =
             $@"({string.Join(Environment.NewLine, groupedProjectFiles.Select(t => t.Name))})";
+
+        _insideUpdateIncludeFileInCsprojControls = false;
     }
 
     public override void UpdateUI()
@@ -137,7 +144,7 @@ public partial class CreateNewFilesForm :
                 StringComparison.OrdinalIgnoreCase) != 0 &&
             (!prefixCheckBox.Checked || prefixTextBox.Text.Trim().Length > 0);
 
-        updateIncludeFileInCsprojControls();
+        //updateIncludeFileInCsprojControls();
 
         // --
 
@@ -278,6 +285,9 @@ public partial class CreateNewFilesForm :
         FillItemToControls();
 
         UpdateUI();
+
+        // 2022-07-15, Uwe Keim: Nur noch einmal, weil zu langsam bei groﬂen Projektne.
+        updateIncludeFileInCsprojControls();
     }
 
     private void CreateNewFileForm_FormClosing(object sender, FormClosingEventArgs e)

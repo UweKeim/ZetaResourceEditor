@@ -57,7 +57,7 @@ public class TreeListViewState
                     StringHelper.DeserializeFromString(
                         s as string );
             }
-            catch ( ArgumentException )
+            catch ( Exception )
             {
                 state = null;
             }

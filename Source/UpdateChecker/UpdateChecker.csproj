@@ -110,28 +110,28 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Zeta.VoyagerLibrary.Common, Version=1.0.8.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.8\lib\net48-full\Zeta.VoyagerLibrary.Common.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.Common, Version=1.0.9.0, Culture=neutral, PublicKeyToken=72d5a4397c2705cf">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.9\lib\net48-full\Zeta.VoyagerLibrary.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.Data, Version=1.0.8.0, Culture=neutral, PublicKeyToken=2b1a401181836fde">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.8\lib\net48-full\Zeta.VoyagerLibrary.Data.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.Data, Version=1.0.9.0, Culture=neutral, PublicKeyToken=2b1a401181836fde">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.9\lib\net48-full\Zeta.VoyagerLibrary.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.Logging, Version=1.0.8.0, Culture=neutral, PublicKeyToken=ec9fabac075fa4cc">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.8\lib\net48-full\Zeta.VoyagerLibrary.Logging.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.Logging, Version=1.0.9.0, Culture=neutral, PublicKeyToken=ec9fabac075fa4cc">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.9\lib\net48-full\Zeta.VoyagerLibrary.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.Tools, Version=1.0.8.0, Culture=neutral, PublicKeyToken=76bfe3d175ed36e1">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.8\lib\net48-full\Zeta.VoyagerLibrary.Tools.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.Tools, Version=1.0.9.0, Culture=neutral, PublicKeyToken=76bfe3d175ed36e1">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.9\lib\net48-full\Zeta.VoyagerLibrary.Tools.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.WebForms, Version=1.0.8.0, Culture=neutral, PublicKeyToken=0fcb4b1a682ce648">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.8\lib\net48-full\Zeta.VoyagerLibrary.WebForms.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.WebForms, Version=1.0.9.0, Culture=neutral, PublicKeyToken=0fcb4b1a682ce648">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.9\lib\net48-full\Zeta.VoyagerLibrary.WebForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Zeta.VoyagerLibrary.WinForms, Version=1.0.8.0, Culture=neutral, PublicKeyToken=ccd25a13504b7fe2">
-      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.8\lib\net48-full\Zeta.VoyagerLibrary.WinForms.dll</HintPath>
+    <Reference Include="Zeta.VoyagerLibrary.WinForms, Version=1.0.9.0, Culture=neutral, PublicKeyToken=ccd25a13504b7fe2">
+      <HintPath>..\packages\Zeta.VoyagerLibrary.1.0.9\lib\net48-full\Zeta.VoyagerLibrary.WinForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ZetaLongPaths, Version=1.0.16.0, Culture=neutral, PublicKeyToken=b764f59068f31f38">

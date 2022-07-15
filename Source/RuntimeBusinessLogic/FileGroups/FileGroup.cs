@@ -18,7 +18,6 @@ using System.Threading;
 using Translation;
 using Zeta.VoyagerLibrary.Core.Common;
 using Zeta.VoyagerLibrary.Core.Common.Collections;
-using Zeta.VoyagerLibrary.Core.Logging;
 using ZetaAsync;
 
 /// <summary>
@@ -626,13 +625,13 @@ public class FileGroup :
 
                 //CHANGED: use base name instead
                 var baseName = LanguageCodeDetection.GetBaseName(project, filePath.Name);
-                filePath = new FileInfo(ZspPathHelper.Combine(folderPath.FullName, baseName));
+                filePath = new FileInfo(ZspPathHelper.Combine(folderPath?.FullName, baseName) ?? string.Empty);
 
-                if ((@"Properties".EqualsNoCase(folderPath.Name) ||
-                     @"App_GlobalResources".EqualsNoCase(folderPath.Name)) &&
+                if ((@"Properties".EqualsNoCase(folderPath?.Name) ||
+                     @"App_GlobalResources".EqualsNoCase(folderPath?.Name)) &&
                     filePath.Name.StartsWithNoCase(@"Resources."))
                 {
-                    var parentFolderPath = folderPath.Parent;
+                    var parentFolderPath = folderPath?.Parent;
                     if (parentFolderPath == null)
                     {
                         return project is not { DisplayFileGroupWithoutFolder: true }
@@ -654,7 +653,7 @@ public class FileGroup :
                                 : filePath.Name;
                     }
                 }
-                else if (@"App_LocalResources".EqualsNoCase(folderPath.Name))
+                else if (@"App_LocalResources".EqualsNoCase(folderPath?.Name))
                 {
                     var name =
                         ZspPathHelper.GetRelativePath(
@@ -664,7 +663,7 @@ public class FileGroup :
                             filePath.FullName);
 
                     var ext = ZspPathHelper.GetExtension(name);
-                    var result = name.Substring(0, name.Length - ext.Length);
+                    var result = name?.Substring(0, name.Length - ext?.Length ?? 0);
 
                     return
                         project is not { DisplayFileGroupWithoutFolder: true }
@@ -706,10 +705,10 @@ public class FileGroup :
                     var filePath = _fileInfos[0].File;
                     var folderPath = filePath.Directory;
 
-                    if (@"Properties".EqualsNoCase(folderPath.Name) ||
-                        @"App_GlobalResources".EqualsNoCase(folderPath.Name))
+                    if (@"Properties".EqualsNoCase(folderPath?.Name) ||
+                        @"App_GlobalResources".EqualsNoCase(folderPath?.Name))
                     {
-                        var parentFolderPath = folderPath.Parent;
+                        var parentFolderPath = folderPath?.Parent;
                         if (parentFolderPath == null)
                         {
                             return _name;
@@ -722,7 +721,7 @@ public class FileGroup :
                                     folderPath.Name);
                         }
                     }
-                    else if (@"App_LocalResources".EqualsNoCase(folderPath.Name))
+                    else if (@"App_LocalResources".EqualsNoCase(folderPath?.Name))
                     {
                         return
                             ZspPathHelper.Combine(
@@ -1060,7 +1059,7 @@ public class FileGroup :
             var ffi =
                 new FileInformation(this)
                 {
-                    File = new FileInfo(newFilePath)
+                    File = new FileInfo(newFilePath ?? string.Empty)
                 };
             Add(ffi);
             return ffi;
@@ -1116,7 +1115,7 @@ public class FileGroup :
             {
                 // Copy only if not exists.
 
-                File.Copy(sourceFilePath, newFilePath, false);
+                File.Copy(sourceFilePath, newFilePath ?? string.Empty, false);
                 didCopy = true;
             }
 
@@ -1124,7 +1123,7 @@ public class FileGroup :
             var ffi =
                 new FileInformation(this)
                 {
-                    File = new FileInfo(newFilePath)
+                    File = new FileInfo(newFilePath ?? string.Empty)
                 };
             Add(ffi);
 
@@ -1135,7 +1134,7 @@ public class FileGroup :
             {
                 try
                 {
-                    addFileToCsProj(new FileInfo(sourceFilePath), new FileInfo(newFilePath),
+                    addFileToCsProj(new FileInfo(sourceFilePath), new FileInfo(newFilePath ?? string.Empty),
                         includeFileAsDependantUpon);
                 }
                 catch
@@ -1202,6 +1201,7 @@ public class FileGroup :
             //If we are unable to find correlated csProj, we do nothing
             return;
         }
+
         var project = csProjWithFileResult.Project;
 
         if (project.Items.FirstOrDefault(i => i.EvaluatedInclude == newFilePath) == null)
@@ -1212,9 +1212,11 @@ public class FileGroup :
                 metaData.Add(new KeyValuePair<string, string>(CsProjHelper.DependentUponLiteral,
                     csProjWithFileResult.DependantUponRootFileName));
             }
+
             var relativeFilePath = newFilePath.Replace(project.DirectoryPath + "\\", string.Empty);
             project.AddItem(CsProjHelper.EmbeddedResourceLiteral, relativeFilePath, metaData);
         }
+
         project.Save();
     }
 
@@ -1230,7 +1232,7 @@ public class FileGroup :
         {
             // Clear.
             // Column 0=FileGroup checksum, column 1=Tag name.
-            row[2] = null;
+            row[2] = DBNull.Value;
         }
 
         // Write back.
@@ -1327,7 +1329,7 @@ public class FileGroup :
 
                             var destinationText = prefixError + x.Message;
 
-                            if (row[2] != null)
+                            if (row[2] != DBNull.Value)
                             {
                                 row[2] = destinationText;
                             }
@@ -1347,9 +1349,7 @@ public class FileGroup :
         }
 
         LogCentral.Current.Info(
-            $@"Finished translating: {nameof(translationCount)} = '{translationCount}', {
-                nameof(translationSuccessCount)
-            } = '{translationSuccessCount}', {nameof(translationErrorCount)} = '{translationErrorCount}'.");
+            $@"Finished translating: {nameof(translationCount)} = '{translationCount}', {nameof(translationSuccessCount)} = '{translationSuccessCount}', {nameof(translationErrorCount)} = '{translationErrorCount}'.");
     }
 
     public bool IsDeepChildOf(ProjectFolder folder)
@@ -1405,8 +1405,10 @@ public class FileGroup :
                         CsProjHelper.RegexFindMainResourceFileReplacePattern),
                     Original = t
                 }).FirstOrDefault(t => t.Original != t.Replaced)?.Original;
-            csProjResult = CsProjHelper.GetProjectContainingFile(new FileInfo(notDefaultLanguageVersion));
+            csProjResult =
+                CsProjHelper.GetProjectContainingFile(new FileInfo(notDefaultLanguageVersion ?? string.Empty));
         }
+
         return csProjResult;
     }
 }

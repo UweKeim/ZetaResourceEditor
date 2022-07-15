@@ -9,7 +9,6 @@ using Properties;
 // ----------------------------------------------------------------------
 using System.Globalization;
 using System.Text.RegularExpressions;
-using Zeta.VoyagerLibrary.Core.Logging;
 
 // ----------------------------------------------------------------------
 #endregion

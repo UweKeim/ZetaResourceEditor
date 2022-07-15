@@ -6,7 +6,6 @@
 using System.ComponentModel;
 using System.Net;
 using ServiceReference1;
-using Zeta.VoyagerLibrary.Core.Logging;
 using Zeta.VoyagerLibrary.Core.Tools.Storage;
 using Zeta.VoyagerLibrary.Core.Tools.Text;
 

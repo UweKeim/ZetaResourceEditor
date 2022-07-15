@@ -75,7 +75,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
-    <PackageReference Include="DevExpress.Win.Design" Version="22.1.*-*" />
+    <PackageReference Include="DevExpress.Win.Design" Version="21.2.*-*" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="DL\IUniqueID.cs" />

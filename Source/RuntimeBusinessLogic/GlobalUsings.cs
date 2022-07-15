@@ -8,4 +8,5 @@ global using System.Text;
 global using System.Threading.Tasks;
 global using System.Text.RegularExpressions;
 global using System.Xml;
+global using Zeta.VoyagerLibrary.Core.Logging;
 global using ZetaShortPaths;

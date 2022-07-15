@@ -4,7 +4,6 @@
 // ----------------------------------------------------------------------
 using System.IO;
 using System.Reflection;
-using Zeta.VoyagerLibrary.Core.Logging;
 
 // ----------------------------------------------------------------------
 #endregion

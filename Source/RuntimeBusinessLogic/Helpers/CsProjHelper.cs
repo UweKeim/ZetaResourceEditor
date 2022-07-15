@@ -1,7 +1,9 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Helpers;
 
-using System.IO;
+using Microsoft.Build.Evaluation;
 using Projects;
+using System.IO;
+using Exception = Exception;
 
 public static class CsProjHelper
 {
@@ -22,43 +24,77 @@ public static class CsProjHelper
 
         while (maxRecursionLevelForProject >= recursionLevelForProject)
         {
-            var currentCsProjects = currentDirectory.GetFiles(@"*.csproj").Select(t => AcquireProject(t.FullName))
-                .Where(t => t != null);
-
-            foreach (var currentCsProject in currentCsProjects)
-            {
-                var relativeName = fullName.Replace(currentCsProject.DirectoryPath + @"\", string.Empty);
-                    
-                var fileInCsProj = currentCsProject.Items.FirstOrDefault(t => t.EvaluatedInclude == relativeName);
-                if (fileInCsProj != null)
+            var currentCsProjects = currentDirectory?.GetFiles(@"*.csproj").Select(t =>
                 {
-                    csProjectWithFileResult.Project = currentCsProject;
-                    var dependentUpon = string.Empty;
-
-                    if (mainResourceFilePath != file.Name)
+                    try
                     {
-                        csProjectWithFileResult.DependantUponRootFileName = mainResourceFilePath;
+                        var r = AcquireProject(t.FullName);
+                        return r;
                     }
-                    return csProjectWithFileResult;
+                    catch (Exception x)
+                    {
+                        LogCentral.Current.Warn(x, $"Ignoring exception while processing project file '{t.FullName}'.");
+
+                        // Ignorieren.
+                        return null;
+                    }
+                })
+                .Where(t => t != null)
+                .ToList();
+
+            if (currentCsProjects != null)
+            {
+                foreach (var currentCsProject in currentCsProjects)
+                {
+                    var relativeName = fullName.Replace(currentCsProject.DirectoryPath + @"\", string.Empty);
+
+                    var fileInCsProj = currentCsProject.Items.FirstOrDefault(t => t.EvaluatedInclude == relativeName);
+                    if (fileInCsProj != null)
+                    {
+                        csProjectWithFileResult.Project = currentCsProject;
+
+                        if (mainResourceFilePath != file.Name)
+                        {
+                            csProjectWithFileResult.DependantUponRootFileName = mainResourceFilePath;
+                        }
+
+                        return csProjectWithFileResult;
+                    }
                 }
             }
 
-            if (currentDirectory.GetFiles(@"*.sln").Any())
+            if (currentDirectory == null || currentDirectory.GetFiles(@"*.sln").Any())
             {
                 break;
             }
+
             currentDirectory = currentDirectory.Parent;
             recursionLevelForProject++;
         }
+
         return null;
     }
 
     private static Microsoft.Build.Evaluation.Project AcquireProject(string path)
     {
-        var p = Microsoft.Build.Evaluation
-                    .ProjectCollection.GlobalProjectCollection
-                    .LoadedProjects.FirstOrDefault(pr => pr.FullPath == path) ??
-                new Microsoft.Build.Evaluation.Project(path);
+        var gpc = ProjectCollection.GlobalProjectCollection;
+        var lpl = gpc.LoadedProjects;
+
+        var p = lpl.FirstOrDefault(pr => pr.FullPath == path);
+        if (p == null)
+        {
+            using var reader = XmlReader.Create(path);
+
+            p = new Microsoft.Build.Evaluation.Project(
+                reader,
+                null,
+                null,
+                gpc,
+                ProjectLoadSettings.IgnoreInvalidImports | ProjectLoadSettings.IgnoreMissingImports)
+            {
+                FullPath = path
+            };
+        }
 
         p.ReevaluateIfNecessary();
         return p;

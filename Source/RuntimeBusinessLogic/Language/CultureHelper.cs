@@ -6,7 +6,6 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
-using Zeta.VoyagerLibrary.Core.Logging;
 
 public static class CultureHelper
 {
