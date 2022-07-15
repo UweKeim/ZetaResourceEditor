@@ -60,6 +60,32 @@ public static class CsProjHelper
 
                         return csProjectWithFileResult;
                     }
+                    else
+                    {
+                        // 2022-07-15, Uwe Keim:
+                        // Bei neuen .NET Core-Projekten sind Dateien implizit referenziert,
+                        // deshalb auch schauen, ob im selben Ordner liegt.
+
+                        var baseFolderPath = new FileInfo(currentCsProject.FullPath).DirectoryName;
+                        var myFolderPath = file.DirectoryName;
+                        if (!string.IsNullOrEmpty(baseFolderPath) && !string.IsNullOrEmpty(myFolderPath))
+                        {
+                            baseFolderPath = baseFolderPath.TrimEnd('\\');
+                            myFolderPath = myFolderPath.TrimEnd('\\');
+
+                            if (myFolderPath.StartsWithNoCase(baseFolderPath))
+                            {
+                                csProjectWithFileResult.Project = currentCsProject;
+
+                                if (mainResourceFilePath != file.Name)
+                                {
+                                    csProjectWithFileResult.DependantUponRootFileName = mainResourceFilePath;
+                                }
+
+                                return csProjectWithFileResult;
+                            }
+                        }
+                    }
                 }
             }
 
