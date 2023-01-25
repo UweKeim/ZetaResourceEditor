@@ -50,7 +50,7 @@ public class MyPropertyGridControl :
         if (!_eventConnected)
         {
             _eventConnected = true;
-            _alternatingRowStyle = new AppearanceObject
+            _alternatingRowStyle = new()
             {
                 BackColor = SkinHelper.AlternatingGridRowColors
             };
@@ -103,7 +103,7 @@ public class MyPropertyGridControl :
         // https://www.devexpress.com/Support/Center/Question/Details/Q539013
         // http://documentation.devexpress.com/#windowsforms/clsDevExpressXtraVerticalGridRowsCategoryRowtopic
 
-        if (WantAlternatingRows && !(e.Row is CategoryRow) && FocusedRow != e.Row)
+        if (WantAlternatingRows && e.Row is not CategoryRow && FocusedRow != e.Row)
         {
             e.Appearance.Combine(e.Row.VisibleIndex % 2 == 0
                 ? _alternatingRowStyle
@@ -119,7 +119,7 @@ public class MyPropertyGridControl :
 
     private AppearanceObject checkGetNormalRowStyle(BaseRow row)
     {
-        return _normalRowStyle ??= new AppearanceObject
+        return _normalRowStyle ??= new()
         {
             BackColor =
                 row.Appearance.BackColor == Color.Empty ? SystemColors.Window : row.Appearance.BackColor

@@ -1,7 +1,5 @@
 ﻿namespace ExtendedControlsLibrary.Specialized.MessageBox;
 
-using System.Windows.Forms;
-
 internal class MyMessageBoxImplementation
 {
     public static DialogResult Show(MyMessageBoxInformation info)

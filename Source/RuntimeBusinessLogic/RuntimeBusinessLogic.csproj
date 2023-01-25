@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <RootNamespace>ZetaResourceEditor.RuntimeBusinessLogic</RootNamespace>
     <AssemblyName>ZetaResourceEditor.RuntimeBusinessLogic</AssemblyName>
@@ -9,6 +9,7 @@
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <Configurations>Release</Configurations>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>false</Optimize>
@@ -16,7 +17,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ZetaAsync">
-      <HintPath>..\..\Bin-Skinning\net6.0\ZetaAsync.dll</HintPath>
+      <HintPath>..\..\Bin-Skinning\net7.0\ZetaAsync.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -43,39 +44,39 @@
     <PackageReference Include="EPPlus" Version="[4.5.3.3]" />
     <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
     <PackageReference Include="Fizzler" Version="1.3.0" />
-    <PackageReference Include="Google.Cloud.Translation.V2" Version="3.0.0" />
-    <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
-    <PackageReference Include="log4net" Version="2.0.14" />
-    <PackageReference Include="Microsoft.Build" Version="17.2.0" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.2.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.2.2146" />
+    <PackageReference Include="Google.Cloud.Translation.V2" Version="3.1.0" />
+    <PackageReference Include="JetBrains.Annotations" Version="2022.3.1" />
+    <PackageReference Include="log4net" Version="2.0.15" />
+    <PackageReference Include="Microsoft.Build" Version="17.4.0" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.4.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.4.2244" />
     <PackageReference Include="morelinq" Version="3.3.2" />
-    <PackageReference Include="SharpZipLib" Version="1.3.3" />
-    <PackageReference Include="Svg" Version="3.4.2" />
-    <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
+    <PackageReference Include="SharpZipLib" Version="1.4.1" />
+    <PackageReference Include="Svg" Version="3.4.4" />
+    <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.116.0" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.117" />
     <PackageReference Include="System.Interactive.Async" Version="6.0.1" />
     <PackageReference Include="System.Memory" Version="4.5.5" />
     <PackageReference Include="System.Runtime" Version="4.3.1" />
     <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
     <PackageReference Include="System.Security.Cryptography.X509Certificates" Version="4.3.2" />
-    <PackageReference Include="System.ServiceModel.Duplex" Version="4.9.0" />
-    <PackageReference Include="System.ServiceModel.Federation" Version="4.9.0" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.9.0" />
-    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.9.0" />
-    <PackageReference Include="System.ServiceModel.Security" Version="4.9.0" />
-    <PackageReference Include="System.Text.Json" Version="6.0.5" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.10.0" />
+    <PackageReference Include="System.ServiceModel.Federation" Version="4.10.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.10.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.10.0" />
+    <PackageReference Include="System.Text.Json" Version="7.0.1" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
     <PackageReference Include="ZetaShortPaths" Version="1.0.20" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.330701">
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
-    <PackageReference Include="DevExpress.Win.Design" Version="21.2.*-*" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
+    <PackageReference Include="DevExpress.Win.Design" Version="22.2.3" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="DL\IUniqueID.cs" />

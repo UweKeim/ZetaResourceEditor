@@ -1,6 +1,5 @@
 namespace ExtendedControlsLibrary.Skinning.CustomWizard;
 
-using System;
 using System.Drawing;
 using System.Globalization;
 using System.Reflection;
@@ -21,7 +20,7 @@ internal class NoHeaderWizardAeroModel :
 
     public override Rectangle GetBackButtonBounds()
     {
-        return new Rectangle(-50, -50, 32, 32);
+        return new(-50, -50, 32, 32);
         //return base.GetBackButtonBounds();
     }
 
@@ -41,24 +40,27 @@ internal class NoHeaderWizardAeroModel :
     {
         base.UpdateButtonsLocation();
 
-        var fi = typeof (WizardViewInfo).GetField(@"prevButtonInfo", BindingFlags.Instance | BindingFlags.NonPublic);
+        var fi = typeof(WizardViewInfo).GetField(@"prevButtonInfo", BindingFlags.Instance | BindingFlags.NonPublic);
         if (fi != null)
         {
-            var prevButtonInfo = (ButtonInfo) fi.GetValue(ViewInfo);
+            var prevButtonInfo = (ButtonInfo)fi.GetValue(ViewInfo);
 
-            fi = typeof (WizardViewInfo).GetField(@"nextButtonInfo", BindingFlags.Instance | BindingFlags.NonPublic);
+            fi = typeof(WizardViewInfo).GetField(@"nextButtonInfo", BindingFlags.Instance | BindingFlags.NonPublic);
             if (fi != null)
             {
-                var nextButtonInfo = (ButtonInfo) fi.GetValue(ViewInfo);
+                var nextButtonInfo = (ButtonInfo)fi.GetValue(ViewInfo);
 
-                prevButtonInfo.Location = new Point(
-                    nextButtonInfo.Location.X - prevButtonInfo.Size.Width - 4,
-                    GetCommandButtonTopLocation(prevButtonInfo));
+                if (prevButtonInfo != null && nextButtonInfo != null)
+                {
+                    prevButtonInfo.Location = new(
+                        nextButtonInfo.Location.X - prevButtonInfo.Size.Width - 4,
+                        GetCommandButtonTopLocation(prevButtonInfo));
+                }
             }
         }
     }
 
-    private int GetCommandButtonTopLocation(ButtonInfo button)
+    protected override int GetCommandButtonTopLocation(ButtonInfo button)
     {
         return ((NoHeaderWizardViewInfo) ViewInfo).GetOwnerInternal().ClientRectangle.Bottom -
                WizardBaseConsts.CommandAreaHeight/2 - button.Size.Height/2;

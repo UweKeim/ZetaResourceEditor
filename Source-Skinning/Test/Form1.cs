@@ -21,7 +21,7 @@
         }
 
 
-        private void InitAppearances()
+        private static void InitAppearances()
         {
         }
 

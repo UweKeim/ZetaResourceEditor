@@ -1,6 +1,5 @@
 ﻿namespace ExtendedControlsLibrary.Skinning.CustomDropDownButton;
 
-using System;
 using System.ComponentModel;
 using CustomForm;
 using DevExpress.XtraEditors;

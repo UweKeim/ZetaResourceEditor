@@ -1,7 +1,6 @@
 ﻿namespace ExtendedControlsLibrary.Skinning;
 
 using System.Drawing;
-using System.Windows.Forms;
 using CustomRibbonForm;
 using DevExpress.LookAndFeel;
 using DevExpress.Skins;
@@ -51,32 +50,32 @@ public static class SkinHelper
 
         SmallFont =
             hasMainFont
-                ? new Font(@"Segoe UI", smallFontSizePixel, GraphicsUnit.Pixel)
+                ? new(@"Segoe UI", smallFontSizePixel, GraphicsUnit.Pixel)
                 : new Font(@"Tahoma", smallFontSizePixel, GraphicsUnit.Pixel);
 
         StandardFont =
             hasMainFont
-                ? new Font(@"Segoe UI", standardFontSizePixel, GraphicsUnit.Pixel)
+                ? new(@"Segoe UI", standardFontSizePixel, GraphicsUnit.Pixel)
                 : new Font(@"Tahoma", standardFontSizePixel, GraphicsUnit.Pixel);
 
         StandardFontBold =
             hasMainFont
-                ? new Font(@"Segoe UI", standardFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel)
+                ? new(@"Segoe UI", standardFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel)
                 : new Font(@"Tahoma", standardFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel);
 
         LargeFont =
             hasMainFont
-                ? new Font(@"Segoe UI", largeFontSizePixel, GraphicsUnit.Pixel)
+                ? new(@"Segoe UI", largeFontSizePixel, GraphicsUnit.Pixel)
                 : new Font(@"Tahoma", largeFontSizePixel, GraphicsUnit.Pixel);
 
         LargeFontBold =
             hasMainFont
-                ? new Font(@"Segoe UI", largeFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel)
+                ? new(@"Segoe UI", largeFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel)
                 : new Font(@"Tahoma", largeFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel);
 
         LargeFontUnderline =
             hasMainFont
-                ? new Font(@"Segoe UI", largeFontSizePixel, FontStyle.Underline, GraphicsUnit.Pixel)
+                ? new(@"Segoe UI", largeFontSizePixel, FontStyle.Underline, GraphicsUnit.Pixel)
                 : new Font(@"Tahoma", largeFontSizePixel, FontStyle.Underline, GraphicsUnit.Pixel);
     }
 
@@ -88,7 +87,7 @@ public static class SkinHelper
 
         if (_currentSkin == null || _currentSkin.Skin.Name != skin.Name)
         {
-            _currentSkin = new SkinController(skin);
+            _currentSkin = new(skin);
         }
 
         return _currentSkin;
@@ -110,7 +109,7 @@ public static class SkinHelper
         UserLookAndFeel.Default.SetSkinStyle(SkinNameDialogForms);
         AppearanceObject.DefaultFont = StandardFont;
 
-        _badc = new MyDefaultBarAndDockingController();
+        _badc = new();
         _badc.Apply();
     }
 }

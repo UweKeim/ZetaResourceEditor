@@ -10,7 +10,7 @@ using DevExpress.XtraGrid.Views.Grid;
 public class MyGridInfoRegistrator :
     GridInfoRegistrator
 {
-    public override string ViewName => typeof(MyGridView).Name;
+    public override string ViewName => nameof(MyGridView);
 
     public override BaseView CreateView(GridControl grid)
     {

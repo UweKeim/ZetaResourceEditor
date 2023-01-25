@@ -1,11 +1,10 @@
 ﻿namespace ExtendedControlsLibrary.Skinning.CustomUserControl;
 
-using System;
 using System.ComponentModel;
 using System.Linq;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
+[PublicAPI]
 public class MyUserControl :
     XtraUserControl
 {
@@ -122,15 +121,7 @@ public class MyUserControl :
                 }
                 else
                 {
-                    foreach (Control cc in c.Controls)
-                    {
-                        if (FocusControlOrDeeper(cc))
-                        {
-                            return true;
-                        }
-                    }
-
-                    return false;
+                    return c.Controls.Cast<Control>().Any(FocusControlOrDeeper);
                 }
             }
         }

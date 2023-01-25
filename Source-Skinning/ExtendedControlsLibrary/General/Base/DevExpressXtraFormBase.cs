@@ -1,11 +1,8 @@
 ﻿namespace ExtendedControlsLibrary.General.Base;
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
-using System.Windows.Forms;
 using System.Xml;
 using DevExpress.LookAndFeel;
 using DevExpress.Utils;
@@ -83,10 +80,9 @@ public class DevExpressXtraFormBase :
     /// <summary>
     /// Persist only during runtime, not longer.
     /// </summary>
-    protected static readonly PersistentInMemoryPairStorage InMemoryStorage =
-        new PersistentInMemoryPairStorage();
+    protected static readonly PersistentInMemoryPairStorage InMemoryStorage = new();
 
-    private readonly List<XtraTabPage> _shownTabPages = new List<XtraTabPage>();
+    private readonly List<XtraTabPage> _shownTabPages = new();
     private UpdateUIController _uuiController;
 
     protected DevExpressXtraFormBase()
@@ -101,7 +97,7 @@ public class DevExpressXtraFormBase :
 
     protected virtual bool UseSharedIcon => true;
 
-    protected UpdateUIController UuiController => _uuiController ??= new UpdateUIController(this);
+    protected UpdateUIController UuiController => _uuiController ??= new(this);
 
     public virtual void DoUpdateUI(
         UpdateUIInformation information)
@@ -143,7 +139,7 @@ public class DevExpressXtraFormBase :
     {
         base.OnKeyDown(e);
 
-        if (!e.Handled && e.KeyCode == Keys.F1 && !e.Alt && !e.Control && !e.Shift)
+        if (!e.Handled && e is { KeyCode: Keys.F1, Alt: false } and { Control: false, Shift: false })
         {
             ExecuteHelp();
             e.Handled = true;
@@ -178,7 +174,7 @@ public class DevExpressXtraFormBase :
                     _shownTabPages.Add(e.Page);
 
                     OnInitializeTabPage(
-                        new InitializeTabPageEventArgs(e.Page));
+                        new(e.Page));
                 }
             };
     }
@@ -209,7 +205,7 @@ public class DevExpressXtraFormBase :
                     _shownTabPages.Add(e.Page);
 
                     OnInitializeTabPage(
-                        new InitializeTabPageEventArgs(e.Page));
+                        new(e.Page));
                 }
             };
     }
@@ -260,7 +256,7 @@ public class DevExpressXtraFormBase :
             delegate (object sender, KeyEventArgs e)
             {
                 // Forbid tabbing through.
-                if (e.KeyCode == Keys.Tab && e.Control)
+                if (e is { KeyCode: Keys.Tab, Control: true })
                 {
                     e.Handled = true;
                 }
@@ -402,8 +398,7 @@ public class DevExpressXtraFormBase :
 
             if (c.Horizontal)
             {
-                if (c.FixedPanel == SplitFixedPanel.Panel1 ||
-                    c.FixedPanel == SplitFixedPanel.None)
+                if (c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None)
                 {
                     if (realDistance > 0)
                     {
@@ -414,7 +409,7 @@ public class DevExpressXtraFormBase :
                 {
                     if (c.FixedPanel != SplitFixedPanel.Panel2)
                     {
-                        throw new Exception(@"FixedPanel must be Panel2.");
+                        throw new(@"FixedPanel must be Panel2.");
                     }
 
                     if (c.Width - realDistance > 0)
@@ -425,8 +420,7 @@ public class DevExpressXtraFormBase :
             }
             else
             {
-                if (c.FixedPanel == SplitFixedPanel.Panel1 ||
-                    c.FixedPanel == SplitFixedPanel.None)
+                if (c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None)
                 {
                     if (realDistance > 0)
                     {
@@ -437,7 +431,7 @@ public class DevExpressXtraFormBase :
                 {
                     if (c.FixedPanel != SplitFixedPanel.Panel2)
                     {
-                        throw new Exception(@"You must set one panel inside a splitter to be fixed.");
+                        throw new(@"You must set one panel inside a splitter to be fixed.");
                     }
 
                     if (c.Height - realDistance > 0)
@@ -458,8 +452,7 @@ public class DevExpressXtraFormBase :
 
         if (c.Horizontal)
         {
-            if (c.FixedPanel == SplitFixedPanel.Panel1 ||
-                c.FixedPanel == SplitFixedPanel.None)
+            if (c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None)
             {
                 realDistance = c.SplitterPosition;
             }
@@ -467,7 +460,7 @@ public class DevExpressXtraFormBase :
             {
                 if (c.FixedPanel != SplitFixedPanel.Panel2)
                 {
-                    throw new Exception(@"FixedPanel must be Panel2.");
+                    throw new(@"FixedPanel must be Panel2.");
                 }
 
                 realDistance = c.Width - c.SplitterPosition;
@@ -477,8 +470,7 @@ public class DevExpressXtraFormBase :
         }
         else
         {
-            if (c.FixedPanel == SplitFixedPanel.Panel1 ||
-                c.FixedPanel == SplitFixedPanel.None)
+            if (c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None)
             {
                 realDistance = c.SplitterPosition;
             }
@@ -486,7 +478,7 @@ public class DevExpressXtraFormBase :
             {
                 if (c.FixedPanel != SplitFixedPanel.Panel2)
                 {
-                    throw new Exception(@"FixedPanel must be Panel2.");
+                    throw new(@"FixedPanel must be Panel2.");
                 }
 
                 realDistance = c.Height - c.SplitterPosition;
@@ -812,7 +804,7 @@ public class DevExpressXtraFormBase :
         if (!font.Bold)
         {
             // TODO: does this waste system resource handles? Mabye store centrally and re-use.
-            control.Font = new Font(font, FontStyle.Bold);
+            control.Font = new(font, FontStyle.Bold);
         }
     }
 
@@ -825,12 +817,12 @@ public class DevExpressXtraFormBase :
             TabPage = page;
         }
 
-        public XtraTabPage TabPage { get; private set; }
+        public XtraTabPage TabPage { get; }
     }
 
     private class TabListItemInfo
     {
-        public MyXtraTabPage TabPage { get; set; }
+        public MyXtraTabPage TabPage { get; init; }
         public override string ToString()
         {
             return TabPage.Text;
@@ -846,6 +838,6 @@ public class DevExpressXtraFormBase :
             TabPage = page;
         }
 
-        public XtraTabPage TabPage { get; private set; }
+        public XtraTabPage TabPage { get; }
     }
 }

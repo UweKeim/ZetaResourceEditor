@@ -26,7 +26,7 @@ public class MyMemoEdit :
         }
     }
 
-    private MemoEditScrollbarAdjuster _adjuster = new MemoEditScrollbarAdjuster();
+    private MemoEditScrollbarAdjuster _adjuster = new();
     private bool _everAttached;
     private bool _firstTime = true;
 
@@ -45,22 +45,20 @@ public class MyMemoEdit :
                 _everAttached = true;
             }
 
-            if (value && _adjuster != null || !value && _adjuster == null)
+            switch (value)
             {
-                // Do nothing.
-            }
-            else
-            {
-                if (value)
-                {
-                    _adjuster = new MemoEditScrollbarAdjuster();
+                case true when _adjuster != null:
+                case false when _adjuster == null:
+                    // Do nothing.
+                    break;
+                case true:
+                    _adjuster = new();
                     _adjuster.Attach(this);
-                }
-                else
-                {
+                    break;
+                default:
                     _adjuster.Detach();
                     _adjuster = null;
-                }
+                    break;
             }
         }
     }

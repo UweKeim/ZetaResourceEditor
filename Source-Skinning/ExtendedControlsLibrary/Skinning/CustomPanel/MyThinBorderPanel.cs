@@ -2,7 +2,6 @@
 
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
 
 /// <summary>
 /// A control to host other controls that have no border themself.
@@ -11,9 +10,9 @@ public class MyThinBorderPanel :
     Panel,
     ISupportInitialize
 {
-    protected override Padding DefaultMargin => new Padding(0, 0, 0, 0);
+    protected override Padding DefaultMargin => new(0, 0, 0, 0);
 
-    protected override Padding DefaultPadding => new Padding(16, 16, 16, 16);
+    protected override Padding DefaultPadding => new(16, 16, 16, 16);
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
@@ -41,6 +40,6 @@ public class MyThinBorderPanel :
 
         Font = SkinHelper.StandardFont;
         BackColor = SkinHelper.ControlBorderColor;
-        Padding = new Padding(1);
+        Padding = new(1);
     }
 }

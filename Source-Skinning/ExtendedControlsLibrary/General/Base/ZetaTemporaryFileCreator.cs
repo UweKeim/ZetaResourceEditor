@@ -1,6 +1,5 @@
 ﻿namespace ExtendedControlsLibrary.General.Base;
 
-using System;
 using System.Diagnostics;
 using System.IO;
 using ZetaShortPaths;
@@ -56,8 +55,7 @@ internal class ZetaTemporaryFileCreator :
         FilePath =
             ZspPathHelper.Combine(
                 Path.GetTempPath(),
-                string.Format(@"{0}.txt",
-                    Guid.NewGuid()));
+                $@"{Guid.NewGuid()}.txt");
 
         File.WriteAllText(FilePath,content??string.Empty);
         //using (var f = File.CreateText(FilePath))
@@ -70,7 +68,7 @@ internal class ZetaTemporaryFileCreator :
     /// The complete path (drive, directory, file name, extension) to the
     /// temporary file.
     /// </summary>
-    public string FilePath { get; private set; }
+    public string FilePath { get; }
 
     public string FileContentString => File.Exists(FilePath) ? File.ReadAllText(FilePath) : null;
 
@@ -125,17 +123,11 @@ internal class ZetaTemporaryFileCreator :
             catch (UnauthorizedAccessException x)
             {
                 var newFilePath =
-                    string.Format(
-                        @"{0}.{1:N}.deleted",
-                        filePath,
-                        Guid.NewGuid());
+                    $@"{filePath}.{Guid.NewGuid():N}.deleted";
 
                 Trace.TraceWarning(
-                    string.Format(
-                        @"Caught UnauthorizedAccessException while deleting file '{0}'. " +
-                        @"Renaming now to '{1}'.",
-                        filePath,
-                        newFilePath),
+                    $@"Caught UnauthorizedAccessException while deleting file '{filePath}'. " +
+                    $@"Renaming now to '{newFilePath}'.",
                     x);
 
                 File.Move(
@@ -145,17 +137,10 @@ internal class ZetaTemporaryFileCreator :
             catch (Exception x)
             {
                 var newFilePath =
-                    string.Format(
-                        @"{0}.{1:N}.deleted",
-                        filePath,
-                        Guid.NewGuid());
+                    $@"{filePath}.{Guid.NewGuid():N}.deleted";
 
                 Trace.TraceWarning(
-                    string.Format(
-                        @"Caught IOException while deleting file '{0}'. " +
-                        @"Renaming now to '{1}'.",
-                        filePath,
-                        newFilePath),
+                    $@"Caught IOException while deleting file '{filePath}'. " + $@"Renaming now to '{newFilePath}'.",
                     x);
 
                 File.Move(

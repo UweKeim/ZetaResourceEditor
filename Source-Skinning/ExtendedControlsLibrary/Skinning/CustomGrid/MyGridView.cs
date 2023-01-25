@@ -21,7 +21,7 @@ public class MyGridView :
         init();
     }
 
-    protected override string ViewName => typeof (MyGridView).Name;
+    protected override string ViewName => nameof(MyGridView);
 
     // https://www.devexpress.com/Support/Center/Question/Details/KA18858
     protected override bool IsAllowPixelScrollingAutoRowHeight => true;

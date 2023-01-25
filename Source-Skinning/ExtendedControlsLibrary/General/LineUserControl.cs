@@ -2,7 +2,6 @@
 
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
 using Skinning;
 
 public class LineUserControl :
@@ -46,7 +45,7 @@ public class LineUserControl :
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public override Size MinimumSize
     {
-        get => new Size(2, 2);
+        get => new(2, 2);
         set => base.MinimumSize = value;
     }
 
@@ -55,7 +54,7 @@ public class LineUserControl :
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public override Size MaximumSize
     {
-        get => new Size(16384, 2);
+        get => new(16384, 2);
         set => base.MaximumSize = value;
     }
 

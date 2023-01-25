@@ -11,8 +11,8 @@ public class MyBar :
 
         if (ViewInfo != null)
         {
-            if (ViewInfo.Appearance != null) ViewInfo.Appearance.SetFont(SkinHelper.StandardFont);
-            if (ViewInfo.Bar != null && ViewInfo.Bar.Appearance != null) ViewInfo.Bar.Appearance.Font = SkinHelper.StandardFont;
+            ViewInfo.Appearance?.SetFont(SkinHelper.StandardFont);
+            if (ViewInfo.Bar is { Appearance: { } }) ViewInfo.Bar.Appearance.Font = SkinHelper.StandardFont;
             if (ViewInfo.BarControl != null) ViewInfo.BarControl.Font = SkinHelper.StandardFont;
         }
     }

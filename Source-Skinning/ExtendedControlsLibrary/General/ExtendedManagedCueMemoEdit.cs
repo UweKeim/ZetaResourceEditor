@@ -1,6 +1,5 @@
 ﻿namespace ExtendedControlsLibrary.General;
 
-using System;
 using System.ComponentModel;
 using System.Drawing;
 using DevExpress.XtraEditors;
@@ -134,9 +133,9 @@ public class ExtendedManagedCueMemoEdit :
     {
         if (_cueLabel == null)
         {
-            _cueLabel = new ExtendedManagedCueTextEdit.MyTransparentLabelControlSpecialized();
+            _cueLabel = new();
             _cueLabel.Init(this);
-            Parent.Controls.Add(_cueLabel);
+            Parent?.Controls.Add(_cueLabel);
 
             changeLabelColor();
             changeLabelText();

@@ -1,7 +1,6 @@
 ﻿namespace ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit;
 
 using System.Drawing;
-using System.Windows.Forms;
 
 public class MyTransparentHyperLinkEdit :
     LinkLabel

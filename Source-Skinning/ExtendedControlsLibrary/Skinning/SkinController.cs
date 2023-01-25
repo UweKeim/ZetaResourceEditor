@@ -1,25 +1,23 @@
 ﻿namespace ExtendedControlsLibrary.Skinning;
 
-using System.Collections.Generic;
 using System.Drawing;
 using DevExpress.Skins;
 
 public sealed class SkinController
 {
-    private readonly Dictionary<Color, Brush> _brushs = new Dictionary<Color, Brush>();
-    private readonly Dictionary<Color, Pen> _pens = new Dictionary<Color, Pen>();
-    private readonly Skin _skin;
+    private readonly Dictionary<Color, Brush> _brushs = new();
+    private readonly Dictionary<Color, Pen> _pens = new();
 
     public SkinController(Skin skin)
     {
-        _skin = skin;
+        Skin = skin;
     }
 
-    public Skin Skin => _skin;
+    public Skin Skin { get; }
 
     public Color TranslateColor(Color color)
     {
-        return _skin.TranslateColor(color);
+        return Skin.TranslateColor(color);
     }
 
     public Brush TranslateBrush(Color color)

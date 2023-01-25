@@ -1,14 +1,10 @@
 ﻿namespace ExtendedControlsLibrary.Specialized.MessageBox;
 
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.Text;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using General.Base;
 using Skinning;
+using System.Globalization;
+using System.Text;
 using Zeta.VoyagerLibrary.Core.WinForms.Common;
 
 public partial class MyMessageBoxTemplateForm :
@@ -18,9 +14,9 @@ public partial class MyMessageBoxTemplateForm :
     private readonly int _buttonBorderDistance;
     private readonly int _buttonSpacing;
     private readonly int _initialHeight;
-    private readonly Dictionary<Keys, DialogResult> _keyMap = new Dictionary<Keys, DialogResult>();
-    private MyMessageBoxInformation _info;
-    private string _acceptButtonDefaultText;
+    private readonly Dictionary<Keys, DialogResult> _keyMap = new();
+    private MyMessageBoxInformation? _info;
+    private string? _acceptButtonDefaultText;
     private DateTime _countdownStartedAt;
 
     public MyMessageBoxTemplateForm()
@@ -78,7 +74,7 @@ public partial class MyMessageBoxTemplateForm :
         sb.AppendLine();
 
         sb.AppendLine(@"[Content]");
-        sb.AppendLine(textControl.Text.Trim());
+        sb.AppendLine(textControl.Text?.Trim());
         sb.AppendLine();
 
         if (button1.Visible) sb.AppendFormat(@"[{0}] ", button1.Text);
@@ -95,7 +91,7 @@ public partial class MyMessageBoxTemplateForm :
     {
         buildContent();
 
-        if (_info.EffectiveOwner == null)
+        if (_info?.EffectiveOwner == null)
         {
             CenterToScreen();
         }
@@ -177,200 +173,206 @@ public partial class MyMessageBoxTemplateForm :
         switch (_info.Buttons)
         {
             case MessageBoxButtons.OK:
-            {
-                button1.Visible = false;
-                button2.Visible = false;
+                {
+                    button1.Visible = false;
+                    button2.Visible = false;
 
-                button3.Text = _info.ButtonTexts[DialogResult.OK];
-                button3.DialogResult = DialogResult.OK;
-                addKeyMap(findButtonKey(DialogResult.OK, DialogResult.OK), DialogResult.OK);
-                AcceptButton = button3;
-                CancelButton = button3;
+                    button3.Text = _info.ButtonTexts[DialogResult.OK];
+                    button3.DialogResult = DialogResult.OK;
+                    addKeyMap(findButtonKey(DialogResult.OK, DialogResult.OK), DialogResult.OK);
+                    AcceptButton = button3;
+                    CancelButton = button3;
 
-                buttonCount = 1;
-            }
+                    buttonCount = 1;
+                }
                 break;
             case MessageBoxButtons.OKCancel:
-            {
-                button1.Visible = false;
-
-                button2.Text = _info.ButtonTexts[DialogResult.OK];
-                button2.DialogResult = DialogResult.OK;
-                addKeyMap(findButtonKey(DialogResult.OK, DialogResult.OK, DialogResult.Cancel), DialogResult.OK);
-                AcceptButton = button2;
-
-                button3.Text = _info.ButtonTexts[DialogResult.Cancel];
-                button3.DialogResult = DialogResult.Cancel;
-                addKeyMap(findButtonKey(DialogResult.Cancel, DialogResult.OK, DialogResult.Cancel), DialogResult.Cancel);
-                CancelButton = button3;
-
-                switch (_info.DefaultButton)
                 {
-                    case MessageBoxDefaultButton.Button1:
-                        AcceptButton = button2;
-                        break;
-                    case MessageBoxDefaultButton.Button2:
-                    case MessageBoxDefaultButton.Button3:
-                        AcceptButton = button3;
-                        button2.TabIndex = 1;
-                        button3.TabIndex = 0;
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                    button1.Visible = false;
 
-                buttonCount = 2;
-            }
+                    button2.Text = _info.ButtonTexts[DialogResult.OK];
+                    button2.DialogResult = DialogResult.OK;
+                    addKeyMap(findButtonKey(DialogResult.OK, DialogResult.OK, DialogResult.Cancel), DialogResult.OK);
+                    AcceptButton = button2;
+
+                    button3.Text = _info.ButtonTexts[DialogResult.Cancel];
+                    button3.DialogResult = DialogResult.Cancel;
+                    addKeyMap(findButtonKey(DialogResult.Cancel, DialogResult.OK, DialogResult.Cancel), DialogResult.Cancel);
+                    CancelButton = button3;
+
+                    switch (_info.DefaultButton)
+                    {
+                        case MessageBoxDefaultButton.Button1:
+                            AcceptButton = button2;
+                            break;
+                        case MessageBoxDefaultButton.Button2:
+                        case MessageBoxDefaultButton.Button3:
+                            AcceptButton = button3;
+                            button2.TabIndex = 1;
+                            button3.TabIndex = 0;
+                            break;
+                        case MessageBoxDefaultButton.Button4:
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    buttonCount = 2;
+                }
                 break;
             case MessageBoxButtons.AbortRetryIgnore:
-            {
-                button1.Text = _info.ButtonTexts[DialogResult.Abort];
-                button1.DialogResult = DialogResult.Abort;
-                addKeyMap(findButtonKey(DialogResult.Abort, DialogResult.Abort, DialogResult.Retry, DialogResult.Ignore), DialogResult.Abort);
-                CancelButton = button1;
-
-                button2.Text = _info.ButtonTexts[DialogResult.Retry];
-                button2.DialogResult = DialogResult.Retry;
-                addKeyMap(findButtonKey(DialogResult.Retry, DialogResult.Abort, DialogResult.Retry, DialogResult.Ignore), DialogResult.Retry);
-                AcceptButton = button2;
-
-                button3.Text = _info.ButtonTexts[DialogResult.Ignore];
-                button3.DialogResult = DialogResult.Ignore;
-                addKeyMap(findButtonKey(DialogResult.Ignore, DialogResult.Abort, DialogResult.Retry, DialogResult.Ignore),
-                    DialogResult.Ignore);
-                CancelButton = button3;
-
-                switch (_info.DefaultButton)
                 {
-                    case MessageBoxDefaultButton.Button1:
-                        AcceptButton = button1;
-                        break;
-                    case MessageBoxDefaultButton.Button2:
-                        AcceptButton = button2;
-                        button1.TabIndex = 2;
-                        button2.TabIndex = 0;
-                        button3.TabIndex = 1;
-                        break;
-                    case MessageBoxDefaultButton.Button3:
-                        AcceptButton = button3;
-                        button1.TabIndex = 1;
-                        button2.TabIndex = 2;
-                        button3.TabIndex = 0;
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                    button1.Text = _info.ButtonTexts[DialogResult.Abort];
+                    button1.DialogResult = DialogResult.Abort;
+                    addKeyMap(findButtonKey(DialogResult.Abort, DialogResult.Abort, DialogResult.Retry, DialogResult.Ignore), DialogResult.Abort);
+                    CancelButton = button1;
 
-                buttonCount = 3;
-            }
+                    button2.Text = _info.ButtonTexts[DialogResult.Retry];
+                    button2.DialogResult = DialogResult.Retry;
+                    addKeyMap(findButtonKey(DialogResult.Retry, DialogResult.Abort, DialogResult.Retry, DialogResult.Ignore), DialogResult.Retry);
+                    AcceptButton = button2;
+
+                    button3.Text = _info.ButtonTexts[DialogResult.Ignore];
+                    button3.DialogResult = DialogResult.Ignore;
+                    addKeyMap(findButtonKey(DialogResult.Ignore, DialogResult.Abort, DialogResult.Retry, DialogResult.Ignore),
+                        DialogResult.Ignore);
+                    CancelButton = button3;
+
+                    switch (_info.DefaultButton)
+                    {
+                        case MessageBoxDefaultButton.Button1:
+                            AcceptButton = button1;
+                            break;
+                        case MessageBoxDefaultButton.Button2:
+                            AcceptButton = button2;
+                            button1.TabIndex = 2;
+                            button2.TabIndex = 0;
+                            button3.TabIndex = 1;
+                            break;
+                        case MessageBoxDefaultButton.Button3:
+                            AcceptButton = button3;
+                            button1.TabIndex = 1;
+                            button2.TabIndex = 2;
+                            button3.TabIndex = 0;
+                            break;
+                        case MessageBoxDefaultButton.Button4:
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    buttonCount = 3;
+                }
                 break;
             case MessageBoxButtons.YesNoCancel:
-            {
-                button1.Text = _info.ButtonTexts[DialogResult.Yes];
-                button1.DialogResult = DialogResult.Yes;
-                addKeyMap(findButtonKey(DialogResult.Yes, DialogResult.Yes, DialogResult.No, DialogResult.Cancel), DialogResult.Yes);
-                AcceptButton = button1;
-
-                button2.Text = _info.ButtonTexts[DialogResult.No];
-                button2.DialogResult = DialogResult.No;
-                addKeyMap(findButtonKey(DialogResult.No, DialogResult.Yes, DialogResult.No, DialogResult.Cancel), DialogResult.No);
-
-                button3.Text = _info.ButtonTexts[DialogResult.Cancel];
-                button3.DialogResult = DialogResult.Cancel;
-                addKeyMap(findButtonKey(DialogResult.Cancel, DialogResult.Yes, DialogResult.No, DialogResult.Cancel), DialogResult.Cancel);
-                CancelButton = button3;
-
-                switch (_info.DefaultButton)
                 {
-                    case MessageBoxDefaultButton.Button1:
-                        AcceptButton = button1;
-                        break;
-                    case MessageBoxDefaultButton.Button2:
-                        AcceptButton = button2;
-                        button1.TabIndex = 2;
-                        button2.TabIndex = 0;
-                        button3.TabIndex = 1;
-                        break;
-                    case MessageBoxDefaultButton.Button3:
-                        AcceptButton = button3;
-                        button1.TabIndex = 1;
-                        button2.TabIndex = 2;
-                        button3.TabIndex = 0;
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                    button1.Text = _info.ButtonTexts[DialogResult.Yes];
+                    button1.DialogResult = DialogResult.Yes;
+                    addKeyMap(findButtonKey(DialogResult.Yes, DialogResult.Yes, DialogResult.No, DialogResult.Cancel), DialogResult.Yes);
+                    AcceptButton = button1;
 
-                buttonCount = 3;
-            }
+                    button2.Text = _info.ButtonTexts[DialogResult.No];
+                    button2.DialogResult = DialogResult.No;
+                    addKeyMap(findButtonKey(DialogResult.No, DialogResult.Yes, DialogResult.No, DialogResult.Cancel), DialogResult.No);
+
+                    button3.Text = _info.ButtonTexts[DialogResult.Cancel];
+                    button3.DialogResult = DialogResult.Cancel;
+                    addKeyMap(findButtonKey(DialogResult.Cancel, DialogResult.Yes, DialogResult.No, DialogResult.Cancel), DialogResult.Cancel);
+                    CancelButton = button3;
+
+                    switch (_info.DefaultButton)
+                    {
+                        case MessageBoxDefaultButton.Button1:
+                            AcceptButton = button1;
+                            break;
+                        case MessageBoxDefaultButton.Button2:
+                            AcceptButton = button2;
+                            button1.TabIndex = 2;
+                            button2.TabIndex = 0;
+                            button3.TabIndex = 1;
+                            break;
+                        case MessageBoxDefaultButton.Button3:
+                            AcceptButton = button3;
+                            button1.TabIndex = 1;
+                            button2.TabIndex = 2;
+                            button3.TabIndex = 0;
+                            break;
+                        case MessageBoxDefaultButton.Button4:
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    buttonCount = 3;
+                }
                 break;
             case MessageBoxButtons.YesNo:
-            {
-                button1.Visible = false;
-
-                button2.Text = _info.ButtonTexts[DialogResult.Yes];
-                button2.DialogResult = DialogResult.Yes;
-                addKeyMap(findButtonKey(DialogResult.Yes, DialogResult.Yes, DialogResult.No), DialogResult.Yes);
-                AcceptButton = button2;
-
-                button3.Text = _info.ButtonTexts[DialogResult.No];
-                addKeyMap(findButtonKey(DialogResult.No, DialogResult.Yes, DialogResult.No), DialogResult.No);
-                button3.DialogResult = DialogResult.No;
-
-                CancelButton = null;
-                ControlBox = false;
-
-                switch (_info.DefaultButton)
                 {
-                    case MessageBoxDefaultButton.Button1:
-                        AcceptButton = button2;
-                        break;
-                    case MessageBoxDefaultButton.Button2:
-                    case MessageBoxDefaultButton.Button3:
-                        AcceptButton = button3;
-                        button2.TabIndex = 1;
-                        button3.TabIndex = 0;
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                    button1.Visible = false;
 
-                buttonCount = 2;
-            }
+                    button2.Text = _info.ButtonTexts[DialogResult.Yes];
+                    button2.DialogResult = DialogResult.Yes;
+                    addKeyMap(findButtonKey(DialogResult.Yes, DialogResult.Yes, DialogResult.No), DialogResult.Yes);
+                    AcceptButton = button2;
+
+                    button3.Text = _info.ButtonTexts[DialogResult.No];
+                    addKeyMap(findButtonKey(DialogResult.No, DialogResult.Yes, DialogResult.No), DialogResult.No);
+                    button3.DialogResult = DialogResult.No;
+
+                    CancelButton = null;
+                    ControlBox = false;
+
+                    switch (_info.DefaultButton)
+                    {
+                        case MessageBoxDefaultButton.Button1:
+                            AcceptButton = button2;
+                            break;
+                        case MessageBoxDefaultButton.Button2:
+                        case MessageBoxDefaultButton.Button3:
+                            AcceptButton = button3;
+                            button2.TabIndex = 1;
+                            button3.TabIndex = 0;
+                            break;
+                        case MessageBoxDefaultButton.Button4:
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    buttonCount = 2;
+                }
                 break;
             case MessageBoxButtons.RetryCancel:
-            {
-                button1.Visible = false;
-
-                button2.Text = _info.ButtonTexts[DialogResult.Retry];
-                button2.DialogResult = DialogResult.Retry;
-                addKeyMap(findButtonKey(DialogResult.Retry, DialogResult.Retry, DialogResult.Cancel), DialogResult.Retry);
-                AcceptButton = button2;
-
-                button3.Text = _info.ButtonTexts[DialogResult.Cancel];
-                button3.DialogResult = DialogResult.Cancel;
-                addKeyMap(findButtonKey(DialogResult.Cancel, DialogResult.Retry, DialogResult.Cancel), DialogResult.Cancel);
-                CancelButton = button3;
-
-                switch (_info.DefaultButton)
                 {
-                    case MessageBoxDefaultButton.Button1:
-                        AcceptButton = button2;
-                        break;
-                    case MessageBoxDefaultButton.Button2:
-                    case MessageBoxDefaultButton.Button3:
-                        AcceptButton = button3;
-                        button2.TabIndex = 1;
-                        button3.TabIndex = 0;
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                    button1.Visible = false;
 
-                buttonCount = 2;
-            }
+                    button2.Text = _info.ButtonTexts[DialogResult.Retry];
+                    button2.DialogResult = DialogResult.Retry;
+                    addKeyMap(findButtonKey(DialogResult.Retry, DialogResult.Retry, DialogResult.Cancel), DialogResult.Retry);
+                    AcceptButton = button2;
+
+                    button3.Text = _info.ButtonTexts[DialogResult.Cancel];
+                    button3.DialogResult = DialogResult.Cancel;
+                    addKeyMap(findButtonKey(DialogResult.Cancel, DialogResult.Retry, DialogResult.Cancel), DialogResult.Cancel);
+                    CancelButton = button3;
+
+                    switch (_info.DefaultButton)
+                    {
+                        case MessageBoxDefaultButton.Button1:
+                            AcceptButton = button2;
+                            break;
+                        case MessageBoxDefaultButton.Button2:
+                        case MessageBoxDefaultButton.Button3:
+                            AcceptButton = button3;
+                            button2.TabIndex = 1;
+                            button3.TabIndex = 0;
+                            break;
+                        case MessageBoxDefaultButton.Button4:
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    buttonCount = 2;
+                }
                 break;
 
+            case MessageBoxButtons.CancelTryContinue:
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -405,7 +407,7 @@ public partial class MyMessageBoxTemplateForm :
 
     private string formatDefaultButtonCountDownText(int seconds)
     {
-        return string.Format(@"{0} ({1})", _acceptButtonDefaultText, seconds);
+        return $@"{_acceptButtonDefaultText} ({seconds})";
         //return string.Format(@"{0} - {1}", _acceptButtonDefaultText, seconds);
         //return string.Format(@"{0} ({1} s)", _acceptButtonDefaultText, seconds);
     }
@@ -534,7 +536,7 @@ public partial class MyMessageBoxTemplateForm :
                 var s = TextRenderer.MeasureText(
                     _info.Text,
                     SkinHelper.StandardFont,
-                    new Size(maxTextBoxWidth, maxTextBoxHeight),
+                    new(maxTextBoxWidth, maxTextBoxHeight),
                     TextFormatFlags.WordBreak | TextFormatFlags.PreserveGraphicsClipping);
 
                 var deltaWidth = s.Width - textControl.Width;
@@ -592,10 +594,7 @@ public partial class MyMessageBoxTemplateForm :
         updateVisualCountDownTimer.Stop();
         closeCountDownTimer.Stop();
 
-        if (AcceptButton != null)
-        {
-            AcceptButton.PerformClick();
-        }
+        AcceptButton?.PerformClick();
     }
 
     private void updateVisualCountDownTimer_Tick(object sender, EventArgs e)

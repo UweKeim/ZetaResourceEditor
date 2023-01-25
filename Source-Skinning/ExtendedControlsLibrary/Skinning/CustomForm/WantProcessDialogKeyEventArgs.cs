@@ -1,8 +1,5 @@
 namespace ExtendedControlsLibrary.Skinning.CustomForm;
 
-using System;
-using System.Windows.Forms;
-
 public class WantProcessDialogKeyEventArgs :
     EventArgs
 {

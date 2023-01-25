@@ -1,6 +1,5 @@
 ﻿namespace ExtendedControlsLibrary;
 
-using System;
 using System.Drawing;
 using System.Threading;
 
@@ -25,7 +24,7 @@ public static class DesignModeHelper
         }
         else
         {
-            return d.ToString().ToLowerInvariant() != @"false";
+            return d.ToString()?.ToLowerInvariant() != @"false";
         }
     }
 

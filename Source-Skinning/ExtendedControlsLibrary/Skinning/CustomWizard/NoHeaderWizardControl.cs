@@ -1,7 +1,5 @@
 ﻿namespace ExtendedControlsLibrary.Skinning.CustomWizard;
 
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -60,10 +58,10 @@ public class NoHeaderWizardControl : WizardControl
     {
         if (WizardStyle == WizardStyle.WizardAero)
         {
-            if (!(Parent is PanelControl) || Parent.BackColor != Color.Transparent ||
+            if (Parent is not PanelControl || Parent.BackColor != Color.Transparent ||
                 ((PanelControl)Parent).BorderStyle != BorderStyles.NoBorder)
             {
-                throw new Exception(@"Please place the wizard inside a panel that is set to a transparent background color, and no border.");
+                throw new(@"Please place the wizard inside a panel that is set to a transparent background color, and no border.");
             }
         }
     }
@@ -89,7 +87,7 @@ public class NoHeaderWizardControl : WizardControl
             _firstTime = false;
 
             var button = getRightmostButton(e);
-            _lowerRight = new Point(button.Location.X + button.Size.Width, button.Location.Y + button.Size.Height);
+            _lowerRight = new(button.Location.X + button.Size.Width, button.Location.Y + button.Size.Height);
         }
 
         // --
@@ -101,7 +99,7 @@ public class NoHeaderWizardControl : WizardControl
         // Apply the back button visibility to our custom back button.
         if (WizardStyle == WizardStyle.WizardAero)
         {
-            var buttonSize = NoHeaderWizardAeroModel.IsGerman ? new Size(85, 28) : new Size(75, 28);
+            var buttonSize = NoHeaderWizardAeroModel.IsGerman ? new(85, 28) : new Size(75, 28);
             const int buttonDistanceX = 5;
 
             var orderedButtons =
@@ -127,7 +125,7 @@ public class NoHeaderWizardControl : WizardControl
 
             foreach (var button in orderedVisibleButtons)
             {
-                button.Location = new Point(startX, startY);
+                button.Location = new(startX, startY);
 
                 var b = getButton(button);
                 b.Size = buttonSize;
@@ -175,7 +173,7 @@ public class NoHeaderWizardControl : WizardControl
         }
     }
 
-    private ButtonInfo getRightmostButton(CustomizeCommandButtonsEventArgs e)
+    private static ButtonInfo getRightmostButton(CustomizeCommandButtonsEventArgs e)
     {
         var buttons = new List<ButtonInfo>
         {
@@ -194,7 +192,7 @@ public class NoHeaderWizardControl : WizardControl
 
     private static void changeLocation(ButtonInfo info, int dx, int dy)
     {
-        info.Location = new Point(info.Location.X + dx, info.Location.Y + dy);
+        info.Location = new(info.Location.X + dx, info.Location.Y + dy);
     }
 
     private static int getLeftmostLocation(CustomizeCommandButtonsEventArgs e)

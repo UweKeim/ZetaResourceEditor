@@ -1,7 +1,6 @@
 ﻿namespace ExtendedControlsLibrary.General.TextMeasurement;
 
 using System.Drawing;
-using System.Windows.Forms;
 
 public sealed class MeasureTextInformation
 {

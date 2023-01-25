@@ -12,7 +12,7 @@ public class MyColoredHyperLinkEdit :
         ViewInfo.Appearance.Font = SkinHelper.StandardFont;
         ViewInfo.Appearance.Options.UseFont = true;
 
-        Properties.Appearance.Font = new Font(Properties.Appearance.Font, Properties.Appearance.Font.Style & ~FontStyle.Underline);
+        Properties.Appearance.Font = new(Properties.Appearance.Font, Properties.Appearance.Font.Style & ~FontStyle.Underline);
         Properties.Appearance.Options.UseFont = true;
     }
 }

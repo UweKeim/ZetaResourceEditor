@@ -1,7 +1,6 @@
 ﻿namespace ExtendedControlsLibrary.Skinning.CustomGroup;
 
 using System.ComponentModel;
-using System.Windows.Forms;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 
@@ -21,7 +20,7 @@ public class MyGroupControl :
     public bool HasPadding
     {
         get => Padding.Left > 0;
-        set => base.Padding = value ? new Padding(12, 12, 12, 12) : new Padding(0);
+        set => base.Padding = value ? new(12, 12, 12, 12) : new Padding(0);
     }
 
     [Browsable(false)]

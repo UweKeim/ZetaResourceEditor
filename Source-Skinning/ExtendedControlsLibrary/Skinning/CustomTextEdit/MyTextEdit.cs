@@ -31,13 +31,13 @@ public class MyTextEdit :
 
     public override Size MinimumSize
     {
-        get => new Size(base.MinimumSize.Width, 24);
-        set => base.MinimumSize = new Size(value.Width, 24);
+        get => new(base.MinimumSize.Width, 24);
+        set => base.MinimumSize = value with { Height = 24 };
     }
 
     public override Size MaximumSize
     {
-        get => new Size(base.MaximumSize.Width, 24);
-        set => base.MaximumSize = new Size(value.Width, 24);
+        get => new(base.MaximumSize.Width, 24);
+        set => base.MaximumSize = value with { Height = 24 };
     }
 }

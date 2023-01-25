@@ -1,7 +1,5 @@
 ﻿namespace ExtendedControlsLibrary.General.UIUpdating;
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using Base;
 
@@ -16,7 +14,7 @@ public class UpdateUIController
     private readonly DevExpressXtraUserControlBase _controlBase;
     private readonly DevExpressXtraFormBase _formBase;
     private readonly DevExpressRibbonFormBase _ribbonFormBase;
-    private readonly List<UpdateUIInformation> _tokens = new List<UpdateUIInformation>();
+    private readonly List<UpdateUIInformation> _tokens = new();
 
     public UpdateUIController(
         DevExpressXtraUserControlBase controlBase)
@@ -43,9 +41,9 @@ public class UpdateUIController
             doShouldProcess() &&
             (_controlBase != null || _formBase != null || _ribbonFormBase != null) &&
             (
-                _controlBase != null && !_controlBase.DesignMode ||
-                _formBase != null && !_formBase.DesignMode ||
-                _ribbonFormBase != null && !_ribbonFormBase.DesignMode
+                _controlBase is { DesignMode: false } ||
+                _formBase is { DesignMode: false } ||
+                _ribbonFormBase is { DesignMode: false }
             ) &&
             !HasProcessed(information);
     }
@@ -61,7 +59,7 @@ public class UpdateUIController
     {
         if (information == null)
         {
-            throw new ArgumentNullException(@"information");
+            throw new ArgumentNullException(nameof(information));
         }
         else
         {
@@ -79,6 +77,6 @@ public class UpdateUIController
 
     public void PerformUpdateUI(IUpdateUI updateUI, object userState = null)
     {
-        updateUI.DoUpdateUI(new UpdateUIInformation(userState));
+        updateUI.DoUpdateUI(new(userState));
     }
 }

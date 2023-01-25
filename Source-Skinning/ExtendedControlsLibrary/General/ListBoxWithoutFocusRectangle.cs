@@ -1,6 +1,5 @@
 ﻿namespace ExtendedControlsLibrary.General;
 
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Drawing;
 using DevExpress.XtraEditors.ViewInfo;

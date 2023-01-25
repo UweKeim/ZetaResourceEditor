@@ -3,7 +3,6 @@
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using JetBrains.Annotations;
-using System.Collections.Generic;
 using System.Linq;
 
 [UsedImplicitly]

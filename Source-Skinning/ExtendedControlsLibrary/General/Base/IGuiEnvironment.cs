@@ -1,6 +1,5 @@
 ﻿namespace ExtendedControlsLibrary.General.Base;
 
-using System;
 using System.Drawing;
 
 public interface IGuiEnvironment

@@ -1,8 +1,6 @@
 ﻿namespace ExtendedControlsLibrary.Skinning.CustomMemoEdit;
 
-using System;
 using System.Drawing;
-using System.Windows.Forms;
 using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.ViewInfo;
@@ -67,7 +65,7 @@ public class MemoEditScrollbarAdjuster
 
         var args = new ObjectInfoArgs
         {
-            Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h)
+            Bounds = new(0, 0, vi.ClientRect.Width, h)
         };
 
         var rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);

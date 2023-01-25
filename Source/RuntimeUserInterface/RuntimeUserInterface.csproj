@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <OutputType>Library</OutputType>
     <RootNamespace>ZetaResourceEditor.RuntimeUserInterface</RootNamespace>
     <AssemblyName>ZetaResourceEditor.RuntimeUserInterface</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Configurations>Release</Configurations>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>false</Optimize>
@@ -17,17 +18,17 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fizzler" Version="1.3.0" />
-    <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
-    <PackageReference Include="log4net" Version="2.0.14" />
-    <PackageReference Include="SharpZipLib" Version="1.3.3" />
-    <PackageReference Include="Svg" Version="3.4.2" />
+    <PackageReference Include="JetBrains.Annotations" Version="2022.3.1" />
+    <PackageReference Include="log4net" Version="2.0.15" />
+    <PackageReference Include="SharpZipLib" Version="1.4.1" />
+    <PackageReference Include="Svg" Version="3.4.4" />
     <PackageReference Include="System.Memory" Version="4.5.5" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
     <PackageReference Include="ZetaShortPaths" Version="1.0.20" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.330701">
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>

@@ -1,9 +1,7 @@
 ﻿namespace ExtendedControlsLibrary.General;
 
-using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using Skinning;
@@ -136,9 +134,9 @@ public class ExtendedManagedCueTextEdit :
     {
         if (_cueLabel == null)
         {
-            _cueLabel = new MyTransparentLabelControlSpecialized();
+            _cueLabel = new();
             _cueLabel.Init(this);
-            Parent.Controls.Add(_cueLabel);
+            Parent?.Controls.Add(_cueLabel);
 
             changeLabelColor();
             changeLabelText();
@@ -215,45 +213,40 @@ public class ExtendedManagedCueTextEdit :
         public FocusPreserver(Control c)
         {
             return;
-            _c = c;
-            _form = c == null ? null : c.FindForm();
-            _focused = c != null && c.Focused;
+            //_c = c;
+            //_form = c == null ? null : c.FindForm();
+            //_focused = c != null && c.Focused;
 
-            preserve();
+            //preserve();
         }
 
         void IDisposable.Dispose()
         {
             return;
-            restore();
+            //restore();
         }
 
-        private void preserve()
-        {
-            if (_form != null)
-            {
-                _prevActive = _form.ActiveControl;
-            }
-        }
+        //private void preserve()
+        //{
+        //    if (_form != null)
+        //    {
+        //        _prevActive = _form.ActiveControl;
+        //    }
+        //}
 
-        private void restore()
-        {
-            if (_form != null)
-            {
-                _form.ActiveControl = _prevActive;
-            }
+        //private void restore()
+        //{
+        //    if (_form != null)
+        //    {
+        //        _form.ActiveControl = _prevActive;
+        //    }
 
-            if (_focused)
-            {
-                _c.Select();
-                _c.Focus();
-
-                //var textEdit = _c as TextEdit;
-                //if (textEdit != null)
-                //{
-                //}
-            }
-        }
+        //    if (_focused)
+        //    {
+        //        _c.Select();
+        //        _c.Focus();
+        //    }
+        //}
     }
 
     internal class MyTransparentLabelControlSpecialized :
@@ -265,7 +258,7 @@ public class ExtendedManagedCueTextEdit :
             //  i.e. Mouse clicks pass through this window
             if (m.Msg == Win32Constants.WM_NCHITTEST)
             {
-                m.Result = new IntPtr(Win32Constants.HTTRANSPARENT);
+                m.Result = new(Win32Constants.HTTRANSPARENT);
                 return;
             }
 

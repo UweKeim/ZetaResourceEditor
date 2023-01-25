@@ -1,6 +1,5 @@
 ﻿namespace ExtendedControlsLibrary.General.TextMeasurement;
 
-using System;
 using System.Drawing;
 using DevExpress.Utils.Drawing;
 
@@ -77,7 +76,7 @@ public static class TextMeasuringController
     {
         if (string.IsNullOrEmpty(information.Text))
         {
-            result.Size = new Size();
+            result.Size = new();
         }
         else if (information.Font == null)
         {
@@ -91,9 +90,9 @@ public static class TextMeasuringController
         {
             throw new ArgumentNullException();
         }
-        else if (information.Control != null && !information.Control.IsHandleCreated)
+        else if (information.Control is { IsHandleCreated: false })
         {
-            throw new Exception("No control handle (yet).");
+            throw new("No control handle (yet).");
         }
         else
         {

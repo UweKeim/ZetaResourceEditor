@@ -1,7 +1,5 @@
 ﻿namespace ExtendedControlsLibrary.General.Base;
 
-using System;
-using System.Windows.Forms;
 using Skinning.CustomRibbonForm;
 using UIUpdating;
 
@@ -21,7 +19,7 @@ public class DevExpressRibbonFormBase :
 
     public static IGuiEnvironment InternalHost { get; protected set; }
 
-    protected UpdateUIController UuiController => _uuiController ?? (_uuiController = new UpdateUIController(this));
+    protected UpdateUIController UuiController => _uuiController ??= new(this);
 
     public virtual void DoUpdateUI(
         UpdateUIInformation information)
@@ -51,7 +49,7 @@ public class DevExpressRibbonFormBase :
     {
         base.OnKeyDown(e);
 
-        if (e.KeyCode == Keys.F1 && !e.Alt && !e.Control && !e.Shift)
+        if (e is { KeyCode: Keys.F1, Alt: false } and { Control: false, Shift: false })
         {
             ExecuteHelp();
             e.Handled = true;
@@ -61,10 +59,7 @@ public class DevExpressRibbonFormBase :
     protected override void OnShown(
         EventArgs e)
     {
-        if (GuiHost != null)
-        {
-            GuiHost.HideSplash();
-        }
+        GuiHost?.HideSplash();
 
         base.OnShown(e);
 

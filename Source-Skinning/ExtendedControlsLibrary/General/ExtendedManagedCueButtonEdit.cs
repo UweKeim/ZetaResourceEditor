@@ -157,9 +157,9 @@ public class ExtendedManagedCueButtonEdit :
     {
         if (_cueLabel == null)
         {
-            _cueLabel = new ExtendedManagedCueTextEdit.MyTransparentLabelControlSpecialized();
+            _cueLabel = new();
             _cueLabel.Init(this);
-            Parent.Controls.Add(_cueLabel);
+            Parent?.Controls.Add(_cueLabel);
 
             changeLabelColor();
             changeLabelText();

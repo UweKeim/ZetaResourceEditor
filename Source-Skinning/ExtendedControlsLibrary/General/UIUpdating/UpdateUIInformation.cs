@@ -1,19 +1,16 @@
 ﻿namespace ExtendedControlsLibrary.General.UIUpdating;
 
-using System;
-
-public class UpdateUIInformation
+[PublicAPI]
+public sealed class UpdateUIInformation
 {
-    private readonly DateTime _createdAt = DateTime.Now;
-    private readonly Guid _token = Guid.NewGuid();
-
     public UpdateUIInformation(object userState = null)
     {
         UserState = userState;
     }
 
-    public object UserState { get; private set; }
+    public object UserState { get; }
 
-    public Guid Token => _token;
-    public DateTime CreatedAt => _createdAt;
+    public Guid Token { get; } = Guid.NewGuid();
+
+    public DateTime CreatedAt { get; } = DateTime.Now;
 }

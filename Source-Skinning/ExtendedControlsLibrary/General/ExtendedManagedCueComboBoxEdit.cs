@@ -1,9 +1,7 @@
 ﻿namespace ExtendedControlsLibrary.General;
 
-using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using Skinning;
@@ -161,9 +159,9 @@ public class ExtendedManagedCueComboBoxEdit :
     {
         if (_cueLabel == null)
         {
-            _cueLabel = new ExtendedManagedCueTextEdit.MyTransparentLabelControlSpecialized();
+            _cueLabel = new();
             _cueLabel.Init(this);
-            Parent.Controls.Add(_cueLabel);
+            Parent?.Controls.Add(_cueLabel);
 
             changeLabelColor();
             changeLabelText();

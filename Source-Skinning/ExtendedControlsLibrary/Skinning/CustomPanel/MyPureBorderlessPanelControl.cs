@@ -1,7 +1,6 @@
 ﻿namespace ExtendedControlsLibrary.Skinning.CustomPanel;
 
 using System.ComponentModel;
-using System.Windows.Forms;
 
 public class MyPureBorderlessPanelControl :
     Panel,
@@ -13,7 +12,7 @@ public class MyPureBorderlessPanelControl :
         base.BackColor = SkinHelper.DialogBackgroundColor;
     }
 
-    protected override Padding DefaultMargin => new Padding(0, 0, 0, 0);
+    protected override Padding DefaultMargin => new(0, 0, 0, 0);
 
     protected override void OnCreateControl()
     {

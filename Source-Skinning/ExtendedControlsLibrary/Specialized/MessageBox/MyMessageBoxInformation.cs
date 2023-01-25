@@ -1,29 +1,27 @@
 ﻿namespace ExtendedControlsLibrary.Specialized.MessageBox;
 
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using Skinning;
 
+[PublicAPI]
 public class MyMessageBoxInformation
 {
     public MyMessageBoxInformation()
     {
-        ButtonTexts = new Dictionary<DialogResult, string>
+        ButtonTexts = new()
         {
-            {DialogResult.Abort, SkinningResources.SR_Button_Abort},
-            {DialogResult.Cancel, SkinningResources.SR_Button_Cancel},
-            {DialogResult.Ignore, SkinningResources.SR_Button_Ignore},
-            {DialogResult.No, SkinningResources.SR_Button_No},
-            {DialogResult.OK, SkinningResources.SR_Button_OK},
-            {DialogResult.Retry, SkinningResources.SR_Button_Retry},
-            {DialogResult.Yes, SkinningResources.SR_Button_Yes},
+            { DialogResult.Abort, SkinningResources.SR_Button_Abort },
+            { DialogResult.Cancel, SkinningResources.SR_Button_Cancel },
+            { DialogResult.Ignore, SkinningResources.SR_Button_Ignore },
+            { DialogResult.No, SkinningResources.SR_Button_No },
+            { DialogResult.OK, SkinningResources.SR_Button_OK },
+            { DialogResult.Retry, SkinningResources.SR_Button_Retry },
+            { DialogResult.Yes, SkinningResources.SR_Button_Yes },
         };
     }
 
-    public IWin32Window Owner { get; set; }
-    public string Text { get; set; }
-    public string Caption { get; set; }
+    public IWin32Window? Owner { get; set; }
+    public string? Text { get; set; }
+    public string? Caption { get; set; }
     public MessageBoxButtons Buttons { get; set; }
     public MessageBoxIcon Icon { get; set; }
     public MessageBoxDefaultButton DefaultButton { get; set; }
@@ -39,9 +37,9 @@ public class MyMessageBoxInformation
 
     public bool VisualCloseCountDown { get; set; }
 
-    public Dictionary<DialogResult, string> ButtonTexts { get; private set; }
+    public Dictionary<DialogResult, string> ButtonTexts { get; }
 
-    internal IWin32Window EffectiveOwner => findOwner(Owner);
+    internal IWin32Window? EffectiveOwner => findOwner(Owner);
 
     public MyMessageBoxInformation SetButtonText(
         DialogResult button,
@@ -51,7 +49,7 @@ public class MyMessageBoxInformation
         return this; // Fluent interface.
     }
 
-    internal static IWin32Window findOwner(IWin32Window owner)
+    internal static IWin32Window? findOwner(IWin32Window? owner)
     {
         switch (owner)
         {
@@ -75,22 +73,15 @@ public class MyMessageBoxInformation
         }
     }
 
-    private static IWin32Window checkForm(Form form)
+    private static IWin32Window? checkForm(Form? form)
     {
-        if(form==null)
+        if (form == null)
         {
             return null;
         }
         else
         {
-            if (form.IsHandleCreated && form.Visible)
-            {
-                return form;
-            }
-            else
-            {
-                return checkForm(form.ParentForm);
-            }
+            return form is { IsHandleCreated: true, Visible: true } ? form : checkForm(form.ParentForm);
         }
     }
 }

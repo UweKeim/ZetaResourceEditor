@@ -403,8 +403,8 @@
   <data name="textControl.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 13px</value>
   </data>
-  <assembly alias="DevExpress.XtraEditors.v21.2" name="DevExpress.XtraEditors.v21.2, Version=21.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="textControl.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v21.2">
+  <assembly alias="DevExpress.XtraEditors.v22.2" name="DevExpress.XtraEditors.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="textControl.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v22.2">
     <value>None</value>
   </data>
   <data name="textControl.Location" type="System.Drawing.Point, System.Drawing">

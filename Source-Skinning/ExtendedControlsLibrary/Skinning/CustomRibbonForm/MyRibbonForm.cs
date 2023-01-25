@@ -1,8 +1,6 @@
 ﻿namespace ExtendedControlsLibrary.Skinning.CustomRibbonForm;
 
-using System;
 using System.ComponentModel;
-using System.Windows.Forms;
 using CustomForm;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;

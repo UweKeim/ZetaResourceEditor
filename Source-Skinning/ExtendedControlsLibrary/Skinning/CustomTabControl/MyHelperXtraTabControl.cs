@@ -1,7 +1,6 @@
 ﻿namespace ExtendedControlsLibrary.Skinning.CustomTabControl;
 
 using System.ComponentModel;
-using System.Windows.Forms;
 using DevExpress.LookAndFeel;
 using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
@@ -35,26 +34,26 @@ public class MyHelperXtraTabControl :
         tabControl.LookAndFeel.Style = LookAndFeelStyle.Flat;
         tabControl.LookAndFeel.UseDefaultLookAndFeel = false;
 
-        tabControl.Padding = new Padding(9);
-        tabControl.Margin = new Padding(9);
+        tabControl.Padding = new(9);
+        tabControl.Margin = new(9);
 
         foreach (XtraTabPage page in tabControl.TabPages)
         {
-            page.Padding = new Padding(0);
-            page.Margin = new Padding(0);
+            page.Padding = new(0);
+            page.Margin = new(0);
         }
     }
 
     protected override void OnKeyDown(KeyEventArgs e)
     {
-        if (DisallowKeyboardTabChange && e.Control && e.KeyCode == Keys.Tab)
+        if (DisallowKeyboardTabChange && e is { Control: true, KeyCode: Keys.Tab })
         {
             e.SuppressKeyPress = true;
         }
 
         base.OnKeyDown(e);
 
-        if (DisallowKeyboardTabChange && e.Control && e.KeyCode == Keys.Tab)
+        if (DisallowKeyboardTabChange && e is { Control: true, KeyCode: Keys.Tab })
         {
             e.SuppressKeyPress = true;
         }

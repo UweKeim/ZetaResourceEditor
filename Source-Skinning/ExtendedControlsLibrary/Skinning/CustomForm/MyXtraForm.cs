@@ -3,10 +3,8 @@
 using DevExpress.Utils.Menu;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
-using System;
 using System.ComponentModel;
 using System.Reflection;
-using System.Windows.Forms;
 
 public class MyXtraForm :
     XtraForm
@@ -45,7 +43,7 @@ public class MyXtraForm :
     {
         if (c == null || c.IsDisposed) return null;
 
-        return !(c.FindForm() is MyXtraForm form) || form.IsDisposed ? null : form.GetMenuBarManager();
+        return c.FindForm() is not MyXtraForm form || form.IsDisposed ? null : form.GetMenuBarManager();
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]

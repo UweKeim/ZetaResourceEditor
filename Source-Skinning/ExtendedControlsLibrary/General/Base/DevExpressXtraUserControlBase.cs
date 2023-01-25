@@ -14,7 +14,7 @@ public class DevExpressXtraUserControlBase :
 
     public IGuiEnvironment GuiHost => DevExpressXtraFormBase.InternalHost;
 
-    protected UpdateUIController UuiController => _uuiController ?? (_uuiController = new UpdateUIController(this));
+    protected UpdateUIController UuiController => _uuiController ??= new(this);
 
     public virtual void DoUpdateUI(
         UpdateUIInformation information)
