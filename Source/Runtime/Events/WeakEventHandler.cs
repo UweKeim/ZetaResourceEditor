@@ -78,7 +78,7 @@ public sealed class WeakEventHandler
 
     internal WeakEventHandler( object listeningObject )
     {
-        ListeningReference = new WeakReference( listeningObject );
+        ListeningReference = new( listeningObject );
     }
 
     private EventHandler MakeDeregisterCodeAndWeakEventHandler

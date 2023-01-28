@@ -24,8 +24,8 @@ public class TreeListViewState
         ZetaResourceEditorTreeListControl treeList )
     {
         _treeList = treeList;
-        _expanded = new List<Guid>();
-        _selected = new List<Guid>();
+        _expanded = new();
+        _selected = new();
     }
 
     public void Clear()

@@ -241,7 +241,7 @@ public partial class BackgroundWorkerLongProgressForm :
             DialogResult = DialogResult.Cancel;
             Close();
 
-            throw new Exception(
+            throw new(
                 "Error received from background worker. See inner exception for details.",
                 e.Error);
         }

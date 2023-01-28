@@ -18,9 +18,9 @@ internal static class ImageCollectionHelper
         {
             if (_ic16 == null)
             {
-                _ic16 = new ImageCollection
+                _ic16 = new()
                 {
-                    ImageSize = new Size(16, 16)
+                    ImageSize = new(16, 16)
                 };
 
                 _ic16.Images.Add(ImageResources.root_16, @"root");
@@ -51,9 +51,9 @@ internal static class ImageCollectionHelper
         {
             if (_ic32 == null)
             {
-                _ic32 = new ImageCollection
+                _ic32 = new()
                 {
-                    ImageSize = new Size(32, 32)
+                    ImageSize = new(32, 32)
                 };
 
                 _ic32.Images.Add(ImageResources.update_1_32, @"heart-1");

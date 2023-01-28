@@ -27,7 +27,7 @@ public class PageBase :
         set => ViewState[@"Title3"] = value;
     }
 
-    public PageLoadTaskPerformer LoadTaskPerformer => _loadTaskPerformer ??= new PageLoadTaskPerformer(this);
+    public PageLoadTaskPerformer LoadTaskPerformer => _loadTaskPerformer ??= new(this);
 
     protected override void OnLoad( EventArgs e )
     {

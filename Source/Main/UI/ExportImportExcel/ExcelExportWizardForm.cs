@@ -467,7 +467,7 @@ public partial class ExcelExportWizardForm :
         }
         else
         {
-            throw new Exception();
+            throw new();
         }
     }
 
@@ -1049,7 +1049,7 @@ public partial class ExcelExportWizardForm :
                 }
                 else
                 {
-                    throw new Exception(
+                    throw new(
                         Resources.SR_ExportWizardForm_buttonDecorateAutomatically_Click_Unexpected_condition);
                 }
 

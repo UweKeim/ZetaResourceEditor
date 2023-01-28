@@ -12,7 +12,6 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraSpellChecker;
 using DevExpress.XtraTab;
-using ExtendedControlsLibrary.General.Base;
 using Helper.Base;
 using Helper.Grid;
 using Helper.Progress;
@@ -26,6 +25,8 @@ using RuntimeBusinessLogic.Projects;
 using System.Data;
 using System.Linq;
 using Code;
+using ExtendedControlsLibrary.General.Base;
+using ExtendedControlsLibrary.Specialized;
 using TagOperations;
 using Tools;
 
@@ -342,7 +343,7 @@ public partial class ResourceEditorUserControl :
         closeDataGrid();
 
         GridEditableData = gridEditableData;
-        _data = new DataProcessing(gridEditableData);
+        _data = new(gridEditableData);
 
         // ReSharper disable ConvertIfStatementToConditionalTernaryExpression
         if (gridEditableData.GetFileInformationsSorted().Length > 0)
@@ -887,7 +888,7 @@ public partial class ResourceEditorUserControl :
                 if (project is { PersistGridSettings: true })
                 {
                     _layoutSerializer =
-                        new AllLayoutSerializer(
+                        new(
                             mainGridView,
                             project.DynamicSettingsGlobalHierarchical,
                             @"ResourceEditorGrid");
@@ -1287,7 +1288,7 @@ public partial class ResourceEditorUserControl :
             if (_boldFont == null)
                 // ReSharper restore ConvertIfStatementToNullCoalescingExpression
             {
-                _boldFont = new Font(Font, FontStyle.Bold);
+                _boldFont = new(Font, FontStyle.Bold);
             }
 
             return _boldFont;
@@ -1302,7 +1303,7 @@ public partial class ResourceEditorUserControl :
             if (_regularFont == null)
                 // ReSharper restore ConvertIfStatementToNullCoalescingExpression
             {
-                _regularFont = new Font(Font, FontStyle.Regular);
+                _regularFont = new(Font, FontStyle.Regular);
             }
 
             return _regularFont;
@@ -1317,7 +1318,7 @@ public partial class ResourceEditorUserControl :
             if (_italicFont == null)
                 // ReSharper restore ConvertIfStatementToNullCoalescingExpression
             {
-                _italicFont = new Font(Font, FontStyle.Italic);
+                _italicFont = new(Font, FontStyle.Italic);
             }
 
             return _italicFont;
@@ -1493,7 +1494,7 @@ public partial class ResourceEditorUserControl :
             if (_mainGridHelper == null)
                 // ReSharper restore ConvertIfStatementToNullCoalescingExpression
             {
-                _mainGridHelper = new GridViewHelper(mainGridView);
+                _mainGridHelper = new(mainGridView);
             }
 
             return _mainGridHelper;

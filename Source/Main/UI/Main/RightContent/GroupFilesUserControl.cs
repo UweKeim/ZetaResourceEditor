@@ -323,7 +323,7 @@ public partial class GroupFilesUserControl :
                     {
                         if (File.Exists(filePath))
                         {
-                            filePaths.Add(new FileInfo(filePath));
+                            filePaths.Add(new(filePath));
                         }
                     }
 

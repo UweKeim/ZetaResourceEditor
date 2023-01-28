@@ -93,7 +93,7 @@ public class SetupUploadService :
             }
             else
             {
-                throw new Exception(
+                throw new(
                     $"Invalid API key '{apiKey}'.");
             }
         }

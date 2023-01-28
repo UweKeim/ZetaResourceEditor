@@ -46,7 +46,7 @@ public sealed class FileGroupsMerger
 
         if (!s1.EqualsNoCase(s2))
         {
-            throw new Exception(
+            throw new(
                 $"File group '{fileGroup1.GetNameIntelligent(_project)}' and file group '{fileGroup2.GetFullNameIntelligent(_project)}' have different languages " +
                 $"({s1} and {s2}). " +
                 Environment.NewLine +
@@ -98,7 +98,7 @@ public sealed class FileGroupsMerger
 
                 if (nameSrc.EqualsNoCase(nameDst))
                 {
-                    throw new Exception(
+                    throw new(
                         $"File group '{fileGroupDst.GetNameIntelligent(_project)}' and file group '{fileGroupSrc.GetFullNameIntelligent(_project)}' contains the same " +
                         $"tag '{nameDst}'. " +
                         Environment.NewLine +

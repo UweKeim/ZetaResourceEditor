@@ -21,7 +21,7 @@ public class DownloadSetup :
 
             if (string.IsNullOrEmpty(fileName))
             {
-                throw new Exception(
+                throw new(
                     "No file name specified.");
             }
             else
@@ -52,7 +52,7 @@ public class DownloadSetup :
                 }
                 else
                 {
-                    throw new Exception(
+                    throw new(
                         $"File '{fileName}' was not found.");
                 }
             }

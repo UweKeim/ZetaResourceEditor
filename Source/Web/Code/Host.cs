@@ -17,7 +17,7 @@ public class Host
                 if ( host == null )
                     // ReSharper restore ConditionIsAlwaysTrueOrFalse
                 {
-                    host = new Host();
+                    host = new();
                     host.initialize();
                     context.Session[@"Host.Current"] = host;
                 }
@@ -31,7 +31,7 @@ public class Host
 
     private void initialize()
     {
-        ElementManager = new ElementManager();
+        ElementManager = new();
     }
 
     public ElementManager ElementManager { get; private set; }

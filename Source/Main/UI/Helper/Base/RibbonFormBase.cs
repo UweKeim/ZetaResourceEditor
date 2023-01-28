@@ -36,7 +36,7 @@ public partial class RibbonFormBase :
     {
         WinFormsPersistanceHelper.RestoreState(
             this,
-            new RestoreInformation
+            new()
             {
                 SuggestZoomPercent = zoom,
                 //RespectWindowRatio = false

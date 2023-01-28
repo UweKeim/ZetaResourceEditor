@@ -71,7 +71,7 @@ public partial class CreateNewFilesForm :
             // ReSharper restore LoopCanBeConvertedToQuery
         {
             items.Add(
-                new MyTuple<string, CultureInfo>(
+                new(
                     $@"{
                         (plcl.Contains(culture.Name.ToLowerInvariant()) ? @"* " : string.Empty)
                     }{culture.DisplayName} [{culture.Name}]",

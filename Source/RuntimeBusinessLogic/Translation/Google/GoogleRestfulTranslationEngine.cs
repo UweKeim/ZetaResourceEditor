@@ -45,7 +45,7 @@ public class GoogleRestfulTranslationEngine :
                     foreach (var language in nodes)
                     {
                         result.Add(
-                            new TranslationLanguageInfo
+                            new()
                             {
                                 LanguageCode = language.Code,
                                 UserReadableName = language.Name,
@@ -112,7 +112,7 @@ public class GoogleRestfulTranslationEngine :
         {
             result.Add(
                 TranslationHelper.UnprotectWords(
-                    new TranslationHelper.ProtectionResult
+                    new()
                     {
                         ProtectedText = translatedText.TranslatedText,
                         WordsToProtect = wordsToProtect,

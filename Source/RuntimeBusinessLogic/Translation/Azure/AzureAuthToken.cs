@@ -122,7 +122,7 @@ public class AzureAuthToken
 
         if (task.IsCanceled)
         {
-            throw new Exception("Timeout obtaining access token.");
+            throw new("Timeout obtaining access token.");
         }
 
         return accessToken;

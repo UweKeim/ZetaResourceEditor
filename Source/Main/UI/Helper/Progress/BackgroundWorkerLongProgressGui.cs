@@ -1208,7 +1208,7 @@ public class BackgroundWorkerLongProgressGui :
 
         if ( use )
         {
-            _progressWindow = new BackgroundWorkerLongProgressForm();
+            _progressWindow = new();
             _progressWindow.DoWork += worker;
 
             if ( progressChanged != null )
@@ -1264,7 +1264,7 @@ public class BackgroundWorkerLongProgressGui :
     {
         if ( e.Error != null )
         {
-            throw new Exception(
+            throw new(
                 "Error during processing.", 
                 e.Error );
         }

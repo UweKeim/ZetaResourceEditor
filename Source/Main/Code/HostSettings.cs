@@ -13,7 +13,7 @@ internal sealed class HostSettings
             {
                 lock (TypeLock)
                 {
-                    _current ??= new HostSettings();
+                    _current ??= new();
                 }
             }
 

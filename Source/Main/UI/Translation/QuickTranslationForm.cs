@@ -80,11 +80,11 @@ public partial class QuickTranslationForm : FormBase
 
         var sls =
             engine.AreAppIDsSyntacticallyValid(appID)
-                ? new List<TranslationLanguageInfo>(engine.GetSourceLanguages(appID))
+                ? new(engine.GetSourceLanguages(appID))
                 : new List<TranslationLanguageInfo>();
         var dls =
             engine.AreAppIDsSyntacticallyValid(appID)
-                ? new List<TranslationLanguageInfo>(engine.GetDestinationLanguages(appID))
+                ? new(engine.GetDestinationLanguages(appID))
                 : new List<TranslationLanguageInfo>();
 
         sls.Sort((x, y) => string.CompareOrdinal(x.UserReadableName, y.UserReadableName));

@@ -44,7 +44,7 @@ public partial class AddNewFileGroupForm :
             // ReSharper restore LoopCanBeConvertedToQuery
         {
             items.Add(
-                new MyTuple<string, CultureInfo>(
+                new(
                     $@"{(plcl.Contains(culture.Name.ToLowerInvariant()) ? @"* " : string.Empty)}{culture.DisplayName} [{
                         culture.Name
                     }]",
@@ -198,9 +198,9 @@ public partial class AddNewFileGroupForm :
                                                ? baseFileName + extension
                                                : generateFileName(fg, culture);
 
-                                       fg.Add(new FileInformation(fg)
+                                       fg.Add(new(fg)
                                        {
-                                           File = new FileInfo(fileName)
+                                           File = new(fileName)
                                        });
                                    }
 
@@ -218,7 +218,7 @@ public partial class AddNewFileGroupForm :
                                        // --
                                        // Second pass, add all existing.
 
-                                       fg = new FileGroup(_project);
+                                       fg = new(_project);
 
                                        foreach (var culture in cultures)
                                        {
@@ -236,9 +236,9 @@ public partial class AddNewFileGroupForm :
 
                                            if (_project.IsNeutralLanguage(culture))
                                            {
-                                               ffi = new FileInformation(fg)
+                                               ffi = new(fg)
                                                {
-                                                   File = new FileInfo(ZspPathHelper.Combine(baseFolderPath, fileName))
+                                                   File = new(ZspPathHelper.Combine(baseFolderPath, fileName))
                                                };
                                                fg.Add(ffi);
                                            }

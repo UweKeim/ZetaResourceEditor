@@ -18,7 +18,7 @@ public sealed class DataProcessing
 
     private void loadFiles()
     {
-        _resxFiles = new List<ResxFile>();
+        _resxFiles = new();
 
         foreach (var item in _gridEditableData.GetFileInformationsSorted())
         {
@@ -31,7 +31,7 @@ public sealed class DataProcessing
                     doc.Normalize();
 
                     _resxFiles.Add(
-                        new ResxFile
+                        new()
                         {
                             FileInformation = item,
                             FilePath = item.File,
@@ -72,7 +72,7 @@ public sealed class DataProcessing
                                         case AskOverwriteResult.Skip:
                                             continue;
                                         case AskOverwriteResult.Fail:
-                                            throw new Exception(
+                                            throw new(
                                                 string.Format(
                                                     Resources
                                                         .SR_DataProcessing_storeFiles_Save_operation_was_cancelled_at_file,
@@ -86,7 +86,7 @@ public sealed class DataProcessing
                             case ReadOnlyFileOverwriteBehaviour.Skip:
                                 continue;
                             case ReadOnlyFileOverwriteBehaviour.Fail:
-                                throw new Exception(
+                                throw new(
                                     string.Format(
                                         Resources
                                             .SR_DataProcessing_storeFiles_Saving_failed_because_of_read_only_file,
@@ -641,7 +641,7 @@ public sealed class DataProcessing
                 {
                     // Remove ReadOnly-attribute.
                     removeReadOnlyAttributes(
-                        new FileInfo(bak.FullName + @".bak"));
+                        new(bak.FullName + @".bak"));
                     ZspSafeFileOperations.SafeDeleteFile(bak + @".bak");
                 }
 

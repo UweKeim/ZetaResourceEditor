@@ -44,7 +44,7 @@ public partial class ZetaResourceEditorTreeListControl :
             node.Nodes[0][0] as string == DummyNode ||
             node[0] as string == DummyNode)
         {
-            ExpandDynamicChildren?.Invoke(this, new ExpandDynamicChildrenEventArgs(node));
+            ExpandDynamicChildren?.Invoke(this, new(node));
         }
     }
 

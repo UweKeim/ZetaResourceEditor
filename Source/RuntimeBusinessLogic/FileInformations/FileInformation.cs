@@ -96,7 +96,7 @@ public class FileInformation :
 
         if (!string.IsNullOrEmpty(filePath) && System.IO.File.Exists(filePath))
         {
-            File = new FileInfo(filePath);
+            File = new(filePath);
             return true;
         }
         else
@@ -112,7 +112,7 @@ public class FileInformation :
 
             if (!string.IsNullOrEmpty(filePath) && System.IO.File.Exists(filePath))
             {
-                File = new FileInfo(filePath);
+                File = new(filePath);
                 return true;
             }
             else
@@ -145,7 +145,7 @@ public class FileInformation :
 
                     if (!string.IsNullOrEmpty(filePath) && System.IO.File.Exists(filePath))
                     {
-                        File = new FileInfo(filePath);
+                        File = new(filePath);
                         return true;
                     }
                     else

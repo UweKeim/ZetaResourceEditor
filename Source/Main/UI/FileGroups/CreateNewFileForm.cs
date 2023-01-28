@@ -48,7 +48,7 @@ public partial class CreateNewFileForm :
 
         foreach (var culture in CultureInfo.GetCultures(CultureTypes.AllCultures))
         {
-            items.Add(new MyTuple<string, CultureInfo>(culture.DisplayName, culture));
+            items.Add(new(culture.DisplayName, culture));
         }
 
         items.Sort((x, y) => string.CompareOrdinal(x.Item1, y.Item1));

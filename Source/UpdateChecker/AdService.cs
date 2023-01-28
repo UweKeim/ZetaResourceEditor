@@ -75,7 +75,7 @@ public class AdService :
     {
         try
         {
-            return GetNextAd(new AdRequest());
+            return GetNextAd(new());
         }
         catch (Exception x)
         {

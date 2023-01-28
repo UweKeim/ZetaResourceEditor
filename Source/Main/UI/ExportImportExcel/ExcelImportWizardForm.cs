@@ -102,7 +102,7 @@ public partial class ExcelImportWizardForm :
         }
         else
         {
-            throw new Exception();
+            throw new();
         }
     }
 

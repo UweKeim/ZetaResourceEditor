@@ -28,63 +28,80 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextBoxForm));
-            this.textMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
-            this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.textMemoEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // textMemoEdit
-            // 
-            resources.ApplyResources(this.textMemoEdit, "textMemoEdit");
-            this.textMemoEdit.Name = "textMemoEdit";
-            this.textMemoEdit.Properties.Appearance.BackColor = ((System.Drawing.Color)(resources.GetObject("textMemoEdit.Properties.Appearance.BackColor")));
-            this.textMemoEdit.Properties.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("textMemoEdit.Properties.Appearance.Font")));
-            this.textMemoEdit.Properties.Appearance.Options.UseBackColor = true;
-            this.textMemoEdit.Properties.Appearance.Options.UseFont = true;
-            this.textMemoEdit.Properties.NullValuePrompt = resources.GetString("textMemoEdit.Properties.NullValuePrompt");
-            this.textMemoEdit.Properties.ReadOnly = true;
-            this.textMemoEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textMemoEdit_KeyDown);
-            // 
-            // buttonCancel
-            // 
-            resources.ApplyResources(this.buttonCancel, "buttonCancel");
-            this.buttonCancel.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("buttonCancel.Appearance.Font")));
-            this.buttonCancel.Appearance.Options.UseFont = true;
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.WantDrawFocusRectangle = true;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Appearance.BackColor = ((System.Drawing.Color)(resources.GetObject("panelControl1.Appearance.BackColor")));
-            this.panelControl1.Appearance.Options.UseBackColor = true;
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.textMemoEdit);
-            this.panelControl1.Controls.Add(this.buttonCancel);
-            resources.ApplyResources(this.panelControl1, "panelControl1");
-            this.panelControl1.Name = "panelControl1";
-            // 
-            // TextBoxForm
-            // 
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.panelControl1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "TextBoxForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.textBoxForm_FormClosing);
-            this.Load += new System.EventHandler(this.textBoxForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.textMemoEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.ResumeLayout(false);
+			this.textMemoEdit = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
+			this.buttonCancel = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			this.panelControl1 = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
+			((System.ComponentModel.ISupportInitialize)(this.textMemoEdit.Properties)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+			this.panelControl1.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// textMemoEdit
+			// 
+			this.textMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textMemoEdit.CueText = null;
+			this.textMemoEdit.Location = new System.Drawing.Point(12, 12);
+			this.textMemoEdit.Name = "textMemoEdit";
+			this.textMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.textMemoEdit.Properties.Appearance.Options.UseBackColor = true;
+			this.textMemoEdit.Properties.Appearance.Options.UseFont = true;
+			this.textMemoEdit.Properties.NullValuePrompt = null;
+			this.textMemoEdit.Properties.ReadOnly = true;
+			this.textMemoEdit.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
+			this.textMemoEdit.Size = new System.Drawing.Size(460, 453);
+			this.textMemoEdit.TabIndex = 0;
+			this.textMemoEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textMemoEdit_KeyDown);
+			// 
+			// buttonCancel
+			// 
+			this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.buttonCancel.Appearance.Options.UseFont = true;
+			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.buttonCancel.Location = new System.Drawing.Point(397, 476);
+			this.buttonCancel.Name = "buttonCancel";
+			this.buttonCancel.Size = new System.Drawing.Size(75, 28);
+			this.buttonCancel.TabIndex = 0;
+			this.buttonCancel.Text = "Close";
+			this.buttonCancel.WantDrawFocusRectangle = true;
+			// 
+			// panelControl1
+			// 
+			this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
+			this.panelControl1.Appearance.Options.UseBackColor = true;
+			this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+			this.panelControl1.Controls.Add(this.textMemoEdit);
+			this.panelControl1.Controls.Add(this.buttonCancel);
+			this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelControl1.Location = new System.Drawing.Point(0, 0);
+			this.panelControl1.Name = "panelControl1";
+			this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
+			this.panelControl1.Size = new System.Drawing.Size(484, 516);
+			this.panelControl1.TabIndex = 3;
+			// 
+			// TextBoxForm
+			// 
+			this.Appearance.Options.UseFont = true;
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+			this.ClientSize = new System.Drawing.Size(484, 516);
+			this.Controls.Add(this.panelControl1);
+			this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+			this.IconOptions.ShowIcon = false;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(486, 552);
+			this.Name = "TextBoxForm";
+			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "Text";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.textBoxForm_FormClosing);
+			this.Load += new System.EventHandler(this.textBoxForm_Load);
+			((System.ComponentModel.ISupportInitialize)(this.textMemoEdit.Properties)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+			this.panelControl1.ResumeLayout(false);
+			this.ResumeLayout(false);
 
 		}
 

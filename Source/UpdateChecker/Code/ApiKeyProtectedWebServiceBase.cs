@@ -20,7 +20,7 @@ public class ApiKeyProtectedWebServiceBase :
         }
         else if (string.Compare(apiKey, referenceApiKey, StringComparison.OrdinalIgnoreCase) != 0)
         {
-            throw new Exception("Invalid API key.");
+            throw new("Invalid API key.");
         }
     }
 }

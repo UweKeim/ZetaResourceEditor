@@ -64,7 +64,7 @@ internal sealed class Host
 
             // http://community.devexpress.com/forums/t/80133.aspx
 
-            SkinHelper.InitializeAll();
+            SkinHelper.InitializeAll(true);
 
             // --
 
@@ -111,7 +111,7 @@ internal sealed class Host
         }
     }
 
-    private static Assembly CurrentDomain_ResolveAssembly(object sender, ResolveEventArgs e)
+    private static Assembly? CurrentDomain_ResolveAssembly(object sender, ResolveEventArgs e)
     {
         // Hier mache ich quasi mein eigenes, automatisches, Binding-Redirect.
         // (z.B. Newtonsoft.Json 6.0.0.0 nach 9.0.0.0).
@@ -137,13 +137,13 @@ internal sealed class Host
                 {
                     Thread.CurrentThread.CurrentCulture =
                         Thread.CurrentThread.CurrentUICulture =
-                            Application.CurrentCulture = new CultureInfo(@"de-DE");
+                            Application.CurrentCulture = new(@"de-DE");
                 }
                 else if (f.StartsWith(@"en"))
                 {
                     Thread.CurrentThread.CurrentCulture =
                         Thread.CurrentThread.CurrentUICulture =
-                            Application.CurrentCulture = new CultureInfo(@"en-US");
+                            Application.CurrentCulture = new(@"en-US");
                 }
             }
         }
@@ -269,7 +269,7 @@ internal sealed class Host
     }
 
     private static void storageError(
-        object sender,
+        object? sender,
         PersistentPairStorageErrorEventArgs args)
     {
         if (args.RetryCount <= 2)

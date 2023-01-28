@@ -49,7 +49,7 @@ public class ExcelExportController
                             // ReSharper restore LoopCanBeConvertedToQuery
                         {
                             preparedInformations.Add(
-                                new PreparedInformation
+                                new()
                                 {
                                     DestinationFilePath =
                                         replacePlaceholders(
@@ -84,7 +84,7 @@ public class ExcelExportController
                         // ReSharper restore LoopCanBeConvertedToQuery
                     {
                         preparedInformations.Add(
-                            new PreparedInformation
+                            new()
                             {
                                 DestinationFilePath =
                                     replacePlaceholders(
@@ -119,7 +119,7 @@ public class ExcelExportController
                         // ReSharper restore LoopCanBeConvertedToQuery
                     {
                         preparedInformations.Add(
-                            new PreparedInformation
+                            new()
                             {
                                 DestinationFilePath =
                                     replacePlaceholders(
@@ -155,7 +155,7 @@ public class ExcelExportController
             // Only one.
 
             preparedInformations.Add(
-                new PreparedInformation
+                new()
                 {
                     DestinationFilePath =
                         replacePlaceholders(
@@ -231,7 +231,7 @@ public class ExcelExportController
                             index = Math.Abs(Guid.NewGuid().GetHashCode());
                             guidCount++;
 
-                            if (guidCount > 100) throw new Exception(Resources.FailedToGenerateUniqueFileNames);
+                            if (guidCount > 100) throw new(Resources.FailedToGenerateUniqueFileNames);
                         }
                     }
                 }

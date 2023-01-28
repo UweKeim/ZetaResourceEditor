@@ -3,10 +3,10 @@ namespace ZetaResourceEditor.UI.Helper.Base;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraSpellChecker;
 using DevExpress.XtraTab;
-using ExtendedControlsLibrary.General.Base;
 using Main;
 using RuntimeBusinessLogic.Language;
 using System.IO;
+using ExtendedControlsLibrary.General.Base;
 
 public partial class FormBase :
     DevExpressXtraFormBase
@@ -39,7 +39,7 @@ public partial class FormBase :
             }
 
             // 2010-11-25, Uwe Keim. Experimentally.
-            AutoScaleMode = AutoScaleMode.None;
+            //AutoScaleMode = AutoScaleMode.None;
         }
 
         base.OnLoad(e);
@@ -115,7 +115,7 @@ public partial class FormBase :
 
         WinFormsPersistanceHelper.RestoreState(
             this,
-            new RestoreInformation
+            new()
             {
                 SuggestZoomPercent = zoom,
                 //RespectWindowRatio = false

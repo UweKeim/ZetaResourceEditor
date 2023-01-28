@@ -29,7 +29,7 @@ public static class AsyncHelper
         {
             OldContext = SynchronizationContext.Current;
             CurrentContext =
-                new ExclusiveSynchronizationContext(OldContext);
+                new(OldContext);
             SynchronizationContext
                 .SetSynchronizationContext(CurrentContext);
         }
@@ -140,7 +140,7 @@ public static class AsyncHelper
     /// </summary>
     public static AsyncBridge Wait
     {
-        get { return new AsyncBridge(); }
+        get { return new(); }
     }
 
     /// <summary>
@@ -175,8 +175,7 @@ public static class AsyncHelper
 
     private class ExclusiveSynchronizationContext : SynchronizationContext
     {
-        private readonly AutoResetEvent _workItemsWaiting =
-            new AutoResetEvent(false);
+        private readonly AutoResetEvent _workItemsWaiting = new(false);
 
         private bool _done;
         private EventQueue _items;
@@ -194,7 +193,7 @@ public static class AsyncHelper
             }
             else
             {
-                this._items = new EventQueue();
+                this._items = new();
             }
         }
 

@@ -44,7 +44,7 @@ public partial class TextBoxForm :
 
             if (_hasConsolas)
             {
-                textMemoEdit.Font = new Font(@"Consolas", textMemoEdit.Font.Size);
+                textMemoEdit.Font = new(@"Consolas", textMemoEdit.Font.Size);
             }
         }
     }

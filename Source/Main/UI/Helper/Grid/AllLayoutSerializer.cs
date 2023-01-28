@@ -12,8 +12,8 @@ internal class AllLayoutSerializer
         IPersistentPairStorage storage,
         string key)
     {
-        _filterSerializer = new FilterSerializer(gridView, storage, key);
-        _sortSerializer = new SortSerializer(gridView, storage, key);
+        _filterSerializer = new(gridView, storage, key);
+        _sortSerializer = new(gridView, storage, key);
     }
 
     public void Save()

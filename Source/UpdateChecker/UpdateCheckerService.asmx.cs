@@ -149,7 +149,7 @@ public class UpdateCheckerService :
             else
             {
                 result =
-                    new Version(
+                    new(
                         ConfigurationManager.AppSettings[@"updateChecker.availableAssemblyVersion"]);
             }
 
@@ -164,7 +164,7 @@ public class UpdateCheckerService :
 
         var filePaths =
             Directory.Exists(searchFolderPath)
-                ? new List<string>(Directory.GetFiles(searchFolderPath, @"ZetaResourceEditor.exe*"))
+                ? new(Directory.GetFiles(searchFolderPath, @"ZetaResourceEditor.exe*"))
                 : new List<string>();
 
         // Latest first.
@@ -190,7 +190,7 @@ public class UpdateCheckerService :
 
         var filePaths =
             Directory.Exists(searchFolderPath)
-                ? new List<string>(Directory.GetFiles(searchFolderPath, @"ZetaResourceEditor-setup.exe*"))
+                ? new(Directory.GetFiles(searchFolderPath, @"ZetaResourceEditor-setup.exe*"))
                 : new List<string>();
 
         // Latest first.

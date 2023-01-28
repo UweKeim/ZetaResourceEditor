@@ -83,7 +83,7 @@ public class VisualStudioImporter
                          include.ToLowerInvariant().EndsWith(@".resw")))
                     {
                         var fullPath = ZspPathHelper.Combine(vsProjectPath.DirectoryName, include);
-                        filePaths.Add(new FileInfo(fullPath));
+                        filePaths.Add(new(fullPath));
                     }
                 }
 
@@ -148,7 +148,7 @@ public class VisualStudioImporter
                     if (fileGroup == null)
                     {
                         fileGroup =
-                            new FileGroup(Project)
+                            new(Project)
                             {
                                 ProjectFolder = parentProjectFolder
                             };
@@ -164,7 +164,7 @@ public class VisualStudioImporter
                     }
 
                     fileGroup.Add(
-                        new FileInformation(fileGroup)
+                        new(fileGroup)
                         {
                             File = filePath
                         });
@@ -282,7 +282,7 @@ public class VisualStudioImporter
                 if (pf == null)
                 {
                     pf =
-                        new ProjectFolder(Project)
+                        new(Project)
                         {
                             Name = projectName,
                             Parent = parentProjectFolder

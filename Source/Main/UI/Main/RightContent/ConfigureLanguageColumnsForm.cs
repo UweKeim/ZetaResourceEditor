@@ -141,7 +141,7 @@ public partial class ConfigureLanguageColumnsForm :
             if (!string.IsNullOrEmpty(languageCode))
             {
                 pairs.Add(
-                    new MyTuple<string, string>(
+                    new(
                         $@"{LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName} ({languageCode})",
                         languageCode));
             }

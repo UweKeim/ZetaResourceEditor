@@ -40,7 +40,7 @@ public partial class DeleteLanguageForm :
         {
             if (plcl.Contains(culture.Name.ToLowerInvariant()))
             {
-                items.Add(new MyTuple<string, CultureInfo>($@"{culture.DisplayName} [{culture.Name}]", culture));
+                items.Add(new($@"{culture.DisplayName} [{culture.Name}]", culture));
             }
         }
 

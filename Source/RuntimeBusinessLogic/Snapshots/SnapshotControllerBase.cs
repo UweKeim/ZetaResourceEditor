@@ -32,7 +32,7 @@ public abstract class SnapshotControllerBase
                 {
                     CommandText = @"DELETE FROM ZreSettings WHERE Value1=@Value1"
                 };
-            cmd.Parameters.Add(new SQLiteParameter(@"@Value1") { Value = key });
+            cmd.Parameters.Add(new(@"@Value1") { Value = key });
 
             cmd.ExecuteNonQuery();
         }
@@ -55,8 +55,8 @@ public abstract class SnapshotControllerBase
                     {
                         CommandText = @"INSERT INTO ZreSettings (Value1, Value2) VALUES (@Value1, @Value2)"
                     };
-                cmd.Parameters.Add(new SQLiteParameter(@"@Value1") { Value = key });
-                cmd.Parameters.Add(new SQLiteParameter(@"@Value2") { Value = value });
+                cmd.Parameters.Add(new(@"@Value1") { Value = key });
+                cmd.Parameters.Add(new(@"@Value2") { Value = value });
 
                 cmd.ExecuteNonQuery();
             }
@@ -79,7 +79,7 @@ public abstract class SnapshotControllerBase
                 {
                     CommandText = @"SELECT Value2 FROM ZreSettings WHERE Value1=@Value1"
                 };
-            cmd.Parameters.Add(new SQLiteParameter(@"@Value1") { Value = key });
+            cmd.Parameters.Add(new(@"@Value1") { Value = key });
 
             return cmd.ExecuteScalar() as string;
         }

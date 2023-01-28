@@ -46,7 +46,7 @@ internal abstract class LayoutSerializerBase :
     {
         lock (TypeLock)
         {
-            _instance = new FilterSerializationContext();
+            _instance = new();
 
             foreach (var field in Fields)
             {
@@ -55,7 +55,7 @@ internal abstract class LayoutSerializerBase :
 
             // --
 
-            return useRootObj ? new FilterSerializeHelper(rootObj) : new FilterSerializeHelper();
+            return useRootObj ? new(rootObj) : new FilterSerializeHelper();
         }
     }
 

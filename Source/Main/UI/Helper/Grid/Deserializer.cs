@@ -9,7 +9,7 @@ public class DXFilterSerializer : XmlXtraSerializer
         object rootObj,
         bool useRootObj)
     {
-        return useRootObj ? new FilterSerializeHelper(rootObj) : new FilterSerializeHelper();
+        return useRootObj ? new(rootObj) : new FilterSerializeHelper();
     }
 
     protected override void DeserializeObject(

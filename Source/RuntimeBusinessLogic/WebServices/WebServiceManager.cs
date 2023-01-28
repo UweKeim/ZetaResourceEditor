@@ -52,7 +52,7 @@ public sealed class WebServiceManager
                 // has an in-deep discussion.
                 lock (TypeLock)
                 {
-                    _current ??= new WebServiceManager();
+                    _current ??= new();
                 }
             }
 
@@ -200,7 +200,7 @@ public sealed class WebServiceManager
                 LogCentral.Current.LogInfo(
                     $@"Creating SOAP service call to URL '{adress.Uri}' with Proxy '{binding.ProxyAddress}'.");
 
-                _updateCheckerWS = new UpdateCheckerServiceSoapClient(binding, adress);
+                _updateCheckerWS = new(binding, adress);
             }
 
             return _updateCheckerWS;

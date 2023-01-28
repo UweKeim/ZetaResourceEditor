@@ -177,7 +177,7 @@ public partial class AutoTranslateForm :
                 if (string.IsNullOrEmpty(languageCode))
                 {
                     infos.Add(
-                        new TranslationLanguageInfo
+                        new()
                         {
                             UserReadableName = Resources.SR_TranslationHelper_GetSourceLanguages_AutoDetect,
                             LanguageCode = string.Empty
@@ -186,7 +186,7 @@ public partial class AutoTranslateForm :
                 else
                 {
                     infos.Add(
-                        new TranslationLanguageInfo
+                        new()
                         {
                             UserReadableName =
                                 $@"{
@@ -897,7 +897,7 @@ public partial class AutoTranslateForm :
                         continue;
                     }
 
-                    items.Add(new TranslateItemInfo { Row = row, SourceText = sourceText });
+                    items.Add(new() { Row = row, SourceText = sourceText });
                 }
 
                 // --
@@ -909,7 +909,7 @@ public partial class AutoTranslateForm :
                 {
                     if (index % ti.MaxArraySize == 0)
                     {
-                        blocks.Add(new List<TranslateItemInfo>());
+                        blocks.Add(new());
                     }
 
                     blocks[blocks.Count - 1].Add(items[index]);

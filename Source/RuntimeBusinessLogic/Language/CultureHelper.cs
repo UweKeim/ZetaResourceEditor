@@ -71,7 +71,7 @@ public static class CultureHelper
                     StringComparison.InvariantCultureIgnoreCase))
             {
                 return
-                    new CacheItem
+                    new()
                     {
                         Available = true,
                         DictionaryFilePath =
@@ -97,7 +97,7 @@ public static class CultureHelper
                         StringComparison.InvariantCultureIgnoreCase))
                 {
                     return
-                        new CacheItem
+                        new()
                         {
                             Available = true,
                             DictionaryFilePath = ZspPathHelper.Combine(dictionaryBaseFolderPath.FullName,
@@ -113,7 +113,7 @@ public static class CultureHelper
         // Not found.
 
         return
-            new CacheItem
+            new()
             {
                 Available = false
             };

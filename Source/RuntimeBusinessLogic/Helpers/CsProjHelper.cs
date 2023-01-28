@@ -111,7 +111,7 @@ public static class CsProjHelper
         {
             using var reader = XmlReader.Create(path);
 
-            p = new Microsoft.Build.Evaluation.Project(
+            p = new(
                 reader,
                 null,
                 null,

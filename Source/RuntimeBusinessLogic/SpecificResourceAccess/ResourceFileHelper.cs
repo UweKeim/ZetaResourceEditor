@@ -29,7 +29,7 @@ internal class ResourceFileHelper
             if (_cacheForAllAvailableResourceFileAccessors == null)
             {
                 _cacheForAllAvailableResourceFileAccessors =
-                    new List<IResourceFileAccessor>();
+                    new();
 
                 doGetAllTypes(
                     _cacheForAllAvailableResourceFileAccessors,

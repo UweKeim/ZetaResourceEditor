@@ -16,7 +16,7 @@ public class FileGroupSelectionControl :
     private Project _project { get; set; }
     private Font _boldFont;
 
-    private Font boldFont => _boldFont ??= new Font(Font, FontStyle.Bold);
+    private Font boldFont => _boldFont ??= new(Font, FontStyle.Bold);
 
     public FileGroupSelectionControl()
     {
@@ -172,7 +172,7 @@ public class FileGroupSelectionControl :
     {
         this.components = new System.ComponentModel.Container();
         var resources = new System.ComponentModel.ComponentResourceManager(typeof(FileGroupSelectionControl));
-        this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+        this.treeListColumn1 = new();
         ((System.ComponentModel.ISupportInitialize)this).BeginInit();
         this.SuspendLayout();
         // 
@@ -231,7 +231,7 @@ public class FileGroupSelectionControl :
                 {
                     node.Checked = e.Node.Checked;
                 },
-                new TreeListNodes(this) {e.Node});
+                new(this) {e.Node});
         }
 
         NodeChecked?.Invoke(this, EventArgs.Empty);

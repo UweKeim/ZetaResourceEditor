@@ -2,7 +2,6 @@ namespace ZetaResourceEditor.UI.Main;
 
 using Code;
 using ExportImportExcel;
-using ExtendedControlsLibrary.General.Base;
 using Helper.Base;
 using LeftTree;
 using Properties;
@@ -17,6 +16,7 @@ using RuntimeUserInterface.Shell;
 using ServiceReference1;
 using System.IO;
 using ExtendedControlsLibrary;
+using ExtendedControlsLibrary.General.Base;
 using Tools;
 using Translation;
 using Zeta.VoyagerLibrary.Core.Common;
@@ -45,7 +45,7 @@ public partial class MainForm :
             // ReSharper restore ConvertIfStatementToNullCoalescingExpression
             {
                 _fileGroupStateChanged =
-                    new FastSmartWeakEvent<EventHandler<FileGroupStateChangedEventArgs>>();
+                    new();
             }
 
             return _fileGroupStateChanged;
@@ -82,8 +82,8 @@ public partial class MainForm :
 
         if (!DesignModeHelper.IsDesignMode)
         {
-            ProjectFilesControl = new ProjectFilesUserControl();
-            GroupFilesControl = new GroupFilesUserControl();
+            ProjectFilesControl = new();
+            GroupFilesControl = new();
 
             mainFormMainSplitContainer.Panel1.Controls.Add(ProjectFilesControl);
             mainFormMainSplitContainer.Panel2.Controls.Add(GroupFilesControl);
@@ -91,22 +91,22 @@ public partial class MainForm :
             // 
             // projectFilesUserControl
             // 
-            ProjectFilesControl.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ProjectFilesControl.Appearance.Font = new("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
             ProjectFilesControl.Appearance.Options.UseFont = true;
             ProjectFilesControl.Dock = DockStyle.Fill;
-            ProjectFilesControl.Location = new Point(0, 0);
+            ProjectFilesControl.Location = new(0, 0);
             ProjectFilesControl.Name = "ProjectFilesControl";
-            ProjectFilesControl.Size = new Size(250, 408);
+            ProjectFilesControl.Size = new(250, 408);
             ProjectFilesControl.TabIndex = 0;
             // 
             // groupFilesControl
             // 
-            GroupFilesControl.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+            GroupFilesControl.Appearance.Font = new("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
             GroupFilesControl.Appearance.Options.UseFont = true;
             GroupFilesControl.Dock = DockStyle.Fill;
-            GroupFilesControl.Location = new Point(0, 0);
+            GroupFilesControl.Location = new(0, 0);
             GroupFilesControl.Name = "GroupFilesControl";
-            GroupFilesControl.Size = new Size(430, 408);
+            GroupFilesControl.Size = new(430, 408);
             GroupFilesControl.TabIndex = 0;
         }
     }
@@ -363,7 +363,7 @@ public partial class MainForm :
                 //_mruProjectsMenu.SetFirstFile( e.Number );
                 addMruProjectFile(path);
 
-                ProjectFilesControl.DoLoadProject(new FileInfo(path));
+                ProjectFilesControl.DoLoadProject(new(path));
             }
         }
         else
@@ -701,7 +701,7 @@ public partial class MainForm :
 
         var rr = WinFormsPersistanceHelper.RestoreState(
             this,
-            new RestoreInformation
+            new()
             {
                 SuggestZoomPercent = 90,
                 RespectWindowRatio = false
@@ -987,7 +987,7 @@ public partial class MainForm :
             Host.ApplyLanguageSettingsToCurrentThread();
 
             _updateCheckInfo =
-                new UpdateCheckInfo2
+                new()
                 {
                     ApiKey = @"658b513f-8c69-482c-86ab-4be029377d18",
                     VersionNumber = FileVersionHelper.GetAssemblyVersion(Assembly.GetEntryAssembly()?.Location)
@@ -1064,7 +1064,7 @@ public partial class MainForm :
                         StringComparison.OrdinalIgnoreCase) == 0 &&
                     File.Exists(file))
                 {
-                    ProjectFilesControl.DoLoadProject(new FileInfo(file));
+                    ProjectFilesControl.DoLoadProject(new(file));
 
                     return true;
                 }
@@ -1095,7 +1095,7 @@ public partial class MainForm :
                     if (string.Compare(Project.ProjectFileExtension, ZspPathHelper.GetExtension(file),
                             StringComparison.OrdinalIgnoreCase) == 0)
                     {
-                        ProjectFilesControl.DoLoadProject(new FileInfo(file));
+                        ProjectFilesControl.DoLoadProject(new(file));
                         return;
                     }
                 }

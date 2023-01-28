@@ -120,7 +120,7 @@ public class ExcelImportController
 
                             if (!found)
                             {
-                                result.Add(new MyTuple<long, int>(checkSum, columnIndex));
+                                result.Add(new(checkSum, columnIndex));
                             }
                         }
                     }
@@ -223,7 +223,7 @@ public class ExcelImportController
 
                         if (!found)
                         {
-                            result.Add(new MyTuple<string, int>(lc, columnIndex));
+                            result.Add(new(lc, columnIndex));
                         }
                     }
                 }
@@ -304,9 +304,9 @@ public class ExcelImportController
 
                 if (!fgCache.TryGetValue(fileGroup.UniqueID, out var ch))
                 {
-                    ch = new DBFileGroupCacheHelper
+                    ch = new()
                     {
-                        DB = new DataProcessing(fileGroup)
+                        DB = new(fileGroup)
                     };
 
                     ch.Table = ch.DB.GetDataTableFromResxFiles(_information.Project);
@@ -439,7 +439,7 @@ public class ExcelImportController
                             }
                             else
                             {
-                                throw new Exception(
+                                throw new(
                                     Resources
                                         .ExcelImportController_processWorkSheetFileIntelligent_Neither_name_column_nor_reference_language_column_present_);
                             }

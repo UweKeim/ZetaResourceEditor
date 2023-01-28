@@ -48,7 +48,7 @@ public class MemoEditScrollbarAdjuster
 
         var args = new ObjectInfoArgs
         {
-            Bounds = new Rectangle(0, 0, vi.ClientRect.Width, h)
+            Bounds = new(0, 0, vi.ClientRect.Width, h)
         };
 
         var rect = vi.BorderPainter.CalcBoundsByClientRectangle(args);

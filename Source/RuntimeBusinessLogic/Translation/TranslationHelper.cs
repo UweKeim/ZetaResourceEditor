@@ -174,11 +174,11 @@ public static class TranslationHelper
     {
         if (StringExtensionMethods.IsNullOrWhiteSpace(input?.UnprotectedText) || input?.WordsToProtect == null || input.WordsToProtect.Length <= 0)
         {
-            return new ProtectionResult
+            return new()
             {
                 ProtectedText = input?.UnprotectedText,
                 WordsToProtect = input?.WordsToProtect,
-                UnprotectedToProtectedMapping = new Dictionary<string, string>()
+                UnprotectedToProtectedMapping = new()
             };
         }
         else
@@ -187,7 +187,7 @@ public static class TranslationHelper
             {
                 WordsToProtect = input.WordsToProtect,
                 ProtectedText = input.UnprotectedText,
-                UnprotectedToProtectedMapping = new Dictionary<string, string>()
+                UnprotectedToProtectedMapping = new()
             };
 
             const string regexPrefix = @"[RX]";
@@ -269,7 +269,7 @@ public static class TranslationHelper
                 Count: > 0
             })
         {
-            return new UnprotectionInfo
+            return new()
             {
                 UnprotectedText = input?.ProtectedText
             };
@@ -388,7 +388,7 @@ public static class TranslationHelper
                 }
             }
 
-            throw new Exception();
+            throw new();
         }
 
         return _translationEngine;
@@ -473,7 +473,7 @@ public static class TranslationHelper
             }
         }
 
-        throw new Exception(string.Format(Resources.NoLangForBing, PrettyPrint(cultureInfo)));
+        throw new(string.Format(Resources.NoLangForBing, PrettyPrint(cultureInfo)));
     }
 
     private static string PrettyPrint(CultureInfo cultureInfo)

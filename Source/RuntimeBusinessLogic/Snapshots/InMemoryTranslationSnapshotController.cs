@@ -131,7 +131,7 @@ public sealed class InMemoryTranslationSnapshot
 
         if (item == null)
         {
-            item = new InMemoryTranslationSnapshotItem();
+            item = new();
             _items.Add(item);
         }
 

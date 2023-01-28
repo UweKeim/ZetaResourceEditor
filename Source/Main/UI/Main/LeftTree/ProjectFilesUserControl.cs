@@ -115,9 +115,9 @@ public partial class ProjectFilesUserControl :
 
             foreach (var filePath in ofd.FileNames)
             {
-                fileGroup.Add(new FileInformation(fileGroup)
+                fileGroup.Add(new(fileGroup)
                 {
-                    File = new FileInfo(filePath)
+                    File = new(filePath)
                 });
             }
 
@@ -970,7 +970,7 @@ public partial class ProjectFilesUserControl :
                 @"zreprojInitialDir",
                 ZspPathHelper.GetDirectoryPathNameFromFilePath(ofd.FileName));
 
-            DoLoadProject(new FileInfo(ofd.FileName));
+            DoLoadProject(new(ofd.FileName));
         }
     }
 
@@ -1289,7 +1289,7 @@ public partial class ProjectFilesUserControl :
 
         if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
         {
-            DoLoadProject(new FileInfo(filePath));
+            DoLoadProject(new(filePath));
         }
     }
 
@@ -1340,7 +1340,7 @@ public partial class ProjectFilesUserControl :
                 var fileInfo =
                     new FileInformation(fileGroup)
                     {
-                        File = new FileInfo(fileName)
+                        File = new(fileName)
                     };
 
                 if (!fileGroup.Contains(fileInfo))
@@ -1477,7 +1477,7 @@ public partial class ProjectFilesUserControl :
                     };
             }
 
-            _nodeUpdateIterator = new StepwiseTreeIterator(
+            _nodeUpdateIterator = new(
                 treeView,
                 NodeUpdateInterval,
                 updateNodeInfo,
@@ -1650,7 +1650,7 @@ public partial class ProjectFilesUserControl :
                     popupMenuFile.ShowPopup(MousePosition);
                     break;
                 default:
-                    throw new Exception(t.GetType().ToString());
+                    throw new(t.GetType().ToString());
             }
         }
     }
@@ -1709,7 +1709,7 @@ public partial class ProjectFilesUserControl :
 
                 if (tt != null)
                 {
-                    e.Info = new ToolTipControlInfo(cellInfo, tt);
+                    e.Info = new(cellInfo, tt);
                 }
             }
         }
@@ -1810,7 +1810,7 @@ public partial class ProjectFilesUserControl :
                     node.ParentNode.Nodes.Remove(node);
                     break;
                 default:
-                    throw new Exception(
+                    throw new(
                         string.Format(
                             Resources.SR_ProjectFilesUserControl_removeNodeAndchilds_Unexpected_node_type,
                             node.Tag?.GetType().Name ?? @"null"));
@@ -1900,7 +1900,7 @@ public partial class ProjectFilesUserControl :
         DragEventArgs e)
     {
         var tree = (TreeList)sender;
-        var p = tree.PointToClient(new Point(e.X, e.Y));
+        var p = tree.PointToClient(new(e.X, e.Y));
 
         var dragNode = (TreeListNode)e.Data.GetData(typeof(TreeListNode));
         var targetNode = tree.CalcHitInfo(p).Node;
@@ -1970,7 +1970,7 @@ public partial class ProjectFilesUserControl :
         CreateNewFilesWithDialog();
     }
 
-    private Font boldFont => _boldFont ??= new Font(Appearance.Font, FontStyle.Bold);
+    private Font boldFont => _boldFont ??= new(Appearance.Font, FontStyle.Bold);
 
     private void treeView_NodeCellStyle(object sender, GetCustomNodeCellStyleEventArgs e)
     {

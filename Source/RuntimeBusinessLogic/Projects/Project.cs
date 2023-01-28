@@ -233,9 +233,9 @@ public class Project :
 
     public Project()
     {
-        FileGroups = new FileGroupCollection(this);
-        ProjectFolders = new ProjectFolderCollection(this);
-        _virtualViews = new VirtualViewCollection(this);
+        FileGroups = new(this);
+        ProjectFolders = new(this);
+        _virtualViews = new(this);
 
         /*
         PortableExecutableKinds peKind;
@@ -1336,11 +1336,11 @@ public class Project :
     /// <summary>
     /// Sometimes an empty project is needed. Use this here centrally.
     /// </summary>
-    public static Project Empty => _emptyProject ??= new Project
+    public static Project Empty => _emptyProject ??= new()
     {
         IsInMemoryOnly = true,
         ProjectConfigurationFilePath =
-            new FileInfo(
+            new(
                 ZspPathHelper.Combine(
                     Path.GetTempPath(),
                     $@"Dummy{ProjectFileExtension}"))
@@ -1356,7 +1356,7 @@ public class Project :
 
             if (string.IsNullOrEmpty(raw))
             {
-                return new Dictionary<string, string>();
+                return new();
             }
             else
             {

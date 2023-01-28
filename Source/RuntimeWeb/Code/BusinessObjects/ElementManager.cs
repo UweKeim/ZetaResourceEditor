@@ -23,8 +23,8 @@ public class ElementManager :
 
         if (ConvertHelper.ToBoolean(ConfigurationManager.AppSettings[@"dataCache.enable"], true))
         {
-            CacheManager = new DataCacheManager();
-            CacheManager.Initialize(new DataCacheManagerConfiguration());
+            CacheManager = new();
+            CacheManager.Initialize(new());
         }
         else
         {
@@ -34,13 +34,13 @@ public class ElementManager :
         DataQuerier = new AdoNetSqlQuerier();
         DataQuerier.Initialize(CacheManager);
 
-        DataQuerier.ConnectionString = new SmartConnectionString(
+        DataQuerier.ConnectionString = new(
             ConfigurationManager.ConnectionStrings[@"web"].ConnectionString);
 
         // --
 
         // Do this AFTER initializing the configuration.
-        DataUpdaterInfo = new AdoNetUpdaterInformation(false);
+        DataUpdaterInfo = new(false);
 
         // --
 
@@ -51,7 +51,7 @@ public class ElementManager :
         ConfigurationManager.AppSettings[@"web.ownerEMailAddress"],
         ConfigurationManager.AppSettings[@"web.ownerEMailDisplayName"]);
 
-    public FourZeroFourManager FourZeroFourManager => _fourZeroFourManager ??= new FourZeroFourManager(this);
+    public FourZeroFourManager FourZeroFourManager => _fourZeroFourManager ??= new(this);
 
     public DataCacheManager CacheManager { get; }
 

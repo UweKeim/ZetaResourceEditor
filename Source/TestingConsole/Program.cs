@@ -54,14 +54,14 @@ public static class Program
         var accessTokenNode = xml.SelectSingleNode(@"/root/access_token");
         if (accessTokenNode == null)
         {
-            throw new Exception("No access token value can be read from access token.");
+            throw new("No access token value can be read from access token.");
         }
         else
         {
             var expirationNode = xml.SelectSingleNode(@"/root/expires_in");
             if (expirationNode == null)
             {
-                throw new Exception("No expiration date can be read from access token.");
+                throw new("No expiration date can be read from access token.");
             }
             else
             {
@@ -143,7 +143,7 @@ public static class Program
         {
             if (responseStream == null)
             {
-                return new XmlDocument();
+                return new();
             }
             else
             {
@@ -154,7 +154,7 @@ public static class Program
 
         if (string.IsNullOrEmpty(rawResult))
         {
-            return new XmlDocument();
+            return new();
         }
         else
         {
@@ -280,7 +280,7 @@ public static class Program
                     // ReSharper restore LoopCanBeConvertedToQuery
                 {
                     result.Add(
-                        new TranslationResult
+                        new()
                         {
                             Error = translateResponse.Error,
                             Translation = translateResponse.TranslatedText

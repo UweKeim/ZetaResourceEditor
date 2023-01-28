@@ -216,7 +216,7 @@ public class FileGroup :
             foreach (var filePath in filePaths)
             {
                 result.Add(
-                    new FileInformation(result)
+                    new(result)
                     {
                         File = filePath
                     });
@@ -625,7 +625,7 @@ public class FileGroup :
 
                 //CHANGED: use base name instead
                 var baseName = LanguageCodeDetection.GetBaseName(project, filePath.Name);
-                filePath = new FileInfo(ZspPathHelper.Combine(folderPath?.FullName, baseName) ?? string.Empty);
+                filePath = new(ZspPathHelper.Combine(folderPath?.FullName, baseName) ?? string.Empty);
 
                 if ((@"Properties".EqualsNoCase(folderPath?.Name) ||
                      @"App_GlobalResources".EqualsNoCase(folderPath?.Name)) &&
@@ -832,7 +832,7 @@ public class FileGroup :
             if (!string.IsNullOrEmpty(lc))
             {
                 result.Add(
-                    new MyTuple<string, string>(
+                    new(
                         lc.ToLowerInvariant(),
                         filePath));
             }
@@ -1059,14 +1059,14 @@ public class FileGroup :
             var ffi =
                 new FileInformation(this)
                 {
-                    File = new FileInfo(newFilePath ?? string.Empty)
+                    File = new(newFilePath ?? string.Empty)
                 };
             Add(ffi);
             return ffi;
         }
         else
         {
-            throw new Exception(
+            throw new(
                 string.Format(
                     Resources.SR_FileGroup_CreateAndAddNewFile_New_file_name_does_not_match,
                     BaseName,
@@ -1123,7 +1123,7 @@ public class FileGroup :
             var ffi =
                 new FileInformation(this)
                 {
-                    File = new FileInfo(newFilePath ?? string.Empty)
+                    File = new(newFilePath ?? string.Empty)
                 };
             Add(ffi);
 
@@ -1134,7 +1134,7 @@ public class FileGroup :
             {
                 try
                 {
-                    addFileToCsProj(new FileInfo(sourceFilePath), new FileInfo(newFilePath ?? string.Empty),
+                    addFileToCsProj(new(sourceFilePath), new FileInfo(newFilePath ?? string.Empty),
                         includeFileAsDependantUpon);
                 }
                 catch
@@ -1169,7 +1169,7 @@ public class FileGroup :
         }
         else
         {
-            throw new Exception(
+            throw new(
                 string.Format(
                     Resources.SR_FileGroup_CreateAndAddNewFile_New_file_name_does_not_match,
                     BaseName,
@@ -1209,7 +1209,7 @@ public class FileGroup :
             var metaData = new List<KeyValuePair<string, string>>();
             if (addDependantUpon && !string.IsNullOrEmpty(csProjWithFileResult.DependantUponRootFileName))
             {
-                metaData.Add(new KeyValuePair<string, string>(CsProjHelper.DependentUponLiteral,
+                metaData.Add(new(CsProjHelper.DependentUponLiteral,
                     csProjWithFileResult.DependantUponRootFileName));
             }
 
@@ -1406,7 +1406,7 @@ public class FileGroup :
                     Original = t
                 }).FirstOrDefault(t => t.Original != t.Replaced)?.Original;
             csProjResult =
-                CsProjHelper.GetProjectContainingFile(new FileInfo(notDefaultLanguageVersion ?? string.Empty));
+                CsProjHelper.GetProjectContainingFile(new(notDefaultLanguageVersion ?? string.Empty));
         }
 
         return csProjResult;

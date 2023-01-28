@@ -60,7 +60,7 @@ public sealed class FastSmartWeakEvent<T>
 
             var target = d.Target != null ? new WeakReference( d.Target ) : null;
 
-            _eventEntries.Add( new EventEntry(
+            _eventEntries.Add( new(
                 FastSmartWeakEventForwarderProvider.GetForwarder( d.Method ), d.Method, target ) );
         }
     }

@@ -49,7 +49,7 @@ public sealed class AzureTranslationEngine :
                 using var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri(endpoint + route),
+                    RequestUri = new(endpoint + route),
                 };
 
                 // Build the request.
@@ -189,7 +189,7 @@ public sealed class AzureTranslationEngine :
                 using var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Post,
-                    RequestUri = new Uri(endpoint + route),
+                    RequestUri = new(endpoint + route),
                     Content = new StringContent(requestBody, Encoding.UTF8, @"application/json")
                 };
 
@@ -275,7 +275,7 @@ public sealed class AzureTranslationEngine :
                 using var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Post,
-                    RequestUri = new Uri(endpoint + route),
+                    RequestUri = new(endpoint + route),
                     Content = new StringContent(requestBody, Encoding.UTF8, @"application/json")
                 };
 
@@ -319,7 +319,7 @@ public sealed class AzureTranslationEngine :
         {
             result.Add(
                 TranslationHelper.UnprotectWords(
-                    new TranslationHelper.ProtectionResult
+                    new()
                     {
                         ProtectedText = translatedText,
                         WordsToProtect = wordsToProtect,

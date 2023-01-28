@@ -151,7 +151,6 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             this.memoEdit1.CueText = null;
             this.memoEdit1.Location = new System.Drawing.Point(12, 12);
             this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.memoEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.memoEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.memoEdit1.Properties.Appearance.Options.UseFont = true;
@@ -164,7 +163,6 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
             // 
             // panelControl1
             // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.memoEdit1);
