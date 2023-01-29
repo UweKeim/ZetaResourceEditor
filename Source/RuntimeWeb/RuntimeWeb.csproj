@@ -136,6 +136,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Main\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Code\BusinessObjects\Base\DBObjectBase.cs" />
     <Compile Include="Code\BusinessObjects\Base\DBObjectCollectionBase.cs" />
     <Compile Include="Code\BusinessObjects\Base\DBObjectsManagerBase.cs" />
@@ -160,9 +163,7 @@
     <None Include="Directory.Build.props" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

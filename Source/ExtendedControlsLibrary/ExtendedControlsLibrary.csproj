@@ -14,6 +14,9 @@
     <DefineConstants>TRACE;MEASURETEXT_USE_DEVEXPRESS</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Main\Properties\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="General\Base\DevExpressXtraUserControlBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -210,5 +213,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Async\Async.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>

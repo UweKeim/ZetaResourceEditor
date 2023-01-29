@@ -14,7 +14,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.3.37.0</ApplicationVersion>
+    <ApplicationVersion>2.3.38.0</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -30,8 +30,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-    <AssemblyVersion>2.3.37.0</AssemblyVersion>
-    <FileVersion>2.3.37.0</FileVersion>
+    <AssemblyVersion>2.3.38.0</AssemblyVersion>
+    <FileVersion>2.3.38.0</FileVersion>
     <AssemblyName>ZetaResourceEditor</AssemblyName>
     <Product>Zeta Resource Editor</Product>
     <Authors>Zeta Software GmbH</Authors>
