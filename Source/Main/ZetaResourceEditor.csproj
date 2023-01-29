@@ -14,7 +14,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.3.38.0</ApplicationVersion>
+    <ApplicationVersion>2.3.39.0</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -30,8 +30,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-    <AssemblyVersion>2.3.38.0</AssemblyVersion>
-    <FileVersion>2.3.38.0</FileVersion>
+    <AssemblyVersion>2.3.39.0</AssemblyVersion>
+    <FileVersion>2.3.39.0</FileVersion>
     <AssemblyName>ZetaResourceEditor</AssemblyName>
     <Product>Zeta Resource Editor</Product>
     <Authors>Zeta Software GmbH</Authors>
@@ -142,6 +142,8 @@
     <Compile Remove="UI\Helper\ExtendedWebBrowser\UrlContexts.cs" />
     <Compile Remove="UI\Main\ExitAdvertisementForm.cs" />
     <Compile Remove="UI\Main\ExitAdvertisementForm.Designer.cs" />
+    <Compile Remove="UI\Tools\AboutForm.cs" />
+    <Compile Remove="UI\Tools\AboutForm.Designer.cs" />
     <Compile Remove="UI\Tools\ImportExportWizard.cs" />
     <Compile Remove="UI\Tools\ImportExportWizard.Designer.cs" />
     <EmbeddedResource Remove="TestData\TestResources.resx" />
@@ -150,6 +152,7 @@
     <EmbeddedResource Remove="UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserControl.resx" />
     <EmbeddedResource Remove="UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserUserControl.resx" />
     <EmbeddedResource Remove="UI\Main\ExitAdvertisementForm.resx" />
+    <EmbeddedResource Remove="UI\Tools\AboutForm.resx" />
     <EmbeddedResource Remove="UI\Tools\ImportExportWizard.resx" />
   </ItemGroup>
   <ItemGroup>

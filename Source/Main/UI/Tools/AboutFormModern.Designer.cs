@@ -1,6 +1,6 @@
 ﻿namespace ZetaResourceEditor.UI.Tools
 {
-	partial class AboutFormHtml
+	partial class AboutFormModern
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutFormHtml));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutFormModern));
 			this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
 			this.tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
 			this.linkLabel1 = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit.MyHyperLinkEdit();
@@ -55,10 +55,10 @@
 			this.tablePanel1.SetColumnSpan(this.panelControl1, 3);
 			this.panelControl1.Controls.Add(this.tablePanel2);
 			this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelControl1.Location = new System.Drawing.Point(19, 173);
+			this.panelControl1.Location = new System.Drawing.Point(19, 113);
 			this.panelControl1.Name = "panelControl1";
-			this.tablePanel1.SetRow(this.panelControl1, 2);
-			this.panelControl1.Size = new System.Drawing.Size(430, 159);
+			this.tablePanel1.SetRow(this.panelControl1, 3);
+			this.panelControl1.Size = new System.Drawing.Size(287, 151);
 			this.panelControl1.TabIndex = 1;
 			// 
 			// tablePanel2
@@ -71,12 +71,13 @@
 			this.tablePanel2.Controls.Add(this.labelControl1);
 			this.tablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tablePanel2.Location = new System.Drawing.Point(2, 2);
+			this.tablePanel2.Margin = new System.Windows.Forms.Padding(0);
 			this.tablePanel2.Name = "tablePanel2";
 			this.tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 30.66666F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 61.33335F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-			this.tablePanel2.Size = new System.Drawing.Size(426, 155);
+			this.tablePanel2.Size = new System.Drawing.Size(283, 147);
 			this.tablePanel2.TabIndex = 0;
 			this.tablePanel2.UseSkinIndents = true;
 			// 
@@ -86,7 +87,7 @@
 			this.linkLabel1.CausesValidation = false;
 			this.tablePanel2.SetColumn(this.linkLabel1, 0);
 			this.linkLabel1.EditValue = "www.zeta-resource-editor.com";
-			this.linkLabel1.Location = new System.Drawing.Point(19, 111);
+			this.linkLabel1.Location = new System.Drawing.Point(19, 110);
 			this.linkLabel1.Name = "linkLabel1";
 			this.linkLabel1.Properties.AllowFocused = false;
 			this.linkLabel1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -97,9 +98,8 @@
 			this.linkLabel1.Properties.MaskSettings.Set("mask", null);
 			this.linkLabel1.Properties.NullValuePrompt = null;
 			this.linkLabel1.Properties.ReadOnly = true;
-			this.linkLabel1.Properties.Click += new System.EventHandler(this.linkLabel1_Properties_Click);
 			this.tablePanel2.SetRow(this.linkLabel1, 2);
-			this.linkLabel1.Size = new System.Drawing.Size(388, 23);
+			this.linkLabel1.Size = new System.Drawing.Size(245, 23);
 			this.linkLabel1.TabIndex = 3;
 			this.linkLabel1.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.linkLabel1_OpenLink);
 			// 
@@ -108,10 +108,11 @@
 			this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.labelControl2.Appearance.Options.UseFont = true;
 			this.tablePanel2.SetColumn(this.labelControl2, 0);
-			this.labelControl2.Location = new System.Drawing.Point(19, 51);
+			this.labelControl2.Location = new System.Drawing.Point(19, 49);
 			this.labelControl2.Name = "labelControl2";
+			this.labelControl2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.tablePanel2.SetRow(this.labelControl2, 1);
-			this.labelControl2.Size = new System.Drawing.Size(166, 51);
+			this.labelControl2.Size = new System.Drawing.Size(166, 55);
 			this.labelControl2.TabIndex = 2;
 			this.labelControl2.Text = "Manfred-Wörner-Straße 115\r\n73037 Göppingen\r\nGermany";
 			// 
@@ -120,10 +121,11 @@
 			this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.labelControl1.Appearance.Options.UseFont = true;
 			this.tablePanel2.SetColumn(this.labelControl1, 0);
-			this.labelControl1.Location = new System.Drawing.Point(19, 22);
+			this.labelControl1.Location = new System.Drawing.Point(19, 18);
 			this.labelControl1.Name = "labelControl1";
+			this.labelControl1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.tablePanel2.SetRow(this.labelControl1, 0);
-			this.labelControl1.Size = new System.Drawing.Size(121, 17);
+			this.labelControl1.Size = new System.Drawing.Size(121, 25);
 			this.labelControl1.TabIndex = 1;
 			this.labelControl1.Text = "Zeta Software GmbH";
 			// 
@@ -131,39 +133,42 @@
 			// 
 			this.tablePanel1.SetColumn(this.pictureEdit1, 0);
 			this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-			this.pictureEdit1.Location = new System.Drawing.Point(19, 20);
+			this.pictureEdit1.Location = new System.Drawing.Point(19, 18);
 			this.pictureEdit1.Name = "pictureEdit1";
 			this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
 			this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
 			this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 			this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-			this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+			this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
 			this.tablePanel1.SetRow(this.pictureEdit1, 0);
-			this.tablePanel1.SetRowSpan(this.pictureEdit1, 2);
-			this.pictureEdit1.Size = new System.Drawing.Size(121, 144);
+			this.tablePanel1.SetRowSpan(this.pictureEdit1, 3);
+			this.pictureEdit1.Size = new System.Drawing.Size(78, 89);
 			this.pictureEdit1.TabIndex = 0;
 			// 
 			// tablePanel1
 			// 
+			this.tablePanel1.AutoSize = true;
 			this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 32.07F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 44.93F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 33F)});
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 31.67F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 45.45F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 32.88F)});
 			this.tablePanel1.Controls.Add(this.label4);
 			this.tablePanel1.Controls.Add(this.labelControl3);
 			this.tablePanel1.Controls.Add(this.buttonClose);
 			this.tablePanel1.Controls.Add(this.panelControl1);
 			this.tablePanel1.Controls.Add(this.pictureEdit1);
 			this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tablePanel1.Location = new System.Drawing.Point(9, 9);
+			this.tablePanel1.Location = new System.Drawing.Point(0, 0);
 			this.tablePanel1.Name = "tablePanel1";
 			this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 48.66665F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 105.9998F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 164.6667F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 27.33331F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 51.33308F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 16.66667F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 157.3334F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 13.33335F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-			this.tablePanel1.Size = new System.Drawing.Size(468, 477);
-			this.tablePanel1.TabIndex = 2;
+			this.tablePanel1.Size = new System.Drawing.Size(325, 326);
+			this.tablePanel1.TabIndex = 0;
 			this.tablePanel1.UseSkinIndents = true;
 			// 
 			// label4
@@ -172,7 +177,7 @@
 			this.label4.Appearance.Options.UseFont = true;
 			this.tablePanel1.SetColumn(this.label4, 1);
 			this.tablePanel1.SetColumnSpan(this.label4, 2);
-			this.label4.Location = new System.Drawing.Point(146, 100);
+			this.label4.Location = new System.Drawing.Point(103, 50);
 			this.label4.Name = "label4";
 			this.tablePanel1.SetRow(this.label4, 1);
 			this.label4.Size = new System.Drawing.Size(118, 34);
@@ -185,7 +190,7 @@
 			this.labelControl3.Appearance.Options.UseFont = true;
 			this.tablePanel1.SetColumn(this.labelControl3, 1);
 			this.tablePanel1.SetColumnSpan(this.labelControl3, 2);
-			this.labelControl3.Location = new System.Drawing.Point(146, 31);
+			this.labelControl3.Location = new System.Drawing.Point(103, 20);
 			this.labelControl3.Name = "labelControl3";
 			this.tablePanel1.SetRow(this.labelControl3, 0);
 			this.labelControl3.Size = new System.Drawing.Size(127, 17);
@@ -199,15 +204,16 @@
 			this.buttonClose.Appearance.Options.UseFont = true;
 			this.tablePanel1.SetColumn(this.buttonClose, 2);
 			this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.buttonClose.Location = new System.Drawing.Point(324, 384);
+			this.buttonClose.Location = new System.Drawing.Point(221, 281);
+			this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
 			this.buttonClose.Name = "buttonClose";
-			this.tablePanel1.SetRow(this.buttonClose, 3);
-			this.buttonClose.Size = new System.Drawing.Size(125, 28);
-			this.buttonClose.TabIndex = 2;
+			this.tablePanel1.SetRow(this.buttonClose, 5);
+			this.buttonClose.Size = new System.Drawing.Size(88, 28);
+			this.buttonClose.TabIndex = 0;
 			this.buttonClose.Text = "Close";
 			this.buttonClose.WantDrawFocusRectangle = true;
 			// 
-			// AboutFormHtml
+			// AboutFormModern
 			// 
 			this.AcceptButton = this.buttonClose;
 			this.AllowF1Help = false;
@@ -215,18 +221,17 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.buttonClose;
-			this.ClientSize = new System.Drawing.Size(486, 495);
+			this.ClientSize = new System.Drawing.Size(325, 326);
 			this.Controls.Add(this.tablePanel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "AboutFormHtml";
-			this.Padding = new System.Windows.Forms.Padding(9);
+			this.Name = "AboutFormModern";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Info";
-			this.Load += new System.EventHandler(this.AboutFormHtml_Load);
+			this.Load += new System.EventHandler(this.AboutFormModern_Load);
 			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
 			this.panelControl1.ResumeLayout(false);
 			this.panelControl1.PerformLayout();
@@ -239,6 +244,7 @@
 			this.tablePanel1.ResumeLayout(false);
 			this.tablePanel1.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 

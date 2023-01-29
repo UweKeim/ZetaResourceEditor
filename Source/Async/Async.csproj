@@ -9,7 +9,6 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Bin\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Main\Properties\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />

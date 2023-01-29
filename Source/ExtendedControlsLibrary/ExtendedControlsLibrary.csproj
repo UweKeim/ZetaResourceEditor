@@ -10,7 +10,6 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Bin\</OutputPath>
     <DefineConstants>TRACE;MEASURETEXT_USE_DEVEXPRESS</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
