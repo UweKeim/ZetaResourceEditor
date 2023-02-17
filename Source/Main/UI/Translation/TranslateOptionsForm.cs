@@ -81,7 +81,7 @@ public partial class TranslateOptionsForm :
         _initialAppID = appIDTextEdit.Text.Trim();
     }
 
-    private void selectEngine(string un)
+    private void selectEngine(string? un)
     {
         foreach (EngineHelper eh in engineComboBox.Properties.Items)
         {
@@ -278,7 +278,7 @@ public partial class TranslateOptionsForm :
         }
     }
 
-    private Dictionary<string, string> _localDic;
+    private Dictionary<string?, string> _localDic;
     private string _appIDLabelText;
     private string _initialAppID;
 

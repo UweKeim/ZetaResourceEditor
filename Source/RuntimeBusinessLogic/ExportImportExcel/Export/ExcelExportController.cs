@@ -185,7 +185,7 @@ public class ExcelExportController
         _preparedInformations = preparedInformations;
     }
 
-    private static string checkCorrectChina(string code)
+    private static string? checkCorrectChina(string? code)
     {
         // 2022-06-23, Uwe Keim:
         // Fix für "zh-CN" vs. "zh-Hans".
@@ -279,8 +279,8 @@ public class ExcelExportController
         public Project Project { get; init; }
         public FileGroup[] FileGroups { get; init; }
 
-        public string ReferenceLanguageCode { get; init; }
-        public string[] DestinationLanguageCodes { get; init; }
+        public string? ReferenceLanguageCode { get; init; }
+        public string?[] DestinationLanguageCodes { get; init; }
         public string DestinationFilePath { get; set; }
         public bool EliminateDuplicateRows { get; init; }
         public bool OnlyExportRowsWithNoTranslation { get; init; }
@@ -729,7 +729,7 @@ public class ExcelExportController
         }
     }
 
-    private static string generateWorksheetName(
+    private static string? generateWorksheetName(
         PreparedInformation preparedInformation,
         FileGroup fileGroup,
         Project project)
@@ -840,7 +840,7 @@ public class ExcelExportController
         IInheritedSettings settings,
         DataRow row)
     {
-        var lcs = new List<string>(new[] { preparedInformation.ReferenceLanguageCode });
+        var lcs = new List<string?>(new[] { preparedInformation.ReferenceLanguageCode });
         for (var i = 0; i < lcs.Count; ++i) lcs[i] = lcs[i].ToLowerInvariant();
 
         // ReSharper disable LoopCanBeConvertedToQuery);
@@ -882,7 +882,7 @@ public class ExcelExportController
         SnapshotController ssc,
         string fileGroup,
         string tagName,
-        string languageCode,
+        string? languageCode,
         string languageValue)
     {
         var baseKey = ssc.MakeBaseKey(fileGroup, tagName);
@@ -1009,7 +1009,7 @@ public class ExcelExportController
 
     private static bool wantExportLanguageCode(
         PreparedInformation preparedInformation,
-        string languageCode)
+        string? languageCode)
     {
         if (string.IsNullOrEmpty(languageCode))
         {
@@ -1099,7 +1099,7 @@ public class ExcelExportController
         }
     }
 
-    private static string replacePlaceholders(string text, string languageCode)
+    private static string replacePlaceholders(string text, string? languageCode)
     {
         return text.Replace(PlaceholderLanguageName, languageCode);
     }
@@ -1140,8 +1140,8 @@ public class ExcelExportController
         }
     }
 
-    private static string makeFolderNameCompatible(
-        string name)
+    private static string? makeFolderNameCompatible(
+        string? name)
     {
         if (string.IsNullOrEmpty(name))
         {

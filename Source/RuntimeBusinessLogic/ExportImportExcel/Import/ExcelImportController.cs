@@ -179,11 +179,11 @@ public class ExcelImportController
         return result.ToArray();
     }
 
-    private static List<MyTuple<string, int>> dectectLanguageCodesFromTable(
+    private static List<MyTuple<string?, int>> dectectLanguageCodesFromTable(
         DataTable table)
     {
         // Make no Set type to keep order.
-        var result = new List<MyTuple<string, int>>();
+        var result = new List<MyTuple<string?, int>>();
 
         // --
         // Header.
@@ -510,7 +510,7 @@ public class ExcelImportController
     private static void getReferenceLanguageTableColumnIndex(
         DataTable table,
         out int referenceLanguageColumnIndex,
-        out string referenceLanguageName)
+        out string? referenceLanguageName)
     {
         var languageCodes = dectectLanguageCodesFromTable(table);
 
@@ -579,7 +579,7 @@ public class ExcelImportController
     private int getDestinationTableColumnIndex(
         IInheritedSettings settings,
         DataTable dataTable,
-        string languageCode)
+        string? languageCode)
     {
         var columnIndex = 0;
         foreach (DataColumn column in dataTable.Columns)
@@ -639,7 +639,7 @@ public class ExcelImportController
         DataTable table,
         string tagName,
         bool allowCreateNewIfNotFound,
-        string languageValueForNewRow,
+        string? languageValueForNewRow,
         int destinationColumnIndex)
     {
         if (string.IsNullOrEmpty(tagName))
@@ -737,7 +737,7 @@ public class ExcelImportController
 
     private static int getTableColumnIndex(
         DataTable table,
-        string languageCode)
+        string? languageCode)
     {
         foreach (DataColumn column in table.Columns)
         {

@@ -388,7 +388,7 @@ public static class CultureHelper
         }
     }
 
-    public static CultureInfo CreateCultureErrorTolerant(string languageCode)
+    public static CultureInfo CreateCultureErrorTolerant(string? languageCode)
     {
         var cultureInfos = CultureInfo.GetCultures(CultureTypes.AllCultures);
 

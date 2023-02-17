@@ -36,7 +36,7 @@ public static class TranslationHelper
     }
 
     public static bool IsSupportedLanguage(
-        string languageCode,
+        string? languageCode,
         IEnumerable<TranslationLanguageInfo> languageInfos)
     {
         var ci = CultureHelper.CreateCultureErrorTolerant(languageCode);
@@ -68,8 +68,8 @@ public static class TranslationHelper
         }
     }
 
-    public static string RemoveWords(
-        string text,
+    public static string? RemoveWords(
+        string? text,
         string[] wordsToRemove)
     {
         if (StringExtensionMethods.IsNullOrWhiteSpace(text) || wordsToRemove is not { Length: > 0 })
@@ -133,20 +133,20 @@ public static class TranslationHelper
 
     public sealed class ProtectionInfo
     {
-        public string UnprotectedText { get; set; }
+        public string? UnprotectedText { get; set; }
         public string[] WordsToProtect { get; set; }
     }
 
     public sealed class ProtectionResult
     {
-        public string ProtectedText { get; set; }
+        public string? ProtectedText { get; set; }
         public string[] WordsToProtect { get; set; }
         public Dictionary<string, string> UnprotectedToProtectedMapping { get; set; }
     }
 
     public sealed class UnprotectionInfo
     {
-        public string UnprotectedText { get; set; }
+        public string? UnprotectedText { get; set; }
     }
 
     public static ProtectionResult[] ProtectWords(
@@ -430,7 +430,7 @@ public static class TranslationHelper
         appID = _translationAppID;
     }
 
-    private static string safeGetValue(IReadOnlyDictionary<string, string> dic, string key)
+    private static string safeGetValue(IReadOnlyDictionary<string?, string> dic, string? key)
     {
         if (dic == null || string.IsNullOrEmpty(key))
         {
@@ -442,7 +442,7 @@ public static class TranslationHelper
         }
     }
 
-    internal static string DoMapCultureToLanguageCode(
+    internal static string? DoMapCultureToLanguageCode(
         IEnumerable<TranslationLanguageInfo> availableLanguageInfos,
         CultureInfo cultureInfo)
     {

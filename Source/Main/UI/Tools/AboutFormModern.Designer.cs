@@ -55,7 +55,7 @@
 			this.tablePanel1.SetColumnSpan(this.panelControl1, 3);
 			this.panelControl1.Controls.Add(this.tablePanel2);
 			this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelControl1.Location = new System.Drawing.Point(19, 113);
+			this.panelControl1.Location = new System.Drawing.Point(19, 108);
 			this.panelControl1.Name = "panelControl1";
 			this.tablePanel1.SetRow(this.panelControl1, 3);
 			this.panelControl1.Size = new System.Drawing.Size(287, 151);
@@ -87,7 +87,8 @@
 			this.linkLabel1.CausesValidation = false;
 			this.tablePanel2.SetColumn(this.linkLabel1, 0);
 			this.linkLabel1.EditValue = "www.zeta-resource-editor.com";
-			this.linkLabel1.Location = new System.Drawing.Point(19, 110);
+			this.linkLabel1.Location = new System.Drawing.Point(16, 107);
+			this.linkLabel1.Margin = new System.Windows.Forms.Padding(0);
 			this.linkLabel1.Name = "linkLabel1";
 			this.linkLabel1.Properties.AllowFocused = false;
 			this.linkLabel1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -99,7 +100,7 @@
 			this.linkLabel1.Properties.NullValuePrompt = null;
 			this.linkLabel1.Properties.ReadOnly = true;
 			this.tablePanel2.SetRow(this.linkLabel1, 2);
-			this.linkLabel1.Size = new System.Drawing.Size(245, 23);
+			this.linkLabel1.Size = new System.Drawing.Size(251, 23);
 			this.linkLabel1.TabIndex = 3;
 			this.linkLabel1.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.linkLabel1_OpenLink);
 			// 
@@ -108,11 +109,11 @@
 			this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.labelControl2.Appearance.Options.UseFont = true;
 			this.tablePanel2.SetColumn(this.labelControl2, 0);
-			this.labelControl2.Location = new System.Drawing.Point(19, 49);
+			this.labelControl2.Location = new System.Drawing.Point(16, 46);
+			this.labelControl2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.labelControl2.Name = "labelControl2";
-			this.labelControl2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.tablePanel2.SetRow(this.labelControl2, 1);
-			this.labelControl2.Size = new System.Drawing.Size(166, 55);
+			this.labelControl2.Size = new System.Drawing.Size(166, 51);
 			this.labelControl2.TabIndex = 2;
 			this.labelControl2.Text = "Manfred-Wörner-Straße 115\r\n73037 Göppingen\r\nGermany";
 			// 
@@ -121,11 +122,11 @@
 			this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.labelControl1.Appearance.Options.UseFont = true;
 			this.tablePanel2.SetColumn(this.labelControl1, 0);
-			this.labelControl1.Location = new System.Drawing.Point(19, 18);
+			this.labelControl1.Location = new System.Drawing.Point(16, 17);
+			this.labelControl1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.labelControl1.Name = "labelControl1";
-			this.labelControl1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.tablePanel2.SetRow(this.labelControl1, 0);
-			this.labelControl1.Size = new System.Drawing.Size(121, 25);
+			this.labelControl1.Size = new System.Drawing.Size(121, 17);
 			this.labelControl1.TabIndex = 1;
 			this.labelControl1.Text = "Zeta Software GmbH";
 			// 
@@ -142,7 +143,7 @@
 			this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
 			this.tablePanel1.SetRow(this.pictureEdit1, 0);
 			this.tablePanel1.SetRowSpan(this.pictureEdit1, 3);
-			this.pictureEdit1.Size = new System.Drawing.Size(78, 89);
+			this.pictureEdit1.Size = new System.Drawing.Size(78, 84);
 			this.pictureEdit1.TabIndex = 0;
 			// 
 			// tablePanel1
@@ -150,8 +151,8 @@
 			this.tablePanel1.AutoSize = true;
 			this.tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] {
             new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 31.67F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 45.45F),
-            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 32.88F)});
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 49.63F),
+            new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 28.7F)});
 			this.tablePanel1.Controls.Add(this.label4);
 			this.tablePanel1.Controls.Add(this.labelControl3);
 			this.tablePanel1.Controls.Add(this.buttonClose);
@@ -159,15 +160,16 @@
 			this.tablePanel1.Controls.Add(this.pictureEdit1);
 			this.tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tablePanel1.Location = new System.Drawing.Point(0, 0);
+			this.tablePanel1.Margin = new System.Windows.Forms.Padding(0);
 			this.tablePanel1.Name = "tablePanel1";
 			this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 27.33331F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 51.33308F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 16.66667F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Separator, 16.66667F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 157.3334F),
-            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 13.33335F),
+            new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Separator, 13.33335F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-			this.tablePanel1.Size = new System.Drawing.Size(325, 326);
+			this.tablePanel1.Size = new System.Drawing.Size(325, 320);
 			this.tablePanel1.TabIndex = 0;
 			this.tablePanel1.UseSkinIndents = true;
 			// 
@@ -177,7 +179,8 @@
 			this.label4.Appearance.Options.UseFont = true;
 			this.tablePanel1.SetColumn(this.label4, 1);
 			this.tablePanel1.SetColumnSpan(this.label4, 2);
-			this.label4.Location = new System.Drawing.Point(103, 50);
+			this.label4.Location = new System.Drawing.Point(100, 46);
+			this.label4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.label4.Name = "label4";
 			this.tablePanel1.SetRow(this.label4, 1);
 			this.label4.Size = new System.Drawing.Size(118, 34);
@@ -190,7 +193,8 @@
 			this.labelControl3.Appearance.Options.UseFont = true;
 			this.tablePanel1.SetColumn(this.labelControl3, 1);
 			this.tablePanel1.SetColumnSpan(this.labelControl3, 2);
-			this.labelControl3.Location = new System.Drawing.Point(103, 20);
+			this.labelControl3.Location = new System.Drawing.Point(100, 15);
+			this.labelControl3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.labelControl3.Name = "labelControl3";
 			this.tablePanel1.SetRow(this.labelControl3, 0);
 			this.labelControl3.Size = new System.Drawing.Size(127, 17);
@@ -204,11 +208,11 @@
 			this.buttonClose.Appearance.Options.UseFont = true;
 			this.tablePanel1.SetColumn(this.buttonClose, 2);
 			this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.buttonClose.Location = new System.Drawing.Point(221, 281);
+			this.buttonClose.Location = new System.Drawing.Point(233, 275);
 			this.buttonClose.Margin = new System.Windows.Forms.Padding(0);
 			this.buttonClose.Name = "buttonClose";
 			this.tablePanel1.SetRow(this.buttonClose, 5);
-			this.buttonClose.Size = new System.Drawing.Size(88, 28);
+			this.buttonClose.Size = new System.Drawing.Size(76, 28);
 			this.buttonClose.TabIndex = 0;
 			this.buttonClose.Text = "Close";
 			this.buttonClose.WantDrawFocusRectangle = true;
@@ -221,7 +225,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.buttonClose;
-			this.ClientSize = new System.Drawing.Size(325, 326);
+			this.ClientSize = new System.Drawing.Size(325, 320);
 			this.Controls.Add(this.tablePanel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

@@ -6,5 +6,10 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "member", Target = "~M:ZetaResourceEditor.UI.FileGroups.DeleteLanguageForm.selectAllFileGroupsButton_Click(System.Object,System.EventArgs)")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "member", Target = "~M:ZetaResourceEditor.UI.FileGroups.DeleteLanguageForm.selectAllFileGroupsButton_Click(System.Object,System.EventArgs)")]
 [assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "ZetaResourceEditor")]
+[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "ZetaResourceEditor.ExtendedControlsLibrary")]
+[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "ExtendedControlsLibrary")]
+[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "DevExpress")]
+[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "DevExpress.XtraEditors")]
+[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "System.Windows.Forms")]

@@ -19,7 +19,7 @@ public class GoogleRestfulTranslationEngine :
 
     bool ITranslationEngine.IsDefault => true;
 
-    string ITranslationEngine.UniqueInternalName => @"9efb237c-ce92-450f-9ef1-850091762d63";
+    string? ITranslationEngine.UniqueInternalName => @"9efb237c-ce92-450f-9ef1-850091762d63";
 
     string ITranslationEngine.UserReadableName => "Google Translate";
 
@@ -68,11 +68,11 @@ public class GoogleRestfulTranslationEngine :
 
     string ITranslationEngine.AppIDLink => @"https://zeta.li/zre-translation-appid-google";
 
-    string[] ITranslationEngine.TranslateArray(
+    string?[] ITranslationEngine.TranslateArray(
         string appID,
-        string[] texts,
-        string sourceLanguageCode,
-        string destinationLanguageCode,
+        string?[] texts,
+        string? sourceLanguageCode,
+        string? destinationLanguageCode,
         string[] wordsToProtect,
         string[] wordsToRemove)
     {
@@ -106,7 +106,7 @@ public class GoogleRestfulTranslationEngine :
 
         var dicDic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
 
-        var result = new List<string>();
+        var result = new List<string?>();
 
         foreach (var translatedText in tr)
         {
@@ -124,25 +124,25 @@ public class GoogleRestfulTranslationEngine :
         return result.ToArray();
     }
 
-    bool ITranslationEngine.IsSourceLanguageSupported(string appID, string languageCode)
+    bool ITranslationEngine.IsSourceLanguageSupported(string appID, string? languageCode)
     {
         return TranslationHelper.IsSupportedLanguage(languageCode,
             ((ITranslationEngine)this).GetSourceLanguages(appID));
     }
 
-    bool ITranslationEngine.IsDestinationLanguageSupported(string appID, string languageCode)
+    bool ITranslationEngine.IsDestinationLanguageSupported(string appID, string? languageCode)
     {
         return TranslationHelper.IsSupportedLanguage(languageCode,
             ((ITranslationEngine)this).GetDestinationLanguages(appID));
     }
 
-    string ITranslationEngine.MapCultureToSourceLanguageCode(string appID, CultureInfo cultureInfo)
+    string? ITranslationEngine.MapCultureToSourceLanguageCode(string appID, CultureInfo cultureInfo)
     {
         return TranslationHelper.DoMapCultureToLanguageCode(
             ((ITranslationEngine)this).GetSourceLanguages(appID), cultureInfo);
     }
 
-    string ITranslationEngine.MapCultureToDestinationLanguageCode(string appID,
+    string? ITranslationEngine.MapCultureToDestinationLanguageCode(string appID,
         CultureInfo cultureInfo)
     {
         return TranslationHelper.DoMapCultureToLanguageCode(
@@ -151,9 +151,9 @@ public class GoogleRestfulTranslationEngine :
 
     string ITranslationEngine.Translate(
         string appID,
-        string text,
-        string sourceLanguageCode,
-        string destinationLanguageCode,
+        string? text,
+        string? sourceLanguageCode,
+        string? destinationLanguageCode,
         string[] wordsToProtect,
         string[] wordsToRemove)
     {

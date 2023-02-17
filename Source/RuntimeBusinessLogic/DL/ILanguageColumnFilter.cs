@@ -7,5 +7,5 @@ public interface ILanguageColumnFilter
     bool HasLanguageToDisplayFilter { get; }
 
     bool WantDisplayLanguageColumnInGrid(CultureInfo ci);
-    bool WantDisplayLanguageColumnInGrid(string language);
+    bool WantDisplayLanguageColumnInGrid(string? language);
 }

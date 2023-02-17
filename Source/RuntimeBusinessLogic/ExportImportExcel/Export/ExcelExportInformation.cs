@@ -8,8 +8,8 @@ public class ExcelExportInformation
     public Project Project { get; set; }
     public FileGroup[] FileGroups { get; set; }
 
-    public string ReferenceLanguageCode { get; set; }
-    public string[] DestinationLanguageCodes { get; set; }
+    public string? ReferenceLanguageCode { get; set; }
+    public string?[] DestinationLanguageCodes { get; set; }
 
     public string DestinationFilePath { get; set; }
 

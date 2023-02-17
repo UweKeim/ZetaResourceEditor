@@ -31,7 +31,7 @@ public class Project :
     private string _neutralLanguageCode = @"en-US";
     private bool _isModified;
 
-    private readonly List<string> _languagesToDisplay = new();
+    private readonly List<string?> _languagesToDisplay = new();
 
     bool ILanguageColumnFilter.HasLanguageToDisplayFilter => _languagesToDisplay.Count > 0;
 
@@ -42,7 +42,7 @@ public class Project :
     }
 
     bool ILanguageColumnFilter.WantDisplayLanguageColumnInGrid(
-        string language)
+        string? language)
     {
         if (_languagesToDisplay.Count <= 0)
         {
@@ -280,7 +280,7 @@ public class Project :
     /// Gets the name.
     /// </summary>
     /// <value>The name.</value>
-    public string Name => ZspPathHelper.GetFileNameWithoutExtension(
+    public string? Name => ZspPathHelper.GetFileNameWithoutExtension(
         ProjectConfigurationFilePath.Name);
 
     public string Description { get; set; }
@@ -360,7 +360,7 @@ public class Project :
         set => DynamicSettingsGlobal.PersistValue(@"BaseNameDotCount", value);
     }
 
-    public string NeutralLanguageFileNamePattern
+    public string? NeutralLanguageFileNamePattern
     {
         get
         {
@@ -372,7 +372,7 @@ public class Project :
         set => DynamicSettingsGlobal.PersistValue(@"NeutralLanguageFileNamePattern", value);
     }
 
-    public string NonNeutralLanguageFileNamePattern
+    public string? NonNeutralLanguageFileNamePattern
     {
         get
         {
@@ -420,7 +420,7 @@ public class Project :
         }
     }
 
-    public string DefaultFileTypesToIgnore
+    public string? DefaultFileTypesToIgnore
     {
         get
         {
@@ -792,7 +792,7 @@ public class Project :
         }
     }
 
-    public string NeutralLanguageCode
+    public string? NeutralLanguageCode
     {
         get => string.IsNullOrEmpty(_neutralLanguageCode) ? @"en-us" : _neutralLanguageCode.ToLowerInvariant();
         set => _neutralLanguageCode = value?.ToLowerInvariant();
@@ -1103,7 +1103,7 @@ public class Project :
 
     string IGridEditableData.JoinedFilePaths => FileGroup.JoinFilePaths(((IGridEditableData) this).FilePaths);
 
-    string IGridEditableData.GetNameIntelligent(Project project)
+    string? IGridEditableData.GetNameIntelligent(Project project)
     {
         return Name;
     }
@@ -1114,7 +1114,7 @@ public class Project :
         return @"d0b4146f-af54-49cf-86f5-9f1b185c0890".GetHashCode();
     }
 
-    string[] IGridEditableData.GetLanguageCodes(Project project)
+    string?[] IGridEditableData.GetLanguageCodes(Project project)
     {
         var result = new HashSet<string>();
 
@@ -1146,15 +1146,15 @@ public class Project :
 
     public bool EffectiveIgnoreDuringExportAndImport => false;
 
-    string IInheritedSettings.EffectiveNeutralLanguageFileNamePattern => NeutralLanguageFileNamePattern;
+    string? IInheritedSettings.EffectiveNeutralLanguageFileNamePattern => NeutralLanguageFileNamePattern;
 
-    string IInheritedSettings.EffectiveNonNeutralLanguageFileNamePattern => NonNeutralLanguageFileNamePattern;
+    string? IInheritedSettings.EffectiveNonNeutralLanguageFileNamePattern => NonNeutralLanguageFileNamePattern;
 
     string[] IInheritedSettings.EffectiveDefaultFileTypesToIgnoreArray => DefaultFileTypesToIgnoreArray;
 
-    string IInheritedSettings.EffectiveDefaultFileTypesToIgnore => DefaultFileTypesToIgnore;
+    string? IInheritedSettings.EffectiveDefaultFileTypesToIgnore => DefaultFileTypesToIgnore;
 
-    string IInheritedSettings.EffectiveNeutralLanguageCode => NeutralLanguageCode;
+    string? IInheritedSettings.EffectiveNeutralLanguageCode => NeutralLanguageCode;
 
     public int TranslationDelayMilliseconds
     {
@@ -1346,7 +1346,7 @@ public class Project :
                     $@"Dummy{ProjectFileExtension}"))
     };
 
-    public Dictionary<string, string> TranslationAppIDs
+    public Dictionary<string?, string> TranslationAppIDs
     {
         get
         {
@@ -1360,7 +1360,7 @@ public class Project :
             }
             else
             {
-                var result = new Dictionary<string, string>();
+                var result = new Dictionary<string?, string>();
 
                 var pairs = raw.Trim().Split(new[] {@"~~~~"}, StringSplitOptions.RemoveEmptyEntries);
 
@@ -1401,7 +1401,7 @@ public class Project :
         }
     }
 
-    public string TranslationEngineUniqueInternalName
+    public string? TranslationEngineUniqueInternalName
     {
         get => ConvertHelper.ToString(
             DynamicSettingsGlobalHierarchical.RetrieveValue(

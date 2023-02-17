@@ -101,8 +101,8 @@ public sealed class ZrePathHelper
     /// 	<para>This method expects fully resolved pathnames to be passed
     /// to it. (Use Path.GetFullPath() to obtain this.)</para>
     /// </remarks>
-    public static string ShortenPathName(
-        string pathName,
+    public static string? ShortenPathName(
+        string? pathName,
         int maximumPathLength )
     {
         if ( string.IsNullOrEmpty( pathName ) )

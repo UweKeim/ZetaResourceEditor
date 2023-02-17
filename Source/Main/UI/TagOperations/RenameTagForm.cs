@@ -5,7 +5,7 @@ using Helper.Base;
 public partial class RenameTagForm :
     FormBase
 {
-    private string initialName;
+    private string? initialName;
     private readonly List<string> _distinctTagNames;
 
     public RenameTagForm(
@@ -16,7 +16,7 @@ public partial class RenameTagForm :
         InitializeComponent();
     }
 
-    public string TagName
+    public string? TagName
     {
         get => textBox1.Text.Trim();
         set

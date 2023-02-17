@@ -171,7 +171,7 @@ public class FileGroupSelectionControl :
     private void InitializeComponent()
     {
         this.components = new System.ComponentModel.Container();
-        var resources = new System.ComponentModel.ComponentResourceManager(typeof(FileGroupSelectionControl));
+        new System.ComponentModel.ComponentResourceManager(typeof(FileGroupSelectionControl));
         this.treeListColumn1 = new();
         ((System.ComponentModel.ISupportInitialize)this).BeginInit();
         this.SuspendLayout();

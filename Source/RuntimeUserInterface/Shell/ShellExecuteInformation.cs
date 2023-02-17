@@ -29,7 +29,7 @@ public sealed class ShellExecuteInformation
         Process.Start(info);
     }
 
-    public string FileName { get; set; }
+    public string? FileName { get; set; }
 
     public string Arguments { get; set; }
 

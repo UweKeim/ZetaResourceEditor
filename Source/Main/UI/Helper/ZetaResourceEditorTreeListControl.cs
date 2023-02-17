@@ -167,7 +167,7 @@ public partial class ZetaResourceEditorTreeListControl :
                     if (string.Compare(iA, iB, StringComparison.OrdinalIgnoreCase) > 0)
                     {
                         var xA = GetNodeIndex(item.Nodes[i]);
-                        var xB = GetNodeIndex(item.Nodes[i + 1]);
+                        GetNodeIndex(item.Nodes[i + 1]);
 
                         SetNodeIndex(item.Nodes[i + 1], xA);
 

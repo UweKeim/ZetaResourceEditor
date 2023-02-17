@@ -47,7 +47,7 @@ public partial class FormBase :
 
     public static void ApplySpellCheckerCulture(
         SpellChecker spellChecker,
-        string languageCode )
+        string? languageCode )
     {
         if ( spellChecker != null )
         {

@@ -1,7 +1,5 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Projects;
 
-using FileGroups;
-using FileInformations;
 using Language;
 using ProjectFolders;
 using System.ComponentModel;

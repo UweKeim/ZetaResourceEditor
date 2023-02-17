@@ -58,35 +58,35 @@ public sealed class LanguageCodeDetection
     /// it would be "Properties".
     /// </remarks>
     /// <value>The base name.</value>
-    public string GetBaseName(
+    public string? GetBaseName(
         FileGroup fileGroup)
     {
         doGetBaseName(
             fileGroup,
             out var baseName,
-            out var extension,
-            out var optionalDefaultType);
+            out _,
+            out _);
         return baseName;
     }
 
-    public string GetBaseExtension(
+    public string? GetBaseExtension(
         FileGroup fileGroup)
     {
         doGetBaseName(
             fileGroup,
-            out var baseName,
+            out _,
             out var extension,
-            out var optionalDefaultType);
+            out _);
         return extension;
     }
 
-    public string GetBaseOptionalDefaultType(
+    public string? GetBaseOptionalDefaultType(
         FileGroup fileGroup)
     {
         doGetBaseName(
             fileGroup,
-            out var baseName,
-            out var extension,
+            out _,
+            out _,
             out var optionalDefaultType);
         return optionalDefaultType;
     }
@@ -117,7 +117,7 @@ public sealed class LanguageCodeDetection
     //}
 
     public static bool IsValidCultureName(
-        string cultureName)
+        string? cultureName)
     {
         if (string.IsNullOrEmpty(cultureName))
         {
@@ -145,8 +145,12 @@ public sealed class LanguageCodeDetection
                         try
                         {
                             // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
-                            CultureInfo.GetCultureInfo(longCultureName);
-                            CultureCache.Add(longCultureName);
+                            if (longCultureName != null)
+                            {
+	                            CultureInfo.GetCultureInfo(longCultureName);
+	                            CultureCache.Add(longCultureName);
+                            }
+
                             return true;
                         }
                         catch (ArgumentException)
@@ -164,9 +168,9 @@ public sealed class LanguageCodeDetection
         }
     }
 
-    private static readonly HashSet<string> CultureCache = new();
+    private static readonly HashSet<string?> CultureCache = new();
 
-    private static bool isValueCultureName(string cultureName, out string longCultureName)
+    private static bool isValueCultureName(string? cultureName, out string? longCultureName)
     {
         // First, try direct match.
         foreach (var cultureInfo in CultureInfo.GetCultures(CultureTypes.AllCultures))
@@ -190,11 +194,14 @@ public sealed class LanguageCodeDetection
         // Fix: "zh-CN" in .NET Core wohl nicht in Liste aber irgendwie trotzdem aufrufbar.
         try
         {
-            var cultureInfo = CultureInfo.GetCultureInfo(cultureName);
-            if (isCultureMatch(cultureName, cultureInfo, true, out longCultureName))
-            {
-                return true;
-            }
+	        if (cultureName != null)
+	        {
+		        var cultureInfo = CultureInfo.GetCultureInfo(cultureName);
+		        if (isCultureMatch(cultureName, cultureInfo, true, out longCultureName))
+		        {
+			        return true;
+		        }
+	        }
         }
         catch (Exception x)
         {
@@ -206,15 +213,15 @@ public sealed class LanguageCodeDetection
     }
 
     private static bool isCultureMatch(
-        string cultureName,
+        string? cultureName,
         CultureInfo cultureInfo,
         bool fuzzy,
-        out string longCultureName)
+        out string? longCultureName)
     {
         if (fuzzy)
         {
             // Same start.
-            if (cultureInfo.Name.StartsWith(cultureName, StringComparison.InvariantCultureIgnoreCase))
+            if (cultureName != null && cultureInfo.Name.StartsWith(cultureName, StringComparison.InvariantCultureIgnoreCase))
             {
                 longCultureName = cultureInfo.Name;
                 return true;
@@ -241,7 +248,7 @@ public sealed class LanguageCodeDetection
     }
 
     public CultureInfo DetectCultureFromFileName(
-        IInheritedSettings settings,
+        IInheritedSettings? settings,
         string fileName)
     {
         var culture =
@@ -256,7 +263,7 @@ public sealed class LanguageCodeDetection
         new();
 
     public static CultureInfo MakeValidCulture(
-        string cultureName)
+        string? cultureName)
     {
         if (string.IsNullOrEmpty(cultureName))
         {
@@ -295,9 +302,9 @@ public sealed class LanguageCodeDetection
         }
     }
 
-    public string DetectLanguageCodeFromFileName(
-        IInheritedSettings settings,
-        string fileName)
+    public string? DetectLanguageCodeFromFileName(
+        IInheritedSettings? settings,
+        string? fileName)
     {
         // Bug_ when no project loaded, therefore create.
         settings ??= Project.Empty;
@@ -322,9 +329,9 @@ public sealed class LanguageCodeDetection
 
     //CHANGED extract language string inside next to last point delimited part
     //returns culture string like de-DE or null or empty if neutral file guessed
-    public static string GetLanguageCodeFromFileNameSuffix(
-        IInheritedSettings settings,
-        string fileName
+    public static string? GetLanguageCodeFromFileNameSuffix(
+        IInheritedSettings? settings,
+        string? fileName
     )
     {
         var cultureString = string.Empty;
@@ -338,22 +345,22 @@ public sealed class LanguageCodeDetection
             fileName = ZspPathHelper.GetFileNameWithoutExtension(fileName);
             fileName = removeOptionalDefaultTypes(settings, fileName, null);
 
-            var baseName = fileName.ToLowerInvariant();
+            var baseName = fileName?.ToLowerInvariant();
 
-            if (!string.IsNullOrEmpty(baseName))
+            if (!string.IsNullOrEmpty(baseName) && fileName != null)
             {
-                var pPos = fileName.LastIndexOf('.');
-                if (pPos > -1 && pPos < fileName.Length - 1)
-                {
-                    var possibleCulture = fileName.Substring(pPos + 1);
-                    if (!string.IsNullOrEmpty(possibleCulture))
-                    {
-                        if (IsValidCultureName(possibleCulture))
-                        {
-                            cultureString = fileName.Substring(pPos + 1);
-                        }
-                    }
-                }
+	            var pPos = fileName.LastIndexOf('.');
+	            if (pPos > -1 && pPos < fileName.Length - 1)
+	            {
+		            var possibleCulture = fileName.Substring(pPos + 1);
+		            if (!string.IsNullOrEmpty(possibleCulture))
+		            {
+			            if (IsValidCultureName(possibleCulture))
+			            {
+				            cultureString = fileName.Substring(pPos + 1);
+			            }
+		            }
+	            }
             }
         }
         return cultureString;
@@ -361,33 +368,32 @@ public sealed class LanguageCodeDetection
 
     //CHANGED extract language string inside next to last point delimited part
     //returns culture string like de-DE or null or empty if neutral file guessed
-    public static string GetBaseName(
-        IInheritedSettings settings,
+    public static string? GetBaseName(
+        IInheritedSettings? settings,
         string fileName
     )
     {
         return extractBlock(settings, fileName, PhBasename);
     }
 
-    public static string GetExtension(
-        IInheritedSettings settings,
-        string fileName
-    )
+    public static string? GetExtension(
+        IInheritedSettings? settings,
+        string fileName)
     {
         return extractBlock(settings, fileName, PhExtension);
     }
 
     public static bool IsNeutralLanguageFileName(
-        IInheritedSettings settings,
-        string filePath)
+        IInheritedSettings? settings,
+        string? filePath)
     {
         //CHANGED just invert decision
         return !IsNonNeutralLanguageFileName(settings, filePath);
     }
 
     public static bool IsNonNeutralLanguageFileName(
-        IInheritedSettings settings,
-        string filePath)
+        IInheritedSettings? settings,
+        string? filePath)
     {
         var fn = ZspPathHelper.GetFileNameFromFilePath(filePath);
         var baseDotCount = settings?.EffectiveBaseNameDotCount ?? 0;
@@ -416,10 +422,10 @@ public sealed class LanguageCodeDetection
     // ------------------------------------------------------------------
 
     private static void doGetBaseName(
-        IGridEditableData fileGroup,
-        out string baseName,
-        out string extension,
-        out string removedType)
+        IGridEditableData? fileGroup,
+        out string? baseName,
+        out string?extension,
+        out string? removedType)
     {
         if (fileGroup == null || fileGroup.FilePaths.Length <= 0)
         {
@@ -435,16 +441,25 @@ public sealed class LanguageCodeDetection
 
             fileName = removeOptionalDefaultTypes(fileGroup.ParentSettings, fileName, removedTypes);
             //CHANGED: using new common method. Extract all names by reverse pattern resolve
-            baseName = GetBaseName(fileGroup.ParentSettings, fileName);
-            extension = extractBlock(fileGroup.ParentSettings, fileName, PhExtension);
+            if (fileName == null)
+            {
+	            baseName = null;
+	            extension = null;
+            }
+            else
+            {
+	            baseName = GetBaseName(fileGroup.ParentSettings, fileName);
+	            extension = extractBlock(fileGroup.ParentSettings, fileName, PhExtension);
+            }
+
             removedType = (removedTypes.Count > 0 ? removedTypes[0] : null) ?? string.Empty;
         }
     }
 
-    private static string removeOptionalDefaultTypes(
-        IInheritedSettings settings,
-        string fileName,
-        ICollection<string> removedTypes)
+    private static string?removeOptionalDefaultTypes(
+        IInheritedSettings? settings,
+        string? fileName,
+        ICollection<string>? removedTypes)
     {
         if (settings == null || string.IsNullOrEmpty(fileName))
         {
@@ -478,10 +493,10 @@ public sealed class LanguageCodeDetection
         }
     }
 
-    private static string extractBlock(
-        IInheritedSettings settings,
-        string text,
-        string after)
+    private static string? extractBlock(
+        IInheritedSettings? settings,
+        string? text,
+        string? after)
     {
         if (string.IsNullOrEmpty(text))
         {
@@ -504,9 +519,9 @@ public sealed class LanguageCodeDetection
                 return (optionalTypes.Count > 0 ? optionalTypes[0] : null) ?? string.Empty;
             }
             //remove pattern:
-            patternOrigin = patternOrigin.Replace(PhOptionaltypes, string.Empty);
+            patternOrigin = patternOrigin?.Replace(PhOptionaltypes, string.Empty);
 
-            if (!patternOrigin.Contains(after))
+            if (patternOrigin != null && after != null && !patternOrigin.Contains(after))
             {
                 if (after == PhLanguagecode)
                 {
@@ -517,13 +532,13 @@ public sealed class LanguageCodeDetection
 
             var pattern = patternOrigin;
             var block = text;
-            string leftBlock;
-            string rightBlock;
-            string leftPattern;
-            string rightPattern;
+            string? leftBlock;
+            string? rightBlock;
+            string? leftPattern;
+            string? rightPattern;
 
             //trim right
-            while (!string.IsNullOrEmpty(block) && !string.IsNullOrEmpty(pattern) && pattern.Contains(after))
+            while (after != null && !string.IsNullOrEmpty(block) && !string.IsNullOrEmpty(pattern) && pattern.Contains(after))
             {
                 splitBlockRight(pattern, @".", out leftPattern, out rightPattern);
                 splitBlockRight(block, @".", out leftBlock, out rightBlock);
@@ -542,7 +557,7 @@ public sealed class LanguageCodeDetection
             }
 
             //trim left
-            while (!string.IsNullOrEmpty(block) && !string.IsNullOrEmpty(pattern) && pattern.Contains(after))
+            while (after != null && !string.IsNullOrEmpty(block) && !string.IsNullOrEmpty(pattern) && pattern.Contains(after))
             {
                 splitBlockLeft(pattern, @".", out leftPattern, out rightPattern);
                 splitBlockLeft(block, @".", out leftBlock, out rightBlock);
@@ -572,10 +587,10 @@ public sealed class LanguageCodeDetection
     }
 
     private static void splitBlockRight(
-        string text,
+        string? text,
         string separator,
-        out string left,
-        out string right)
+        out string? left,
+        out string? right)
     {
         if (string.IsNullOrEmpty(text))
         {
@@ -599,10 +614,10 @@ public sealed class LanguageCodeDetection
     }
 
     private static void splitBlockLeft(
-        string text,
+        string? text,
         string separator,
-        out string left,
-        out string right)
+        out string? left,
+        out string? right)
     {
         if (string.IsNullOrEmpty(text))
         {
@@ -626,7 +641,7 @@ public sealed class LanguageCodeDetection
     }
 
     private static int getDotCount(
-        string text)
+        string? text)
     {
         if (string.IsNullOrEmpty(text))
         {
@@ -651,10 +666,10 @@ public sealed class LanguageCodeDetection
     }
 
     public bool IsNeutralCulture(
-        IInheritedSettings settings,
+        IInheritedSettings? settings,
         CultureInfo culture)
     {
-        return Equals(culture, MakeValidCulture(settings.EffectiveNeutralLanguageCode));
+        return Equals(culture, MakeValidCulture(settings?.EffectiveNeutralLanguageCode));
     }
 
     // ------------------------------------------------------------------

@@ -122,7 +122,7 @@ public partial class GroupFilesUserControl :
                     ofd.FileNames);
 
             var editorControl =
-                checkGetAddEditorControl(fileGroup, out var isNew);
+                checkGetAddEditorControl(fileGroup, out _);
 
             editorControl.OpenWithDialog(fileGroup);
         }

@@ -20,12 +20,12 @@ public partial class ConfigureLanguageColumnsForm :
         _project = project;
     }
 
-    private IEnumerable<string> languageCodes
+    private IEnumerable<string?> languageCodes
     {
         get
         {
             var codes =
-                new HashSet<string>
+                new HashSet<string?>
                 {
                     _project.NeutralLanguageCode
                 };
@@ -132,7 +132,7 @@ public partial class ConfigureLanguageColumnsForm :
     {
         languagesToDisplayCheckListBox.Items.Clear();
 
-        var pairs = new List<MyTuple<string, string>>();
+        var pairs = new List<MyTuple<string, string?>>();
 
         // ReSharper disable LoopCanBeConvertedToQuery
         foreach (var languageCode in languageCodes)

@@ -6,7 +6,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "member", Target = "~M:ZetaResourceEditor.UI.FileGroups.DeleteLanguageForm.selectAllFileGroupsButton_Click(System.Object,System.EventArgs)")]
-[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "ZetaResourceEditor")]
-[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "ZetaResourceEditor.ExtendedControlsLibrary")]
-[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "namespaceanddescendants", Target = "ExtendedControlsLibrary")]
+// https://learn.microsoft.com/en-us/visualstudio/code-quality/in-source-suppression-overview?view=vs-2022&tabs=csharp#module-suppression-scope
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "module")]
+[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "module")]

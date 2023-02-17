@@ -37,7 +37,7 @@ public class FileGroup :
         Project = project;
     }
 
-    private string _name;
+    private string? _name;
     private Guid _projectFolderUniqueID;
     private int _orderPosition;
     private bool _ignoreDuringExportAndImport;
@@ -332,7 +332,7 @@ public class FileGroup :
 
     private static int findColumnIndex(
         DataTable table,
-        string columnName,
+        string? columnName,
         int fallbackIndex)
     {
         if (string.IsNullOrEmpty(columnName))
@@ -611,7 +611,7 @@ public class FileGroup :
         }
     }
 
-    public string GetNameIntelligent(
+    public string? GetNameIntelligent(
         Project project)
     {
         lock (_fileInfos)
@@ -692,7 +692,7 @@ public class FileGroup :
         }
     }
 
-    public string Name
+    public string? Name
     {
         get
         {
@@ -796,7 +796,7 @@ public class FileGroup :
         }
     }
 
-    public string[] GetLanguageCodes(
+    public string?[] GetLanguageCodes(
         Project project)
     {
         var result = new HashSet<string>();
@@ -817,7 +817,7 @@ public class FileGroup :
         return result.ToArray();
     }
 
-    public MyTuple<string, string>[] GetLanguageCodesExtended(
+    public MyTuple<string, string>[]? GetLanguageCodesExtended(
         Project project)
     {
         var result = new HashSet<MyTuple<string, string>>();
@@ -871,7 +871,7 @@ public class FileGroup :
         }
     }
 
-    public static string DefaultTranslatedPrefix => @"####";
+    public static string? DefaultTranslatedPrefix => @"####";
 
     public static string DefaultTranslationErrorPrefix => @"****";
 
@@ -897,7 +897,7 @@ public class FileGroup :
 
     public string BaseOptionalDefaultType => new LanguageCodeDetection(Project).GetBaseOptionalDefaultType(this);
 
-    private string Remarks { get; set; }
+    private string? Remarks { get; set; }
 
     public Guid ProjectFolderUniqueID => _projectFolderUniqueID;
 
@@ -970,14 +970,14 @@ public class FileGroup :
         return result;
     }
 
-    private static string shortenFilePath(
-        string filePath)
+    private static string? shortenFilePath(
+        string? filePath)
     {
         return ShortenFilePath(filePath, 150);
     }
 
-    public static string ShortenFilePath(
-        string filePath,
+    public static string? ShortenFilePath(
+        string? filePath,
         int maxLength)
     {
         if (string.IsNullOrEmpty(filePath) || filePath.Length <= maxLength)
@@ -1049,7 +1049,7 @@ public class FileGroup :
 
     public FileInformation CreateAndAddNewFile(
         string baseFolderPath,
-        string newFileName)
+        string? newFileName)
     {
         if (newFileName.StartsWithNoCase(BaseName) && newFileName.EndsWithNoCase(BaseExtension))
         {
@@ -1076,9 +1076,9 @@ public class FileGroup :
 
     public bool CreateAndAddNewFile(
         string sourceFilePath,
-        string newFileName,
-        string sourceLanguageCode,
-        string newLanguageCode,
+        string? newFileName,
+        string? sourceLanguageCode,
+        string? newLanguageCode,
         bool copyTextsFromSource,
         bool automaticallyTranslateTexts,
         string prefix,
@@ -1250,8 +1250,8 @@ public class FileGroup :
     private void translateTexts(
         Project project,
         FileInformation destinationFfi,
-        string sourceLanguageCode,
-        string destinationLanguageCode,
+        string? sourceLanguageCode,
+        string? destinationLanguageCode,
         string prefix)
     {
         project ??= Project.Empty;
@@ -1393,9 +1393,9 @@ public class FileGroup :
         }
     }
 
-    public CsProjectWithFileResult GetConnectedCsProject()
+    public CsProjectWithFileResult? GetConnectedCsProject()
     {
-        CsProjectWithFileResult csProjResult = null;
+        CsProjectWithFileResult? csProjResult = null;
         if (FilePaths is { Length: >= 2 })
         {
             var notDefaultLanguageVersion = FilePaths

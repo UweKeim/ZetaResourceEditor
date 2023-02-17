@@ -30,7 +30,7 @@ public partial class DeleteLanguageForm :
     protected override void InitiallyFillLists()
     {
         var plc = projectLanguageCodes;
-        var plcl = new List<string>(plc);
+        var plcl = new List<string?>(plc);
 
         var items = new List<MyTuple<string, CultureInfo>>();
 
@@ -284,12 +284,12 @@ public partial class DeleteLanguageForm :
         UpdateUI();
     }
 
-    private IEnumerable<string> projectLanguageCodes
+    private IEnumerable<string?> projectLanguageCodes
     {
         get
         {
             var codes =
-                new HashSet<string>
+                new HashSet<string?>
                 {
                     _project.NeutralLanguageCode
                 };

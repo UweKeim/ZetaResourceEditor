@@ -5,7 +5,6 @@ using FourZeroFour;
 using System.Configuration;
 using System.Net.Mail;
 using Zeta.VoyagerLibrary.Common;
-using Zeta.VoyagerLibrary.Data;
 using Zeta.VoyagerLibrary.Data.Abstract;
 using Zeta.VoyagerLibrary.Data.Caching;
 using Zeta.VoyagerLibrary.Data.Common;

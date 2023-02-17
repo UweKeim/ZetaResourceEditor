@@ -38,7 +38,7 @@ public sealed class InMemoryTranslationSnapshotController
 
         var table = new DataProcessing(fileGroup).GetDataTableFromResxFiles(project, true);
 
-        var lcs = new List<string>(languageCodes);
+        var lcs = new List<string?>(languageCodes);
         for (var i = 0; i < lcs.Count; i++)
         {
             lcs[i] = lcs[i].ToLowerInvariant();
@@ -49,7 +49,7 @@ public sealed class InMemoryTranslationSnapshotController
         {
             if (rowIndex % 25 == 0 && (bw?.CancellationPending ?? false)) throw new OperationCanceledException();
 
-            var dic = new Dictionary<string, string>();
+            var dic = new Dictionary<string?, string>();
 
             for (var sourceColumnIndex = 2;
                  sourceColumnIndex <
@@ -87,8 +87,8 @@ public sealed class InMemoryTranslationSnapshot
     /// Liefert NULL zurück, falls nicht gefunden.
     /// </summary>
     public string GetTranslation(
-        string sourceLanguageCode,
-        string destinationLanguageCode,
+        string? sourceLanguageCode,
+        string? destinationLanguageCode,
         string sourceText)
     {
         var items = _items.Where(
@@ -108,7 +108,7 @@ public sealed class InMemoryTranslationSnapshot
     }
 
     public void AddBatchTranslation(
-        Dictionary<string, string> languageAndTextPairs)
+        Dictionary<string?, string> languageAndTextPairs)
     {
         var item = new InMemoryTranslationSnapshotItem();
         _items.Add(item);
@@ -120,10 +120,10 @@ public sealed class InMemoryTranslationSnapshot
     }
 
     public void AddTranslation(
-        string sourceLanguageCode,
-        string destinationLanguageCode,
+        string? sourceLanguageCode,
+        string? destinationLanguageCode,
         string sourceText,
-        string destinationText)
+        string? destinationText)
     {
         var item = _items.FirstOrDefault(
             i => i.LanguageAndTextPairs.Any(j => j.Key.EqualsNoCase(sourceLanguageCode) &&
@@ -141,6 +141,6 @@ public sealed class InMemoryTranslationSnapshot
 
 public sealed class InMemoryTranslationSnapshotItem
 {
-    public Dictionary<string, string> LanguageAndTextPairs { get; } = new();
+    public Dictionary<string?, string> LanguageAndTextPairs { get; } = new();
 
 }

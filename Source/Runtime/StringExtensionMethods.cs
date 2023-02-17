@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 public static class StringExtensionMethods
 {
-    public static string ReplaceEscapes(string text)
+    public static string? ReplaceEscapes(string text)
     {
         return text
             .Replace("\r", @"\r")
@@ -13,7 +13,7 @@ public static class StringExtensionMethods
             .Replace("\t", @"\t");
     }
 
-    public static string UnreplaceEscapes(string text)
+    public static string UnreplaceEscapes(string? text)
     {
         return text
             .Replace(@"\r", "\r")
@@ -22,13 +22,13 @@ public static class StringExtensionMethods
     }
 
     public static bool IsNullOrWhiteSpace(
-        string s)
+        string? s)
     {
         return string.IsNullOrEmpty(s) || s.Trim().Length <= 0;
     }
 
-    public static string ToLowerInvariantIntelligent(
-        string s)
+    public static string? ToLowerInvariantIntelligent(
+        string? s)
     {
         return string.IsNullOrEmpty(s) ? s : s.ToLowerInvariant();
     }

@@ -8,13 +8,13 @@ public interface IInheritedSettings
 
     bool EffectiveIgnoreDuringExportAndImport { get; }
 
-    string EffectiveNeutralLanguageFileNamePattern { get; }
+    string? EffectiveNeutralLanguageFileNamePattern { get; }
 
-    string EffectiveNonNeutralLanguageFileNamePattern { get; }
+    string? EffectiveNonNeutralLanguageFileNamePattern { get; }
 
     string[] EffectiveDefaultFileTypesToIgnoreArray { get; }
 
-    string EffectiveDefaultFileTypesToIgnore { get; }
+    string? EffectiveDefaultFileTypesToIgnore { get; }
 
-    string EffectiveNeutralLanguageCode { get; }
+    string? EffectiveNeutralLanguageCode { get; }
 }

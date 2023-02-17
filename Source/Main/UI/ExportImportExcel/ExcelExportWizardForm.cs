@@ -48,12 +48,12 @@ public partial class ExcelExportWizardForm :
         _project = project;
     }
 
-    private string[] languageCodes
+    private string?[] languageCodes
     {
         get
         {
             var codes =
-                new HashSet<string>
+                new HashSet<string?>
                 {
                     _project.NeutralLanguageCode
                 };
@@ -92,7 +92,7 @@ public partial class ExcelExportWizardForm :
                 @group.ParentSettings is not { EffectiveIgnoreDuringExportAndImport: true })
             {
                 var index = fileGroupsListBox.Items.Add(
-                    new MyTuple<string, FileGroup>(
+                    new MyTuple<string?, FileGroup>(
                         group.GetNameIntelligent(_project),
                         group));
 
@@ -111,7 +111,7 @@ public partial class ExcelExportWizardForm :
         foreach (var languageCode in languageCodes)
         {
             referenceLanguageGroupBox.Properties.Items.Add(
-                new MyTuple<string, string>(
+                new MyTuple<string, string?>(
                     $@"{LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName} ({languageCode})",
                     languageCode));
         }
@@ -380,7 +380,7 @@ public partial class ExcelExportWizardForm :
                 !string.Equals(languageCode, forbidden, StringComparison.InvariantCultureIgnoreCase))
             {
                 var index = languagesToExportCheckListBox.Items.Add(
-                    new MyTuple<string, string>(
+                    new MyTuple<string, string?>(
                         $@"{LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName} ({languageCode})",
                         languageCode));
 

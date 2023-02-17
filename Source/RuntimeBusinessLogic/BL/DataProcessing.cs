@@ -327,7 +327,7 @@ public sealed class DataProcessing
         return table;
     }
 
-    public static string ExtractCultureNameFromColumnCaption(
+    public static string? ExtractCultureNameFromColumnCaption(
         string caption)
     {
         var li = caption.LastIndexOf('(');

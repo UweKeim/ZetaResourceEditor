@@ -531,7 +531,7 @@ public partial class ResourceEditorUserControl :
     private void addDetailTabPage(
         ILanguageColumnFilter filter,
         string name,
-        string languageCode)
+        string? languageCode)
     {
         var tabPage =
             new XtraTabPage
@@ -1234,7 +1234,7 @@ public partial class ResourceEditorUserControl :
         }
     }
 
-    protected string neutralLanguageCode
+    protected string? neutralLanguageCode
     {
         get
         {
@@ -1246,7 +1246,7 @@ public partial class ResourceEditorUserControl :
 
     private static int findColumnIndex(
         DataTable table,
-        string columnName,
+        string? columnName,
         int fallbackIndex)
     {
         if (string.IsNullOrEmpty(columnName))
@@ -1534,7 +1534,7 @@ public partial class ResourceEditorUserControl :
 
     public void Find()
     {
-        using var form = new FindForm {TextToFind = _findText};
+        using var form = new FindFormModern { TextToFind = _findText};
 
         if (form.ShowDialog(this) == DialogResult.OK)
         {
@@ -2037,7 +2037,7 @@ public partial class ResourceEditorUserControl :
 
         if (form.ShowDialog(ParentForm) == DialogResult.OK)
         {
-            var languagesToDelete = new List<string>(form.GetLanguagesToDelete());
+            var languagesToDelete = new List<string?>(form.GetLanguagesToDelete());
 
             var rowHandles = new List<int>(selectedRowHandles);
             rowHandles.Sort((x, y) => -x.CompareTo(y));

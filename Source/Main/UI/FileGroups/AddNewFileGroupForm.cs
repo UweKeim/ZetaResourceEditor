@@ -35,7 +35,7 @@ public partial class AddNewFileGroupForm :
     protected override void InitiallyFillLists()
     {
         var plc = projectLanguageCodes;
-        var plcl = new List<string>(plc);
+        var plcl = new List<string?>(plc);
 
         var items = new List<MyTuple<string, CultureInfo>>();
 
@@ -333,7 +333,7 @@ public partial class AddNewFileGroupForm :
         return list.ToArray();
     }
 
-    private static string generateFileName(
+    private static string? generateFileName(
         FileGroup fileGroup,
         CultureInfo culture)
     {
@@ -391,7 +391,7 @@ public partial class AddNewFileGroupForm :
     private void selectProjectLanguagesButton_Click(object sender, EventArgs e)
     {
         var plc = projectLanguageCodes;
-        var plcl = new List<string>(plc);
+        var plcl = new List<string?>(plc);
 
         for (var index = 0; index < destinationLanguagesListBox.Items.Count; ++index)
         {
@@ -403,12 +403,12 @@ public partial class AddNewFileGroupForm :
         }
     }
 
-    private IEnumerable<string> projectLanguageCodes
+    private IEnumerable<string?> projectLanguageCodes
     {
         get
         {
             var codes =
-                new HashSet<string>
+                new HashSet<string?>
                 {
                     _project.NeutralLanguageCode
                 };

@@ -14,7 +14,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.3.39.0</ApplicationVersion>
+    <ApplicationVersion>2.3.40.0</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -30,8 +30,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-    <AssemblyVersion>2.3.39.0</AssemblyVersion>
-    <FileVersion>2.3.39.0</FileVersion>
+    <AssemblyVersion>2.3.40.0</AssemblyVersion>
+    <FileVersion>2.3.40.0</FileVersion>
     <AssemblyName>ZetaResourceEditor</AssemblyName>
     <Product>Zeta Resource Editor</Product>
     <Authors>Zeta Software GmbH</Authors>
@@ -94,7 +94,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
-    <PackageReference Include="DevExpress.Win.Design" Version="22.2.3" />
+    <PackageReference Include="DevExpress.Win.Design" Version="22.2.4" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
@@ -105,7 +105,7 @@
     <PackageReference Include="Microsoft.Build" Version="17.4.0" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.4.0" />
     <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.4.2244" />
-    <PackageReference Include="SharpZipLib" Version="1.4.1" />
+    <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="Svg" Version="3.4.4" />
     <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.117" />
@@ -144,6 +144,8 @@
     <Compile Remove="UI\Main\ExitAdvertisementForm.Designer.cs" />
     <Compile Remove="UI\Tools\AboutForm.cs" />
     <Compile Remove="UI\Tools\AboutForm.Designer.cs" />
+    <Compile Remove="UI\Tools\FindForm.cs" />
+    <Compile Remove="UI\Tools\FindForm.Designer.cs" />
     <Compile Remove="UI\Tools\ImportExportWizard.cs" />
     <Compile Remove="UI\Tools\ImportExportWizard.Designer.cs" />
     <EmbeddedResource Remove="TestData\TestResources.resx" />
@@ -153,6 +155,7 @@
     <EmbeddedResource Remove="UI\Helper\ExtendedWebBrowser\ExtendedWebBrowserUserControl.resx" />
     <EmbeddedResource Remove="UI\Main\ExitAdvertisementForm.resx" />
     <EmbeddedResource Remove="UI\Tools\AboutForm.resx" />
+    <EmbeddedResource Remove="UI\Tools\FindForm.resx" />
     <EmbeddedResource Remove="UI\Tools\ImportExportWizard.resx" />
   </ItemGroup>
   <ItemGroup>

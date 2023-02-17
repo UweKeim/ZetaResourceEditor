@@ -67,9 +67,9 @@ internal class DynSettings
         }
     }
 
-    public Dictionary<string, string> DirectValues { get; } = new();
+    public Dictionary<string, string?> DirectValues { get; } = new();
 
-    public void PersistValue(string name, string value)
+    public void PersistValue(string name, string? value)
     {
         if (string.IsNullOrEmpty(name))
         {
@@ -96,7 +96,7 @@ internal class DynSettings
         }
     }
 
-    private static bool isSame(string a, string b)
+    private static bool isSame(string? a, string? b)
     {
         if (a == null && b == null)
         {

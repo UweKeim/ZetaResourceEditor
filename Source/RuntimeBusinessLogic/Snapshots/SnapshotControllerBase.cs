@@ -21,7 +21,7 @@ public abstract class SnapshotControllerBase
     }
 
     public void DeleteSettingValue(
-        string key)
+        string? key)
     {
         if (!StringExtensionMethods.IsNullOrWhiteSpace(key))
         {
@@ -39,7 +39,7 @@ public abstract class SnapshotControllerBase
     }
 
     public void PutSettingValue(
-        string key,
+        string? key,
         string value)
     {
         if (!StringExtensionMethods.IsNullOrWhiteSpace(key))
@@ -64,7 +64,7 @@ public abstract class SnapshotControllerBase
     }
 
     public string GetSettingValue(
-        string key)
+        string? key)
     {
         if (StringExtensionMethods.IsNullOrWhiteSpace(key))
         {

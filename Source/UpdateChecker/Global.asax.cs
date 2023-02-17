@@ -1,6 +1,5 @@
 ﻿namespace UpdateChecker;
 
-using System;
 using System.Threading;
 using System.Web;
 using Zeta.VoyagerLibrary.Logging;

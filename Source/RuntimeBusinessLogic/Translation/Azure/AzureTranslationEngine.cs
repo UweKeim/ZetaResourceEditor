@@ -22,7 +22,7 @@ public sealed class AzureTranslationEngine :
     bool ITranslationEngine.IsAppIDMultiLine => false;
     bool ITranslationEngine.IsJson => false;
     bool ITranslationEngine.IsDefault => false;
-    string ITranslationEngine.UniqueInternalName => @"1e8232f6-d1ee-4b22-8b78-2c8a01a17a0a";
+    string? ITranslationEngine.UniqueInternalName => @"1e8232f6-d1ee-4b22-8b78-2c8a01a17a0a";
     string ITranslationEngine.UserReadableName => "Microsoft Translator (Azure)";
     bool ITranslationEngine.SupportsArrayTranslation => true;
     int ITranslationEngine.MaxArraySize => 25;
@@ -107,7 +107,7 @@ public sealed class AzureTranslationEngine :
             });
     }
 
-    private static string tryGetLanguageName(string s)
+    private static string tryGetLanguageName(string? s)
     {
         return CultureHelper.CreateCultureErrorTolerant(s).DisplayName;
     }
@@ -129,25 +129,25 @@ public sealed class AzureTranslationEngine :
         return ((ITranslationEngine)this).GetSourceLanguages(appID);
     }
 
-    bool ITranslationEngine.IsSourceLanguageSupported(string appID, string languageCode)
+    bool ITranslationEngine.IsSourceLanguageSupported(string appID, string? languageCode)
     {
         return TranslationHelper.IsSupportedLanguage(languageCode,
             ((ITranslationEngine)this).GetSourceLanguages(appID));
     }
 
-    bool ITranslationEngine.IsDestinationLanguageSupported(string appID, string languageCode)
+    bool ITranslationEngine.IsDestinationLanguageSupported(string appID, string? languageCode)
     {
         return TranslationHelper.IsSupportedLanguage(languageCode,
             ((ITranslationEngine)this).GetDestinationLanguages(appID));
     }
 
-    string ITranslationEngine.MapCultureToSourceLanguageCode(string appID, CultureInfo cultureInfo)
+    string? ITranslationEngine.MapCultureToSourceLanguageCode(string appID, CultureInfo cultureInfo)
     {
         return TranslationHelper.DoMapCultureToLanguageCode(
             ((ITranslationEngine)this).GetSourceLanguages(appID), cultureInfo);
     }
 
-    string ITranslationEngine.MapCultureToDestinationLanguageCode(string appID,
+    string? ITranslationEngine.MapCultureToDestinationLanguageCode(string appID,
         CultureInfo cultureInfo)
     {
         return TranslationHelper.DoMapCultureToLanguageCode(
@@ -156,9 +156,9 @@ public sealed class AzureTranslationEngine :
 
     string ITranslationEngine.Translate(
         string appID,
-        string text,
-        string sourceLanguageCode,
-        string destinationLanguageCode,
+        string? text,
+        string? sourceLanguageCode,
+        string? destinationLanguageCode,
         string[] wordsToProtect,
         string[] wordsToRemove)
     {
@@ -227,11 +227,11 @@ public sealed class AzureTranslationEngine :
             });
     }
 
-    string[] ITranslationEngine.TranslateArray(
+    string?[] ITranslationEngine.TranslateArray(
         string appID,
-        string[] texts,
-        string sourceLanguageCode,
-        string destinationLanguageCode,
+        string?[] texts,
+        string? sourceLanguageCode,
+        string? destinationLanguageCode,
         string[] wordsToProtect,
         string[] wordsToRemove)
     {
@@ -313,7 +313,7 @@ public sealed class AzureTranslationEngine :
 
         var dicDic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
 
-        var result = new List<string>();
+        var result = new List<string?>();
 
         foreach (var translatedText in tr)
         {

@@ -1,6 +1,5 @@
 ﻿namespace UpdateChecker.Code;
 
-using System;
 using System.Configuration;
 using System.Web.Services;
 

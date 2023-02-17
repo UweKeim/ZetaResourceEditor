@@ -11,5 +11,5 @@ public class TranslationLanguageInfo
     }
 
     public string UserReadableName { get; set; }
-    public string LanguageCode { get; set; }
+    public string? LanguageCode { get; set; }
 }

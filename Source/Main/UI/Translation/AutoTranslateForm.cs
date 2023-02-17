@@ -107,7 +107,7 @@ public partial class AutoTranslateForm :
         _fileGroupControl.GridEditableData.Project ??= _project;
     }
 
-    private IEnumerable<string> languageCodes => _fileGroupControl.GridEditableData.GetLanguageCodes(_project);
+    private IEnumerable<string?> languageCodes => _fileGroupControl.GridEditableData.GetLanguageCodes(_project);
 
     public override void UpdateUI()
     {
@@ -724,10 +724,10 @@ public partial class AutoTranslateForm :
         string appID,
         ITranslationEngine ti,
         DataTable table,
-        string refLanguageCode,
+        string? refLanguageCode,
         DataColumn column,
         int refValueIndex,
-        string raw,
+        string? raw,
         BackgroundWorker bw,
         int delayMilliseconds,
         string prefixSuccess,
@@ -844,10 +844,10 @@ public partial class AutoTranslateForm :
         string appID,
         ITranslationEngine ti,
         DataTable table,
-        string refLanguageCode,
+        string? refLanguageCode,
         DataColumn column,
         int refValueIndex,
-        string raw,
+        string? raw,
         BackgroundWorker bw,
         int delayMilliseconds,
         string prefixSuccess,

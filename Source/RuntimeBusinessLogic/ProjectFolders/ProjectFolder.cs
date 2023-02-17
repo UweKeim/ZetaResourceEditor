@@ -28,7 +28,7 @@ public class ProjectFolder :
 
     private Guid _uniqueID = Guid.NewGuid();
     private Guid _parentUniqueID;
-    private string _name;
+    private string? _name;
     private int _orderPosition;
 
     private readonly DynSettings _dynSettings = new();
@@ -49,7 +49,7 @@ public class ProjectFolder :
         set => _dynSettings.PersistValue(@"BaseNameDotCount", value.ToString());
     }
 
-    public string NeutralLanguageFileNamePattern
+    public string? NeutralLanguageFileNamePattern
     {
         get
         {
@@ -61,7 +61,7 @@ public class ProjectFolder :
         set => _dynSettings.PersistValue(@"NeutralLanguageFileNamePattern", value);
     }
 
-    public string NonNeutralLanguageFileNamePattern
+    public string? NonNeutralLanguageFileNamePattern
     {
         get
         {
@@ -107,7 +107,7 @@ public class ProjectFolder :
         }
     }
 
-    public string DefaultFileTypesToIgnore
+    public string? DefaultFileTypesToIgnore
     {
         get
         {
@@ -178,7 +178,7 @@ public class ProjectFolder :
     string IGridEditableData.JoinedFilePaths => FileGroup.JoinFilePaths(
         ((IGridEditableData)this).FilePaths);
 
-    string[] IGridEditableData.GetLanguageCodes(Project project)
+    string?[] IGridEditableData.GetLanguageCodes(Project project)
     {
         var result = new HashSet<string>();
 
@@ -204,7 +204,7 @@ public class ProjectFolder :
         return null;
     }
 
-    string IGridEditableData.GetNameIntelligent(Project project)
+    string? IGridEditableData.GetNameIntelligent(Project project)
     {
         return _name;
     }
@@ -232,15 +232,15 @@ public class ProjectFolder :
 
     public int EffectiveBaseNameDotCount => UseParentFilePatternSettings ? ParentSettings.EffectiveBaseNameDotCount : BaseNameDotCount;
 
-    public string EffectiveNeutralLanguageFileNamePattern => UseParentFilePatternSettings ? ParentSettings.EffectiveNeutralLanguageFileNamePattern : NeutralLanguageFileNamePattern;
+    public string? EffectiveNeutralLanguageFileNamePattern => UseParentFilePatternSettings ? ParentSettings.EffectiveNeutralLanguageFileNamePattern : NeutralLanguageFileNamePattern;
 
-    public string EffectiveNonNeutralLanguageFileNamePattern => UseParentFilePatternSettings ? ParentSettings.EffectiveNonNeutralLanguageFileNamePattern : NonNeutralLanguageFileNamePattern;
+    public string? EffectiveNonNeutralLanguageFileNamePattern => UseParentFilePatternSettings ? ParentSettings.EffectiveNonNeutralLanguageFileNamePattern : NonNeutralLanguageFileNamePattern;
 
     public string[] EffectiveDefaultFileTypesToIgnoreArray => UseParentFilePatternSettings ? ParentSettings.EffectiveDefaultFileTypesToIgnoreArray : DefaultFileTypesToIgnoreArray;
 
-    public string EffectiveDefaultFileTypesToIgnore => UseParentFilePatternSettings ? ParentSettings.EffectiveDefaultFileTypesToIgnore : DefaultFileTypesToIgnore;
+    public string? EffectiveDefaultFileTypesToIgnore => UseParentFilePatternSettings ? ParentSettings.EffectiveDefaultFileTypesToIgnore : DefaultFileTypesToIgnore;
 
-    public string EffectiveNeutralLanguageCode => Project.NeutralLanguageCode;
+    public string? EffectiveNeutralLanguageCode => Project.NeutralLanguageCode;
 
     public FileGroupStateColor TranslationStateColor
     {
@@ -311,7 +311,7 @@ public class ProjectFolder :
 
     public VirtualViewCollection ChildVirtualViews => Project.GetVirtualViewsByProjectFolderUniqueID(_uniqueID);
 
-    public string Name
+    public string? Name
     {
         get => _name;
         set => _name = value;
@@ -338,7 +338,7 @@ public class ProjectFolder :
 
     public Guid ParentUniqueID => _parentUniqueID;
 
-    public string NameIntelli
+    public string? NameIntelli
     {
         get
         {

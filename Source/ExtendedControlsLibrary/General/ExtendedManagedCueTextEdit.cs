@@ -33,7 +33,7 @@ public class ExtendedManagedCueTextEdit :
         }
     }
 
-    public override string Text
+    public override string? Text
     {
         get => base.Text;
         set

@@ -474,7 +474,7 @@ public partial class ProjectFilesUserControl :
         }
     }
 
-    internal Project Project { get; private set; }
+    internal Project? Project { get; private set; }
 
     public bool CanAddResourceFilesToProject => Project != null && Project != Project.Empty &&
                                                 treeView.SelectedNode is { Tag: RuntimeBusinessLogic.Projects.Project

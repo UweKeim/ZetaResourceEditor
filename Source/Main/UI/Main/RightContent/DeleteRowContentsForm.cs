@@ -20,12 +20,12 @@ public partial class DeleteRowContentsForm :
         _project = project;
     }
 
-    private string[] languageCodes
+    private string?[] languageCodes
     {
         get
         {
             var codes =
-                new HashSet<string>
+                new HashSet<string?>
                 {
                     _project.NeutralLanguageCode
                 };
@@ -91,7 +91,7 @@ public partial class DeleteRowContentsForm :
 
     internal bool WantDeleteComments => deleteCommentsCheckEdit.Checked;
 
-    internal string[] GetLanguagesToDelete()
+    internal string?[] GetLanguagesToDelete()
     {
         if (displayAllLanguagesCheckEdit.Checked)
         {
@@ -134,7 +134,7 @@ public partial class DeleteRowContentsForm :
     {
         languagesToDisplayCheckListBox.Items.Clear();
 
-        var pairs = new List<MyTuple<string, string>>();
+        var pairs = new List<MyTuple<string, string?>>();
 
         // ReSharper disable LoopCanBeConvertedToQuery
         foreach (var languageCode in languageCodes)

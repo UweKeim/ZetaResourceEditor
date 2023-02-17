@@ -49,7 +49,7 @@ public partial class CreateNewFilesForm :
     protected override void InitiallyFillLists()
     {
         var plc = projectLanguageCodes;
-        var plcl = new List<string>(plc);
+        var plcl = new List<string?>(plc);
 
         foreach (var languageCode in languageCodes)
         {
@@ -468,7 +468,7 @@ public partial class CreateNewFilesForm :
         return list.ToArray();
     }
 
-    private static string generateFileName(
+    private static string? generateFileName(
         FileGroup fileGroup,
         CultureInfo culture)
     {
@@ -552,7 +552,7 @@ public partial class CreateNewFilesForm :
     private void selectProjectLanguagesButton_Click(object sender, EventArgs e)
     {
         var plc = projectLanguageCodes;
-        var plcl = new List<string>(plc);
+        var plcl = new List<string?>(plc);
 
         for (var index = 0; index < destinationLanguagesListBox.Items.Count; ++index)
         {
@@ -565,12 +565,12 @@ public partial class CreateNewFilesForm :
         }
     }
 
-    private IEnumerable<string> projectLanguageCodes
+    private IEnumerable<string?> projectLanguageCodes
     {
         get
         {
             var codes =
-                new HashSet<string>
+                new HashSet<string?>
                 {
                     _project.NeutralLanguageCode
                 };

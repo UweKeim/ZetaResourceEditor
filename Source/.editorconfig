@@ -1,4 +1,6 @@
 ﻿[*.cs]
 
+csharp_style_namespace_declarations = file_scoped:silent
+
 # IDE0055: Fix formatting
 dotnet_diagnostic.IDE0055.severity = silent

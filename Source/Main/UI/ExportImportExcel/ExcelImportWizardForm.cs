@@ -355,7 +355,7 @@ public partial class ExcelImportWizardForm :
                 if (isMatchingFileGroup(group))
                 {
                     var index = fileGroupsListBox.Items.Add(
-                        new MyTuple<string, FileGroup>(
+                        new MyTuple<string?, FileGroup>(
                             group.GetNameIntelligent(_project),
                             group));
 
@@ -394,7 +394,7 @@ public partial class ExcelImportWizardForm :
 
     private void parseLanguageCode()
     {
-        var languageCodes =
+        string?[]? languageCodes =
             ExcelImportController.DetectLanguagesFromExcelFile(
                 sourceFileTextEdit.Text.Trim());
 
@@ -408,7 +408,7 @@ public partial class ExcelImportWizardForm :
                     LanguageCodeDetection.IsValidCultureName(languageCode))
                 {
                     var index = languagesToImportCheckListBox.Items.Add(
-                        new MyTuple<string, string>(
+                        new MyTuple<string, string?>(
                             $@"{LanguageCodeDetection.MakeValidCulture(languageCode).DisplayName} ({languageCode})",
                             languageCode));
 

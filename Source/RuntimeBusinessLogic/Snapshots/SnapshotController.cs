@@ -24,7 +24,7 @@ public class SnapshotController :
 
     public void TakeFullSnapshot(
         FileGroup[] fileGroups,
-        string[] languageCodes, // Source _and_ destination.
+        string?[] languageCodes, // Source _and_ destination.
         BackgroundWorker bw)
     {
         languageCodes = make2(languageCodes);
@@ -49,9 +49,9 @@ public class SnapshotController :
         }
     }
 
-    private static string[] make2(IEnumerable<string> languageCodes)
+    private static string?[] make2(IEnumerable<string?> languageCodes)
     {
-        var r = new List<string>();
+        var r = new List<string?>();
         foreach (var languageCode in languageCodes)
         {
             r.Add(languageCode);
@@ -67,23 +67,23 @@ public class SnapshotController :
         return $@"PV.{_prefix}.{fileGroupCheckSum}.{tagName}.".ToLowerInvariant();
     }
 
-    public static string MakeFullKey(
+    public static string? MakeFullKey(
         string baseKey,
-        string languageCode)
+        string? languageCode)
     {
         return (baseKey + languageCode).ToLowerInvariant();
     }
 
     private void doTakeSnapshot(
         IGridEditableData fileGroup,
-        IEnumerable<string> languageCodes,
+        IEnumerable<string?> languageCodes,
         BackgroundWorker bw)
     {
         //var fgi = fileGroup.GetFileByLanguageCode(Project, languageCode);
 
         var table = new DataProcessing(fileGroup).GetDataTableFromResxFiles(Project, true);
 
-        var lcs = new List<string>(languageCodes);
+        var lcs = new List<string?>(languageCodes);
         for (var i = 0; i < lcs.Count; i++)
         {
             lcs[i] = lcs[i].ToLowerInvariant();

@@ -40,7 +40,7 @@ public class DynamicSettings :
 
     public Dictionary<string, string> DirectValues { get; } = new();
 
-    public void PersistValue(string name, object value)
+    public void PersistValue(string name, object? value)
     {
         if (string.IsNullOrEmpty(name))
         {

@@ -1,10 +1,8 @@
 ﻿namespace UpdateChecker;
 
-using System;
-using System.Diagnostics;
-using System.Globalization;
-using System.Web.Services;
 using Code;
+using System.Diagnostics;
+using System.Web.Services;
 
 [Serializable]
 public struct AdRequest
@@ -98,7 +96,6 @@ public class AdService :
             var resp = stockResponses[_rnd.Next(0, stockResponses.Length)];
 
             // Translate the resources.
-            var ci = CultureInfo.GetCultureInfo(request.Culture);
 
             resp.Text = string.Empty;
             //Resources.ResourceManager.GetString( 

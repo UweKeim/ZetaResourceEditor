@@ -28,8 +28,8 @@ public interface IGridEditableData
     FileGroupStates InMemoryState { get; set; }
     string JoinedFilePaths { get; }
     string[] FilePaths { get; }
-    string GetNameIntelligent(Project project);
+    string? GetNameIntelligent(Project project);
     string GetFullNameIntelligent(Project project);
     long GetChecksum(Project project);
-    string[] GetLanguageCodes(Project project);
+    string?[] GetLanguageCodes(Project project);
 }
