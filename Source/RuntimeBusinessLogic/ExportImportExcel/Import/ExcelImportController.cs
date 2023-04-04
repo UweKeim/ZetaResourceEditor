@@ -27,7 +27,7 @@ public class ExcelImportController
     }
 
     public static FileGroup[] DetectFileGroupsFromExcelFile(
-        Project project,
+        Project? project,
         string filePath)
     {
         if (string.IsNullOrEmpty(filePath) ||
@@ -47,7 +47,7 @@ public class ExcelImportController
     }
 
     private static FileGroup[] detectFileGroupsFromWorkbook(
-        Project project,
+        Project? project,
         DataSet dataSet)
     {
         var result = new List<FileGroup>();
@@ -132,7 +132,7 @@ public class ExcelImportController
     }
 
     private static FileGroup getFileGroupForCheckSum(
-        Project project,
+        Project? project,
         long checkSum)
     {
         foreach (var fileGroup in project.FileGroups)
@@ -577,7 +577,7 @@ public class ExcelImportController
     }
 
     private int getDestinationTableColumnIndex(
-        IInheritedSettings settings,
+        IInheritedSettings? settings,
         DataTable dataTable,
         string? languageCode)
     {
@@ -753,7 +753,7 @@ public class ExcelImportController
 
     private class DBFileGroupCacheHelper
     {
-        public DataProcessing DB { get; set; }
+        public DataProcessing DB { get; init; }
         public DataTable Table { get; set; }
         public bool HasAnychanges { get; set; }
     }

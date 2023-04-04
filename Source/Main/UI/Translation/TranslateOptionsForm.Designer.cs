@@ -299,9 +299,8 @@ namespace ZetaResourceEditor.UI.Translation
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelControl4.Enabled = false;
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Appearance.Options.UseForeColor = true;
             this.labelControl4.Appearance.Options.UseTextOptions = true;
             this.labelControl4.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -351,9 +350,8 @@ namespace ZetaResourceEditor.UI.Translation
             this.myLabelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.myLabelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.myLabelControl1.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.myLabelControl1.Enabled = false;
             this.myLabelControl1.Appearance.Options.UseFont = true;
-            this.myLabelControl1.Appearance.Options.UseForeColor = true;
             this.myLabelControl1.Appearance.Options.UseTextOptions = true;
             this.myLabelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.myLabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;

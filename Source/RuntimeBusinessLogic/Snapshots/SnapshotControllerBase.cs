@@ -7,10 +7,10 @@ using System.IO;
 
 public abstract class SnapshotControllerBase
 {
-    protected Project Project { get; }
+    protected Project? Project { get; }
 
     protected SnapshotControllerBase(
-        Project project)
+        Project? project)
     {
         Project = project;
     }

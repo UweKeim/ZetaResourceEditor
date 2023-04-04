@@ -16,7 +16,7 @@ using Translation;
 public partial class CreateNewFilesForm :
     FormBase
 {
-    private Project _project;
+    private Project? _project;
     private ProjectFolder _projectFolder;
 
     public CreateNewFilesForm()
@@ -25,7 +25,7 @@ public partial class CreateNewFilesForm :
     }
 
     public void Initialize(
-        Project project,
+        Project? project,
         ProjectFolder projectFolder)
     {
         _project = project;
@@ -42,7 +42,7 @@ public partial class CreateNewFilesForm :
                     : _projectFolder.FileGroupsDeep;
 
             return fgs.GetLanguageCodesExtended(
-                MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+                MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty);
         }
     }
 
@@ -184,7 +184,7 @@ public partial class CreateNewFilesForm :
         // --
 
         var storage =
-            (MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
+            (MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
 
         referenceLanguageComboBox.SelectedIndex =
             Math.Min(
@@ -243,7 +243,7 @@ public partial class CreateNewFilesForm :
         base.FillControlsToItem();
 
         var storage =
-            (MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
+            (MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
 
         PersistanceHelper.SaveValue(
             storage,

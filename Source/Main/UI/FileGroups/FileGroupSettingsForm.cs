@@ -41,7 +41,7 @@ public partial class FileGroupSettingsForm :
         locationTextBox.Text = _fileGroup.FolderPath?.FullName;
         checkSumTextEdit.Text =
             _fileGroup.GetChecksum(
-                MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).ToString(CultureInfo.InvariantCulture);
+                MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty).ToString(CultureInfo.InvariantCulture);
 
         parentTextEdit.Text =
             _fileGroup.ProjectFolder == null

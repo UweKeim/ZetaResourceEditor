@@ -107,7 +107,7 @@ public class VirtualViewCollection :
     }
 
     public MyTuple<string, string>[] GetLanguageCodesExtended(
-        Project project)
+        Project? project)
     {
         var result = new HashSet<MyTuple<string, string>>();
 

@@ -5,7 +5,7 @@ using Projects;
 
 public class ExcelImportInformation
 {
-    public Project Project { get; set; }
+    public Project? Project { get; set; }
     public FileGroup[] FileGroups { get; set; }
 
     public string?[] LanguageCodes { get; set; }

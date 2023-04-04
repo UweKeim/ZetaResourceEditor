@@ -58,7 +58,7 @@ public partial class TextBoxForm :
 
     private void textMemoEdit_KeyDown(object sender, KeyEventArgs e)
     {
-        if (e.Control && e.KeyCode == Keys.A)
+        if (e is { Control: true, KeyCode: Keys.A })
         {
             textMemoEdit.SelectAll();
         }

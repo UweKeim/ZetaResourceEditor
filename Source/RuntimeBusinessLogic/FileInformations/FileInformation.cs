@@ -50,7 +50,7 @@ public class FileInformation :
         }
     }
 
-    public void StoreToXml(Project project, XmlElement parentNode)
+    public void StoreToXml(Project? project, XmlElement parentNode)
     {
         if (parentNode.OwnerDocument != null)
         {
@@ -68,7 +68,7 @@ public class FileInformation :
         }
     }
 
-    public bool LoadFromXml(Project project, XmlNode parentNode)
+    public bool LoadFromXml(Project? project, XmlNode parentNode)
     {
         if (parentNode.Attributes != null)
         {

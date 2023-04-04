@@ -18,7 +18,7 @@ public partial class ExcelImportWizardForm :
     FormBase
 {
     private FileGroupCollection _groups;
-    private Project _project;
+    private Project? _project;
     private Exception _exception;
 
     private static readonly bool HasExcel =
@@ -43,7 +43,7 @@ public partial class ExcelImportWizardForm :
 
     public void Initialize(
         FileGroupCollection groups,
-        Project project)
+        Project? project)
     {
         _groups = groups;
         _project = project;

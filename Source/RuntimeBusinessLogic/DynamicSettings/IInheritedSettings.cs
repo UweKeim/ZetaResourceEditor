@@ -2,7 +2,7 @@
 
 public interface IInheritedSettings
 {
-    IInheritedSettings ParentSettings { get; }
+    IInheritedSettings? ParentSettings { get; }
 
     int EffectiveBaseNameDotCount { get; }
 

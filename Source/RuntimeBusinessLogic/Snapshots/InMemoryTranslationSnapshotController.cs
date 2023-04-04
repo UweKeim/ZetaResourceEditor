@@ -16,7 +16,7 @@ using System.Linq;
 public sealed class InMemoryTranslationSnapshotController
 {
     public InMemoryTranslationSnapshot CreateSnapshot(
-        Project project,
+        Project? project,
         string[] languageCodes,
         BackgroundWorker bw)
     {
@@ -29,7 +29,7 @@ public sealed class InMemoryTranslationSnapshotController
 
     private static void doTakeSnapshot(
         InMemoryTranslationSnapshot imss,
-        Project project,
+        Project? project,
         IGridEditableData fileGroup,
         IEnumerable<string> languageCodes,
         BackgroundWorker bw)

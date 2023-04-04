@@ -15,12 +15,12 @@ public class FileGroupCollection :
     List<FileGroup>
 {
     public FileGroupCollection(
-        Project project)
+        Project? project)
     {
         Project = project;
     }
 
-    public Project Project { get; }
+    public Project? Project { get; }
 
     internal void StoreToXml(
         XmlElement parentNode)
@@ -109,7 +109,7 @@ public class FileGroupCollection :
     }
 
     public MyTuple<string, string>[] GetLanguageCodesExtended(
-        Project project)
+        Project? project)
     {
         var result = new HashSet<MyTuple<string, string>>();
 

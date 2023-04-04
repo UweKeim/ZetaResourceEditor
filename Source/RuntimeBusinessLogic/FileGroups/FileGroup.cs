@@ -32,7 +32,7 @@ public class FileGroup :
     IOrderPosition,
     IGridEditableData
 {
-    public FileGroup(Project project)
+    public FileGroup(Project? project)
     {
         Project = project;
     }
@@ -50,7 +50,7 @@ public class FileGroup :
         }
     }
 
-    FileInformation[] IGridEditableData.GetFileInformationsSorted()
+    FileInformation[]? IGridEditableData.GetFileInformationsSorted()
     {
         lock (_fileInfos)
         {
@@ -59,7 +59,7 @@ public class FileGroup :
         }
     }
 
-    public IInheritedSettings ParentSettings
+    public IInheritedSettings? ParentSettings
     {
         get
         {
@@ -183,7 +183,7 @@ public class FileGroup :
         }
     }
 
-    public ProjectFolder ProjectFolder
+    public ProjectFolder? ProjectFolder
     {
         get => Project?.GetProjectFolderByUniqueID(_projectFolderUniqueID);
         set => _projectFolderUniqueID = value?.UniqueID ?? Guid.Empty;
@@ -199,14 +199,14 @@ public class FileGroup :
     */
 
     public static FileGroup CheckCreate(
-        Project project,
-        string[] filePaths)
+        Project? project,
+        string[]? filePaths)
     {
         return CheckCreate(project, filePaths.Select(filePath => new FileInfo(filePath)).ToArray());
     }
 
     public static FileGroup CheckCreate(
-        Project project,
+        Project? project,
         FileInfo[] filePaths)
     {
         var result = new FileGroup(project);
@@ -241,7 +241,7 @@ public class FileGroup :
     }
 
     public static FileGroupStates DoCalculateEditingState(
-        Project project,
+        Project? project,
         DataTable table,
         CommentVisibilityScope commentVisibilityScope)
     {
@@ -282,7 +282,7 @@ public class FileGroup :
 
     // AJ CHANGE
     private static bool doesAutomaticTranslationsExist(
-        Project project,
+        Project? project,
         DataRow row,
         CommentVisibilityScope commentVisibilityScope)
     {
@@ -300,7 +300,7 @@ public class FileGroup :
     }
 
     private static bool areTranslationsMissing(
-        Project project,
+        Project? project,
         DataRow row,
         CommentVisibilityScope commentVisibilityScope)
     {
@@ -354,7 +354,7 @@ public class FileGroup :
     }
 
     private static bool hasPlaceholderMismatch(
-        Project project,
+        Project? project,
         DataRow row,
         CommentVisibilityScope commentVisibilityScope)
     {
@@ -494,7 +494,7 @@ public class FileGroup :
     }
 
     internal void StoreToXml(
-        Project project,
+        Project? project,
         XmlElement parentNode)
     {
         lock (_fileInfos)
@@ -545,7 +545,7 @@ public class FileGroup :
     }
 
     internal void LoadFromXml(
-        Project project,
+        Project? project,
         XmlNode parentNode)
     {
         lock (_fileInfos)
@@ -612,7 +612,7 @@ public class FileGroup :
     }
 
     public string? GetNameIntelligent(
-        Project project)
+        Project? project)
     {
         lock (_fileInfos)
         {
@@ -742,8 +742,8 @@ public class FileGroup :
         set => _name = value;
     }
 
-    public string GetFullNameIntelligent(
-        Project project)
+    public string? GetFullNameIntelligent(
+        Project? project)
     {
         lock (_fileInfos)
         {
@@ -751,7 +751,7 @@ public class FileGroup :
         }
     }
 
-    public DirectoryInfo FolderPath
+    public DirectoryInfo? FolderPath
     {
         get
         {
@@ -763,7 +763,7 @@ public class FileGroup :
     }
 
     public long GetChecksum(
-        Project project)
+        Project? project)
     {
         lock (_fileInfos)
         {
@@ -771,20 +771,20 @@ public class FileGroup :
         }
     }
 
-    public string JoinedFilePaths => JoinFilePaths(FilePaths);
+    public string? JoinedFilePaths => JoinFilePaths(FilePaths);
 
-    public static string JoinFilePaths(
-        params string[] paths)
+    public static string? JoinFilePaths(
+        params string[]? paths)
     {
         return paths is not { Length: > 0 } ? string.Empty : string.Join(@";", paths);
     }
 
-    public static string[] SplitFilePaths(string paths)
+    public static string[]? SplitFilePaths(string paths)
     {
         return string.IsNullOrEmpty(paths) ? new string[] { } : paths.Split(';');
     }
 
-    public string[] FilePaths
+    public string[]? FilePaths
     {
         get
         {
@@ -796,8 +796,8 @@ public class FileGroup :
         }
     }
 
-    public string?[] GetLanguageCodes(
-        Project project)
+    public string?[]? GetLanguageCodes(
+        Project? project)
     {
         var result = new HashSet<string>();
 
@@ -818,7 +818,7 @@ public class FileGroup :
     }
 
     public MyTuple<string, string>[]? GetLanguageCodesExtended(
-        Project project)
+        Project? project)
     {
         var result = new HashSet<MyTuple<string, string>>();
 
@@ -842,14 +842,14 @@ public class FileGroup :
     }
 
     public FileInformation GetFileByLanguageCode(
-        Project project,
+        Project? project,
         CultureInfo culture)
     {
         return GetFileByLanguageCode(project, culture.Name);
     }
 
     public FileInformation GetFileByLanguageCode(
-        Project project,
+        Project? project,
         string languageCode)
     {
         lock (_fileInfos)
@@ -944,7 +944,7 @@ public class FileGroup :
     }
 
     private static long BuildChecksum(
-        Project project,
+        Project? project,
         IEnumerable<FileInformation> filePaths)
     {
         long result = 0;
@@ -1032,9 +1032,9 @@ public class FileGroup :
 
     public GridSourceType SourceType => GridSourceType.FileGroup;
 
-    FileGroup IGridEditableData.FileGroup => this;
+    FileGroup? IGridEditableData.FileGroup => this;
 
-    public Project Project { get; set; }
+    public Project? Project { get; set; }
 
     public int FileInfoCount
     {
@@ -1248,7 +1248,7 @@ public class FileGroup :
     }
 
     private void translateTexts(
-        Project project,
+        Project? project,
         FileInformation destinationFfi,
         string? sourceLanguageCode,
         string? destinationLanguageCode,

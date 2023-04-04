@@ -1,5 +1,6 @@
 ﻿namespace ZetaResourceEditor.UI.Translation;
 
+using Code;
 using Helper;
 using Helper.Base;
 using Helper.Progress;
@@ -15,7 +16,6 @@ using RuntimeBusinessLogic.Translation;
 using RuntimeBusinessLogic.Translation.Google;
 using System.Data;
 using System.Linq;
-using Code;
 
 public partial class AutoTranslateForm :
     FormBase
@@ -24,7 +24,7 @@ public partial class AutoTranslateForm :
 
     public static bool CheckShowAppIDsMissing()
     {
-        var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+        var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
 
         var ti = TranslationHelper.GetTranslationEngine(project);
 
@@ -85,9 +85,9 @@ public partial class AutoTranslateForm :
         }
     }
 
-    private ResourceEditorUserControl _fileGroupControl;
+    private ResourceEditorUserControl? _fileGroupControl;
     private bool _initialAllowUpdatingDetails;
-    private Project _project;
+    private Project? _project;
     private bool _ignore;
     private bool _insideUpdateUI;
 
@@ -100,14 +100,14 @@ public partial class AutoTranslateForm :
         ResourceEditorUserControl fileGroupControl)
     {
         _fileGroupControl = fileGroupControl;
-        _project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+        _project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
 
         // --
 
         _fileGroupControl.GridEditableData.Project ??= _project;
     }
 
-    private IEnumerable<string?> languageCodes => _fileGroupControl.GridEditableData.GetLanguageCodes(_project);
+    private IEnumerable<string?>? languageCodes => _fileGroupControl.GridEditableData.GetLanguageCodes(_project);
 
     public override void UpdateUI()
     {
@@ -146,7 +146,7 @@ public partial class AutoTranslateForm :
         var infos = new List<TranslationLanguageInfo>();
 
         TranslationHelper.GetTranslationAppID(
-            MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+            MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
             out var appID);
 
         var ti = TranslationHelper.GetTranslationEngine(_project);
@@ -331,7 +331,7 @@ public partial class AutoTranslateForm :
         languagesToTranslateCheckListBox.Items.Clear();
 
         TranslationHelper.GetTranslationAppID(
-            MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+            MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
             out var appID);
 
         var forbidden =
@@ -587,7 +587,7 @@ public partial class AutoTranslateForm :
                             var ti = TranslationHelper.GetTranslationEngine(_project);
 
                             TranslationHelper.GetTranslationAppID(
-                                MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                                MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
                                 out var appID);
 
                             foreach (DataColumn column in table.Columns)
@@ -672,7 +672,7 @@ public partial class AutoTranslateForm :
                     },
                     delegate (object _, RunWorkerCompletedEventArgs a)
                     {
-                        success = !a.Cancelled && a.Error == null;
+                        success = a is { Cancelled: false, Error: null };
                         cancelled = a.Cancelled;
                     },
                     BackgroundWorkerLongProgressGui.CancellationMode.Cancelable
@@ -836,8 +836,8 @@ public partial class AutoTranslateForm :
 
     private class TranslateItemInfo
     {
-        public DataRow Row { get; set; }
-        public string SourceText { get; set; }
+        public DataRow Row { get; init; }
+        public string SourceText { get; init; }
     }
 
     private int translateArray(
@@ -912,7 +912,7 @@ public partial class AutoTranslateForm :
                         blocks.Add(new());
                     }
 
-                    blocks[blocks.Count - 1].Add(items[index]);
+                    blocks[^1].Add(items[index]);
                 }
 
                 // --

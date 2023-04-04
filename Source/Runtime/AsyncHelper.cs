@@ -3,7 +3,6 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using EventTask = Tuple<System.Threading.SendOrPostCallback, object>;
 using EventQueue = System.Collections.Concurrent.ConcurrentQueue<Tuple<System.Threading.SendOrPostCallback, object>>;
 
 /// <summary>
@@ -16,8 +15,8 @@ public static class AsyncHelper
     /// </summary>
     public class AsyncBridge : IDisposable
     {
-        private ExclusiveSynchronizationContext CurrentContext;
-        private SynchronizationContext OldContext;
+        private readonly ExclusiveSynchronizationContext? CurrentContext;
+        private readonly SynchronizationContext? OldContext;
         private int TaskCount;
 
         /// <summary>
@@ -28,8 +27,7 @@ public static class AsyncHelper
         internal AsyncBridge()
         {
             OldContext = SynchronizationContext.Current;
-            CurrentContext =
-                new(OldContext);
+            CurrentContext = new(OldContext);
             SynchronizationContext
                 .SetSynchronizationContext(CurrentContext);
         }
@@ -40,7 +38,7 @@ public static class AsyncHelper
         /// </summary>
         /// <param name="task">Task to execute</param>
         /// <param name="callback">Optional callback</param>
-        public void Run(Task task, Action<Task> callback = null)
+        public void Run(Task task, Action<Task>? callback = null)
         {
             CurrentContext.Post(async _ =>
             {
@@ -122,10 +120,6 @@ public static class AsyncHelper
             {
                 CurrentContext.BeginMessageLoop();
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
             finally
             {
                 SynchronizationContext
@@ -138,10 +132,7 @@ public static class AsyncHelper
     /// Creates a new AsyncBridge. This should always be used in
     /// conjunction with the using statement, to ensure it is disposed
     /// </summary>
-    public static AsyncBridge Wait
-    {
-        get { return new(); }
-    }
+    public static AsyncBridge Wait => new();
 
     /// <summary>
     /// Runs a task with the "Fire and Forget" pattern using Task.Run,
@@ -151,7 +142,7 @@ public static class AsyncHelper
     /// <param name="handle">Error handling action, null by default</param>
     public static void FireAndForget(
         Func<Task> task,
-        Action<Exception> handle = null)
+        Action<Exception>? handle = null)
     {
             Task.Run(
         () =>
@@ -164,10 +155,7 @@ public static class AsyncHelper
                 }
                 catch (Exception e)
                 {
-                    if (null != handle)
-                    {
-                        handle(e);
-                    }
+	                handle?.Invoke(e);
                 }
             }))();
         });
@@ -178,26 +166,16 @@ public static class AsyncHelper
         private readonly AutoResetEvent _workItemsWaiting = new(false);
 
         private bool _done;
-        private EventQueue _items;
+        private readonly EventQueue _items;
 
         public Exception InnerException { get; set; }
 
         public ExclusiveSynchronizationContext(SynchronizationContext old)
         {
-            ExclusiveSynchronizationContext oldEx =
-                old as ExclusiveSynchronizationContext;
-
-            if (null != oldEx)
-            {
-                this._items = oldEx._items;
-            }
-            else
-            {
-                this._items = new();
-            }
+	        _items = old is ExclusiveSynchronizationContext oldEx ? oldEx._items : new();
         }
 
-        public override void Send(SendOrPostCallback d, object state)
+        public override void Send(SendOrPostCallback d, object? state)
         {
             throw new NotSupportedException(
                 "We cannot send to our same thread");
@@ -218,9 +196,7 @@ public static class AsyncHelper
         {
             while (!_done)
             {
-                EventTask task = null;
-
-                if (!_items.TryDequeue(out task))
+	            if (!_items.TryDequeue(out var task))
                 {
                     task = null;
                 }

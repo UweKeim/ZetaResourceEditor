@@ -5,7 +5,7 @@ using Projects;
 
 public class ExcelExportInformation
 {
-    public Project Project { get; set; }
+    public Project? Project { get; set; }
     public FileGroup[] FileGroups { get; set; }
 
     public string? ReferenceLanguageCode { get; set; }

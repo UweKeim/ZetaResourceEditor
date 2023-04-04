@@ -2,6 +2,7 @@
 
 using global::Google.Apis.Auth.OAuth2;
 using global::Google.Cloud.Translation.V2;
+using Helpers;
 using System.Globalization;
 using System.Linq;
 
@@ -10,161 +11,161 @@ using System.Linq;
  */
 
 public class GoogleRestfulTranslationEngine :
-    ITranslationEngine
+	ITranslationEngine
 {
-    string ITranslationEngine.AppID1Name => "JSON key credentials";
+	string ITranslationEngine.AppID1Name => "JSON key credentials";
 
-    bool ITranslationEngine.IsAppIDMultiLine => true;
-    bool ITranslationEngine.IsJson => true;
+	bool ITranslationEngine.IsAppIDMultiLine => true;
+	bool ITranslationEngine.IsJson => true;
 
-    bool ITranslationEngine.IsDefault => true;
+	bool ITranslationEngine.IsDefault => true;
 
-    string? ITranslationEngine.UniqueInternalName => @"9efb237c-ce92-450f-9ef1-850091762d63";
+	string ITranslationEngine.UniqueInternalName => @"9efb237c-ce92-450f-9ef1-850091762d63";
 
-    string ITranslationEngine.UserReadableName => "Google Translate";
+	string ITranslationEngine.UserReadableName => "Google Translate";
 
-    bool ITranslationEngine.AreAppIDsSyntacticallyValid(string appID)
-    {
-        return !string.IsNullOrEmpty(appID);
-    }
+	bool ITranslationEngine.AreAppIDsSyntacticallyValid(string appID)
+	{
+		return !string.IsNullOrEmpty(appID) && JsonHelper.IsValidJson(appID);
+	}
 
-    private TranslationLanguageInfo[] _sourceLanguages;
+	private TranslationLanguageInfo[]? _sourceLanguages;
 
-    TranslationLanguageInfo[] ITranslationEngine.GetSourceLanguages(string appID)
-    {
-        if (_sourceLanguages == null)
-        {
-            ZspSimpleFileAccessProtector.Protect(
-                delegate
-                {
-                    var result = new List<TranslationLanguageInfo>();
+	TranslationLanguageInfo[] ITranslationEngine.GetSourceLanguages(string appID)
+	{
+		if (_sourceLanguages == null)
+		{
+			ZspSimpleFileAccessProtector.Protect(
+				delegate
+				{
+					var result = new List<TranslationLanguageInfo>();
 
-                    var client = TranslationClient.Create(GoogleCredential.FromJson(appID));
-                    var nodes = client.ListLanguages(@"en");
+					var client = TranslationClient.Create(GoogleCredential.FromJson(appID));
+					var nodes = client.ListLanguages(@"en");
 
-                    foreach (var language in nodes)
-                    {
-                        result.Add(
-                            new()
-                            {
-                                LanguageCode = language.Code,
-                                UserReadableName = language.Name,
-                            });
-                    }
+					foreach (var language in nodes)
+					{
+						result.Add(
+							new()
+							{
+								LanguageCode = language.Code,
+								UserReadableName = language.Name,
+							});
+					}
 
-                    _sourceLanguages = result.ToArray();
-                });
-        }
+					_sourceLanguages = result.ToArray();
+				});
+		}
 
-        return _sourceLanguages;
-    }
+		return _sourceLanguages ?? Array.Empty<TranslationLanguageInfo>();
+	}
 
-    TranslationLanguageInfo[] ITranslationEngine.GetDestinationLanguages(string appID)
-    {
-        return ((ITranslationEngine)this).GetSourceLanguages(appID);
-    }
+	TranslationLanguageInfo[] ITranslationEngine.GetDestinationLanguages(string appID)
+	{
+		return ((ITranslationEngine)this).GetSourceLanguages(appID);
+	}
 
-    int ITranslationEngine.MaxArraySize => 25;
+	int ITranslationEngine.MaxArraySize => 25;
 
-    string ITranslationEngine.AppIDLink => @"https://zeta.li/zre-translation-appid-google";
+	string ITranslationEngine.AppIDLink => @"https://zeta.li/zre-translation-appid-google";
 
-    string?[] ITranslationEngine.TranslateArray(
-        string appID,
-        string?[] texts,
-        string? sourceLanguageCode,
-        string? destinationLanguageCode,
-        string[] wordsToProtect,
-        string[] wordsToRemove)
-    {
-        var protectionResults = new List<TranslationHelper.ProtectionResult>();
+	string?[] ITranslationEngine.TranslateArray(
+		string appID,
+		string?[] texts,
+		string? sourceLanguageCode,
+		string? destinationLanguageCode,
+		string[] wordsToProtect,
+		string[] wordsToRemove)
+	{
+		var protectionResults = new List<TranslationHelper.ProtectionResult>();
 
-        foreach (var text in texts)
-        {
-            var removed = TranslationHelper.RemoveWords(text, wordsToRemove);
+		foreach (var text in texts)
+		{
+			var removed = TranslationHelper.RemoveWords(text, wordsToRemove);
 
-            var preparedText = TranslationHelper.ProtectWords(new TranslationHelper.ProtectionInfo
-            {
-                UnprotectedText = removed,
-                WordsToProtect = wordsToProtect
-            });
+			var preparedText = TranslationHelper.ProtectWords(new TranslationHelper.ProtectionInfo
+			{
+				UnprotectedText = removed,
+				WordsToProtect = wordsToProtect
+			});
 
-            protectionResults.Add(preparedText);
-        }
+			protectionResults.Add(preparedText);
+		}
 
-        var tr = new List<TranslationResult>();
+		var tr = new List<TranslationResult>();
 
-        ZspSimpleFileAccessProtector.Protect(
-            delegate
-            {
-                // Das eigentliche Übersetzen.
-                var client = TranslationClient.Create(GoogleCredential.FromJson(appID));
-                tr = client.TranslateText(
-                    protectionResults.Select(x => x.ProtectedText),
-                    destinationLanguageCode,
-                    sourceLanguageCode).ToList();
-            });
+		ZspSimpleFileAccessProtector.Protect(
+			delegate
+			{
+				// Das eigentliche Übersetzen.
+				var client = TranslationClient.Create(GoogleCredential.FromJson(appID));
+				tr = client.TranslateText(
+					protectionResults.Select(x => x.ProtectedText),
+					destinationLanguageCode,
+					sourceLanguageCode).ToList();
+			});
 
-        var dicDic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
+		var dicDic = TranslationHelper.JoinUnprotectedToProtectedMapping(protectionResults);
 
-        var result = new List<string?>();
+		var result = new List<string?>();
 
-        foreach (var translatedText in tr)
-        {
-            result.Add(
-                TranslationHelper.UnprotectWords(
-                    new()
-                    {
-                        ProtectedText = translatedText.TranslatedText,
-                        WordsToProtect = wordsToProtect,
-                        UnprotectedToProtectedMapping = dicDic
-                    }
-                ).UnprotectedText);
-        }
+		foreach (var translatedText in tr)
+		{
+			result.Add(
+				TranslationHelper.UnprotectWords(
+					new()
+					{
+						ProtectedText = translatedText.TranslatedText,
+						WordsToProtect = wordsToProtect,
+						UnprotectedToProtectedMapping = dicDic
+					}
+				).UnprotectedText);
+		}
 
-        return result.ToArray();
-    }
+		return result.ToArray();
+	}
 
-    bool ITranslationEngine.IsSourceLanguageSupported(string appID, string? languageCode)
-    {
-        return TranslationHelper.IsSupportedLanguage(languageCode,
-            ((ITranslationEngine)this).GetSourceLanguages(appID));
-    }
+	bool ITranslationEngine.IsSourceLanguageSupported(string appID, string? languageCode)
+	{
+		return TranslationHelper.IsSupportedLanguage(languageCode,
+			((ITranslationEngine)this).GetSourceLanguages(appID));
+	}
 
-    bool ITranslationEngine.IsDestinationLanguageSupported(string appID, string? languageCode)
-    {
-        return TranslationHelper.IsSupportedLanguage(languageCode,
-            ((ITranslationEngine)this).GetDestinationLanguages(appID));
-    }
+	bool ITranslationEngine.IsDestinationLanguageSupported(string appID, string? languageCode)
+	{
+		return TranslationHelper.IsSupportedLanguage(languageCode,
+			((ITranslationEngine)this).GetDestinationLanguages(appID));
+	}
 
-    string? ITranslationEngine.MapCultureToSourceLanguageCode(string appID, CultureInfo cultureInfo)
-    {
-        return TranslationHelper.DoMapCultureToLanguageCode(
-            ((ITranslationEngine)this).GetSourceLanguages(appID), cultureInfo);
-    }
+	string? ITranslationEngine.MapCultureToSourceLanguageCode(string appID, CultureInfo cultureInfo)
+	{
+		return TranslationHelper.DoMapCultureToLanguageCode(
+			((ITranslationEngine)this).GetSourceLanguages(appID), cultureInfo);
+	}
 
-    string? ITranslationEngine.MapCultureToDestinationLanguageCode(string appID,
-        CultureInfo cultureInfo)
-    {
-        return TranslationHelper.DoMapCultureToLanguageCode(
-            ((ITranslationEngine)this).GetDestinationLanguages(appID), cultureInfo);
-    }
+	string? ITranslationEngine.MapCultureToDestinationLanguageCode(string appID,
+		CultureInfo cultureInfo)
+	{
+		return TranslationHelper.DoMapCultureToLanguageCode(
+			((ITranslationEngine)this).GetDestinationLanguages(appID), cultureInfo);
+	}
 
-    string ITranslationEngine.Translate(
-        string appID,
-        string? text,
-        string? sourceLanguageCode,
-        string? destinationLanguageCode,
-        string[] wordsToProtect,
-        string[] wordsToRemove)
-    {
-        return ((ITranslationEngine)this).TranslateArray(
-            appID,
-            new[] { text },
-            sourceLanguageCode,
-            destinationLanguageCode,
-            wordsToProtect,
-            wordsToRemove).FirstOrDefault();
-    }
+	string? ITranslationEngine.Translate(
+		string appID,
+		string? text,
+		string? sourceLanguageCode,
+		string? destinationLanguageCode,
+		string[] wordsToProtect,
+		string[] wordsToRemove)
+	{
+		return ((ITranslationEngine)this).TranslateArray(
+			appID,
+			new[] { text },
+			sourceLanguageCode,
+			destinationLanguageCode,
+			wordsToProtect,
+			wordsToRemove).FirstOrDefault();
+	}
 
-    public bool SupportsArrayTranslation => true;
+	public bool SupportsArrayTranslation => true;
 }

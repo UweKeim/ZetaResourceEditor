@@ -35,12 +35,12 @@ public sealed class LanguageCodeDetection
     // ------------------------------------------------------------------
 
     public LanguageCodeDetection(
-        Project project)
+        Project? project)
     {
         Project = project;
     }
 
-    public Project Project { get; }
+    public Project? Project { get; }
 
     /// <summary>
     /// Gets the base name.

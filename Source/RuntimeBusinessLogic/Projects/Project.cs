@@ -580,7 +580,7 @@ public class Project :
     //    return project;
     //}
 
-    public bool IsInMemoryOnly { get; private set; }
+    public bool IsInMemoryOnly { get; private init; }
 
     /// <summary>
     /// Makes a given absolute file path relative to the project location.
@@ -926,7 +926,7 @@ public class Project :
         }
     }
 
-    public ProjectFolder GetProjectFolderByUniqueID(Guid uniqueID)
+    public ProjectFolder? GetProjectFolderByUniqueID(Guid uniqueID)
     {
         if (uniqueID == Guid.Empty)
         {
@@ -1041,9 +1041,9 @@ public class Project :
 
     public GridSourceType SourceType => GridSourceType.Project;
 
-    FileGroup IGridEditableData.FileGroup => null;
+    FileGroup? IGridEditableData.FileGroup => null;
 
-    Project IGridEditableData.Project
+    Project? IGridEditableData.Project
     {
         get => this;
         set
@@ -1052,9 +1052,9 @@ public class Project :
         }
     }
 
-    DirectoryInfo IGridEditableData.FolderPath => ProjectConfigurationFilePath.Directory;
+    DirectoryInfo? IGridEditableData.FolderPath => ProjectConfigurationFilePath.Directory;
 
-    FileInformation[] IGridEditableData.GetFileInformationsSorted()
+    FileInformation[]? IGridEditableData.GetFileInformationsSorted()
     {
         var result = new List<FileInformation>();
 
@@ -1065,7 +1065,7 @@ public class Project :
         return result.ToArray();
     }
 
-    IInheritedSettings IGridEditableData.ParentSettings => this;
+    IInheritedSettings? IGridEditableData.ParentSettings => this;
 
     FileGroupStates IGridEditableData.InMemoryState
     {
@@ -1084,7 +1084,7 @@ public class Project :
         }
     }
 
-    string[] IGridEditableData.FilePaths
+    string[]? IGridEditableData.FilePaths
     {
         get
         {
@@ -1101,20 +1101,20 @@ public class Project :
         }
     }
 
-    string IGridEditableData.JoinedFilePaths => FileGroup.JoinFilePaths(((IGridEditableData) this).FilePaths);
+    string? IGridEditableData.JoinedFilePaths => FileGroup.JoinFilePaths(((IGridEditableData) this).FilePaths);
 
-    string? IGridEditableData.GetNameIntelligent(Project project)
+    string? IGridEditableData.GetNameIntelligent(Project? project)
     {
         return Name;
     }
 
-    public long GetChecksum(Project project)
+    public long GetChecksum(Project? project)
     {
         // A project always has a fix checksum.
         return @"d0b4146f-af54-49cf-86f5-9f1b185c0890".GetHashCode();
     }
 
-    string?[] IGridEditableData.GetLanguageCodes(Project project)
+    string?[]? IGridEditableData.GetLanguageCodes(Project? project)
     {
         var result = new HashSet<string>();
 
@@ -1135,12 +1135,12 @@ public class Project :
         return result.ToArray();
     }
 
-    public string GetFullNameIntelligent(Project project)
+    public string? GetFullNameIntelligent(Project? project)
     {
         return ProjectConfigurationFilePath.FullName;
     }
 
-    IInheritedSettings IInheritedSettings.ParentSettings => null;
+    IInheritedSettings? IInheritedSettings.ParentSettings => null;
 
     int IInheritedSettings.EffectiveBaseNameDotCount => BaseNameDotCount;
 
@@ -1232,9 +1232,9 @@ public class Project :
     private class ProjectMruItemCollection :
         List<ProjectMruItem>
     {
-        private readonly Project _project;
+        private readonly Project? _project;
 
-        public ProjectMruItemCollection(Project project)
+        public ProjectMruItemCollection(Project? project)
         {
             _project = project;
         }
@@ -1336,7 +1336,7 @@ public class Project :
     /// <summary>
     /// Sometimes an empty project is needed. Use this here centrally.
     /// </summary>
-    public static Project Empty => _emptyProject ??= new()
+    public static Project? Empty => _emptyProject ??= new()
     {
         IsInMemoryOnly = true,
         ProjectConfigurationFilePath =

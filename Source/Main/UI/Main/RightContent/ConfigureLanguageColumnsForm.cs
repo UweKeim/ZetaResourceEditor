@@ -8,14 +8,14 @@ using System.Linq;
 public partial class ConfigureLanguageColumnsForm :
     FormBase
 {
-    private Project _project;
+    private Project? _project;
 
     public ConfigureLanguageColumnsForm()
     {
         InitializeComponent();
     }
 
-    public void Initialize(Project project)
+    public void Initialize(Project? project)
     {
         _project = project;
     }

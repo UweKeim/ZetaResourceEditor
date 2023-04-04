@@ -30,7 +30,7 @@ public class VirtualView :
 
     public Project Project { get; }
 
-    public ProjectFolder ProjectFolder
+    public ProjectFolder? ProjectFolder
     {
         get => Project.GetProjectFolderByUniqueID(_projectFolderUniqueID);
         set => _projectFolderUniqueID = value?.UniqueID ?? Guid.Empty;
@@ -155,7 +155,7 @@ public class VirtualView :
         set => _name = value;
     }
 
-    public MyTuple<string, string>[] GetLanguageCodesExtended(Project project)
+    public MyTuple<string, string>[] GetLanguageCodesExtended(Project? project)
     {
         var result = new HashSet<MyTuple<string, string>>();
 

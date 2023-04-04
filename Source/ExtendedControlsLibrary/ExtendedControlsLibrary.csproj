@@ -199,7 +199,7 @@
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Memory" Version="4.5.5" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
@@ -208,7 +208,7 @@
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.WinForms" Version="1.0.0" />
-    <PackageReference Include="ZetaShortPaths" Version="1.0.20" />
+    <PackageReference Include="ZetaShortPaths" Version="1.0.23" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Async\Async.csproj" />

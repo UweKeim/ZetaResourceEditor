@@ -12,12 +12,12 @@ using System.Text.RegularExpressions;
 /// </summary>
 public class VisualStudioImporter
 {
-    public VisualStudioImporter(Project project)
+    public VisualStudioImporter(Project? project)
     {
         Project = project;
     }
 
-    private Project Project { get; }
+    private Project? Project { get; }
 
     public void DoAutomaticallyAddResourceFilesFromVsProject(
         BackgroundWorker backgroundWorker,

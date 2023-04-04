@@ -787,10 +787,10 @@ public partial class ProjectFilesUserControl :
 
     private class AsyncInfo
     {
-        public ITranslationStateInformation StateInfo { get; set; }
+        public ITranslationStateInformation StateInfo { get; init; }
         public FileGroupStateColor StateImageIndex { get; set; }
 
-        public TreeListNode Node { get; set; }
+        public TreeListNode Node { get; init; }
     }
 
     private void updateNodeStateImageBackgroundworker_DoWork(object sender, DoWorkEventArgs e)
@@ -1428,10 +1428,7 @@ public partial class ProjectFilesUserControl :
 
     private void treeView_KeyDown(object sender, KeyEventArgs e)
     {
-        if (e.KeyCode == Keys.Enter &&
-            !e.Alt &&
-            !e.Control &&
-            !e.Shift)
+        if (e is { KeyCode: Keys.Enter, Alt: false } and { Control: false, Shift: false })
         {
             if (CanEditResourceFiles)
             {

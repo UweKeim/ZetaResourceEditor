@@ -10,7 +10,7 @@ public partial class MergeFileGroupForm :
     FormBase
 {
     private FileGroup _fileGroup;
-    private Project _project;
+    private Project? _project;
 
     public MergeFileGroupForm()
     {
@@ -28,7 +28,7 @@ public partial class MergeFileGroupForm :
 
     internal void Initialize(
         FileGroup fileGroup,
-        Project project)
+        Project? project)
     {
         _fileGroup = fileGroup;
         _project = project;

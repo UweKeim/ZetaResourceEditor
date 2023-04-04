@@ -534,9 +534,8 @@
             // 
             this.myLabelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.myLabelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.myLabelControl2.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.myLabelControl2.Enabled = false;
             this.myLabelControl2.Appearance.Options.UseFont = true;
-            this.myLabelControl2.Appearance.Options.UseForeColor = true;
             this.myLabelControl2.Location = new System.Drawing.Point(162, 310);
             this.myLabelControl2.Name = "myLabelControl2";
             this.myLabelControl2.Size = new System.Drawing.Size(18, 17);

@@ -217,7 +217,7 @@ public partial class ResourceEditorUserControl :
         if ((options & SaveOptions.OnlyIfModified) == 0 ||
             _isGridContentModified)
         {
-            var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+            var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
 
             var createBackups =
                 project is { CreateBackupFiles: true };
@@ -338,7 +338,7 @@ public partial class ResourceEditorUserControl :
     /// </summary>
     internal void DoLoadFiles(
         IGridEditableData gridEditableData,
-        ILanguageColumnFilter filter)
+        ILanguageColumnFilter? filter)
     {
         closeDataGrid();
 
@@ -420,7 +420,7 @@ public partial class ResourceEditorUserControl :
     }
 
     private void filterColumns(
-        ILanguageColumnFilter filter,
+        ILanguageColumnFilter? filter,
         bool commentsAreVisible)
     {
         // Column 0=FileGroup checksum, column 1=Tag name.
@@ -519,7 +519,7 @@ public partial class ResourceEditorUserControl :
 
     private static void me_KeyDown(object sender, KeyEventArgs e)
     {
-        if (e.Shift && e.KeyCode == Keys.Enter)
+        if (e is { Shift: true, KeyCode: Keys.Enter })
         {
             var me = (MemoEdit)sender;
 
@@ -529,7 +529,7 @@ public partial class ResourceEditorUserControl :
     }
 
     private void addDetailTabPage(
-        ILanguageColumnFilter filter,
+        ILanguageColumnFilter? filter,
         string name,
         string? languageCode)
     {
@@ -575,7 +575,7 @@ public partial class ResourceEditorUserControl :
         // --
         // Spell checker.
 
-        var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+        var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
 
         if (project is { UseSpellChecker: true })
         {
@@ -595,7 +595,7 @@ public partial class ResourceEditorUserControl :
 
     private static void textBox_KeyDown(object sender, KeyEventArgs e)
     {
-        if (e.Control && e.KeyCode == Keys.A)
+        if (e is { Control: true, KeyCode: Keys.A })
         {
             ((MemoEdit)sender).SelectAll();
             e.Handled = true;
@@ -641,7 +641,7 @@ public partial class ResourceEditorUserControl :
             var tabPage = (XtraTabPage)Parent;
 
             var text = GridEditableData.GetNameIntelligent(
-                MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+                MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty);
 
             if (IsModified)
             {
@@ -740,7 +740,7 @@ public partial class ResourceEditorUserControl :
             var dataRow = createNewDataRow();
             // Column 0=FileGroup checksum, column 1=Tag name.
             dataRow[0] =
-                GridEditableData.GetChecksum(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+                GridEditableData.GetChecksum(MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty);
             dataRow[1] = newTagName;
             ((DataTable)mainDataGrid.DataSource).Rows.Add(dataRow);
 
@@ -867,7 +867,7 @@ public partial class ResourceEditorUserControl :
     {
         if (_canSaveGridLayout)
         {
-            var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+            var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
             if (project != null && layoutSerializer != null)
             {
                 using (new SilentProjectStoreGuard(project))
@@ -884,7 +884,7 @@ public partial class ResourceEditorUserControl :
         {
             if (_layoutSerializer == null)
             {
-                var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+                var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
                 if (project is { PersistGridSettings: true })
                 {
                     _layoutSerializer =
@@ -901,7 +901,7 @@ public partial class ResourceEditorUserControl :
 
     private void restoreGridLayout()
     {
-        var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+        var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
         if (project != null)
         {
             layoutSerializer?.Restore();
@@ -958,7 +958,7 @@ public partial class ResourceEditorUserControl :
         mainGridView.ClearGrouping();
         mainGridView.ClearSorting();
 
-        var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+        var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
         if (project != null && layoutSerializer != null)
         {
             using (new SilentProjectStoreGuard(project))
@@ -1051,7 +1051,7 @@ public partial class ResourceEditorUserControl :
         // --
 
         if (DataProcessing.CommentsAreVisible(
-                MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
                 row.Row,
                 CommentVisibilityScope.VisualGrid) &&
             e.Column.AbsoluteIndex == mainGridView.Columns.Count - 1)
@@ -1118,7 +1118,7 @@ public partial class ResourceEditorUserControl :
                         else
                         {
                             if (!DataProcessing.CommentsAreVisible(
-                                    MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                                    MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
                                     row.Row,
                                     CommentVisibilityScope.VisualGrid) ||
                                 e.Column.AbsoluteIndex != mainGridView.Columns.Count - 1)
@@ -1152,7 +1152,7 @@ public partial class ResourceEditorUserControl :
                 {
                     var comments =
                         DataProcessing.CommentsAreVisible(
-                            MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                            MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
                             row.Row,
                             CommentVisibilityScope.VisualGrid);
 
@@ -1238,7 +1238,7 @@ public partial class ResourceEditorUserControl :
     {
         get
         {
-            var p = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+            var p = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
             var s = p == null ? @"en-US" : p.NeutralLanguageCode;
             return s;
         }
@@ -1271,7 +1271,7 @@ public partial class ResourceEditorUserControl :
     {
         get
         {
-            var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+            var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
             return project is { ColorifyNullCells: true };
         }
     }
@@ -1351,7 +1351,7 @@ public partial class ResourceEditorUserControl :
         else
         {
             var sub = DataProcessing.CommentsAreVisible(
-                MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
                 row.Row,
                 CommentVisibilityScope.VisualGrid)
                 ? 1
@@ -1448,7 +1448,7 @@ public partial class ResourceEditorUserControl :
         else
         {
             var sub = DataProcessing.CommentsAreVisible(
-                MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
                 row.Row,
                 CommentVisibilityScope.VisualGrid)
                 ? 1
@@ -1802,7 +1802,7 @@ public partial class ResourceEditorUserControl :
 
         var table = getTable();
         var state = FileGroup.DoCalculateEditingState(
-            MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+            MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
             table,
             CommentVisibilityScope.VisualGrid);
         var key = FileGroup.TranslateStateToColorKey(state);
@@ -1892,7 +1892,7 @@ public partial class ResourceEditorUserControl :
 
     private void mainGridView_ShownEditor(object sender, EventArgs e)
     {
-        var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+        var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
 
         if (project is { UseSpellChecker: true })
         {
@@ -1924,7 +1924,7 @@ public partial class ResourceEditorUserControl :
     {
         if (!IsTranslating)
         {
-            var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+            var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
 
             if (project is { HideEmptyRows: true })
             {
@@ -2033,7 +2033,7 @@ public partial class ResourceEditorUserControl :
     private void DeleteRowContentsWithDialog()
     {
         using var form = new DeleteRowContentsForm();
-        form.Initialize(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+        form.Initialize(MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty);
 
         if (form.ShowDialog(ParentForm) == DialogResult.OK)
         {
@@ -2048,7 +2048,7 @@ public partial class ResourceEditorUserControl :
 
                 var comments =
                     DataProcessing.CommentsAreVisible(
-                        MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                        MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
                         row.Row,
                         CommentVisibilityScope.VisualGrid);
 

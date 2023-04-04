@@ -485,9 +485,7 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl6.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Appearance.Options.UseForeColor = true;
             this.labelControl6.Enabled = false;
             this.labelControl6.Location = new System.Drawing.Point(12, 77);
             this.labelControl6.Name = "labelControl6";
@@ -998,9 +996,8 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelControl4.Enabled = false;
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Appearance.Options.UseForeColor = true;
             this.labelControl4.Appearance.Options.UseTextOptions = true;
             this.labelControl4.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.labelControl4.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;

@@ -18,7 +18,7 @@ public interface ITranslationEngine
     TranslationLanguageInfo[] GetDestinationLanguages(
         string appID);
 
-    string Translate(
+    string? Translate(
         string appID,
         string? text,
         string? sourceLanguageCode,

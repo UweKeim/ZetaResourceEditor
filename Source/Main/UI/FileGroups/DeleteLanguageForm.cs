@@ -11,7 +11,7 @@ using System.Linq;
 public partial class DeleteLanguageForm :
     FormBase
 {
-    private Project _project;
+    private Project? _project;
     private ProjectFolder _projectFolder;
 
     public DeleteLanguageForm()
@@ -20,7 +20,7 @@ public partial class DeleteLanguageForm :
     }
 
     public void Initialize(
-        Project project,
+        Project? project,
         ProjectFolder projectFolder)
     {
         _project = project;
@@ -81,7 +81,7 @@ public partial class DeleteLanguageForm :
         // --
 
         var storage =
-            (MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
+            (MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
 
         DevExpressExtensionMethods.RestoreSettings(
             destinationLanguagesListBox,
@@ -94,7 +94,7 @@ public partial class DeleteLanguageForm :
         base.FillControlsToItem();
 
         var storage =
-            (MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
+            (MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
 
         DevExpressExtensionMethods.PersistSettings(
             destinationLanguagesListBox,

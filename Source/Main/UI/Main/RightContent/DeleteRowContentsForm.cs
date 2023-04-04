@@ -8,14 +8,14 @@ using System.Linq;
 public partial class DeleteRowContentsForm :
     FormBase
 {
-    private Project _project;
+    private Project? _project;
 
     public DeleteRowContentsForm()
     {
         InitializeComponent();
     }
 
-    public void Initialize(Project project)
+    public void Initialize(Project? project)
     {
         _project = project;
     }

@@ -276,7 +276,7 @@ namespace ZetaResourceEditor.UI.Translation
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.labelControl4.Enabled = false;
             this.labelControl4.Location = new System.Drawing.Point(93, 452);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(18, 17);

@@ -7,10 +7,10 @@ using Projects;
 
 public sealed class FileGroupsMerger
 {
-    private readonly Project _project;
+    private readonly Project? _project;
 
     public FileGroupsMerger(
-        Project project)
+        Project? project)
     {
         _project = project;
     }

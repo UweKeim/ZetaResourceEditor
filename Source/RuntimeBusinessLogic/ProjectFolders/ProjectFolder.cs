@@ -21,7 +21,7 @@ public class ProjectFolder :
     IInheritedSettings,
     IGridEditableData
 {
-    public ProjectFolder(Project project)
+    public ProjectFolder(Project? project)
     {
         Project = project;
     }
@@ -126,7 +126,7 @@ public class ProjectFolder :
         set => _dynSettings.PersistValue(@"IgnoreDuringExportAndImport", value.ToString());
     }
 
-    FileInformation[] IGridEditableData.GetFileInformationsSorted()
+    FileInformation[]? IGridEditableData.GetFileInformationsSorted()
     {
         // Only returns the direct ones, not nested.
 
@@ -139,7 +139,7 @@ public class ProjectFolder :
         return result.ToArray();
     }
 
-    public IInheritedSettings ParentSettings => Parent ?? (IInheritedSettings)Project;
+    public IInheritedSettings? ParentSettings => Parent ?? (IInheritedSettings)Project;
 
     FileGroupStates IGridEditableData.InMemoryState
     {
@@ -158,7 +158,7 @@ public class ProjectFolder :
         }
     }
 
-    string[] IGridEditableData.FilePaths
+    string[]? IGridEditableData.FilePaths
     {
         get
         {
@@ -175,10 +175,10 @@ public class ProjectFolder :
         }
     }
 
-    string IGridEditableData.JoinedFilePaths => FileGroup.JoinFilePaths(
+    string? IGridEditableData.JoinedFilePaths => FileGroup.JoinFilePaths(
         ((IGridEditableData)this).FilePaths);
 
-    string?[] IGridEditableData.GetLanguageCodes(Project project)
+    string?[]? IGridEditableData.GetLanguageCodes(Project? project)
     {
         var result = new HashSet<string>();
 
@@ -199,17 +199,17 @@ public class ProjectFolder :
         return result.ToArray();
     }
 
-    public string GetFullNameIntelligent(Project project)
+    public string? GetFullNameIntelligent(Project? project)
     {
         return null;
     }
 
-    string? IGridEditableData.GetNameIntelligent(Project project)
+    string? IGridEditableData.GetNameIntelligent(Project? project)
     {
         return _name;
     }
 
-    public long GetChecksum(Project project)
+    public long GetChecksum(Project? project)
     {
         return _uniqueID.GetHashCode();
     }
@@ -282,7 +282,7 @@ public class ProjectFolder :
         }
     }
 
-    public ProjectFolder Parent
+    public ProjectFolder? Parent
     {
         get => Project.GetProjectFolderByUniqueID(_parentUniqueID);
         set => _parentUniqueID = value?._uniqueID ?? Guid.Empty;
@@ -357,11 +357,11 @@ public class ProjectFolder :
 
     public GridSourceType SourceType => GridSourceType.ProjectFolder;
 
-    FileGroup IGridEditableData.FileGroup => null;
+    FileGroup? IGridEditableData.FileGroup => null;
 
-    public Project Project { get; set; }
+    public Project? Project { get; set; }
 
-    DirectoryInfo IGridEditableData.FolderPath
+    DirectoryInfo? IGridEditableData.FolderPath
     {
         get
         {

@@ -27,7 +27,7 @@ public partial class CreateNewFileForm :
 	}
 
 	private IEnumerable<MyTuple<string, string>>? languageCodes => _fileGroup?.GetLanguageCodesExtended(
-		MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+		MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty);
 
 	protected override void InitiallyFillLists()
 	{
@@ -67,7 +67,7 @@ public partial class CreateNewFileForm :
 	private void fillTranslationEngine()
 	{
 		var ti = TranslationHelper.GetTranslationEngine(
-			MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+			MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty);
 		labelControl3.Text = ti.UserReadableName;
 	}
 
@@ -137,14 +137,14 @@ public partial class CreateNewFileForm :
 
 		fileGroupTextBox.Text =
 			_fileGroup?.GetNameIntelligent(
-				MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+				MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty);
 
 		prefixTextBox.Text = FileGroup.DefaultTranslatedPrefix;
 
 		// --
 
 		var storage =
-			(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
+			(MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
 
 		referenceLanguageComboBox.SelectedIndex =
 			Math.Min(
@@ -207,7 +207,7 @@ public partial class CreateNewFileForm :
 		base.FillControlsToItem();
 
 		var storage =
-			(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
+			(MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty).DynamicSettingsGlobalHierarchical;
 
 		PersistanceHelper.SaveValue(
 			storage,
@@ -279,12 +279,12 @@ public partial class CreateNewFileForm :
 			((MyTuple<string, CultureInfo>)newLanguageComboBox.SelectedItem).Item2;
 
 		var pattern =
-			new LanguageCodeDetection(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty)
+			new LanguageCodeDetection(MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty)
 				.IsNeutralCulture(
 					_fileGroup?.ParentSettings,
 					culture)
-				? (MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).NeutralLanguageFileNamePattern
-				: (MainForm.Current.ProjectFilesControl.Project ?? Project.Empty).NonNeutralLanguageFileNamePattern;
+				? (MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty).NeutralLanguageFileNamePattern
+				: (MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty).NonNeutralLanguageFileNamePattern;
 
 		pattern = pattern?.Replace(@"[basename]", _fileGroup?.BaseName);
 		pattern = pattern?.Replace(@"[languagecode]",
@@ -370,7 +370,7 @@ public partial class CreateNewFileForm :
 	{
 		using var form = new TranslateOptionsForm();
 		form.Initialize(
-			MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+			MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty);
 
 		if (form.ShowDialog(this) == DialogResult.OK)
 		{

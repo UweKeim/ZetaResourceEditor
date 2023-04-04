@@ -2,6 +2,8 @@ namespace ZetaResourceEditor.UI.Main;
 
 using Code;
 using ExportImportExcel;
+using ExtendedControlsLibrary;
+using ExtendedControlsLibrary.General.Base;
 using Helper.Base;
 using LeftTree;
 using Properties;
@@ -15,8 +17,6 @@ using RuntimeBusinessLogic.WebServices;
 using RuntimeUserInterface.Shell;
 using ServiceReference1;
 using System.IO;
-using ExtendedControlsLibrary;
-using ExtendedControlsLibrary.General.Base;
 using Tools;
 using Translation;
 using Zeta.VoyagerLibrary.Core.Common;
@@ -33,8 +33,8 @@ public partial class MainForm :
         FileGroupStateChanged.Raise(this, new FileGroupStateChangedEventArgs(gridEditableData));
     }
 
-    private FastSmartWeakEvent<EventHandler<FileGroupStateChangedEventArgs>> _fileGroupStateChanged;
-    private UpdateCheckInfo2 _updateCheckInfo;
+    private FastSmartWeakEvent<EventHandler<FileGroupStateChangedEventArgs>>? _fileGroupStateChanged;
+    private UpdateCheckInfo2? _updateCheckInfo;
 
     public FastSmartWeakEvent<EventHandler<FileGroupStateChangedEventArgs>> FileGroupStateChanged
     {
@@ -44,8 +44,7 @@ public partial class MainForm :
             if (_fileGroupStateChanged == null)
             // ReSharper restore ConvertIfStatementToNullCoalescingExpression
             {
-                _fileGroupStateChanged =
-                    new();
+                _fileGroupStateChanged = new();
             }
 
             return _fileGroupStateChanged;
@@ -60,16 +59,16 @@ public partial class MainForm :
     /// Current instance.
     /// </summary>
     /// <value>The current instance.</value>
-    public static MainForm Current { get; private set; }
+    public static MainForm? Current { get; private set; }
 
     public static IPersistentPairStorage UserStorageIntelligent =>
         Current?.ProjectFilesControl?.Project?.DynamicSettingsUser ?? PersistanceHelper.Storage;
 
     // Muss public bleiben für Forms-Designer.
-    public ProjectFilesUserControl ProjectFilesControl { get; private set; }
+    public ProjectFilesUserControl? ProjectFilesControl { get; }
 
     // Muss public bleiben für Forms-Designer.
-    public GroupFilesUserControl GroupFilesControl { get; private set; }
+    public GroupFilesUserControl? GroupFilesControl { get; }
 
     // ------------------------------------------------------------------
 
@@ -82,6 +81,8 @@ public partial class MainForm :
 
         if (!DesignModeHelper.IsDesignMode)
         {
+	        base.MinimumSize = new(400, 400);
+
             ProjectFilesControl = new();
             GroupFilesControl = new();
 
@@ -396,7 +397,7 @@ public partial class MainForm :
     }
 
     private static void coreStoreMruFileFiles(
-        string[] paths)
+        string?[] paths)
     {
         var splitted =
             paths == null
@@ -439,11 +440,11 @@ public partial class MainForm :
     }
 
     private static void addMruFilesFile(
-        string file)
+        string? file)
     {
         if (!string.IsNullOrEmpty(file))
         {
-            var items = new List<string>(coreLoadMruFileFiles());
+            var items = new List<string?>(coreLoadMruFileFiles());
 
             for (var index = 0; index < items.Count; ++index)
             {
@@ -489,7 +490,7 @@ public partial class MainForm :
     }
 
     private static void removeMruFilesFile(
-        string file)
+        string? file)
     {
         if (!string.IsNullOrEmpty(file))
         {
@@ -528,7 +529,7 @@ public partial class MainForm :
         }
     }
 
-    public static void AddMruFiles(string files)
+    public static void AddMruFiles(string? files)
     {
         addMruFilesFile(files);
     }
@@ -1016,9 +1017,7 @@ public partial class MainForm :
     {
         try
         {
-            if (!e.Cancelled &&
-                e.Error == null &&
-                e.Result is UpdatePresentResult2 result)
+            if (e is { Cancelled: false, Error: null, Result: UpdatePresentResult2 result })
             {
                 // Yes, we do have an update, pass the URL to the
                 // toolbar button and make it visible.

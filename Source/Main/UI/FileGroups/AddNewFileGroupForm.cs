@@ -16,8 +16,8 @@ using System.Linq;
 public partial class AddNewFileGroupForm :
     FormBase
 {
-    private Project _project;
-    private ProjectFolder _projectFolder;
+    private Project? _project;
+    private ProjectFolder? _projectFolder;
 
     public AddNewFileGroupForm()
     {
@@ -25,8 +25,8 @@ public partial class AddNewFileGroupForm :
     }
 
     public void Initialize(
-        Project project,
-        ProjectFolder projectFolder)
+        Project? project,
+        ProjectFolder? projectFolder)
     {
         _project = project;
         _projectFolder = projectFolder;

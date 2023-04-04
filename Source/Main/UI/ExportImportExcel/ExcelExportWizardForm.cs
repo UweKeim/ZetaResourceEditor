@@ -18,7 +18,7 @@ public partial class ExcelExportWizardForm :
     FormBase
 {
     private FileGroupCollection _groups;
-    private Project _project;
+    private Project? _project;
     private Exception _exception;
     private bool _canResetOptions = true;
     private bool _canResetAdvancedOptions = true;
@@ -42,7 +42,7 @@ public partial class ExcelExportWizardForm :
 
     public void Initialize(
         FileGroupCollection groups,
-        Project project)
+        Project? project)
     {
         _groups = groups;
         _project = project;

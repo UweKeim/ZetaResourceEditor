@@ -11,7 +11,7 @@ using Translation;
 
 public partial class ProjectSettingsForm : FormBase
 {
-    private Project _project;
+    private Project? _project;
 
     public ProjectSettingsForm()
     {
@@ -59,7 +59,7 @@ public partial class ProjectSettingsForm : FormBase
     }
 
     internal void Initialize(
-        Project project)
+        Project? project)
     {
         _project = project;
     }

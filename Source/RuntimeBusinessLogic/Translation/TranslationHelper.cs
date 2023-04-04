@@ -359,7 +359,7 @@ public static class TranslationHelper
     }
 
     public static ITranslationEngine GetTranslationEngine(
-        Project project)
+        Project? project)
     {
         if (_translationEngine == null)
         {
@@ -398,7 +398,7 @@ public static class TranslationHelper
     private static string _translationAppID;
 
     public static void GetTranslationAppID(
-        Project project,
+        Project? project,
         out string appID)
     {
         if (!_translationAppIDSet)

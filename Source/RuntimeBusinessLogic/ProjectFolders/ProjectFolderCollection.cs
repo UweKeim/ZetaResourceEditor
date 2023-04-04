@@ -16,12 +16,12 @@ public class ProjectFolderCollection :
     List<ProjectFolder>
 {
     public ProjectFolderCollection(
-        Project project )
+        Project? project )
     {
         Project = project;
     }
 
-    public Project Project { get; }
+    public Project? Project { get; }
 
     internal void StoreToXml(
         XmlElement parentNode )

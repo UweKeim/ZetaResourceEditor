@@ -13,7 +13,7 @@ public class FileGroupSelectionControl :
     private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
     private IContainer components;
     private FileGroup _ignoreFileGroup;
-    private Project _project { get; set; }
+    private Project? _project { get; set; }
     private Font _boldFont;
 
     private Font boldFont => _boldFont ??= new(Font, FontStyle.Bold);
@@ -31,7 +31,7 @@ public class FileGroupSelectionControl :
         }
     }
 
-    public void Initialize(Project project, FileGroup ignoreFileGroup)
+    public void Initialize(Project? project, FileGroup ignoreFileGroup)
     {
         _project = project;
         _ignoreFileGroup = ignoreFileGroup;

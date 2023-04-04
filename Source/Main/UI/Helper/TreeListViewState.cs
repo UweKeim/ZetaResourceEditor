@@ -230,12 +230,9 @@ public class TreeListViewState
     {
         public override void Execute( TreeListNode node )
         {
-            if ( node.HasChildren && node.Expanded )
+            if ( node.HasChildren && node is { Expanded: true, Tag: IUniqueID obj } )
             {
-                if ( node.Tag is IUniqueID obj )
-                {
-                    IDs.Add( obj.UniqueID );
-                }
+	            IDs.Add( obj.UniqueID );
             }
         }
 

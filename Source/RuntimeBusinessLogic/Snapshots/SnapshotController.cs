@@ -15,7 +15,7 @@ public class SnapshotController :
     private readonly string _prefix;
 
     public SnapshotController(
-        Project project,
+        Project? project,
         string prefix) :
         base(project)
     {

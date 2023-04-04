@@ -167,7 +167,7 @@ public partial class TranslateOptionsForm :
         FillControlsToItem();
     }
 
-    public void Initialize(Project project)
+    public void Initialize(Project? project)
     {
         // The translation stuff is streamed through the project but
         // actually stored in the global settings.

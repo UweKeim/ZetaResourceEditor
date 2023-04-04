@@ -118,7 +118,7 @@ public partial class GroupFilesUserControl :
 
             var fileGroup =
                 FileGroup.CheckCreate(
-                    MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                    MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
                     ofd.FileNames);
 
             var editorControl =
@@ -132,7 +132,7 @@ public partial class GroupFilesUserControl :
         IGridEditableData gridEditableData,
         out bool isNew)
     {
-        var checksum = gridEditableData.GetChecksum(MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+        var checksum = gridEditableData.GetChecksum(MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty);
 
         foreach (XtraTabPage tabPage in mainTabControl.TabPages)
         {
@@ -151,7 +151,7 @@ public partial class GroupFilesUserControl :
             new XtraTabPage
             {
                 Text = gridEditableData.GetNameIntelligent(
-                    MainForm.Current.ProjectFilesControl.Project ?? Project.Empty),
+                    MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty),
                 Tooltip = gridEditableData.GetFullNameIntelligent(MainForm.Current.ProjectFilesControl.Project ??
                                                                   Project.Empty),
                 ImageIndex = (int)gridEditableData.SourceType,
@@ -176,7 +176,7 @@ public partial class GroupFilesUserControl :
 
     internal void DoLoadFiles(
         IGridEditableData gridEditableData,
-        ILanguageColumnFilter filter)
+        ILanguageColumnFilter? filter)
     {
         var editorControl = checkGetAddEditorControl(gridEditableData, out var isNew);
 
@@ -227,7 +227,7 @@ public partial class GroupFilesUserControl :
 
     internal void EditResourceFiles(
         IGridEditableData gridEditableData,
-        ILanguageColumnFilter filter)
+        ILanguageColumnFilter? filter)
     {
         var editorControl = checkGetAddEditorControl(gridEditableData, out var isNew);
 
@@ -264,7 +264,7 @@ public partial class GroupFilesUserControl :
 
     public void SaveRecentFilesInfo()
     {
-        var project = MainForm.Current.ProjectFilesControl.Project ?? Project.Empty;
+        var project = MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty;
 
         var text = string.Empty;
 
@@ -301,7 +301,7 @@ public partial class GroupFilesUserControl :
     }
 
     public void LoadRecentFiles(
-        Project project)
+        Project? project)
     {
         CloseAllDocuments();
 
@@ -330,9 +330,9 @@ public partial class GroupFilesUserControl :
                     DoLoadFiles(
                         // TODO: Possible modify this function.
                         FileGroup.CheckCreate(
-                            MainForm.Current.ProjectFilesControl.Project ?? Project.Empty,
+                            MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty,
                             filePaths.ToArray()),
-                        MainForm.Current.ProjectFilesControl.Project ?? Project.Empty);
+                        MainForm.Current?.ProjectFilesControl?.Project ?? Project.Empty);
                 }
             }
         }

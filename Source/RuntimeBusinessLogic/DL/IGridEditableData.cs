@@ -1,10 +1,10 @@
 namespace ZetaResourceEditor.RuntimeBusinessLogic.DL;
 
-using System.IO;
 using DynamicSettings;
 using FileGroups;
 using FileInformations;
 using Projects;
+using System.IO;
 
 /// <summary>
 /// Something that is editable in a grid.
@@ -16,20 +16,20 @@ public interface IGridEditableData
     /// <summary>
     /// Is NULL if no real file group.
     /// </summary>
-    FileGroup FileGroup { get; }
+    FileGroup? FileGroup { get; }
 
-    Project Project { get; set; }
-    DirectoryInfo FolderPath { get; }
+    Project? Project { get; set; }
+    DirectoryInfo? FolderPath { get; }
 
-    FileInformation[] GetFileInformationsSorted();
+    FileInformation[]? GetFileInformationsSorted();
     //void SortFileFileFileInfos();
 
-    IInheritedSettings ParentSettings { get; }
+    IInheritedSettings? ParentSettings { get; }
     FileGroupStates InMemoryState { get; set; }
-    string JoinedFilePaths { get; }
-    string[] FilePaths { get; }
-    string? GetNameIntelligent(Project project);
-    string GetFullNameIntelligent(Project project);
-    long GetChecksum(Project project);
-    string?[] GetLanguageCodes(Project project);
+    string? JoinedFilePaths { get; }
+    string[]? FilePaths { get; }
+    string? GetNameIntelligent(Project? project);
+    string? GetFullNameIntelligent(Project? project);
+    long GetChecksum(Project? project);
+    string?[]? GetLanguageCodes(Project? project);
 }

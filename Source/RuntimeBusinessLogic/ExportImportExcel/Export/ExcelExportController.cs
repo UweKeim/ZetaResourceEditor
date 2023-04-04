@@ -276,7 +276,7 @@ public class ExcelExportController
     /// </summary>
     private sealed class PreparedInformation
     {
-        public Project Project { get; init; }
+        public Project? Project { get; init; }
         public FileGroup[] FileGroups { get; init; }
 
         public string? ReferenceLanguageCode { get; init; }
@@ -698,7 +698,7 @@ public class ExcelExportController
     private static bool wasAlreadyExported(
         ICollection<string> exportedReferenceLanguageValues,
         PreparedInformation preparedInformation,
-        IInheritedSettings parentSettings,
+        IInheritedSettings? parentSettings,
         DataRow row)
     {
         if (preparedInformation.EliminateDuplicateRows)
@@ -732,7 +732,7 @@ public class ExcelExportController
     private static string? generateWorksheetName(
         PreparedInformation preparedInformation,
         FileGroup fileGroup,
-        Project project)
+        Project? project)
     {
         // http://social.msdn.microsoft.com/Forums/en-US/vsto/thread/84c0c4d2-52b9-4502-bece-fdc616db05f8
 
@@ -762,7 +762,7 @@ public class ExcelExportController
     private static bool wantExportRow(
         SnapshotController ssc,
         PreparedInformation preparedInformation,
-        IInheritedSettings settings,
+        IInheritedSettings? settings,
         DataRow row,
         CommentVisibilityScope commentVisibilityScope)
     {
@@ -837,7 +837,7 @@ public class ExcelExportController
     private static bool hasChangedTextSinceLastExport(
         SnapshotController ssc,
         PreparedInformation preparedInformation,
-        IInheritedSettings settings,
+        IInheritedSettings? settings,
         DataRow row)
     {
         var lcs = new List<string?>(new[] { preparedInformation.ReferenceLanguageCode });
@@ -907,7 +907,7 @@ public class ExcelExportController
 
     private static DataTable removeUnusedColumns(
         PreparedInformation preparedInformation,
-        IInheritedSettings settings,
+        IInheritedSettings? settings,
         DataTable table)
     {
         var result = new DataTable();
@@ -977,7 +977,7 @@ public class ExcelExportController
         // 5.
         if (preparedInformation.ExportCommentColumn)
         {
-            result.Columns.Add(table.Columns[table.Columns.Count - 1].ColumnName, typeof(string));
+            result.Columns.Add(table.Columns[^1].ColumnName, typeof(string));
         }
 
         // --

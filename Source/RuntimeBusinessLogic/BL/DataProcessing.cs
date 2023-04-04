@@ -44,7 +44,7 @@ public sealed class DataProcessing
     /// <summary>
     /// Store files to FileSystem
     /// </summary>
-    private void storeFiles(Project project)
+    private void storeFiles(Project? project)
     {
         foreach (var resxFile in _resxFiles)
         {
@@ -124,7 +124,7 @@ public sealed class DataProcessing
         }
     }
 
-    private static bool GetShowCommentColumn(Project project)
+    private static bool GetShowCommentColumn(Project? project)
     {
         return project is { ShowCommentsColumnInGrid: true };
     }
@@ -132,13 +132,13 @@ public sealed class DataProcessing
     // AJ CHANGE
     // Checks if the Column Comment is visible in the row
     public static bool CommentsAreVisible(
-        Project project,
+        Project? project,
         DataTable table,
         CommentVisibilityScope commentVisibilityScope)
     {
         if (commentVisibilityScope == CommentVisibilityScope.InMemory || GetShowCommentColumn(project))
         {
-            var colName = table.Columns[table.Columns.Count - 1].ColumnName;
+            var colName = table.Columns[^1].ColumnName;
 
             // Sometimes the comment column gets the prefix col, depends on the visibility state
             return colName is @"colComment" or @"Comment" || colName == @"col" + Resources.SR_ColumnCaption_Comment || colName == @"col" + Resources.SR_CommandProcessorSend_Process_Comment || colName == Resources.SR_ColumnCaption_Comment;
@@ -150,7 +150,7 @@ public sealed class DataProcessing
     }
 
     public static bool CommentsAreVisible(
-        Project project,
+        Project? project,
         DataRow row,
         CommentVisibilityScope commentVisibilityScope)
     {
@@ -158,7 +158,7 @@ public sealed class DataProcessing
     }
 
     public static string GetComment(
-        Project project,
+        Project? project,
         DataRow row)
     {
         if (CommentsAreVisible(project, row, CommentVisibilityScope.InMemory))
@@ -175,7 +175,7 @@ public sealed class DataProcessing
     /// Create the data table for the grid.
     /// </summary>
     private DataTable getTable(
-        Project project,
+        Project? project,
         bool forceCommentColumn)
     {
         // Load File from filesystem
@@ -414,7 +414,7 @@ public sealed class DataProcessing
     /// Store the changes in the data table back to the .RESX files
     /// </summary>
     private void saveTable(
-        Project project,
+        Project? project,
         DataTable table,
         bool wantBackupFiles,
         bool omitEmptyStrings)
@@ -747,7 +747,7 @@ public sealed class DataProcessing
     }
 
     public DataTable GetDataTableFromResxFiles(
-        Project project,
+        Project? project,
         bool forceCommentColumn = false)
     {
         return getTable(project, forceCommentColumn);
@@ -757,7 +757,7 @@ public sealed class DataProcessing
     /// Stores the changes made in the grid back to the .RESX files
     /// </summary>
     public void SaveDataTableToResxFiles(
-        Project project,
+        Project? project,
         DataTable table)
     {
         var createBackups = project is { CreateBackupFiles: true };
@@ -770,7 +770,7 @@ public sealed class DataProcessing
     /// Stores the changes made in the grid back to the .RESX files
     /// </summary>
     public void SaveDataTableToResxFiles(
-        Project project,
+        Project? project,
         DataTable table,
         bool backupFiles,
         bool omitEmptyStrings)
