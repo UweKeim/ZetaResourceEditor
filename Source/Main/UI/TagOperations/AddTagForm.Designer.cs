@@ -28,111 +28,122 @@ namespace ZetaResourceEditor.UI.TagOperations
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.textBox1 = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.label1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.button1 = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.button2 = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Bold = false;
-            this.textBox1.CueText = null;
-            this.textBox1.Location = new System.Drawing.Point(12, 32);
-            this.textBox1.MaximumSize = new System.Drawing.Size(0, 24);
-            this.textBox1.MinimumSize = new System.Drawing.Size(0, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBox1.Properties.Appearance.Options.UseFont = true;
-            this.textBox1.Properties.Mask.EditMask = null;
-            this.textBox1.Properties.NullValuePrompt = null;
-            this.textBox1.Size = new System.Drawing.Size(336, 24);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "&Name of the new tag:";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.button1.Appearance.Options.UseFont = true;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(192, 68);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "OK";
-            this.button1.WantDrawFocusRectangle = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.button2.Appearance.Options.UseFont = true;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(273, 69);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 28);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Cancel";
-            this.button2.WantDrawFocusRectangle = true;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panelControl1.Appearance.Options.UseBackColor = true;
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.label1);
-            this.panelControl1.Controls.Add(this.button2);
-            this.panelControl1.Controls.Add(this.button1);
-            this.panelControl1.Controls.Add(this.textBox1);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
-            this.panelControl1.Size = new System.Drawing.Size(360, 109);
-            this.panelControl1.TabIndex = 3;
-            // 
-            // AddTagForm
-            // 
-            this.AcceptButton = this.button1;
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(360, 109);
-            this.Controls.Add(this.panelControl1);
-            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1024, 148);
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(376, 148);
-            this.Name = "AddTagForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add new tag";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddTagForm_FormClosing);
-            this.Load += new System.EventHandler(this.AddTagForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.textBox1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
-            this.ResumeLayout(false);
-
+			textBox1 = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+			label1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			button1 = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			button2 = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+			((ISupportInitialize)textBox1.Properties).BeginInit();
+			((ISupportInitialize)tablePanel1).BeginInit();
+			tablePanel1.SuspendLayout();
+			SuspendLayout();
+			// 
+			// textBox1
+			// 
+			textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			textBox1.Bold = false;
+			tablePanel1.SetColumn(textBox1, 0);
+			tablePanel1.SetColumnSpan(textBox1, 4);
+			textBox1.CueText = null;
+			textBox1.Location = new Point(16, 35);
+			textBox1.Margin = new Padding(0);
+			textBox1.MaximumSize = new Size(0, 24);
+			textBox1.MinimumSize = new Size(0, 24);
+			textBox1.Name = "textBox1";
+			textBox1.Properties.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			textBox1.Properties.Appearance.Options.UseFont = true;
+			textBox1.Properties.Mask.EditMask = null;
+			textBox1.Properties.NullValuePrompt = null;
+			textBox1.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel1.SetRow(textBox1, 1);
+			textBox1.Size = new Size(453, 24);
+			textBox1.TabIndex = 1;
+			textBox1.TextChanged += textBox1_TextChanged;
+			// 
+			// label1
+			// 
+			label1.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			label1.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(label1, 0);
+			label1.Location = new Point(16, 15);
+			label1.Margin = new Padding(0, 0, 0, 3);
+			label1.Name = "label1";
+			tablePanel1.SetRow(label1, 0);
+			label1.Size = new Size(126, 17);
+			label1.TabIndex = 0;
+			label1.Text = "&Name of the new tag:";
+			// 
+			// button1
+			// 
+			button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+			button1.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			button1.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(button1, 1);
+			button1.DialogResult = DialogResult.OK;
+			button1.Location = new Point(310, 80);
+			button1.Margin = new Padding(0);
+			button1.Name = "button1";
+			tablePanel1.SetRow(button1, 3);
+			button1.Size = new Size(75, 28);
+			button1.TabIndex = 2;
+			button1.Text = "OK";
+			button1.WantDrawFocusRectangle = true;
+			// 
+			// button2
+			// 
+			button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+			button2.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			button2.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(button2, 3);
+			button2.DialogResult = DialogResult.Cancel;
+			button2.Location = new Point(394, 80);
+			button2.Margin = new Padding(0);
+			button2.Name = "button2";
+			tablePanel1.SetRow(button2, 3);
+			button2.Size = new Size(75, 28);
+			button2.TabIndex = 3;
+			button2.Text = "Cancel";
+			button2.WantDrawFocusRectangle = true;
+			// 
+			// tablePanel1
+			// 
+			tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 1F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 9F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F) });
+			tablePanel1.Controls.Add(button1);
+			tablePanel1.Controls.Add(textBox1);
+			tablePanel1.Controls.Add(button2);
+			tablePanel1.Controls.Add(label1);
+			tablePanel1.Dock = DockStyle.Fill;
+			tablePanel1.Location = new Point(0, 0);
+			tablePanel1.Margin = new Padding(0);
+			tablePanel1.Name = "tablePanel1";
+			tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 18F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel1.Size = new Size(485, 126);
+			tablePanel1.TabIndex = 0;
+			tablePanel1.UseSkinIndents = true;
+			// 
+			// AddTagForm
+			// 
+			AcceptButton = button1;
+			Appearance.Options.UseFont = true;
+			AutoScaleMode = AutoScaleMode.None;
+			CancelButton = button2;
+			ClientSize = new Size(485, 126);
+			Controls.Add(tablePanel1);
+			Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			IconOptions.ShowIcon = false;
+			MaximizeBox = false;
+			MinimizeBox = false;
+			Name = "AddTagForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Add new tag";
+			FormClosing += AddTagForm_FormClosing;
+			Load += AddTagForm_Load;
+			((ISupportInitialize)textBox1.Properties).EndInit();
+			((ISupportInitialize)tablePanel1).EndInit();
+			tablePanel1.ResumeLayout(false);
+			tablePanel1.PerformLayout();
+			ResumeLayout(false);
 		}
 
 		#endregion
@@ -141,6 +152,6 @@ namespace ZetaResourceEditor.UI.TagOperations
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl label1;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton button1;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton button2;
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
+		private DevExpress.Utils.Layout.TablePanel tablePanel1;
 	}
 }

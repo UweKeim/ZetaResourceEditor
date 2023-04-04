@@ -1534,7 +1534,7 @@ public partial class ResourceEditorUserControl :
 
     public void Find()
     {
-        using var form = new FindFormModern { TextToFind = _findText};
+        using var form = new FindForm { TextToFind = _findText};
 
         if (form.ShowDialog(this) == DialogResult.OK)
         {

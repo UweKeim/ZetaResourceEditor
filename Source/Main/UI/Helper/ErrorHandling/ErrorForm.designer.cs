@@ -11,13 +11,13 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if ( disposing && (components != null) )
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 
 		#region Windows Form Designer generated code
@@ -28,182 +28,186 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ErrorForm));
-            this.buttonContinue = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.optionsButton = new ExtendedControlsLibrary.Skinning.CustomDropDownButton.MyDropDownButton();
-            this.optionsPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.detailedErrorsButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.memoEdit1 = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
-            this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // buttonContinue
-            // 
-            this.buttonContinue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonContinue.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonContinue.Appearance.Options.UseFont = true;
-            this.buttonContinue.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonContinue.Location = new System.Drawing.Point(237, 192);
-            this.buttonContinue.Name = "buttonContinue";
-            this.buttonContinue.Size = new System.Drawing.Size(75, 28);
-            this.buttonContinue.TabIndex = 0;
-            this.buttonContinue.Text = "OK";
-            this.buttonContinue.WantDrawFocusRectangle = true;
-            // 
-            // optionsButton
-            // 
-            this.optionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.optionsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.optionsButton.Appearance.Options.UseFont = true;
-            this.optionsButton.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
-            this.optionsButton.DropDownControl = this.optionsPopupMenu;
-            this.optionsButton.Image = ((System.Drawing.Image)(resources.GetObject("optionsButton.Image")));
-            this.optionsButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.optionsButton.Location = new System.Drawing.Point(12, 192);
-            this.optionsButton.Name = "optionsButton";
-            this.optionsButton.Size = new System.Drawing.Size(28, 28);
-            this.optionsButton.TabIndex = 2;
-            // 
-            // optionsPopupMenu
-            // 
-            this.optionsPopupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.detailedErrorsButton),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
-            this.optionsPopupMenu.Manager = this.barManager;
-            this.optionsPopupMenu.Name = "optionsPopupMenu";
-            this.optionsPopupMenu.BeforePopup += new System.ComponentModel.CancelEventHandler(this.optionsPopupMenu_BeforePopup);
-            // 
-            // detailedErrorsButton
-            // 
-            this.detailedErrorsButton.Caption = "Details";
-            this.detailedErrorsButton.Id = 0;
-            this.detailedErrorsButton.Name = "detailedErrorsButton";
-            this.detailedErrorsButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.detailedErrorsButton_ItemClick);
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Quit";
-            this.barButtonItem1.Id = 3;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
-            // 
-            // barManager
-            // 
-            this.barManager.DockControls.Add(this.barDockControlTop);
-            this.barManager.DockControls.Add(this.barDockControlBottom);
-            this.barManager.DockControls.Add(this.barDockControlLeft);
-            this.barManager.DockControls.Add(this.barDockControlRight);
-            this.barManager.Form = this;
-            this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.detailedErrorsButton,
-            this.barButtonItem1});
-            this.barManager.MaxItemId = 4;
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager;
-            this.barDockControlTop.Size = new System.Drawing.Size(324, 0);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 232);
-            this.barDockControlBottom.Manager = this.barManager;
-            this.barDockControlBottom.Size = new System.Drawing.Size(324, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Manager = this.barManager;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 232);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(324, 0);
-            this.barDockControlRight.Manager = this.barManager;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 232);
-            // 
-            // memoEdit1
-            // 
-            this.memoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.memoEdit1.CueText = null;
-            this.memoEdit1.Location = new System.Drawing.Point(12, 12);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.memoEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.memoEdit1.Properties.Appearance.Options.UseFont = true;
-            this.memoEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.memoEdit1.Properties.NullValuePrompt = null;
-            this.memoEdit1.Properties.ReadOnly = true;
-            this.memoEdit1.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.memoEdit1.Size = new System.Drawing.Size(300, 163);
-            this.memoEdit1.TabIndex = 5;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Appearance.Options.UseBackColor = true;
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.memoEdit1);
-            this.panelControl1.Controls.Add(this.buttonContinue);
-            this.panelControl1.Controls.Add(this.optionsButton);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
-            this.panelControl1.Size = new System.Drawing.Size(324, 232);
-            this.panelControl1.TabIndex = 0;
-            // 
-            // ErrorForm
-            // 
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(324, 232);
-            this.ControlBox = false;
-            this.Controls.Add(this.panelControl1);
-            this.Controls.Add(this.barDockControlLeft);
-            this.Controls.Add(this.barDockControlRight);
-            this.Controls.Add(this.barDockControlBottom);
-            this.Controls.Add(this.barDockControlTop);
-            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(340, 270);
-            this.Name = "ErrorForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Zeta Resource Editor";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.errorForm_FormClosing);
-            this.Load += new System.EventHandler(this.errorForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(ErrorForm));
+			buttonContinue = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			optionsButton = new ExtendedControlsLibrary.Skinning.CustomDropDownButton.MyDropDownButton();
+			optionsPopupMenu = new PopupMenu(components);
+			detailedErrorsButton = new BarButtonItem();
+			barButtonItem1 = new BarButtonItem();
+			barManager = new BarManager(components);
+			barDockControlTop = new BarDockControl();
+			barDockControlBottom = new BarDockControl();
+			barDockControlLeft = new BarDockControl();
+			barDockControlRight = new BarDockControl();
+			memoEdit1 = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
+			tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+			((ISupportInitialize)optionsPopupMenu).BeginInit();
+			((ISupportInitialize)barManager).BeginInit();
+			((ISupportInitialize)memoEdit1.Properties).BeginInit();
+			((ISupportInitialize)tablePanel1).BeginInit();
+			tablePanel1.SuspendLayout();
+			SuspendLayout();
+			// 
+			// buttonContinue
+			// 
+			buttonContinue.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+			buttonContinue.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			buttonContinue.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(buttonContinue, 2);
+			buttonContinue.DialogResult = DialogResult.OK;
+			buttonContinue.Location = new Point(357, 285);
+			buttonContinue.Margin = new Padding(0);
+			buttonContinue.Name = "buttonContinue";
+			tablePanel1.SetRow(buttonContinue, 2);
+			buttonContinue.Size = new Size(75, 28);
+			buttonContinue.TabIndex = 0;
+			buttonContinue.Text = "OK";
+			buttonContinue.WantDrawFocusRectangle = true;
+			// 
+			// optionsButton
+			// 
+			optionsButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			optionsButton.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			optionsButton.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(optionsButton, 0);
+			optionsButton.DropDownArrowStyle = DropDownArrowStyle.Hide;
+			optionsButton.DropDownControl = optionsPopupMenu;
+			optionsButton.ImageOptions.Image = (Image)resources.GetObject("optionsButton.ImageOptions.Image");
+			optionsButton.ImageOptions.Location = ImageLocation.MiddleCenter;
+			optionsButton.Location = new Point(16, 285);
+			optionsButton.Margin = new Padding(0);
+			optionsButton.Name = "optionsButton";
+			tablePanel1.SetRow(optionsButton, 2);
+			optionsButton.Size = new Size(28, 28);
+			optionsButton.TabIndex = 1;
+			// 
+			// optionsPopupMenu
+			// 
+			optionsPopupMenu.LinksPersistInfo.AddRange(new LinkPersistInfo[] { new LinkPersistInfo(detailedErrorsButton), new LinkPersistInfo(barButtonItem1) });
+			optionsPopupMenu.Manager = barManager;
+			optionsPopupMenu.Name = "optionsPopupMenu";
+			optionsPopupMenu.BeforePopup += optionsPopupMenu_BeforePopup;
+			// 
+			// detailedErrorsButton
+			// 
+			detailedErrorsButton.Caption = "Details";
+			detailedErrorsButton.Id = 0;
+			detailedErrorsButton.Name = "detailedErrorsButton";
+			detailedErrorsButton.ItemClick += detailedErrorsButton_ItemClick;
+			// 
+			// barButtonItem1
+			// 
+			barButtonItem1.Caption = "Quit";
+			barButtonItem1.Id = 3;
+			barButtonItem1.Name = "barButtonItem1";
+			barButtonItem1.ItemClick += barButtonItem1_ItemClick;
+			// 
+			// barManager
+			// 
+			barManager.DockControls.Add(barDockControlTop);
+			barManager.DockControls.Add(barDockControlBottom);
+			barManager.DockControls.Add(barDockControlLeft);
+			barManager.DockControls.Add(barDockControlRight);
+			barManager.Form = this;
+			barManager.Items.AddRange(new BarItem[] { detailedErrorsButton, barButtonItem1 });
+			barManager.MaxItemId = 4;
+			// 
+			// barDockControlTop
+			// 
+			barDockControlTop.CausesValidation = false;
+			barDockControlTop.Dock = DockStyle.Top;
+			barDockControlTop.Location = new Point(0, 0);
+			barDockControlTop.Manager = barManager;
+			barDockControlTop.Size = new Size(448, 0);
+			// 
+			// barDockControlBottom
+			// 
+			barDockControlBottom.CausesValidation = false;
+			barDockControlBottom.Dock = DockStyle.Bottom;
+			barDockControlBottom.Location = new Point(0, 329);
+			barDockControlBottom.Manager = barManager;
+			barDockControlBottom.Size = new Size(448, 0);
+			// 
+			// barDockControlLeft
+			// 
+			barDockControlLeft.CausesValidation = false;
+			barDockControlLeft.Dock = DockStyle.Left;
+			barDockControlLeft.Location = new Point(0, 0);
+			barDockControlLeft.Manager = barManager;
+			barDockControlLeft.Size = new Size(0, 329);
+			// 
+			// barDockControlRight
+			// 
+			barDockControlRight.CausesValidation = false;
+			barDockControlRight.Dock = DockStyle.Right;
+			barDockControlRight.Location = new Point(448, 0);
+			barDockControlRight.Manager = barManager;
+			barDockControlRight.Size = new Size(0, 329);
+			// 
+			// memoEdit1
+			// 
+			tablePanel1.SetColumn(memoEdit1, 0);
+			tablePanel1.SetColumnSpan(memoEdit1, 3);
+			memoEdit1.CueText = null;
+			memoEdit1.Dock = DockStyle.Fill;
+			memoEdit1.Location = new Point(16, 15);
+			memoEdit1.Margin = new Padding(0);
+			memoEdit1.Name = "memoEdit1";
+			memoEdit1.Properties.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			memoEdit1.Properties.Appearance.Options.UseBackColor = true;
+			memoEdit1.Properties.Appearance.Options.UseFont = true;
+			memoEdit1.Properties.BorderStyle = BorderStyles.NoBorder;
+			memoEdit1.Properties.NullValuePrompt = null;
+			memoEdit1.Properties.ReadOnly = true;
+			memoEdit1.Properties.ScrollBars = ScrollBars.None;
+			memoEdit1.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel1.SetRow(memoEdit1, 0);
+			memoEdit1.Size = new Size(416, 261);
+			memoEdit1.TabIndex = 2;
+			// 
+			// tablePanel1
+			// 
+			tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 1F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F) });
+			tablePanel1.Controls.Add(memoEdit1);
+			tablePanel1.Controls.Add(buttonContinue);
+			tablePanel1.Controls.Add(optionsButton);
+			tablePanel1.Dock = DockStyle.Fill;
+			tablePanel1.Location = new Point(0, 0);
+			tablePanel1.Name = "tablePanel1";
+			tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 1F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 9F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel1.Size = new Size(448, 329);
+			tablePanel1.TabIndex = 0;
+			tablePanel1.UseSkinIndents = true;
+			// 
+			// ErrorForm
+			// 
+			Appearance.Options.UseFont = true;
+			AutoScaleMode = AutoScaleMode.None;
+			ClientSize = new Size(448, 329);
+			ControlBox = false;
+			Controls.Add(tablePanel1);
+			Controls.Add(barDockControlLeft);
+			Controls.Add(barDockControlRight);
+			Controls.Add(barDockControlBottom);
+			Controls.Add(barDockControlTop);
+			Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			IconOptions.Icon = (Icon)resources.GetObject("ErrorForm.IconOptions.Icon");
+			MaximizeBox = false;
+			MinimizeBox = false;
+			MinimumSize = new Size(326, 270);
+			Name = "ErrorForm";
+			StartPosition = FormStartPosition.CenterScreen;
+			Text = "Zeta Resource Editor";
+			FormClosing += errorForm_FormClosing;
+			Load += errorForm_Load;
+			((ISupportInitialize)optionsPopupMenu).EndInit();
+			((ISupportInitialize)barManager).EndInit();
+			((ISupportInitialize)memoEdit1.Properties).EndInit();
+			((ISupportInitialize)tablePanel1).EndInit();
+			tablePanel1.ResumeLayout(false);
+			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
@@ -217,7 +221,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 		private DevExpress.XtraBars.BarDockControl barDockControlBottom;
 		private DevExpress.XtraBars.BarDockControl barDockControlLeft;
 		private DevExpress.XtraBars.BarDockControl barDockControlRight;
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-    }
+		private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+		private DevExpress.Utils.Layout.TablePanel tablePanel1;
+	}
 }

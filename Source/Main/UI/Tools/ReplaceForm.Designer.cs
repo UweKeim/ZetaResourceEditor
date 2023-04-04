@@ -28,174 +28,189 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.panelControl1 = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-			this.whiteSpaceAwareCheckEdit = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
-			this.textToReplaceComboBox = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
-			this.textToFindComboBox = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
-			this.simpleButton1 = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-			this.labelControl1 = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-			this.simpleButton2 = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-			this.label1 = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-			this.panelControl1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.whiteSpaceAwareCheckEdit.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.textToReplaceComboBox.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.textToFindComboBox.Properties)).BeginInit();
-			this.SuspendLayout();
+			tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+			simpleButton2 = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			simpleButton1 = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			whiteSpaceAwareCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+			textToReplaceComboBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
+			labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			textToFindComboBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
+			label1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			((ISupportInitialize)tablePanel1).BeginInit();
+			tablePanel1.SuspendLayout();
+			((ISupportInitialize)whiteSpaceAwareCheckEdit.Properties).BeginInit();
+			((ISupportInitialize)textToReplaceComboBox.Properties).BeginInit();
+			((ISupportInitialize)textToFindComboBox.Properties).BeginInit();
+			SuspendLayout();
 			// 
-			// panelControl1
+			// tablePanel1
 			// 
-			this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
-			this.panelControl1.Appearance.Options.UseBackColor = true;
-			this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-			this.panelControl1.Controls.Add(this.whiteSpaceAwareCheckEdit);
-			this.panelControl1.Controls.Add(this.textToReplaceComboBox);
-			this.panelControl1.Controls.Add(this.textToFindComboBox);
-			this.panelControl1.Controls.Add(this.simpleButton1);
-			this.panelControl1.Controls.Add(this.labelControl1);
-			this.panelControl1.Controls.Add(this.simpleButton2);
-			this.panelControl1.Controls.Add(this.label1);
-			this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelControl1.Location = new System.Drawing.Point(0, 0);
-			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
-			this.panelControl1.Size = new System.Drawing.Size(453, 156);
-			this.panelControl1.TabIndex = 0;
-			// 
-			// whiteSpaceAwareCheckEdit
-			// 
-			this.whiteSpaceAwareCheckEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.whiteSpaceAwareCheckEdit.Location = new System.Drawing.Point(12, 114);
-			this.whiteSpaceAwareCheckEdit.Name = "whiteSpaceAwareCheckEdit";
-			this.whiteSpaceAwareCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.whiteSpaceAwareCheckEdit.Properties.Appearance.Options.UseFont = true;
-			this.whiteSpaceAwareCheckEdit.Properties.AutoWidth = true;
-			this.whiteSpaceAwareCheckEdit.Properties.Caption = "White-space aware";
-			this.whiteSpaceAwareCheckEdit.Size = new System.Drawing.Size(142, 27);
-			this.whiteSpaceAwareCheckEdit.TabIndex = 6;
-			// 
-			// textToReplaceComboBox
-			// 
-			this.textToReplaceComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.textToReplaceComboBox.CueText = null;
-			this.textToReplaceComboBox.Location = new System.Drawing.Point(12, 76);
-			this.textToReplaceComboBox.Name = "textToReplaceComboBox";
-			this.textToReplaceComboBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.textToReplaceComboBox.Properties.Appearance.Options.UseFont = true;
-			this.textToReplaceComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-			this.textToReplaceComboBox.Properties.NullValuePrompt = null;
-			this.textToReplaceComboBox.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
-			this.textToReplaceComboBox.Size = new System.Drawing.Size(429, 25);
-			this.textToReplaceComboBox.TabIndex = 3;
-			this.textToReplaceComboBox.EditValueChanged += new System.EventHandler(this.textToReplaceComboBox_TextUpdate);
-			// 
-			// textToFindComboBox
-			// 
-			this.textToFindComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.textToFindComboBox.CueText = null;
-			this.textToFindComboBox.Location = new System.Drawing.Point(12, 29);
-			this.textToFindComboBox.Name = "textToFindComboBox";
-			this.textToFindComboBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.textToFindComboBox.Properties.Appearance.Options.UseFont = true;
-			this.textToFindComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-			this.textToFindComboBox.Properties.NullValuePrompt = null;
-			this.textToFindComboBox.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
-			this.textToFindComboBox.Size = new System.Drawing.Size(429, 25);
-			this.textToFindComboBox.TabIndex = 1;
-			this.textToFindComboBox.EditValueChanged += new System.EventHandler(this.textToFindComboBox_TextUpdate);
-			// 
-			// simpleButton1
-			// 
-			this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.simpleButton1.Appearance.Options.UseFont = true;
-			this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.simpleButton1.Location = new System.Drawing.Point(265, 116);
-			this.simpleButton1.Name = "simpleButton1";
-			this.simpleButton1.Size = new System.Drawing.Size(85, 28);
-			this.simpleButton1.TabIndex = 4;
-			this.simpleButton1.Text = "Replace all";
-			this.simpleButton1.WantDrawFocusRectangle = true;
-			this.simpleButton1.Click += new System.EventHandler(this.buttonOK_Click);
-			// 
-			// labelControl1
-			// 
-			this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.labelControl1.Appearance.Options.UseFont = true;
-			this.labelControl1.Location = new System.Drawing.Point(12, 59);
-			this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-			this.labelControl1.Name = "labelControl1";
-			this.labelControl1.Size = new System.Drawing.Size(117, 17);
-			this.labelControl1.TabIndex = 2;
-			this.labelControl1.Text = "Text to &replace with:";
+			tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 1F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 90F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 9F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 90F) });
+			tablePanel1.Controls.Add(simpleButton2);
+			tablePanel1.Controls.Add(simpleButton1);
+			tablePanel1.Controls.Add(whiteSpaceAwareCheckEdit);
+			tablePanel1.Controls.Add(textToReplaceComboBox);
+			tablePanel1.Controls.Add(labelControl1);
+			tablePanel1.Controls.Add(textToFindComboBox);
+			tablePanel1.Controls.Add(label1);
+			tablePanel1.Dock = DockStyle.Fill;
+			tablePanel1.Location = new Point(0, 0);
+			tablePanel1.Margin = new Padding(0);
+			tablePanel1.Name = "tablePanel1";
+			tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 9F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 18F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel1.Size = new Size(566, 178);
+			tablePanel1.TabIndex = 0;
+			tablePanel1.UseSkinIndents = true;
 			// 
 			// simpleButton2
 			// 
-			this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.simpleButton2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.simpleButton2.Appearance.Options.UseFont = true;
-			this.simpleButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.simpleButton2.Location = new System.Drawing.Point(356, 116);
-			this.simpleButton2.Name = "simpleButton2";
-			this.simpleButton2.Size = new System.Drawing.Size(85, 28);
-			this.simpleButton2.TabIndex = 5;
-			this.simpleButton2.Text = "Cancel";
-			this.simpleButton2.WantDrawFocusRectangle = true;
+			simpleButton2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+			simpleButton2.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			simpleButton2.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(simpleButton2, 3);
+			simpleButton2.DialogResult = DialogResult.Cancel;
+			simpleButton2.Location = new Point(460, 133);
+			simpleButton2.Margin = new Padding(0);
+			simpleButton2.Name = "simpleButton2";
+			tablePanel1.SetRow(simpleButton2, 6);
+			simpleButton2.Size = new Size(90, 28);
+			simpleButton2.TabIndex = 6;
+			simpleButton2.Text = "Cancel";
+			simpleButton2.WantDrawFocusRectangle = true;
+			// 
+			// simpleButton1
+			// 
+			simpleButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+			simpleButton1.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			simpleButton1.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(simpleButton1, 1);
+			simpleButton1.DialogResult = DialogResult.OK;
+			simpleButton1.Location = new Point(361, 133);
+			simpleButton1.Margin = new Padding(0);
+			simpleButton1.Name = "simpleButton1";
+			tablePanel1.SetRow(simpleButton1, 6);
+			simpleButton1.Size = new Size(90, 28);
+			simpleButton1.TabIndex = 5;
+			simpleButton1.Text = "Replace all";
+			simpleButton1.WantDrawFocusRectangle = true;
+			simpleButton1.Click += buttonOK_Click;
+			// 
+			// whiteSpaceAwareCheckEdit
+			// 
+			whiteSpaceAwareCheckEdit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			tablePanel1.SetColumn(whiteSpaceAwareCheckEdit, 0);
+			whiteSpaceAwareCheckEdit.Location = new Point(16, 133);
+			whiteSpaceAwareCheckEdit.Margin = new Padding(0);
+			whiteSpaceAwareCheckEdit.Name = "whiteSpaceAwareCheckEdit";
+			whiteSpaceAwareCheckEdit.Properties.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			whiteSpaceAwareCheckEdit.Properties.Appearance.Options.UseFont = true;
+			whiteSpaceAwareCheckEdit.Properties.AutoWidth = true;
+			whiteSpaceAwareCheckEdit.Properties.Caption = "White-space aware";
+			tablePanel1.SetRow(whiteSpaceAwareCheckEdit, 6);
+			whiteSpaceAwareCheckEdit.Size = new Size(142, 27);
+			whiteSpaceAwareCheckEdit.TabIndex = 4;
+			// 
+			// textToReplaceComboBox
+			// 
+			textToReplaceComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			tablePanel1.SetColumn(textToReplaceComboBox, 0);
+			tablePanel1.SetColumnSpan(textToReplaceComboBox, 4);
+			textToReplaceComboBox.CueText = null;
+			textToReplaceComboBox.Location = new Point(16, 89);
+			textToReplaceComboBox.Margin = new Padding(0);
+			textToReplaceComboBox.Name = "textToReplaceComboBox";
+			textToReplaceComboBox.Properties.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			textToReplaceComboBox.Properties.Appearance.Options.UseFont = true;
+			textToReplaceComboBox.Properties.Buttons.AddRange(new EditorButton[] { new EditorButton(ButtonPredefines.Combo) });
+			textToReplaceComboBox.Properties.NullValuePrompt = null;
+			textToReplaceComboBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel1.SetRow(textToReplaceComboBox, 4);
+			textToReplaceComboBox.Size = new Size(534, 25);
+			textToReplaceComboBox.TabIndex = 3;
+			textToReplaceComboBox.EditValueChanged += textToReplaceComboBox_TextUpdate;
+			// 
+			// labelControl1
+			// 
+			labelControl1.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			labelControl1.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(labelControl1, 0);
+			labelControl1.Location = new Point(16, 69);
+			labelControl1.Margin = new Padding(0, 0, 0, 3);
+			labelControl1.Name = "labelControl1";
+			tablePanel1.SetRow(labelControl1, 3);
+			labelControl1.Size = new Size(117, 17);
+			labelControl1.TabIndex = 2;
+			labelControl1.Text = "Text to &replace with:";
+			// 
+			// textToFindComboBox
+			// 
+			textToFindComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			tablePanel1.SetColumn(textToFindComboBox, 0);
+			tablePanel1.SetColumnSpan(textToFindComboBox, 4);
+			textToFindComboBox.CueText = null;
+			textToFindComboBox.Location = new Point(16, 35);
+			textToFindComboBox.Margin = new Padding(0);
+			textToFindComboBox.Name = "textToFindComboBox";
+			textToFindComboBox.Properties.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			textToFindComboBox.Properties.Appearance.Options.UseFont = true;
+			textToFindComboBox.Properties.Buttons.AddRange(new EditorButton[] { new EditorButton(ButtonPredefines.Combo) });
+			textToFindComboBox.Properties.NullValuePrompt = null;
+			textToFindComboBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel1.SetRow(textToFindComboBox, 1);
+			textToFindComboBox.Size = new Size(534, 25);
+			textToFindComboBox.TabIndex = 1;
+			textToFindComboBox.EditValueChanged += textToFindComboBox_TextUpdate;
 			// 
 			// label1
 			// 
-			this.label1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.label1.Appearance.Options.UseFont = true;
-			this.label1.Location = new System.Drawing.Point(12, 12);
-			this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(69, 17);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "&Text to find:";
+			label1.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			label1.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(label1, 0);
+			label1.Location = new Point(16, 15);
+			label1.Margin = new Padding(0, 0, 0, 3);
+			label1.Name = "label1";
+			tablePanel1.SetRow(label1, 0);
+			tablePanel1.SetRowSpan(label1, 0);
+			label1.Size = new Size(69, 17);
+			label1.TabIndex = 0;
+			label1.Text = "&Text to find:";
 			// 
 			// ReplaceForm
 			// 
-			this.AcceptButton = this.simpleButton1;
-			this.Appearance.Options.UseFont = true;
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.CancelButton = this.simpleButton2;
-			this.ClientSize = new System.Drawing.Size(453, 156);
-			this.Controls.Add(this.panelControl1);
-			this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.IconOptions.ShowIcon = false;
-			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(1024, 203);
-			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(455, 203);
-			this.Name = "ReplaceForm";
-			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Replace text";
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReplaceForm_FormClosing);
-			this.Load += new System.EventHandler(this.ReplaceForm_Load);
-			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-			this.panelControl1.ResumeLayout(false);
-			this.panelControl1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.whiteSpaceAwareCheckEdit.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.textToReplaceComboBox.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.textToFindComboBox.Properties)).EndInit();
-			this.ResumeLayout(false);
-
+			AcceptButton = simpleButton1;
+			Appearance.Options.UseFont = true;
+			AutoScaleDimensions = new SizeF(7F, 17F);
+			AutoScaleMode = AutoScaleMode.Font;
+			CancelButton = simpleButton2;
+			ClientSize = new Size(566, 178);
+			Controls.Add(tablePanel1);
+			Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			FormBorderStyle = FormBorderStyle.FixedDialog;
+			MaximizeBox = false;
+			MinimizeBox = false;
+			Name = "ReplaceForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Replace text";
+			Load += ReplaceForm_Load;
+			((ISupportInitialize)tablePanel1).EndInit();
+			tablePanel1.ResumeLayout(false);
+			tablePanel1.PerformLayout();
+			((ISupportInitialize)whiteSpaceAwareCheckEdit.Properties).EndInit();
+			((ISupportInitialize)textToReplaceComboBox.Properties).EndInit();
+			((ISupportInitialize)textToFindComboBox.Properties).EndInit();
+			ResumeLayout(false);
 		}
 
 		#endregion
 
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
-		private ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit textToFindComboBox;
+		private DevExpress.Utils.Layout.TablePanel tablePanel1;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl label1;
+		private ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit textToFindComboBox;
+		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
+		private ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit textToReplaceComboBox;
+		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit whiteSpaceAwareCheckEdit;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton simpleButton1;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton simpleButton2;
-		private ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit textToReplaceComboBox;
-		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
-		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit whiteSpaceAwareCheckEdit;
 	}
 }

@@ -547,7 +547,7 @@ public partial class MainForm :
         object sender,
         ItemClickEventArgs e)
     {
-        using (var about = new AboutFormModern())
+        using (var about = new AboutForm())
         {
             about.ShowDialog(this);
         }

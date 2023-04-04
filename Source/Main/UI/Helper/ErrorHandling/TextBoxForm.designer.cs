@@ -11,13 +11,13 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if ( disposing && (components != null) )
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 
 		#region Windows Form Designer generated code
@@ -28,87 +28,90 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.textMemoEdit = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
-			this.buttonCancel = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-			this.panelControl1 = new ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-			((System.ComponentModel.ISupportInitialize)(this.textMemoEdit.Properties)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-			this.panelControl1.SuspendLayout();
-			this.SuspendLayout();
+			textMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
+			buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+			((ISupportInitialize)textMemoEdit.Properties).BeginInit();
+			((ISupportInitialize)tablePanel1).BeginInit();
+			tablePanel1.SuspendLayout();
+			SuspendLayout();
 			// 
 			// textMemoEdit
 			// 
-			this.textMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.textMemoEdit.CueText = null;
-			this.textMemoEdit.Location = new System.Drawing.Point(12, 12);
-			this.textMemoEdit.Name = "textMemoEdit";
-			this.textMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.textMemoEdit.Properties.Appearance.Options.UseBackColor = true;
-			this.textMemoEdit.Properties.Appearance.Options.UseFont = true;
-			this.textMemoEdit.Properties.NullValuePrompt = null;
-			this.textMemoEdit.Properties.ReadOnly = true;
-			this.textMemoEdit.Properties.ShowNullValuePrompt = ((DevExpress.XtraEditors.ShowNullValuePromptOptions)((DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorFocused | DevExpress.XtraEditors.ShowNullValuePromptOptions.EditorReadOnly)));
-			this.textMemoEdit.Size = new System.Drawing.Size(460, 453);
-			this.textMemoEdit.TabIndex = 0;
-			this.textMemoEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textMemoEdit_KeyDown);
+			tablePanel1.SetColumn(textMemoEdit, 0);
+			tablePanel1.SetColumnSpan(textMemoEdit, 2);
+			textMemoEdit.CueText = null;
+			textMemoEdit.Dock = DockStyle.Fill;
+			textMemoEdit.Location = new Point(16, 15);
+			textMemoEdit.Margin = new Padding(0);
+			textMemoEdit.Name = "textMemoEdit";
+			textMemoEdit.Properties.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			textMemoEdit.Properties.Appearance.Options.UseBackColor = true;
+			textMemoEdit.Properties.Appearance.Options.UseFont = true;
+			textMemoEdit.Properties.NullValuePrompt = null;
+			textMemoEdit.Properties.ReadOnly = true;
+			textMemoEdit.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel1.SetRow(textMemoEdit, 0);
+			textMemoEdit.Size = new Size(552, 506);
+			textMemoEdit.TabIndex = 1;
+			textMemoEdit.KeyDown += textMemoEdit_KeyDown;
 			// 
 			// buttonCancel
 			// 
-			this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.buttonCancel.Appearance.Options.UseFont = true;
-			this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.buttonCancel.Location = new System.Drawing.Point(397, 476);
-			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Size = new System.Drawing.Size(75, 28);
-			this.buttonCancel.TabIndex = 0;
-			this.buttonCancel.Text = "Close";
-			this.buttonCancel.WantDrawFocusRectangle = true;
+			buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+			buttonCancel.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			buttonCancel.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(buttonCancel, 1);
+			buttonCancel.DialogResult = DialogResult.Cancel;
+			buttonCancel.Location = new Point(493, 530);
+			buttonCancel.Margin = new Padding(0);
+			buttonCancel.Name = "buttonCancel";
+			tablePanel1.SetRow(buttonCancel, 2);
+			buttonCancel.Size = new Size(75, 28);
+			buttonCancel.TabIndex = 0;
+			buttonCancel.Text = "Close";
+			buttonCancel.WantDrawFocusRectangle = true;
 			// 
-			// panelControl1
+			// tablePanel1
 			// 
-			this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
-			this.panelControl1.Appearance.Options.UseBackColor = true;
-			this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-			this.panelControl1.Controls.Add(this.textMemoEdit);
-			this.panelControl1.Controls.Add(this.buttonCancel);
-			this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelControl1.Location = new System.Drawing.Point(0, 0);
-			this.panelControl1.Name = "panelControl1";
-			this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
-			this.panelControl1.Size = new System.Drawing.Size(484, 516);
-			this.panelControl1.TabIndex = 3;
+			tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 1F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 75F) });
+			tablePanel1.Controls.Add(buttonCancel);
+			tablePanel1.Controls.Add(textMemoEdit);
+			tablePanel1.Dock = DockStyle.Fill;
+			tablePanel1.Location = new Point(0, 0);
+			tablePanel1.Name = "tablePanel1";
+			tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 1F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 9F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F) });
+			tablePanel1.Size = new Size(584, 574);
+			tablePanel1.TabIndex = 0;
+			tablePanel1.UseSkinIndents = true;
 			// 
 			// TextBoxForm
 			// 
-			this.Appearance.Options.UseFont = true;
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(484, 516);
-			this.Controls.Add(this.panelControl1);
-			this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-			this.IconOptions.ShowIcon = false;
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(486, 552);
-			this.Name = "TextBoxForm";
-			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Text";
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.textBoxForm_FormClosing);
-			this.Load += new System.EventHandler(this.textBoxForm_Load);
-			((System.ComponentModel.ISupportInitialize)(this.textMemoEdit.Properties)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-			this.panelControl1.ResumeLayout(false);
-			this.ResumeLayout(false);
-
+			Appearance.Options.UseFont = true;
+			AutoScaleMode = AutoScaleMode.None;
+			ClientSize = new Size(584, 574);
+			Controls.Add(tablePanel1);
+			Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			IconOptions.ShowIcon = false;
+			MaximizeBox = false;
+			MinimizeBox = false;
+			MinimumSize = new Size(486, 552);
+			Name = "TextBoxForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Text";
+			FormClosing += textBoxForm_FormClosing;
+			Load += textBoxForm_Load;
+			((ISupportInitialize)textMemoEdit.Properties).EndInit();
+			((ISupportInitialize)tablePanel1).EndInit();
+			tablePanel1.ResumeLayout(false);
+			ResumeLayout(false);
 		}
 
 		#endregion
 
 		private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit textMemoEdit;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonCancel;
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
+		private DevExpress.Utils.Layout.TablePanel tablePanel1;
 	}
 }
