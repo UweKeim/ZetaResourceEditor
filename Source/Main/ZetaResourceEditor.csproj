@@ -14,7 +14,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.3.40.0</ApplicationVersion>
+    <ApplicationVersion>2.3.42.0</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -24,14 +24,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>..\..\Bin\</OutputPath>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <PublishReadyToRun>true</PublishReadyToRun>
+  </PropertyGroup>
+
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-    <AssemblyVersion>2.3.40.0</AssemblyVersion>
-    <FileVersion>2.3.40.0</FileVersion>
+    <AssemblyVersion>2.3.42.0</AssemblyVersion>
+    <FileVersion>2.3.42.0</FileVersion>
     <AssemblyName>ZetaResourceEditor</AssemblyName>
     <Product>Zeta Resource Editor</Product>
     <Authors>Zeta Software GmbH</Authors>
@@ -94,7 +99,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
-    <PackageReference Include="DevExpress.Win.Design" Version="22.2.4" />
+    <PackageReference Include="DevExpress.Win.Design" Version="22.2.5" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />

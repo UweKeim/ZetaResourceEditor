@@ -146,6 +146,10 @@
       <HintPath>..\packages\ZetaLongPaths.1.0.16\lib\net452-full\ZetaLongPaths.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ZetaShortPaths, Version=1.0.23.0, Culture=neutral, PublicKeyToken=b764f59068f31f38">
+      <HintPath>..\packages\ZetaShortPaths.1.0.23\lib\netstandard2.0\ZetaShortPaths.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Directory.Build.props" />

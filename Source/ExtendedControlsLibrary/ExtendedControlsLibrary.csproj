@@ -203,7 +203,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
-    <PackageReference Include="DevExpress.Win.Design" Version="22.2.4" />
+    <PackageReference Include="DevExpress.Win.Design" Version="22.2.5" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
