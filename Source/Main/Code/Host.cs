@@ -66,9 +66,12 @@ internal sealed class Host
 
             SkinHelper.InitializeAll(true);
 
-            // --
+			// https://github.com/UweKeim/ZetaResourceEditor/issues/55
+			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-            AppDomain.CurrentDomain.UnhandledException += currentDomainUnhandledException;
+			// --
+
+			AppDomain.CurrentDomain.UnhandledException += currentDomainUnhandledException;
             Application.ThreadException += applicationThreadException;
 
             // --

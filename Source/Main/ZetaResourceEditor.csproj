@@ -14,7 +14,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.3.45.0</ApplicationVersion>
+    <ApplicationVersion>2.3.47.0</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -35,8 +35,8 @@
 
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-    <AssemblyVersion>2.3.45.0</AssemblyVersion>
-    <FileVersion>2.3.45.0</FileVersion>
+    <AssemblyVersion>2.3.47.0</AssemblyVersion>
+    <FileVersion>2.3.47.0</FileVersion>
     <AssemblyName>ZetaResourceEditor</AssemblyName>
     <Product>Zeta Resource Editor</Product>
     <Authors>Zeta Software GmbH</Authors>
@@ -98,7 +98,7 @@
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.1" />
     <PackageReference Include="DevExpress.Win.Design" Version="22.2.5" />
   </ItemGroup>
   <ItemGroup>
@@ -115,12 +115,13 @@
     <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.117" />
     <PackageReference Include="System.Memory" Version="4.5.5" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0" />
     <PackageReference Include="System.Text.Json" Version="7.0.2" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.WinForms" Version="1.0.0" />
-    <PackageReference Include="ZetaShortPaths" Version="1.0.23" />
+    <PackageReference Include="ZetaShortPaths" Version="1.0.24" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Test.Designer.cs" />
