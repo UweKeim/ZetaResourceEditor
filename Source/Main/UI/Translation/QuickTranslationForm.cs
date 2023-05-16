@@ -144,13 +144,13 @@ public partial class QuickTranslationForm : FormBase
 		// Select defaults.
 
 		if (sourceLanguageComboBox.SelectedIndex < 0 &&
-		    sourceLanguageComboBox.Properties.Items.Count > 0)
+			sourceLanguageComboBox.Properties.Items.Count > 0)
 		{
 			sourceLanguageComboBox.SelectedIndex = 0;
 		}
 
 		if (destinationLanguageComboBox.SelectedIndex < 0 &&
-		    destinationLanguageComboBox.Properties.Items.Count > 0)
+			destinationLanguageComboBox.Properties.Items.Count > 0)
 		{
 			foreach (TranslationLanguageInfo pair in destinationLanguageComboBox.Properties.Items)
 			{

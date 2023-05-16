@@ -3,26 +3,26 @@
 using Helper.Base;
 
 public partial class ExcelImportFormatInformationForm :
-    FormBase
+	FormBase
 {
-    public ExcelImportFormatInformationForm()
-    {
-        InitializeComponent();
-    }
+	public ExcelImportFormatInformationForm()
+	{
+		InitializeComponent();
+	}
 
-    private void ImportFormatInformationForm_Load(object sender, EventArgs e)
-    {
-        //WinFormsPersistanceHelper.RestoreState(this);
-        CenterToParent();
+	private void ImportFormatInformationForm_Load(object sender, EventArgs e)
+	{
+		//WinFormsPersistanceHelper.RestoreState(this);
+		CenterToParent();
 
-        InitiallyFillLists();
-        FillItemToControls();
+		InitiallyFillLists();
+		FillItemToControls();
 
-        UpdateUI();
-    }
+		UpdateUI();
+	}
 
-    private void ImportFormatInformationForm_FormClosing(object sender, FormClosingEventArgs e)
-    {
-        //WinFormsPersistanceHelper.SaveState(this);
-    }
+	private void ImportFormatInformationForm_FormClosing(object sender, FormClosingEventArgs e)
+	{
+		//WinFormsPersistanceHelper.SaveState(this);
+	}
 }

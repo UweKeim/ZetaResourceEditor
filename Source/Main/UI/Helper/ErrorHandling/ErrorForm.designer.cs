@@ -52,7 +52,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 			// buttonContinue
 			// 
 			buttonContinue.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-			buttonContinue.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			buttonContinue.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
 			buttonContinue.Appearance.Options.UseFont = true;
 			tablePanel1.SetColumn(buttonContinue, 2);
 			buttonContinue.DialogResult = DialogResult.OK;
@@ -63,12 +63,11 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 			buttonContinue.Size = new Size(75, 28);
 			buttonContinue.TabIndex = 0;
 			buttonContinue.Text = "OK";
-			buttonContinue.WantDrawFocusRectangle = true;
 			// 
 			// optionsButton
 			// 
 			optionsButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-			optionsButton.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			optionsButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
 			optionsButton.Appearance.Options.UseFont = true;
 			tablePanel1.SetColumn(optionsButton, 0);
 			optionsButton.DropDownArrowStyle = DropDownArrowStyle.Hide;
@@ -154,7 +153,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 			memoEdit1.Location = new Point(16, 15);
 			memoEdit1.Margin = new Padding(0);
 			memoEdit1.Name = "memoEdit1";
-			memoEdit1.Properties.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			memoEdit1.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
 			memoEdit1.Properties.Appearance.Options.UseBackColor = true;
 			memoEdit1.Properties.Appearance.Options.UseFont = true;
 			memoEdit1.Properties.BorderStyle = BorderStyles.NoBorder;
@@ -183,7 +182,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 			// ErrorForm
 			// 
 			Appearance.Options.UseFont = true;
-			AutoScaleMode = AutoScaleMode.None;
+			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(448, 329);
 			ControlBox = false;
 			Controls.Add(tablePanel1);
@@ -191,7 +190,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 			Controls.Add(barDockControlRight);
 			Controls.Add(barDockControlBottom);
 			Controls.Add(barDockControlTop);
-			Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
 			IconOptions.Icon = (Icon)resources.GetObject("ErrorForm.IconOptions.Icon");
 			MaximizeBox = false;
 			MinimizeBox = false;

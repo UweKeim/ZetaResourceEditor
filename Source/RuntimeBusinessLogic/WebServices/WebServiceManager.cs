@@ -2,10 +2,10 @@
 
 #region Using directives.
 
+using ServiceReference1;
 // ----------------------------------------------------------------------
 using System.ComponentModel;
 using System.Net;
-using ServiceReference1;
 using Zeta.VoyagerLibrary.Core.Tools.Storage;
 using Zeta.VoyagerLibrary.Core.Tools.Text;
 
@@ -94,7 +94,7 @@ public sealed class WebServiceManager
     /// </summary>
     /// <value>The web service proxy.</value>
     [Browsable(false)]
-    public IWebProxy WebServiceProxy
+    public IWebProxy? WebServiceProxy
     {
         get
         {
@@ -245,7 +245,7 @@ public sealed class WebServiceManager
         /// </summary>
         /// <param name="webProxy">The web proxy.</param>
         public WebProxySerializator(
-            WebProxy webProxy)
+            WebProxy? webProxy)
         {
             if (webProxy == null)
             {
@@ -273,11 +273,7 @@ public sealed class WebServiceManager
 
         #region Public properties.
 
-        /// <summary>
-        /// Gets the web proxy.
-        /// </summary>
-        /// <value>The web proxy.</value>
-        public WebProxy WebProxy
+        public WebProxy? WebProxy
         {
             get
             {
@@ -320,12 +316,12 @@ public sealed class WebServiceManager
 
         private readonly bool _isNull;
 
-        private readonly Uri _address;
-        private readonly string[] _bypassList;
+        private readonly Uri? _address;
+        private readonly string[]? _bypassList;
         private readonly bool _bypassProxyOnLocal;
-        private readonly string _domain;
-        private readonly string _password;
-        private readonly string _userName;
+        private readonly string? _domain;
+        private readonly string? _password;
+        private readonly string? _userName;
         private readonly bool _useDefaultCredentials;
 
         #endregion
@@ -344,9 +340,9 @@ public sealed class WebServiceManager
     /// </summary>
     private static readonly object TypeLock = new();
 
-    private UpdateCheckerServiceSoapClient _updateCheckerWS;
+    private UpdateCheckerServiceSoapClient? _updateCheckerWS;
 
-    private static volatile WebServiceManager _current;
+    private static volatile WebServiceManager? _current;
 
     // ------------------------------------------------------------------
 

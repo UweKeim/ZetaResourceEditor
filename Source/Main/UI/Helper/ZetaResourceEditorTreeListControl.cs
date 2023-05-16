@@ -34,7 +34,7 @@ public partial class ZetaResourceEditorTreeListControl :
         return base.RaiseBeforeExpand(node);
     }
 
-    public event EventHandler<ExpandDynamicChildrenEventArgs> ExpandDynamicChildren;
+    public event EventHandler<ExpandDynamicChildrenEventArgs>? ExpandDynamicChildren;
 
     public void CheckExpandDynamicNodes(
         TreeListNode node)
@@ -48,23 +48,6 @@ public partial class ZetaResourceEditorTreeListControl :
         }
     }
 
-    public void CheckAddDummyNode(TreeListNode node)
-    {
-        if (node.Nodes.Count <= 0)
-        {
-            AppendNode(
-                new object[]
-                {
-                    DummyNode,
-                    null,
-                    null,
-                    null,
-                    null
-                },
-                node);
-        }
-    }
-
     public new void ClearSelection()
     {
         var prevCount = Selection.Count + 1;
@@ -75,7 +58,7 @@ public partial class ZetaResourceEditorTreeListControl :
         }
     }
 
-    public TreeListNode SelectedNode
+    public TreeListNode? SelectedNode
     {
         get => Selection.Count <= 0 ? null : Selection[0];
         set
@@ -204,7 +187,7 @@ public partial class ZetaResourceEditorTreeListControl :
     /// </summary>
     public void EnsureItemsOrderPositionsSet(
         object threadPoolManager,
-        TreeListNode parentNode,
+        TreeListNode? parentNode,
         AsynchronousMode asynchronousMode)
     {
         var previousOrderPosition = -1;

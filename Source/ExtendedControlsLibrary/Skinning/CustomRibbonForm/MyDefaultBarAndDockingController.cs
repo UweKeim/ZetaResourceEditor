@@ -21,5 +21,8 @@ public class MyDefaultBarAndDockingController :
         Controller.AppearancesBar.SubMenu.MenuCaption.Font = SkinHelper.StandardFont;
         Controller.AppearancesBar.SubMenu.SideStrip.Font = SkinHelper.StandardFont;
         Controller.AppearancesBar.SubMenu.SideStripNonRecent.Font = SkinHelper.StandardFont;
+
+        Controller.PropertiesBar.ScaleEditors = true;
+        Controller.PropertiesRibbon.ScaleEditors = true;
     }
 }

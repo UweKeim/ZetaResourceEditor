@@ -3,12 +3,12 @@
 using DevExpress.XtraEditors;
 
 public class MyLabelControl :
-    LabelControl
+	LabelControl
 {
-    protected override void OnCreateControl()
-    {
-        base.OnCreateControl();
+	protected override void OnCreateControl()
+	{
+		base.OnCreateControl();
 
-        Appearance.Font = SkinHelper.StandardFont;
-    }
+		Appearance.Font = SkinHelper.StandardFont;
+	}
 }

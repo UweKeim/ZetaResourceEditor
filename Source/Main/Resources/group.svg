@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1024px" height="1024px" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="nonzero" clip-rule="evenodd" viewBox="0 0 10240 10240" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>box_closed icon</title>
+	<desc>box_closed icon from the IconExperience.com O-Collection. Copyright by INCORS GmbH (www.incors.com).</desc>
+	<path id="curve1" fill="#EDC87E" d="M1634 3023l3200 -1600c186,-93 386,-93 572,0l671 335 -715 358 -242 -120 -2768 1384 244 122 -2 1c-208,104 -340,304 -353,534l-321 -161 0 3408 2880 1440 0 -3408 -640 -320 0 -280c0,0 0,0 0,0l431 -217 529 265 2768 -1384 -531 -266 715 -358 534 267c222,111 354,324 354,573l0 3688c0,249 -132,462 -354,573l-3200 1600c-186,93 -386,93 -572,0l-3200 -1600c-222,-111 -354,-324 -354,-573l0 -3688c0,-249 132,-462 354,-573zm3806 5701l2880 -1440 0 -3408 -2880 1440 0 3408z"/>
+	<path id="curve0" fill="#808080" d="M2737 3789l3663 -1831 1280 640 -3663 1831c-111,56 -177,162 -177,287l0 1082 -1280 -640 0 -1082c0,-125 66,-231 177,-287z"/>
+</svg>

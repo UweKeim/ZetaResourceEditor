@@ -1,29 +1,23 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups;
 
-using Properties;
-using Runtime.Localization;
+using System.ComponentModel;
 
 [Flags]
 public enum FileGroupStates
 {
-    [LocalizableDescription( @"FileGroupStates_CompletelyTranslated", typeof( Resources ) )]
-    CompletelyTranslated = 0x0000,
+	[Description("Completely translated")] CompletelyTranslated = 0x0000,
 
-    [LocalizableDescription( @"FileGroupStates_Empty", typeof( Resources ) )]
-    Empty = 0x0001,
+	[Description("No strings")] Empty = 0x0001,
 
-    // --
+	[Description("Translations are missing")]
+	TranslationsMissing = 0x0100,
 
-    [LocalizableDescription( @"FileGroupStates_TranslationsMissing", typeof( Resources ) )]
-    TranslationsMissing = 0x0100,
+	[Description("Different number of format parameters")]
+	FormatParameterMismatches = 0x0200,
 
-    [LocalizableDescription( @"FileGroupStates_FormatParameterMismatches", typeof( Resources ) )]
-    FormatParameterMismatches = 0x0200,
+	[Description("(Some) completely empty rows")]
+	EmptyRows = 0x0400,
 
-    [LocalizableDescription( @"FileGroupStates_EmptyRows", typeof( Resources ) )]
-    EmptyRows = 0x0400,
-
-    // AJ CHANGE
-    [LocalizableDescription( @"FileGroupStates_AutomaticTranslationsExist", typeof( Resources ) )]
-    AutomaticTranslationsExist = 0x0800
+	[Description("Automatic translation exists")]
+	AutomaticTranslationsExist = 0x0800
 }

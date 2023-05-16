@@ -1,15 +1,8 @@
 namespace ZetaResourceEditor.RuntimeBusinessLogic.FileGroups;
 
-#region Using directives.
-// ----------------------------------------------------------------------
 using System.Linq;
 using Projects;
 using Zeta.VoyagerLibrary.Core.Common.Collections;
-
-// ----------------------------------------------------------------------
-#endregion
-
-/////////////////////////////////////////////////////////////////////////
 
 public class FileGroupCollection :
     List<FileGroup>
@@ -129,5 +122,3 @@ public class FileGroupCollection :
         return result.ToArray();
     }
 }
-
-/////////////////////////////////////////////////////////////////////////

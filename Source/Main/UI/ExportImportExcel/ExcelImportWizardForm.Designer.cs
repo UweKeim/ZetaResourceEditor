@@ -5,19 +5,19 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if ( disposing && (components != null) )
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 
 		#region Windows Form Designer generated code
@@ -28,639 +28,855 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExcelImportWizardForm));
-            this.wizardControl = new ExtendedControlsLibrary.Skinning.CustomWizard.NoHeaderWizardControl();
-            this.importFileWizardPage = new DevExpress.XtraWizard.WelcomeWizardPage();
-            this.labelControl7 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.cmdImportFormatInfo = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.sourceFileTextEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
-            this.buttonOpen = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.buttonBrowse = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.successWizardPage = new DevExpress.XtraWizard.CompletionWizardPage();
-            this.simpleButton1 = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.summaryAfterSuccessfulImportLabel = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.labelControl5 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.fileGroupsWizardPage = new DevExpress.XtraWizard.WizardPage();
-            this.invertFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.selectNoFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.selectAllFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.fileGroupsListBox = new ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl();
-            this.labelControl4 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.languagesWizardPage = new DevExpress.XtraWizard.WizardPage();
-            this.labelControl6 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.label3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.selectAllLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.invertLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.selectNoLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.languagesToImportCheckListBox = new ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl();
-            this.progressWizardPage = new DevExpress.XtraWizard.WizardPage();
-            this.progressBarControl = new DevExpress.XtraEditors.MarqueeProgressBarControl();
-            this.progressLabel = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.errorOccurredWizardPage = new DevExpress.XtraWizard.WizardPage();
-            this.optionsButton = new ExtendedControlsLibrary.Skinning.CustomDropDownButton.MyDropDownButton();
-            this.optionsPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.detailedErrorsButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
-            this.errorTextMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
-            this.progressBackgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.panel1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.wizardControl)).BeginInit();
-            this.wizardControl.SuspendLayout();
-            this.importFileWizardPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceFileTextEdit.Properties)).BeginInit();
-            this.successWizardPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.fileGroupsWizardPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fileGroupsListBox)).BeginInit();
-            this.languagesWizardPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.languagesToImportCheckListBox)).BeginInit();
-            this.progressWizardPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
-            this.errorOccurredWizardPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorTextMemoEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panel1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
-            //
-            // wizardControl
-            //
-            this.wizardControl.AllowAutoScaling = DevExpress.Utils.DefaultBoolean.False;
-            this.wizardControl.AllowTransitionAnimation = false;
-            this.wizardControl.Controls.Add(this.importFileWizardPage);
-            this.wizardControl.Controls.Add(this.successWizardPage);
-            this.wizardControl.Controls.Add(this.fileGroupsWizardPage);
-            this.wizardControl.Controls.Add(this.languagesWizardPage);
-            this.wizardControl.Controls.Add(this.progressWizardPage);
-            this.wizardControl.Controls.Add(this.errorOccurredWizardPage);
-            this.wizardControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wizardControl.Location = new System.Drawing.Point(0, 0);
-            this.wizardControl.Name = "wizardControl";
-            this.wizardControl.Pages.AddRange(new DevExpress.XtraWizard.BaseWizardPage[] {
-            this.importFileWizardPage,
-            this.fileGroupsWizardPage,
-            this.languagesWizardPage,
-            this.progressWizardPage,
-            this.errorOccurredWizardPage,
-            this.successWizardPage});
-            this.wizardControl.Size = new System.Drawing.Size(579, 424);
-            this.wizardControl.WizardStyle = DevExpress.XtraWizard.WizardStyle.WizardAero;
-            this.wizardControl.SelectedPageChanged += new DevExpress.XtraWizard.WizardPageChangedEventHandler(this.wizardControl_SelectedPageChanged);
-            this.wizardControl.CancelClick += new System.ComponentModel.CancelEventHandler(this.wizardControl_CancelClick);
-            this.wizardControl.FinishClick += new System.ComponentModel.CancelEventHandler(this.wizardControl_FinishClick);
-            this.wizardControl.NextClick += new DevExpress.XtraWizard.WizardCommandButtonClickEventHandler(this.wizardControl_NextClick);
-            this.wizardControl.PrevClick += new DevExpress.XtraWizard.WizardCommandButtonClickEventHandler(this.wizardControl_PrevClick);
-            //
-            // importFileWizardPage
-            //
-            this.importFileWizardPage.Controls.Add(this.labelControl7);
-            this.importFileWizardPage.Controls.Add(this.cmdImportFormatInfo);
-            this.importFileWizardPage.Controls.Add(this.sourceFileTextEdit);
-            this.importFileWizardPage.Controls.Add(this.buttonOpen);
-            this.importFileWizardPage.Controls.Add(this.buttonBrowse);
-            this.importFileWizardPage.Controls.Add(this.labelControl2);
-            this.importFileWizardPage.Controls.Add(this.barDockControlLeft);
-            this.importFileWizardPage.Controls.Add(this.barDockControlRight);
-            this.importFileWizardPage.Controls.Add(this.barDockControlBottom);
-            this.importFileWizardPage.Controls.Add(this.barDockControlTop);
-            this.importFileWizardPage.Name = "importFileWizardPage";
-            this.importFileWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.importFileWizardPage.Size = new System.Drawing.Size(535, 294);
-            this.importFileWizardPage.Text = "Specify import file from Microsoft Excel";
-            //
-            // labelControl7
-            //
-            this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl7.Enabled = false;
-            this.labelControl7.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.labelControl7.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl7.Location = new System.Drawing.Point(212, 226);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(311, 53);
-            this.labelControl7.TabIndex = 13;
-            this.labelControl7.Text = "Information about the required structure of a Microsoft Office Excel document in " +
-    "order to successfully import";
-            //
-            // cmdImportFormatInfo
-            //
-            this.cmdImportFormatInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cmdImportFormatInfo.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.cmdImportFormatInfo.Appearance.Options.UseFont = true;
-            this.cmdImportFormatInfo.Location = new System.Drawing.Point(15, 226);
-            this.cmdImportFormatInfo.Name = "cmdImportFormatInfo";
-            this.cmdImportFormatInfo.Size = new System.Drawing.Size(180, 28);
-            this.cmdImportFormatInfo.TabIndex = 12;
-            this.cmdImportFormatInfo.Text = "Import format information";
-            this.cmdImportFormatInfo.WantDrawFocusRectangle = true;
-            this.cmdImportFormatInfo.Click += new System.EventHandler(this.cmdImportFormatInfo_Click);
-            //
-            // sourceFileTextEdit
-            //
-            this.sourceFileTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.sourceFileTextEdit.CueText = null;
-            this.sourceFileTextEdit.Location = new System.Drawing.Point(12, 31);
-            this.sourceFileTextEdit.Name = "sourceFileTextEdit";
-            this.sourceFileTextEdit.Properties.AcceptsReturn = false;
-            this.sourceFileTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.sourceFileTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.sourceFileTextEdit.Properties.NullValuePrompt = null;
-            this.sourceFileTextEdit.Size = new System.Drawing.Size(511, 40);
-            this.sourceFileTextEdit.TabIndex = 7;
-            this.sourceFileTextEdit.EditValueChanged += new System.EventHandler(this.sourceFileTextEdit_EditValueChanged);
-            //
-            // buttonOpen
-            //
-            this.buttonOpen.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonOpen.Appearance.Options.UseFont = true;
-            this.buttonOpen.Location = new System.Drawing.Point(9, 77);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(75, 28);
-            this.buttonOpen.TabIndex = 6;
-            this.buttonOpen.Text = "&Open";
-            this.buttonOpen.WantDrawFocusRectangle = true;
-            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
-            //
-            // buttonBrowse
-            //
-            this.buttonBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowse.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonBrowse.Appearance.Options.UseFont = true;
-            this.buttonBrowse.Location = new System.Drawing.Point(448, 77);
-            this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(75, 28);
-            this.buttonBrowse.TabIndex = 6;
-            this.buttonBrowse.Text = "Browse";
-            this.buttonBrowse.WantDrawFocusRectangle = true;
-            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
-            //
-            // labelControl2
-            //
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl2.Location = new System.Drawing.Point(12, 12);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(251, 17);
-            this.labelControl2.TabIndex = 4;
-            this.labelControl2.Text = "Microsoft Office Excel document to import:";
-            //
-            // barDockControlLeft
-            //
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(9, 9);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 276);
-            //
-            // barDockControlRight
-            //
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(526, 9);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 276);
-            //
-            // barDockControlBottom
-            //
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(9, 285);
-            this.barDockControlBottom.Size = new System.Drawing.Size(517, 0);
-            //
-            // barDockControlTop
-            //
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(9, 9);
-            this.barDockControlTop.Size = new System.Drawing.Size(517, 0);
-            //
-            // successWizardPage
-            //
-            this.successWizardPage.AllowBack = false;
-            this.successWizardPage.AllowCancel = false;
-            this.successWizardPage.AllowNext = false;
-            this.successWizardPage.Controls.Add(this.simpleButton1);
-            this.successWizardPage.Controls.Add(this.pictureBox2);
-            this.successWizardPage.Controls.Add(this.summaryAfterSuccessfulImportLabel);
-            this.successWizardPage.Controls.Add(this.labelControl5);
-            this.successWizardPage.Name = "successWizardPage";
-            this.successWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.successWizardPage.Size = new System.Drawing.Size(535, 294);
-            this.successWizardPage.Text = "Import completed successfully";
-            //
-            // simpleButton1
-            //
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(75, 254);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(225, 28);
-            this.simpleButton1.TabIndex = 14;
-            this.simpleButton1.Text = "No rows imported — Find out why";
-            this.simpleButton1.WantDrawFocusRectangle = true;
-            this.simpleButton1.Click += new System.EventHandler(this.cmdImportFormatInfo_Click);
-            //
-            // pictureBox2
-            //
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            //
-            // summaryAfterSuccessfulImportLabel
-            //
-            this.summaryAfterSuccessfulImportLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.summaryAfterSuccessfulImportLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.summaryAfterSuccessfulImportLabel.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.summaryAfterSuccessfulImportLabel.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.summaryAfterSuccessfulImportLabel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.summaryAfterSuccessfulImportLabel.Location = new System.Drawing.Point(75, 60);
-            this.summaryAfterSuccessfulImportLabel.Name = "summaryAfterSuccessfulImportLabel";
-            this.summaryAfterSuccessfulImportLabel.Size = new System.Drawing.Size(448, 174);
-            this.summaryAfterSuccessfulImportLabel.TabIndex = 9;
-            this.summaryAfterSuccessfulImportLabel.Text = "<SUMMARY>";
-            //
-            // labelControl5
-            //
-            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl5.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.labelControl5.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl5.Location = new System.Drawing.Point(75, 12);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(448, 37);
-            this.labelControl5.TabIndex = 9;
-            this.labelControl5.Text = "Your data was successfully imported from the Microsoft Office Excel document you " +
-    "specified.";
-            //
-            // fileGroupsWizardPage
-            //
-            this.fileGroupsWizardPage.Controls.Add(this.invertFileGroupsButton);
-            this.fileGroupsWizardPage.Controls.Add(this.selectNoFileGroupsButton);
-            this.fileGroupsWizardPage.Controls.Add(this.selectAllFileGroupsButton);
-            this.fileGroupsWizardPage.Controls.Add(this.fileGroupsListBox);
-            this.fileGroupsWizardPage.Controls.Add(this.labelControl4);
-            this.fileGroupsWizardPage.Controls.Add(this.labelControl1);
-            this.fileGroupsWizardPage.Name = "fileGroupsWizardPage";
-            this.fileGroupsWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.fileGroupsWizardPage.Size = new System.Drawing.Size(535, 294);
-            this.fileGroupsWizardPage.Text = "Select files groups to import";
-            //
-            // invertFileGroupsButton
-            //
-            this.invertFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.invertFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.invertFileGroupsButton.Appearance.Options.UseFont = true;
-            this.invertFileGroupsButton.Location = new System.Drawing.Point(174, 254);
-            this.invertFileGroupsButton.Name = "invertFileGroupsButton";
-            this.invertFileGroupsButton.Size = new System.Drawing.Size(75, 28);
-            this.invertFileGroupsButton.TabIndex = 9;
-            this.invertFileGroupsButton.Text = "Flip";
-            this.invertFileGroupsButton.WantDrawFocusRectangle = true;
-            this.invertFileGroupsButton.Click += new System.EventHandler(this.invertFileGroupsButton_Click);
-            //
-            // selectNoFileGroupsButton
-            //
-            this.selectNoFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.selectNoFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.selectNoFileGroupsButton.Appearance.Options.UseFont = true;
-            this.selectNoFileGroupsButton.Location = new System.Drawing.Point(93, 254);
-            this.selectNoFileGroupsButton.Name = "selectNoFileGroupsButton";
-            this.selectNoFileGroupsButton.Size = new System.Drawing.Size(75, 28);
-            this.selectNoFileGroupsButton.TabIndex = 8;
-            this.selectNoFileGroupsButton.Text = "None";
-            this.selectNoFileGroupsButton.WantDrawFocusRectangle = true;
-            this.selectNoFileGroupsButton.Click += new System.EventHandler(this.selectNoFileGroupsButton_Click);
-            //
-            // selectAllFileGroupsButton
-            //
-            this.selectAllFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.selectAllFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.selectAllFileGroupsButton.Appearance.Options.UseFont = true;
-            this.selectAllFileGroupsButton.Location = new System.Drawing.Point(12, 254);
-            this.selectAllFileGroupsButton.Name = "selectAllFileGroupsButton";
-            this.selectAllFileGroupsButton.Size = new System.Drawing.Size(75, 28);
-            this.selectAllFileGroupsButton.TabIndex = 7;
-            this.selectAllFileGroupsButton.Text = "All";
-            this.selectAllFileGroupsButton.WantDrawFocusRectangle = true;
-            this.selectAllFileGroupsButton.Click += new System.EventHandler(this.selectAllFileGroupsButton_Click);
-            //
-            // fileGroupsListBox
-            //
-            this.fileGroupsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fileGroupsListBox.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.fileGroupsListBox.Appearance.Options.UseFont = true;
-            this.fileGroupsListBox.CheckOnClick = true;
-            this.fileGroupsListBox.Location = new System.Drawing.Point(12, 59);
-            this.fileGroupsListBox.Name = "fileGroupsListBox";
-            this.fileGroupsListBox.Size = new System.Drawing.Size(511, 189);
-            this.fileGroupsListBox.TabIndex = 6;
-            this.fileGroupsListBox.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.fileGroupsListBox_ItemCheck);
-            this.fileGroupsListBox.SelectedIndexChanged += new System.EventHandler(this.fileGroupsListBox_SelectedIndexChanged);
-            //
-            // labelControl4
-            //
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl4.Location = new System.Drawing.Point(12, 40);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(220, 17);
-            this.labelControl4.TabIndex = 5;
-            this.labelControl4.Text = "Check the groups you want to import:";
-            //
-            // labelControl1
-            //
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl1.Location = new System.Drawing.Point(12, 12);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(504, 17);
-            this.labelControl1.TabIndex = 5;
-            this.labelControl1.Text = "The following matching file groups were found in the Microsoft Office Excel docum" +
-    "ent.";
-            //
-            // languagesWizardPage
-            //
-            this.languagesWizardPage.Controls.Add(this.labelControl6);
-            this.languagesWizardPage.Controls.Add(this.label3);
-            this.languagesWizardPage.Controls.Add(this.selectAllLanguagesToExportButton);
-            this.languagesWizardPage.Controls.Add(this.invertLanguagesToExportButton);
-            this.languagesWizardPage.Controls.Add(this.selectNoLanguagesToExportButton);
-            this.languagesWizardPage.Controls.Add(this.languagesToImportCheckListBox);
-            this.languagesWizardPage.Name = "languagesWizardPage";
-            this.languagesWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.languagesWizardPage.Size = new System.Drawing.Size(535, 294);
-            this.languagesWizardPage.Text = "Specify languages to import";
-            //
-            // labelControl6
-            //
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl6.Location = new System.Drawing.Point(12, 40);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(238, 17);
-            this.labelControl6.TabIndex = 14;
-            this.labelControl6.Text = "Check the languages you want to import:";
-            //
-            // label3
-            //
-            this.label3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label3.Location = new System.Drawing.Point(12, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(501, 17);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "The following matching languages were found in the Microsoft Office Excel documen" +
-    "t.";
-            //
-            // selectAllLanguagesToExportButton
-            //
-            this.selectAllLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.selectAllLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.selectAllLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.selectAllLanguagesToExportButton.Location = new System.Drawing.Point(12, 254);
-            this.selectAllLanguagesToExportButton.Name = "selectAllLanguagesToExportButton";
-            this.selectAllLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
-            this.selectAllLanguagesToExportButton.TabIndex = 11;
-            this.selectAllLanguagesToExportButton.Text = "All";
-            this.selectAllLanguagesToExportButton.WantDrawFocusRectangle = true;
-            this.selectAllLanguagesToExportButton.Click += new System.EventHandler(this.selectAllLanguagesToExportButton_Click);
-            //
-            // invertLanguagesToExportButton
-            //
-            this.invertLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.invertLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.invertLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.invertLanguagesToExportButton.Location = new System.Drawing.Point(174, 254);
-            this.invertLanguagesToExportButton.Name = "invertLanguagesToExportButton";
-            this.invertLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
-            this.invertLanguagesToExportButton.TabIndex = 13;
-            this.invertLanguagesToExportButton.Text = "Flip";
-            this.invertLanguagesToExportButton.WantDrawFocusRectangle = true;
-            this.invertLanguagesToExportButton.Click += new System.EventHandler(this.invertLanguagesToExportButton_Click);
-            //
-            // selectNoLanguagesToExportButton
-            //
-            this.selectNoLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.selectNoLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.selectNoLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.selectNoLanguagesToExportButton.Location = new System.Drawing.Point(93, 254);
-            this.selectNoLanguagesToExportButton.Name = "selectNoLanguagesToExportButton";
-            this.selectNoLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
-            this.selectNoLanguagesToExportButton.TabIndex = 12;
-            this.selectNoLanguagesToExportButton.Text = "None";
-            this.selectNoLanguagesToExportButton.WantDrawFocusRectangle = true;
-            this.selectNoLanguagesToExportButton.Click += new System.EventHandler(this.selectNoLanguagesToExportButton_Click);
-            //
-            // languagesToImportCheckListBox
-            //
-            this.languagesToImportCheckListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.languagesToImportCheckListBox.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.languagesToImportCheckListBox.Appearance.Options.UseFont = true;
-            this.languagesToImportCheckListBox.CheckOnClick = true;
-            this.languagesToImportCheckListBox.Location = new System.Drawing.Point(12, 59);
-            this.languagesToImportCheckListBox.Name = "languagesToImportCheckListBox";
-            this.languagesToImportCheckListBox.Size = new System.Drawing.Size(511, 189);
-            this.languagesToImportCheckListBox.TabIndex = 10;
-            this.languagesToImportCheckListBox.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.languagesToImportCheckListBox_ItemCheck);
-            this.languagesToImportCheckListBox.SelectedIndexChanged += new System.EventHandler(this.languagesToImportCheckListBox_SelectedIndexChanged);
-            //
-            // progressWizardPage
-            //
-            this.progressWizardPage.AllowBack = false;
-            this.progressWizardPage.AllowNext = false;
-            this.progressWizardPage.Controls.Add(this.progressBarControl);
-            this.progressWizardPage.Controls.Add(this.progressLabel);
-            this.progressWizardPage.Name = "progressWizardPage";
-            this.progressWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.progressWizardPage.Size = new System.Drawing.Size(535, 294);
-            this.progressWizardPage.Text = "Data is being imported. Please wait...";
-            //
-            // progressBarControl
-            //
-            this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBarControl.EditValue = 0;
-            this.progressBarControl.Location = new System.Drawing.Point(12, 12);
-            this.progressBarControl.Name = "progressBarControl";
-            this.progressBarControl.Size = new System.Drawing.Size(511, 18);
-            this.progressBarControl.TabIndex = 2;
-            //
-            // progressLabel
-            //
-            this.progressLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.progressLabel.Location = new System.Drawing.Point(12, 36);
-            this.progressLabel.Name = "progressLabel";
-            this.progressLabel.Size = new System.Drawing.Size(179, 17);
-            this.progressLabel.TabIndex = 3;
-            this.progressLabel.Text = "<Progress information, if any>";
-            this.progressLabel.Visible = false;
-            //
-            // errorOccurredWizardPage
-            //
-            this.errorOccurredWizardPage.AllowNext = false;
-            this.errorOccurredWizardPage.Controls.Add(this.optionsButton);
-            this.errorOccurredWizardPage.Controls.Add(this.errorTextMemoEdit);
-            this.errorOccurredWizardPage.Name = "errorOccurredWizardPage";
-            this.errorOccurredWizardPage.Padding = new System.Windows.Forms.Padding(9);
-            this.errorOccurredWizardPage.Size = new System.Drawing.Size(535, 294);
-            this.errorOccurredWizardPage.Text = "An error has occurred";
-            //
-            // optionsButton
-            //
-            this.optionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.optionsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.optionsButton.Appearance.Options.UseFont = true;
-            this.optionsButton.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
-            this.optionsButton.DropDownControl = this.optionsPopupMenu;
-            this.optionsButton.Image = ((System.Drawing.Image)(resources.GetObject("optionsButton.Image")));
-            this.optionsButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.optionsButton.Location = new System.Drawing.Point(12, 254);
-            this.optionsButton.Name = "optionsButton";
-            this.optionsButton.Size = new System.Drawing.Size(75, 28);
-            this.optionsButton.TabIndex = 10;
-            this.optionsButton.Text = "&Options";
-            //
-            // optionsPopupMenu
-            //
-            this.optionsPopupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.detailedErrorsButton)});
-            this.optionsPopupMenu.Manager = this.barManager;
-            this.optionsPopupMenu.Name = "optionsPopupMenu";
-            this.optionsPopupMenu.BeforePopup += new System.ComponentModel.CancelEventHandler(this.optionsPopupMenu_BeforePopup);
-            //
-            // detailedErrorsButton
-            //
-            this.detailedErrorsButton.Caption = "Details";
-            this.detailedErrorsButton.Id = 0;
-            this.detailedErrorsButton.ImageIndex = 1;
-            this.detailedErrorsButton.Name = "detailedErrorsButton";
-            this.detailedErrorsButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.detailedErrorsButton_ItemClick);
-            //
-            // barManager
-            //
-            this.barManager.DockControls.Add(this.barDockControlTop);
-            this.barManager.DockControls.Add(this.barDockControlBottom);
-            this.barManager.DockControls.Add(this.barDockControlLeft);
-            this.barManager.DockControls.Add(this.barDockControlRight);
-            this.barManager.Form = this.importFileWizardPage;
-            this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.detailedErrorsButton});
-            this.barManager.MaxItemId = 3;
-            //
-            // errorTextMemoEdit
-            //
-            this.errorTextMemoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.errorTextMemoEdit.CueText = null;
-            this.errorTextMemoEdit.Location = new System.Drawing.Point(12, 12);
-            this.errorTextMemoEdit.Name = "errorTextMemoEdit";
-            this.errorTextMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.errorTextMemoEdit.Properties.Appearance.Options.UseFont = true;
-            this.errorTextMemoEdit.Properties.NullValuePrompt = null;
-            this.errorTextMemoEdit.Size = new System.Drawing.Size(511, 236);
-            this.errorTextMemoEdit.TabIndex = 9;
-            //
-            // progressBackgroundWorker
-            //
-            this.progressBackgroundWorker.WorkerReportsProgress = true;
-            this.progressBackgroundWorker.WorkerSupportsCancellation = true;
-            this.progressBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.progressBackgroundWorker_DoWork);
-            this.progressBackgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.progressBackgroundWorker_ProgressChanged);
-            this.progressBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.progressBackgroundWorker_RunWorkerCompleted);
-            //
-            // panel1
-            //
-            this.panel1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Appearance.Options.UseBackColor = true;
-            this.panel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panel1.Controls.Add(this.wizardControl);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(579, 424);
-            this.panel1.TabIndex = 3;
-            //
-            // ExcelImportWizardForm
-            //
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(579, 424);
-            this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(595, 460);
-            this.Name = "ExcelImportWizardForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Import data from Microsoft Excel";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ImportWizard_FormClosing);
-            this.Load += new System.EventHandler(this.ImportWizard_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.wizardControl)).EndInit();
-            this.wizardControl.ResumeLayout(false);
-            this.importFileWizardPage.ResumeLayout(false);
-            this.importFileWizardPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceFileTextEdit.Properties)).EndInit();
-            this.successWizardPage.ResumeLayout(false);
-            this.successWizardPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.fileGroupsWizardPage.ResumeLayout(false);
-            this.fileGroupsWizardPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fileGroupsListBox)).EndInit();
-            this.languagesWizardPage.ResumeLayout(false);
-            this.languagesWizardPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.languagesToImportCheckListBox)).EndInit();
-            this.progressWizardPage.ResumeLayout(false);
-            this.progressWizardPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
-            this.errorOccurredWizardPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorTextMemoEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panel1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(ExcelImportWizardForm));
+			wizardControl = new DevExpress.XtraWizard.WizardControl();
+			importFileWizardPage = new DevExpress.XtraWizard.WelcomeWizardPage();
+			tablePanel6 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel7 = new DevExpress.Utils.Layout.TablePanel();
+			cmdImportFormatInfo = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			labelControl7 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			buttonOpen = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			buttonBrowse = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			sourceFileTextEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
+			barDockControlLeft = new BarDockControl();
+			barManager = new BarManager(components);
+			barDockControlTop = new BarDockControl();
+			barDockControlBottom = new BarDockControl();
+			barDockControlRight = new BarDockControl();
+			detailedErrorsButton = new BarButtonItem();
+			successWizardPage = new DevExpress.XtraWizard.CompletionWizardPage();
+			tablePanel3 = new DevExpress.Utils.Layout.TablePanel();
+			pictureEdit1 = new PictureEdit();
+			simpleButton1 = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			summaryAfterSuccessfulImportLabel = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			labelControl5 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			fileGroupsWizardPage = new DevExpress.XtraWizard.WizardPage();
+			tablePanel5 = new DevExpress.Utils.Layout.TablePanel();
+			selectAllFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			labelControl4 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			fileGroupsListBox = new ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl();
+			invertFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			selectNoFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			languagesWizardPage = new DevExpress.XtraWizard.WizardPage();
+			tablePanel4 = new DevExpress.Utils.Layout.TablePanel();
+			selectAllLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			labelControl6 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			selectNoLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			label3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			invertLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			languagesToImportCheckListBox = new ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl();
+			progressWizardPage = new DevExpress.XtraWizard.WizardPage();
+			tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+			progressBarControl = new MarqueeProgressBarControl();
+			progressLabel = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			errorOccurredWizardPage = new DevExpress.XtraWizard.WizardPage();
+			tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+			optionsButton = new ExtendedControlsLibrary.Skinning.CustomDropDownButton.MyDropDownButton();
+			optionsPopupMenu = new PopupMenu(components);
+			errorTextMemoEdit = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
+			progressBackgroundWorker = new BackgroundWorker();
+			panel1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
+			((ISupportInitialize)wizardControl).BeginInit();
+			wizardControl.SuspendLayout();
+			importFileWizardPage.SuspendLayout();
+			((ISupportInitialize)tablePanel6).BeginInit();
+			tablePanel6.SuspendLayout();
+			((ISupportInitialize)tablePanel7).BeginInit();
+			tablePanel7.SuspendLayout();
+			((ISupportInitialize)sourceFileTextEdit.Properties).BeginInit();
+			((ISupportInitialize)barManager).BeginInit();
+			successWizardPage.SuspendLayout();
+			((ISupportInitialize)tablePanel3).BeginInit();
+			tablePanel3.SuspendLayout();
+			((ISupportInitialize)pictureEdit1.Properties).BeginInit();
+			fileGroupsWizardPage.SuspendLayout();
+			((ISupportInitialize)tablePanel5).BeginInit();
+			tablePanel5.SuspendLayout();
+			((ISupportInitialize)fileGroupsListBox).BeginInit();
+			languagesWizardPage.SuspendLayout();
+			((ISupportInitialize)tablePanel4).BeginInit();
+			tablePanel4.SuspendLayout();
+			((ISupportInitialize)languagesToImportCheckListBox).BeginInit();
+			progressWizardPage.SuspendLayout();
+			((ISupportInitialize)tablePanel1).BeginInit();
+			tablePanel1.SuspendLayout();
+			((ISupportInitialize)progressBarControl.Properties).BeginInit();
+			errorOccurredWizardPage.SuspendLayout();
+			((ISupportInitialize)tablePanel2).BeginInit();
+			tablePanel2.SuspendLayout();
+			((ISupportInitialize)optionsPopupMenu).BeginInit();
+			((ISupportInitialize)errorTextMemoEdit.Properties).BeginInit();
+			((ISupportInitialize)panel1).BeginInit();
+			panel1.SuspendLayout();
+			SuspendLayout();
+			// 
+			// wizardControl
+			// 
+			wizardControl.AllowTransitionAnimation = false;
+			wizardControl.Controls.Add(importFileWizardPage);
+			wizardControl.Controls.Add(successWizardPage);
+			wizardControl.Controls.Add(fileGroupsWizardPage);
+			wizardControl.Controls.Add(languagesWizardPage);
+			wizardControl.Controls.Add(progressWizardPage);
+			wizardControl.Controls.Add(errorOccurredWizardPage);
+			wizardControl.Dock = DockStyle.Fill;
+			wizardControl.Name = "wizardControl";
+			wizardControl.Pages.AddRange(new DevExpress.XtraWizard.BaseWizardPage[] { importFileWizardPage, fileGroupsWizardPage, languagesWizardPage, progressWizardPage, errorOccurredWizardPage, successWizardPage });
+			wizardControl.Size = new Size(579, 424);
+			wizardControl.Text = "";
+			wizardControl.WizardStyle = DevExpress.XtraWizard.WizardStyle.WizardAero;
+			wizardControl.SelectedPageChanged += wizardControl_SelectedPageChanged;
+			wizardControl.CancelClick += wizardControl_CancelClick;
+			wizardControl.FinishClick += wizardControl_FinishClick;
+			wizardControl.NextClick += wizardControl_NextClick;
+			wizardControl.PrevClick += wizardControl_PrevClick;
+			// 
+			// importFileWizardPage
+			// 
+			importFileWizardPage.Controls.Add(tablePanel6);
+			importFileWizardPage.Controls.Add(barDockControlLeft);
+			importFileWizardPage.Controls.Add(barDockControlRight);
+			importFileWizardPage.Controls.Add(barDockControlBottom);
+			importFileWizardPage.Controls.Add(barDockControlTop);
+			importFileWizardPage.Margin = new Padding(0);
+			importFileWizardPage.Name = "importFileWizardPage";
+			importFileWizardPage.Size = new Size(538, 257);
+			importFileWizardPage.Text = "Specify import file from Microsoft Excel";
+			// 
+			// tablePanel6
+			// 
+			tablePanel6.AutoSize = true;
+			tablePanel6.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F) });
+			tablePanel6.Controls.Add(tablePanel7);
+			tablePanel6.Controls.Add(labelControl7);
+			tablePanel6.Controls.Add(buttonOpen);
+			tablePanel6.Controls.Add(buttonBrowse);
+			tablePanel6.Controls.Add(labelControl2);
+			tablePanel6.Controls.Add(sourceFileTextEdit);
+			tablePanel6.Dock = DockStyle.Fill;
+			tablePanel6.Location = new Point(0, 0);
+			tablePanel6.Margin = new Padding(0);
+			tablePanel6.Name = "tablePanel6";
+			tablePanel6.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 28F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F) });
+			tablePanel6.Size = new Size(538, 257);
+			tablePanel6.TabIndex = 0;
+			// 
+			// tablePanel7
+			// 
+			tablePanel7.AutoSize = true;
+			tablePanel6.SetColumn(tablePanel7, 0);
+			tablePanel7.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 180F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel6.SetColumnSpan(tablePanel7, 3);
+			tablePanel7.Controls.Add(cmdImportFormatInfo);
+			tablePanel7.Dock = DockStyle.Fill;
+			tablePanel7.Location = new Point(0, 200);
+			tablePanel7.Margin = new Padding(0, 0, 0, 9);
+			tablePanel7.Name = "tablePanel7";
+			tablePanel6.SetRow(tablePanel7, 4);
+			tablePanel7.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel7.Size = new Size(538, 28);
+			tablePanel7.TabIndex = 4;
+			// 
+			// cmdImportFormatInfo
+			// 
+			cmdImportFormatInfo.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			cmdImportFormatInfo.Appearance.Options.UseFont = true;
+			tablePanel7.SetColumn(cmdImportFormatInfo, 0);
+			cmdImportFormatInfo.Dock = DockStyle.Fill;
+			cmdImportFormatInfo.Location = new Point(0, 0);
+			cmdImportFormatInfo.Margin = new Padding(0);
+			cmdImportFormatInfo.Name = "cmdImportFormatInfo";
+			tablePanel7.SetRow(cmdImportFormatInfo, 0);
+			cmdImportFormatInfo.Size = new Size(180, 28);
+			cmdImportFormatInfo.TabIndex = 0;
+			cmdImportFormatInfo.Text = "Import format information";
+			cmdImportFormatInfo.Click += cmdImportFormatInfo_Click;
+			// 
+			// labelControl7
+			// 
+			labelControl7.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl7.Appearance.Options.UseFont = true;
+			labelControl7.Appearance.Options.UseTextOptions = true;
+			labelControl7.Appearance.TextOptions.VAlignment = VertAlignment.Top;
+			labelControl7.Appearance.TextOptions.WordWrap = WordWrap.Wrap;
+			labelControl7.AutoSizeMode = LabelAutoSizeMode.None;
+			tablePanel6.SetColumn(labelControl7, 0);
+			tablePanel6.SetColumnSpan(labelControl7, 3);
+			labelControl7.Dock = DockStyle.Fill;
+			labelControl7.Enabled = false;
+			labelControl7.Location = new Point(0, 237);
+			labelControl7.Margin = new Padding(0);
+			labelControl7.Name = "labelControl7";
+			tablePanel6.SetRow(labelControl7, 5);
+			labelControl7.Size = new Size(538, 20);
+			labelControl7.TabIndex = 5;
+			labelControl7.Text = "Information about the required structure of a Microsoft Office Excel document in order to successfully import";
+			// 
+			// buttonOpen
+			// 
+			buttonOpen.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonOpen.Appearance.Options.UseFont = true;
+			tablePanel6.SetColumn(buttonOpen, 0);
+			buttonOpen.Location = new Point(0, 77);
+			buttonOpen.Margin = new Padding(0);
+			buttonOpen.Name = "buttonOpen";
+			tablePanel6.SetRow(buttonOpen, 2);
+			buttonOpen.Size = new Size(75, 28);
+			buttonOpen.TabIndex = 2;
+			buttonOpen.Text = "&Open";
+			buttonOpen.Click += buttonOpen_Click;
+			// 
+			// buttonBrowse
+			// 
+			buttonBrowse.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			buttonBrowse.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonBrowse.Appearance.Options.UseFont = true;
+			tablePanel6.SetColumn(buttonBrowse, 2);
+			buttonBrowse.Location = new Point(463, 77);
+			buttonBrowse.Margin = new Padding(0);
+			buttonBrowse.Name = "buttonBrowse";
+			tablePanel6.SetRow(buttonBrowse, 2);
+			buttonBrowse.Size = new Size(75, 28);
+			buttonBrowse.TabIndex = 3;
+			buttonBrowse.Text = "Browse";
+			buttonBrowse.Click += buttonBrowse_Click;
+			// 
+			// labelControl2
+			// 
+			labelControl2.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl2.Appearance.Options.UseFont = true;
+			tablePanel6.SetColumn(labelControl2, 0);
+			tablePanel6.SetColumnSpan(labelControl2, 3);
+			labelControl2.Dock = DockStyle.Fill;
+			labelControl2.Location = new Point(0, 0);
+			labelControl2.Margin = new Padding(0, 0, 0, 3);
+			labelControl2.Name = "labelControl2";
+			tablePanel6.SetRow(labelControl2, 0);
+			labelControl2.Size = new Size(538, 17);
+			labelControl2.TabIndex = 0;
+			labelControl2.Text = "Microsoft Office Excel document to import:";
+			// 
+			// sourceFileTextEdit
+			// 
+			tablePanel6.SetColumn(sourceFileTextEdit, 0);
+			tablePanel6.SetColumnSpan(sourceFileTextEdit, 3);
+			sourceFileTextEdit.CueText = null;
+			sourceFileTextEdit.Dock = DockStyle.Fill;
+			sourceFileTextEdit.Location = new Point(0, 20);
+			sourceFileTextEdit.Margin = new Padding(0, 0, 0, 9);
+			sourceFileTextEdit.MinimumSize = new Size(0, 48);
+			sourceFileTextEdit.Name = "sourceFileTextEdit";
+			sourceFileTextEdit.Properties.AcceptsReturn = false;
+			sourceFileTextEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			sourceFileTextEdit.Properties.Appearance.Options.UseFont = true;
+			sourceFileTextEdit.Properties.NullValuePrompt = null;
+			sourceFileTextEdit.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel6.SetRow(sourceFileTextEdit, 1);
+			sourceFileTextEdit.Size = new Size(538, 48);
+			sourceFileTextEdit.TabIndex = 1;
+			sourceFileTextEdit.EditValueChanged += sourceFileTextEdit_EditValueChanged;
+			// 
+			// barDockControlLeft
+			// 
+			barDockControlLeft.CausesValidation = false;
+			barDockControlLeft.Dock = DockStyle.Left;
+			barDockControlLeft.Location = new Point(0, 0);
+			barDockControlLeft.Manager = barManager;
+			barDockControlLeft.Size = new Size(0, 257);
+			// 
+			// barManager
+			// 
+			barManager.DockControls.Add(barDockControlTop);
+			barManager.DockControls.Add(barDockControlBottom);
+			barManager.DockControls.Add(barDockControlLeft);
+			barManager.DockControls.Add(barDockControlRight);
+			barManager.Form = importFileWizardPage;
+			barManager.Items.AddRange(new BarItem[] { detailedErrorsButton });
+			barManager.MaxItemId = 3;
+			// 
+			// barDockControlTop
+			// 
+			barDockControlTop.CausesValidation = false;
+			barDockControlTop.Dock = DockStyle.Top;
+			barDockControlTop.Location = new Point(0, 0);
+			barDockControlTop.Manager = barManager;
+			barDockControlTop.Size = new Size(538, 0);
+			// 
+			// barDockControlBottom
+			// 
+			barDockControlBottom.CausesValidation = false;
+			barDockControlBottom.Dock = DockStyle.Bottom;
+			barDockControlBottom.Location = new Point(0, 257);
+			barDockControlBottom.Manager = barManager;
+			barDockControlBottom.Size = new Size(538, 0);
+			// 
+			// barDockControlRight
+			// 
+			barDockControlRight.CausesValidation = false;
+			barDockControlRight.Dock = DockStyle.Right;
+			barDockControlRight.Location = new Point(538, 0);
+			barDockControlRight.Manager = barManager;
+			barDockControlRight.Size = new Size(0, 257);
+			// 
+			// detailedErrorsButton
+			// 
+			detailedErrorsButton.Caption = "Details";
+			detailedErrorsButton.Id = 0;
+			detailedErrorsButton.ImageOptions.ImageIndex = 1;
+			detailedErrorsButton.Name = "detailedErrorsButton";
+			detailedErrorsButton.ItemClick += detailedErrorsButton_ItemClick;
+			// 
+			// successWizardPage
+			// 
+			successWizardPage.AllowBack = false;
+			successWizardPage.AllowCancel = false;
+			successWizardPage.AllowNext = false;
+			successWizardPage.Controls.Add(tablePanel3);
+			successWizardPage.Margin = new Padding(0);
+			successWizardPage.Name = "successWizardPage";
+			successWizardPage.Size = new Size(538, 257);
+			successWizardPage.Text = "Import completed successfully";
+			// 
+			// tablePanel3
+			// 
+			tablePanel3.AutoSize = true;
+			tablePanel3.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 5F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 239F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel3.Controls.Add(pictureEdit1);
+			tablePanel3.Controls.Add(simpleButton1);
+			tablePanel3.Controls.Add(summaryAfterSuccessfulImportLabel);
+			tablePanel3.Controls.Add(labelControl5);
+			tablePanel3.Dock = DockStyle.Fill;
+			tablePanel3.Location = new Point(0, 0);
+			tablePanel3.Margin = new Padding(0);
+			tablePanel3.Name = "tablePanel3";
+			tablePanel3.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel3.Size = new Size(538, 257);
+			tablePanel3.TabIndex = 15;
+			// 
+			// pictureEdit1
+			// 
+			tablePanel3.SetColumn(pictureEdit1, 0);
+			pictureEdit1.Dock = DockStyle.Top;
+			pictureEdit1.EditValue = resources.GetObject("pictureEdit1.EditValue");
+			pictureEdit1.Location = new Point(0, 0);
+			pictureEdit1.Margin = new Padding(0, 0, 16, 0);
+			pictureEdit1.Name = "pictureEdit1";
+			pictureEdit1.Properties.Appearance.BackColor = Color.Transparent;
+			pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
+			pictureEdit1.Properties.BorderStyle = BorderStyles.NoBorder;
+			pictureEdit1.Properties.ShowCameraMenuItem = CameraMenuItemVisibility.Auto;
+			pictureEdit1.Properties.SizeMode = PictureSizeMode.Squeeze;
+			tablePanel3.SetRow(pictureEdit1, 0);
+			tablePanel3.SetRowSpan(pictureEdit1, 3);
+			pictureEdit1.Size = new Size(48, 48);
+			pictureEdit1.TabIndex = 15;
+			// 
+			// simpleButton1
+			// 
+			simpleButton1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			simpleButton1.Appearance.Options.UseFont = true;
+			tablePanel3.SetColumn(simpleButton1, 1);
+			simpleButton1.Dock = DockStyle.Fill;
+			simpleButton1.Location = new Point(64, 229);
+			simpleButton1.Margin = new Padding(0);
+			simpleButton1.Name = "simpleButton1";
+			tablePanel3.SetRow(simpleButton1, 2);
+			simpleButton1.Size = new Size(239, 28);
+			simpleButton1.TabIndex = 14;
+			simpleButton1.Text = "No rows imported — Find out why";
+			simpleButton1.Click += cmdImportFormatInfo_Click;
+			// 
+			// summaryAfterSuccessfulImportLabel
+			// 
+			summaryAfterSuccessfulImportLabel.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			summaryAfterSuccessfulImportLabel.Appearance.Options.UseFont = true;
+			summaryAfterSuccessfulImportLabel.Appearance.Options.UseTextOptions = true;
+			summaryAfterSuccessfulImportLabel.Appearance.TextOptions.VAlignment = VertAlignment.Top;
+			summaryAfterSuccessfulImportLabel.Appearance.TextOptions.WordWrap = WordWrap.Wrap;
+			summaryAfterSuccessfulImportLabel.AutoSizeMode = LabelAutoSizeMode.None;
+			tablePanel3.SetColumn(summaryAfterSuccessfulImportLabel, 1);
+			tablePanel3.SetColumnSpan(summaryAfterSuccessfulImportLabel, 2);
+			summaryAfterSuccessfulImportLabel.Dock = DockStyle.Fill;
+			summaryAfterSuccessfulImportLabel.Location = new Point(64, 46);
+			summaryAfterSuccessfulImportLabel.Margin = new Padding(0, 0, 0, 9);
+			summaryAfterSuccessfulImportLabel.Name = "summaryAfterSuccessfulImportLabel";
+			tablePanel3.SetRow(summaryAfterSuccessfulImportLabel, 1);
+			summaryAfterSuccessfulImportLabel.Size = new Size(474, 174);
+			summaryAfterSuccessfulImportLabel.TabIndex = 9;
+			summaryAfterSuccessfulImportLabel.Text = "<SUMMARY>";
+			// 
+			// labelControl5
+			// 
+			labelControl5.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl5.Appearance.Options.UseFont = true;
+			labelControl5.Appearance.Options.UseTextOptions = true;
+			labelControl5.Appearance.TextOptions.VAlignment = VertAlignment.Top;
+			labelControl5.Appearance.TextOptions.WordWrap = WordWrap.Wrap;
+			labelControl5.AutoSizeMode = LabelAutoSizeMode.None;
+			tablePanel3.SetColumn(labelControl5, 1);
+			tablePanel3.SetColumnSpan(labelControl5, 2);
+			labelControl5.Dock = DockStyle.Fill;
+			labelControl5.Location = new Point(64, 0);
+			labelControl5.Margin = new Padding(0, 0, 0, 9);
+			labelControl5.Name = "labelControl5";
+			tablePanel3.SetRow(labelControl5, 0);
+			labelControl5.Size = new Size(474, 37);
+			labelControl5.TabIndex = 9;
+			labelControl5.Text = "Your data was successfully imported from the Microsoft Office Excel document you specified.";
+			// 
+			// fileGroupsWizardPage
+			// 
+			fileGroupsWizardPage.Controls.Add(tablePanel5);
+			fileGroupsWizardPage.Margin = new Padding(0);
+			fileGroupsWizardPage.Name = "fileGroupsWizardPage";
+			fileGroupsWizardPage.Size = new Size(538, 257);
+			fileGroupsWizardPage.Text = "Select files groups to import";
+			// 
+			// tablePanel5
+			// 
+			tablePanel5.AutoSize = true;
+			tablePanel5.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel5.Controls.Add(selectAllFileGroupsButton);
+			tablePanel5.Controls.Add(labelControl1);
+			tablePanel5.Controls.Add(labelControl4);
+			tablePanel5.Controls.Add(fileGroupsListBox);
+			tablePanel5.Controls.Add(invertFileGroupsButton);
+			tablePanel5.Controls.Add(selectNoFileGroupsButton);
+			tablePanel5.Dock = DockStyle.Fill;
+			tablePanel5.Location = new Point(0, 0);
+			tablePanel5.Margin = new Padding(0);
+			tablePanel5.Name = "tablePanel5";
+			tablePanel5.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel5.Size = new Size(538, 257);
+			tablePanel5.TabIndex = 10;
+			// 
+			// selectAllFileGroupsButton
+			// 
+			selectAllFileGroupsButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			selectAllFileGroupsButton.Appearance.Options.UseFont = true;
+			tablePanel5.SetColumn(selectAllFileGroupsButton, 0);
+			selectAllFileGroupsButton.Dock = DockStyle.Fill;
+			selectAllFileGroupsButton.Location = new Point(0, 229);
+			selectAllFileGroupsButton.Margin = new Padding(0, 0, 9, 0);
+			selectAllFileGroupsButton.Name = "selectAllFileGroupsButton";
+			tablePanel5.SetRow(selectAllFileGroupsButton, 3);
+			selectAllFileGroupsButton.Size = new Size(75, 28);
+			selectAllFileGroupsButton.TabIndex = 7;
+			selectAllFileGroupsButton.Text = "All";
+			selectAllFileGroupsButton.Click += selectAllFileGroupsButton_Click;
+			// 
+			// labelControl1
+			// 
+			labelControl1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl1.Appearance.Options.UseFont = true;
+			tablePanel5.SetColumn(labelControl1, 0);
+			tablePanel5.SetColumnSpan(labelControl1, 4);
+			labelControl1.Dock = DockStyle.Fill;
+			labelControl1.Location = new Point(0, 0);
+			labelControl1.Margin = new Padding(0, 0, 0, 18);
+			labelControl1.Name = "labelControl1";
+			tablePanel5.SetRow(labelControl1, 0);
+			labelControl1.Size = new Size(538, 17);
+			labelControl1.TabIndex = 5;
+			labelControl1.Text = "The following matching file groups were found in the Microsoft Office Excel document.";
+			// 
+			// labelControl4
+			// 
+			labelControl4.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl4.Appearance.Options.UseFont = true;
+			tablePanel5.SetColumn(labelControl4, 0);
+			tablePanel5.SetColumnSpan(labelControl4, 4);
+			labelControl4.Dock = DockStyle.Fill;
+			labelControl4.Location = new Point(0, 35);
+			labelControl4.Margin = new Padding(0, 0, 0, 3);
+			labelControl4.Name = "labelControl4";
+			tablePanel5.SetRow(labelControl4, 1);
+			labelControl4.Size = new Size(538, 17);
+			labelControl4.TabIndex = 5;
+			labelControl4.Text = "Check the groups you want to import:";
+			// 
+			// fileGroupsListBox
+			// 
+			fileGroupsListBox.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			fileGroupsListBox.Appearance.Options.UseFont = true;
+			fileGroupsListBox.CheckOnClick = true;
+			tablePanel5.SetColumn(fileGroupsListBox, 0);
+			tablePanel5.SetColumnSpan(fileGroupsListBox, 4);
+			fileGroupsListBox.Dock = DockStyle.Fill;
+			fileGroupsListBox.Location = new Point(0, 55);
+			fileGroupsListBox.Margin = new Padding(0, 0, 0, 9);
+			fileGroupsListBox.Name = "fileGroupsListBox";
+			tablePanel5.SetRow(fileGroupsListBox, 2);
+			fileGroupsListBox.Size = new Size(538, 165);
+			fileGroupsListBox.TabIndex = 6;
+			fileGroupsListBox.ItemCheck += fileGroupsListBox_ItemCheck;
+			fileGroupsListBox.SelectedIndexChanged += fileGroupsListBox_SelectedIndexChanged;
+			// 
+			// invertFileGroupsButton
+			// 
+			invertFileGroupsButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			invertFileGroupsButton.Appearance.Options.UseFont = true;
+			tablePanel5.SetColumn(invertFileGroupsButton, 2);
+			invertFileGroupsButton.Dock = DockStyle.Fill;
+			invertFileGroupsButton.Location = new Point(168, 229);
+			invertFileGroupsButton.Margin = new Padding(0, 0, 9, 0);
+			invertFileGroupsButton.Name = "invertFileGroupsButton";
+			tablePanel5.SetRow(invertFileGroupsButton, 3);
+			invertFileGroupsButton.Size = new Size(75, 28);
+			invertFileGroupsButton.TabIndex = 9;
+			invertFileGroupsButton.Text = "Flip";
+			invertFileGroupsButton.Click += invertFileGroupsButton_Click;
+			// 
+			// selectNoFileGroupsButton
+			// 
+			selectNoFileGroupsButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			selectNoFileGroupsButton.Appearance.Options.UseFont = true;
+			tablePanel5.SetColumn(selectNoFileGroupsButton, 1);
+			selectNoFileGroupsButton.Dock = DockStyle.Fill;
+			selectNoFileGroupsButton.Location = new Point(84, 229);
+			selectNoFileGroupsButton.Margin = new Padding(0, 0, 9, 0);
+			selectNoFileGroupsButton.Name = "selectNoFileGroupsButton";
+			tablePanel5.SetRow(selectNoFileGroupsButton, 3);
+			selectNoFileGroupsButton.Size = new Size(75, 28);
+			selectNoFileGroupsButton.TabIndex = 8;
+			selectNoFileGroupsButton.Text = "None";
+			selectNoFileGroupsButton.Click += selectNoFileGroupsButton_Click;
+			// 
+			// languagesWizardPage
+			// 
+			languagesWizardPage.Controls.Add(tablePanel4);
+			languagesWizardPage.Margin = new Padding(0);
+			languagesWizardPage.Name = "languagesWizardPage";
+			languagesWizardPage.Size = new Size(538, 257);
+			languagesWizardPage.Text = "Specify languages to import";
+			// 
+			// tablePanel4
+			// 
+			tablePanel4.AutoSize = true;
+			tablePanel4.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel4.Controls.Add(selectAllLanguagesToExportButton);
+			tablePanel4.Controls.Add(labelControl6);
+			tablePanel4.Controls.Add(selectNoLanguagesToExportButton);
+			tablePanel4.Controls.Add(label3);
+			tablePanel4.Controls.Add(invertLanguagesToExportButton);
+			tablePanel4.Controls.Add(languagesToImportCheckListBox);
+			tablePanel4.Dock = DockStyle.Fill;
+			tablePanel4.Location = new Point(0, 0);
+			tablePanel4.Margin = new Padding(0);
+			tablePanel4.Name = "tablePanel4";
+			tablePanel4.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel4.Size = new Size(538, 257);
+			tablePanel4.TabIndex = 15;
+			// 
+			// selectAllLanguagesToExportButton
+			// 
+			selectAllLanguagesToExportButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			selectAllLanguagesToExportButton.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(selectAllLanguagesToExportButton, 0);
+			selectAllLanguagesToExportButton.Dock = DockStyle.Fill;
+			selectAllLanguagesToExportButton.Location = new Point(0, 229);
+			selectAllLanguagesToExportButton.Margin = new Padding(0, 0, 9, 0);
+			selectAllLanguagesToExportButton.Name = "selectAllLanguagesToExportButton";
+			tablePanel4.SetRow(selectAllLanguagesToExportButton, 3);
+			selectAllLanguagesToExportButton.Size = new Size(75, 28);
+			selectAllLanguagesToExportButton.TabIndex = 3;
+			selectAllLanguagesToExportButton.Text = "All";
+			selectAllLanguagesToExportButton.Click += selectAllLanguagesToExportButton_Click;
+			// 
+			// labelControl6
+			// 
+			labelControl6.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl6.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(labelControl6, 0);
+			tablePanel4.SetColumnSpan(labelControl6, 4);
+			labelControl6.Location = new Point(0, 35);
+			labelControl6.Margin = new Padding(0, 0, 0, 3);
+			labelControl6.Name = "labelControl6";
+			tablePanel4.SetRow(labelControl6, 1);
+			labelControl6.Size = new Size(238, 17);
+			labelControl6.TabIndex = 1;
+			labelControl6.Text = "Check the languages you want to import:";
+			// 
+			// selectNoLanguagesToExportButton
+			// 
+			selectNoLanguagesToExportButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			selectNoLanguagesToExportButton.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(selectNoLanguagesToExportButton, 1);
+			selectNoLanguagesToExportButton.Dock = DockStyle.Fill;
+			selectNoLanguagesToExportButton.Location = new Point(84, 229);
+			selectNoLanguagesToExportButton.Margin = new Padding(0, 0, 9, 0);
+			selectNoLanguagesToExportButton.Name = "selectNoLanguagesToExportButton";
+			tablePanel4.SetRow(selectNoLanguagesToExportButton, 3);
+			selectNoLanguagesToExportButton.Size = new Size(75, 28);
+			selectNoLanguagesToExportButton.TabIndex = 4;
+			selectNoLanguagesToExportButton.Text = "None";
+			selectNoLanguagesToExportButton.Click += selectNoLanguagesToExportButton_Click;
+			// 
+			// label3
+			// 
+			label3.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			label3.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(label3, 0);
+			tablePanel4.SetColumnSpan(label3, 4);
+			label3.Location = new Point(0, 0);
+			label3.Margin = new Padding(0, 0, 0, 18);
+			label3.Name = "label3";
+			tablePanel4.SetRow(label3, 0);
+			label3.Size = new Size(501, 17);
+			label3.TabIndex = 0;
+			label3.Text = "The following matching languages were found in the Microsoft Office Excel document.";
+			// 
+			// invertLanguagesToExportButton
+			// 
+			invertLanguagesToExportButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			invertLanguagesToExportButton.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(invertLanguagesToExportButton, 2);
+			invertLanguagesToExportButton.Dock = DockStyle.Fill;
+			invertLanguagesToExportButton.Location = new Point(168, 229);
+			invertLanguagesToExportButton.Margin = new Padding(0, 0, 9, 0);
+			invertLanguagesToExportButton.Name = "invertLanguagesToExportButton";
+			tablePanel4.SetRow(invertLanguagesToExportButton, 3);
+			invertLanguagesToExportButton.Size = new Size(75, 28);
+			invertLanguagesToExportButton.TabIndex = 5;
+			invertLanguagesToExportButton.Text = "Flip";
+			invertLanguagesToExportButton.Click += invertLanguagesToExportButton_Click;
+			// 
+			// languagesToImportCheckListBox
+			// 
+			languagesToImportCheckListBox.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			languagesToImportCheckListBox.Appearance.Options.UseFont = true;
+			languagesToImportCheckListBox.CheckOnClick = true;
+			tablePanel4.SetColumn(languagesToImportCheckListBox, 0);
+			tablePanel4.SetColumnSpan(languagesToImportCheckListBox, 4);
+			languagesToImportCheckListBox.Dock = DockStyle.Fill;
+			languagesToImportCheckListBox.Location = new Point(0, 55);
+			languagesToImportCheckListBox.Margin = new Padding(0, 0, 0, 9);
+			languagesToImportCheckListBox.Name = "languagesToImportCheckListBox";
+			tablePanel4.SetRow(languagesToImportCheckListBox, 2);
+			languagesToImportCheckListBox.Size = new Size(538, 165);
+			languagesToImportCheckListBox.TabIndex = 2;
+			languagesToImportCheckListBox.ItemCheck += languagesToImportCheckListBox_ItemCheck;
+			languagesToImportCheckListBox.SelectedIndexChanged += languagesToImportCheckListBox_SelectedIndexChanged;
+			// 
+			// progressWizardPage
+			// 
+			progressWizardPage.AllowBack = false;
+			progressWizardPage.AllowNext = false;
+			progressWizardPage.Controls.Add(tablePanel1);
+			progressWizardPage.Margin = new Padding(0);
+			progressWizardPage.Name = "progressWizardPage";
+			progressWizardPage.Size = new Size(538, 257);
+			progressWizardPage.Text = "Data is being imported. Please wait...";
+			// 
+			// tablePanel1
+			// 
+			tablePanel1.AutoSize = true;
+			tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel1.Controls.Add(progressBarControl);
+			tablePanel1.Controls.Add(progressLabel);
+			tablePanel1.Dock = DockStyle.Fill;
+			tablePanel1.Location = new Point(0, 0);
+			tablePanel1.Margin = new Padding(0);
+			tablePanel1.Name = "tablePanel1";
+			tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel1.Size = new Size(538, 257);
+			tablePanel1.TabIndex = 4;
+			// 
+			// progressBarControl
+			// 
+			tablePanel1.SetColumn(progressBarControl, 0);
+			progressBarControl.Dock = DockStyle.Fill;
+			progressBarControl.EditValue = 0;
+			progressBarControl.Location = new Point(0, 0);
+			progressBarControl.Margin = new Padding(0, 0, 0, 9);
+			progressBarControl.Name = "progressBarControl";
+			tablePanel1.SetRow(progressBarControl, 0);
+			progressBarControl.Size = new Size(538, 18);
+			progressBarControl.TabIndex = 2;
+			// 
+			// progressLabel
+			// 
+			progressLabel.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			progressLabel.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(progressLabel, 0);
+			progressLabel.Dock = DockStyle.Fill;
+			progressLabel.Location = new Point(0, 27);
+			progressLabel.Margin = new Padding(0);
+			progressLabel.Name = "progressLabel";
+			tablePanel1.SetRow(progressLabel, 1);
+			progressLabel.Size = new Size(538, 17);
+			progressLabel.TabIndex = 3;
+			progressLabel.Text = "<Progress information, if any>";
+			progressLabel.Visible = false;
+			// 
+			// errorOccurredWizardPage
+			// 
+			errorOccurredWizardPage.AllowNext = false;
+			errorOccurredWizardPage.Controls.Add(tablePanel2);
+			errorOccurredWizardPage.Margin = new Padding(0);
+			errorOccurredWizardPage.Name = "errorOccurredWizardPage";
+			errorOccurredWizardPage.Size = new Size(538, 257);
+			errorOccurredWizardPage.Text = "An error has occurred";
+			// 
+			// tablePanel2
+			// 
+			tablePanel2.AutoSize = true;
+			tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 85F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel2.Controls.Add(optionsButton);
+			tablePanel2.Controls.Add(errorTextMemoEdit);
+			tablePanel2.Dock = DockStyle.Fill;
+			tablePanel2.Location = new Point(0, 0);
+			tablePanel2.Margin = new Padding(0);
+			tablePanel2.Name = "tablePanel2";
+			tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel2.Size = new Size(538, 257);
+			tablePanel2.TabIndex = 11;
+			// 
+			// optionsButton
+			// 
+			optionsButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			optionsButton.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(optionsButton, 0);
+			optionsButton.Dock = DockStyle.Fill;
+			optionsButton.DropDownArrowStyle = DropDownArrowStyle.Hide;
+			optionsButton.DropDownControl = optionsPopupMenu;
+			optionsButton.ImageOptions.Image = (Image)resources.GetObject("optionsButton.ImageOptions.Image");
+			optionsButton.ImageOptions.Location = ImageLocation.MiddleRight;
+			optionsButton.Location = new Point(0, 229);
+			optionsButton.Margin = new Padding(0);
+			optionsButton.Name = "optionsButton";
+			tablePanel2.SetRow(optionsButton, 1);
+			optionsButton.Size = new Size(85, 28);
+			optionsButton.TabIndex = 10;
+			optionsButton.Text = "&Options";
+			// 
+			// optionsPopupMenu
+			// 
+			optionsPopupMenu.LinksPersistInfo.AddRange(new LinkPersistInfo[] { new LinkPersistInfo(detailedErrorsButton) });
+			optionsPopupMenu.Manager = barManager;
+			optionsPopupMenu.Name = "optionsPopupMenu";
+			optionsPopupMenu.BeforePopup += optionsPopupMenu_BeforePopup;
+			// 
+			// errorTextMemoEdit
+			// 
+			tablePanel2.SetColumn(errorTextMemoEdit, 0);
+			tablePanel2.SetColumnSpan(errorTextMemoEdit, 2);
+			errorTextMemoEdit.CueText = null;
+			errorTextMemoEdit.Dock = DockStyle.Fill;
+			errorTextMemoEdit.Location = new Point(0, 0);
+			errorTextMemoEdit.Margin = new Padding(0, 0, 0, 9);
+			errorTextMemoEdit.Name = "errorTextMemoEdit";
+			errorTextMemoEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			errorTextMemoEdit.Properties.Appearance.Options.UseFont = true;
+			errorTextMemoEdit.Properties.NullValuePrompt = null;
+			errorTextMemoEdit.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel2.SetRow(errorTextMemoEdit, 0);
+			errorTextMemoEdit.Size = new Size(538, 220);
+			errorTextMemoEdit.TabIndex = 9;
+			// 
+			// progressBackgroundWorker
+			// 
+			progressBackgroundWorker.WorkerReportsProgress = true;
+			progressBackgroundWorker.WorkerSupportsCancellation = true;
+			progressBackgroundWorker.DoWork += progressBackgroundWorker_DoWork;
+			progressBackgroundWorker.ProgressChanged += progressBackgroundWorker_ProgressChanged;
+			progressBackgroundWorker.RunWorkerCompleted += progressBackgroundWorker_RunWorkerCompleted;
+			// 
+			// panel1
+			// 
+			panel1.Appearance.BackColor = Color.Transparent;
+			panel1.Appearance.Options.UseBackColor = true;
+			panel1.BorderStyle = BorderStyles.NoBorder;
+			panel1.Controls.Add(wizardControl);
+			panel1.Dock = DockStyle.Fill;
+			panel1.Location = new Point(0, 0);
+			panel1.Name = "panel1";
+			panel1.Size = new Size(579, 424);
+			panel1.TabIndex = 0;
+			// 
+			// ExcelImportWizardForm
+			// 
+			Appearance.Options.UseFont = true;
+			AutoScaleDimensions = new SizeF(7F, 17F);
+			AutoScaleMode = AutoScaleMode.Font;
+			ClientSize = new Size(579, 424);
+			Controls.Add(panel1);
+			IconOptions.ShowIcon = false;
+			MaximizeBox = false;
+			MinimizeBox = false;
+			MinimumSize = new Size(581, 456);
+			Name = "ExcelImportWizardForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Import data from Microsoft Excel";
+			FormClosing += ImportWizard_FormClosing;
+			Load += ImportWizard_Load;
+			((ISupportInitialize)wizardControl).EndInit();
+			wizardControl.ResumeLayout(false);
+			importFileWizardPage.ResumeLayout(false);
+			importFileWizardPage.PerformLayout();
+			((ISupportInitialize)tablePanel6).EndInit();
+			tablePanel6.ResumeLayout(false);
+			tablePanel6.PerformLayout();
+			((ISupportInitialize)tablePanel7).EndInit();
+			tablePanel7.ResumeLayout(false);
+			((ISupportInitialize)sourceFileTextEdit.Properties).EndInit();
+			((ISupportInitialize)barManager).EndInit();
+			successWizardPage.ResumeLayout(false);
+			successWizardPage.PerformLayout();
+			((ISupportInitialize)tablePanel3).EndInit();
+			tablePanel3.ResumeLayout(false);
+			tablePanel3.PerformLayout();
+			((ISupportInitialize)pictureEdit1.Properties).EndInit();
+			fileGroupsWizardPage.ResumeLayout(false);
+			fileGroupsWizardPage.PerformLayout();
+			((ISupportInitialize)tablePanel5).EndInit();
+			tablePanel5.ResumeLayout(false);
+			tablePanel5.PerformLayout();
+			((ISupportInitialize)fileGroupsListBox).EndInit();
+			languagesWizardPage.ResumeLayout(false);
+			languagesWizardPage.PerformLayout();
+			((ISupportInitialize)tablePanel4).EndInit();
+			tablePanel4.ResumeLayout(false);
+			tablePanel4.PerformLayout();
+			((ISupportInitialize)languagesToImportCheckListBox).EndInit();
+			progressWizardPage.ResumeLayout(false);
+			progressWizardPage.PerformLayout();
+			((ISupportInitialize)tablePanel1).EndInit();
+			tablePanel1.ResumeLayout(false);
+			tablePanel1.PerformLayout();
+			((ISupportInitialize)progressBarControl.Properties).EndInit();
+			errorOccurredWizardPage.ResumeLayout(false);
+			errorOccurredWizardPage.PerformLayout();
+			((ISupportInitialize)tablePanel2).EndInit();
+			tablePanel2.ResumeLayout(false);
+			tablePanel2.PerformLayout();
+			((ISupportInitialize)optionsPopupMenu).EndInit();
+			((ISupportInitialize)errorTextMemoEdit.Properties).EndInit();
+			((ISupportInitialize)panel1).EndInit();
+			panel1.ResumeLayout(false);
+			ResumeLayout(false);
 		}
 
 		#endregion
 
-		private ExtendedControlsLibrary.Skinning.CustomWizard.NoHeaderWizardControl wizardControl;
+		private DevExpress.XtraWizard.WizardControl wizardControl;
 		private DevExpress.XtraWizard.WelcomeWizardPage importFileWizardPage;
 		private DevExpress.XtraWizard.CompletionWizardPage successWizardPage;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonBrowse;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl2;
 		private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit sourceFileTextEdit;
-		private DevExpress.XtraBars.BarDockControl barDockControlTop;
-		private DevExpress.XtraBars.BarDockControl barDockControlBottom;
-		private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-		private DevExpress.XtraBars.BarDockControl barDockControlRight;
-		private DevExpress.XtraBars.BarManager barManager;
-		private DevExpress.XtraBars.BarButtonItem detailedErrorsButton;
-		private DevExpress.XtraBars.PopupMenu optionsPopupMenu;
-		private System.ComponentModel.BackgroundWorker progressBackgroundWorker;
+		private BarDockControl barDockControlTop;
+		private BarDockControl barDockControlBottom;
+		private BarDockControl barDockControlLeft;
+		private BarDockControl barDockControlRight;
+		private BarManager barManager;
+		private BarButtonItem detailedErrorsButton;
+		private PopupMenu optionsPopupMenu;
+		private BackgroundWorker progressBackgroundWorker;
 		private DevExpress.XtraWizard.WizardPage fileGroupsWizardPage;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton invertFileGroupsButton;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton selectNoFileGroupsButton;
@@ -674,12 +890,11 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton selectNoLanguagesToExportButton;
 		private ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl languagesToImportCheckListBox;
 		private DevExpress.XtraWizard.WizardPage progressWizardPage;
-		private DevExpress.XtraEditors.MarqueeProgressBarControl progressBarControl;
+		private MarqueeProgressBarControl progressBarControl;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl progressLabel;
 		private DevExpress.XtraWizard.WizardPage errorOccurredWizardPage;
 		private ExtendedControlsLibrary.Skinning.CustomDropDownButton.MyDropDownButton optionsButton;
 		private ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit errorTextMemoEdit;
-		private System.Windows.Forms.PictureBox pictureBox2;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl5;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl4;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl6;
@@ -688,6 +903,14 @@ namespace ZetaResourceEditor.UI.ExportImportExcel
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl7;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton cmdImportFormatInfo;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton simpleButton1;
-        private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panel1;
-    }
+		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panel1;
+		private DevExpress.Utils.Layout.TablePanel tablePanel1;
+		private DevExpress.Utils.Layout.TablePanel tablePanel2;
+		private DevExpress.Utils.Layout.TablePanel tablePanel3;
+		private DevExpress.Utils.Layout.TablePanel tablePanel4;
+		private DevExpress.Utils.Layout.TablePanel tablePanel5;
+		private DevExpress.Utils.Layout.TablePanel tablePanel6;
+		private DevExpress.Utils.Layout.TablePanel tablePanel7;
+		private PictureEdit pictureEdit1;
+	}
 }

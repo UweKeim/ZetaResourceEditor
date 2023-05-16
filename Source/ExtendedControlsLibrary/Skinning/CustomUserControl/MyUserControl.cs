@@ -1,8 +1,7 @@
 ﻿namespace ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomUserControl;
 
-using System.ComponentModel;
-using System.Linq;
 using DevExpress.XtraEditors;
+using System.Linq;
 
 [PublicAPI]
 public class MyUserControl :
@@ -10,23 +9,11 @@ public class MyUserControl :
 {
     public new bool DesignMode => base.DesignMode || DesignModeHelper.IsDesignMode;
 
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    [Browsable(false)]
-    public new AutoScaleMode AutoScaleMode
-    {
-        get => AutoScaleMode.None;
-        // ReSharper disable ValueParameterNotUsed
-        set => base.AutoScaleMode = AutoScaleMode.None;
-        // ReSharper restore ValueParameterNotUsed
-    }
-
     protected override void OnLoad(EventArgs e)
     {
         base.OnLoad(e);
 
         // Do this even in design mode to have valid UI.
-        AutoScaleMode = AutoScaleMode.None;
         Appearance.Font = SkinHelper.StandardFont;
     }
 
@@ -61,7 +48,7 @@ public class MyUserControl :
     /// <param name="c">The control to check.</param>
     /// <returns>Returns TRUE if focused, FALSE otherwise.</returns>
     public static bool IsFocused(
-        Control c)
+        Control? c)
     {
         if (c == null)
         {
@@ -78,8 +65,8 @@ public class MyUserControl :
         }
     }
 
-    public static Control GetFocused(
-        Control c)
+    public static Control? GetFocused(
+        Control? c)
     {
         if (c == null)
         {
@@ -101,7 +88,7 @@ public class MyUserControl :
     /// to a focusable child control.
     /// </summary>
     public static bool FocusControlOrDeeper(
-        Control c)
+        Control? c)
     {
         if (c == null)
         {

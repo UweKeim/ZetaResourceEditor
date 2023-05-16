@@ -13,7 +13,7 @@ public interface IOrderPosition
     /// </summary>
     void StoreOrderPosition(
         object threadPoolManager,
-        object postExecuteCallback,
+        object? postExecuteCallback,
         AsynchronousMode asynchronousMode,
-        object userValue);
+        object? userValue);
 }

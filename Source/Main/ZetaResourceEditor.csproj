@@ -3,40 +3,19 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
     <ApplicationIcon>paint_brush2.ico</ApplicationIcon>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.3.47.0</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <Configurations>Release</Configurations>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
     <OutputPath>..\..\Bin\</OutputPath>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
 
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-    <AssemblyVersion>2.3.47.0</AssemblyVersion>
-    <FileVersion>2.3.47.0</FileVersion>
+    <AssemblyVersion>2.3.50.0</AssemblyVersion>
+    <FileVersion>2.3.50.0</FileVersion>
     <AssemblyName>ZetaResourceEditor</AssemblyName>
     <Product>Zeta Resource Editor</Product>
     <Authors>Zeta Software GmbH</Authors>
@@ -51,41 +30,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ImageResources.resx</DependentUpon>
     </Compile>
-    <Compile Update="UI\FileGroups\FileGroupSelectionControl.cs" />
-    <Compile Update="UI\Helper\Base\UserControlBase.cs" />
-    <Compile Update="UI\Helper\InformationLightUserControl.cs" />
-    <Compile Update="UI\Helper\Progress\BackgroundWorkerLongProgress.cs">
-      <SubType>Component</SubType>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="UI\Helper\ZetaResourceEditorTreeListControl.cs" />
-    <Compile Update="UI\Main\RightContent\RtlMemoEdit.cs" />
-    <Compile Update="UI\Main\LeftTree\ProjectFilesUserControl.cs" />
-    <Compile Update="UI\Main\RightContent\GroupFilesUserControl.cs" />
-    <Compile Update="UI\Main\RightContent\ResourceEditorUserControl.cs" />
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <None Update="Properties\app.manifest">
       <SubType>Designer</SubType>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="appsettings.json" />
     <Content Include="paint_brush2.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExtendedControlsLibrary\ExtendedControlsLibrary.csproj" />
@@ -94,14 +59,8 @@
     <ProjectReference Include="..\Runtime\Runtime.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.1" />
-    <PackageReference Include="DevExpress.Win.Design" Version="22.2.5" />
-  </ItemGroup>
-  <ItemGroup>
+    <PackageReference Include="DevExpress.Win.Design" Version="22.2.6" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Fizzler" Version="1.3.0" />
     <PackageReference Include="Google.Apis.Translate.v2" Version="1.60.0.875" />
@@ -112,16 +71,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.5.2145" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="Svg" Version="3.4.4" />
-    <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.117" />
-    <PackageReference Include="System.Memory" Version="4.5.5" />
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="7.0.0" />
-    <PackageReference Include="System.Text.Json" Version="7.0.2" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.WinForms" Version="1.0.0" />
-    <PackageReference Include="ZetaShortPaths" Version="1.0.24" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.11" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.11" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.11" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.WinForms" Version="1.0.11" />
+    <PackageReference Include="ZetaShortPaths" Version="1.0.31" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Test.Designer.cs" />
@@ -165,6 +120,10 @@
     <EmbeddedResource Update="Properties\ImageResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ImageResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -8,14 +8,11 @@ using General;
 public class MyTextEdit :
     ExtendedManagedCueTextEdit
 {
-    public bool Bold { get; set; }
-
     protected override void OnCreateControl()
     {
         base.OnCreateControl();
 
         ViewInfo.Appearance.Font = SkinHelper.StandardFont;
-        //ViewInfo.Appearance.Font = Bold ? SkinHelper.StandardFontBold : SkinHelper.StandardFont;
     }
 
     protected override void OnLoaded()
@@ -26,17 +23,5 @@ public class MyTextEdit :
         {
             MenuManager = MyXtraForm.CheckGetMenuBarManager(this);
         }
-    }
-
-    public override Size MinimumSize
-    {
-        get => new(base.MinimumSize.Width, 24);
-        set => base.MinimumSize = value with { Height = 24 };
-    }
-
-    public override Size MaximumSize
-    {
-        get => new(base.MaximumSize.Width, 24);
-        set => base.MaximumSize = value with { Height = 24 };
     }
 }

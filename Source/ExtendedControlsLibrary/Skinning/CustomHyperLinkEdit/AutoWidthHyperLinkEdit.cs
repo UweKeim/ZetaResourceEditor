@@ -1,6 +1,7 @@
 ﻿namespace ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomHyperLinkEdit;
 
 using CustomForm;
+using DevExpress.Utils.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 
@@ -51,10 +52,14 @@ public class AutoWidthHyperLinkEdit :
 
     private int GetWidth()
     {
-        var s = ViewInfo.PaintAppearance.CalcTextSize(
-            Graphics.FromImage(new Bitmap(10, 10)),
+	    using var gr = Graphics.FromImage(new Bitmap(10, 10));
+	    using var gc = new GraphicsCache(gr);
+
+		var s = ViewInfo.PaintAppearance.CalcTextSize(
+            gc,
             ViewInfo.DisplayText,
             1000);
+
         return s.ToSize().Width + 8;
     }
 

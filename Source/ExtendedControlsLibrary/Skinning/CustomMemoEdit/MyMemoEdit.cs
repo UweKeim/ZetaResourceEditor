@@ -26,7 +26,7 @@ public class MyMemoEdit :
         }
     }
 
-    private MemoEditScrollbarAdjuster _adjuster = new();
+    private MemoEditScrollbarAdjuster? _adjuster = new();
     private bool _everAttached;
     private bool _firstTime = true;
 
@@ -41,7 +41,7 @@ public class MyMemoEdit :
         {
             if (value && !_everAttached)
             {
-                _adjuster.Attach(this);
+                _adjuster?.Attach(this);
                 _everAttached = true;
             }
 

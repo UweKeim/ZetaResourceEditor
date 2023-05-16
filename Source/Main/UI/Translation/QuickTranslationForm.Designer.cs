@@ -5,19 +5,19 @@ namespace ZetaResourceEditor.UI.Translation
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if ( disposing && (components != null) )
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 
 		#region Windows Form Designer generated code
@@ -28,310 +28,433 @@ namespace ZetaResourceEditor.UI.Translation
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuickTranslationForm));
-            this.closeButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.groupControl1 = new ExtendedControlsLibrary.Skinning.CustomGroup.MyGroupControl();
-            this.destinationTextTextBox = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
-            this.buttonCopyToClipboard = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.groupControl2 = new ExtendedControlsLibrary.Skinning.CustomGroup.MyGroupControl();
-            this.buttonSwap = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.sourceLanguageComboBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
-            this.destinationLanguageComboBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
-            this.labelControl3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.copyDestinationTextToClipboardCheckBox = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
-            this.sourceTextTextBox = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
-            this.buttonTranslate = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            this.labelControl4 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.buttonSettings = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.destinationTextTextBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceLanguageComboBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.destinationLanguageComboBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.copyDestinationTextToClipboardCheckBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceTextTextBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // closeButton
-            // 
-            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.closeButton.Appearance.Options.UseFont = true;
-            this.closeButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.closeButton.Location = new System.Drawing.Point(389, 446);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(75, 28);
-            this.closeButton.TabIndex = 2;
-            this.closeButton.Text = "Close";
-            this.closeButton.WantDrawFocusRectangle = true;
-            this.closeButton.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl1.Controls.Add(this.destinationTextTextBox);
-            this.groupControl1.Controls.Add(this.buttonCopyToClipboard);
-            this.groupControl1.HasPadding = true;
-            this.groupControl1.Location = new System.Drawing.Point(12, 263);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(452, 170);
-            this.groupControl1.TabIndex = 1;
-            this.groupControl1.Text = "Translated text";
-            // 
-            // destinationTextTextBox
-            // 
-            this.destinationTextTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.destinationTextTextBox.CueText = null;
-            this.destinationTextTextBox.Location = new System.Drawing.Point(14, 36);
-            this.destinationTextTextBox.Name = "destinationTextTextBox";
-            this.destinationTextTextBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.destinationTextTextBox.Properties.Appearance.Options.UseFont = true;
-            this.destinationTextTextBox.Properties.NullValuePrompt = null;
-            this.destinationTextTextBox.Size = new System.Drawing.Size(424, 86);
-            this.destinationTextTextBox.TabIndex = 0;
-            this.destinationTextTextBox.TextChanged += new System.EventHandler(this.destinationTextTextBox_TextChanged);
-            this.destinationTextTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.destinationTextTextBox_KeyDown);
-            // 
-            // buttonCopyToClipboard
-            // 
-            this.buttonCopyToClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonCopyToClipboard.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonCopyToClipboard.Appearance.Options.UseFont = true;
-            this.buttonCopyToClipboard.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCopyToClipboard.Location = new System.Drawing.Point(14, 128);
-            this.buttonCopyToClipboard.Name = "buttonCopyToClipboard";
-            this.buttonCopyToClipboard.Size = new System.Drawing.Size(127, 28);
-            this.buttonCopyToClipboard.TabIndex = 1;
-            this.buttonCopyToClipboard.Text = "&Copy to clipboard";
-            this.buttonCopyToClipboard.WantDrawFocusRectangle = true;
-            this.buttonCopyToClipboard.Click += new System.EventHandler(this.buttonCopyToClipboard_Click);
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl2.Controls.Add(this.buttonSwap);
-            this.groupControl2.Controls.Add(this.sourceLanguageComboBox);
-            this.groupControl2.Controls.Add(this.destinationLanguageComboBox);
-            this.groupControl2.Controls.Add(this.labelControl3);
-            this.groupControl2.Controls.Add(this.labelControl2);
-            this.groupControl2.Controls.Add(this.labelControl1);
-            this.groupControl2.Controls.Add(this.copyDestinationTextToClipboardCheckBox);
-            this.groupControl2.Controls.Add(this.sourceTextTextBox);
-            this.groupControl2.Controls.Add(this.buttonTranslate);
-            this.groupControl2.HasPadding = true;
-            this.groupControl2.Location = new System.Drawing.Point(12, 12);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(452, 245);
-            this.groupControl2.TabIndex = 0;
-            this.groupControl2.Text = "Source";
-            // 
-            // buttonSwap
-            // 
-            this.buttonSwap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSwap.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonSwap.Appearance.Options.UseFont = true;
-            this.buttonSwap.Image = ((System.Drawing.Image)(resources.GetObject("buttonSwap.Image")));
-            this.buttonSwap.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.buttonSwap.Location = new System.Drawing.Point(412, 48);
-            this.buttonSwap.Name = "buttonSwap";
-            this.buttonSwap.Size = new System.Drawing.Size(26, 26);
-            this.buttonSwap.TabIndex = 4;
-            this.buttonSwap.WantDrawFocusRectangle = true;
-            this.buttonSwap.Click += new System.EventHandler(this.buttonSwap_Click);
-            // 
-            // sourceLanguageComboBox
-            // 
-            this.sourceLanguageComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.sourceLanguageComboBox.CueText = null;
-            this.sourceLanguageComboBox.Location = new System.Drawing.Point(145, 36);
-            this.sourceLanguageComboBox.Name = "sourceLanguageComboBox";
-            this.sourceLanguageComboBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.sourceLanguageComboBox.Properties.Appearance.Options.UseFont = true;
-            this.sourceLanguageComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.sourceLanguageComboBox.Properties.DropDownRows = 20;
-            this.sourceLanguageComboBox.Properties.NullValuePrompt = null;
-            this.sourceLanguageComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.sourceLanguageComboBox.Size = new System.Drawing.Size(262, 24);
-            this.sourceLanguageComboBox.TabIndex = 1;
-            this.sourceLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.sourceLanguageComboBox_SelectedIndexChanged);
-            // 
-            // destinationLanguageComboBox
-            // 
-            this.destinationLanguageComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.destinationLanguageComboBox.CueText = null;
-            this.destinationLanguageComboBox.Location = new System.Drawing.Point(145, 66);
-            this.destinationLanguageComboBox.Name = "destinationLanguageComboBox";
-            this.destinationLanguageComboBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.destinationLanguageComboBox.Properties.Appearance.Options.UseFont = true;
-            this.destinationLanguageComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.destinationLanguageComboBox.Properties.DropDownRows = 20;
-            this.destinationLanguageComboBox.Properties.NullValuePrompt = null;
-            this.destinationLanguageComboBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.destinationLanguageComboBox.Size = new System.Drawing.Size(262, 24);
-            this.destinationLanguageComboBox.TabIndex = 3;
-            this.destinationLanguageComboBox.SelectedIndexChanged += new System.EventHandler(this.destinationLanguageComboBox_SelectedIndexChanged);
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl3.Location = new System.Drawing.Point(13, 102);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(68, 17);
-            this.labelControl3.TabIndex = 4;
-            this.labelControl3.Text = "Source te&xt:";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl2.Location = new System.Drawing.Point(13, 69);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(126, 17);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "&Destination language:";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl1.Location = new System.Drawing.Point(13, 39);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(101, 17);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "&Source language:";
-            // 
-            // copyDestinationTextToClipboardCheckBox
-            // 
-            this.copyDestinationTextToClipboardCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.copyDestinationTextToClipboardCheckBox.Location = new System.Drawing.Point(223, 207);
-            this.copyDestinationTextToClipboardCheckBox.Name = "copyDestinationTextToClipboardCheckBox";
-            this.copyDestinationTextToClipboardCheckBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.copyDestinationTextToClipboardCheckBox.Properties.Appearance.Options.UseFont = true;
-            this.copyDestinationTextToClipboardCheckBox.Properties.AutoWidth = true;
-            this.copyDestinationTextToClipboardCheckBox.Properties.Caption = "Copy translated text to &clipboard";
-            this.copyDestinationTextToClipboardCheckBox.Properties.CheckedChanged += new System.EventHandler(this.copyDestinationTextToClipboardCheckBox_CheckedChanged);
-            this.copyDestinationTextToClipboardCheckBox.Size = new System.Drawing.Size(215, 21);
-            this.copyDestinationTextToClipboardCheckBox.TabIndex = 7;
-            // 
-            // sourceTextTextBox
-            // 
-            this.sourceTextTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.sourceTextTextBox.CueText = null;
-            this.sourceTextTextBox.Location = new System.Drawing.Point(14, 119);
-            this.sourceTextTextBox.Name = "sourceTextTextBox";
-            this.sourceTextTextBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.sourceTextTextBox.Properties.Appearance.Options.UseFont = true;
-            this.sourceTextTextBox.Properties.NullValuePrompt = null;
-            this.sourceTextTextBox.Size = new System.Drawing.Size(424, 78);
-            this.sourceTextTextBox.TabIndex = 5;
-            this.sourceTextTextBox.TextChanged += new System.EventHandler(this.sourceTextTextBox_TextChanged);
-            this.sourceTextTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sourceTextTextBox_KeyDown);
-            // 
-            // buttonTranslate
-            // 
-            this.buttonTranslate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonTranslate.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonTranslate.Appearance.Options.UseFont = true;
-            this.buttonTranslate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonTranslate.Location = new System.Drawing.Point(13, 203);
-            this.buttonTranslate.Name = "buttonTranslate";
-            this.buttonTranslate.Size = new System.Drawing.Size(75, 28);
-            this.buttonTranslate.TabIndex = 6;
-            this.buttonTranslate.Text = "&Translate";
-            this.buttonTranslate.WantDrawFocusRectangle = true;
-            this.buttonTranslate.Click += new System.EventHandler(this.buttonTranslate_Click);
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.labelControl4);
-            this.panelControl1.Controls.Add(this.buttonSettings);
-            this.panelControl1.Controls.Add(this.closeButton);
-            this.panelControl1.Controls.Add(this.groupControl2);
-            this.panelControl1.Controls.Add(this.groupControl1);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
-            this.panelControl1.Size = new System.Drawing.Size(476, 486);
-            this.panelControl1.TabIndex = 0;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl4.Enabled = false;
-            this.labelControl4.Location = new System.Drawing.Point(93, 452);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(18, 17);
-            this.labelControl4.TabIndex = 5;
-            this.labelControl4.Text = "<>";
-            // 
-            // buttonSettings
-            // 
-            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSettings.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonSettings.Appearance.Options.UseFont = true;
-            this.buttonSettings.Location = new System.Drawing.Point(12, 446);
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(75, 28);
-            this.buttonSettings.TabIndex = 4;
-            this.buttonSettings.Text = "Settings";
-            this.buttonSettings.WantDrawFocusRectangle = true;
-            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
-            // 
-            // QuickTranslationForm
-            // 
-            this.AcceptButton = this.buttonTranslate;
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.CancelButton = this.closeButton;
-            this.ClientSize = new System.Drawing.Size(476, 486);
-            this.Controls.Add(this.panelControl1);
-            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(492, 520);
-            this.Name = "QuickTranslationForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quick translate";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuickTranslationForm_FormClosing);
-            this.Load += new System.EventHandler(this.QuickTranslationForm_Load);
-            this.Shown += new System.EventHandler(this.QuickTranslationForm_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.destinationTextTextBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceLanguageComboBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.destinationLanguageComboBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.copyDestinationTextToClipboardCheckBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceTextTextBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
-            this.ResumeLayout(false);
-
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(QuickTranslationForm));
+			closeButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			groupControl1 = new ExtendedControlsLibrary.Skinning.CustomGroup.MyGroupControl();
+			tablePanel3 = new DevExpress.Utils.Layout.TablePanel();
+			destinationTextTextBox = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
+			buttonCopyToClipboard = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			groupControl2 = new ExtendedControlsLibrary.Skinning.CustomGroup.MyGroupControl();
+			tablePanel4 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel5 = new DevExpress.Utils.Layout.TablePanel();
+			buttonTranslate = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			copyDestinationTextToClipboardCheckBox = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+			labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			sourceLanguageComboBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
+			sourceTextTextBox = new ExtendedControlsLibrary.Skinning.CustomMemoEdit.MyMemoEdit();
+			buttonSwap = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			destinationLanguageComboBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
+			labelControl3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			labelControl4 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			buttonSettings = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+			((ISupportInitialize)groupControl1).BeginInit();
+			groupControl1.SuspendLayout();
+			((ISupportInitialize)tablePanel3).BeginInit();
+			tablePanel3.SuspendLayout();
+			((ISupportInitialize)destinationTextTextBox.Properties).BeginInit();
+			((ISupportInitialize)groupControl2).BeginInit();
+			groupControl2.SuspendLayout();
+			((ISupportInitialize)tablePanel4).BeginInit();
+			tablePanel4.SuspendLayout();
+			((ISupportInitialize)tablePanel5).BeginInit();
+			tablePanel5.SuspendLayout();
+			((ISupportInitialize)copyDestinationTextToClipboardCheckBox.Properties).BeginInit();
+			((ISupportInitialize)sourceLanguageComboBox.Properties).BeginInit();
+			((ISupportInitialize)sourceTextTextBox.Properties).BeginInit();
+			((ISupportInitialize)destinationLanguageComboBox.Properties).BeginInit();
+			((ISupportInitialize)tablePanel1).BeginInit();
+			tablePanel1.SuspendLayout();
+			((ISupportInitialize)tablePanel2).BeginInit();
+			tablePanel2.SuspendLayout();
+			SuspendLayout();
+			// 
+			// closeButton
+			// 
+			closeButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			closeButton.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(closeButton, 2);
+			closeButton.DialogResult = DialogResult.OK;
+			closeButton.Dock = DockStyle.Fill;
+			closeButton.Location = new Point(379, 0);
+			closeButton.Margin = new Padding(0);
+			closeButton.Name = "closeButton";
+			tablePanel2.SetRow(closeButton, 0);
+			closeButton.Size = new Size(75, 28);
+			closeButton.TabIndex = 2;
+			closeButton.Text = "Close";
+			closeButton.Click += buttonClose_Click;
+			// 
+			// groupControl1
+			// 
+			tablePanel1.SetColumn(groupControl1, 0);
+			groupControl1.Controls.Add(tablePanel3);
+			groupControl1.Dock = DockStyle.Fill;
+			groupControl1.Location = new Point(11, 260);
+			groupControl1.Margin = new Padding(0, 0, 0, 18);
+			groupControl1.Name = "groupControl1";
+			tablePanel1.SetRow(groupControl1, 1);
+			groupControl1.Size = new Size(454, 169);
+			groupControl1.TabIndex = 1;
+			groupControl1.Text = "Translated text";
+			// 
+			// tablePanel3
+			// 
+			tablePanel3.AutoSize = true;
+			tablePanel3.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 140F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel3.Controls.Add(destinationTextTextBox);
+			tablePanel3.Controls.Add(buttonCopyToClipboard);
+			tablePanel3.Dock = DockStyle.Fill;
+			tablePanel3.Location = new Point(2, 23);
+			tablePanel3.Name = "tablePanel3";
+			tablePanel3.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel3.Size = new Size(450, 144);
+			tablePanel3.TabIndex = 2;
+			tablePanel3.UseSkinIndents = true;
+			// 
+			// destinationTextTextBox
+			// 
+			tablePanel3.SetColumn(destinationTextTextBox, 0);
+			tablePanel3.SetColumnSpan(destinationTextTextBox, 2);
+			destinationTextTextBox.CueText = null;
+			destinationTextTextBox.Dock = DockStyle.Fill;
+			destinationTextTextBox.Location = new Point(11, 10);
+			destinationTextTextBox.Margin = new Padding(0, 0, 0, 9);
+			destinationTextTextBox.Name = "destinationTextTextBox";
+			destinationTextTextBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			destinationTextTextBox.Properties.Appearance.Options.UseFont = true;
+			destinationTextTextBox.Properties.NullValuePrompt = null;
+			destinationTextTextBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel3.SetRow(destinationTextTextBox, 0);
+			destinationTextTextBox.Size = new Size(428, 86);
+			destinationTextTextBox.TabIndex = 0;
+			destinationTextTextBox.TextChanged += destinationTextTextBox_TextChanged;
+			destinationTextTextBox.KeyDown += destinationTextTextBox_KeyDown;
+			// 
+			// buttonCopyToClipboard
+			// 
+			buttonCopyToClipboard.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCopyToClipboard.Appearance.Options.UseFont = true;
+			tablePanel3.SetColumn(buttonCopyToClipboard, 0);
+			buttonCopyToClipboard.DialogResult = DialogResult.Cancel;
+			buttonCopyToClipboard.Dock = DockStyle.Fill;
+			buttonCopyToClipboard.Location = new Point(11, 105);
+			buttonCopyToClipboard.Margin = new Padding(0);
+			buttonCopyToClipboard.Name = "buttonCopyToClipboard";
+			tablePanel3.SetRow(buttonCopyToClipboard, 1);
+			buttonCopyToClipboard.Size = new Size(140, 28);
+			buttonCopyToClipboard.TabIndex = 1;
+			buttonCopyToClipboard.Text = "&Copy to clipboard";
+			buttonCopyToClipboard.Click += buttonCopyToClipboard_Click;
+			// 
+			// groupControl2
+			// 
+			tablePanel1.SetColumn(groupControl2, 0);
+			groupControl2.Controls.Add(tablePanel4);
+			groupControl2.Dock = DockStyle.Fill;
+			groupControl2.Location = new Point(11, 10);
+			groupControl2.Margin = new Padding(0, 0, 0, 9);
+			groupControl2.Name = "groupControl2";
+			tablePanel1.SetRow(groupControl2, 0);
+			groupControl2.Size = new Size(454, 241);
+			groupControl2.TabIndex = 0;
+			groupControl2.Text = "Source";
+			// 
+			// tablePanel4
+			// 
+			tablePanel4.AutoSize = true;
+			tablePanel4.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 5F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel4.Controls.Add(tablePanel5);
+			tablePanel4.Controls.Add(labelControl1);
+			tablePanel4.Controls.Add(labelControl2);
+			tablePanel4.Controls.Add(sourceLanguageComboBox);
+			tablePanel4.Controls.Add(sourceTextTextBox);
+			tablePanel4.Controls.Add(buttonSwap);
+			tablePanel4.Controls.Add(destinationLanguageComboBox);
+			tablePanel4.Controls.Add(labelControl3);
+			tablePanel4.Dock = DockStyle.Fill;
+			tablePanel4.Location = new Point(2, 23);
+			tablePanel4.Name = "tablePanel4";
+			tablePanel4.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel4.Size = new Size(450, 216);
+			tablePanel4.TabIndex = 0;
+			tablePanel4.UseSkinIndents = true;
+			// 
+			// tablePanel5
+			// 
+			tablePanel5.AutoSize = true;
+			tablePanel4.SetColumn(tablePanel5, 0);
+			tablePanel5.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel4.SetColumnSpan(tablePanel5, 3);
+			tablePanel5.Controls.Add(buttonTranslate);
+			tablePanel5.Controls.Add(copyDestinationTextToClipboardCheckBox);
+			tablePanel5.Dock = DockStyle.Fill;
+			tablePanel5.Location = new Point(11, 177);
+			tablePanel5.Margin = new Padding(0);
+			tablePanel5.Name = "tablePanel5";
+			tablePanel4.SetRow(tablePanel5, 4);
+			tablePanel5.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel5.Size = new Size(428, 28);
+			tablePanel5.TabIndex = 7;
+			// 
+			// buttonTranslate
+			// 
+			buttonTranslate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			buttonTranslate.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonTranslate.Appearance.Options.UseFont = true;
+			tablePanel5.SetColumn(buttonTranslate, 0);
+			buttonTranslate.DialogResult = DialogResult.Cancel;
+			buttonTranslate.Location = new Point(0, 0);
+			buttonTranslate.Margin = new Padding(0, 0, 9, 0);
+			buttonTranslate.Name = "buttonTranslate";
+			tablePanel5.SetRow(buttonTranslate, 0);
+			buttonTranslate.Size = new Size(75, 28);
+			buttonTranslate.TabIndex = 0;
+			buttonTranslate.Text = "&Translate";
+			buttonTranslate.Click += buttonTranslate_Click;
+			// 
+			// copyDestinationTextToClipboardCheckBox
+			// 
+			copyDestinationTextToClipboardCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+			tablePanel5.SetColumn(copyDestinationTextToClipboardCheckBox, 1);
+			copyDestinationTextToClipboardCheckBox.Location = new Point(84, 3);
+			copyDestinationTextToClipboardCheckBox.Margin = new Padding(0);
+			copyDestinationTextToClipboardCheckBox.Name = "copyDestinationTextToClipboardCheckBox";
+			copyDestinationTextToClipboardCheckBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			copyDestinationTextToClipboardCheckBox.Properties.Appearance.Options.UseFont = true;
+			copyDestinationTextToClipboardCheckBox.Properties.AutoWidth = true;
+			copyDestinationTextToClipboardCheckBox.Properties.Caption = "Copy translated text to &clipboard";
+			copyDestinationTextToClipboardCheckBox.Properties.CheckedChanged += copyDestinationTextToClipboardCheckBox_CheckedChanged;
+			tablePanel5.SetRow(copyDestinationTextToClipboardCheckBox, 0);
+			copyDestinationTextToClipboardCheckBox.Size = new Size(216, 21);
+			copyDestinationTextToClipboardCheckBox.TabIndex = 1;
+			// 
+			// labelControl1
+			// 
+			labelControl1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl1.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(labelControl1, 0);
+			labelControl1.Location = new Point(11, 13);
+			labelControl1.Margin = new Padding(0, 0, 6, 0);
+			labelControl1.Name = "labelControl1";
+			tablePanel4.SetRow(labelControl1, 0);
+			labelControl1.Size = new Size(101, 17);
+			labelControl1.TabIndex = 0;
+			labelControl1.Text = "&Source language:";
+			// 
+			// labelControl2
+			// 
+			labelControl2.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl2.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(labelControl2, 0);
+			labelControl2.Location = new Point(11, 43);
+			labelControl2.Margin = new Padding(0, 0, 6, 0);
+			labelControl2.Name = "labelControl2";
+			tablePanel4.SetRow(labelControl2, 1);
+			labelControl2.Size = new Size(126, 17);
+			labelControl2.TabIndex = 3;
+			labelControl2.Text = "&Destination language:";
+			// 
+			// sourceLanguageComboBox
+			// 
+			sourceLanguageComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			tablePanel4.SetColumn(sourceLanguageComboBox, 1);
+			sourceLanguageComboBox.CueText = null;
+			sourceLanguageComboBox.Location = new Point(143, 10);
+			sourceLanguageComboBox.Margin = new Padding(0, 0, 6, 6);
+			sourceLanguageComboBox.Name = "sourceLanguageComboBox";
+			sourceLanguageComboBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			sourceLanguageComboBox.Properties.Appearance.Options.UseFont = true;
+			sourceLanguageComboBox.Properties.Buttons.AddRange(new EditorButton[] { new EditorButton(ButtonPredefines.Combo) });
+			sourceLanguageComboBox.Properties.DropDownRows = 20;
+			sourceLanguageComboBox.Properties.NullValuePrompt = null;
+			sourceLanguageComboBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			sourceLanguageComboBox.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
+			tablePanel4.SetRow(sourceLanguageComboBox, 0);
+			sourceLanguageComboBox.Size = new Size(262, 24);
+			sourceLanguageComboBox.TabIndex = 1;
+			sourceLanguageComboBox.SelectedIndexChanged += sourceLanguageComboBox_SelectedIndexChanged;
+			// 
+			// sourceTextTextBox
+			// 
+			tablePanel4.SetColumn(sourceTextTextBox, 0);
+			tablePanel4.SetColumnSpan(sourceTextTextBox, 3);
+			sourceTextTextBox.CueText = null;
+			sourceTextTextBox.Dock = DockStyle.Fill;
+			sourceTextTextBox.Location = new Point(11, 90);
+			sourceTextTextBox.Margin = new Padding(0, 0, 0, 9);
+			sourceTextTextBox.Name = "sourceTextTextBox";
+			sourceTextTextBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			sourceTextTextBox.Properties.Appearance.Options.UseFont = true;
+			sourceTextTextBox.Properties.NullValuePrompt = null;
+			sourceTextTextBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel4.SetRow(sourceTextTextBox, 3);
+			sourceTextTextBox.Size = new Size(428, 78);
+			sourceTextTextBox.TabIndex = 6;
+			sourceTextTextBox.TextChanged += sourceTextTextBox_TextChanged;
+			sourceTextTextBox.KeyDown += sourceTextTextBox_KeyDown;
+			// 
+			// buttonSwap
+			// 
+			buttonSwap.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			buttonSwap.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonSwap.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(buttonSwap, 2);
+			buttonSwap.ImageOptions.Image = (Image)resources.GetObject("buttonSwap.ImageOptions.Image");
+			buttonSwap.ImageOptions.Location = ImageLocation.MiddleCenter;
+			buttonSwap.Location = new Point(411, 27);
+			buttonSwap.Margin = new Padding(0);
+			buttonSwap.Name = "buttonSwap";
+			tablePanel4.SetRow(buttonSwap, 0);
+			tablePanel4.SetRowSpan(buttonSwap, 2);
+			buttonSwap.Size = new Size(28, 26);
+			buttonSwap.TabIndex = 2;
+			buttonSwap.Click += buttonSwap_Click;
+			// 
+			// destinationLanguageComboBox
+			// 
+			destinationLanguageComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			tablePanel4.SetColumn(destinationLanguageComboBox, 1);
+			destinationLanguageComboBox.CueText = null;
+			destinationLanguageComboBox.Location = new Point(143, 40);
+			destinationLanguageComboBox.Margin = new Padding(0, 0, 6, 6);
+			destinationLanguageComboBox.Name = "destinationLanguageComboBox";
+			destinationLanguageComboBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			destinationLanguageComboBox.Properties.Appearance.Options.UseFont = true;
+			destinationLanguageComboBox.Properties.Buttons.AddRange(new EditorButton[] { new EditorButton(ButtonPredefines.Combo) });
+			destinationLanguageComboBox.Properties.DropDownRows = 20;
+			destinationLanguageComboBox.Properties.NullValuePrompt = null;
+			destinationLanguageComboBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			destinationLanguageComboBox.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
+			tablePanel4.SetRow(destinationLanguageComboBox, 1);
+			destinationLanguageComboBox.Size = new Size(262, 24);
+			destinationLanguageComboBox.TabIndex = 4;
+			destinationLanguageComboBox.SelectedIndexChanged += destinationLanguageComboBox_SelectedIndexChanged;
+			// 
+			// labelControl3
+			// 
+			labelControl3.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl3.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(labelControl3, 0);
+			tablePanel4.SetColumnSpan(labelControl3, 3);
+			labelControl3.Location = new Point(11, 70);
+			labelControl3.Margin = new Padding(0, 0, 6, 3);
+			labelControl3.Name = "labelControl3";
+			tablePanel4.SetRow(labelControl3, 2);
+			labelControl3.Size = new Size(68, 17);
+			labelControl3.TabIndex = 5;
+			labelControl3.Text = "Source te&xt:";
+			// 
+			// labelControl4
+			// 
+			labelControl4.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl4.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(labelControl4, 1);
+			labelControl4.Dock = DockStyle.Left;
+			labelControl4.Enabled = false;
+			labelControl4.Location = new Point(87, 3);
+			labelControl4.Name = "labelControl4";
+			tablePanel2.SetRow(labelControl4, 0);
+			labelControl4.Size = new Size(18, 22);
+			labelControl4.TabIndex = 1;
+			labelControl4.Text = "<>";
+			// 
+			// buttonSettings
+			// 
+			buttonSettings.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonSettings.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(buttonSettings, 0);
+			buttonSettings.Dock = DockStyle.Fill;
+			buttonSettings.Location = new Point(0, 0);
+			buttonSettings.Margin = new Padding(0, 0, 9, 0);
+			buttonSettings.Name = "buttonSettings";
+			tablePanel2.SetRow(buttonSettings, 0);
+			buttonSettings.Size = new Size(75, 28);
+			buttonSettings.TabIndex = 0;
+			buttonSettings.Text = "Settings";
+			buttonSettings.Click += buttonSettings_Click;
+			// 
+			// tablePanel1
+			// 
+			tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel1.Controls.Add(tablePanel2);
+			tablePanel1.Controls.Add(groupControl2);
+			tablePanel1.Controls.Add(groupControl1);
+			tablePanel1.Dock = DockStyle.Fill;
+			tablePanel1.Location = new Point(0, 0);
+			tablePanel1.Name = "tablePanel1";
+			tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 60F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 45F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel1.Size = new Size(476, 486);
+			tablePanel1.TabIndex = 0;
+			tablePanel1.UseSkinIndents = true;
+			// 
+			// tablePanel2
+			// 
+			tablePanel2.AutoSize = true;
+			tablePanel1.SetColumn(tablePanel2, 0);
+			tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F) });
+			tablePanel2.Controls.Add(labelControl4);
+			tablePanel2.Controls.Add(closeButton);
+			tablePanel2.Controls.Add(buttonSettings);
+			tablePanel2.Dock = DockStyle.Fill;
+			tablePanel2.Location = new Point(11, 447);
+			tablePanel2.Margin = new Padding(0);
+			tablePanel2.Name = "tablePanel2";
+			tablePanel1.SetRow(tablePanel2, 2);
+			tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel2.Size = new Size(454, 28);
+			tablePanel2.TabIndex = 2;
+			// 
+			// QuickTranslationForm
+			// 
+			AcceptButton = buttonTranslate;
+			Appearance.Options.UseFont = true;
+			AutoScaleDimensions = new SizeF(7F, 17F);
+			AutoScaleMode = AutoScaleMode.Font;
+			CancelButton = closeButton;
+			ClientSize = new Size(476, 486);
+			Controls.Add(tablePanel1);
+			FormBorderStyle = FormBorderStyle.SizableToolWindow;
+			IconOptions.ShowIcon = false;
+			MaximizeBox = false;
+			MinimizeBox = false;
+			MinimumSize = new Size(478, 518);
+			Name = "QuickTranslationForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterScreen;
+			Text = "Quick translate";
+			FormClosing += QuickTranslationForm_FormClosing;
+			Load += QuickTranslationForm_Load;
+			Shown += QuickTranslationForm_Shown;
+			((ISupportInitialize)groupControl1).EndInit();
+			groupControl1.ResumeLayout(false);
+			groupControl1.PerformLayout();
+			((ISupportInitialize)tablePanel3).EndInit();
+			tablePanel3.ResumeLayout(false);
+			tablePanel3.PerformLayout();
+			((ISupportInitialize)destinationTextTextBox.Properties).EndInit();
+			((ISupportInitialize)groupControl2).EndInit();
+			groupControl2.ResumeLayout(false);
+			groupControl2.PerformLayout();
+			((ISupportInitialize)tablePanel4).EndInit();
+			tablePanel4.ResumeLayout(false);
+			tablePanel4.PerformLayout();
+			((ISupportInitialize)tablePanel5).EndInit();
+			tablePanel5.ResumeLayout(false);
+			tablePanel5.PerformLayout();
+			((ISupportInitialize)copyDestinationTextToClipboardCheckBox.Properties).EndInit();
+			((ISupportInitialize)sourceLanguageComboBox.Properties).EndInit();
+			((ISupportInitialize)sourceTextTextBox.Properties).EndInit();
+			((ISupportInitialize)destinationLanguageComboBox.Properties).EndInit();
+			((ISupportInitialize)tablePanel1).EndInit();
+			tablePanel1.ResumeLayout(false);
+			tablePanel1.PerformLayout();
+			((ISupportInitialize)tablePanel2).EndInit();
+			tablePanel2.ResumeLayout(false);
+			tablePanel2.PerformLayout();
+			ResumeLayout(false);
 		}
 
 		#endregion
@@ -349,9 +472,13 @@ namespace ZetaResourceEditor.UI.Translation
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl2;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
 		private ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit sourceLanguageComboBox;
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonSettings;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonSwap;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl4;
+		private DevExpress.Utils.Layout.TablePanel tablePanel1;
+		private DevExpress.Utils.Layout.TablePanel tablePanel2;
+		private DevExpress.Utils.Layout.TablePanel tablePanel3;
+		private DevExpress.Utils.Layout.TablePanel tablePanel4;
+		private DevExpress.Utils.Layout.TablePanel tablePanel5;
 	}
 }

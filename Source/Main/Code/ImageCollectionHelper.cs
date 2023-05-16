@@ -9,58 +9,77 @@ using RuntimeBusinessLogic.FileGroups;
 /// </summary>
 internal static class ImageCollectionHelper
 {
-    private static ImageCollection _ic16;
-    private static ImageCollection _ic32;
+	private static byte[]? _update1;
+	private static byte[]? _update2;
+	private static byte[]? _edit;
+	private static byte[]? _file;
+	private static byte[]? _group;
+	private static byte[]? _projectfolder;
+	private static byte[]? _root;
 
-    public static ImageCollection Ic16
-    {
-        get
-        {
-            if (_ic16 == null)
-            {
-                _ic16 = new()
-                {
-                    ImageSize = new(16, 16)
-                };
+	public static byte[] Update1 => _update1 ??= ImageResources.update_1;
+	public static byte[] Update2 => _update2 ??= ImageResources.update_2;
+	public static byte[] Edit => _edit ??= ImageResources.edit;
+	public static byte[] File => _file ??= ImageResources.file;
+	public static byte[] Group => _group ??= ImageResources.group;
+	public static byte[] ProjectFolder => _projectfolder ??= ImageResources.projectfolder;
+	public static byte[] Root => _root ??= ImageResources.root;
 
-                _ic16.Images.Add(ImageResources.root_16, @"root");
-                _ic16.Images.Add(ImageResources.root_16, @"project");
-                _ic16.Images.Add(ImageResources.group_16, @"group");
-                _ic16.Images.Add(ImageResources.group_16, @"filegroup");
-                _ic16.Images.Add(ImageResources.file_16, @"file");
-                _ic16.Images.Add(ImageResources.projectfolder_16, @"projectfolder");
-                _ic16.Images.Add(ImageResources.file_16, @"document.png");
-                _ic16.Images.Add(ImageResources.note_16, @"note.png");
+	private static ImageCollection? _ic16;
+	private static SvgImageCollection? _icSvg;
 
-                _ic16.Images.Add(ImageResources.color_grey_16, FileGroupStateColor.Grey.ToString());
-                _ic16.Images.Add(ImageResources.color_green_16, FileGroupStateColor.Green.ToString());
-                _ic16.Images.Add(ImageResources.color_yellow_16, FileGroupStateColor.Yellow.ToString());
-                _ic16.Images.Add(ImageResources.color_red_16, FileGroupStateColor.Red.ToString());
-                _ic16.Images.Add(ImageResources.color_blue_16, FileGroupStateColor.Blue.ToString());
+	public static ImageCollection Ic16
+	{
+		get
+		{
+			if (_ic16 == null)
+			{
+				_ic16 = new()
+				{
+					ImageSize = new(16, 16)
+				};
 
-                Ic16.Images.Add(ImageResources.edit_16, @"box_edit.png");
-            }
+				_ic16.Images.Add(ImageResources.color_grey_16, FileGroupStateColor.Grey.ToString());
+				_ic16.Images.Add(ImageResources.color_green_16, FileGroupStateColor.Green.ToString());
+				_ic16.Images.Add(ImageResources.color_yellow_16, FileGroupStateColor.Yellow.ToString());
+				_ic16.Images.Add(ImageResources.color_red_16, FileGroupStateColor.Red.ToString());
+				_ic16.Images.Add(ImageResources.color_blue_16, FileGroupStateColor.Blue.ToString());
+			}
 
-            return _ic16;
-        }
-    }
+			return _ic16;
+		}
+	}
 
-    public static ImageCollection Ic32
-    {
-        get
-        {
-            if (_ic32 == null)
-            {
-                _ic32 = new()
-                {
-                    ImageSize = new(32, 32)
-                };
+	public static SvgImageCollection IcSvg
+	{
+		get
+		{
+			if (_icSvg == null)
+			{
+				_icSvg = new()
+				{
+					{ @"root", Root },
+					{ @"group", Group },
+					{ @"file", File },
+					{ @"projectfolder", ProjectFolder },
+					{ @"edit", Edit }
+				};
+			}
 
-                _ic32.Images.Add(ImageResources.update_1_32, @"heart-1");
-                _ic32.Images.Add(ImageResources.update_2_32, @"heart-2");
-            }
+			return _icSvg;
+		}
+	}
 
-            return _ic32;
-        }
-    }
+	public static int IndexOfKey(this SvgImageCollection col, string key)
+	{
+		var i = 0;
+		foreach (var k in col.Keys)
+		{
+			if (k == key)
+				return i;
+			i++;
+		}
+
+		return -1;
+	}
 }

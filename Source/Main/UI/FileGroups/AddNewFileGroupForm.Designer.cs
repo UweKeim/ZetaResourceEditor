@@ -5,19 +5,19 @@ namespace ZetaResourceEditor.UI.FileGroups
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if ( disposing && (components != null) )
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 
 		#region Windows Form Designer generated code
@@ -28,319 +28,410 @@ namespace ZetaResourceEditor.UI.FileGroups
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            this.extensionComboBoxEdit = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
-            this.invertFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.selectNoFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.selectProjectLanguagesButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.baseFolderSelectButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.selectAllFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.destinationLanguagesListBox = new ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl();
-            this.buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.label1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.labelControl4 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.labelControl3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.baseFolderTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.baseFileNameTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.parentElementTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.extensionComboBoxEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.destinationLanguagesListBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseFolderTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseFileNameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.parentElementTextBox.Properties)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.extensionComboBoxEdit);
-            this.panelControl1.Controls.Add(this.invertFileGroupsButton);
-            this.panelControl1.Controls.Add(this.selectNoFileGroupsButton);
-            this.panelControl1.Controls.Add(this.selectProjectLanguagesButton);
-            this.panelControl1.Controls.Add(this.baseFolderSelectButton);
-            this.panelControl1.Controls.Add(this.selectAllFileGroupsButton);
-            this.panelControl1.Controls.Add(this.buttonCancel);
-            this.panelControl1.Controls.Add(this.destinationLanguagesListBox);
-            this.panelControl1.Controls.Add(this.buttonOK);
-            this.panelControl1.Controls.Add(this.label1);
-            this.panelControl1.Controls.Add(this.labelControl4);
-            this.panelControl1.Controls.Add(this.labelControl3);
-            this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.baseFolderTextEdit);
-            this.panelControl1.Controls.Add(this.baseFileNameTextEdit);
-            this.panelControl1.Controls.Add(this.parentElementTextBox);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
-            this.panelControl1.Size = new System.Drawing.Size(539, 457);
-            this.panelControl1.TabIndex = 0;
-            // 
-            // extensionComboBoxEdit
-            // 
-            this.extensionComboBoxEdit.CueText = null;
-            this.extensionComboBoxEdit.Location = new System.Drawing.Point(113, 110);
-            this.extensionComboBoxEdit.Name = "extensionComboBoxEdit";
-            this.extensionComboBoxEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.extensionComboBoxEdit.Properties.Appearance.Options.UseFont = true;
-            this.extensionComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.extensionComboBoxEdit.Properties.Items.AddRange(new object[] {
-            ".resx",
-            ".resw"});
-            this.extensionComboBoxEdit.Properties.NullValuePrompt = null;
-            this.extensionComboBoxEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.extensionComboBoxEdit.Size = new System.Drawing.Size(75, 24);
-            this.extensionComboBoxEdit.TabIndex = 8;
-            // 
-            // invertFileGroupsButton
-            // 
-            this.invertFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.invertFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.invertFileGroupsButton.Appearance.Options.UseFont = true;
-            this.invertFileGroupsButton.Location = new System.Drawing.Point(275, 368);
-            this.invertFileGroupsButton.Name = "invertFileGroupsButton";
-            this.invertFileGroupsButton.Size = new System.Drawing.Size(75, 28);
-            this.invertFileGroupsButton.TabIndex = 13;
-            this.invertFileGroupsButton.Text = "Flip";
-            this.invertFileGroupsButton.WantDrawFocusRectangle = true;
-            this.invertFileGroupsButton.Click += new System.EventHandler(this.invertFileGroupsButton_Click);
-            // 
-            // selectNoFileGroupsButton
-            // 
-            this.selectNoFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.selectNoFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.selectNoFileGroupsButton.Appearance.Options.UseFont = true;
-            this.selectNoFileGroupsButton.Location = new System.Drawing.Point(194, 368);
-            this.selectNoFileGroupsButton.Name = "selectNoFileGroupsButton";
-            this.selectNoFileGroupsButton.Size = new System.Drawing.Size(75, 28);
-            this.selectNoFileGroupsButton.TabIndex = 12;
-            this.selectNoFileGroupsButton.Text = "None";
-            this.selectNoFileGroupsButton.WantDrawFocusRectangle = true;
-            this.selectNoFileGroupsButton.Click += new System.EventHandler(this.selectNoFileGroupsButton_Click);
-            // 
-            // selectProjectLanguagesButton
-            // 
-            this.selectProjectLanguagesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.selectProjectLanguagesButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.selectProjectLanguagesButton.Appearance.Options.UseFont = true;
-            this.selectProjectLanguagesButton.Location = new System.Drawing.Point(356, 368);
-            this.selectProjectLanguagesButton.Name = "selectProjectLanguagesButton";
-            this.selectProjectLanguagesButton.Size = new System.Drawing.Size(75, 28);
-            this.selectProjectLanguagesButton.TabIndex = 14;
-            this.selectProjectLanguagesButton.Text = "Project";
-            this.selectProjectLanguagesButton.WantDrawFocusRectangle = true;
-            this.selectProjectLanguagesButton.Click += new System.EventHandler(this.selectProjectLanguagesButton_Click);
-            // 
-            // baseFolderSelectButton
-            // 
-            this.baseFolderSelectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.baseFolderSelectButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.baseFolderSelectButton.Appearance.Options.UseFont = true;
-            this.baseFolderSelectButton.Location = new System.Drawing.Point(503, 50);
-            this.baseFolderSelectButton.Name = "baseFolderSelectButton";
-            this.baseFolderSelectButton.Size = new System.Drawing.Size(24, 24);
-            this.baseFolderSelectButton.TabIndex = 4;
-            this.baseFolderSelectButton.Text = "...";
-            this.baseFolderSelectButton.WantDrawFocusRectangle = true;
-            this.baseFolderSelectButton.Click += new System.EventHandler(this.baseFolderSelectButton_Click);
-            // 
-            // selectAllFileGroupsButton
-            // 
-            this.selectAllFileGroupsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.selectAllFileGroupsButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.selectAllFileGroupsButton.Appearance.Options.UseFont = true;
-            this.selectAllFileGroupsButton.Location = new System.Drawing.Point(113, 368);
-            this.selectAllFileGroupsButton.Name = "selectAllFileGroupsButton";
-            this.selectAllFileGroupsButton.Size = new System.Drawing.Size(75, 28);
-            this.selectAllFileGroupsButton.TabIndex = 11;
-            this.selectAllFileGroupsButton.Text = "All";
-            this.selectAllFileGroupsButton.WantDrawFocusRectangle = true;
-            this.selectAllFileGroupsButton.Click += new System.EventHandler(this.selectAllFileGroupsButton_Click);
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonCancel.Appearance.Options.UseFont = true;
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(452, 417);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 28);
-            this.buttonCancel.TabIndex = 17;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.WantDrawFocusRectangle = true;
-            // 
-            // destinationLanguagesListBox
-            // 
-            this.destinationLanguagesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.destinationLanguagesListBox.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.destinationLanguagesListBox.Appearance.Options.UseFont = true;
-            this.destinationLanguagesListBox.CheckOnClick = true;
-            this.destinationLanguagesListBox.Location = new System.Drawing.Point(113, 147);
-            this.destinationLanguagesListBox.Name = "destinationLanguagesListBox";
-            this.destinationLanguagesListBox.Size = new System.Drawing.Size(414, 215);
-            this.destinationLanguagesListBox.TabIndex = 10;
-            this.destinationLanguagesListBox.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.destinationLanguagesListBox_ItemCheck);
-            this.destinationLanguagesListBox.SelectedIndexChanged += new System.EventHandler(this.destinationLanguagesListBox_SelectedIndexChanged);
-            // 
-            // buttonOK
-            // 
-            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonOK.Appearance.Options.UseFont = true;
-            this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOK.Location = new System.Drawing.Point(371, 417);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(75, 28);
-            this.buttonOK.TabIndex = 16;
-            this.buttonOK.Text = "OK";
-            this.buttonOK.WantDrawFocusRectangle = true;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
-            // 
-            // label1
-            // 
-            this.label1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label1.Location = new System.Drawing.Point(14, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Parent element:";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl4.Location = new System.Drawing.Point(14, 113);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(58, 17);
-            this.labelControl4.TabIndex = 7;
-            this.labelControl4.Text = "Extension:";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl3.Location = new System.Drawing.Point(14, 83);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(87, 17);
-            this.labelControl3.TabIndex = 5;
-            this.labelControl3.Text = "Base file name:";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl2.Location = new System.Drawing.Point(14, 53);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(69, 17);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "Base folder:";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl1.Location = new System.Drawing.Point(14, 147);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(93, 17);
-            this.labelControl1.TabIndex = 9;
-            this.labelControl1.Text = "&New languages:";
-            // 
-            // baseFolderTextEdit
-            // 
-            this.baseFolderTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.baseFolderTextEdit.Bold = false;
-            this.baseFolderTextEdit.CueText = null;
-            this.baseFolderTextEdit.Location = new System.Drawing.Point(113, 50);
-            this.baseFolderTextEdit.MaximumSize = new System.Drawing.Size(0, 24);
-            this.baseFolderTextEdit.MinimumSize = new System.Drawing.Size(0, 24);
-            this.baseFolderTextEdit.Name = "baseFolderTextEdit";
-            this.baseFolderTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.baseFolderTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.baseFolderTextEdit.Properties.Mask.EditMask = null;
-            this.baseFolderTextEdit.Properties.NullValuePrompt = null;
-            this.baseFolderTextEdit.Properties.ReadOnly = true;
-            this.baseFolderTextEdit.Size = new System.Drawing.Size(384, 24);
-            this.baseFolderTextEdit.TabIndex = 3;
-            this.baseFolderTextEdit.EditValueChanged += new System.EventHandler(this.baseFileNameTextEdit_EditValueChanged);
-            // 
-            // baseFileNameTextEdit
-            // 
-            this.baseFileNameTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.baseFileNameTextEdit.Bold = false;
-            this.baseFileNameTextEdit.CueText = null;
-            this.baseFileNameTextEdit.Location = new System.Drawing.Point(113, 80);
-            this.baseFileNameTextEdit.MaximumSize = new System.Drawing.Size(0, 24);
-            this.baseFileNameTextEdit.MinimumSize = new System.Drawing.Size(0, 24);
-            this.baseFileNameTextEdit.Name = "baseFileNameTextEdit";
-            this.baseFileNameTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.baseFileNameTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.baseFileNameTextEdit.Properties.Mask.EditMask = null;
-            this.baseFileNameTextEdit.Properties.NullValuePrompt = null;
-            this.baseFileNameTextEdit.Size = new System.Drawing.Size(414, 24);
-            this.baseFileNameTextEdit.TabIndex = 6;
-            this.baseFileNameTextEdit.EditValueChanged += new System.EventHandler(this.baseFileNameTextEdit_EditValueChanged);
-            // 
-            // parentElementTextBox
-            // 
-            this.parentElementTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.parentElementTextBox.Bold = false;
-            this.parentElementTextBox.CueText = null;
-            this.parentElementTextBox.Location = new System.Drawing.Point(113, 12);
-            this.parentElementTextBox.MaximumSize = new System.Drawing.Size(0, 24);
-            this.parentElementTextBox.MinimumSize = new System.Drawing.Size(0, 24);
-            this.parentElementTextBox.Name = "parentElementTextBox";
-            this.parentElementTextBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.parentElementTextBox.Properties.Appearance.Options.UseFont = true;
-            this.parentElementTextBox.Properties.Mask.EditMask = null;
-            this.parentElementTextBox.Properties.NullValuePrompt = null;
-            this.parentElementTextBox.Properties.ReadOnly = true;
-            this.parentElementTextBox.Size = new System.Drawing.Size(414, 24);
-            this.parentElementTextBox.TabIndex = 1;
-            // 
-            // AddNewFileGroupForm
-            // 
-            this.AcceptButton = this.buttonOK;
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(539, 457);
-            this.Controls.Add(this.panelControl1);
-            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(555, 495);
-            this.Name = "AddNewFileGroupForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Create new files";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateNewFileForm_FormClosing);
-            this.Load += new System.EventHandler(this.CreateNewFileForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.extensionComboBoxEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.destinationLanguagesListBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseFolderTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseFileNameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.parentElementTextBox.Properties)).EndInit();
-            this.ResumeLayout(false);
-
+			extensionComboBoxEdit = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
+			invertFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			selectNoFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			selectProjectLanguagesButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			baseFolderSelectButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			selectAllFileGroupsButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			destinationLanguagesListBox = new ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl();
+			buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			label1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			labelControl4 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			labelControl3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			baseFolderTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+			baseFileNameTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+			parentElementTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+			tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel3 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+			((ISupportInitialize)extensionComboBoxEdit.Properties).BeginInit();
+			((ISupportInitialize)destinationLanguagesListBox).BeginInit();
+			((ISupportInitialize)baseFolderTextEdit.Properties).BeginInit();
+			((ISupportInitialize)baseFileNameTextEdit.Properties).BeginInit();
+			((ISupportInitialize)parentElementTextBox.Properties).BeginInit();
+			((ISupportInitialize)tablePanel1).BeginInit();
+			tablePanel1.SuspendLayout();
+			((ISupportInitialize)tablePanel3).BeginInit();
+			tablePanel3.SuspendLayout();
+			((ISupportInitialize)tablePanel2).BeginInit();
+			tablePanel2.SuspendLayout();
+			SuspendLayout();
+			// 
+			// extensionComboBoxEdit
+			// 
+			tablePanel1.SetColumn(extensionComboBoxEdit, 1);
+			tablePanel1.SetColumnSpan(extensionComboBoxEdit, 3);
+			extensionComboBoxEdit.CueText = null;
+			extensionComboBoxEdit.Dock = DockStyle.Fill;
+			extensionComboBoxEdit.Location = new Point(110, 109);
+			extensionComboBoxEdit.Margin = new Padding(0, 0, 0, 9);
+			extensionComboBoxEdit.Name = "extensionComboBoxEdit";
+			extensionComboBoxEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			extensionComboBoxEdit.Properties.Appearance.Options.UseFont = true;
+			extensionComboBoxEdit.Properties.Buttons.AddRange(new EditorButton[] { new EditorButton(ButtonPredefines.Combo) });
+			extensionComboBoxEdit.Properties.Items.AddRange(new object[] { ".resx", ".resw" });
+			extensionComboBoxEdit.Properties.NullValuePrompt = null;
+			extensionComboBoxEdit.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			extensionComboBoxEdit.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
+			tablePanel1.SetRow(extensionComboBoxEdit, 3);
+			extensionComboBoxEdit.Size = new Size(418, 24);
+			extensionComboBoxEdit.TabIndex = 7;
+			// 
+			// invertFileGroupsButton
+			// 
+			invertFileGroupsButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			invertFileGroupsButton.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(invertFileGroupsButton, 2);
+			invertFileGroupsButton.Dock = DockStyle.Fill;
+			invertFileGroupsButton.Location = new Point(168, 228);
+			invertFileGroupsButton.Margin = new Padding(0, 0, 9, 0);
+			invertFileGroupsButton.Name = "invertFileGroupsButton";
+			tablePanel2.SetRow(invertFileGroupsButton, 1);
+			invertFileGroupsButton.Size = new Size(75, 28);
+			invertFileGroupsButton.TabIndex = 3;
+			invertFileGroupsButton.Text = "Flip";
+			invertFileGroupsButton.Click += invertFileGroupsButton_Click;
+			// 
+			// selectNoFileGroupsButton
+			// 
+			selectNoFileGroupsButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			selectNoFileGroupsButton.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(selectNoFileGroupsButton, 1);
+			selectNoFileGroupsButton.Dock = DockStyle.Fill;
+			selectNoFileGroupsButton.Location = new Point(84, 228);
+			selectNoFileGroupsButton.Margin = new Padding(0, 0, 9, 0);
+			selectNoFileGroupsButton.Name = "selectNoFileGroupsButton";
+			tablePanel2.SetRow(selectNoFileGroupsButton, 1);
+			selectNoFileGroupsButton.Size = new Size(75, 28);
+			selectNoFileGroupsButton.TabIndex = 2;
+			selectNoFileGroupsButton.Text = "None";
+			selectNoFileGroupsButton.Click += selectNoFileGroupsButton_Click;
+			// 
+			// selectProjectLanguagesButton
+			// 
+			selectProjectLanguagesButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			selectProjectLanguagesButton.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(selectProjectLanguagesButton, 3);
+			selectProjectLanguagesButton.Dock = DockStyle.Fill;
+			selectProjectLanguagesButton.Location = new Point(252, 228);
+			selectProjectLanguagesButton.Margin = new Padding(0);
+			selectProjectLanguagesButton.Name = "selectProjectLanguagesButton";
+			tablePanel2.SetRow(selectProjectLanguagesButton, 1);
+			selectProjectLanguagesButton.Size = new Size(75, 28);
+			selectProjectLanguagesButton.TabIndex = 4;
+			selectProjectLanguagesButton.Text = "Project";
+			selectProjectLanguagesButton.Click += selectProjectLanguagesButton_Click;
+			// 
+			// baseFolderSelectButton
+			// 
+			baseFolderSelectButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			baseFolderSelectButton.Appearance.Options.UseFont = true;
+			tablePanel3.SetColumn(baseFolderSelectButton, 1);
+			baseFolderSelectButton.Dock = DockStyle.Top;
+			baseFolderSelectButton.Location = new Point(394, 0);
+			baseFolderSelectButton.Margin = new Padding(0);
+			baseFolderSelectButton.Name = "baseFolderSelectButton";
+			tablePanel3.SetRow(baseFolderSelectButton, 0);
+			baseFolderSelectButton.Size = new Size(24, 24);
+			baseFolderSelectButton.TabIndex = 1;
+			baseFolderSelectButton.Text = "...";
+			baseFolderSelectButton.Click += baseFolderSelectButton_Click;
+			// 
+			// selectAllFileGroupsButton
+			// 
+			selectAllFileGroupsButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			selectAllFileGroupsButton.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(selectAllFileGroupsButton, 0);
+			selectAllFileGroupsButton.Dock = DockStyle.Fill;
+			selectAllFileGroupsButton.Location = new Point(0, 228);
+			selectAllFileGroupsButton.Margin = new Padding(0, 0, 9, 0);
+			selectAllFileGroupsButton.Name = "selectAllFileGroupsButton";
+			tablePanel2.SetRow(selectAllFileGroupsButton, 1);
+			selectAllFileGroupsButton.Size = new Size(75, 28);
+			selectAllFileGroupsButton.TabIndex = 1;
+			selectAllFileGroupsButton.Text = "All";
+			selectAllFileGroupsButton.Click += selectAllFileGroupsButton_Click;
+			// 
+			// buttonCancel
+			// 
+			buttonCancel.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCancel.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(buttonCancel, 3);
+			buttonCancel.DialogResult = DialogResult.Cancel;
+			buttonCancel.Dock = DockStyle.Fill;
+			buttonCancel.Location = new Point(453, 420);
+			buttonCancel.Margin = new Padding(0);
+			buttonCancel.Name = "buttonCancel";
+			tablePanel1.SetRow(buttonCancel, 6);
+			buttonCancel.Size = new Size(75, 26);
+			buttonCancel.TabIndex = 11;
+			buttonCancel.Text = "Cancel";
+			// 
+			// destinationLanguagesListBox
+			// 
+			destinationLanguagesListBox.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			destinationLanguagesListBox.Appearance.Options.UseFont = true;
+			destinationLanguagesListBox.CheckOnClick = true;
+			tablePanel2.SetColumn(destinationLanguagesListBox, 0);
+			tablePanel2.SetColumnSpan(destinationLanguagesListBox, 5);
+			destinationLanguagesListBox.Dock = DockStyle.Fill;
+			destinationLanguagesListBox.Location = new Point(0, 0);
+			destinationLanguagesListBox.Margin = new Padding(0, 0, 0, 9);
+			destinationLanguagesListBox.Name = "destinationLanguagesListBox";
+			tablePanel2.SetRow(destinationLanguagesListBox, 0);
+			destinationLanguagesListBox.Size = new Size(414, 219);
+			destinationLanguagesListBox.TabIndex = 0;
+			destinationLanguagesListBox.ItemCheck += destinationLanguagesListBox_ItemCheck;
+			destinationLanguagesListBox.SelectedIndexChanged += destinationLanguagesListBox_SelectedIndexChanged;
+			// 
+			// buttonOK
+			// 
+			buttonOK.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonOK.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(buttonOK, 2);
+			buttonOK.DialogResult = DialogResult.OK;
+			buttonOK.Dock = DockStyle.Fill;
+			buttonOK.Location = new Point(369, 420);
+			buttonOK.Margin = new Padding(0, 0, 9, 0);
+			buttonOK.Name = "buttonOK";
+			tablePanel1.SetRow(buttonOK, 6);
+			buttonOK.Size = new Size(75, 26);
+			buttonOK.TabIndex = 10;
+			buttonOK.Text = "OK";
+			buttonOK.Click += buttonOK_Click;
+			// 
+			// label1
+			// 
+			label1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			label1.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(label1, 0);
+			label1.Dock = DockStyle.Top;
+			label1.Location = new Point(11, 13);
+			label1.Margin = new Padding(0, 3, 6, 0);
+			label1.Name = "label1";
+			tablePanel1.SetRow(label1, 0);
+			label1.Size = new Size(93, 17);
+			label1.TabIndex = 0;
+			label1.Text = "Parent element:";
+			// 
+			// labelControl4
+			// 
+			labelControl4.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl4.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(labelControl4, 0);
+			labelControl4.Dock = DockStyle.Top;
+			labelControl4.Location = new Point(11, 112);
+			labelControl4.Margin = new Padding(0, 3, 6, 0);
+			labelControl4.Name = "labelControl4";
+			tablePanel1.SetRow(labelControl4, 3);
+			labelControl4.Size = new Size(93, 17);
+			labelControl4.TabIndex = 6;
+			labelControl4.Text = "Extension:";
+			// 
+			// labelControl3
+			// 
+			labelControl3.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl3.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(labelControl3, 0);
+			labelControl3.Dock = DockStyle.Top;
+			labelControl3.Location = new Point(11, 79);
+			labelControl3.Margin = new Padding(0, 3, 6, 0);
+			labelControl3.Name = "labelControl3";
+			tablePanel1.SetRow(labelControl3, 2);
+			labelControl3.Size = new Size(93, 17);
+			labelControl3.TabIndex = 4;
+			labelControl3.Text = "Base file name:";
+			// 
+			// labelControl2
+			// 
+			labelControl2.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl2.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(labelControl2, 0);
+			labelControl2.Dock = DockStyle.Top;
+			labelControl2.Location = new Point(11, 46);
+			labelControl2.Margin = new Padding(0, 3, 6, 0);
+			labelControl2.Name = "labelControl2";
+			tablePanel1.SetRow(labelControl2, 1);
+			labelControl2.Size = new Size(93, 17);
+			labelControl2.TabIndex = 2;
+			labelControl2.Text = "Base folder:";
+			// 
+			// labelControl1
+			// 
+			labelControl1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl1.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(labelControl1, 0);
+			labelControl1.Dock = DockStyle.Top;
+			labelControl1.Location = new Point(11, 145);
+			labelControl1.Margin = new Padding(0, 3, 6, 0);
+			labelControl1.Name = "labelControl1";
+			tablePanel1.SetRow(labelControl1, 4);
+			labelControl1.Size = new Size(93, 17);
+			labelControl1.TabIndex = 8;
+			labelControl1.Text = "&New languages:";
+			// 
+			// baseFolderTextEdit
+			// 
+			tablePanel3.SetColumn(baseFolderTextEdit, 0);
+			baseFolderTextEdit.CueText = null;
+			baseFolderTextEdit.Dock = DockStyle.Fill;
+			baseFolderTextEdit.Location = new Point(0, 0);
+			baseFolderTextEdit.Margin = new Padding(0, 0, 6, 9);
+			baseFolderTextEdit.MaximumSize = new Size(0, 24);
+			baseFolderTextEdit.MinimumSize = new Size(0, 24);
+			baseFolderTextEdit.Name = "baseFolderTextEdit";
+			baseFolderTextEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			baseFolderTextEdit.Properties.Appearance.Options.UseFont = true;
+			baseFolderTextEdit.Properties.MaskSettings.Set("mask", null);
+			baseFolderTextEdit.Properties.NullValuePrompt = null;
+			baseFolderTextEdit.Properties.ReadOnly = true;
+			baseFolderTextEdit.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel3.SetRow(baseFolderTextEdit, 0);
+			baseFolderTextEdit.Size = new Size(388, 24);
+			baseFolderTextEdit.TabIndex = 0;
+			baseFolderTextEdit.EditValueChanged += baseFileNameTextEdit_EditValueChanged;
+			// 
+			// baseFileNameTextEdit
+			// 
+			tablePanel1.SetColumn(baseFileNameTextEdit, 1);
+			tablePanel1.SetColumnSpan(baseFileNameTextEdit, 3);
+			baseFileNameTextEdit.CueText = null;
+			baseFileNameTextEdit.Dock = DockStyle.Fill;
+			baseFileNameTextEdit.Location = new Point(110, 76);
+			baseFileNameTextEdit.Margin = new Padding(0, 0, 0, 9);
+			baseFileNameTextEdit.MaximumSize = new Size(0, 24);
+			baseFileNameTextEdit.MinimumSize = new Size(0, 24);
+			baseFileNameTextEdit.Name = "baseFileNameTextEdit";
+			baseFileNameTextEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			baseFileNameTextEdit.Properties.Appearance.Options.UseFont = true;
+			baseFileNameTextEdit.Properties.Mask.EditMask = null;
+			baseFileNameTextEdit.Properties.NullValuePrompt = null;
+			baseFileNameTextEdit.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel1.SetRow(baseFileNameTextEdit, 2);
+			baseFileNameTextEdit.Size = new Size(418, 24);
+			baseFileNameTextEdit.TabIndex = 5;
+			baseFileNameTextEdit.EditValueChanged += baseFileNameTextEdit_EditValueChanged;
+			// 
+			// parentElementTextBox
+			// 
+			tablePanel1.SetColumn(parentElementTextBox, 1);
+			tablePanel1.SetColumnSpan(parentElementTextBox, 3);
+			parentElementTextBox.CueText = null;
+			parentElementTextBox.Dock = DockStyle.Fill;
+			parentElementTextBox.Location = new Point(110, 10);
+			parentElementTextBox.Margin = new Padding(0, 0, 0, 9);
+			parentElementTextBox.MaximumSize = new Size(0, 24);
+			parentElementTextBox.MinimumSize = new Size(0, 24);
+			parentElementTextBox.Name = "parentElementTextBox";
+			parentElementTextBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			parentElementTextBox.Properties.Appearance.Options.UseFont = true;
+			parentElementTextBox.Properties.Mask.EditMask = null;
+			parentElementTextBox.Properties.NullValuePrompt = null;
+			parentElementTextBox.Properties.ReadOnly = true;
+			parentElementTextBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel1.SetRow(parentElementTextBox, 0);
+			parentElementTextBox.Size = new Size(418, 24);
+			parentElementTextBox.TabIndex = 1;
+			// 
+			// tablePanel1
+			// 
+			tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 5F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F) });
+			tablePanel1.Controls.Add(labelControl1);
+			tablePanel1.Controls.Add(tablePanel3);
+			tablePanel1.Controls.Add(tablePanel2);
+			tablePanel1.Controls.Add(label1);
+			tablePanel1.Controls.Add(labelControl2);
+			tablePanel1.Controls.Add(labelControl3);
+			tablePanel1.Controls.Add(labelControl4);
+			tablePanel1.Controls.Add(extensionComboBoxEdit);
+			tablePanel1.Controls.Add(buttonOK);
+			tablePanel1.Controls.Add(buttonCancel);
+			tablePanel1.Controls.Add(parentElementTextBox);
+			tablePanel1.Controls.Add(baseFileNameTextEdit);
+			tablePanel1.Dock = DockStyle.Fill;
+			tablePanel1.Location = new Point(0, 0);
+			tablePanel1.Name = "tablePanel1";
+			tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 18F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F) });
+			tablePanel1.Size = new Size(539, 457);
+			tablePanel1.TabIndex = 0;
+			tablePanel1.UseSkinIndents = true;
+			// 
+			// tablePanel3
+			// 
+			tablePanel3.AutoSize = true;
+			tablePanel1.SetColumn(tablePanel3, 1);
+			tablePanel3.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 55F) });
+			tablePanel1.SetColumnSpan(tablePanel3, 3);
+			tablePanel3.Controls.Add(baseFolderTextEdit);
+			tablePanel3.Controls.Add(baseFolderSelectButton);
+			tablePanel3.Dock = DockStyle.Fill;
+			tablePanel3.Location = new Point(110, 43);
+			tablePanel3.Margin = new Padding(0);
+			tablePanel3.Name = "tablePanel3";
+			tablePanel1.SetRow(tablePanel3, 1);
+			tablePanel3.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F) });
+			tablePanel3.Size = new Size(418, 33);
+			tablePanel3.TabIndex = 3;
+			// 
+			// tablePanel2
+			// 
+			tablePanel1.SetColumn(tablePanel2, 1);
+			tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel1.SetColumnSpan(tablePanel2, 3);
+			tablePanel2.Controls.Add(destinationLanguagesListBox);
+			tablePanel2.Controls.Add(selectAllFileGroupsButton);
+			tablePanel2.Controls.Add(selectNoFileGroupsButton);
+			tablePanel2.Controls.Add(invertFileGroupsButton);
+			tablePanel2.Controls.Add(selectProjectLanguagesButton);
+			tablePanel2.Dock = DockStyle.Fill;
+			tablePanel2.Location = new Point(112, 144);
+			tablePanel2.Name = "tablePanel2";
+			tablePanel1.SetRow(tablePanel2, 4);
+			tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel2.Size = new Size(414, 256);
+			tablePanel2.TabIndex = 9;
+			// 
+			// AddNewFileGroupForm
+			// 
+			AcceptButton = buttonOK;
+			Appearance.Options.UseFont = true;
+			AutoScaleDimensions = new SizeF(7F, 17F);
+			AutoScaleMode = AutoScaleMode.Font;
+			CancelButton = buttonCancel;
+			ClientSize = new Size(539, 457);
+			Controls.Add(tablePanel1);
+			Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+			IconOptions.ShowIcon = false;
+			MaximizeBox = false;
+			MinimizeBox = false;
+			MinimumSize = new Size(541, 489);
+			Name = "AddNewFileGroupForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Create new files";
+			FormClosing += CreateNewFileForm_FormClosing;
+			Load += CreateNewFileForm_Load;
+			((ISupportInitialize)extensionComboBoxEdit.Properties).EndInit();
+			((ISupportInitialize)destinationLanguagesListBox).EndInit();
+			((ISupportInitialize)baseFolderTextEdit.Properties).EndInit();
+			((ISupportInitialize)baseFileNameTextEdit.Properties).EndInit();
+			((ISupportInitialize)parentElementTextBox.Properties).EndInit();
+			((ISupportInitialize)tablePanel1).EndInit();
+			tablePanel1.ResumeLayout(false);
+			tablePanel1.PerformLayout();
+			((ISupportInitialize)tablePanel3).EndInit();
+			tablePanel3.ResumeLayout(false);
+			tablePanel3.PerformLayout();
+			((ISupportInitialize)tablePanel2).EndInit();
+			tablePanel2.ResumeLayout(false);
+			ResumeLayout(false);
 		}
 
 		#endregion
-
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonCancel;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonOK;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
@@ -358,5 +449,8 @@ namespace ZetaResourceEditor.UI.FileGroups
 		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit baseFolderTextEdit;
 		private ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit extensionComboBoxEdit;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl4;
+		private DevExpress.Utils.Layout.TablePanel tablePanel1;
+		private DevExpress.Utils.Layout.TablePanel tablePanel2;
+		private DevExpress.Utils.Layout.TablePanel tablePanel3;
 	}
 }

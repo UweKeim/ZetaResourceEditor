@@ -1,8 +1,8 @@
 namespace ZetaResourceEditor.UI.FileGroups
 {
-    using DevExpress.XtraEditors;
+	using DevExpress.XtraEditors;
 
-    partial class FileGroupSettingsForm
+	partial class FileGroupSettingsForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -13,13 +13,13 @@ namespace ZetaResourceEditor.UI.FileGroups
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if ( disposing && (components != null) )
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 
 		#region Windows Form Designer generated code
@@ -30,307 +30,375 @@ namespace ZetaResourceEditor.UI.FileGroups
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileGroupSettingsForm));
-            this.ignoreDuringExportAndImportCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
-            this.parentTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.button1 = new ExtendedControlsLibrary.Skinning.CustomDropDownButton.MyDropDownButton();
-            this.optionsPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.openButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.checkSumTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.locationTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.nameTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.label2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.label1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.ignoreDuringExportAndImportCheckEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.parentTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkSumTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locationTextBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nameTextBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // ignoreDuringExportAndImportCheckEdit
-            // 
-            this.ignoreDuringExportAndImportCheckEdit.Location = new System.Drawing.Point(12, 147);
-            this.ignoreDuringExportAndImportCheckEdit.Name = "ignoreDuringExportAndImportCheckEdit";
-            this.ignoreDuringExportAndImportCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ignoreDuringExportAndImportCheckEdit.Properties.Appearance.Options.UseFont = true;
-            this.ignoreDuringExportAndImportCheckEdit.Properties.AutoWidth = true;
-            this.ignoreDuringExportAndImportCheckEdit.Properties.Caption = "Ignore during export and import";
-            this.ignoreDuringExportAndImportCheckEdit.Size = new System.Drawing.Size(213, 21);
-            this.ignoreDuringExportAndImportCheckEdit.TabIndex = 9;
-            // 
-            // parentTextEdit
-            // 
-            this.parentTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.parentTextEdit.Bold = false;
-            this.parentTextEdit.CueText = null;
-            this.parentTextEdit.Location = new System.Drawing.Point(100, 12);
-            this.parentTextEdit.MaximumSize = new System.Drawing.Size(0, 24);
-            this.parentTextEdit.MinimumSize = new System.Drawing.Size(0, 24);
-            this.parentTextEdit.Name = "parentTextEdit";
-            this.parentTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.parentTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.parentTextEdit.Properties.NullValuePrompt = null;
-            this.parentTextEdit.Properties.ReadOnly = true;
-            this.parentTextEdit.Size = new System.Drawing.Size(354, 24);
-            this.parentTextEdit.TabIndex = 1;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl2.Location = new System.Drawing.Point(12, 15);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(82, 17);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "Project folder:";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.button1.Appearance.Options.UseFont = true;
-            this.button1.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
-            this.button1.DropDownControl = this.optionsPopupMenu;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.button1.Location = new System.Drawing.Point(430, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 24);
-            this.button1.TabIndex = 6;
-            // 
-            // optionsPopupMenu
-            // 
-            this.optionsPopupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.openButton)});
-            this.optionsPopupMenu.Manager = this.barManager;
-            this.optionsPopupMenu.Name = "optionsPopupMenu";
-            // 
-            // openButton
-            // 
-            this.openButton.Caption = "&Open folder";
-            this.openButton.Id = 0;
-            this.openButton.ImageIndex = 0;
-            this.openButton.Name = "openButton";
-            this.openButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openButton_ItemClick);
-            // 
-            // barManager
-            // 
-            this.barManager.DockControls.Add(this.barDockControlTop);
-            this.barManager.DockControls.Add(this.barDockControlBottom);
-            this.barManager.DockControls.Add(this.barDockControlLeft);
-            this.barManager.DockControls.Add(this.barDockControlRight);
-            this.barManager.Form = this;
-            this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.openButton});
-            this.barManager.MaxItemId = 3;
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(466, 0);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 227);
-            this.barDockControlBottom.Size = new System.Drawing.Size(466, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 227);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(466, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 227);
-            // 
-            // checkSumTextEdit
-            // 
-            this.checkSumTextEdit.Bold = false;
-            this.checkSumTextEdit.CueText = null;
-            this.checkSumTextEdit.Location = new System.Drawing.Point(100, 110);
-            this.checkSumTextEdit.MaximumSize = new System.Drawing.Size(0, 24);
-            this.checkSumTextEdit.MinimumSize = new System.Drawing.Size(0, 24);
-            this.checkSumTextEdit.Name = "checkSumTextEdit";
-            this.checkSumTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.checkSumTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.checkSumTextEdit.Properties.NullValuePrompt = null;
-            this.checkSumTextEdit.Properties.ReadOnly = true;
-            this.checkSumTextEdit.Size = new System.Drawing.Size(237, 24);
-            this.checkSumTextEdit.TabIndex = 8;
-            // 
-            // locationTextBox
-            // 
-            this.locationTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.locationTextBox.Bold = false;
-            this.locationTextBox.CueText = null;
-            this.locationTextBox.Location = new System.Drawing.Point(100, 80);
-            this.locationTextBox.MaximumSize = new System.Drawing.Size(0, 24);
-            this.locationTextBox.MinimumSize = new System.Drawing.Size(0, 24);
-            this.locationTextBox.Name = "locationTextBox";
-            this.locationTextBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.locationTextBox.Properties.Appearance.Options.UseFont = true;
-            this.locationTextBox.Properties.NullValuePrompt = null;
-            this.locationTextBox.Properties.ReadOnly = true;
-            this.locationTextBox.Size = new System.Drawing.Size(324, 24);
-            this.locationTextBox.TabIndex = 5;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl1.Location = new System.Drawing.Point(12, 113);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(65, 17);
-            this.labelControl1.TabIndex = 7;
-            this.labelControl1.Text = "Check sum:";
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.nameTextBox.Bold = false;
-            this.nameTextBox.CueText = null;
-            this.nameTextBox.Location = new System.Drawing.Point(100, 42);
-            this.nameTextBox.MaximumSize = new System.Drawing.Size(0, 24);
-            this.nameTextBox.MinimumSize = new System.Drawing.Size(0, 24);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.nameTextBox.Properties.Appearance.Options.UseFont = true;
-            this.nameTextBox.Properties.NullValuePrompt = null;
-            this.nameTextBox.Size = new System.Drawing.Size(354, 24);
-            this.nameTextBox.TabIndex = 3;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label2.Location = new System.Drawing.Point(12, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "&Location:";
-            // 
-            // label1
-            // 
-            this.label1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label1.Location = new System.Drawing.Point(12, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "&Name:";
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonCancel.Appearance.Options.UseFont = true;
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(379, 187);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 28);
-            this.buttonCancel.TabIndex = 2;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.WantDrawFocusRectangle = true;
-            // 
-            // buttonOK
-            // 
-            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonOK.Appearance.Options.UseFont = true;
-            this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOK.Location = new System.Drawing.Point(298, 187);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(75, 28);
-            this.buttonOK.TabIndex = 1;
-            this.buttonOK.Text = "OK";
-            this.buttonOK.WantDrawFocusRectangle = true;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.ignoreDuringExportAndImportCheckEdit);
-            this.panelControl1.Controls.Add(this.parentTextEdit);
-            this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Controls.Add(this.buttonCancel);
-            this.panelControl1.Controls.Add(this.button1);
-            this.panelControl1.Controls.Add(this.buttonOK);
-            this.panelControl1.Controls.Add(this.checkSumTextEdit);
-            this.panelControl1.Controls.Add(this.label1);
-            this.panelControl1.Controls.Add(this.locationTextBox);
-            this.panelControl1.Controls.Add(this.label2);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.nameTextBox);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
-            this.panelControl1.Size = new System.Drawing.Size(466, 227);
-            this.panelControl1.TabIndex = 0;
-            // 
-            // FileGroupSettingsForm
-            // 
-            this.AcceptButton = this.buttonOK;
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(466, 227);
-            this.Controls.Add(this.panelControl1);
-            this.Controls.Add(this.barDockControlLeft);
-            this.Controls.Add(this.barDockControlRight);
-            this.Controls.Add(this.barDockControlBottom);
-            this.Controls.Add(this.barDockControlTop);
-            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1024, 266);
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(482, 266);
-            this.Name = "FileGroupSettingsForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Edit file group settings";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FileGroupSettingsForm_FormClosing);
-            this.Load += new System.EventHandler(this.FileGroupSettingsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ignoreDuringExportAndImportCheckEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.parentTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkSumTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locationTextBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nameTextBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(FileGroupSettingsForm));
+			ignoreDuringExportAndImportCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+			parentTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+			labelControl2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			button1 = new ExtendedControlsLibrary.Skinning.CustomDropDownButton.MyDropDownButton();
+			optionsPopupMenu = new PopupMenu(components);
+			openButton = new BarButtonItem();
+			barManager = new BarManager(components);
+			barDockControlTop = new BarDockControl();
+			barDockControlBottom = new BarDockControl();
+			barDockControlLeft = new BarDockControl();
+			barDockControlRight = new BarDockControl();
+			checkSumTextEdit = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+			locationTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+			labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			nameTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+			label2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			label1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+			((ISupportInitialize)ignoreDuringExportAndImportCheckEdit.Properties).BeginInit();
+			((ISupportInitialize)parentTextEdit.Properties).BeginInit();
+			((ISupportInitialize)optionsPopupMenu).BeginInit();
+			((ISupportInitialize)barManager).BeginInit();
+			((ISupportInitialize)checkSumTextEdit.Properties).BeginInit();
+			((ISupportInitialize)locationTextBox.Properties).BeginInit();
+			((ISupportInitialize)nameTextBox.Properties).BeginInit();
+			((ISupportInitialize)tablePanel1).BeginInit();
+			tablePanel1.SuspendLayout();
+			((ISupportInitialize)tablePanel2).BeginInit();
+			tablePanel2.SuspendLayout();
+			SuspendLayout();
+			// 
+			// ignoreDuringExportAndImportCheckEdit
+			// 
+			tablePanel1.SetColumn(ignoreDuringExportAndImportCheckEdit, 1);
+			tablePanel1.SetColumnSpan(ignoreDuringExportAndImportCheckEdit, 3);
+			ignoreDuringExportAndImportCheckEdit.Location = new Point(99, 142);
+			ignoreDuringExportAndImportCheckEdit.Margin = new Padding(0);
+			ignoreDuringExportAndImportCheckEdit.Name = "ignoreDuringExportAndImportCheckEdit";
+			ignoreDuringExportAndImportCheckEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			ignoreDuringExportAndImportCheckEdit.Properties.Appearance.Options.UseFont = true;
+			ignoreDuringExportAndImportCheckEdit.Properties.AutoWidth = true;
+			ignoreDuringExportAndImportCheckEdit.Properties.Caption = "Ignore during export and import";
+			tablePanel1.SetRow(ignoreDuringExportAndImportCheckEdit, 4);
+			ignoreDuringExportAndImportCheckEdit.Size = new Size(214, 21);
+			ignoreDuringExportAndImportCheckEdit.TabIndex = 8;
+			// 
+			// parentTextEdit
+			// 
+			parentTextEdit.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			tablePanel1.SetColumn(parentTextEdit, 1);
+			tablePanel1.SetColumnSpan(parentTextEdit, 3);
+			parentTextEdit.CueText = null;
+			parentTextEdit.Location = new Point(99, 10);
+			parentTextEdit.Margin = new Padding(0, 0, 0, 6);
+			parentTextEdit.MaximumSize = new Size(0, 24);
+			parentTextEdit.MinimumSize = new Size(0, 24);
+			parentTextEdit.Name = "parentTextEdit";
+			parentTextEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			parentTextEdit.Properties.Appearance.Options.UseFont = true;
+			parentTextEdit.Properties.NullValuePrompt = null;
+			parentTextEdit.Properties.ReadOnly = true;
+			parentTextEdit.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel1.SetRow(parentTextEdit, 0);
+			parentTextEdit.Size = new Size(356, 24);
+			parentTextEdit.TabIndex = 1;
+			// 
+			// labelControl2
+			// 
+			labelControl2.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl2.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(labelControl2, 0);
+			labelControl2.Dock = DockStyle.Top;
+			labelControl2.Location = new Point(11, 13);
+			labelControl2.Margin = new Padding(0, 3, 6, 0);
+			labelControl2.Name = "labelControl2";
+			tablePanel1.SetRow(labelControl2, 0);
+			labelControl2.Size = new Size(82, 17);
+			labelControl2.TabIndex = 0;
+			labelControl2.Text = "Project folder:";
+			// 
+			// button1
+			// 
+			button1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			button1.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(button1, 1);
+			button1.Dock = DockStyle.Top;
+			button1.DropDownArrowStyle = DropDownArrowStyle.Hide;
+			button1.DropDownControl = optionsPopupMenu;
+			button1.ImageOptions.Image = (Image)resources.GetObject("button1.ImageOptions.Image");
+			button1.ImageOptions.Location = ImageLocation.MiddleCenter;
+			button1.Location = new Point(332, 0);
+			button1.Margin = new Padding(0);
+			button1.Name = "button1";
+			tablePanel2.SetRow(button1, 0);
+			button1.Size = new Size(24, 24);
+			button1.TabIndex = 1;
+			// 
+			// optionsPopupMenu
+			// 
+			optionsPopupMenu.LinksPersistInfo.AddRange(new LinkPersistInfo[] { new LinkPersistInfo(openButton) });
+			optionsPopupMenu.Manager = barManager;
+			optionsPopupMenu.Name = "optionsPopupMenu";
+			// 
+			// openButton
+			// 
+			openButton.Caption = "&Open folder";
+			openButton.Id = 0;
+			openButton.ImageOptions.ImageIndex = 0;
+			openButton.Name = "openButton";
+			openButton.ItemClick += openButton_ItemClick;
+			// 
+			// barManager
+			// 
+			barManager.DockControls.Add(barDockControlTop);
+			barManager.DockControls.Add(barDockControlBottom);
+			barManager.DockControls.Add(barDockControlLeft);
+			barManager.DockControls.Add(barDockControlRight);
+			barManager.Form = this;
+			barManager.Items.AddRange(new BarItem[] { openButton });
+			barManager.MaxItemId = 3;
+			// 
+			// barDockControlTop
+			// 
+			barDockControlTop.CausesValidation = false;
+			barDockControlTop.Dock = DockStyle.Top;
+			barDockControlTop.Location = new Point(0, 0);
+			barDockControlTop.Manager = barManager;
+			barDockControlTop.Size = new Size(466, 0);
+			// 
+			// barDockControlBottom
+			// 
+			barDockControlBottom.CausesValidation = false;
+			barDockControlBottom.Dock = DockStyle.Bottom;
+			barDockControlBottom.Location = new Point(0, 220);
+			barDockControlBottom.Manager = barManager;
+			barDockControlBottom.Size = new Size(466, 0);
+			// 
+			// barDockControlLeft
+			// 
+			barDockControlLeft.CausesValidation = false;
+			barDockControlLeft.Dock = DockStyle.Left;
+			barDockControlLeft.Location = new Point(0, 0);
+			barDockControlLeft.Manager = barManager;
+			barDockControlLeft.Size = new Size(0, 220);
+			// 
+			// barDockControlRight
+			// 
+			barDockControlRight.CausesValidation = false;
+			barDockControlRight.Dock = DockStyle.Right;
+			barDockControlRight.Location = new Point(466, 0);
+			barDockControlRight.Manager = barManager;
+			barDockControlRight.Size = new Size(0, 220);
+			// 
+			// checkSumTextEdit
+			// 
+			tablePanel1.SetColumn(checkSumTextEdit, 1);
+			tablePanel1.SetColumnSpan(checkSumTextEdit, 3);
+			checkSumTextEdit.CueText = null;
+			checkSumTextEdit.Dock = DockStyle.Fill;
+			checkSumTextEdit.Location = new Point(99, 106);
+			checkSumTextEdit.Margin = new Padding(0, 0, 0, 12);
+			checkSumTextEdit.MaximumSize = new Size(0, 24);
+			checkSumTextEdit.MinimumSize = new Size(0, 24);
+			checkSumTextEdit.Name = "checkSumTextEdit";
+			checkSumTextEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			checkSumTextEdit.Properties.Appearance.Options.UseFont = true;
+			checkSumTextEdit.Properties.NullValuePrompt = null;
+			checkSumTextEdit.Properties.ReadOnly = true;
+			checkSumTextEdit.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel1.SetRow(checkSumTextEdit, 3);
+			checkSumTextEdit.Size = new Size(356, 24);
+			checkSumTextEdit.TabIndex = 7;
+			// 
+			// locationTextBox
+			// 
+			tablePanel2.SetColumn(locationTextBox, 0);
+			locationTextBox.CueText = null;
+			locationTextBox.Dock = DockStyle.Fill;
+			locationTextBox.Location = new Point(0, 0);
+			locationTextBox.Margin = new Padding(0, 0, 3, 6);
+			locationTextBox.MaximumSize = new Size(0, 24);
+			locationTextBox.MinimumSize = new Size(0, 24);
+			locationTextBox.Name = "locationTextBox";
+			locationTextBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			locationTextBox.Properties.Appearance.Options.UseFont = true;
+			locationTextBox.Properties.NullValuePrompt = null;
+			locationTextBox.Properties.ReadOnly = true;
+			locationTextBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel2.SetRow(locationTextBox, 0);
+			locationTextBox.Size = new Size(329, 24);
+			locationTextBox.TabIndex = 0;
+			// 
+			// labelControl1
+			// 
+			labelControl1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl1.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(labelControl1, 0);
+			labelControl1.Dock = DockStyle.Top;
+			labelControl1.Location = new Point(11, 109);
+			labelControl1.Margin = new Padding(0, 3, 6, 0);
+			labelControl1.Name = "labelControl1";
+			tablePanel1.SetRow(labelControl1, 3);
+			labelControl1.Size = new Size(82, 17);
+			labelControl1.TabIndex = 6;
+			labelControl1.Text = "Check sum:";
+			// 
+			// nameTextBox
+			// 
+			tablePanel1.SetColumn(nameTextBox, 1);
+			tablePanel1.SetColumnSpan(nameTextBox, 3);
+			nameTextBox.CueText = null;
+			nameTextBox.Dock = DockStyle.Fill;
+			nameTextBox.Location = new Point(99, 40);
+			nameTextBox.Margin = new Padding(0, 0, 0, 12);
+			nameTextBox.MaximumSize = new Size(0, 24);
+			nameTextBox.MinimumSize = new Size(0, 24);
+			nameTextBox.Name = "nameTextBox";
+			nameTextBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			nameTextBox.Properties.Appearance.Options.UseFont = true;
+			nameTextBox.Properties.NullValuePrompt = null;
+			nameTextBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel1.SetRow(nameTextBox, 1);
+			nameTextBox.Size = new Size(356, 24);
+			nameTextBox.TabIndex = 3;
+			nameTextBox.TextChanged += nameTextBox_TextChanged;
+			// 
+			// label2
+			// 
+			label2.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			label2.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(label2, 0);
+			label2.Dock = DockStyle.Top;
+			label2.Location = new Point(11, 79);
+			label2.Margin = new Padding(0, 3, 6, 0);
+			label2.Name = "label2";
+			tablePanel1.SetRow(label2, 2);
+			label2.Size = new Size(82, 17);
+			label2.TabIndex = 4;
+			label2.Text = "&Location:";
+			// 
+			// label1
+			// 
+			label1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			label1.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(label1, 0);
+			label1.Dock = DockStyle.Top;
+			label1.Location = new Point(11, 43);
+			label1.Margin = new Padding(0, 3, 6, 0);
+			label1.Name = "label1";
+			tablePanel1.SetRow(label1, 1);
+			label1.Size = new Size(82, 17);
+			label1.TabIndex = 2;
+			label1.Text = "&Name:";
+			// 
+			// buttonCancel
+			// 
+			buttonCancel.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCancel.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(buttonCancel, 3);
+			buttonCancel.DialogResult = DialogResult.Cancel;
+			buttonCancel.Dock = DockStyle.Fill;
+			buttonCancel.Location = new Point(380, 181);
+			buttonCancel.Margin = new Padding(0);
+			buttonCancel.Name = "buttonCancel";
+			tablePanel1.SetRow(buttonCancel, 6);
+			buttonCancel.Size = new Size(75, 28);
+			buttonCancel.TabIndex = 10;
+			buttonCancel.Text = "Cancel";
+			// 
+			// buttonOK
+			// 
+			buttonOK.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonOK.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(buttonOK, 2);
+			buttonOK.DialogResult = DialogResult.OK;
+			buttonOK.Dock = DockStyle.Fill;
+			buttonOK.Location = new Point(296, 181);
+			buttonOK.Margin = new Padding(0, 0, 9, 0);
+			buttonOK.Name = "buttonOK";
+			tablePanel1.SetRow(buttonOK, 6);
+			buttonOK.Size = new Size(75, 28);
+			buttonOK.TabIndex = 9;
+			buttonOK.Text = "OK";
+			buttonOK.Click += buttonOK_Click;
+			// 
+			// tablePanel1
+			// 
+			tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 5F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F) });
+			tablePanel1.Controls.Add(tablePanel2);
+			tablePanel1.Controls.Add(labelControl2);
+			tablePanel1.Controls.Add(label1);
+			tablePanel1.Controls.Add(label2);
+			tablePanel1.Controls.Add(labelControl1);
+			tablePanel1.Controls.Add(checkSumTextEdit);
+			tablePanel1.Controls.Add(parentTextEdit);
+			tablePanel1.Controls.Add(nameTextBox);
+			tablePanel1.Controls.Add(ignoreDuringExportAndImportCheckEdit);
+			tablePanel1.Controls.Add(buttonCancel);
+			tablePanel1.Controls.Add(buttonOK);
+			tablePanel1.Dock = DockStyle.Fill;
+			tablePanel1.Location = new Point(0, 0);
+			tablePanel1.Name = "tablePanel1";
+			tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel1.Size = new Size(466, 220);
+			tablePanel1.TabIndex = 0;
+			tablePanel1.UseSkinIndents = true;
+			// 
+			// tablePanel2
+			// 
+			tablePanel2.AutoSize = true;
+			tablePanel1.SetColumn(tablePanel2, 1);
+			tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 55F) });
+			tablePanel1.SetColumnSpan(tablePanel2, 3);
+			tablePanel2.Controls.Add(button1);
+			tablePanel2.Controls.Add(locationTextBox);
+			tablePanel2.Dock = DockStyle.Fill;
+			tablePanel2.Location = new Point(99, 76);
+			tablePanel2.Margin = new Padding(0);
+			tablePanel2.Name = "tablePanel2";
+			tablePanel1.SetRow(tablePanel2, 2);
+			tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F) });
+			tablePanel2.Size = new Size(356, 30);
+			tablePanel2.TabIndex = 5;
+			// 
+			// FileGroupSettingsForm
+			// 
+			AcceptButton = buttonOK;
+			Appearance.Options.UseFont = true;
+			AutoScaleDimensions = new SizeF(9F, 23F);
+			AutoScaleMode = AutoScaleMode.Font;
+			CancelButton = buttonCancel;
+			ClientSize = new Size(466, 220);
+			Controls.Add(tablePanel1);
+			Controls.Add(barDockControlLeft);
+			Controls.Add(barDockControlRight);
+			Controls.Add(barDockControlBottom);
+			Controls.Add(barDockControlTop);
+			Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+			IconOptions.ShowIcon = false;
+			MaximizeBox = false;
+			MaximumSize = new Size(1024, 252);
+			MinimizeBox = false;
+			MinimumSize = new Size(468, 252);
+			Name = "FileGroupSettingsForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Edit file group settings";
+			FormClosing += FileGroupSettingsForm_FormClosing;
+			Load += FileGroupSettingsForm_Load;
+			((ISupportInitialize)ignoreDuringExportAndImportCheckEdit.Properties).EndInit();
+			((ISupportInitialize)parentTextEdit.Properties).EndInit();
+			((ISupportInitialize)optionsPopupMenu).EndInit();
+			((ISupportInitialize)barManager).EndInit();
+			((ISupportInitialize)checkSumTextEdit.Properties).EndInit();
+			((ISupportInitialize)locationTextBox.Properties).EndInit();
+			((ISupportInitialize)nameTextBox.Properties).EndInit();
+			((ISupportInitialize)tablePanel1).EndInit();
+			tablePanel1.ResumeLayout(false);
+			tablePanel1.PerformLayout();
+			((ISupportInitialize)tablePanel2).EndInit();
+			tablePanel2.ResumeLayout(false);
+			tablePanel2.PerformLayout();
+			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
@@ -351,9 +419,10 @@ namespace ZetaResourceEditor.UI.FileGroups
 		private DevExpress.XtraBars.BarDockControl barDockControlRight;
 		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit checkSumTextEdit;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
 		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit parentTextEdit;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl2;
 		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit ignoreDuringExportAndImportCheckEdit;
+		private DevExpress.Utils.Layout.TablePanel tablePanel1;
+		private DevExpress.Utils.Layout.TablePanel tablePanel2;
 	}
 }

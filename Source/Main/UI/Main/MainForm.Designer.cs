@@ -5,19 +5,19 @@ namespace ZetaResourceEditor.UI.Main
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if ( disposing && (components != null) )
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 
 		#region Windows Form Designer generated code
@@ -28,836 +28,732 @@ namespace ZetaResourceEditor.UI.Main
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.mainFormMainSplitContainer = new DevExpress.XtraEditors.SplitContainerControl();
-            this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.barSubRecentFiles = new DevExpress.XtraBars.BarSubItem();
-            this.barSubRecentProjects = new DevExpress.XtraBars.BarSubItem();
-            this.infoButton = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonExit = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonOnlineManual = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonWebsite = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonOpenResourceFiles = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonSaveResourceFiles = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonSaveAllFiles = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonCloseResourceFiles = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonCloseAllDocuments = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonOpenProjectFile = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonSaveProjectFile = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonCloseProject = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonFind = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonFindNext = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonTranslateMissingLanguages = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonAddNewTag = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonDeleteTag = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonRenameTag = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonQuickTranslate = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonRefresh = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonOptions = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonCreateNewProject = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonAutomaticallyAddFileGroupsToProject = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonAddFileGroupToProject = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonRemoveFileGroupFromProject = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonEditFileGroupSettings = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonAddFilesToFileGroup = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonRemoveFileFromGroup = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonEditProjectSettings = new DevExpress.XtraBars.BarButtonItem();
-            this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
-            this.barMdiChildrenListItem2 = new DevExpress.XtraBars.BarMdiChildrenListItem();
-            this.barListItem1 = new DevExpress.XtraBars.BarListItem();
-            this.buttonUpdateAvailable = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonOpenFileGroupFolder = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonExport = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonImport = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonMoveDown = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonMoveUp = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonShowHideProjectPanel = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonCreateNewFile = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonCreateNewFiles = new DevExpress.XtraBars.BarButtonItem();
-            this.resetLayoutButton = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonAddFromVisualStudio = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonConfigureLanguageColumns = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonReplace = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.updateRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
-            this.clientPanel = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            this.updateAvailableCheckerBackgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.updateAvailableBlinkTimer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer.Panel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer.Panel2)).BeginInit();
-            this.mainFormMainSplitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientPanel)).BeginInit();
-            this.clientPanel.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // mainFormMainSplitContainer
-            // 
-            this.mainFormMainSplitContainer.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel1;
-            this.mainFormMainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainFormMainSplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.mainFormMainSplitContainer.Name = "mainFormMainSplitContainer";
-            // 
-            // mainFormMainSplitContainer.Panel1
-            // 
-            this.mainFormMainSplitContainer.Panel1.MinSize = 250;
-            this.mainFormMainSplitContainer.Panel1.Text = "Panel1";
-            this.mainFormMainSplitContainer.Size = new System.Drawing.Size(685, 320);
-            this.mainFormMainSplitContainer.SplitterPosition = 200;
-            this.mainFormMainSplitContainer.TabIndex = 0;
-            this.mainFormMainSplitContainer.Text = "splitContainerControl1";
-            // 
-            // ribbon
-            // 
-            this.ribbon.ApplicationButtonDropDownControl = this.applicationMenu1;
-            this.ribbon.ApplicationButtonText = null;
-            this.ribbon.ExpandCollapseItem.Id = 0;
-            this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbon.ExpandCollapseItem,
-            this.infoButton,
-            this.buttonExit,
-            this.buttonOnlineManual,
-            this.buttonWebsite,
-            this.buttonOpenResourceFiles,
-            this.buttonSaveResourceFiles,
-            this.buttonSaveAllFiles,
-            this.buttonCloseResourceFiles,
-            this.buttonCloseAllDocuments,
-            this.buttonOpenProjectFile,
-            this.buttonSaveProjectFile,
-            this.buttonCloseProject,
-            this.buttonFind,
-            this.buttonFindNext,
-            this.buttonTranslateMissingLanguages,
-            this.buttonAddNewTag,
-            this.buttonDeleteTag,
-            this.buttonRenameTag,
-            this.buttonQuickTranslate,
-            this.buttonRefresh,
-            this.buttonOptions,
-            this.buttonCreateNewProject,
-            this.buttonAutomaticallyAddFileGroupsToProject,
-            this.buttonAddFileGroupToProject,
-            this.buttonRemoveFileGroupFromProject,
-            this.buttonEditFileGroupSettings,
-            this.buttonAddFilesToFileGroup,
-            this.buttonRemoveFileFromGroup,
-            this.buttonEditProjectSettings,
-            this.barMdiChildrenListItem1,
-            this.barMdiChildrenListItem2,
-            this.barListItem1,
-            this.buttonUpdateAvailable,
-            this.buttonOpenFileGroupFolder,
-            this.buttonExport,
-            this.buttonImport,
-            this.barSubRecentFiles,
-            this.barSubRecentProjects,
-            this.buttonMoveDown,
-            this.buttonMoveUp,
-            this.buttonShowHideProjectPanel,
-            this.buttonCreateNewFile,
-            this.buttonCreateNewFiles,
-            this.resetLayoutButton,
-            this.buttonAddFromVisualStudio,
-            this.buttonConfigureLanguageColumns,
-            this.buttonReplace,
-            this.ribbon.SearchEditItem});
-            this.ribbon.ItemsVertAlign = DevExpress.Utils.VertAlignment.Top;
-            this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 75;
-            this.ribbon.Name = "ribbon";
-            this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1,
-            this.ribbonPage4,
-            this.ribbonPage3});
-            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemHyperLinkEdit1});
-            this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbon.Size = new System.Drawing.Size(685, 231);
-            // 
-            // applicationMenu1
-            // 
-            this.applicationMenu1.ItemLinks.Add(this.barSubRecentFiles);
-            this.applicationMenu1.ItemLinks.Add(this.barSubRecentProjects);
-            this.applicationMenu1.Name = "applicationMenu1";
-            this.applicationMenu1.Ribbon = this.ribbon;
-            this.applicationMenu1.BeforePopup += new System.ComponentModel.CancelEventHandler(this.applicationMenu1_BeforePopup);
-            // 
-            // barSubRecentFiles
-            // 
-            this.barSubRecentFiles.Caption = "Recent resource files";
-            this.barSubRecentFiles.Description = "Loads recently opened resource files";
-            this.barSubRecentFiles.Id = 50;
-            this.barSubRecentFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubRecentFiles.ImageOptions.LargeImage")));
-            this.barSubRecentFiles.Name = "barSubRecentFiles";
-            // 
-            // barSubRecentProjects
-            // 
-            this.barSubRecentProjects.Caption = "Recent projects";
-            this.barSubRecentProjects.Description = "Loads a recently opened project";
-            this.barSubRecentProjects.Id = 52;
-            this.barSubRecentProjects.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubRecentProjects.ImageOptions.LargeImage")));
-            this.barSubRecentProjects.Name = "barSubRecentProjects";
-            // 
-            // infoButton
-            // 
-            this.infoButton.Caption = "Info";
-            this.infoButton.Description = "Displays application and version information";
-            this.infoButton.Id = 0;
-            this.infoButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("infoButton.ImageOptions.Image")));
-            this.infoButton.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("infoButton.ImageOptions.LargeImage")));
-            this.infoButton.Name = "infoButton";
-            this.infoButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.aboutZetaResxEditorToolStripMenuItem_Click);
-            // 
-            // buttonExit
-            // 
-            this.buttonExit.Caption = "Exit";
-            this.buttonExit.Description = "Exits the application";
-            this.buttonExit.Id = 1;
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonExit_ItemClick);
-            // 
-            // buttonOnlineManual
-            // 
-            this.buttonOnlineManual.Caption = "Online manual";
-            this.buttonOnlineManual.Hint = "Shows the online manual";
-            this.buttonOnlineManual.Id = 2;
-            this.buttonOnlineManual.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonOnlineManual.ImageOptions.LargeImage")));
-            this.buttonOnlineManual.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F1);
-            this.buttonOnlineManual.Name = "buttonOnlineManual";
-            this.buttonOnlineManual.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.onlineManualToolStripMenuItem_Click);
-            // 
-            // buttonWebsite
-            // 
-            this.buttonWebsite.Caption = "Website";
-            this.buttonWebsite.Id = 3;
-            this.buttonWebsite.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonWebsite.ImageOptions.LargeImage")));
-            this.buttonWebsite.Name = "buttonWebsite";
-            this.buttonWebsite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.visitVendorsWebsiteToolStripMenuItem_Click);
-            // 
-            // buttonOpenResourceFiles
-            // 
-            this.buttonOpenResourceFiles.Caption = "Open resource files";
-            this.buttonOpenResourceFiles.Hint = "Opens existing resource files";
-            this.buttonOpenResourceFiles.Id = 5;
-            this.buttonOpenResourceFiles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonOpenResourceFiles.ImageOptions.Image")));
-            this.buttonOpenResourceFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonOpenResourceFiles.ImageOptions.LargeImage")));
-            this.buttonOpenResourceFiles.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O));
-            this.buttonOpenResourceFiles.Name = "buttonOpenResourceFiles";
-            this.buttonOpenResourceFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // buttonSaveResourceFiles
-            // 
-            this.buttonSaveResourceFiles.Caption = "Save files";
-            this.buttonSaveResourceFiles.Hint = "Saves the currently opened resource file group";
-            this.buttonSaveResourceFiles.Id = 6;
-            this.buttonSaveResourceFiles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveResourceFiles.ImageOptions.Image")));
-            this.buttonSaveResourceFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonSaveResourceFiles.ImageOptions.LargeImage")));
-            this.buttonSaveResourceFiles.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S));
-            this.buttonSaveResourceFiles.Name = "buttonSaveResourceFiles";
-            this.buttonSaveResourceFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // buttonSaveAllFiles
-            // 
-            this.buttonSaveAllFiles.Caption = "Save all files";
-            this.buttonSaveAllFiles.Hint = "Saves all modified resource files and the project itself";
-            this.buttonSaveAllFiles.Id = 7;
-            this.buttonSaveAllFiles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveAllFiles.ImageOptions.Image")));
-            this.buttonSaveAllFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonSaveAllFiles.ImageOptions.LargeImage")));
-            this.buttonSaveAllFiles.ItemShortcut = new DevExpress.XtraBars.BarShortcut(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-                | System.Windows.Forms.Keys.S));
-            this.buttonSaveAllFiles.Name = "buttonSaveAllFiles";
-            this.buttonSaveAllFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveAllToolStripButton_Click);
-            // 
-            // buttonCloseResourceFiles
-            // 
-            this.buttonCloseResourceFiles.Caption = "Close resource files";
-            this.buttonCloseResourceFiles.Hint = "Close the currently open resource file data grid";
-            this.buttonCloseResourceFiles.Id = 8;
-            this.buttonCloseResourceFiles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCloseResourceFiles.ImageOptions.Image")));
-            this.buttonCloseResourceFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCloseResourceFiles.ImageOptions.LargeImage")));
-            this.buttonCloseResourceFiles.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4));
-            this.buttonCloseResourceFiles.Name = "buttonCloseResourceFiles";
-            this.buttonCloseResourceFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.closeToolStripMenuItem_Click);
-            // 
-            // buttonCloseAllDocuments
-            // 
-            this.buttonCloseAllDocuments.Caption = "Close all documents";
-            this.buttonCloseAllDocuments.Hint = "Closes all open resource file group editor windows";
-            this.buttonCloseAllDocuments.Id = 9;
-            this.buttonCloseAllDocuments.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCloseAllDocuments.ImageOptions.Image")));
-            this.buttonCloseAllDocuments.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCloseAllDocuments.ImageOptions.LargeImage")));
-            this.buttonCloseAllDocuments.ItemShortcut = new DevExpress.XtraBars.BarShortcut(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-                | System.Windows.Forms.Keys.W));
-            this.buttonCloseAllDocuments.Name = "buttonCloseAllDocuments";
-            this.buttonCloseAllDocuments.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.closeAllDocumentsToolStripMenuItem_Click);
-            // 
-            // buttonOpenProjectFile
-            // 
-            this.buttonOpenProjectFile.Caption = "Open project file";
-            this.buttonOpenProjectFile.Hint = "Opens an existing project file";
-            this.buttonOpenProjectFile.Id = 10;
-            this.buttonOpenProjectFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonOpenProjectFile.ImageOptions.Image")));
-            this.buttonOpenProjectFile.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonOpenProjectFile.ImageOptions.LargeImage")));
-            this.buttonOpenProjectFile.ItemShortcut = new DevExpress.XtraBars.BarShortcut(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-                | System.Windows.Forms.Keys.O));
-            this.buttonOpenProjectFile.Name = "buttonOpenProjectFile";
-            this.buttonOpenProjectFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openProjectFileToolStripMenuItem_Click);
-            // 
-            // buttonSaveProjectFile
-            // 
-            this.buttonSaveProjectFile.Caption = "Save project file";
-            this.buttonSaveProjectFile.Id = 11;
-            this.buttonSaveProjectFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveProjectFile.ImageOptions.Image")));
-            this.buttonSaveProjectFile.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonSaveProjectFile.ImageOptions.LargeImage")));
-            this.buttonSaveProjectFile.Name = "buttonSaveProjectFile";
-            this.buttonSaveProjectFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveProjectFileToolStripMenuItem_Click);
-            // 
-            // buttonCloseProject
-            // 
-            this.buttonCloseProject.Caption = "Close project";
-            this.buttonCloseProject.Id = 12;
-            this.buttonCloseProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCloseProject.ImageOptions.Image")));
-            this.buttonCloseProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCloseProject.ImageOptions.LargeImage")));
-            this.buttonCloseProject.Name = "buttonCloseProject";
-            this.buttonCloseProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.closeProjectFileToolStripMenuItem_Click);
-            // 
-            // buttonFind
-            // 
-            this.buttonFind.Caption = "Find";
-            this.buttonFind.Hint = "Searches for text in the currently opened resource file group data grid";
-            this.buttonFind.Id = 13;
-            this.buttonFind.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonFind.ImageOptions.Image")));
-            this.buttonFind.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonFind.ImageOptions.LargeImage")));
-            this.buttonFind.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F));
-            this.buttonFind.Name = "buttonFind";
-            this.buttonFind.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.findToolStripMenuItem_Click);
-            // 
-            // buttonFindNext
-            // 
-            this.buttonFindNext.Caption = "Find next";
-            this.buttonFindNext.Hint = "Continues a previously started search";
-            this.buttonFindNext.Id = 14;
-            this.buttonFindNext.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonFindNext.ImageOptions.Image")));
-            this.buttonFindNext.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonFindNext.ImageOptions.LargeImage")));
-            this.buttonFindNext.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F3);
-            this.buttonFindNext.Name = "buttonFindNext";
-            this.buttonFindNext.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.findNextToolStripMenuItem_Click);
-            // 
-            // buttonTranslateMissingLanguages
-            // 
-            this.buttonTranslateMissingLanguages.Caption = "Translate missing languages";
-            this.buttonTranslateMissingLanguages.Id = 15;
-            this.buttonTranslateMissingLanguages.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonTranslateMissingLanguages.ImageOptions.Image")));
-            this.buttonTranslateMissingLanguages.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonTranslateMissingLanguages.ImageOptions.LargeImage")));
-            this.buttonTranslateMissingLanguages.Name = "buttonTranslateMissingLanguages";
-            this.buttonTranslateMissingLanguages.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.translateMissingLanguagesToolStripMenuItem_Click);
-            // 
-            // buttonAddNewTag
-            // 
-            this.buttonAddNewTag.Caption = "Add new tag";
-            this.buttonAddNewTag.Hint = "Adds a new tag to the currently open resource file group data grid";
-            this.buttonAddNewTag.Id = 18;
-            this.buttonAddNewTag.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonAddNewTag.ImageOptions.LargeImage")));
-            this.buttonAddNewTag.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N));
-            this.buttonAddNewTag.Name = "buttonAddNewTag";
-            this.buttonAddNewTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addTagToolStripMenuItem_Click);
-            // 
-            // buttonDeleteTag
-            // 
-            this.buttonDeleteTag.Caption = "Delete tag";
-            this.buttonDeleteTag.Hint = "Deletes the currently selected row";
-            this.buttonDeleteTag.Id = 19;
-            this.buttonDeleteTag.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteTag.ImageOptions.Image")));
-            this.buttonDeleteTag.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonDeleteTag.ImageOptions.LargeImage")));
-            this.buttonDeleteTag.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete));
-            this.buttonDeleteTag.Name = "buttonDeleteTag";
-            this.buttonDeleteTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.deleteTagToolStripMenuItem_Click);
-            // 
-            // buttonRenameTag
-            // 
-            this.buttonRenameTag.Caption = "Rename tag";
-            this.buttonRenameTag.Hint = "Renames the currently selected tag";
-            this.buttonRenameTag.Id = 20;
-            this.buttonRenameTag.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonRenameTag.ImageOptions.Image")));
-            this.buttonRenameTag.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonRenameTag.ImageOptions.LargeImage")));
-            this.buttonRenameTag.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R));
-            this.buttonRenameTag.Name = "buttonRenameTag";
-            this.buttonRenameTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.renameTagToolStripMenuItem_Click);
-            // 
-            // buttonQuickTranslate
-            // 
-            this.buttonQuickTranslate.Caption = "Quick translate";
-            this.buttonQuickTranslate.Hint = "Opens the Quick translate window";
-            this.buttonQuickTranslate.Id = 21;
-            this.buttonQuickTranslate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonQuickTranslate.ImageOptions.Image")));
-            this.buttonQuickTranslate.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonQuickTranslate.ImageOptions.LargeImage")));
-            this.buttonQuickTranslate.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F9);
-            this.buttonQuickTranslate.Name = "buttonQuickTranslate";
-            this.buttonQuickTranslate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.quickTranslationToolStripMenuItem_Click);
-            // 
-            // buttonRefresh
-            // 
-            this.buttonRefresh.Caption = "Refresh file list";
-            this.buttonRefresh.Hint = "Refreshes the project file list";
-            this.buttonRefresh.Id = 22;
-            this.buttonRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.ImageOptions.Image")));
-            this.buttonRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.ImageOptions.LargeImage")));
-            this.buttonRefresh.ImageOptions.LargeImageIndex = 1;
-            this.buttonRefresh.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F5);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.refreshProjectFilesListToolStripMenuItem_Click);
-            // 
-            // buttonOptions
-            // 
-            this.buttonOptions.Caption = "Options";
-            this.buttonOptions.Id = 23;
-            this.buttonOptions.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonOptions.ImageOptions.LargeImage")));
-            this.buttonOptions.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F7));
-            this.buttonOptions.Name = "buttonOptions";
-            this.buttonOptions.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.optionsToolStripMenuItem1_Click);
-            // 
-            // buttonCreateNewProject
-            // 
-            this.buttonCreateNewProject.Caption = "Create new project";
-            this.buttonCreateNewProject.Hint = "Creates a new project";
-            this.buttonCreateNewProject.Id = 24;
-            this.buttonCreateNewProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewProject.ImageOptions.Image")));
-            this.buttonCreateNewProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewProject.ImageOptions.LargeImage")));
-            this.buttonCreateNewProject.ItemShortcut = new DevExpress.XtraBars.BarShortcut(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-                | System.Windows.Forms.Keys.N));
-            this.buttonCreateNewProject.Name = "buttonCreateNewProject";
-            this.buttonCreateNewProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.createNewProjectToolStripMenuItem_Click);
-            // 
-            // buttonAutomaticallyAddFileGroupsToProject
-            // 
-            this.buttonAutomaticallyAddFileGroupsToProject.Caption = "Automatically add multiple files";
-            this.buttonAutomaticallyAddFileGroupsToProject.Id = 25;
-            this.buttonAutomaticallyAddFileGroupsToProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonAutomaticallyAddFileGroupsToProject.ImageOptions.LargeImage")));
-            this.buttonAutomaticallyAddFileGroupsToProject.Name = "buttonAutomaticallyAddFileGroupsToProject";
-            this.buttonAutomaticallyAddFileGroupsToProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.automaticallyAddMultipleFileGroupsToolStripMenuItem_Click);
-            // 
-            // buttonAddFileGroupToProject
-            // 
-            this.buttonAddFileGroupToProject.Caption = "Add file group to project";
-            this.buttonAddFileGroupToProject.Id = 26;
-            this.buttonAddFileGroupToProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddFileGroupToProject.ImageOptions.Image")));
-            this.buttonAddFileGroupToProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonAddFileGroupToProject.ImageOptions.LargeImage")));
-            this.buttonAddFileGroupToProject.Name = "buttonAddFileGroupToProject";
-            this.buttonAddFileGroupToProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addResourceFilesToProjectToolStripMenuItem_Click);
-            // 
-            // buttonRemoveFileGroupFromProject
-            // 
-            this.buttonRemoveFileGroupFromProject.Caption = "Remove file group from project";
-            this.buttonRemoveFileGroupFromProject.Id = 27;
-            this.buttonRemoveFileGroupFromProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileGroupFromProject.ImageOptions.Image")));
-            this.buttonRemoveFileGroupFromProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileGroupFromProject.ImageOptions.LargeImage")));
-            this.buttonRemoveFileGroupFromProject.Name = "buttonRemoveFileGroupFromProject";
-            this.buttonRemoveFileGroupFromProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.removeResourceFilesFromProjectToolStripMenuItem_Click);
-            // 
-            // buttonEditFileGroupSettings
-            // 
-            this.buttonEditFileGroupSettings.Caption = "Edit file group settings";
-            this.buttonEditFileGroupSettings.Id = 28;
-            this.buttonEditFileGroupSettings.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditFileGroupSettings.ImageOptions.Image")));
-            this.buttonEditFileGroupSettings.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonEditFileGroupSettings.ImageOptions.LargeImage")));
-            this.buttonEditFileGroupSettings.Name = "buttonEditFileGroupSettings";
-            this.buttonEditFileGroupSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.editResourceFilesSettingsToolStripMenuItem_Click);
-            // 
-            // buttonAddFilesToFileGroup
-            // 
-            this.buttonAddFilesToFileGroup.Caption = "Add files to file group";
-            this.buttonAddFilesToFileGroup.Id = 29;
-            this.buttonAddFilesToFileGroup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddFilesToFileGroup.ImageOptions.Image")));
-            this.buttonAddFilesToFileGroup.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonAddFilesToFileGroup.ImageOptions.LargeImage")));
-            this.buttonAddFilesToFileGroup.Name = "buttonAddFilesToFileGroup";
-            this.buttonAddFilesToFileGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.addFilesToFileGroupToolStripMenuItem_Click);
-            // 
-            // buttonRemoveFileFromGroup
-            // 
-            this.buttonRemoveFileFromGroup.Caption = "Remove file from group";
-            this.buttonRemoveFileFromGroup.Id = 30;
-            this.buttonRemoveFileFromGroup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileFromGroup.ImageOptions.Image")));
-            this.buttonRemoveFileFromGroup.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonRemoveFileFromGroup.ImageOptions.LargeImage")));
-            this.buttonRemoveFileFromGroup.Name = "buttonRemoveFileFromGroup";
-            this.buttonRemoveFileFromGroup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.removeFileFromGroupToolStripMenuItem_Click);
-            // 
-            // buttonEditProjectSettings
-            // 
-            this.buttonEditProjectSettings.Caption = "Edit project settings";
-            this.buttonEditProjectSettings.Id = 31;
-            this.buttonEditProjectSettings.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditProjectSettings.ImageOptions.Image")));
-            this.buttonEditProjectSettings.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonEditProjectSettings.ImageOptions.LargeImage")));
-            this.buttonEditProjectSettings.Name = "buttonEditProjectSettings";
-            this.buttonEditProjectSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.editProjectSettingsToolStripMenuItem_Click);
-            // 
-            // barMdiChildrenListItem1
-            // 
-            this.barMdiChildrenListItem1.Caption = "Recent projects";
-            this.barMdiChildrenListItem1.Id = 32;
-            this.barMdiChildrenListItem1.ImageOptions.LargeImageIndex = 35;
-            this.barMdiChildrenListItem1.Name = "barMdiChildrenListItem1";
-            // 
-            // barMdiChildrenListItem2
-            // 
-            this.barMdiChildrenListItem2.Caption = "Recent files";
-            this.barMdiChildrenListItem2.Id = 33;
-            this.barMdiChildrenListItem2.ImageOptions.LargeImageIndex = 36;
-            this.barMdiChildrenListItem2.Name = "barMdiChildrenListItem2";
-            // 
-            // barListItem1
-            // 
-            this.barListItem1.Caption = "barListItem1";
-            this.barListItem1.Id = 34;
-            this.barListItem1.Name = "barListItem1";
-            // 
-            // buttonUpdateAvailable
-            // 
-            this.buttonUpdateAvailable.Caption = "An update is available!";
-            this.buttonUpdateAvailable.Id = 37;
-            this.buttonUpdateAvailable.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdateAvailable.ImageOptions.Image")));
-            this.buttonUpdateAvailable.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonUpdateAvailable.ImageOptions.LargeImage")));
-            this.buttonUpdateAvailable.Name = "buttonUpdateAvailable";
-            this.buttonUpdateAvailable.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.buttonUpdateAvailable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonUpdateAvailable_ItemClick);
-            // 
-            // buttonOpenFileGroupFolder
-            // 
-            this.buttonOpenFileGroupFolder.Caption = "Open folder";
-            this.buttonOpenFileGroupFolder.Id = 40;
-            this.buttonOpenFileGroupFolder.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonOpenFileGroupFolder.ImageOptions.LargeImage")));
-            this.buttonOpenFileGroupFolder.Name = "buttonOpenFileGroupFolder";
-            this.buttonOpenFileGroupFolder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.openFolderOfCurrentResourceFileToolStripMenuItem_Click);
-            // 
-            // buttonExport
-            // 
-            this.buttonExport.Caption = "Export to Microsoft Excel";
-            this.buttonExport.Id = 48;
-            this.buttonExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonExport.ImageOptions.Image")));
-            this.buttonExport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonExport.ImageOptions.LargeImage")));
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonExport_ItemClick);
-            // 
-            // buttonImport
-            // 
-            this.buttonImport.Caption = "Import from Microsoft Excel";
-            this.buttonImport.Id = 49;
-            this.buttonImport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonImport.ImageOptions.Image")));
-            this.buttonImport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonImport.ImageOptions.LargeImage")));
-            this.buttonImport.Name = "buttonImport";
-            this.buttonImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonImport_ItemClick);
-            // 
-            // buttonMoveDown
-            // 
-            this.buttonMoveDown.Caption = "Move down";
-            this.buttonMoveDown.Hint = "Move the selected item in the project files tree down by one";
-            this.buttonMoveDown.Id = 53;
-            this.buttonMoveDown.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonMoveDown.ImageOptions.Image")));
-            this.buttonMoveDown.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonMoveDown.ImageOptions.LargeImage")));
-            this.buttonMoveDown.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Down));
-            this.buttonMoveDown.Name = "buttonMoveDown";
-            this.buttonMoveDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMoveDown_ItemClick);
-            // 
-            // buttonMoveUp
-            // 
-            this.buttonMoveUp.Caption = "Move up";
-            this.buttonMoveUp.Hint = "Move the selected item in the project files tree up by one";
-            this.buttonMoveUp.Id = 54;
-            this.buttonMoveUp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonMoveUp.ImageOptions.Image")));
-            this.buttonMoveUp.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonMoveUp.ImageOptions.LargeImage")));
-            this.buttonMoveUp.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Up));
-            this.buttonMoveUp.Name = "buttonMoveUp";
-            this.buttonMoveUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonMoveUp_ItemClick);
-            // 
-            // buttonShowHideProjectPanel
-            // 
-            this.buttonShowHideProjectPanel.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.buttonShowHideProjectPanel.Caption = "Show project panel";
-            this.buttonShowHideProjectPanel.Id = 55;
-            this.buttonShowHideProjectPanel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonShowHideProjectPanel.ImageOptions.Image")));
-            this.buttonShowHideProjectPanel.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonShowHideProjectPanel.ImageOptions.LargeImage")));
-            this.buttonShowHideProjectPanel.Name = "buttonShowHideProjectPanel";
-            this.buttonShowHideProjectPanel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonShowHideProjectPanel_ItemClick);
-            // 
-            // buttonCreateNewFile
-            // 
-            this.buttonCreateNewFile.Caption = "Create new file for language";
-            this.buttonCreateNewFile.Id = 56;
-            this.buttonCreateNewFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewFile.ImageOptions.Image")));
-            this.buttonCreateNewFile.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewFile.ImageOptions.LargeImage")));
-            this.buttonCreateNewFile.Name = "buttonCreateNewFile";
-            this.buttonCreateNewFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonCreateNewFile_ItemClick);
-            // 
-            // buttonCreateNewFiles
-            // 
-            this.buttonCreateNewFiles.Caption = "Create new files for language";
-            this.buttonCreateNewFiles.Id = 57;
-            this.buttonCreateNewFiles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonCreateNewFiles.ImageOptions.LargeImage")));
-            this.buttonCreateNewFiles.Name = "buttonCreateNewFiles";
-            this.buttonCreateNewFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonCreateNewFiles_ItemClick);
-            // 
-            // resetLayoutButton
-            // 
-            this.resetLayoutButton.Caption = "Reset layout";
-            this.resetLayoutButton.Id = 59;
-            this.resetLayoutButton.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resetLayoutButton.ImageOptions.Image")));
-            this.resetLayoutButton.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("resetLayoutButton.ImageOptions.LargeImage")));
-            this.resetLayoutButton.Name = "resetLayoutButton";
-            this.resetLayoutButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.resetLayoutButton_ItemClick);
-            // 
-            // buttonAddFromVisualStudio
-            // 
-            this.buttonAddFromVisualStudio.Caption = "Automatically add from Visual Studio solution";
-            this.buttonAddFromVisualStudio.Id = 60;
-            this.buttonAddFromVisualStudio.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddFromVisualStudio.ImageOptions.Image")));
-            this.buttonAddFromVisualStudio.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonAddFromVisualStudio.ImageOptions.LargeImage")));
-            this.buttonAddFromVisualStudio.Name = "buttonAddFromVisualStudio";
-            this.buttonAddFromVisualStudio.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonAddFromVisualStudio_ItemClick);
-            // 
-            // buttonConfigureLanguageColumns
-            // 
-            this.buttonConfigureLanguageColumns.Caption = "Configure language columns";
-            this.buttonConfigureLanguageColumns.Id = 63;
-            this.buttonConfigureLanguageColumns.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonConfigureLanguageColumns.ImageOptions.Image")));
-            this.buttonConfigureLanguageColumns.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonConfigureLanguageColumns.ImageOptions.LargeImage")));
-            this.buttonConfigureLanguageColumns.Name = "buttonConfigureLanguageColumns";
-            this.buttonConfigureLanguageColumns.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonConfigureLanguageColumns_ItemClick);
-            // 
-            // buttonReplace
-            // 
-            this.buttonReplace.Caption = "Replace";
-            this.buttonReplace.Id = 68;
-            this.buttonReplace.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonReplace.ImageOptions.Image")));
-            this.buttonReplace.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("buttonReplace.ImageOptions.LargeImage")));
-            this.buttonReplace.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H));
-            this.buttonReplace.Name = "buttonReplace";
-            this.buttonReplace.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
-            // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.updateRibbonPageGroup,
-            this.ribbonPageGroup2,
-            this.ribbonPageGroup10,
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup5,
-            this.ribbonPageGroup3});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Start";
-            // 
-            // updateRibbonPageGroup
-            // 
-            this.updateRibbonPageGroup.AllowTextClipping = false;
-            this.updateRibbonPageGroup.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.updateRibbonPageGroup.ItemLinks.Add(this.buttonUpdateAvailable);
-            this.updateRibbonPageGroup.Name = "updateRibbonPageGroup";
-            this.updateRibbonPageGroup.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
-            this.updateRibbonPageGroup.Text = "Update";
-            this.updateRibbonPageGroup.Visible = false;
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup2.ItemLinks.Add(this.buttonOpenProjectFile);
-            this.ribbonPageGroup2.ItemLinks.Add(this.buttonCreateNewProject);
-            this.ribbonPageGroup2.ItemLinks.Add(this.buttonSaveProjectFile);
-            this.ribbonPageGroup2.ItemLinks.Add(this.buttonCloseProject);
-            this.ribbonPageGroup2.ItemLinks.Add(this.buttonEditProjectSettings);
-            this.ribbonPageGroup2.ItemLinks.Add(this.buttonShowHideProjectPanel);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Project files";
-            // 
-            // ribbonPageGroup10
-            // 
-            this.ribbonPageGroup10.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup10.ItemLinks.Add(this.buttonExport);
-            this.ribbonPageGroup10.ItemLinks.Add(this.buttonImport);
-            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
-            this.ribbonPageGroup10.Text = "Import/export";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup1.ItemLinks.Add(this.buttonSaveResourceFiles);
-            this.ribbonPageGroup1.ItemLinks.Add(this.buttonSaveAllFiles);
-            this.ribbonPageGroup1.ItemLinks.Add(this.buttonOpenResourceFiles);
-            this.ribbonPageGroup1.ItemLinks.Add(this.buttonCloseResourceFiles);
-            this.ribbonPageGroup1.ItemLinks.Add(this.buttonCloseAllDocuments);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Resource files";
-            // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup5.ItemLinks.Add(this.buttonRefresh);
-            this.ribbonPageGroup5.ItemLinks.Add(this.buttonMoveUp);
-            this.ribbonPageGroup5.ItemLinks.Add(this.buttonMoveDown);
-            this.ribbonPageGroup5.ItemLinks.Add(this.resetLayoutButton);
-            this.ribbonPageGroup5.ItemLinks.Add(this.buttonConfigureLanguageColumns);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "View";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup3.ItemLinks.Add(this.buttonQuickTranslate);
-            this.ribbonPageGroup3.ItemLinks.Add(this.buttonTranslateMissingLanguages);
-            this.ribbonPageGroup3.ItemLinks.Add(this.buttonFind);
-            this.ribbonPageGroup3.ItemLinks.Add(this.buttonFindNext);
-            this.ribbonPageGroup3.ItemLinks.Add(this.buttonReplace);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Edit";
-            // 
-            // ribbonPage4
-            // 
-            this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup8,
-            this.ribbonPageGroup9,
-            this.ribbonPageGroup4});
-            this.ribbonPage4.Name = "ribbonPage4";
-            this.ribbonPage4.Text = "File groups and tags";
-            // 
-            // ribbonPageGroup8
-            // 
-            this.ribbonPageGroup8.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup8.ItemLinks.Add(this.buttonAutomaticallyAddFileGroupsToProject);
-            this.ribbonPageGroup8.ItemLinks.Add(this.buttonAddFromVisualStudio);
-            this.ribbonPageGroup8.ItemLinks.Add(this.buttonAddFileGroupToProject);
-            this.ribbonPageGroup8.ItemLinks.Add(this.buttonEditFileGroupSettings);
-            this.ribbonPageGroup8.ItemLinks.Add(this.buttonRemoveFileGroupFromProject);
-            this.ribbonPageGroup8.ItemLinks.Add(this.buttonOpenFileGroupFolder);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.Text = "File groups";
-            // 
-            // ribbonPageGroup9
-            // 
-            this.ribbonPageGroup9.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup9.ItemLinks.Add(this.buttonAddFilesToFileGroup);
-            this.ribbonPageGroup9.ItemLinks.Add(this.buttonCreateNewFile);
-            this.ribbonPageGroup9.ItemLinks.Add(this.buttonRemoveFileFromGroup);
-            this.ribbonPageGroup9.ItemLinks.Add(this.buttonCreateNewFiles);
-            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-            this.ribbonPageGroup9.Text = "Files";
-            // 
-            // ribbonPageGroup4
-            // 
-            this.ribbonPageGroup4.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup4.ItemLinks.Add(this.buttonAddNewTag);
-            this.ribbonPageGroup4.ItemLinks.Add(this.buttonRenameTag);
-            this.ribbonPageGroup4.ItemLinks.Add(this.buttonDeleteTag);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "Tags";
-            // 
-            // ribbonPage3
-            // 
-            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup7,
-            this.ribbonPageGroup6,
-            this.ribbonPageGroup11});
-            this.ribbonPage3.Name = "ribbonPage3";
-            this.ribbonPage3.Text = "Extras";
-            // 
-            // ribbonPageGroup7
-            // 
-            this.ribbonPageGroup7.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup7.ItemLinks.Add(this.buttonOptions);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "Extras";
-            // 
-            // ribbonPageGroup6
-            // 
-            this.ribbonPageGroup6.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup6.ItemLinks.Add(this.buttonOnlineManual);
-            this.ribbonPageGroup6.ItemLinks.Add(this.buttonWebsite);
-            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.Text = "Help";
-            // 
-            // ribbonPageGroup11
-            // 
-            this.ribbonPageGroup11.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonPageGroup11.ItemLinks.Add(this.infoButton);
-            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            this.ribbonPageGroup11.Text = "Info";
-            // 
-            // repositoryItemHyperLinkEdit1
-            // 
-            this.repositoryItemHyperLinkEdit1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.repositoryItemHyperLinkEdit1.Appearance.Options.UseFont = true;
-            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
-            this.repositoryItemHyperLinkEdit1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
-            this.repositoryItemHyperLinkEdit1.SingleClick = true;
-            this.repositoryItemHyperLinkEdit1.Tag = "http://www.zeta-producer.com/producer.html?from=zre";
-            // 
-            // clientPanel
-            // 
-            this.clientPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.clientPanel.Controls.Add(this.mainFormMainSplitContainer);
-            this.clientPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clientPanel.Location = new System.Drawing.Point(0, 231);
-            this.clientPanel.Name = "clientPanel";
-            this.clientPanel.Size = new System.Drawing.Size(685, 320);
-            this.clientPanel.TabIndex = 2;
-            // 
-            // updateAvailableCheckerBackgroundWorker
-            // 
-            this.updateAvailableCheckerBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.updateAvailableCheckerBackgroundWorker_DoWork);
-            this.updateAvailableCheckerBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.updateAvailableCheckerBackgroundWorker_RunWorkerCompleted);
-            // 
-            // updateAvailableBlinkTimer
-            // 
-            this.updateAvailableBlinkTimer.Interval = 500;
-            this.updateAvailableBlinkTimer.Tick += new System.EventHandler(this.updateAvailableBlinkTimer_Tick);
-            // 
-            // MainForm
-            // 
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(685, 551);
-            this.Controls.Add(this.clientPanel);
-            this.Controls.Add(this.ribbon);
-            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("MainForm.IconOptions.Icon")));
-            this.Name = "MainForm";
-            this.Ribbon = this.ribbon;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Zeta Resource Editor";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
-            this.Load += new System.EventHandler(this.mainForm_Load);
-            this.Shown += new System.EventHandler(this.mainForm_Shown);
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.mainForm_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.mainForm_DragEnter);
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer.Panel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer.Panel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormMainSplitContainer)).EndInit();
-            this.mainFormMainSplitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientPanel)).EndInit();
-            this.clientPanel.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(MainForm));
+			mainFormMainSplitContainer = new SplitContainerControl();
+			ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+			applicationMenu1 = new DevExpress.XtraBars.Ribbon.ApplicationMenu(components);
+			barSubRecentFiles = new BarSubItem();
+			barSubRecentProjects = new BarSubItem();
+			infoButton = new BarButtonItem();
+			buttonExit = new BarButtonItem();
+			buttonOnlineManual = new BarButtonItem();
+			buttonWebsite = new BarButtonItem();
+			buttonOpenResourceFiles = new BarButtonItem();
+			buttonSaveResourceFiles = new BarButtonItem();
+			buttonSaveAllFiles = new BarButtonItem();
+			buttonCloseResourceFiles = new BarButtonItem();
+			buttonCloseAllDocuments = new BarButtonItem();
+			buttonOpenProjectFile = new BarButtonItem();
+			buttonSaveProjectFile = new BarButtonItem();
+			buttonCloseProject = new BarButtonItem();
+			buttonFind = new BarButtonItem();
+			buttonFindNext = new BarButtonItem();
+			buttonTranslateMissingLanguages = new BarButtonItem();
+			buttonAddNewTag = new BarButtonItem();
+			buttonDeleteTag = new BarButtonItem();
+			buttonRenameTag = new BarButtonItem();
+			buttonQuickTranslate = new BarButtonItem();
+			buttonRefresh = new BarButtonItem();
+			buttonOptions = new BarButtonItem();
+			buttonCreateNewProject = new BarButtonItem();
+			buttonAutomaticallyAddFileGroupsToProject = new BarButtonItem();
+			buttonAddFileGroupToProject = new BarButtonItem();
+			buttonRemoveFileGroupFromProject = new BarButtonItem();
+			buttonEditFileGroupSettings = new BarButtonItem();
+			buttonAddFilesToFileGroup = new BarButtonItem();
+			buttonRemoveFileFromGroup = new BarButtonItem();
+			buttonEditProjectSettings = new BarButtonItem();
+			barMdiChildrenListItem1 = new BarMdiChildrenListItem();
+			barMdiChildrenListItem2 = new BarMdiChildrenListItem();
+			barListItem1 = new BarListItem();
+			buttonUpdateAvailable = new BarButtonItem();
+			buttonOpenFileGroupFolder = new BarButtonItem();
+			buttonExport = new BarButtonItem();
+			buttonImport = new BarButtonItem();
+			buttonMoveDown = new BarButtonItem();
+			buttonMoveUp = new BarButtonItem();
+			buttonShowHideProjectPanel = new BarButtonItem();
+			buttonCreateNewFile = new BarButtonItem();
+			buttonCreateNewFiles = new BarButtonItem();
+			resetLayoutButton = new BarButtonItem();
+			buttonAddFromVisualStudio = new BarButtonItem();
+			buttonConfigureLanguageColumns = new BarButtonItem();
+			buttonReplace = new BarButtonItem();
+			ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+			updateRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+			ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+			ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+			clientPanel = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
+			updateAvailableCheckerBackgroundWorker = new BackgroundWorker();
+			updateAvailableBlinkTimer = new System.Windows.Forms.Timer(components);
+			((ISupportInitialize)mainFormMainSplitContainer).BeginInit();
+			((ISupportInitialize)mainFormMainSplitContainer.Panel1).BeginInit();
+			((ISupportInitialize)mainFormMainSplitContainer.Panel2).BeginInit();
+			mainFormMainSplitContainer.SuspendLayout();
+			((ISupportInitialize)ribbon).BeginInit();
+			((ISupportInitialize)applicationMenu1).BeginInit();
+			((ISupportInitialize)repositoryItemHyperLinkEdit1).BeginInit();
+			((ISupportInitialize)clientPanel).BeginInit();
+			clientPanel.SuspendLayout();
+			SuspendLayout();
+			// 
+			// mainFormMainSplitContainer
+			// 
+			mainFormMainSplitContainer.CollapsePanel = SplitCollapsePanel.Panel1;
+			mainFormMainSplitContainer.Dock = DockStyle.Fill;
+			mainFormMainSplitContainer.Location = new Point(0, 0);
+			mainFormMainSplitContainer.Name = "mainFormMainSplitContainer";
+			// 
+			// mainFormMainSplitContainer.Panel1
+			// 
+			mainFormMainSplitContainer.Panel1.MinSize = 250;
+			mainFormMainSplitContainer.Panel1.Text = "Panel1";
+			mainFormMainSplitContainer.Size = new Size(656, 393);
+			mainFormMainSplitContainer.SplitterPosition = 200;
+			mainFormMainSplitContainer.TabIndex = 0;
+			mainFormMainSplitContainer.Text = "splitContainerControl1";
+			// 
+			// ribbon
+			// 
+			ribbon.ApplicationButtonDropDownControl = applicationMenu1;
+			ribbon.ApplicationButtonText = null;
+			ribbon.ExpandCollapseItem.Id = 0;
+			ribbon.Items.AddRange(new BarItem[] { ribbon.ExpandCollapseItem, ribbon.SearchEditItem, infoButton, buttonExit, buttonOnlineManual, buttonWebsite, buttonOpenResourceFiles, buttonSaveResourceFiles, buttonSaveAllFiles, buttonCloseResourceFiles, buttonCloseAllDocuments, buttonOpenProjectFile, buttonSaveProjectFile, buttonCloseProject, buttonFind, buttonFindNext, buttonTranslateMissingLanguages, buttonAddNewTag, buttonDeleteTag, buttonRenameTag, buttonQuickTranslate, buttonRefresh, buttonOptions, buttonCreateNewProject, buttonAutomaticallyAddFileGroupsToProject, buttonAddFileGroupToProject, buttonRemoveFileGroupFromProject, buttonEditFileGroupSettings, buttonAddFilesToFileGroup, buttonRemoveFileFromGroup, buttonEditProjectSettings, barMdiChildrenListItem1, barMdiChildrenListItem2, barListItem1, buttonUpdateAvailable, buttonOpenFileGroupFolder, buttonExport, buttonImport, barSubRecentFiles, barSubRecentProjects, buttonMoveDown, buttonMoveUp, buttonShowHideProjectPanel, buttonCreateNewFile, buttonCreateNewFiles, resetLayoutButton, buttonAddFromVisualStudio, buttonConfigureLanguageColumns, buttonReplace });
+			ribbon.ItemsVertAlign = VertAlignment.Top;
+			ribbon.Location = new Point(0, 0);
+			ribbon.MaxItemId = 75;
+			ribbon.Name = "ribbon";
+			ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1, ribbonPage4, ribbonPage3 });
+			ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { repositoryItemHyperLinkEdit1 });
+			ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
+			ribbon.Size = new Size(656, 158);
+			// 
+			// applicationMenu1
+			// 
+			applicationMenu1.ItemLinks.Add(barSubRecentFiles);
+			applicationMenu1.ItemLinks.Add(barSubRecentProjects);
+			applicationMenu1.Name = "applicationMenu1";
+			applicationMenu1.Ribbon = ribbon;
+			applicationMenu1.BeforePopup += applicationMenu1_BeforePopup;
+			// 
+			// barSubRecentFiles
+			// 
+			barSubRecentFiles.Caption = "Recent resource files";
+			barSubRecentFiles.Description = "Loads recently opened resource files";
+			barSubRecentFiles.Id = 50;
+			barSubRecentFiles.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barSubRecentFiles.ImageOptions.SvgImage");
+			barSubRecentFiles.Name = "barSubRecentFiles";
+			// 
+			// barSubRecentProjects
+			// 
+			barSubRecentProjects.Caption = "Recent projects";
+			barSubRecentProjects.Description = "Loads a recently opened project";
+			barSubRecentProjects.Id = 52;
+			barSubRecentProjects.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barSubRecentProjects.ImageOptions.SvgImage");
+			barSubRecentProjects.Name = "barSubRecentProjects";
+			// 
+			// infoButton
+			// 
+			infoButton.Caption = "Info";
+			infoButton.Description = "Displays application and version information";
+			infoButton.Id = 0;
+			infoButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("infoButton.ImageOptions.SvgImage");
+			infoButton.Name = "infoButton";
+			infoButton.ItemClick += aboutZetaResxEditorToolStripMenuItem_Click;
+			// 
+			// buttonExit
+			// 
+			buttonExit.Caption = "Exit";
+			buttonExit.Description = "Exits the application";
+			buttonExit.Id = 1;
+			buttonExit.Name = "buttonExit";
+			buttonExit.ItemClick += buttonExit_ItemClick;
+			// 
+			// buttonOnlineManual
+			// 
+			buttonOnlineManual.Caption = "Online manual";
+			buttonOnlineManual.Hint = "Shows the online manual";
+			buttonOnlineManual.Id = 2;
+			buttonOnlineManual.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonOnlineManual.ImageOptions.SvgImage");
+			buttonOnlineManual.ItemShortcut = new BarShortcut(Keys.F1);
+			buttonOnlineManual.Name = "buttonOnlineManual";
+			buttonOnlineManual.ItemClick += onlineManualToolStripMenuItem_Click;
+			// 
+			// buttonWebsite
+			// 
+			buttonWebsite.Caption = "Website";
+			buttonWebsite.Id = 3;
+			buttonWebsite.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonWebsite.ImageOptions.SvgImage");
+			buttonWebsite.Name = "buttonWebsite";
+			buttonWebsite.ItemClick += visitVendorsWebsiteToolStripMenuItem_Click;
+			// 
+			// buttonOpenResourceFiles
+			// 
+			buttonOpenResourceFiles.Caption = "Open resource files";
+			buttonOpenResourceFiles.Hint = "Opens existing resource files";
+			buttonOpenResourceFiles.Id = 5;
+			buttonOpenResourceFiles.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonOpenResourceFiles.ImageOptions.SvgImage");
+			buttonOpenResourceFiles.ItemShortcut = new BarShortcut(Keys.Control | Keys.O);
+			buttonOpenResourceFiles.Name = "buttonOpenResourceFiles";
+			buttonOpenResourceFiles.ItemClick += openToolStripMenuItem_Click;
+			// 
+			// buttonSaveResourceFiles
+			// 
+			buttonSaveResourceFiles.Caption = "Save files";
+			buttonSaveResourceFiles.Hint = "Saves the currently opened resource file group";
+			buttonSaveResourceFiles.Id = 6;
+			buttonSaveResourceFiles.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSaveResourceFiles.ImageOptions.SvgImage");
+			buttonSaveResourceFiles.ItemShortcut = new BarShortcut(Keys.Control | Keys.S);
+			buttonSaveResourceFiles.Name = "buttonSaveResourceFiles";
+			buttonSaveResourceFiles.ItemClick += saveToolStripMenuItem_Click;
+			// 
+			// buttonSaveAllFiles
+			// 
+			buttonSaveAllFiles.Caption = "Save all files";
+			buttonSaveAllFiles.Hint = "Saves all modified resource files and the project itself";
+			buttonSaveAllFiles.Id = 7;
+			buttonSaveAllFiles.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSaveAllFiles.ImageOptions.SvgImage");
+			buttonSaveAllFiles.ItemShortcut = new BarShortcut(Keys.Control | Keys.Shift | Keys.S);
+			buttonSaveAllFiles.Name = "buttonSaveAllFiles";
+			buttonSaveAllFiles.ItemClick += saveAllToolStripButton_Click;
+			// 
+			// buttonCloseResourceFiles
+			// 
+			buttonCloseResourceFiles.Caption = "Close resource files";
+			buttonCloseResourceFiles.Hint = "Close the currently open resource file data grid";
+			buttonCloseResourceFiles.Id = 8;
+			buttonCloseResourceFiles.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonCloseResourceFiles.ImageOptions.SvgImage");
+			buttonCloseResourceFiles.ItemShortcut = new BarShortcut(Keys.Control | Keys.F4);
+			buttonCloseResourceFiles.Name = "buttonCloseResourceFiles";
+			buttonCloseResourceFiles.ItemClick += closeToolStripMenuItem_Click;
+			// 
+			// buttonCloseAllDocuments
+			// 
+			buttonCloseAllDocuments.Caption = "Close all documents";
+			buttonCloseAllDocuments.Hint = "Closes all open resource file group editor windows";
+			buttonCloseAllDocuments.Id = 9;
+			buttonCloseAllDocuments.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonCloseAllDocuments.ImageOptions.SvgImage");
+			buttonCloseAllDocuments.ItemShortcut = new BarShortcut(Keys.Control | Keys.Shift | Keys.W);
+			buttonCloseAllDocuments.Name = "buttonCloseAllDocuments";
+			buttonCloseAllDocuments.ItemClick += closeAllDocumentsToolStripMenuItem_Click;
+			// 
+			// buttonOpenProjectFile
+			// 
+			buttonOpenProjectFile.Caption = "Open project file";
+			buttonOpenProjectFile.Hint = "Opens an existing project file";
+			buttonOpenProjectFile.Id = 10;
+			buttonOpenProjectFile.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonOpenProjectFile.ImageOptions.SvgImage");
+			buttonOpenProjectFile.ItemShortcut = new BarShortcut(Keys.Control | Keys.Shift | Keys.O);
+			buttonOpenProjectFile.Name = "buttonOpenProjectFile";
+			buttonOpenProjectFile.ItemClick += openProjectFileToolStripMenuItem_Click;
+			// 
+			// buttonSaveProjectFile
+			// 
+			buttonSaveProjectFile.Caption = "Save project file";
+			buttonSaveProjectFile.Id = 11;
+			buttonSaveProjectFile.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSaveProjectFile.ImageOptions.SvgImage");
+			buttonSaveProjectFile.Name = "buttonSaveProjectFile";
+			buttonSaveProjectFile.ItemClick += saveProjectFileToolStripMenuItem_Click;
+			// 
+			// buttonCloseProject
+			// 
+			buttonCloseProject.Caption = "Close project";
+			buttonCloseProject.Id = 12;
+			buttonCloseProject.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonCloseProject.ImageOptions.SvgImage");
+			buttonCloseProject.Name = "buttonCloseProject";
+			buttonCloseProject.ItemClick += closeProjectFileToolStripMenuItem_Click;
+			// 
+			// buttonFind
+			// 
+			buttonFind.Caption = "Find";
+			buttonFind.Hint = "Searches for text in the currently opened resource file group data grid";
+			buttonFind.Id = 13;
+			buttonFind.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonFind.ImageOptions.SvgImage");
+			buttonFind.ItemShortcut = new BarShortcut(Keys.Control | Keys.F);
+			buttonFind.Name = "buttonFind";
+			buttonFind.ItemClick += findToolStripMenuItem_Click;
+			// 
+			// buttonFindNext
+			// 
+			buttonFindNext.Caption = "Find next";
+			buttonFindNext.Hint = "Continues a previously started search";
+			buttonFindNext.Id = 14;
+			buttonFindNext.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonFindNext.ImageOptions.SvgImage");
+			buttonFindNext.ItemShortcut = new BarShortcut(Keys.F3);
+			buttonFindNext.Name = "buttonFindNext";
+			buttonFindNext.ItemClick += findNextToolStripMenuItem_Click;
+			// 
+			// buttonTranslateMissingLanguages
+			// 
+			buttonTranslateMissingLanguages.Caption = "Translate missing languages";
+			buttonTranslateMissingLanguages.Id = 15;
+			buttonTranslateMissingLanguages.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonTranslateMissingLanguages.ImageOptions.SvgImage");
+			buttonTranslateMissingLanguages.Name = "buttonTranslateMissingLanguages";
+			buttonTranslateMissingLanguages.ItemClick += translateMissingLanguagesToolStripMenuItem_Click;
+			// 
+			// buttonAddNewTag
+			// 
+			buttonAddNewTag.Caption = "Add new tag";
+			buttonAddNewTag.Hint = "Adds a new tag to the currently open resource file group data grid";
+			buttonAddNewTag.Id = 18;
+			buttonAddNewTag.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonAddNewTag.ImageOptions.SvgImage");
+			buttonAddNewTag.ItemShortcut = new BarShortcut(Keys.Control | Keys.N);
+			buttonAddNewTag.Name = "buttonAddNewTag";
+			buttonAddNewTag.ItemClick += addTagToolStripMenuItem_Click;
+			// 
+			// buttonDeleteTag
+			// 
+			buttonDeleteTag.Caption = "Delete tag";
+			buttonDeleteTag.Hint = "Deletes the currently selected row";
+			buttonDeleteTag.Id = 19;
+			buttonDeleteTag.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonDeleteTag.ImageOptions.SvgImage");
+			buttonDeleteTag.ItemShortcut = new BarShortcut(Keys.Control | Keys.Delete);
+			buttonDeleteTag.Name = "buttonDeleteTag";
+			buttonDeleteTag.ItemClick += deleteTagToolStripMenuItem_Click;
+			// 
+			// buttonRenameTag
+			// 
+			buttonRenameTag.Caption = "Rename tag";
+			buttonRenameTag.Hint = "Renames the currently selected tag";
+			buttonRenameTag.Id = 20;
+			buttonRenameTag.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonRenameTag.ImageOptions.SvgImage");
+			buttonRenameTag.ItemShortcut = new BarShortcut(Keys.Control | Keys.R);
+			buttonRenameTag.Name = "buttonRenameTag";
+			buttonRenameTag.ItemClick += renameTagToolStripMenuItem_Click;
+			// 
+			// buttonQuickTranslate
+			// 
+			buttonQuickTranslate.Caption = "Quick translate";
+			buttonQuickTranslate.Hint = "Opens the Quick translate window";
+			buttonQuickTranslate.Id = 21;
+			buttonQuickTranslate.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonQuickTranslate.ImageOptions.SvgImage");
+			buttonQuickTranslate.ItemShortcut = new BarShortcut(Keys.F9);
+			buttonQuickTranslate.Name = "buttonQuickTranslate";
+			buttonQuickTranslate.ItemClick += quickTranslationToolStripMenuItem_Click;
+			// 
+			// buttonRefresh
+			// 
+			buttonRefresh.Caption = "Refresh file list";
+			buttonRefresh.Hint = "Refreshes the project file list";
+			buttonRefresh.Id = 22;
+			buttonRefresh.ImageOptions.LargeImageIndex = 1;
+			buttonRefresh.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonRefresh.ImageOptions.SvgImage");
+			buttonRefresh.ItemShortcut = new BarShortcut(Keys.F5);
+			buttonRefresh.Name = "buttonRefresh";
+			buttonRefresh.ItemClick += refreshProjectFilesListToolStripMenuItem_Click;
+			// 
+			// buttonOptions
+			// 
+			buttonOptions.Caption = "Options";
+			buttonOptions.Id = 23;
+			buttonOptions.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonOptions.ImageOptions.SvgImage");
+			buttonOptions.ItemShortcut = new BarShortcut(Keys.Alt | Keys.F7);
+			buttonOptions.Name = "buttonOptions";
+			buttonOptions.ItemClick += optionsToolStripMenuItem1_Click;
+			// 
+			// buttonCreateNewProject
+			// 
+			buttonCreateNewProject.Caption = "Create new project";
+			buttonCreateNewProject.Hint = "Creates a new project";
+			buttonCreateNewProject.Id = 24;
+			buttonCreateNewProject.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonCreateNewProject.ImageOptions.SvgImage");
+			buttonCreateNewProject.ItemShortcut = new BarShortcut(Keys.Control | Keys.Shift | Keys.N);
+			buttonCreateNewProject.Name = "buttonCreateNewProject";
+			buttonCreateNewProject.ItemClick += createNewProjectToolStripMenuItem_Click;
+			// 
+			// buttonAutomaticallyAddFileGroupsToProject
+			// 
+			buttonAutomaticallyAddFileGroupsToProject.Caption = "Automatically add multiple files";
+			buttonAutomaticallyAddFileGroupsToProject.Id = 25;
+			buttonAutomaticallyAddFileGroupsToProject.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonAutomaticallyAddFileGroupsToProject.ImageOptions.SvgImage");
+			buttonAutomaticallyAddFileGroupsToProject.Name = "buttonAutomaticallyAddFileGroupsToProject";
+			buttonAutomaticallyAddFileGroupsToProject.ItemClick += automaticallyAddMultipleFileGroupsToolStripMenuItem_Click;
+			// 
+			// buttonAddFileGroupToProject
+			// 
+			buttonAddFileGroupToProject.Caption = "Add file group to project";
+			buttonAddFileGroupToProject.Id = 26;
+			buttonAddFileGroupToProject.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonAddFileGroupToProject.ImageOptions.SvgImage");
+			buttonAddFileGroupToProject.Name = "buttonAddFileGroupToProject";
+			buttonAddFileGroupToProject.ItemClick += addResourceFilesToProjectToolStripMenuItem_Click;
+			// 
+			// buttonRemoveFileGroupFromProject
+			// 
+			buttonRemoveFileGroupFromProject.Caption = "Remove file group from project";
+			buttonRemoveFileGroupFromProject.Id = 27;
+			buttonRemoveFileGroupFromProject.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonRemoveFileGroupFromProject.ImageOptions.SvgImage");
+			buttonRemoveFileGroupFromProject.Name = "buttonRemoveFileGroupFromProject";
+			buttonRemoveFileGroupFromProject.ItemClick += removeResourceFilesFromProjectToolStripMenuItem_Click;
+			// 
+			// buttonEditFileGroupSettings
+			// 
+			buttonEditFileGroupSettings.Caption = "Edit file group settings";
+			buttonEditFileGroupSettings.Id = 28;
+			buttonEditFileGroupSettings.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonEditFileGroupSettings.ImageOptions.SvgImage");
+			buttonEditFileGroupSettings.Name = "buttonEditFileGroupSettings";
+			buttonEditFileGroupSettings.ItemClick += editResourceFilesSettingsToolStripMenuItem_Click;
+			// 
+			// buttonAddFilesToFileGroup
+			// 
+			buttonAddFilesToFileGroup.Caption = "Add files to file group";
+			buttonAddFilesToFileGroup.Id = 29;
+			buttonAddFilesToFileGroup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonAddFilesToFileGroup.ImageOptions.SvgImage");
+			buttonAddFilesToFileGroup.Name = "buttonAddFilesToFileGroup";
+			buttonAddFilesToFileGroup.ItemClick += addFilesToFileGroupToolStripMenuItem_Click;
+			// 
+			// buttonRemoveFileFromGroup
+			// 
+			buttonRemoveFileFromGroup.Caption = "Remove file from group";
+			buttonRemoveFileFromGroup.Id = 30;
+			buttonRemoveFileFromGroup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonRemoveFileFromGroup.ImageOptions.SvgImage");
+			buttonRemoveFileFromGroup.Name = "buttonRemoveFileFromGroup";
+			buttonRemoveFileFromGroup.ItemClick += removeFileFromGroupToolStripMenuItem_Click;
+			// 
+			// buttonEditProjectSettings
+			// 
+			buttonEditProjectSettings.Caption = "Edit project settings";
+			buttonEditProjectSettings.Id = 31;
+			buttonEditProjectSettings.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonEditProjectSettings.ImageOptions.SvgImage");
+			buttonEditProjectSettings.Name = "buttonEditProjectSettings";
+			buttonEditProjectSettings.ItemClick += editProjectSettingsToolStripMenuItem_Click;
+			// 
+			// barMdiChildrenListItem1
+			// 
+			barMdiChildrenListItem1.Caption = "Recent projects";
+			barMdiChildrenListItem1.Id = 32;
+			barMdiChildrenListItem1.ImageOptions.LargeImageIndex = 35;
+			barMdiChildrenListItem1.Name = "barMdiChildrenListItem1";
+			// 
+			// barMdiChildrenListItem2
+			// 
+			barMdiChildrenListItem2.Caption = "Recent files";
+			barMdiChildrenListItem2.Id = 33;
+			barMdiChildrenListItem2.ImageOptions.LargeImageIndex = 36;
+			barMdiChildrenListItem2.Name = "barMdiChildrenListItem2";
+			// 
+			// barListItem1
+			// 
+			barListItem1.Caption = "barListItem1";
+			barListItem1.Id = 34;
+			barListItem1.Name = "barListItem1";
+			// 
+			// buttonUpdateAvailable
+			// 
+			buttonUpdateAvailable.Caption = "An update is available!";
+			buttonUpdateAvailable.Id = 37;
+			buttonUpdateAvailable.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonUpdateAvailable.ImageOptions.SvgImage");
+			buttonUpdateAvailable.Name = "buttonUpdateAvailable";
+			buttonUpdateAvailable.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+			buttonUpdateAvailable.ItemClick += buttonUpdateAvailable_ItemClick;
+			// 
+			// buttonOpenFileGroupFolder
+			// 
+			buttonOpenFileGroupFolder.Caption = "Open folder";
+			buttonOpenFileGroupFolder.Id = 40;
+			buttonOpenFileGroupFolder.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonOpenFileGroupFolder.ImageOptions.SvgImage");
+			buttonOpenFileGroupFolder.Name = "buttonOpenFileGroupFolder";
+			buttonOpenFileGroupFolder.ItemClick += openFolderOfCurrentResourceFileToolStripMenuItem_Click;
+			// 
+			// buttonExport
+			// 
+			buttonExport.Caption = "Export to Microsoft Excel";
+			buttonExport.Id = 48;
+			buttonExport.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonExport.ImageOptions.SvgImage");
+			buttonExport.Name = "buttonExport";
+			buttonExport.ItemClick += buttonExport_ItemClick;
+			// 
+			// buttonImport
+			// 
+			buttonImport.Caption = "Import from Microsoft Excel";
+			buttonImport.Id = 49;
+			buttonImport.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonImport.ImageOptions.SvgImage");
+			buttonImport.Name = "buttonImport";
+			buttonImport.ItemClick += buttonImport_ItemClick;
+			// 
+			// buttonMoveDown
+			// 
+			buttonMoveDown.Caption = "Move down";
+			buttonMoveDown.Hint = "Move the selected item in the project files tree down by one";
+			buttonMoveDown.Id = 53;
+			buttonMoveDown.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonMoveDown.ImageOptions.SvgImage");
+			buttonMoveDown.ItemShortcut = new BarShortcut(Keys.Control | Keys.Down);
+			buttonMoveDown.Name = "buttonMoveDown";
+			buttonMoveDown.ItemClick += buttonMoveDown_ItemClick;
+			// 
+			// buttonMoveUp
+			// 
+			buttonMoveUp.Caption = "Move up";
+			buttonMoveUp.Hint = "Move the selected item in the project files tree up by one";
+			buttonMoveUp.Id = 54;
+			buttonMoveUp.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonMoveUp.ImageOptions.SvgImage");
+			buttonMoveUp.ItemShortcut = new BarShortcut(Keys.Control | Keys.Up);
+			buttonMoveUp.Name = "buttonMoveUp";
+			buttonMoveUp.ItemClick += buttonMoveUp_ItemClick;
+			// 
+			// buttonShowHideProjectPanel
+			// 
+			buttonShowHideProjectPanel.ButtonStyle = BarButtonStyle.Check;
+			buttonShowHideProjectPanel.Caption = "Show project panel";
+			buttonShowHideProjectPanel.Id = 55;
+			buttonShowHideProjectPanel.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonShowHideProjectPanel.ImageOptions.SvgImage");
+			buttonShowHideProjectPanel.Name = "buttonShowHideProjectPanel";
+			buttonShowHideProjectPanel.ItemClick += buttonShowHideProjectPanel_ItemClick;
+			// 
+			// buttonCreateNewFile
+			// 
+			buttonCreateNewFile.Caption = "Create new file for language";
+			buttonCreateNewFile.Id = 56;
+			buttonCreateNewFile.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonCreateNewFile.ImageOptions.SvgImage");
+			buttonCreateNewFile.Name = "buttonCreateNewFile";
+			buttonCreateNewFile.ItemClick += buttonCreateNewFile_ItemClick;
+			// 
+			// buttonCreateNewFiles
+			// 
+			buttonCreateNewFiles.Caption = "Create new files for language";
+			buttonCreateNewFiles.Id = 57;
+			buttonCreateNewFiles.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonCreateNewFiles.ImageOptions.SvgImage");
+			buttonCreateNewFiles.Name = "buttonCreateNewFiles";
+			buttonCreateNewFiles.ItemClick += buttonCreateNewFiles_ItemClick;
+			// 
+			// resetLayoutButton
+			// 
+			resetLayoutButton.Caption = "Reset layout";
+			resetLayoutButton.Id = 59;
+			resetLayoutButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("resetLayoutButton.ImageOptions.SvgImage");
+			resetLayoutButton.Name = "resetLayoutButton";
+			resetLayoutButton.ItemClick += resetLayoutButton_ItemClick;
+			// 
+			// buttonAddFromVisualStudio
+			// 
+			buttonAddFromVisualStudio.Caption = "Automatically add from Visual Studio solution";
+			buttonAddFromVisualStudio.Id = 60;
+			buttonAddFromVisualStudio.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonAddFromVisualStudio.ImageOptions.SvgImage");
+			buttonAddFromVisualStudio.Name = "buttonAddFromVisualStudio";
+			buttonAddFromVisualStudio.ItemClick += buttonAddFromVisualStudio_ItemClick;
+			// 
+			// buttonConfigureLanguageColumns
+			// 
+			buttonConfigureLanguageColumns.Caption = "Configure language columns";
+			buttonConfigureLanguageColumns.Id = 63;
+			buttonConfigureLanguageColumns.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonConfigureLanguageColumns.ImageOptions.SvgImage");
+			buttonConfigureLanguageColumns.Name = "buttonConfigureLanguageColumns";
+			buttonConfigureLanguageColumns.ItemClick += buttonConfigureLanguageColumns_ItemClick;
+			// 
+			// buttonReplace
+			// 
+			buttonReplace.Caption = "Replace";
+			buttonReplace.Id = 68;
+			buttonReplace.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonReplace.ImageOptions.SvgImage");
+			buttonReplace.ItemShortcut = new BarShortcut(Keys.Control | Keys.H);
+			buttonReplace.Name = "buttonReplace";
+			buttonReplace.ItemClick += barButtonItem1_ItemClick;
+			// 
+			// ribbonPage1
+			// 
+			ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { updateRibbonPageGroup, ribbonPageGroup2, ribbonPageGroup10, ribbonPageGroup1, ribbonPageGroup5, ribbonPageGroup3 });
+			ribbonPage1.Name = "ribbonPage1";
+			ribbonPage1.Text = "Start";
+			// 
+			// updateRibbonPageGroup
+			// 
+			updateRibbonPageGroup.AllowTextClipping = false;
+			updateRibbonPageGroup.CaptionButtonVisible = DefaultBoolean.False;
+			updateRibbonPageGroup.ItemLinks.Add(buttonUpdateAvailable);
+			updateRibbonPageGroup.Name = "updateRibbonPageGroup";
+			updateRibbonPageGroup.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
+			updateRibbonPageGroup.Text = "Update";
+			updateRibbonPageGroup.Visible = false;
+			// 
+			// ribbonPageGroup2
+			// 
+			ribbonPageGroup2.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup2.ItemLinks.Add(buttonOpenProjectFile);
+			ribbonPageGroup2.ItemLinks.Add(buttonCreateNewProject);
+			ribbonPageGroup2.ItemLinks.Add(buttonSaveProjectFile);
+			ribbonPageGroup2.ItemLinks.Add(buttonCloseProject);
+			ribbonPageGroup2.ItemLinks.Add(buttonEditProjectSettings);
+			ribbonPageGroup2.ItemLinks.Add(buttonShowHideProjectPanel);
+			ribbonPageGroup2.Name = "ribbonPageGroup2";
+			ribbonPageGroup2.Text = "Project files";
+			// 
+			// ribbonPageGroup10
+			// 
+			ribbonPageGroup10.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup10.ItemLinks.Add(buttonExport);
+			ribbonPageGroup10.ItemLinks.Add(buttonImport);
+			ribbonPageGroup10.Name = "ribbonPageGroup10";
+			ribbonPageGroup10.Text = "Import/export";
+			// 
+			// ribbonPageGroup1
+			// 
+			ribbonPageGroup1.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup1.ItemLinks.Add(buttonSaveResourceFiles);
+			ribbonPageGroup1.ItemLinks.Add(buttonSaveAllFiles);
+			ribbonPageGroup1.ItemLinks.Add(buttonOpenResourceFiles);
+			ribbonPageGroup1.ItemLinks.Add(buttonCloseResourceFiles);
+			ribbonPageGroup1.ItemLinks.Add(buttonCloseAllDocuments);
+			ribbonPageGroup1.Name = "ribbonPageGroup1";
+			ribbonPageGroup1.Text = "Resource files";
+			// 
+			// ribbonPageGroup5
+			// 
+			ribbonPageGroup5.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup5.ItemLinks.Add(buttonRefresh);
+			ribbonPageGroup5.ItemLinks.Add(buttonMoveUp);
+			ribbonPageGroup5.ItemLinks.Add(buttonMoveDown);
+			ribbonPageGroup5.ItemLinks.Add(resetLayoutButton);
+			ribbonPageGroup5.ItemLinks.Add(buttonConfigureLanguageColumns);
+			ribbonPageGroup5.Name = "ribbonPageGroup5";
+			ribbonPageGroup5.Text = "View";
+			// 
+			// ribbonPageGroup3
+			// 
+			ribbonPageGroup3.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup3.ItemLinks.Add(buttonQuickTranslate);
+			ribbonPageGroup3.ItemLinks.Add(buttonTranslateMissingLanguages);
+			ribbonPageGroup3.ItemLinks.Add(buttonFind);
+			ribbonPageGroup3.ItemLinks.Add(buttonFindNext);
+			ribbonPageGroup3.ItemLinks.Add(buttonReplace);
+			ribbonPageGroup3.Name = "ribbonPageGroup3";
+			ribbonPageGroup3.Text = "Edit";
+			// 
+			// ribbonPage4
+			// 
+			ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup8, ribbonPageGroup9, ribbonPageGroup4 });
+			ribbonPage4.Name = "ribbonPage4";
+			ribbonPage4.Text = "File groups and tags";
+			// 
+			// ribbonPageGroup8
+			// 
+			ribbonPageGroup8.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup8.ItemLinks.Add(buttonAutomaticallyAddFileGroupsToProject);
+			ribbonPageGroup8.ItemLinks.Add(buttonAddFromVisualStudio);
+			ribbonPageGroup8.ItemLinks.Add(buttonAddFileGroupToProject);
+			ribbonPageGroup8.ItemLinks.Add(buttonEditFileGroupSettings);
+			ribbonPageGroup8.ItemLinks.Add(buttonRemoveFileGroupFromProject);
+			ribbonPageGroup8.ItemLinks.Add(buttonOpenFileGroupFolder);
+			ribbonPageGroup8.Name = "ribbonPageGroup8";
+			ribbonPageGroup8.Text = "File groups";
+			// 
+			// ribbonPageGroup9
+			// 
+			ribbonPageGroup9.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup9.ItemLinks.Add(buttonAddFilesToFileGroup);
+			ribbonPageGroup9.ItemLinks.Add(buttonCreateNewFile);
+			ribbonPageGroup9.ItemLinks.Add(buttonRemoveFileFromGroup);
+			ribbonPageGroup9.ItemLinks.Add(buttonCreateNewFiles);
+			ribbonPageGroup9.Name = "ribbonPageGroup9";
+			ribbonPageGroup9.Text = "Files";
+			// 
+			// ribbonPageGroup4
+			// 
+			ribbonPageGroup4.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup4.ItemLinks.Add(buttonAddNewTag);
+			ribbonPageGroup4.ItemLinks.Add(buttonRenameTag);
+			ribbonPageGroup4.ItemLinks.Add(buttonDeleteTag);
+			ribbonPageGroup4.Name = "ribbonPageGroup4";
+			ribbonPageGroup4.Text = "Tags";
+			// 
+			// ribbonPage3
+			// 
+			ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] { ribbonPageGroup7, ribbonPageGroup6, ribbonPageGroup11 });
+			ribbonPage3.Name = "ribbonPage3";
+			ribbonPage3.Text = "Extras";
+			// 
+			// ribbonPageGroup7
+			// 
+			ribbonPageGroup7.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup7.ItemLinks.Add(buttonOptions);
+			ribbonPageGroup7.Name = "ribbonPageGroup7";
+			ribbonPageGroup7.Text = "Extras";
+			// 
+			// ribbonPageGroup6
+			// 
+			ribbonPageGroup6.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup6.ItemLinks.Add(buttonOnlineManual);
+			ribbonPageGroup6.ItemLinks.Add(buttonWebsite);
+			ribbonPageGroup6.Name = "ribbonPageGroup6";
+			ribbonPageGroup6.Text = "Help";
+			// 
+			// ribbonPageGroup11
+			// 
+			ribbonPageGroup11.CaptionButtonVisible = DefaultBoolean.False;
+			ribbonPageGroup11.ItemLinks.Add(infoButton);
+			ribbonPageGroup11.Name = "ribbonPageGroup11";
+			ribbonPageGroup11.Text = "Info";
+			// 
+			// repositoryItemHyperLinkEdit1
+			// 
+			repositoryItemHyperLinkEdit1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+			repositoryItemHyperLinkEdit1.Appearance.Options.UseFont = true;
+			repositoryItemHyperLinkEdit1.AutoHeight = false;
+			repositoryItemHyperLinkEdit1.BorderStyle = BorderStyles.NoBorder;
+			repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
+			repositoryItemHyperLinkEdit1.SingleClick = true;
+			repositoryItemHyperLinkEdit1.Tag = "http://www.zeta-producer.com/producer.html?from=zre";
+			// 
+			// clientPanel
+			// 
+			clientPanel.BorderStyle = BorderStyles.NoBorder;
+			clientPanel.Controls.Add(mainFormMainSplitContainer);
+			clientPanel.Dock = DockStyle.Fill;
+			clientPanel.Location = new Point(0, 158);
+			clientPanel.Name = "clientPanel";
+			clientPanel.Size = new Size(656, 393);
+			clientPanel.TabIndex = 2;
+			// 
+			// updateAvailableCheckerBackgroundWorker
+			// 
+			updateAvailableCheckerBackgroundWorker.DoWork += updateAvailableCheckerBackgroundWorker_DoWork;
+			updateAvailableCheckerBackgroundWorker.RunWorkerCompleted += updateAvailableCheckerBackgroundWorker_RunWorkerCompleted;
+			// 
+			// updateAvailableBlinkTimer
+			// 
+			updateAvailableBlinkTimer.Interval = 500;
+			updateAvailableBlinkTimer.Tick += updateAvailableBlinkTimer_Tick;
+			// 
+			// MainForm
+			// 
+			Appearance.Options.UseFont = true;
+			AutoScaleDimensions = new SizeF(7F, 17F);
+			AutoScaleMode = AutoScaleMode.Font;
+			ClientSize = new Size(656, 551);
+			Controls.Add(clientPanel);
+			Controls.Add(ribbon);
+			IconOptions.Icon = (Icon)resources.GetObject("MainForm.IconOptions.Icon");
+			Name = "MainForm";
+			Ribbon = ribbon;
+			StartPosition = FormStartPosition.CenterScreen;
+			Text = "Zeta Resource Editor";
+			FormClosing += mainForm_FormClosing;
+			Load += mainForm_Load;
+			Shown += mainForm_Shown;
+			DragDrop += mainForm_DragDrop;
+			DragEnter += mainForm_DragEnter;
+			((ISupportInitialize)mainFormMainSplitContainer.Panel1).EndInit();
+			((ISupportInitialize)mainFormMainSplitContainer.Panel2).EndInit();
+			((ISupportInitialize)mainFormMainSplitContainer).EndInit();
+			mainFormMainSplitContainer.ResumeLayout(false);
+			((ISupportInitialize)ribbon).EndInit();
+			((ISupportInitialize)applicationMenu1).EndInit();
+			((ISupportInitialize)repositoryItemHyperLinkEdit1).EndInit();
+			((ISupportInitialize)clientPanel).EndInit();
+			clientPanel.ResumeLayout(false);
+			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
@@ -867,69 +763,69 @@ namespace ZetaResourceEditor.UI.Main
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
 		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl clientPanel;
 		private DevExpress.XtraBars.Ribbon.ApplicationMenu applicationMenu1;
-		private DevExpress.XtraBars.BarButtonItem infoButton;
-		private DevExpress.XtraBars.BarButtonItem buttonExit;
-		private System.ComponentModel.BackgroundWorker updateAvailableCheckerBackgroundWorker;
+		private BarButtonItem infoButton;
+		private BarButtonItem buttonExit;
+		private BackgroundWorker updateAvailableCheckerBackgroundWorker;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
-		private DevExpress.XtraBars.BarButtonItem buttonOnlineManual;
-		private DevExpress.XtraBars.BarButtonItem buttonWebsite;
-		private DevExpress.XtraBars.BarButtonItem buttonOpenResourceFiles;
-		private DevExpress.XtraBars.BarButtonItem buttonSaveResourceFiles;
-		private DevExpress.XtraBars.BarButtonItem buttonSaveAllFiles;
-		private DevExpress.XtraBars.BarButtonItem buttonCloseResourceFiles;
-		private DevExpress.XtraBars.BarButtonItem buttonCloseAllDocuments;
-		private DevExpress.XtraBars.BarButtonItem buttonOpenProjectFile;
-		private DevExpress.XtraBars.BarButtonItem buttonSaveProjectFile;
-		private DevExpress.XtraBars.BarButtonItem buttonCloseProject;
-		private DevExpress.XtraBars.BarButtonItem buttonFind;
-		private DevExpress.XtraBars.BarButtonItem buttonFindNext;
-		private DevExpress.XtraBars.BarButtonItem buttonTranslateMissingLanguages;
-		private DevExpress.XtraBars.BarButtonItem buttonAddNewTag;
-		private DevExpress.XtraBars.BarButtonItem buttonDeleteTag;
-		private DevExpress.XtraBars.BarButtonItem buttonRenameTag;
-		private DevExpress.XtraBars.BarButtonItem buttonQuickTranslate;
-		private DevExpress.XtraBars.BarButtonItem buttonRefresh;
-		private DevExpress.XtraBars.BarButtonItem buttonOptions;
+		private BarButtonItem buttonOnlineManual;
+		private BarButtonItem buttonWebsite;
+		private BarButtonItem buttonOpenResourceFiles;
+		private BarButtonItem buttonSaveResourceFiles;
+		private BarButtonItem buttonSaveAllFiles;
+		private BarButtonItem buttonCloseResourceFiles;
+		private BarButtonItem buttonCloseAllDocuments;
+		private BarButtonItem buttonOpenProjectFile;
+		private BarButtonItem buttonSaveProjectFile;
+		private BarButtonItem buttonCloseProject;
+		private BarButtonItem buttonFind;
+		private BarButtonItem buttonFindNext;
+		private BarButtonItem buttonTranslateMissingLanguages;
+		private BarButtonItem buttonAddNewTag;
+		private BarButtonItem buttonDeleteTag;
+		private BarButtonItem buttonRenameTag;
+		private BarButtonItem buttonQuickTranslate;
+		private BarButtonItem buttonRefresh;
+		private BarButtonItem buttonOptions;
 		private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
-		private DevExpress.XtraBars.BarButtonItem buttonCreateNewProject;
-		private DevExpress.XtraBars.BarButtonItem buttonAutomaticallyAddFileGroupsToProject;
-		private DevExpress.XtraBars.BarButtonItem buttonAddFileGroupToProject;
-		private DevExpress.XtraBars.BarButtonItem buttonRemoveFileGroupFromProject;
-		private DevExpress.XtraBars.BarButtonItem buttonEditFileGroupSettings;
-		private DevExpress.XtraBars.BarButtonItem buttonAddFilesToFileGroup;
-		private DevExpress.XtraBars.BarButtonItem buttonRemoveFileFromGroup;
-		private DevExpress.XtraBars.BarButtonItem buttonEditProjectSettings;
+		private BarButtonItem buttonCreateNewProject;
+		private BarButtonItem buttonAutomaticallyAddFileGroupsToProject;
+		private BarButtonItem buttonAddFileGroupToProject;
+		private BarButtonItem buttonRemoveFileGroupFromProject;
+		private BarButtonItem buttonEditFileGroupSettings;
+		private BarButtonItem buttonAddFilesToFileGroup;
+		private BarButtonItem buttonRemoveFileFromGroup;
+		private BarButtonItem buttonEditProjectSettings;
 		private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
-		private DevExpress.XtraBars.BarMdiChildrenListItem barMdiChildrenListItem1;
-		private DevExpress.XtraBars.BarMdiChildrenListItem barMdiChildrenListItem2;
-		private DevExpress.XtraBars.BarListItem barListItem1;
-		private DevExpress.XtraEditors.SplitContainerControl mainFormMainSplitContainer;
-		private DevExpress.XtraBars.BarButtonItem buttonUpdateAvailable;
+		private BarMdiChildrenListItem barMdiChildrenListItem1;
+		private BarMdiChildrenListItem barMdiChildrenListItem2;
+		private BarListItem barListItem1;
+		private SplitContainerControl mainFormMainSplitContainer;
+		private BarButtonItem buttonUpdateAvailable;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup updateRibbonPageGroup;
-	    private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
-		private DevExpress.XtraBars.BarButtonItem buttonOpenFileGroupFolder;
-		private DevExpress.XtraBars.BarButtonItem buttonExport;
-		private DevExpress.XtraBars.BarButtonItem buttonImport;
-		private DevExpress.XtraBars.BarSubItem barSubRecentFiles;
-		private DevExpress.XtraBars.BarSubItem barSubRecentProjects;
-		private DevExpress.XtraBars.BarButtonItem buttonMoveDown;
-		private DevExpress.XtraBars.BarButtonItem buttonMoveUp;
+		private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
+		private BarButtonItem buttonOpenFileGroupFolder;
+		private BarButtonItem buttonExport;
+		private BarButtonItem buttonImport;
+		private BarSubItem barSubRecentFiles;
+		private BarSubItem barSubRecentProjects;
+		private BarButtonItem buttonMoveDown;
+		private BarButtonItem buttonMoveUp;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-		private DevExpress.XtraBars.BarButtonItem buttonShowHideProjectPanel;
-		private DevExpress.XtraBars.BarButtonItem buttonCreateNewFile;
-		private DevExpress.XtraBars.BarButtonItem buttonCreateNewFiles;
-		private DevExpress.XtraBars.BarButtonItem resetLayoutButton;
-		private DevExpress.XtraBars.BarButtonItem buttonAddFromVisualStudio;
-		private DevExpress.XtraBars.BarButtonItem buttonConfigureLanguageColumns;
-		private DevExpress.XtraBars.BarButtonItem buttonReplace;
+		private BarButtonItem buttonShowHideProjectPanel;
+		private BarButtonItem buttonCreateNewFile;
+		private BarButtonItem buttonCreateNewFiles;
+		private BarButtonItem resetLayoutButton;
+		private BarButtonItem buttonAddFromVisualStudio;
+		private BarButtonItem buttonConfigureLanguageColumns;
+		private BarButtonItem buttonReplace;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
 		private System.Windows.Forms.Timer updateAvailableBlinkTimer;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
-    }
+		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+	}
 }

@@ -5,19 +5,19 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		/// <summary> 
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary> 
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if ( disposing && (components != null) )
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 
 		#region Component Designer generated code
@@ -28,236 +28,237 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupFilesUserControl));
-            this.mainTabControl = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl5 = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl6 = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl7 = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl8 = new DevExpress.XtraBars.BarDockControl();
-            this.optionsPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.buttonSave = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonSaveAll = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonOpenFolder = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonClose = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonCloseAllButThis = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonCloseAll = new DevExpress.XtraBars.BarButtonItem();
-            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.mainTabControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // mainTabControl
-            // 
-            this.mainTabControl.AppearancePage.Header.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.mainTabControl.AppearancePage.Header.Options.UseFont = true;
-            this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainTabControl.Location = new System.Drawing.Point(0, 0);
-            this.mainTabControl.Name = "mainTabControl";
-            this.mainTabControl.Size = new System.Drawing.Size(150, 150);
-            this.mainTabControl.TabIndex = 0;
-            this.mainTabControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainTabControl_MouseUp);
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(0, 0);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlBottom.Size = new System.Drawing.Size(0, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 0);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 0);
-            // 
-            // barDockControl1
-            // 
-            this.barDockControl1.CausesValidation = false;
-            this.barDockControl1.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl1.Size = new System.Drawing.Size(0, 0);
-            // 
-            // barDockControl2
-            // 
-            this.barDockControl2.CausesValidation = false;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl2.Size = new System.Drawing.Size(0, 0);
-            // 
-            // barDockControl3
-            // 
-            this.barDockControl3.CausesValidation = false;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl3.Size = new System.Drawing.Size(0, 0);
-            // 
-            // barDockControl4
-            // 
-            this.barDockControl4.CausesValidation = false;
-            this.barDockControl4.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl4.Size = new System.Drawing.Size(0, 0);
-            // 
-            // barDockControl5
-            // 
-            this.barDockControl5.CausesValidation = false;
-            this.barDockControl5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControl5.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl5.Size = new System.Drawing.Size(150, 0);
-            // 
-            // barDockControl6
-            // 
-            this.barDockControl6.CausesValidation = false;
-            this.barDockControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl6.Location = new System.Drawing.Point(0, 150);
-            this.barDockControl6.Size = new System.Drawing.Size(150, 0);
-            // 
-            // barDockControl7
-            // 
-            this.barDockControl7.CausesValidation = false;
-            this.barDockControl7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl7.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl7.Size = new System.Drawing.Size(0, 150);
-            // 
-            // barDockControl8
-            // 
-            this.barDockControl8.CausesValidation = false;
-            this.barDockControl8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl8.Location = new System.Drawing.Point(150, 0);
-            this.barDockControl8.Size = new System.Drawing.Size(0, 150);
-            // 
-            // optionsPopupMenu
-            // 
-            this.optionsPopupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonSave),
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonSaveAll),
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonOpenFolder, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonClose, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonCloseAllButThis),
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonCloseAll)});
-            this.optionsPopupMenu.Manager = this.barManager;
-            this.optionsPopupMenu.Name = "optionsPopupMenu";
-            this.optionsPopupMenu.BeforePopup += new System.ComponentModel.CancelEventHandler(this.optionsPopupMenu_BeforePopup);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Caption = "Save";
-            this.buttonSave.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonSave.Glyph")));
-            this.buttonSave.Id = 3;
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonSave_ItemClick);
-            // 
-            // buttonSaveAll
-            // 
-            this.buttonSaveAll.Caption = "Save all";
-            this.buttonSaveAll.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonSaveAll.Glyph")));
-            this.buttonSaveAll.Id = 4;
-            this.buttonSaveAll.Name = "buttonSaveAll";
-            this.buttonSaveAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonSaveAll_ItemClick);
-            // 
-            // buttonOpenFolder
-            // 
-            this.buttonOpenFolder.Caption = "Open folder";
-            this.buttonOpenFolder.Glyph = ((System.Drawing.Image)(resources.GetObject("buttonOpenFolder.Glyph")));
-            this.buttonOpenFolder.Id = 5;
-            this.buttonOpenFolder.Name = "buttonOpenFolder";
-            this.buttonOpenFolder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonOpenFolder_ItemClick);
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.Caption = "Close";
-            this.buttonClose.Id = 6;
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonClose_ItemClick);
-            // 
-            // buttonCloseAllButThis
-            // 
-            this.buttonCloseAllButThis.Caption = "Close all but this";
-            this.buttonCloseAllButThis.Id = 7;
-            this.buttonCloseAllButThis.Name = "buttonCloseAllButThis";
-            this.buttonCloseAllButThis.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonCloseAllButThis_ItemClick);
-            // 
-            // buttonCloseAll
-            // 
-            this.buttonCloseAll.Caption = "Close all";
-            this.buttonCloseAll.Id = 8;
-            this.buttonCloseAll.Name = "buttonCloseAll";
-            this.buttonCloseAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonCloseAll_ItemClick);
-            // 
-            // barManager
-            // 
-            this.barManager.DockControls.Add(this.barDockControl5);
-            this.barManager.DockControls.Add(this.barDockControl6);
-            this.barManager.DockControls.Add(this.barDockControl7);
-            this.barManager.DockControls.Add(this.barDockControl8);
-            this.barManager.Form = this;
-            this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.buttonSave,
-            this.buttonSaveAll,
-            this.buttonOpenFolder,
-            this.buttonClose,
-            this.buttonCloseAllButThis,
-            this.buttonCloseAll});
-            this.barManager.MaxItemId = 9;
-            // 
-            // GroupFilesUserControl
-            // 
-            this.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.mainTabControl);
-            this.Controls.Add(this.barDockControl7);
-            this.Controls.Add(this.barDockControl8);
-            this.Controls.Add(this.barDockControl6);
-            this.Controls.Add(this.barDockControl5);
-            this.Name = "GroupFilesUserControl";
-            ((System.ComponentModel.ISupportInitialize)(this.mainTabControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(GroupFilesUserControl));
+			mainTabControl = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
+			barDockControlTop = new BarDockControl();
+			barDockControlBottom = new BarDockControl();
+			barDockControlLeft = new BarDockControl();
+			barDockControlRight = new BarDockControl();
+			barDockControl1 = new BarDockControl();
+			barDockControl2 = new BarDockControl();
+			barDockControl3 = new BarDockControl();
+			barDockControl4 = new BarDockControl();
+			barDockControl5 = new BarDockControl();
+			barDockControl6 = new BarDockControl();
+			barDockControl7 = new BarDockControl();
+			barDockControl8 = new BarDockControl();
+			optionsPopupMenu = new PopupMenu(components);
+			buttonSave = new BarButtonItem();
+			buttonSaveAll = new BarButtonItem();
+			buttonOpenFolder = new BarButtonItem();
+			buttonClose = new BarButtonItem();
+			buttonCloseAllButThis = new BarButtonItem();
+			buttonCloseAll = new BarButtonItem();
+			barManager = new BarManager(components);
+			((ISupportInitialize)mainTabControl).BeginInit();
+			((ISupportInitialize)optionsPopupMenu).BeginInit();
+			((ISupportInitialize)barManager).BeginInit();
+			SuspendLayout();
+			// 
+			// mainTabControl
+			// 
+			mainTabControl.AppearancePage.Header.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			mainTabControl.AppearancePage.Header.Options.UseFont = true;
+			mainTabControl.Dock = DockStyle.Fill;
+			mainTabControl.Location = new Point(0, 0);
+			mainTabControl.Name = "mainTabControl";
+			mainTabControl.Size = new Size(150, 150);
+			mainTabControl.TabIndex = 0;
+			mainTabControl.MouseUp += mainTabControl_MouseUp;
+			// 
+			// barDockControlTop
+			// 
+			barDockControlTop.CausesValidation = false;
+			barDockControlTop.Location = new Point(0, 0);
+			barDockControlTop.Manager = null;
+			barDockControlTop.Size = new Size(0, 0);
+			// 
+			// barDockControlBottom
+			// 
+			barDockControlBottom.CausesValidation = false;
+			barDockControlBottom.Location = new Point(0, 0);
+			barDockControlBottom.Manager = null;
+			barDockControlBottom.Size = new Size(0, 0);
+			// 
+			// barDockControlLeft
+			// 
+			barDockControlLeft.CausesValidation = false;
+			barDockControlLeft.Location = new Point(0, 0);
+			barDockControlLeft.Manager = null;
+			barDockControlLeft.Size = new Size(0, 0);
+			// 
+			// barDockControlRight
+			// 
+			barDockControlRight.CausesValidation = false;
+			barDockControlRight.Location = new Point(0, 0);
+			barDockControlRight.Manager = null;
+			barDockControlRight.Size = new Size(0, 0);
+			// 
+			// barDockControl1
+			// 
+			barDockControl1.CausesValidation = false;
+			barDockControl1.Location = new Point(0, 0);
+			barDockControl1.Manager = null;
+			barDockControl1.Size = new Size(0, 0);
+			// 
+			// barDockControl2
+			// 
+			barDockControl2.CausesValidation = false;
+			barDockControl2.Location = new Point(0, 0);
+			barDockControl2.Manager = null;
+			barDockControl2.Size = new Size(0, 0);
+			// 
+			// barDockControl3
+			// 
+			barDockControl3.CausesValidation = false;
+			barDockControl3.Location = new Point(0, 0);
+			barDockControl3.Manager = null;
+			barDockControl3.Size = new Size(0, 0);
+			// 
+			// barDockControl4
+			// 
+			barDockControl4.CausesValidation = false;
+			barDockControl4.Location = new Point(0, 0);
+			barDockControl4.Manager = null;
+			barDockControl4.Size = new Size(0, 0);
+			// 
+			// barDockControl5
+			// 
+			barDockControl5.CausesValidation = false;
+			barDockControl5.Dock = DockStyle.Top;
+			barDockControl5.Location = new Point(0, 0);
+			barDockControl5.Manager = barManager;
+			barDockControl5.Size = new Size(150, 0);
+			// 
+			// barDockControl6
+			// 
+			barDockControl6.CausesValidation = false;
+			barDockControl6.Dock = DockStyle.Bottom;
+			barDockControl6.Location = new Point(0, 150);
+			barDockControl6.Manager = barManager;
+			barDockControl6.Size = new Size(150, 0);
+			// 
+			// barDockControl7
+			// 
+			barDockControl7.CausesValidation = false;
+			barDockControl7.Dock = DockStyle.Left;
+			barDockControl7.Location = new Point(0, 0);
+			barDockControl7.Manager = barManager;
+			barDockControl7.Size = new Size(0, 150);
+			// 
+			// barDockControl8
+			// 
+			barDockControl8.CausesValidation = false;
+			barDockControl8.Dock = DockStyle.Right;
+			barDockControl8.Location = new Point(150, 0);
+			barDockControl8.Manager = barManager;
+			barDockControl8.Size = new Size(0, 150);
+			// 
+			// optionsPopupMenu
+			// 
+			optionsPopupMenu.LinksPersistInfo.AddRange(new LinkPersistInfo[] { new LinkPersistInfo(buttonSave), new LinkPersistInfo(buttonSaveAll), new LinkPersistInfo(buttonOpenFolder, true), new LinkPersistInfo(buttonClose, true), new LinkPersistInfo(buttonCloseAllButThis), new LinkPersistInfo(buttonCloseAll) });
+			optionsPopupMenu.Manager = barManager;
+			optionsPopupMenu.Name = "optionsPopupMenu";
+			optionsPopupMenu.BeforePopup += optionsPopupMenu_BeforePopup;
+			// 
+			// buttonSave
+			// 
+			buttonSave.Caption = "Save";
+			buttonSave.Id = 3;
+			buttonSave.ImageOptions.Image = (Image)resources.GetObject("buttonSave.ImageOptions.Image");
+			buttonSave.Name = "buttonSave";
+			buttonSave.ItemClick += buttonSave_ItemClick;
+			// 
+			// buttonSaveAll
+			// 
+			buttonSaveAll.Caption = "Save all";
+			buttonSaveAll.Id = 4;
+			buttonSaveAll.ImageOptions.Image = (Image)resources.GetObject("buttonSaveAll.ImageOptions.Image");
+			buttonSaveAll.Name = "buttonSaveAll";
+			buttonSaveAll.ItemClick += buttonSaveAll_ItemClick;
+			// 
+			// buttonOpenFolder
+			// 
+			buttonOpenFolder.Caption = "Open folder";
+			buttonOpenFolder.Id = 5;
+			buttonOpenFolder.ImageOptions.Image = (Image)resources.GetObject("buttonOpenFolder.ImageOptions.Image");
+			buttonOpenFolder.Name = "buttonOpenFolder";
+			buttonOpenFolder.ItemClick += buttonOpenFolder_ItemClick;
+			// 
+			// buttonClose
+			// 
+			buttonClose.Caption = "Close";
+			buttonClose.Id = 6;
+			buttonClose.Name = "buttonClose";
+			buttonClose.ItemClick += buttonClose_ItemClick;
+			// 
+			// buttonCloseAllButThis
+			// 
+			buttonCloseAllButThis.Caption = "Close all but this";
+			buttonCloseAllButThis.Id = 7;
+			buttonCloseAllButThis.Name = "buttonCloseAllButThis";
+			buttonCloseAllButThis.ItemClick += buttonCloseAllButThis_ItemClick;
+			// 
+			// buttonCloseAll
+			// 
+			buttonCloseAll.Caption = "Close all";
+			buttonCloseAll.Id = 8;
+			buttonCloseAll.Name = "buttonCloseAll";
+			buttonCloseAll.ItemClick += buttonCloseAll_ItemClick;
+			// 
+			// barManager
+			// 
+			barManager.DockControls.Add(barDockControl5);
+			barManager.DockControls.Add(barDockControl6);
+			barManager.DockControls.Add(barDockControl7);
+			barManager.DockControls.Add(barDockControl8);
+			barManager.Form = this;
+			barManager.Items.AddRange(new BarItem[] { buttonSave, buttonSaveAll, buttonOpenFolder, buttonClose, buttonCloseAllButThis, buttonCloseAll });
+			barManager.MaxItemId = 9;
+			// 
+			// GroupFilesUserControl
+			// 
+			Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			Appearance.Options.UseFont = true;
+			AutoScaleDimensions = new SizeF(7F, 17F);
+			AutoScaleMode = AutoScaleMode.Font;
+			Controls.Add(mainTabControl);
+			Controls.Add(barDockControl7);
+			Controls.Add(barDockControl8);
+			Controls.Add(barDockControl6);
+			Controls.Add(barDockControl5);
+			Margin = new Padding(0);
+			Name = "GroupFilesUserControl";
+			((ISupportInitialize)mainTabControl).EndInit();
+			((ISupportInitialize)optionsPopupMenu).EndInit();
+			((ISupportInitialize)barManager).EndInit();
+			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
 
 		private ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl mainTabControl;
-		private DevExpress.XtraBars.BarDockControl barDockControlTop;
-		private DevExpress.XtraBars.BarDockControl barDockControlBottom;
-		private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-		private DevExpress.XtraBars.BarDockControl barDockControlRight;
-		private DevExpress.XtraBars.BarDockControl barDockControl1;
-		private DevExpress.XtraBars.BarDockControl barDockControl2;
-		private DevExpress.XtraBars.BarDockControl barDockControl3;
-		private DevExpress.XtraBars.BarDockControl barDockControl4;
-		private DevExpress.XtraBars.BarDockControl barDockControl5;
-		private DevExpress.XtraBars.BarDockControl barDockControl6;
-		private DevExpress.XtraBars.BarDockControl barDockControl7;
-		private DevExpress.XtraBars.BarDockControl barDockControl8;
-		private DevExpress.XtraBars.PopupMenu optionsPopupMenu;
-		private DevExpress.XtraBars.BarManager barManager;
-		private DevExpress.XtraBars.BarButtonItem buttonSave;
-		private DevExpress.XtraBars.BarButtonItem buttonSaveAll;
-		private DevExpress.XtraBars.BarButtonItem buttonOpenFolder;
-		private DevExpress.XtraBars.BarButtonItem buttonClose;
-		private DevExpress.XtraBars.BarButtonItem buttonCloseAllButThis;
-		private DevExpress.XtraBars.BarButtonItem buttonCloseAll;
+		private BarDockControl barDockControlTop;
+		private BarDockControl barDockControlBottom;
+		private BarDockControl barDockControlLeft;
+		private BarDockControl barDockControlRight;
+		private BarDockControl barDockControl1;
+		private BarDockControl barDockControl2;
+		private BarDockControl barDockControl3;
+		private BarDockControl barDockControl4;
+		private BarDockControl barDockControl5;
+		private BarDockControl barDockControl6;
+		private BarDockControl barDockControl7;
+		private BarDockControl barDockControl8;
+		private PopupMenu optionsPopupMenu;
+		private BarManager barManager;
+		private BarButtonItem buttonSave;
+		private BarButtonItem buttonSaveAll;
+		private BarButtonItem buttonOpenFolder;
+		private BarButtonItem buttonClose;
+		private BarButtonItem buttonCloseAllButThis;
+		private BarButtonItem buttonCloseAll;
 	}
 }

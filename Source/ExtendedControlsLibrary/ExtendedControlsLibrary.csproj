@@ -4,7 +4,6 @@
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
-    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <Nullable>enable</Nullable>
     <RootNamespace>ZetaResourceEditor.ExtendedControlsLibrary</RootNamespace>
   </PropertyGroup>
@@ -16,204 +15,36 @@
     <Compile Include="..\Main\Properties\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="General\Base\DevExpressXtraUserControlBase.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="General\ExtendedManagedCueButtonEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="General\ExtendedManagedCueComboBoxEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="General\ExtendedManagedCueMemoEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="General\ExtendedManagedCueTextEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="General\ExtendedTree\ExtendedTreeListControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="General\LineUserControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="General\ListBoxWithoutFocusRectangle.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomBar\MyBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomButtonEdit\MyRepositoryItemButtonEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomButtonEdit\MyButtonEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomButton\MySimpleButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomCheckEdit\MyCheckEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomComboBoxEdit\MyCheckedComboBoxEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomComboBoxEdit\MyComboBoxEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomDateEdit\MyDateEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomDropDownButton\MyDropDownButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomGrid\MyGridControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomGrid\MyGridView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomGroup\MyGroupControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomHyperLinkEdit\AutoWidthHyperLinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomHyperLinkEdit\MyBoldHyperLinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomHyperLinkEdit\MyBoldColoredHyperLinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomHyperLinkEdit\MyBoldLargeColoredHyperLinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomHyperLinkEdit\MyColoredHyperLinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomHyperLinkEdit\MyFullHyperLinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomHyperLinkEdit\MyHyperLinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomHyperLinkEdit\MyLargeColoredHyperLinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomHyperLinkEdit\MyLargeHyperLinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomHyperLinkEdit\MyTransparentHyperLinkEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomLabelEdit\MyLabelBoldControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomLabelEdit\MyLabelControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomLabelEdit\MyLargeLabelBoldControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomLabelEdit\MyLargeLabelControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomLabelEdit\MyLargeLabelUnderlineControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomListBox\MyCheckedListBoxControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomListBox\MyListBoxControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomMemoEdit\MyMemoEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomPanel\MyPanelControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomPopupContainer\MyPopupContainerEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomPropertyGrid\MyPropertyDescriptionControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomPropertyGrid\MyPropertyGridControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomRibbonForm\MyDefaultBarAndDockingController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomRibbonForm\MyRibbonControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomRichEditControl\MyRichEditControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomSpinEdit\MySpinEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomSplitContainer\MySimpleSplitContainerControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomSplitContainer\MySplitGroupPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomTabControl\MyHelperXtraTabControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomTabControl\MyHelperXtraTabPage.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomTabControl\MyXtraTabControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomTabControl\MyXtraTabPage.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomTextEdit\MyRepositoryItemTextEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomTextEdit\MyTextEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomTreeList\MyTreeList.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomUserControl\MyUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Skinning\CustomWizard\NoHeaderWizardControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Fizzler" Version="1.3.0" />
     <PackageReference Include="JetBrains.Annotations" Version="2022.3.1" />
     <PackageReference Include="log4net" Version="2.0.15" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="Svg" Version="3.4.4" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-    <PackageReference Include="System.Memory" Version="4.5.5" />
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.1" />
-    <PackageReference Include="DevExpress.Win.Design" Version="22.2.5" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.WinForms" Version="1.0.0" />
-    <PackageReference Include="ZetaShortPaths" Version="1.0.24" />
+    <PackageReference Include="DevExpress.Win.Design" Version="22.2.6" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.11" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.11" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.11" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.WinForms" Version="1.0.11" />
+    <PackageReference Include="ZetaShortPaths" Version="1.0.31" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Async\Async.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Skinning\SkinningResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SkinningResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Skinning\SkinningResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SkinningResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

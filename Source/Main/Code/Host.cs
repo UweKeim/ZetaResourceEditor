@@ -10,61 +10,56 @@ using Zeta.VoyagerLibrary.Core.Tools.Storage;
 
 internal sealed class Host
 {
-    private static readonly IDictionary<string, Assembly> _additional =
-        new Dictionary<string, Assembly>();
+	private static DirectoryInfo? _cacheForCurrentUserStorageBaseFolderPath;
 
-    private static DirectoryInfo _cacheForCurrentUserStorageBaseFolderPath;
+	[STAThread]
+	private static void Main()
+	{
+		try
+		{
+			LogCentral.Current.ConfigureLogging();
 
-    [STAThread]
-    private static void Main()
-    {
-        try
-        {
-            BindingRedirectsHelper.Initialize();
+			// --
+			// Register extension.
 
-            LogCentral.Current.ConfigureLogging();
+			try
+			{
+				var info =
+					new FileExtensionRegistration.RegistrationInformation
+					{
+						ApplicationFilePath = typeof(Host).Assembly.Location,
+						Extension = Project.ProjectFileExtension,
+						ClassName = @"ZetaResourceEditorDocument",
+						Description = Resources.SR_Host_Main_ZetaResourceEditorProjectFile
+					};
 
-            // --
-            // Register extension.
+				FileExtensionRegistration.Register(info);
+			}
+			catch (Exception x)
+			{
+				// May fail if no permissions, silently eat.
+				LogCentral.Current.LogError(x);
+			}
 
-            try
-            {
-                var info =
-                    new FileExtensionRegistration.RegistrationInformation
-                    {
-                        ApplicationFilePath = typeof(Host).Assembly.Location,
-                        Extension = Project.ProjectFileExtension,
-                        ClassName = @"ZetaResourceEditorDocument",
-                        Description = Resources.SR_Host_Main_ZetaResourceEditorProjectFile
-                    };
+			// --
 
-                FileExtensionRegistration.Register(info);
-            }
-            catch (Exception x)
-            {
-                // May fail if no permissions, silently eat.
-                LogCentral.Current.LogError(x);
-            }
+			var persistentStorage =
+				new PersistentXmlFilePairStorage
+				{
+					FilePath =
+						ZspPathHelper.Combine(
+							CurrentUserStorageBaseFolderPath.FullName,
+							@"zeta-resource-editor-settings.xml") ?? string.Empty
+				};
+			persistentStorage.Error += storageError;
 
-            // --
+			PersistanceHelper.Storage = persistentStorage;
 
-            var persistentStorage =
-                new PersistentXmlFilePairStorage
-                {
-                    FilePath =
-                        ZspPathHelper.Combine(
-                            CurrentUserStorageBaseFolderPath.FullName,
-                            @"zeta-resource-editor-settings.xml")
-                };
-            persistentStorage.Error += storageError;
+			// --
 
-            PersistanceHelper.Storage = persistentStorage;
+			// http://community.devexpress.com/forums/t/80133.aspx
 
-            // --
-
-            // http://community.devexpress.com/forums/t/80133.aspx
-
-            SkinHelper.InitializeAll(true);
+			SkinHelper.InitializeAll();
 
 			// https://github.com/UweKeim/ZetaResourceEditor/issues/55
 			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -72,240 +67,163 @@ internal sealed class Host
 			// --
 
 			AppDomain.CurrentDomain.UnhandledException += currentDomainUnhandledException;
-            Application.ThreadException += applicationThreadException;
+			Application.ThreadException += applicationThreadException;
 
-            // --
-            // http://stackoverflow.com/a/9180843/107625
+			// --
 
-#if false
-            var dir = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location ?? string.Empty);
-            foreach (var assemblyName in Directory.GetFiles(dir ?? string.Empty, @"*.dll"))
-            {
-                try
-                {
-                    var assembly = Assembly.LoadFile(assemblyName);
-                    _additional.Add(assembly.GetName().Name, assembly);
-                }
-                catch (FileLoadException)
-                {
-                    // Ignorieren.
-                }
-                catch (BadImageFormatException)
-                {
-                    // Ignorieren.
-                }
-            }
+			Application.Run(new MainForm());
+		}
+		catch (Exception x)
+		{
+			doHandleException(x);
+		}
+	}
 
-            AppDomain.CurrentDomain.ReflectionOnlyAssemblyResolve += CurrentDomain_ResolveAssembly;
-            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_ResolveAssembly;
-#endif
+	private static void currentDomainUnhandledException(
+		object sender,
+		UnhandledExceptionEventArgs e)
+	{
+		doHandleException(e.ExceptionObject as Exception);
+	}
 
-            // --
+	private static void applicationThreadException(
+		object sender,
+		ThreadExceptionEventArgs e)
+	{
+		doHandleException(e.Exception);
+	}
 
-            test();
+	public static void NotifyAboutException(
+		Exception e)
+	{
+		doHandleException(e);
+	}
 
-            initializeLanguage();
+	private static void doHandleException(
+		Exception? e)
+	{
+		LogCentral.Current.Warn(e);
 
-            Application.Run(new MainForm());
-        }
-        catch (Exception x)
-        {
-            doHandleException(x);
-        }
-    }
+		bool handleException;
 
-    private static Assembly? CurrentDomain_ResolveAssembly(object sender, ResolveEventArgs e)
-    {
-        // Hier mache ich quasi mein eigenes, automatisches, Binding-Redirect.
-        // (z.B. Newtonsoft.Json 6.0.0.0 nach 9.0.0.0).
+		switch (e)
+		{
+			case MessageBoxException exception:
+				{
+					var mbx = exception;
 
-        if (e.Name.IndexOf(',') < 0) return null;
+					XtraMessageBox.Show(
+						mbx.Parent,
+						mbx.Message,
+						@"Zeta Resource Editor",
+						mbx.Buttons,
+						mbx.Icon);
 
-        var name = e.Name.Substring(0, e.Name.IndexOf(','));
+					handleException = false;
+					break;
+				}
+			case PersistentPairStorageException:
+				{
+					// 2009-06-22, Uwe Keim:
+					// http://zeta-producer.de/Pages/AdvancedForumIndex.aspx?DataID=9514
+					LogCentral.Current.LogWarn(
+						@"PersistentPairStorageException occurred.", e);
 
-        _additional.TryGetValue(name, out var res);
-        return res;
-    }
+					switch (e.InnerException)
+					{
+						case null:
+							handleException = true;
+							break;
+						case UnauthorizedAccessException:
+						case IOException:
+							handleException = false;
+							break;
+						default:
+							handleException = true;
+							break;
+					}
 
-    public static void ApplyLanguageSettingsToCurrentThread()
-    {
-        foreach (var e in Environment.GetCommandLineArgs())
-        {
-            if (e.StartsWith(@"-language") || e.StartsWith(@"/language"))
-            {
-                var f = e.Replace(@"language", string.Empty);
-                f = f.Trim(' ', '\t', '=', '/', '-').ToLowerInvariant();
+					break;
+				}
+			default:
+				handleException = true;
+				break;
+		}
 
-                if (f.StartsWith(@"de"))
-                {
-                    Thread.CurrentThread.CurrentCulture =
-                        Thread.CurrentThread.CurrentUICulture =
-                            Application.CurrentCulture = new(@"de-DE");
-                }
-                else if (f.StartsWith(@"en"))
-                {
-                    Thread.CurrentThread.CurrentCulture =
-                        Thread.CurrentThread.CurrentUICulture =
-                            Application.CurrentCulture = new(@"en-US");
-                }
-            }
-        }
-    }
+		// --
 
-    private static void initializeLanguage()
-    {
-        ApplyLanguageSettingsToCurrentThread();
-    }
+		if (handleException)
+		{
+			LogCentral.Current.LogError(@"Exception occurred.", e);
 
-    private static void test()
-    {
-    }
+			// Do not allow recursive exceptions, since the
+			// Application.ThreadException would eat them anyway.
+			try
+			{
+				using var form = new ErrorForm();
+				form.Initialize(e);
+				var result = form.ShowDialog(Form.ActiveForm);
 
-    private static void currentDomainUnhandledException(
-        object sender,
-        UnhandledExceptionEventArgs e)
-    {
-        doHandleException(e.ExceptionObject as Exception);
-    }
+				if (result == DialogResult.Abort)
+				{
+					Process.GetCurrentProcess().Kill(true);
+					Application.Exit();
+				}
+			}
+			catch (Exception x)
+			{
+				LogCentral.Current.LogError(
+					@"Exception occurred during exception handling.",
+					x);
 
-    private static void applicationThreadException(
-        object sender,
-        ThreadExceptionEventArgs e)
-    {
-        doHandleException(e.Exception);
-    }
+				XtraMessageBox.Show(
+					Form.ActiveForm,
+					string.Format(@"{0}{1}{1}{2}",
+						x.Message,
+						Environment.NewLine,
+						e?.Message ?? "Unknown error"),
+					@"Zeta Resource Editor",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Error);
+			}
+		}
+	}
 
-    public static void NotifyAboutException(
-        Exception e)
-    {
-        doHandleException(e);
-    }
+	private static void storageError(
+		object? sender,
+		PersistentPairStorageErrorEventArgs args)
+	{
+		if (args.RetryCount <= 2)
+		{
+			Application.DoEvents();
+			Thread.Sleep(0);
 
-    private static void doHandleException(
-        Exception e)
-    {
-        LogCentral.Current.Warn(e);
+			args.Result = CheckHandleExceptionResult.Retry;
+		}
+		else
+		{
+			args.Result = CheckHandleExceptionResult.Ignore;
+		}
+	}
 
-        bool handleException;
+	public static DirectoryInfo CurrentUserStorageBaseFolderPath
+	{
+		get
+		{
+			if (_cacheForCurrentUserStorageBaseFolderPath == null)
+			{
+				const string folderName = @"Zeta Resource Editor";
 
-        switch (e)
-        {
-            case MessageBoxException exception:
-            {
-                var mbx = exception;
+				var result = new DirectoryInfo(
+					ZspPathHelper.Combine(
+						Environment.GetFolderPath(
+							Environment.SpecialFolder.LocalApplicationData),
+						folderName) ?? string.Empty);
 
-                XtraMessageBox.Show(
-                    mbx.Parent,
-                    mbx.Message,
-                    @"Zeta Resource Editor",
-                    mbx.Buttons,
-                    mbx.Icon);
+				_cacheForCurrentUserStorageBaseFolderPath = result.CheckCreate();
+			}
 
-                handleException = false;
-                break;
-            }
-            case PersistentPairStorageException _:
-            {
-                // 2009-06-22, Uwe Keim:
-                // http://zeta-producer.de/Pages/AdvancedForumIndex.aspx?DataID=9514
-                LogCentral.Current.LogWarn(
-                    @"PersistentPairStorageException occurred.", e);
-
-                switch (e.InnerException)
-                {
-                    case null:
-                        handleException = true;
-                        break;
-                    case UnauthorizedAccessException:
-                    case IOException:
-                        handleException = false;
-                        break;
-                    default:
-                        handleException = true;
-                        break;
-                }
-
-                break;
-            }
-            default:
-                handleException = true;
-                break;
-        }
-
-        // --
-
-        if (handleException)
-        {
-            LogCentral.Current.LogError(@"Exception occurred.", e);
-
-            // Do not allow recursive exceptions, since the
-            // Application.ThreadException would eat them anyway.
-            try
-            {
-                using var form = new ErrorForm();
-                form.Initialize(e);
-                var result = form.ShowDialog(Form.ActiveForm);
-
-                if (result == DialogResult.Abort)
-                {
-                    System.Diagnostics.Process.GetCurrentProcess().Kill();
-                    Application.Exit();
-                }
-            }
-            catch (Exception x)
-            {
-                LogCentral.Current.LogError(
-                    @"Exception occurred during exception handling.",
-                    x);
-
-                XtraMessageBox.Show(
-                    Form.ActiveForm,
-                    string.Format(@"{0}{1}{1}{2}",
-                        x.Message,
-                        Environment.NewLine,
-                        e.Message),
-                    @"Zeta Resource Editor",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
-    }
-
-    private static void storageError(
-        object? sender,
-        PersistentPairStorageErrorEventArgs args)
-    {
-        if (args.RetryCount <= 2)
-        {
-            Application.DoEvents();
-            Thread.Sleep(0);
-
-            args.Result = CheckHandleExceptionResult.Retry;
-        }
-        else
-        {
-            args.Result = CheckHandleExceptionResult.Ignore;
-        }
-    }
-
-    public static DirectoryInfo CurrentUserStorageBaseFolderPath
-    {
-        get
-        {
-            if (_cacheForCurrentUserStorageBaseFolderPath == null)
-            {
-                const string folderName = @"Zeta Resource Editor";
-
-                var result = new DirectoryInfo(
-                    ZspPathHelper.Combine(
-                        Environment.GetFolderPath(
-                            Environment.SpecialFolder.LocalApplicationData),
-                        folderName));
-
-                _cacheForCurrentUserStorageBaseFolderPath = result.CheckCreate();
-            }
-
-            return _cacheForCurrentUserStorageBaseFolderPath;
-        }
-    }
+			return _cacheForCurrentUserStorageBaseFolderPath;
+		}
+	}
 }

@@ -32,9 +32,9 @@
 			// 
 			// RibbonFormBase
 			// 
-			this.Appearance.Font = new System.Drawing.Font( "Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel );
+			this.Appearance.Font = new System.Drawing.Font( "Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
 			this.Appearance.Options.UseFont = true;
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size( 292, 299 );
 			this.Name = "RibbonFormBase";
 			this.ResumeLayout( false );

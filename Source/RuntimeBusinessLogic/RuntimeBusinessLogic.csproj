@@ -13,23 +13,9 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>false</Optimize>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="https://www.zeta-resource-editor.com/backend/UpdateCheckerService.asmx">
-      <UrlBehavior>Static</UrlBehavior>
-      <RelPath>Web References\UpdateChecker\</RelPath>
-      <UpdateFromURL>https://www.zeta-resource-editor.com/backend/UpdateCheckerService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>ZetaResourceEditor_RuntimeBusinessLogic_UpdateChecker_UpdateCheckerService</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Async\Async.csproj" />
@@ -45,34 +31,16 @@
     <PackageReference Include="log4net" Version="2.0.15" />
     <PackageReference Include="Microsoft.Build" Version="17.5.0" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.5.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="3.5.2145" />
     <PackageReference Include="morelinq" Version="3.4.2" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="Svg" Version="3.4.4" />
-    <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.117" />
-    <PackageReference Include="System.Interactive.Async" Version="6.0.1" />
-    <PackageReference Include="System.Memory" Version="4.5.5" />
-    <PackageReference Include="System.Runtime" Version="4.3.1" />
-    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
-    <PackageReference Include="System.Security.Cryptography.X509Certificates" Version="4.3.2" />
-    <PackageReference Include="System.ServiceModel.Duplex" Version="4.10.2" />
-    <PackageReference Include="System.ServiceModel.Federation" Version="4.10.2" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.10.2" />
-    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.2" />
-    <PackageReference Include="System.ServiceModel.Security" Version="4.10.2" />
-    <PackageReference Include="System.Text.Json" Version="7.0.2" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
-    <PackageReference Include="ZetaShortPaths" Version="1.0.24" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.11" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.11" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.11" />
+    <PackageReference Include="ZetaShortPaths" Version="1.0.31" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.1" />
-    <PackageReference Include="DevExpress.Win.Design" Version="22.2.5" />
+    <PackageReference Include="DevExpress.Win.Design" Version="22.2.6" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="DL\IUniqueID.cs" />
@@ -83,5 +51,18 @@
   </ItemGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -78,7 +78,7 @@ public partial class CreateNewFileForm :
 		IncludeFileInCsprojChecBox.Visible = csProject?.Project != null;
 		IncludeFileInCsprojChecBox.Enabled = csProject?.Project != null;
 		AddFileAsDependantUponCheckBox.Enabled = IncludeFileInCsprojChecBox.Checked &&
-		                                         !string.IsNullOrEmpty(csProject?.DependantUponRootFileName);
+												 !string.IsNullOrEmpty(csProject?.DependantUponRootFileName);
 		if (!AddFileAsDependantUponCheckBox.Enabled)
 		{
 			AddFileAsDependantUponCheckBox.Checked = false;
@@ -196,7 +196,7 @@ public partial class CreateNewFileForm :
 		// Select defaults.
 
 		if (referenceLanguageComboBox.SelectedIndex < 0 &&
-		    referenceLanguageComboBox.Properties.Items.Count > 0)
+			referenceLanguageComboBox.Properties.Items.Count > 0)
 		{
 			referenceLanguageComboBox.SelectedIndex = 0;
 		}

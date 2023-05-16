@@ -5,7 +5,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -42,35 +42,34 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 			tablePanel1.SetColumnSpan(textMemoEdit, 2);
 			textMemoEdit.CueText = null;
 			textMemoEdit.Dock = DockStyle.Fill;
-			textMemoEdit.Location = new Point(16, 15);
+			textMemoEdit.Location = new Point(11, 10);
 			textMemoEdit.Margin = new Padding(0);
 			textMemoEdit.Name = "textMemoEdit";
-			textMemoEdit.Properties.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			textMemoEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
 			textMemoEdit.Properties.Appearance.Options.UseBackColor = true;
 			textMemoEdit.Properties.Appearance.Options.UseFont = true;
 			textMemoEdit.Properties.NullValuePrompt = null;
 			textMemoEdit.Properties.ReadOnly = true;
 			textMemoEdit.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
 			tablePanel1.SetRow(textMemoEdit, 0);
-			textMemoEdit.Size = new Size(552, 506);
+			textMemoEdit.Size = new Size(562, 516);
 			textMemoEdit.TabIndex = 1;
 			textMemoEdit.KeyDown += textMemoEdit_KeyDown;
 			// 
 			// buttonCancel
 			// 
-			buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-			buttonCancel.Appearance.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+			buttonCancel.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
 			buttonCancel.Appearance.Options.UseFont = true;
 			tablePanel1.SetColumn(buttonCancel, 1);
 			buttonCancel.DialogResult = DialogResult.Cancel;
-			buttonCancel.Location = new Point(493, 530);
+			buttonCancel.Dock = DockStyle.Fill;
+			buttonCancel.Location = new Point(498, 535);
 			buttonCancel.Margin = new Padding(0);
 			buttonCancel.Name = "buttonCancel";
 			tablePanel1.SetRow(buttonCancel, 2);
 			buttonCancel.Size = new Size(75, 28);
 			buttonCancel.TabIndex = 0;
 			buttonCancel.Text = "Close";
-			buttonCancel.WantDrawFocusRectangle = true;
 			// 
 			// tablePanel1
 			// 
@@ -88,10 +87,10 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 			// TextBoxForm
 			// 
 			Appearance.Options.UseFont = true;
-			AutoScaleMode = AutoScaleMode.None;
+			AutoScaleDimensions = new SizeF(7F, 17F);
+			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(584, 574);
 			Controls.Add(tablePanel1);
-			Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
 			IconOptions.ShowIcon = false;
 			MaximizeBox = false;
 			MinimizeBox = false;
@@ -105,6 +104,7 @@ namespace ZetaResourceEditor.UI.Helper.ErrorHandling
 			((ISupportInitialize)textMemoEdit.Properties).EndInit();
 			((ISupportInitialize)tablePanel1).EndInit();
 			tablePanel1.ResumeLayout(false);
+			tablePanel1.PerformLayout();
 			ResumeLayout(false);
 		}
 

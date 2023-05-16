@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+  <!--
     Microsoft ResX Schema 
-    
+
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+
     Example:
-    
+
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-                
-    There are any number of "resheader" rows that contain simple 
+
+    There are any number of "resheader" rows that contain simple
     name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
     mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
     extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
     read any of the formats listed below.
-    
+
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
+    value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
+    value   : The object must be serialized into a byte array
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -117,31 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <metadata name="barManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="DevExpress.Data.v22.2" name="DevExpress.Data.v22.2, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="pictureEdit1.EditValue" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAApdJREFUaEPt
-        Wb1OAkEQpjPxQXwAEytrHscS0EoSO0sS4bCw5LCWWJD4FjQ8BIWhvuh8u3MEdvduf+/0Er7ki3A7s/ON
-        7M/sXu+MM/4B7j4nF8NF1h/l2dMwz1bDfLod5bPvYT4rQPl5ukWbsCFb+LD73+F++XJDYt5Y7I8PhQ/5
-        og/urj0MlvNrErFWRUVwjT65++Yw/phfjpbTCQXE0DAJiWGBvhGDw6XFw/L1isbwxhA4MbMNYnHYNBi8
-        z26p850erDHuEJPDx4HF75UAbXAfnYQcNq3+51XugocTJlM7Y97GbBM0sXm1MXTYPqGFZbmB1/kmlspQ
-        Fl77BDmk3KTsXGTPYr7RX2O75Jrl1UOUB+YOmuIjhxag72Ol/UCnsgP1icm5IZ6IL0HPzUmQNjYxAxVi
-        SGEWSKP4EoN89qX6QFttFUsZ9lWnhlgrHjAlIEga2USHrOcNTmlpFU82lfMAGtlMBw4cJqeEjBIvma3Y
-        VIc8NZmcdOInrvyZzUwgHpxu2VyHxwQ+iKHPDkFTiZcTmV10kIHL7quJoWd1wZOJZxbspgONivEpaadk
-        Uw3UbhKRWjxYnYBtCNlKW7I5FjPmx5VQ7J1oGUKWSVzzC5Qgu0diI+Ilayax4zJqHRY2UB+B4sGaZdRj
-        IwtOgnwjxNs2Mr9SwjsJ8okSL1hXSgQUc85JwFbx9Sa0Wa8kKUPfctplqYwWL2grp4HAA01lEmhTbIPp
-        fI9KxiFHSi0JPFNsYuh2pAQiDvWH9R+flbYY+h3qgdBrlYAq1UrvaxWg8xdbQKevFkt0+nK3BCfRzev1
-        EnI4dfQFRwlMJl6duveK6Ri8T3TvJZ8KUXZQfeJZAAoKH/J1Lg+aBCpElLnyPNGhF91nnNHr/QKw5f3W
-        vrDHmAAAAABJRU5ErkJggg==
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjIyLjIsIFZlcnNpb249MjIuMi42
+        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
+        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAFwCAAAC77u/
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgd2lkdGg9IjEwMjRweCIg
+        aGVpZ2h0PSIxMDI0cHgiIHZpZXdCb3g9IjAgMCAxMDI0MCAxMDI0MCIgeG1sbnM9Imh0dHA6Ly93d3cu
+        dzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIg
+        eG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xpcC1ydWxlPSJldmVuT2RkIj4NCiAgPHBhdGggZD0iTTUxMjAg
+        NjQwYzI0NzQsMCA0NDgwLDIwMDYgNDQ4MCw0NDgwIDAsMjQ3NCAtMjAwNiw0NDgwIC00NDgwLDQ0ODAg
+        LTI0NzQsMCAtNDQ4MCwtMjAwNiAtNDQ4MCwtNDQ4MCAwLC0yNDc0IDIwMDYsLTQ0ODAgNDQ4MCwtNDQ4
+        MHptLTI2NTQgNDU3NGMtMTI0LDEyNCAtMTI0LDMyOCAwLDQ1MmwxNzg4IDE3ODhjMTI0LDEyNCAzMjgs
+        MTI0IDQ1MiwwbDMzODggLTMzODhjMTI0LC0xMjQgMTI0LC0zMjggMCwtNDUybC01MDggLTUwOGMtMTI0
+        LC0xMjQgLTMyOCwtMTI0IC00NTIsMGwtMjY1NCAyNjU0IC0xMDU0IC0xMDU0Yy0xMjQsLTEyNCAtMzI4
+        LC0xMjQgLTQ1MiwwbC01MDggNTA4eiIgZmlsbD0iIzc2QTc5NyIgaWQ9ImN1cnZlMCIgLz4NCjwvc3Zn
+        Pgs=
 </value>
   </data>
   <metadata name="optionsPopupMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>135, 17</value>
   </metadata>
-  <metadata name="barManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="optionsButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="optionsButton.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAr2AAAK9gHCr3ADAAAASElE

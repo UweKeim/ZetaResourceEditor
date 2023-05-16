@@ -5,7 +5,7 @@
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -28,186 +28,225 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.panel1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            this.selectAllLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.invertLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.selectNoLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.languagesToDisplayCheckListBox = new ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl();
-            this.displayAllLanguagesCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
-            this.displayCertainLanguagesCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.panel1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.languagesToDisplayCheckListBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.displayAllLanguagesCheckEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.displayCertainLanguagesCheckEdit.Properties)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Appearance.Options.UseBackColor = true;
-            this.panel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panel1.Controls.Add(this.selectAllLanguagesToExportButton);
-            this.panel1.Controls.Add(this.invertLanguagesToExportButton);
-            this.panel1.Controls.Add(this.buttonCancel);
-            this.panel1.Controls.Add(this.selectNoLanguagesToExportButton);
-            this.panel1.Controls.Add(this.buttonOK);
-            this.panel1.Controls.Add(this.languagesToDisplayCheckListBox);
-            this.panel1.Controls.Add(this.displayAllLanguagesCheckEdit);
-            this.panel1.Controls.Add(this.displayCertainLanguagesCheckEdit);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(9);
-            this.panel1.Size = new System.Drawing.Size(454, 348);
-            this.panel1.TabIndex = 0;
-            // 
-            // selectAllLanguagesToExportButton
-            // 
-            this.selectAllLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.selectAllLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.selectAllLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.selectAllLanguagesToExportButton.Location = new System.Drawing.Point(31, 257);
-            this.selectAllLanguagesToExportButton.Name = "selectAllLanguagesToExportButton";
-            this.selectAllLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
-            this.selectAllLanguagesToExportButton.TabIndex = 3;
-            this.selectAllLanguagesToExportButton.Text = "All";
-            this.selectAllLanguagesToExportButton.WantDrawFocusRectangle = true;
-            this.selectAllLanguagesToExportButton.Click += new System.EventHandler(this.selectAllLanguagesToExportButton_Click);
-            // 
-            // invertLanguagesToExportButton
-            // 
-            this.invertLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.invertLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.invertLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.invertLanguagesToExportButton.Location = new System.Drawing.Point(193, 257);
-            this.invertLanguagesToExportButton.Name = "invertLanguagesToExportButton";
-            this.invertLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
-            this.invertLanguagesToExportButton.TabIndex = 5;
-            this.invertLanguagesToExportButton.Text = "Flip";
-            this.invertLanguagesToExportButton.WantDrawFocusRectangle = true;
-            this.invertLanguagesToExportButton.Click += new System.EventHandler(this.invertLanguagesToExportButton_Click);
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonCancel.Appearance.Options.UseFont = true;
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(367, 308);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 28);
-            this.buttonCancel.TabIndex = 2;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.WantDrawFocusRectangle = true;
-            // 
-            // selectNoLanguagesToExportButton
-            // 
-            this.selectNoLanguagesToExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.selectNoLanguagesToExportButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.selectNoLanguagesToExportButton.Appearance.Options.UseFont = true;
-            this.selectNoLanguagesToExportButton.Location = new System.Drawing.Point(112, 257);
-            this.selectNoLanguagesToExportButton.Name = "selectNoLanguagesToExportButton";
-            this.selectNoLanguagesToExportButton.Size = new System.Drawing.Size(75, 28);
-            this.selectNoLanguagesToExportButton.TabIndex = 4;
-            this.selectNoLanguagesToExportButton.Text = "None";
-            this.selectNoLanguagesToExportButton.WantDrawFocusRectangle = true;
-            this.selectNoLanguagesToExportButton.Click += new System.EventHandler(this.selectNoLanguagesToExportButton_Click);
-            // 
-            // buttonOK
-            // 
-            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonOK.Appearance.Options.UseFont = true;
-            this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOK.Location = new System.Drawing.Point(286, 308);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(75, 28);
-            this.buttonOK.TabIndex = 1;
-            this.buttonOK.Text = "OK";
-            this.buttonOK.WantDrawFocusRectangle = true;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
-            // 
-            // languagesToDisplayCheckListBox
-            // 
-            this.languagesToDisplayCheckListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.languagesToDisplayCheckListBox.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.languagesToDisplayCheckListBox.Appearance.Options.UseFont = true;
-            this.languagesToDisplayCheckListBox.CheckOnClick = true;
-            this.languagesToDisplayCheckListBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.languagesToDisplayCheckListBox.Location = new System.Drawing.Point(31, 66);
-            this.languagesToDisplayCheckListBox.Name = "languagesToDisplayCheckListBox";
-            this.languagesToDisplayCheckListBox.Size = new System.Drawing.Size(411, 185);
-            this.languagesToDisplayCheckListBox.TabIndex = 2;
-            this.languagesToDisplayCheckListBox.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.languagesToDisplayCheckListBox_ItemCheck);
-            this.languagesToDisplayCheckListBox.SelectedIndexChanged += new System.EventHandler(this.languagesToDisplayCheckListBox_SelectedIndexChanged);
-            // 
-            // displayAllLanguagesCheckEdit
-            // 
-            this.displayAllLanguagesCheckEdit.EditValue = true;
-            this.displayAllLanguagesCheckEdit.Location = new System.Drawing.Point(12, 12);
-            this.displayAllLanguagesCheckEdit.Name = "displayAllLanguagesCheckEdit";
-            this.displayAllLanguagesCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.displayAllLanguagesCheckEdit.Properties.Appearance.Options.UseFont = true;
-            this.displayAllLanguagesCheckEdit.Properties.AutoWidth = true;
-            this.displayAllLanguagesCheckEdit.Properties.Caption = "Display all languages";
-            this.displayAllLanguagesCheckEdit.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
-            this.displayAllLanguagesCheckEdit.Properties.RadioGroupIndex = 0;
-            this.displayAllLanguagesCheckEdit.Size = new System.Drawing.Size(145, 21);
-            this.displayAllLanguagesCheckEdit.TabIndex = 0;
-            this.displayAllLanguagesCheckEdit.CheckedChanged += new System.EventHandler(this.displayAllLanguagesCheckEdit_CheckedChanged);
-            // 
-            // displayCertainLanguagesCheckEdit
-            // 
-            this.displayCertainLanguagesCheckEdit.Location = new System.Drawing.Point(12, 41);
-            this.displayCertainLanguagesCheckEdit.Name = "displayCertainLanguagesCheckEdit";
-            this.displayCertainLanguagesCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.displayCertainLanguagesCheckEdit.Properties.Appearance.Options.UseFont = true;
-            this.displayCertainLanguagesCheckEdit.Properties.AutoWidth = true;
-            this.displayCertainLanguagesCheckEdit.Properties.Caption = "Display only the following languages:";
-            this.displayCertainLanguagesCheckEdit.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Radio;
-            this.displayCertainLanguagesCheckEdit.Properties.RadioGroupIndex = 0;
-            this.displayCertainLanguagesCheckEdit.Size = new System.Drawing.Size(238, 21);
-            this.displayCertainLanguagesCheckEdit.TabIndex = 1;
-            this.displayCertainLanguagesCheckEdit.TabStop = false;
-            this.displayCertainLanguagesCheckEdit.CheckedChanged += new System.EventHandler(this.displayCertainLanguagesCheckEdit_CheckedChanged);
-            // 
-            // ConfigureLanguageColumnsForm
-            // 
-            this.AcceptButton = this.buttonOK;
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(454, 348);
-            this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(470, 386);
-            this.Name = "ConfigureLanguageColumnsForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Configure language columns";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.configureLanguageColumnsForm_FormClosing);
-            this.Load += new System.EventHandler(this.configureLanguageColumnsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.panel1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.languagesToDisplayCheckListBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.displayAllLanguagesCheckEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.displayCertainLanguagesCheckEdit.Properties)).EndInit();
-            this.ResumeLayout(false);
-
+			selectAllLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			invertLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			selectNoLanguagesToExportButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			buttonOK = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			languagesToDisplayCheckListBox = new ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl();
+			displayAllLanguagesCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+			displayCertainLanguagesCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+			tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+			((ISupportInitialize)languagesToDisplayCheckListBox).BeginInit();
+			((ISupportInitialize)displayAllLanguagesCheckEdit.Properties).BeginInit();
+			((ISupportInitialize)displayCertainLanguagesCheckEdit.Properties).BeginInit();
+			((ISupportInitialize)tablePanel1).BeginInit();
+			tablePanel1.SuspendLayout();
+			((ISupportInitialize)tablePanel2).BeginInit();
+			tablePanel2.SuspendLayout();
+			SuspendLayout();
+			// 
+			// selectAllLanguagesToExportButton
+			// 
+			selectAllLanguagesToExportButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			selectAllLanguagesToExportButton.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(selectAllLanguagesToExportButton, 0);
+			selectAllLanguagesToExportButton.Dock = DockStyle.Fill;
+			selectAllLanguagesToExportButton.Location = new Point(0, 202);
+			selectAllLanguagesToExportButton.Margin = new Padding(0, 0, 9, 0);
+			selectAllLanguagesToExportButton.Name = "selectAllLanguagesToExportButton";
+			tablePanel2.SetRow(selectAllLanguagesToExportButton, 1);
+			selectAllLanguagesToExportButton.Size = new Size(75, 28);
+			selectAllLanguagesToExportButton.TabIndex = 1;
+			selectAllLanguagesToExportButton.Text = "All";
+			selectAllLanguagesToExportButton.Click += selectAllLanguagesToExportButton_Click;
+			// 
+			// invertLanguagesToExportButton
+			// 
+			invertLanguagesToExportButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			invertLanguagesToExportButton.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(invertLanguagesToExportButton, 2);
+			invertLanguagesToExportButton.Dock = DockStyle.Fill;
+			invertLanguagesToExportButton.Location = new Point(168, 202);
+			invertLanguagesToExportButton.Margin = new Padding(0, 0, 9, 0);
+			invertLanguagesToExportButton.Name = "invertLanguagesToExportButton";
+			tablePanel2.SetRow(invertLanguagesToExportButton, 1);
+			invertLanguagesToExportButton.Size = new Size(75, 28);
+			invertLanguagesToExportButton.TabIndex = 3;
+			invertLanguagesToExportButton.Text = "Flip";
+			invertLanguagesToExportButton.Click += invertLanguagesToExportButton_Click;
+			// 
+			// buttonCancel
+			// 
+			buttonCancel.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCancel.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(buttonCancel, 2);
+			buttonCancel.DialogResult = DialogResult.Cancel;
+			buttonCancel.Dock = DockStyle.Fill;
+			buttonCancel.Location = new Point(368, 309);
+			buttonCancel.Margin = new Padding(0);
+			buttonCancel.Name = "buttonCancel";
+			tablePanel1.SetRow(buttonCancel, 3);
+			buttonCancel.Size = new Size(75, 28);
+			buttonCancel.TabIndex = 4;
+			buttonCancel.Text = "Cancel";
+			// 
+			// selectNoLanguagesToExportButton
+			// 
+			selectNoLanguagesToExportButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			selectNoLanguagesToExportButton.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(selectNoLanguagesToExportButton, 1);
+			selectNoLanguagesToExportButton.Dock = DockStyle.Fill;
+			selectNoLanguagesToExportButton.Location = new Point(84, 202);
+			selectNoLanguagesToExportButton.Margin = new Padding(0, 0, 9, 0);
+			selectNoLanguagesToExportButton.Name = "selectNoLanguagesToExportButton";
+			tablePanel2.SetRow(selectNoLanguagesToExportButton, 1);
+			selectNoLanguagesToExportButton.Size = new Size(75, 28);
+			selectNoLanguagesToExportButton.TabIndex = 2;
+			selectNoLanguagesToExportButton.Text = "None";
+			selectNoLanguagesToExportButton.Click += selectNoLanguagesToExportButton_Click;
+			// 
+			// buttonOK
+			// 
+			buttonOK.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonOK.Appearance.Options.UseFont = true;
+			tablePanel1.SetColumn(buttonOK, 1);
+			buttonOK.DialogResult = DialogResult.OK;
+			buttonOK.Dock = DockStyle.Fill;
+			buttonOK.Location = new Point(284, 309);
+			buttonOK.Margin = new Padding(0, 0, 9, 0);
+			buttonOK.Name = "buttonOK";
+			tablePanel1.SetRow(buttonOK, 3);
+			buttonOK.Size = new Size(75, 28);
+			buttonOK.TabIndex = 3;
+			buttonOK.Text = "OK";
+			buttonOK.Click += buttonOK_Click;
+			// 
+			// languagesToDisplayCheckListBox
+			// 
+			languagesToDisplayCheckListBox.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			languagesToDisplayCheckListBox.Appearance.Options.UseFont = true;
+			languagesToDisplayCheckListBox.CheckOnClick = true;
+			tablePanel2.SetColumn(languagesToDisplayCheckListBox, 0);
+			tablePanel2.SetColumnSpan(languagesToDisplayCheckListBox, 4);
+			languagesToDisplayCheckListBox.Dock = DockStyle.Fill;
+			languagesToDisplayCheckListBox.Location = new Point(0, 0);
+			languagesToDisplayCheckListBox.Margin = new Padding(0, 0, 0, 9);
+			languagesToDisplayCheckListBox.Name = "languagesToDisplayCheckListBox";
+			tablePanel2.SetRow(languagesToDisplayCheckListBox, 0);
+			languagesToDisplayCheckListBox.Size = new Size(414, 193);
+			languagesToDisplayCheckListBox.TabIndex = 0;
+			languagesToDisplayCheckListBox.ItemCheck += languagesToDisplayCheckListBox_ItemCheck;
+			languagesToDisplayCheckListBox.SelectedIndexChanged += languagesToDisplayCheckListBox_SelectedIndexChanged;
+			// 
+			// displayAllLanguagesCheckEdit
+			// 
+			tablePanel1.SetColumn(displayAllLanguagesCheckEdit, 0);
+			tablePanel1.SetColumnSpan(displayAllLanguagesCheckEdit, 3);
+			displayAllLanguagesCheckEdit.Dock = DockStyle.Fill;
+			displayAllLanguagesCheckEdit.EditValue = true;
+			displayAllLanguagesCheckEdit.Location = new Point(11, 10);
+			displayAllLanguagesCheckEdit.Margin = new Padding(0, 0, 0, 6);
+			displayAllLanguagesCheckEdit.Name = "displayAllLanguagesCheckEdit";
+			displayAllLanguagesCheckEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			displayAllLanguagesCheckEdit.Properties.Appearance.Options.UseFont = true;
+			displayAllLanguagesCheckEdit.Properties.AutoWidth = true;
+			displayAllLanguagesCheckEdit.Properties.Caption = "Display all languages";
+			displayAllLanguagesCheckEdit.Properties.CheckStyle = CheckStyles.Radio;
+			displayAllLanguagesCheckEdit.Properties.RadioGroupIndex = 0;
+			tablePanel1.SetRow(displayAllLanguagesCheckEdit, 0);
+			displayAllLanguagesCheckEdit.Size = new Size(432, 21);
+			displayAllLanguagesCheckEdit.TabIndex = 0;
+			displayAllLanguagesCheckEdit.CheckedChanged += displayAllLanguagesCheckEdit_CheckedChanged;
+			// 
+			// displayCertainLanguagesCheckEdit
+			// 
+			tablePanel1.SetColumn(displayCertainLanguagesCheckEdit, 0);
+			tablePanel1.SetColumnSpan(displayCertainLanguagesCheckEdit, 3);
+			displayCertainLanguagesCheckEdit.Dock = DockStyle.Fill;
+			displayCertainLanguagesCheckEdit.Location = new Point(11, 37);
+			displayCertainLanguagesCheckEdit.Margin = new Padding(0, 0, 0, 3);
+			displayCertainLanguagesCheckEdit.Name = "displayCertainLanguagesCheckEdit";
+			displayCertainLanguagesCheckEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			displayCertainLanguagesCheckEdit.Properties.Appearance.Options.UseFont = true;
+			displayCertainLanguagesCheckEdit.Properties.AutoWidth = true;
+			displayCertainLanguagesCheckEdit.Properties.Caption = "Display only the following languages:";
+			displayCertainLanguagesCheckEdit.Properties.CheckStyle = CheckStyles.Radio;
+			displayCertainLanguagesCheckEdit.Properties.RadioGroupIndex = 0;
+			tablePanel1.SetRow(displayCertainLanguagesCheckEdit, 1);
+			displayCertainLanguagesCheckEdit.Size = new Size(432, 21);
+			displayCertainLanguagesCheckEdit.TabIndex = 1;
+			displayCertainLanguagesCheckEdit.TabStop = false;
+			displayCertainLanguagesCheckEdit.CheckedChanged += displayCertainLanguagesCheckEdit_CheckedChanged;
+			// 
+			// tablePanel1
+			// 
+			tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F) });
+			tablePanel1.Controls.Add(tablePanel2);
+			tablePanel1.Controls.Add(displayAllLanguagesCheckEdit);
+			tablePanel1.Controls.Add(displayCertainLanguagesCheckEdit);
+			tablePanel1.Controls.Add(buttonCancel);
+			tablePanel1.Controls.Add(buttonOK);
+			tablePanel1.Dock = DockStyle.Fill;
+			tablePanel1.Location = new Point(0, 0);
+			tablePanel1.Margin = new Padding(0);
+			tablePanel1.Name = "tablePanel1";
+			tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel1.Size = new Size(454, 348);
+			tablePanel1.TabIndex = 0;
+			tablePanel1.UseSkinIndents = true;
+			// 
+			// tablePanel2
+			// 
+			tablePanel2.AutoSize = true;
+			tablePanel1.SetColumn(tablePanel2, 0);
+			tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel1.SetColumnSpan(tablePanel2, 3);
+			tablePanel2.Controls.Add(languagesToDisplayCheckListBox);
+			tablePanel2.Controls.Add(invertLanguagesToExportButton);
+			tablePanel2.Controls.Add(selectAllLanguagesToExportButton);
+			tablePanel2.Controls.Add(selectNoLanguagesToExportButton);
+			tablePanel2.Dock = DockStyle.Fill;
+			tablePanel2.Location = new Point(29, 61);
+			tablePanel2.Margin = new Padding(18, 0, 0, 18);
+			tablePanel2.Name = "tablePanel2";
+			tablePanel1.SetRow(tablePanel2, 2);
+			tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel2.Size = new Size(414, 230);
+			tablePanel2.TabIndex = 2;
+			// 
+			// ConfigureLanguageColumnsForm
+			// 
+			AcceptButton = buttonOK;
+			Appearance.Options.UseFont = true;
+			AutoScaleDimensions = new SizeF(7F, 17F);
+			AutoScaleMode = AutoScaleMode.Font;
+			CancelButton = buttonCancel;
+			ClientSize = new Size(454, 348);
+			Controls.Add(tablePanel1);
+			IconOptions.ShowIcon = false;
+			MaximizeBox = false;
+			MinimizeBox = false;
+			MinimumSize = new Size(456, 380);
+			Name = "ConfigureLanguageColumnsForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Configure language columns";
+			FormClosing += configureLanguageColumnsForm_FormClosing;
+			Load += configureLanguageColumnsForm_Load;
+			((ISupportInitialize)languagesToDisplayCheckListBox).EndInit();
+			((ISupportInitialize)displayAllLanguagesCheckEdit.Properties).EndInit();
+			((ISupportInitialize)displayCertainLanguagesCheckEdit.Properties).EndInit();
+			((ISupportInitialize)tablePanel1).EndInit();
+			tablePanel1.ResumeLayout(false);
+			tablePanel1.PerformLayout();
+			((ISupportInitialize)tablePanel2).EndInit();
+			tablePanel2.ResumeLayout(false);
+			ResumeLayout(false);
 		}
 
 		#endregion
-
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panel1;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonCancel;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonOK;
 		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit displayAllLanguagesCheckEdit;
@@ -216,5 +255,7 @@
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton invertLanguagesToExportButton;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton selectNoLanguagesToExportButton;
 		private ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl languagesToDisplayCheckListBox;
+		private DevExpress.Utils.Layout.TablePanel tablePanel1;
+		private DevExpress.Utils.Layout.TablePanel tablePanel2;
 	}
 }

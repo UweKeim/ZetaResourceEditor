@@ -13,13 +13,13 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if ( disposing && (components != null) )
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 
 		#region Component Designer generated code
@@ -30,376 +30,399 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResourceEditorUserControl));
-            this.resourceEditorUserControlMainSplitContainer = new DevExpress.XtraEditors.SplitContainerControl();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.mainDataGrid = new DevExpress.XtraGrid.GridControl();
-            this.mainGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.buttonAddTag = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonEditTag = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonDeleteTag = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonSelectAllInGrid = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonCopySelectedRowsToClipboard = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonDeleteRowContents = new DevExpress.XtraBars.BarButtonItem();
-            this.buttonDeleteSelectedContents = new DevExpress.XtraBars.BarButtonItem();
-            this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            this.fileNameTextEdit = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.statusPictureBox = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tabControl1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
-            this.xtraTabPage1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
-            this.updateInGridButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.optionsPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.updateDetailsTimer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.resourceEditorUserControlMainSplitContainer)).BeginInit();
-            this.resourceEditorUserControlMainSplitContainer.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mainDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusPictureBox)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // resourceEditorUserControlMainSplitContainer
-            // 
-            this.resourceEditorUserControlMainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.resourceEditorUserControlMainSplitContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.resourceEditorUserControlMainSplitContainer.Horizontal = false;
-            this.resourceEditorUserControlMainSplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.resourceEditorUserControlMainSplitContainer.Name = "resourceEditorUserControlMainSplitContainer";
-            this.resourceEditorUserControlMainSplitContainer.Panel1.AppearanceCaption.Image = ((System.Drawing.Image)(resources.GetObject("resourceEditorUserControlMainSplitContainer.Panel1.AppearanceCaption.Image")));
-            this.resourceEditorUserControlMainSplitContainer.Panel1.AppearanceCaption.Options.UseImage = true;
-            this.resourceEditorUserControlMainSplitContainer.Panel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.resourceEditorUserControlMainSplitContainer.Panel1.Controls.Add(this.tableLayoutPanel1);
-            this.resourceEditorUserControlMainSplitContainer.Panel1.Text = "Resources grid";
-            this.resourceEditorUserControlMainSplitContainer.Panel2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.resourceEditorUserControlMainSplitContainer.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.resourceEditorUserControlMainSplitContainer.Panel2.MinSize = 200;
-            this.resourceEditorUserControlMainSplitContainer.Panel2.Padding = new System.Windows.Forms.Padding(3);
-            this.resourceEditorUserControlMainSplitContainer.Panel2.Text = "Details view";
-            this.resourceEditorUserControlMainSplitContainer.Size = new System.Drawing.Size(399, 467);
-            this.resourceEditorUserControlMainSplitContainer.SplitterPosition = 188;
-            this.resourceEditorUserControlMainSplitContainer.TabIndex = 0;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.mainDataGrid, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panelControl1, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(395, 253);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // mainDataGrid
-            // 
-            this.mainDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainDataGrid.Location = new System.Drawing.Point(3, 24);
-            this.mainDataGrid.MainView = this.mainGridView;
-            this.mainDataGrid.MenuManager = this.barManager;
-            this.mainDataGrid.Name = "mainDataGrid";
-            this.mainDataGrid.Size = new System.Drawing.Size(389, 226);
-            this.mainDataGrid.TabIndex = 1;
-            this.mainDataGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.mainGridView});
-            // 
-            // mainGridView
-            // 
-            this.mainGridView.GridControl = this.mainDataGrid;
-            this.mainGridView.Name = "mainGridView";
-            this.mainGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-            this.mainGridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
-            this.mainGridView.OptionsCustomization.AllowColumnMoving = false;
-            this.mainGridView.OptionsCustomization.AllowGroup = false;
-            this.mainGridView.OptionsCustomization.AllowQuickHideColumns = false;
-            this.mainGridView.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.mainGridView.OptionsSelection.EnableAppearanceHideSelection = false;
-            this.mainGridView.OptionsSelection.MultiSelect = true;
-            this.mainGridView.OptionsView.RowAutoHeight = true;
-            this.mainGridView.OptionsView.ShowGroupPanel = false;
-            this.mainGridView.OptionsView.ShowIndicator = false;
-            this.mainGridView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.mainDataView_RowCellStyle);
-            this.mainGridView.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.mainGridView_PopupMenuShowing);
-            this.mainGridView.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.mainDataView_SelectionChanged);
-            this.mainGridView.ShownEditor += new System.EventHandler(this.mainGridView_ShownEditor);
-            this.mainGridView.EndSorting += new System.EventHandler(this.mainGridView_EndSorting);
-            this.mainGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.mainDataView_FocusedRowChanged);
-            this.mainGridView.FocusedColumnChanged += new DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventHandler(this.mainDataView_FocusedColumnChanged);
-            this.mainGridView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.mainDataView_CellValueChanged);
-            this.mainGridView.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.mainGridView_CustomRowFilter);
-            this.mainGridView.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainGridView_MouseUp);
-            // 
-            // barManager
-            // 
-            this.barManager.DockControls.Add(this.barDockControlTop);
-            this.barManager.DockControls.Add(this.barDockControlBottom);
-            this.barManager.DockControls.Add(this.barDockControlLeft);
-            this.barManager.DockControls.Add(this.barDockControlRight);
-            this.barManager.Form = this;
-            this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.buttonAddTag,
-            this.buttonEditTag,
-            this.buttonDeleteTag,
-            this.buttonSelectAllInGrid,
-            this.buttonCopySelectedRowsToClipboard,
-            this.buttonDeleteRowContents,
-            this.buttonDeleteSelectedContents});
-            this.barManager.MaxItemId = 10;
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager;
-            this.barDockControlTop.Size = new System.Drawing.Size(399, 0);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 467);
-            this.barDockControlBottom.Manager = this.barManager;
-            this.barDockControlBottom.Size = new System.Drawing.Size(399, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Manager = this.barManager;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 467);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(399, 0);
-            this.barDockControlRight.Manager = this.barManager;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 467);
-            // 
-            // buttonAddTag
-            // 
-            this.buttonAddTag.Caption = "Add new tag";
-            this.buttonAddTag.Id = 3;
-            this.buttonAddTag.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddTag.ImageOptions.Image")));
-            this.buttonAddTag.Name = "buttonAddTag";
-            this.buttonAddTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonAddTag_ItemClick);
-            // 
-            // buttonEditTag
-            // 
-            this.buttonEditTag.Caption = "Edit tag";
-            this.buttonEditTag.Id = 4;
-            this.buttonEditTag.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditTag.ImageOptions.Image")));
-            this.buttonEditTag.Name = "buttonEditTag";
-            this.buttonEditTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonEditTag_ItemClick);
-            // 
-            // buttonDeleteTag
-            // 
-            this.buttonDeleteTag.Caption = "Delete tag";
-            this.buttonDeleteTag.Id = 5;
-            this.buttonDeleteTag.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteTag.ImageOptions.Image")));
-            this.buttonDeleteTag.Name = "buttonDeleteTag";
-            this.buttonDeleteTag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonDeleteTag_ItemClick);
-            // 
-            // buttonSelectAllInGrid
-            // 
-            this.buttonSelectAllInGrid.Caption = "Select all rows";
-            this.buttonSelectAllInGrid.Id = 6;
-            this.buttonSelectAllInGrid.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonSelectAllInGrid.ImageOptions.Image")));
-            this.buttonSelectAllInGrid.Name = "buttonSelectAllInGrid";
-            this.buttonSelectAllInGrid.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonSelectAllInGrid_ItemClick);
-            // 
-            // buttonCopySelectedRowsToClipboard
-            // 
-            this.buttonCopySelectedRowsToClipboard.Caption = "Copy selected rows to clipboard";
-            this.buttonCopySelectedRowsToClipboard.Id = 7;
-            this.buttonCopySelectedRowsToClipboard.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonCopySelectedRowsToClipboard.ImageOptions.Image")));
-            this.buttonCopySelectedRowsToClipboard.Name = "buttonCopySelectedRowsToClipboard";
-            this.buttonCopySelectedRowsToClipboard.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonCopySelectedRowsToClipboard_ItemClick);
-            // 
-            // buttonDeleteRowContents
-            // 
-            this.buttonDeleteRowContents.Caption = "Delete row contents";
-            this.buttonDeleteRowContents.Id = 8;
-            this.buttonDeleteRowContents.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteRowContents.ImageOptions.Image")));
-            this.buttonDeleteRowContents.Name = "buttonDeleteRowContents";
-            this.buttonDeleteRowContents.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.buttonDeleteRowContents_ItemClick);
-            // 
-            // buttonDeleteSelectedContents
-            // 
-            this.buttonDeleteSelectedContents.Caption = "Delete selected contents";
-            this.buttonDeleteSelectedContents.Id = 9;
-            this.buttonDeleteSelectedContents.Name = "buttonDeleteSelectedContents";
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.panelControl1.Appearance.Options.UseBackColor = true;
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.fileNameTextEdit);
-            this.panelControl1.Controls.Add(this.statusPictureBox);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Padding = new System.Windows.Forms.Padding(3);
-            this.panelControl1.Size = new System.Drawing.Size(395, 21);
-            this.panelControl1.TabIndex = 2;
-            // 
-            // fileNameTextEdit
-            // 
-            this.fileNameTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fileNameTextEdit.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.fileNameTextEdit.Appearance.Options.UseFont = true;
-            this.fileNameTextEdit.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.fileNameTextEdit.Location = new System.Drawing.Point(25, 3);
-            this.fileNameTextEdit.Name = "fileNameTextEdit";
-            this.fileNameTextEdit.Size = new System.Drawing.Size(367, 15);
-            this.fileNameTextEdit.TabIndex = 2;
-            // 
-            // statusPictureBox
-            // 
-            this.statusPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("statusPictureBox.Image")));
-            this.statusPictureBox.Location = new System.Drawing.Point(3, 3);
-            this.statusPictureBox.Name = "statusPictureBox";
-            this.statusPictureBox.Size = new System.Drawing.Size(16, 16);
-            this.statusPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.statusPictureBox.TabIndex = 1;
-            this.statusPictureBox.TabStop = false;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.tabControl1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.updateInGridButton, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.labelControl1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(389, 190);
-            this.tableLayoutPanel2.TabIndex = 3;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.AppearancePage.Header.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.tabControl1.AppearancePage.Header.Options.UseFont = true;
-            this.tabControl1.Location = new System.Drawing.Point(3, 24);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.tabControl1.Size = new System.Drawing.Size(383, 129);
-            this.tabControl1.TabIndex = 1;
-            this.tabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1});
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(381, 100);
-            this.xtraTabPage1.Text = "<L>";
-            // 
-            // updateInGridButton
-            // 
-            this.updateInGridButton.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.updateInGridButton.Appearance.Options.UseFont = true;
-            this.updateInGridButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.updateInGridButton.Location = new System.Drawing.Point(276, 159);
-            this.updateInGridButton.Name = "updateInGridButton";
-            this.updateInGridButton.Size = new System.Drawing.Size(110, 28);
-            this.updateInGridButton.TabIndex = 2;
-            this.updateInGridButton.Text = "&Update in grid";
-            this.updateInGridButton.WantDrawFocusRectangle = true;
-            this.updateInGridButton.Click += new System.EventHandler(this.updateInGridButton_Click);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.Location = new System.Drawing.Point(3, 3);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(383, 15);
-            this.labelControl1.TabIndex = 3;
-            // 
-            // optionsPopupMenu
-            // 
-            this.optionsPopupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonAddTag),
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonDeleteRowContents),
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonDeleteTag),
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonEditTag, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonSelectAllInGrid, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.buttonCopySelectedRowsToClipboard)});
-            this.optionsPopupMenu.Manager = this.barManager;
-            this.optionsPopupMenu.Name = "optionsPopupMenu";
-            this.optionsPopupMenu.BeforePopup += new System.ComponentModel.CancelEventHandler(this.optionsPopupMenu_BeforePopup);
-            // 
-            // updateDetailsTimer
-            // 
-            this.updateDetailsTimer.Interval = 200;
-            this.updateDetailsTimer.Tick += new System.EventHandler(this.updateDetailsTimer_Tick);
-            // 
-            // ResourceEditorUserControl
-            // 
-            this.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.resourceEditorUserControlMainSplitContainer);
-            this.Controls.Add(this.barDockControlLeft);
-            this.Controls.Add(this.barDockControlRight);
-            this.Controls.Add(this.barDockControlBottom);
-            this.Controls.Add(this.barDockControlTop);
-            this.Name = "ResourceEditorUserControl";
-            this.Size = new System.Drawing.Size(399, 467);
-            this.Load += new System.EventHandler(this.resourceEditorUserControlNew_Load);
-            this.SizeChanged += new System.EventHandler(this.resourceEditorUserControlNew_SizeChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.resourceEditorUserControlMainSplitContainer)).EndInit();
-            this.resourceEditorUserControlMainSplitContainer.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mainDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statusPictureBox)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.optionsPopupMenu)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+			components = new Container();
+			ComponentResourceManager resources = new ComponentResourceManager(typeof(ResourceEditorUserControl));
+			resourceEditorUserControlMainSplitContainer = new SplitContainerControl();
+			tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel3 = new DevExpress.Utils.Layout.TablePanel();
+			statusPictureBox = new PictureBox();
+			fileNameTextEdit = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			mainDataGrid = new DevExpress.XtraGrid.GridControl();
+			mainGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+			barManager = new BarManager(components);
+			barDockControlTop = new BarDockControl();
+			barDockControlBottom = new BarDockControl();
+			barDockControlLeft = new BarDockControl();
+			barDockControlRight = new BarDockControl();
+			buttonAddTag = new BarButtonItem();
+			buttonEditTag = new BarButtonItem();
+			buttonDeleteTag = new BarButtonItem();
+			buttonSelectAllInGrid = new BarButtonItem();
+			buttonCopySelectedRowsToClipboard = new BarButtonItem();
+			buttonDeleteRowContents = new BarButtonItem();
+			buttonDeleteSelectedContents = new BarButtonItem();
+			tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+			tabControl1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabControl();
+			xtraTabPage1 = new ExtendedControlsLibrary.Skinning.CustomTabControl.MyXtraTabPage();
+			updateInGridButton = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			optionsPopupMenu = new PopupMenu(components);
+			updateDetailsTimer = new System.Windows.Forms.Timer(components);
+			((ISupportInitialize)resourceEditorUserControlMainSplitContainer).BeginInit();
+			((ISupportInitialize)resourceEditorUserControlMainSplitContainer.Panel1).BeginInit();
+			resourceEditorUserControlMainSplitContainer.Panel1.SuspendLayout();
+			((ISupportInitialize)resourceEditorUserControlMainSplitContainer.Panel2).BeginInit();
+			resourceEditorUserControlMainSplitContainer.Panel2.SuspendLayout();
+			resourceEditorUserControlMainSplitContainer.SuspendLayout();
+			((ISupportInitialize)tablePanel1).BeginInit();
+			tablePanel1.SuspendLayout();
+			((ISupportInitialize)tablePanel3).BeginInit();
+			tablePanel3.SuspendLayout();
+			((ISupportInitialize)statusPictureBox).BeginInit();
+			((ISupportInitialize)mainDataGrid).BeginInit();
+			((ISupportInitialize)mainGridView).BeginInit();
+			((ISupportInitialize)barManager).BeginInit();
+			((ISupportInitialize)tablePanel2).BeginInit();
+			tablePanel2.SuspendLayout();
+			((ISupportInitialize)tabControl1).BeginInit();
+			tabControl1.SuspendLayout();
+			((ISupportInitialize)optionsPopupMenu).BeginInit();
+			SuspendLayout();
+			// 
+			// resourceEditorUserControlMainSplitContainer
+			// 
+			resourceEditorUserControlMainSplitContainer.Dock = DockStyle.Fill;
+			resourceEditorUserControlMainSplitContainer.FixedPanel = SplitFixedPanel.Panel2;
+			resourceEditorUserControlMainSplitContainer.Horizontal = false;
+			resourceEditorUserControlMainSplitContainer.Location = new Point(0, 0);
+			resourceEditorUserControlMainSplitContainer.Margin = new Padding(0);
+			resourceEditorUserControlMainSplitContainer.Name = "resourceEditorUserControlMainSplitContainer";
+			// 
+			// resourceEditorUserControlMainSplitContainer.Panel1
+			// 
+			resourceEditorUserControlMainSplitContainer.Panel1.AppearanceCaption.Image = (Image)resources.GetObject("resourceEditorUserControlMainSplitContainer.Panel1.AppearanceCaption.Image");
+			resourceEditorUserControlMainSplitContainer.Panel1.AppearanceCaption.Options.UseImage = true;
+			resourceEditorUserControlMainSplitContainer.Panel1.BorderStyle = BorderStyles.Default;
+			resourceEditorUserControlMainSplitContainer.Panel1.Controls.Add(tablePanel1);
+			resourceEditorUserControlMainSplitContainer.Panel1.Padding = new Padding(6);
+			resourceEditorUserControlMainSplitContainer.Panel1.Text = "Resources grid";
+			// 
+			// resourceEditorUserControlMainSplitContainer.Panel2
+			// 
+			resourceEditorUserControlMainSplitContainer.Panel2.BorderStyle = BorderStyles.Default;
+			resourceEditorUserControlMainSplitContainer.Panel2.Controls.Add(tablePanel2);
+			resourceEditorUserControlMainSplitContainer.Panel2.MinSize = 200;
+			resourceEditorUserControlMainSplitContainer.Panel2.Padding = new Padding(6);
+			resourceEditorUserControlMainSplitContainer.Panel2.Text = "Details view";
+			resourceEditorUserControlMainSplitContainer.Size = new Size(404, 580);
+			resourceEditorUserControlMainSplitContainer.SplitterPosition = 188;
+			resourceEditorUserControlMainSplitContainer.TabIndex = 0;
+			// 
+			// tablePanel1
+			// 
+			tablePanel1.AutoSize = true;
+			tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel1.Controls.Add(tablePanel3);
+			tablePanel1.Controls.Add(mainDataGrid);
+			tablePanel1.Dock = DockStyle.Fill;
+			tablePanel1.Location = new Point(6, 6);
+			tablePanel1.Margin = new Padding(0);
+			tablePanel1.Name = "tablePanel1";
+			tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 28F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel1.Size = new Size(388, 354);
+			tablePanel1.TabIndex = 0;
+			// 
+			// tablePanel3
+			// 
+			tablePanel3.AutoSize = true;
+			tablePanel1.SetColumn(tablePanel3, 0);
+			tablePanel3.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 5F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel3.Controls.Add(statusPictureBox);
+			tablePanel3.Controls.Add(fileNameTextEdit);
+			tablePanel3.Dock = DockStyle.Fill;
+			tablePanel3.Location = new Point(0, 0);
+			tablePanel3.Margin = new Padding(0, 0, 0, 9);
+			tablePanel3.Name = "tablePanel3";
+			tablePanel1.SetRow(tablePanel3, 0);
+			tablePanel3.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 30F) });
+			tablePanel3.Size = new Size(388, 22);
+			tablePanel3.TabIndex = 6;
+			// 
+			// statusPictureBox
+			// 
+			tablePanel3.SetColumn(statusPictureBox, 0);
+			statusPictureBox.Image = (Image)resources.GetObject("statusPictureBox.Image");
+			statusPictureBox.Location = new Point(3, 3);
+			statusPictureBox.MinimumSize = new Size(16, 16);
+			statusPictureBox.Name = "statusPictureBox";
+			tablePanel3.SetRow(statusPictureBox, 0);
+			statusPictureBox.Size = new Size(16, 16);
+			statusPictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+			statusPictureBox.TabIndex = 1;
+			statusPictureBox.TabStop = false;
+			// 
+			// fileNameTextEdit
+			// 
+			fileNameTextEdit.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			fileNameTextEdit.Appearance.Options.UseFont = true;
+			fileNameTextEdit.AutoSizeMode = LabelAutoSizeMode.Vertical;
+			tablePanel3.SetColumn(fileNameTextEdit, 1);
+			fileNameTextEdit.Dock = DockStyle.Fill;
+			fileNameTextEdit.Location = new Point(25, 0);
+			fileNameTextEdit.Margin = new Padding(3, 0, 0, 0);
+			fileNameTextEdit.Name = "fileNameTextEdit";
+			tablePanel3.SetRow(fileNameTextEdit, 0);
+			fileNameTextEdit.Size = new Size(363, 22);
+			fileNameTextEdit.TabIndex = 2;
+			fileNameTextEdit.Text = "<TODO>";
+			// 
+			// mainDataGrid
+			// 
+			tablePanel1.SetColumn(mainDataGrid, 0);
+			mainDataGrid.Dock = DockStyle.Fill;
+			mainDataGrid.Location = new Point(0, 31);
+			mainDataGrid.MainView = mainGridView;
+			mainDataGrid.Margin = new Padding(0);
+			mainDataGrid.MenuManager = barManager;
+			mainDataGrid.Name = "mainDataGrid";
+			tablePanel1.SetRow(mainDataGrid, 1);
+			mainDataGrid.Size = new Size(388, 323);
+			mainDataGrid.TabIndex = 1;
+			mainDataGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { mainGridView });
+			// 
+			// mainGridView
+			// 
+			mainGridView.GridControl = mainDataGrid;
+			mainGridView.Name = "mainGridView";
+			mainGridView.OptionsBehavior.AllowAddRows = DefaultBoolean.False;
+			mainGridView.OptionsBehavior.AllowDeleteRows = DefaultBoolean.False;
+			mainGridView.OptionsCustomization.AllowColumnMoving = false;
+			mainGridView.OptionsCustomization.AllowGroup = false;
+			mainGridView.OptionsCustomization.AllowQuickHideColumns = false;
+			mainGridView.OptionsSelection.EnableAppearanceFocusedCell = false;
+			mainGridView.OptionsSelection.EnableAppearanceHideSelection = false;
+			mainGridView.OptionsSelection.MultiSelect = true;
+			mainGridView.OptionsView.RowAutoHeight = true;
+			mainGridView.OptionsView.ShowGroupPanel = false;
+			mainGridView.OptionsView.ShowIndicator = false;
+			mainGridView.RowCellStyle += mainDataView_RowCellStyle;
+			mainGridView.PopupMenuShowing += mainGridView_PopupMenuShowing;
+			mainGridView.SelectionChanged += mainDataView_SelectionChanged;
+			mainGridView.ShownEditor += mainGridView_ShownEditor;
+			mainGridView.EndSorting += mainGridView_EndSorting;
+			mainGridView.FocusedRowChanged += mainDataView_FocusedRowChanged;
+			mainGridView.FocusedColumnChanged += mainDataView_FocusedColumnChanged;
+			mainGridView.CellValueChanged += mainDataView_CellValueChanged;
+			mainGridView.CustomRowFilter += mainGridView_CustomRowFilter;
+			mainGridView.MouseUp += mainGridView_MouseUp;
+			// 
+			// barManager
+			// 
+			barManager.DockControls.Add(barDockControlTop);
+			barManager.DockControls.Add(barDockControlBottom);
+			barManager.DockControls.Add(barDockControlLeft);
+			barManager.DockControls.Add(barDockControlRight);
+			barManager.Form = this;
+			barManager.Items.AddRange(new BarItem[] { buttonAddTag, buttonEditTag, buttonDeleteTag, buttonSelectAllInGrid, buttonCopySelectedRowsToClipboard, buttonDeleteRowContents, buttonDeleteSelectedContents });
+			barManager.MaxItemId = 10;
+			// 
+			// barDockControlTop
+			// 
+			barDockControlTop.CausesValidation = false;
+			barDockControlTop.Dock = DockStyle.Top;
+			barDockControlTop.Location = new Point(0, 0);
+			barDockControlTop.Manager = barManager;
+			barDockControlTop.Size = new Size(404, 0);
+			// 
+			// barDockControlBottom
+			// 
+			barDockControlBottom.CausesValidation = false;
+			barDockControlBottom.Dock = DockStyle.Bottom;
+			barDockControlBottom.Location = new Point(0, 580);
+			barDockControlBottom.Manager = barManager;
+			barDockControlBottom.Size = new Size(404, 0);
+			// 
+			// barDockControlLeft
+			// 
+			barDockControlLeft.CausesValidation = false;
+			barDockControlLeft.Dock = DockStyle.Left;
+			barDockControlLeft.Location = new Point(0, 0);
+			barDockControlLeft.Manager = barManager;
+			barDockControlLeft.Size = new Size(0, 580);
+			// 
+			// barDockControlRight
+			// 
+			barDockControlRight.CausesValidation = false;
+			barDockControlRight.Dock = DockStyle.Right;
+			barDockControlRight.Location = new Point(404, 0);
+			barDockControlRight.Manager = barManager;
+			barDockControlRight.Size = new Size(0, 580);
+			// 
+			// buttonAddTag
+			// 
+			buttonAddTag.Caption = "Add new tag";
+			buttonAddTag.Id = 3;
+			buttonAddTag.ImageOptions.Image = (Image)resources.GetObject("buttonAddTag.ImageOptions.Image");
+			buttonAddTag.Name = "buttonAddTag";
+			buttonAddTag.ItemClick += buttonAddTag_ItemClick;
+			// 
+			// buttonEditTag
+			// 
+			buttonEditTag.Caption = "Edit tag";
+			buttonEditTag.Id = 4;
+			buttonEditTag.ImageOptions.Image = (Image)resources.GetObject("buttonEditTag.ImageOptions.Image");
+			buttonEditTag.Name = "buttonEditTag";
+			buttonEditTag.ItemClick += buttonEditTag_ItemClick;
+			// 
+			// buttonDeleteTag
+			// 
+			buttonDeleteTag.Caption = "Delete tag";
+			buttonDeleteTag.Id = 5;
+			buttonDeleteTag.ImageOptions.Image = (Image)resources.GetObject("buttonDeleteTag.ImageOptions.Image");
+			buttonDeleteTag.Name = "buttonDeleteTag";
+			buttonDeleteTag.ItemClick += buttonDeleteTag_ItemClick;
+			// 
+			// buttonSelectAllInGrid
+			// 
+			buttonSelectAllInGrid.Caption = "Select all rows";
+			buttonSelectAllInGrid.Id = 6;
+			buttonSelectAllInGrid.ImageOptions.Image = (Image)resources.GetObject("buttonSelectAllInGrid.ImageOptions.Image");
+			buttonSelectAllInGrid.Name = "buttonSelectAllInGrid";
+			buttonSelectAllInGrid.ItemClick += buttonSelectAllInGrid_ItemClick;
+			// 
+			// buttonCopySelectedRowsToClipboard
+			// 
+			buttonCopySelectedRowsToClipboard.Caption = "Copy selected rows to clipboard";
+			buttonCopySelectedRowsToClipboard.Id = 7;
+			buttonCopySelectedRowsToClipboard.ImageOptions.Image = (Image)resources.GetObject("buttonCopySelectedRowsToClipboard.ImageOptions.Image");
+			buttonCopySelectedRowsToClipboard.Name = "buttonCopySelectedRowsToClipboard";
+			buttonCopySelectedRowsToClipboard.ItemClick += buttonCopySelectedRowsToClipboard_ItemClick;
+			// 
+			// buttonDeleteRowContents
+			// 
+			buttonDeleteRowContents.Caption = "Delete row contents";
+			buttonDeleteRowContents.Id = 8;
+			buttonDeleteRowContents.ImageOptions.Image = (Image)resources.GetObject("buttonDeleteRowContents.ImageOptions.Image");
+			buttonDeleteRowContents.Name = "buttonDeleteRowContents";
+			buttonDeleteRowContents.ItemClick += buttonDeleteRowContents_ItemClick;
+			// 
+			// buttonDeleteSelectedContents
+			// 
+			buttonDeleteSelectedContents.Caption = "Delete selected contents";
+			buttonDeleteSelectedContents.Id = 9;
+			buttonDeleteSelectedContents.Name = "buttonDeleteSelectedContents";
+			// 
+			// tablePanel2
+			// 
+			tablePanel2.AutoSize = true;
+			tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 116F) });
+			tablePanel2.Controls.Add(tabControl1);
+			tablePanel2.Controls.Add(updateInGridButton);
+			tablePanel2.Controls.Add(labelControl1);
+			tablePanel2.Dock = DockStyle.Fill;
+			tablePanel2.Location = new Point(6, 6);
+			tablePanel2.Margin = new Padding(0);
+			tablePanel2.Name = "tablePanel2";
+			tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel2.Size = new Size(388, 184);
+			tablePanel2.TabIndex = 5;
+			// 
+			// tabControl1
+			// 
+			tabControl1.AppearancePage.Header.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			tabControl1.AppearancePage.Header.Options.UseFont = true;
+			tablePanel2.SetColumn(tabControl1, 0);
+			tablePanel2.SetColumnSpan(tabControl1, 2);
+			tabControl1.Dock = DockStyle.Fill;
+			tabControl1.Location = new Point(0, 26);
+			tabControl1.Margin = new Padding(0, 0, 0, 9);
+			tabControl1.Name = "tabControl1";
+			tablePanel2.SetRow(tabControl1, 1);
+			tabControl1.SelectedTabPage = xtraTabPage1;
+			tabControl1.Size = new Size(388, 121);
+			tabControl1.TabIndex = 1;
+			tabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] { xtraTabPage1 });
+			// 
+			// xtraTabPage1
+			// 
+			xtraTabPage1.Name = "xtraTabPage1";
+			xtraTabPage1.Size = new Size(386, 92);
+			xtraTabPage1.Text = "<L>";
+			// 
+			// updateInGridButton
+			// 
+			updateInGridButton.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			updateInGridButton.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(updateInGridButton, 1);
+			updateInGridButton.Dock = DockStyle.Fill;
+			updateInGridButton.Location = new Point(272, 156);
+			updateInGridButton.Margin = new Padding(0);
+			updateInGridButton.Name = "updateInGridButton";
+			tablePanel2.SetRow(updateInGridButton, 2);
+			updateInGridButton.Size = new Size(116, 28);
+			updateInGridButton.TabIndex = 2;
+			updateInGridButton.Text = "&Update in grid";
+			updateInGridButton.Click += updateInGridButton_Click;
+			// 
+			// labelControl1
+			// 
+			labelControl1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl1.Appearance.Options.UseFont = true;
+			labelControl1.AutoSizeMode = LabelAutoSizeMode.Vertical;
+			tablePanel2.SetColumn(labelControl1, 0);
+			tablePanel2.SetColumnSpan(labelControl1, 2);
+			labelControl1.Dock = DockStyle.Fill;
+			labelControl1.Location = new Point(0, 0);
+			labelControl1.Margin = new Padding(0, 0, 0, 9);
+			labelControl1.Name = "labelControl1";
+			tablePanel2.SetRow(labelControl1, 0);
+			labelControl1.Size = new Size(388, 17);
+			labelControl1.TabIndex = 3;
+			labelControl1.Text = "<TODO>";
+			// 
+			// optionsPopupMenu
+			// 
+			optionsPopupMenu.LinksPersistInfo.AddRange(new LinkPersistInfo[] { new LinkPersistInfo(buttonAddTag), new LinkPersistInfo(buttonDeleteRowContents), new LinkPersistInfo(buttonDeleteTag), new LinkPersistInfo(buttonEditTag, true), new LinkPersistInfo(buttonSelectAllInGrid, true), new LinkPersistInfo(buttonCopySelectedRowsToClipboard) });
+			optionsPopupMenu.Manager = barManager;
+			optionsPopupMenu.Name = "optionsPopupMenu";
+			optionsPopupMenu.BeforePopup += optionsPopupMenu_BeforePopup;
+			// 
+			// updateDetailsTimer
+			// 
+			updateDetailsTimer.Interval = 200;
+			updateDetailsTimer.Tick += updateDetailsTimer_Tick;
+			// 
+			// ResourceEditorUserControl
+			// 
+			Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			Appearance.Options.UseFont = true;
+			AutoScaleDimensions = new SizeF(7F, 17F);
+			AutoScaleMode = AutoScaleMode.Font;
+			Controls.Add(resourceEditorUserControlMainSplitContainer);
+			Controls.Add(barDockControlLeft);
+			Controls.Add(barDockControlRight);
+			Controls.Add(barDockControlBottom);
+			Controls.Add(barDockControlTop);
+			Name = "ResourceEditorUserControl";
+			Size = new Size(404, 580);
+			Load += resourceEditorUserControlNew_Load;
+			SizeChanged += resourceEditorUserControlNew_SizeChanged;
+			((ISupportInitialize)resourceEditorUserControlMainSplitContainer.Panel1).EndInit();
+			resourceEditorUserControlMainSplitContainer.Panel1.ResumeLayout(false);
+			resourceEditorUserControlMainSplitContainer.Panel1.PerformLayout();
+			((ISupportInitialize)resourceEditorUserControlMainSplitContainer.Panel2).EndInit();
+			resourceEditorUserControlMainSplitContainer.Panel2.ResumeLayout(false);
+			resourceEditorUserControlMainSplitContainer.Panel2.PerformLayout();
+			((ISupportInitialize)resourceEditorUserControlMainSplitContainer).EndInit();
+			resourceEditorUserControlMainSplitContainer.ResumeLayout(false);
+			((ISupportInitialize)tablePanel1).EndInit();
+			tablePanel1.ResumeLayout(false);
+			tablePanel1.PerformLayout();
+			((ISupportInitialize)tablePanel3).EndInit();
+			tablePanel3.ResumeLayout(false);
+			tablePanel3.PerformLayout();
+			((ISupportInitialize)statusPictureBox).EndInit();
+			((ISupportInitialize)mainDataGrid).EndInit();
+			((ISupportInitialize)mainGridView).EndInit();
+			((ISupportInitialize)barManager).EndInit();
+			((ISupportInitialize)tablePanel2).EndInit();
+			tablePanel2.ResumeLayout(false);
+			tablePanel2.PerformLayout();
+			((ISupportInitialize)tabControl1).EndInit();
+			tabControl1.ResumeLayout(false);
+			((ISupportInitialize)optionsPopupMenu).EndInit();
+			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
@@ -419,10 +442,7 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		private DevExpress.XtraBars.BarButtonItem buttonAddTag;
 		private DevExpress.XtraBars.BarButtonItem buttonEditTag;
 		private DevExpress.XtraBars.BarButtonItem buttonDeleteTag;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Timer updateDetailsTimer;
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
 		private System.Windows.Forms.PictureBox statusPictureBox;
 		private DevExpress.XtraBars.BarButtonItem buttonSelectAllInGrid;
 		private DevExpress.XtraBars.BarButtonItem buttonCopySelectedRowsToClipboard;
@@ -430,5 +450,8 @@ namespace ZetaResourceEditor.UI.Main.RightContent
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
 		private DevExpress.XtraBars.BarButtonItem buttonDeleteRowContents;
 		private DevExpress.XtraBars.BarButtonItem buttonDeleteSelectedContents;
+		private DevExpress.Utils.Layout.TablePanel tablePanel1;
+		private DevExpress.Utils.Layout.TablePanel tablePanel2;
+		private DevExpress.Utils.Layout.TablePanel tablePanel3;
 	}
 }

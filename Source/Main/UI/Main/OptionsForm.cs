@@ -4,7 +4,6 @@ using Helper.Base;
 using RuntimeBusinessLogic.WebServices;
 using System.Net;
 using ExtendedControlsLibrary;
-using ExtendedControlsLibrary.Specialized;
 
 public partial class OptionsForm :
 	FormBase
@@ -37,7 +36,6 @@ public partial class OptionsForm :
 	{
 		if (!DesignModeHelper.IsDesignMode)
 		{
-			WinFormsPersistanceHelper.RestoreState(this);
 			CenterToParent();
 
 			InitiallyFillLists();
@@ -49,7 +47,6 @@ public partial class OptionsForm :
 
 	private void OptionsForm_FormClosing(object sender, FormClosingEventArgs e)
 	{
-		WinFormsPersistanceHelper.SaveState(this);
 	}
 
 	private void buttonOK_Click(object sender, EventArgs e)

@@ -5,7 +5,6 @@
     <RootNamespace>ZetaResourceEditor.Runtime</RootNamespace>
     <AssemblyName>ZetaResourceEditor.Runtime</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <Configurations>Release</Configurations>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -34,17 +33,15 @@
     <PackageReference Include="log4net" Version="2.0.15" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="Svg" Version="3.4.4" />
-    <PackageReference Include="System.Memory" Version="4.5.5" />
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.0" />
-    <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.0" />
-    <PackageReference Include="ZetaShortPaths" Version="1.0.24" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.11" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.11" />
+    <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.11" />
+    <PackageReference Include="ZetaShortPaths" Version="1.0.31" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="appsettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Localization\" />
   </ItemGroup>
 </Project>

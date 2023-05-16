@@ -63,7 +63,7 @@ public abstract class SnapshotControllerBase
         }
     }
 
-    public string GetSettingValue(
+    public string? GetSettingValue(
         string? key)
     {
         if (StringExtensionMethods.IsNullOrWhiteSpace(key))

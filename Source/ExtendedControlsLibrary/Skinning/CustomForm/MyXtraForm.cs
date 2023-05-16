@@ -9,7 +9,7 @@ public class MyXtraForm :
     XtraForm
 {
     private BarManager? _menuBarManager;
-    public new bool DesignMode => base.DesignMode || DesignModeHelper.IsDesignMode;
+    protected new bool DesignMode => base.DesignMode || DesignModeHelper.IsDesignMode;
 
     // Skin für Kontext-Menüs.
     // Wird in der Hauptanwendung zentral vom Main-Form gesetzt.
@@ -45,43 +45,12 @@ public class MyXtraForm :
         return c.FindForm() is not MyXtraForm form || form.IsDisposed ? null : form.GetMenuBarManager();
     }
 
-    //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    //[EditorBrowsable(EditorBrowsableState.Never)]
-    //[Browsable(false)]
-    //public new AutoScaleMode AutoScaleMode
-    //{
-    //    get => AutoScaleMode.None;
-    //    // ReSharper disable ValueParameterNotUsed
-    //    set => base.AutoScaleMode = AutoScaleMode.None;
-    //    // ReSharper restore ValueParameterNotUsed
-    //}
-
     protected override void OnLoad(EventArgs e)
     {
         base.OnLoad(e);
 
         // Do this even in design mode to have valid UI.
-        //AutoScaleMode = AutoScaleMode.None;
         Appearance.Font = SkinHelper.StandardFont;
-    }
-
-    public event EventHandler<WantProcessDialogKeyEventArgs>? WantProcessDialogKey;
-
-    protected override bool ProcessDialogKey(Keys keyData)
-    {
-        var h = WantProcessDialogKey;
-        if (h != null)
-        {
-            var args = new WantProcessDialogKeyEventArgs(keyData);
-            h(this, args);
-
-            if (args.Result.HasValue)
-            {
-                return args.Result.Value;
-            }
-        }
-
-        return base.ProcessDialogKey(keyData);
     }
 
     protected virtual void InitiallyFillLists()
@@ -97,23 +66,5 @@ public class MyXtraForm :
     protected virtual void FillControlsToItem()
     {
         // Does nothing.
-    }
-
-    protected static int FindListControlIndex(
-        ComboBoxEdit listControl,
-        Predicate<object> finder)
-    {
-        var index = 0;
-        foreach (var o in listControl.Properties.Items)
-        {
-            if (finder(o))
-            {
-                return index;
-            }
-
-            index++;
-        }
-
-        return -1;
     }
 }

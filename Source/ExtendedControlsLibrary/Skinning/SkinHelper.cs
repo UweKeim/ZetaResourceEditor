@@ -1,161 +1,133 @@
 ﻿namespace ZetaResourceEditor.ExtendedControlsLibrary.Skinning;
 
-using System.Configuration;
 using CustomRibbonForm;
 using DevExpress.LookAndFeel;
-using DevExpress.Skins;
 using DevExpress.Utils;
+using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using Microsoft.Win32;
+using System.Configuration;
 using Zeta.VoyagerLibrary.Core.Common;
 using Zeta.VoyagerLibrary.Core.Logging;
 
 public static class SkinHelper
 {
-    public const int ButtonHeight = 28;
-    public const string SkinNameMainForm = @"ZetaTestSkin";
-    public const string SkinNameDialogForms = @"ZetaTestSkin";
+	// ---------------------------------------------------------------------------------
+	// DevExpress sagt:
+	// 
+	// "Do not use the Microsoft Windows graphics device interface (GDI)﻿ before the
+	//  application is set as DPI-aware. This may lead to unexpected behavior.
+	//  That is, do not use any graphic objects such as Bitmaps, Brushes, or Fonts.
+	//  Also, do not invoke any subsystems that might use them (for example, do not
+	//  apply a skin to the application)."
+	//
+	// Quelle:
+	// https://docs.devexpress.com/WindowsForms/116666/common-features/high-dpi-support
+	// ---------------------------------------------------------------------------------
 
-    public const string FontHeightMeasureString = @"yWÀ|";
-    public static readonly bool IsRealFontInstalled;
+	public static Font StandardFont => new(@"Segoe UI", 10, GraphicsUnit.Point);
+	public static Font StandardFontBold => new(@"Segoe UI", 10, FontStyle.Bold, GraphicsUnit.Point);
 
-    public static readonly Font SmallFont;
+	private static MyDefaultBarAndDockingController? _badc;
 
-    public static readonly Font StandardFont;
-    public static readonly Font StandardFontBold;
+	public static Color DialogTextColor { get; private set; }
+	public static Color DialogBackgroundColor { get; private set; }
 
-    public static readonly Font LargeFont;
-    public static readonly Font LargeFontBold;
-    public static readonly Font LargeFontUnderline;
+	public static Color LineColorTop { get; private set; }
+	public static Color LineColorBottom { get; private set; }
+	public static Color ControlBorderColor { get; private set; }
 
-    private static SkinController? _currentSkin;
-    private static MyDefaultBarAndDockingController? _badc;
+	public static Color AlternatingGridRowColors { get; private set; }
 
-    public static readonly Color DialogTextColor = Color.FromArgb(59, 59, 59);
-    public static readonly Color DialogBackgroundColor = Color.FromArgb(255, 255, 255);
+	internal static Color CueTextColor { get; private set; }
 
-    public static readonly Color LineColorTop = Color.FromArgb(207, 207, 207);
-    public static readonly Color LineColorBottom = Color.FromArgb(245, 245, 245);
-    public static readonly Color ControlBorderColor = Color.FromArgb(200, 200, 200);
+	public static void InitializeAll()
+	{
+		DesignModeHelper.TurnOffDesignMode();
+		
+		WindowsFormsSettings.ForceDirectXPaint();
+		WindowsFormsSettings.EnableFormSkins();
+		
+		if (!SystemInformation.TerminalServerSession && Screen.AllScreens.Length > 1)
+			WindowsFormsSettings.SetPerMonitorDpiAware();
+		else
+			WindowsFormsSettings.SetDPIAware();
 
-    public static readonly Color AlternatingGridRowColors = Color.FromArgb(249, 249, 249);
+		Application.EnableVisualStyles();
+		WindowsFormsSettings.ForcePaintApiDiagnostics(DevExpress.Utils.Diagnostics.PaintApiDiagnosticsLevel.Throw);
+		Application.SetCompatibleTextRenderingDefault(false);
 
-    internal static readonly Color CueTextColor = Color.Silver;
+		WindowsFormsSettings.OptimizeRemoteConnectionPerformance =
+			SystemInformation.TerminalServerSession ? DefaultBoolean.True : DefaultBoolean.False;
 
-    static SkinHelper()
-    {
-        var hasMainFont = DesignModeHelper.IsFontInstalled(@"Segoe UI");
-        IsRealFontInstalled = hasMainFont;
+		// Erst _nach_ dem Setzen der DPI-Awareness.
+		initColors();
 
-        const int standardFontSizePixel = 13;
-        var largeFontSizePixel = hasMainFont ? 17 : 16;
-        const int smallFontSizePixel = 11;
-
-        SmallFont =
-            hasMainFont
-                ? new(@"Segoe UI", smallFontSizePixel, GraphicsUnit.Pixel)
-                : new Font(@"Tahoma", smallFontSizePixel, GraphicsUnit.Pixel);
-
-        StandardFont =
-            hasMainFont
-                ? new(@"Segoe UI", standardFontSizePixel, GraphicsUnit.Pixel)
-                : new Font(@"Tahoma", standardFontSizePixel, GraphicsUnit.Pixel);
-
-        StandardFontBold =
-            hasMainFont
-                ? new(@"Segoe UI", standardFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel)
-                : new Font(@"Tahoma", standardFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel);
-
-        LargeFont =
-            hasMainFont
-                ? new(@"Segoe UI", largeFontSizePixel, GraphicsUnit.Pixel)
-                : new Font(@"Tahoma", largeFontSizePixel, GraphicsUnit.Pixel);
-
-        LargeFontBold =
-            hasMainFont
-                ? new(@"Segoe UI", largeFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel)
-                : new Font(@"Tahoma", largeFontSizePixel, FontStyle.Bold, GraphicsUnit.Pixel);
-
-        LargeFontUnderline =
-            hasMainFont
-                ? new(@"Segoe UI", largeFontSizePixel, FontStyle.Underline, GraphicsUnit.Pixel)
-                : new Font(@"Tahoma", largeFontSizePixel, FontStyle.Underline, GraphicsUnit.Pixel);
-    }
-
-    public static SkinController GetCurrentSkin()
-    {
-        // http://www.devexpress.com/Support/Center/KB/p/A2753.aspx
-
-        var skin = CommonSkins.GetSkin(UserLookAndFeel.Default);
-
-        if (_currentSkin == null || _currentSkin.Skin.Name != skin.Name)
-        {
-            _currentSkin = new(skin);
-        }
-
-        return _currentSkin;
-    }
-
-    public static void InitializeAll(bool doNotSetSkin = false)
-    {
-        DesignModeHelper.TurnOffDesignMode();
-
-		//if(!doNotSetSkin) SkinManager.Default.RegisterAssembly(typeof(ZetaTestSkin).Assembly);
+		BarAndDockingController.Default.PropertiesBar.ScaleEditors = true;
+		BarAndDockingController.Default.PropertiesRibbon.ScaleEditors = true;
 
 		UserLookAndFeel.Default.SetSkinStyle(
 			UseWindowsDarkModeSkin()
 				? SkinStyle.DevExpressDark
 				: SkinStyle.DevExpress);
 
-		Application.EnableVisualStyles();
-        Application.SetCompatibleTextRenderingDefault(false);
+		AppearanceObject.DefaultFont = StandardFont;
 
-        // Below Windows Vista, use form skins.
-        SkinManager.EnableFormSkinsIfNotVista();
+		_badc = new();
+		_badc.Apply();
+	}
 
-        //UserLookAndFeel.Default.ActiveLookAndFeel.SetSkinStyle(SkinNameDialogForms);
-        if(!doNotSetSkin) UserLookAndFeel.Default.SetSkinStyle(SkinNameDialogForms);
-        AppearanceObject.DefaultFont = StandardFont;
+	private static void initColors()
+	{
+		DialogTextColor = Color.FromArgb(59, 59, 59);
+		DialogBackgroundColor = Color.FromArgb(255, 255, 255);
 
-        _badc = new();
-        _badc.Apply();
-    }
+		LineColorTop = Color.FromArgb(207, 207, 207);
+		LineColorBottom = Color.FromArgb(245, 245, 245);
+		ControlBorderColor = Color.FromArgb(200, 200, 200);
 
-    public static bool UseWindowsDarkModeSkin()
-    {
-	    var mode = (ConfigurationManager.AppSettings[@"lightDarkMode"] ?? string.Empty).Trim().ToLowerInvariant();
+		AlternatingGridRowColors = Color.FromArgb(249, 249, 249);
 
-	    if (string.IsNullOrEmpty(mode) || mode is @"auto" or @"automatic") return IsWindowsDarkModeActive();
-	    else
-		    return mode switch
-		    {
-			    @"dark" => true,
-			    @"light" => false,
-			    _ => IsWindowsDarkModeActive()
-		    };
-    }
+		CueTextColor = Color.Silver;
+	}
 
-    public static bool IsWindowsDarkModeActive()
-    {
-	    // Erkennen, welcher Skin.
-	    // https://stackoverflow.com/a/58494769/107625
-	    try
-	    {
-		    // Wenn -1, dann ist es nicht 0, also ist es default
-		    // die Light-Version.
-		    const int fb = -1;
+	public static bool UseWindowsDarkModeSkin()
+	{
+		var mode = (ConfigurationManager.AppSettings[@"lightDarkMode"] ?? string.Empty).Trim().ToLowerInvariant();
 
-		    var val = ConvertHelper.ToInt32(Registry.GetValue(
-				    @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
-				    @"AppsUseLightTheme",
-				    fb),
-			    fb);
+		if (string.IsNullOrEmpty(mode) || mode is @"auto" or @"automatic") return IsWindowsDarkModeActive();
+		else
+			return mode switch
+			{
+				@"dark" => true,
+				@"light" => false,
+				_ => IsWindowsDarkModeActive()
+			};
+	}
 
-		    return val == 0;
-	    }
-	    catch (Exception x)
-	    {
-		    LogCentral.Current.Warn(x, @"Fehler beim Ermitteln von Light-/Dark-Windows-Einstellung. Ignoriere, nehme Light.");
-		    return false;
-	    }
-    }
+	public static bool IsWindowsDarkModeActive()
+	{
+		// Erkennen, welcher Skin.
+		// https://stackoverflow.com/a/58494769/107625
+		try
+		{
+			// Wenn -1, dann ist es nicht 0, also ist es default
+			// die Light-Version.
+			const int fallBack = -1;
+
+			var val = ConvertHelper.ToInt32(Registry.GetValue(
+					@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+					@"AppsUseLightTheme",
+					fallBack) ?? string.Empty,
+				fallBack);
+
+			return val == 0;
+		}
+		catch (Exception x)
+		{
+			LogCentral.Current.Warn(x,
+				@"Fehler beim Ermitteln von Light-/Dark-Windows-Einstellung. Ignoriere, nehme Light.");
+			return false;
+		}
+	}
 }

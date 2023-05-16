@@ -8,6 +8,4 @@ public interface IUpdateUI
 {
     void DoUpdateUI(
         UpdateUIInformation information);
-
-    void PerformUpdateUI(object userState = null);
 }

@@ -8,7 +8,6 @@ public static class ProcessStartHelper
             new ProcessStartInfo
             {
                 FileName = url,
-                //Arguments = @" /S",
                 UseShellExecute = true
             };
 

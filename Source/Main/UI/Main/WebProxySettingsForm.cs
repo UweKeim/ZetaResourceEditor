@@ -122,7 +122,6 @@ public partial class WebProxySettingsForm : FormBase
 
 	private void WebProxySettingsForm_Load(object sender, EventArgs e)
 	{
-		WinFormsPersistanceHelper.RestoreState(this);
 		CenterToParent();
 
 		UpdateUI();

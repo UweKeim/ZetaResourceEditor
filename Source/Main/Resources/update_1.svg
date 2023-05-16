@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1024px" height="1024px" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="nonzero" clip-rule="evenodd" viewBox="0 0 10240 10240" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>heart icon</title>
+	<desc>heart icon from the IconExperience.com O-Collection. Copyright by INCORS GmbH (www.incors.com).</desc>
+	<path id="curve0" fill="#E68497" d="M7040 1280c1414,0 2560,1146 2560,2560 0,2373 -1920,3520 -4480,5440 -2560,-1920 -4480,-3067 -4480,-5440 0,-1414 1146,-2560 2560,-2560 765,0 1451,335 1920,867 469,-532 1155,-867 1920,-867zm-3756 642c-28,-1 -56,-2 -84,-2 -1061,0 -1920,859 -1920,1920 0,452 82,878 270,1289 71,155 155,303 249,446 65,98 168,150 285,144 117,-7 214,-71 268,-175l5 -11c55,-108 46,-229 -23,-328 -77,-110 -147,-222 -202,-342 -150,-327 -212,-664 -212,-1023 0,-707 573,-1280 1280,-1280 18,0 37,0 55,1 154,7 288,-93 325,-242l0 0c25,-96 6,-189 -54,-269 -59,-80 -143,-124 -242,-128z"/>
+</svg>

@@ -1,7 +1,7 @@
 ﻿// ReSharper disable CheckNamespace
 // ReSharper disable EmptyNamespace
 namespace ZetaResourceEditor.UI.Helper;
-    // ReSharper restore EmptyNamespace
+// ReSharper restore EmptyNamespace
 // ReSharper restore CheckNamespace
 
 /*
@@ -19,7 +19,7 @@ using Zeta.VoyagerLibrary.WinForms.Common;
 [Serializable]
 public class XtraGridState
 {
-    [NonSerialized]
+    [NonSerialized, JsonIgnore]
     private readonly GridView _gridView;
 
     public XtraGridState(

@@ -1,19 +1,11 @@
 ﻿namespace ZetaResourceEditor.RuntimeBusinessLogic.Projects;
 
-using Properties;
-using Runtime.Localization;
+using System.ComponentModel;
 
 public enum ReadOnlyFileOverwriteBehaviour
 {
-    [LocalizableDescription(@"SR_ReadOnlyFileOverwriteBehaviour_Overwrite", typeof(Resources))]
-    Overwrite,
-
-    [LocalizableDescription(@"SR_ReadOnlyFileOverwriteBehaviour_Ask", typeof(Resources))]
-    Ask,
-
-    [LocalizableDescription(@"SR_ReadOnlyFileOverwriteBehaviour_Skip", typeof(Resources))]
-    Skip,
-
-    [LocalizableDescription(@"SR_ReadOnlyFileOverwriteBehaviour_Fail", typeof(Resources))]
-    Fail
+	[Description("Overwrite")] Overwrite,
+	[Description("Ask")] Ask,
+	[Description("Skip")] Skip,
+	[Description("Fail")] Fail
 }

@@ -1,6 +1,6 @@
-﻿namespace ZetaResourceEditor.ExtendedControlsLibrary.Specialized;
+﻿namespace ZetaResourceEditor.UI.Main;
 
-using Skinning;
+using ZetaResourceEditor.ExtendedControlsLibrary.Skinning;
 using static ColorTranslator;
 
 /// <summary>

@@ -4,70 +4,38 @@ using Skinning.CustomRibbonForm;
 using UIUpdating;
 
 public class DevExpressRibbonFormBase :
-    MyRibbonForm,
-    IUpdateUI
+	MyRibbonForm,
+	IUpdateUI
 {
-    private UpdateUIController _uuiController;
+	private UpdateUIController? _uuiController;
 
-    protected DevExpressRibbonFormBase()
-    {
-        // Allow for capturing the F1 key.
-        KeyPreview = true;
-    }
+	protected DevExpressRibbonFormBase()
+	{
+		// Allow for capturing the F1 key.
+		KeyPreview = true;
+	}
 
-    protected IGuiEnvironment GuiHost => InternalHost;
+	protected UpdateUIController UuiController => _uuiController ??= new();
 
-    public static IGuiEnvironment InternalHost { get; protected set; }
+	public virtual void DoUpdateUI(
+		UpdateUIInformation information)
+	{
+		// Does nothing.
+	}
 
-    protected UpdateUIController UuiController => _uuiController ??= new(this);
+	public void PerformUpdateUI(object? userState = null)
+	{
+		if (!DesignMode)
+		{
+			UuiController.PerformUpdateUI(this, userState);
+		}
+	}
 
-    public virtual void DoUpdateUI(
-        UpdateUIInformation information)
-    {
-        // Does nothing.
-    }
+	protected override void OnShown(
+		EventArgs e)
+	{
+		base.OnShown(e);
 
-    public void PerformUpdateUI(object userState = null)
-    {
-        if (!DesignMode)
-        {
-            UuiController.PerformUpdateUI(this, userState);
-        }
-    }
-
-    protected override void OnLoad(
-        EventArgs e)
-    {
-        // 2010-11-25, Uwe Keim. Experimentally.
-        AutoScaleMode = AutoScaleMode.None;
-
-        base.OnLoad(e);
-    }
-
-    protected override void OnKeyDown(
-        KeyEventArgs e)
-    {
-        base.OnKeyDown(e);
-
-        if (e is { KeyCode: Keys.F1, Alt: false } and { Control: false, Shift: false })
-        {
-            ExecuteHelp();
-            e.Handled = true;
-        }
-    }
-
-    protected override void OnShown(
-        EventArgs e)
-    {
-        GuiHost?.HideSplash();
-
-        base.OnShown(e);
-
-        PerformUpdateUI();
-    }
-
-    protected void ExecuteHelp()
-    {
-        GuiHost.ExecuteHelp();
-    }
+		PerformUpdateUI();
+	}
 }

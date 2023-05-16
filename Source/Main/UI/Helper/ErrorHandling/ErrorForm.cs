@@ -7,7 +7,7 @@ public partial class ErrorForm : FormBase
 {
 	private readonly MemoEditScrollbarAdjuster _adjuster = new();
 
-	private Exception _exception;
+	private Exception? _exception;
 
 	protected override bool WantSetGlobalIcon => false;
 
@@ -19,14 +19,14 @@ public partial class ErrorForm : FormBase
 		CancelButton = buttonContinue;
 	}
 
-	public void Initialize(Exception e)
+	public void Initialize(Exception? e)
 	{
 		_exception = e;
 
 		memoEdit1.Text = getEffectiveErrorMessage(e);
 	}
 
-	private static string getEffectiveErrorMessage(Exception e)
+	private static string getEffectiveErrorMessage(Exception? e)
 	{
 		var y = e;
 		while (y is TargetInvocationException or ZspSimpleFileAccessProtectorException &&
@@ -37,9 +37,9 @@ public partial class ErrorForm : FormBase
 
 		// --
 
-		var lines = new List<string> { y.Message };
+		var lines = new List<string> { y?.Message ?? "Unknown error" };
 
-		y = y.InnerException;
+		y = y?.InnerException;
 		while (y != null)
 		{
 			if (y is not TargetInvocationException && y is not ZspSimpleFileAccessProtectorException)
@@ -92,20 +92,7 @@ public partial class ErrorForm : FormBase
 
 	private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
 	{
-		//if (XtraMessageBox.Show(
-		//        this,
-		//        Resources.SR_ErrorForm_button2Click_QuitTheApplication,
-		//        @"Zeta Resource Editor",
-		//        MessageBoxButtons.YesNo,
-		//        MessageBoxIcon.Question,
-		//        MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-		//{
 		DialogResult = DialogResult.Abort;
 		Close();
-		//}
-		//else
-		//{
-		//    DialogResult = DialogResult.None;
-		//}
 	}
 }

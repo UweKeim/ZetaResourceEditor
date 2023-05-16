@@ -2,19 +2,19 @@
 
 using Code;
 using ExtendedControlsLibrary.Skinning.CustomTreeList;
+using RuntimeBusinessLogic.DL;
 using RuntimeBusinessLogic.FileGroups;
 using RuntimeBusinessLogic.ProjectFolders;
 using RuntimeBusinessLogic.Projects;
-using RuntimeBusinessLogic.DL;
 
 public class FileGroupSelectionControl :
     MyTreeList
 {
-    private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
-    private IContainer components;
-    private FileGroup _ignoreFileGroup;
+    private DevExpress.XtraTreeList.Columns.TreeListColumn? treeListColumn1;
+    private IContainer? components;
+    private FileGroup? _ignoreFileGroup;
     private Project? _project { get; set; }
-    private Font _boldFont;
+    private Font? _boldFont;
 
     private Font boldFont => _boldFont ??= new(Font, FontStyle.Bold);
 
@@ -62,7 +62,7 @@ public class FileGroupSelectionControl :
 
         if (_project != null)
         {
-            var rootNode = AppendNode(new object[] { null }, null);
+            var rootNode = AppendNode(new object?[] { null }, null);
 
             rootNode[0] = _project.Name;
             rootNode.ImageIndex = rootNode.SelectImageIndex = getImageIndex(@"root");
@@ -88,14 +88,7 @@ public class FileGroupSelectionControl :
 
     private static int getImageIndex(string key)
     {
-        return key switch
-        {
-            @"root" => 0,
-            @"group" => 1,
-            @"file" => 2,
-            @"projectfolder" => 3,
-            _ => throw new ArgumentException()
-        };
+	    return ImageCollectionHelper.IcSvg.IndexOfKey(key);
     }
 
     private void addProjectFolderToTree(TreeListNode parentNode,
@@ -103,7 +96,7 @@ public class FileGroupSelectionControl :
     {
         var projectFolderNode =
             AppendNode(
-                new object[]
+                new object?[]
                 {
                     null
                 },
@@ -146,7 +139,7 @@ public class FileGroupSelectionControl :
 
         var fileGroupNode =
             AppendNode(
-                new object[]
+                new object?[]
                 {
                     null
                 },
@@ -207,7 +200,7 @@ public class FileGroupSelectionControl :
         this.OptionsView.ShowIndicator = false;
         this.OptionsView.ShowRoot = false;
         this.OptionsView.ShowVertLines = false;
-        this.SelectImageList = ImageCollectionHelper.Ic16;
+        this.SelectImageList = ImageCollectionHelper.IcSvg;
         this.NodeCellStyle += this.treeView_NodeCellStyle;
         this.AfterCheckNode += this.FileGroupSelectionControl_AfterCheckNode;
         ((System.ComponentModel.ISupportInitialize)this).EndInit();
@@ -215,7 +208,7 @@ public class FileGroupSelectionControl :
 
     }
 
-    public event EventHandler NodeChecked;
+    public event EventHandler? NodeChecked;
 
     private void FileGroupSelectionControl_AfterCheckNode(object sender, NodeEventArgs e)
     {

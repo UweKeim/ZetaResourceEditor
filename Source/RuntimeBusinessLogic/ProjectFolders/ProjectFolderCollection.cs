@@ -1,18 +1,8 @@
 namespace ZetaResourceEditor.RuntimeBusinessLogic.ProjectFolders;
 
-#region Using directives.
-// ----------------------------------------------------------------------
 using Projects;
 
-// ----------------------------------------------------------------------
-#endregion
-
-/////////////////////////////////////////////////////////////////////////
-
-/// <summary>
-/// 
-/// </summary>
-public class ProjectFolderCollection :
+public sealed class ProjectFolderCollection :
     List<ProjectFolder>
 {
     public ProjectFolderCollection(
@@ -70,5 +60,3 @@ public class ProjectFolderCollection :
         Sort();
     }
 }
-
-/////////////////////////////////////////////////////////////////////////

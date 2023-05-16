@@ -24,16 +24,4 @@ public class MyDropDownButton :
             MenuManager = MyXtraForm.CheckGetMenuBarManager(this);
         }
     }
-
-    //protected override BaseStyleControlViewInfo CreateViewInfo()
-    //{
-    //    if (DesignMode || IsDesignMode)
-    //    {
-    //        return base.CreateViewInfo();
-    //    }
-    //    else
-    //    {
-    //        return new MyDropDownButtonViewInfo(this);
-    //    }
-    //}
 }

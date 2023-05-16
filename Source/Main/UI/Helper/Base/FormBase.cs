@@ -1,10 +1,8 @@
 namespace ZetaResourceEditor.UI.Helper.Base;
 
 using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraSpellChecker;
 using DevExpress.XtraTab;
 using Main;
-using RuntimeBusinessLogic.Language;
 using System.IO;
 using ExtendedControlsLibrary.General.Base;
 
@@ -14,15 +12,6 @@ public partial class FormBase :
     public FormBase()
     {
         InitializeComponent();
-    }
-
-    public static void ApplySpellCheckerCulture(
-        SpellChecker spellChecker )
-    {
-        if ( spellChecker != null )
-        {
-            spellChecker.Culture = CultureInfo.CurrentUICulture;
-        }
     }
 
     protected virtual bool WantSetGlobalIcon => true;
@@ -37,22 +26,9 @@ public partial class FormBase :
                 Icon = MainForm.Current.Icon;
                 /*ShowIcon = true;*/
             }
-
-            // 2010-11-25, Uwe Keim. Experimentally.
-            //AutoScaleMode = AutoScaleMode.None;
         }
 
         base.OnLoad(e);
-    }
-
-    public static void ApplySpellCheckerCulture(
-        SpellChecker spellChecker,
-        string? languageCode )
-    {
-        if ( spellChecker != null )
-        {
-            spellChecker.Culture = LanguageCodeDetection.MakeValidCulture(languageCode);
-        }
     }
 
     public FormBase( IContainer container )
@@ -60,25 +36,6 @@ public partial class FormBase :
         container.Add( this );
 
         InitializeComponent();
-    }
-
-    public static string BuildIDHierarchy(
-        Control c )
-    {
-        var sb = new StringBuilder();
-
-        while ( c != null )
-        {
-            if ( sb.Length > 0 )
-            {
-                sb.Append( '.' );
-            }
-
-            sb.Append( c.Name );
-            c = c.Parent;
-        }
-
-        return sb.ToString();
     }
 
     public virtual void UpdateUI()
@@ -142,164 +99,6 @@ public partial class FormBase :
         {
             tabControl.SelectedTabPageIndex = index;
         }
-    }
-
-    //public static void SaveState(
-    //	SplitContainerControl splitContainer )
-    //{
-    //	saveState( PersistanceHelper.Storage, splitContainer );
-    //}
-
-    //public static void RestoreState(
-    //	SplitContainerControl splitContainer )
-    //{
-    //	restoreState( PersistanceHelper.Storage, splitContainer );
-    //}
-
-    private static void restoreState(
-        IPersistentPairStorage storage,
-        SplitContainerControl c )
-    {
-        var prefix = c.Name;
-
-        var o1 = PersistanceHelper.RestoreValue( storage, prefix + @".SplitterPosition" );
-        var o2 = PersistanceHelper.RestoreValue( storage, prefix + @".RealSplitterPosition" );
-        var o3 = PersistanceHelper.RestoreValue( storage, prefix + @".PercentageSplitterPosition" );
-        var o4 = PersistanceHelper.RestoreValue( storage, prefix + @".PanelVisibility" );
-
-        if ( o4!=null)
-        {
-            var s4 =
-                ConvertHelper.ToString(
-                    o4,
-                    SplitPanelVisibility.Both.ToString());
-
-            c.PanelVisibility =
-                (SplitPanelVisibility)
-                Enum.Parse(typeof (SplitPanelVisibility), s4, true);
-        }
-
-        if ( o3 != null )
-        {
-            // New method, saving and restoring the percentage.
-            // See http://bytes.com/forum/thread616388.html.
-
-            var percentageDistance = ConvertHelper.ToDouble( o3, CultureInfo.InvariantCulture );
-
-            if ( c.Horizontal )
-            {
-                var realDistance = (int)(c.Height * (percentageDistance / 100.0));
-                if ( realDistance > 0 )
-                {
-                    c.SplitterPosition = realDistance;
-                }
-            }
-            else
-            {
-                var realDistance = (int)(c.Width * (percentageDistance / 100.0));
-                if ( realDistance > 0 )
-                {
-                    c.SplitterPosition = realDistance;
-                }
-            }
-        }
-        else if ( o1 != null && o2 != null )
-        {
-            var realDistance = Convert.ToInt32( o2 );
-
-            if ( c.Horizontal )
-            {
-                if ( c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None )
-                {
-                    if ( realDistance > 0 )
-                    {
-                        c.SplitterPosition = realDistance;
-                    }
-                }
-                else
-                {
-                    if ( c.Height - realDistance > 0 )
-                    {
-                        c.SplitterPosition = c.Height - realDistance;
-                    }
-                }
-            }
-            else
-            {
-                if ( c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None )
-                {
-                    if ( realDistance > 0 )
-                    {
-                        c.SplitterPosition = realDistance;
-                    }
-                }
-                else
-                {
-                    if ( c.Width - realDistance > 0 )
-                    {
-                        c.SplitterPosition = c.Width - realDistance;
-                    }
-                }
-            }
-        }
-    }
-
-    private static void saveState(
-        IPersistentPairStorage storage,
-        SplitContainerControl c )
-    {
-        int realDistance;
-        double percentageDistance;
-
-        if (c.Horizontal)
-        {
-            if (c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None)
-            {
-                realDistance = c.SplitterPosition;
-            }
-            else
-            {
-                realDistance = c.Height - c.SplitterPosition;
-            }
-
-            percentageDistance = (double) c.SplitterPosition/c.Height*100.0;
-        }
-        else
-        {
-            if (c.FixedPanel is SplitFixedPanel.Panel1 or SplitFixedPanel.None)
-            {
-                realDistance = c.SplitterPosition;
-            }
-            else
-            {
-                realDistance = c.Width - c.SplitterPosition;
-            }
-
-            percentageDistance = (double) c.SplitterPosition/c.Width*100.0;
-        }
-
-        // --
-
-        var prefix = c.Name;
-
-        if (c.SplitterPosition > 0)
-        {
-            PersistanceHelper.SaveValue(storage, prefix + @".SplitterPosition", c.SplitterPosition);
-        }
-        if (realDistance > 0)
-        {
-            PersistanceHelper.SaveValue(storage, prefix + @".RealSplitterPosition", realDistance);
-        }
-        if (percentageDistance > 0)
-        {
-            PersistanceHelper.SaveValue(storage, prefix + @".PercentageSplitterPosition",
-                percentageDistance.ToString(CultureInfo.InvariantCulture));
-        }
-
-        PersistanceHelper.SaveValue(
-            storage,
-            prefix + @".PanelVisibility",
-            c.PanelVisibility.ToString());
     }
 
     public static void RestoreState(RibbonControl ribbon)

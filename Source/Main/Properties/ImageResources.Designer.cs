@@ -111,12 +111,32 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap edit_16 {
             get {
                 object obj = ResourceManager.GetObject("edit_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] file {
+            get {
+                object obj = ResourceManager.GetObject("file", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -131,6 +151,16 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] group {
+            get {
+                object obj = ResourceManager.GetObject("group", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap group_16 {
@@ -141,12 +171,12 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap note_16 {
+        internal static byte[] projectfolder {
             get {
-                object obj = ResourceManager.GetObject("note_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("projectfolder", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -161,12 +191,12 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap projectfolder_green_16 {
+        internal static byte[] root {
             get {
-                object obj = ResourceManager.GetObject("projectfolder_green_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("root", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -181,22 +211,22 @@ namespace ZetaResourceEditor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap update_1_32 {
+        internal static byte[] update_1 {
             get {
-                object obj = ResourceManager.GetObject("update_1_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("update_1", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap update_2_32 {
+        internal static byte[] update_2 {
             get {
-                object obj = ResourceManager.GetObject("update_2_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("update_2", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

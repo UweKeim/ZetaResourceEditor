@@ -5,19 +5,19 @@
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose( bool disposing )
+		protected override void Dispose(bool disposing)
 		{
-			if ( disposing && (components != null) )
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
-			base.Dispose( disposing );
+			base.Dispose(disposing);
 		}
 
 		#region Windows Form Designer generated code
@@ -28,344 +28,456 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
-            this.updateUITimer = new System.Windows.Forms.Timer(this.components);
-            this.buttonDefault = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.prefixTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.prefixCheckBox = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
-            this.buttonAll = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.buttonInvert = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.buttonNone = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.languagesToTranslateCheckListBox = new ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl();
-            this.referenceLanguageGroupBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
-            this.fileGroupTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
-            this.label3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.label2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.label1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.buttonTranslate = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.panelControl1 = new ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl();
-            this.useExistingTranslationsCheckBox = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
-            this.buttonSettings = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
-            this.labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
-            this.useOnlyExistingTranslationsCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.prefixTextBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prefixCheckBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.languagesToTranslateCheckListBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.referenceLanguageGroupBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileGroupTextBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.useExistingTranslationsCheckBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.useOnlyExistingTranslationsCheckEdit.Properties)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // updateUITimer
-            // 
-            this.updateUITimer.Tick += new System.EventHandler(this.updateUITimer_Tick);
-            // 
-            // buttonDefault
-            // 
-            this.buttonDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonDefault.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonDefault.Appearance.Options.UseFont = true;
-            this.buttonDefault.Location = new System.Drawing.Point(299, 446);
-            this.buttonDefault.Name = "buttonDefault";
-            this.buttonDefault.Size = new System.Drawing.Size(60, 26);
-            this.buttonDefault.TabIndex = 11;
-            this.buttonDefault.Text = "Default";
-            this.buttonDefault.WantDrawFocusRectangle = true;
-            this.buttonDefault.Click += new System.EventHandler(this.buttonDefault_Click);
-            // 
-            // prefixTextBox
-            // 
-            this.prefixTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.prefixTextBox.Bold = false;
-            this.prefixTextBox.CueText = null;
-            this.prefixTextBox.Location = new System.Drawing.Point(193, 447);
-            this.prefixTextBox.MaximumSize = new System.Drawing.Size(0, 24);
-            this.prefixTextBox.MinimumSize = new System.Drawing.Size(0, 24);
-            this.prefixTextBox.Name = "prefixTextBox";
-            this.prefixTextBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.prefixTextBox.Properties.Appearance.Options.UseFont = true;
-            this.prefixTextBox.Properties.Mask.EditMask = null;
-            this.prefixTextBox.Properties.NullValuePrompt = null;
-            this.prefixTextBox.Size = new System.Drawing.Size(100, 24);
-            this.prefixTextBox.TabIndex = 10;
-            this.prefixTextBox.TextChanged += new System.EventHandler(this.prefixTextBox_TextChanged);
-            // 
-            // prefixCheckBox
-            // 
-            this.prefixCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.prefixCheckBox.Location = new System.Drawing.Point(10, 449);
-            this.prefixCheckBox.Name = "prefixCheckBox";
-            this.prefixCheckBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.prefixCheckBox.Properties.Appearance.Options.UseFont = true;
-            this.prefixCheckBox.Properties.AutoWidth = true;
-            this.prefixCheckBox.Properties.Caption = "Prefix translated texts with:";
-            this.prefixCheckBox.Size = new System.Drawing.Size(177, 21);
-            this.prefixCheckBox.TabIndex = 9;
-            this.prefixCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // buttonAll
-            // 
-            this.buttonAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAll.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonAll.Appearance.Options.UseFont = true;
-            this.buttonAll.Location = new System.Drawing.Point(10, 405);
-            this.buttonAll.Name = "buttonAll";
-            this.buttonAll.Size = new System.Drawing.Size(75, 28);
-            this.buttonAll.TabIndex = 6;
-            this.buttonAll.Text = "All";
-            this.buttonAll.WantDrawFocusRectangle = true;
-            this.buttonAll.Click += new System.EventHandler(this.buttonAll_Click);
-            // 
-            // buttonInvert
-            // 
-            this.buttonInvert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonInvert.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonInvert.Appearance.Options.UseFont = true;
-            this.buttonInvert.Location = new System.Drawing.Point(172, 405);
-            this.buttonInvert.Name = "buttonInvert";
-            this.buttonInvert.Size = new System.Drawing.Size(75, 28);
-            this.buttonInvert.TabIndex = 8;
-            this.buttonInvert.Text = "Flip";
-            this.buttonInvert.WantDrawFocusRectangle = true;
-            this.buttonInvert.Click += new System.EventHandler(this.buttonInvert_Click);
-            // 
-            // buttonNone
-            // 
-            this.buttonNone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonNone.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonNone.Appearance.Options.UseFont = true;
-            this.buttonNone.Location = new System.Drawing.Point(91, 405);
-            this.buttonNone.Name = "buttonNone";
-            this.buttonNone.Size = new System.Drawing.Size(75, 28);
-            this.buttonNone.TabIndex = 7;
-            this.buttonNone.Text = "None";
-            this.buttonNone.WantDrawFocusRectangle = true;
-            this.buttonNone.Click += new System.EventHandler(this.buttonNone_Click);
-            // 
-            // languagesToTranslateCheckListBox
-            // 
-            this.languagesToTranslateCheckListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.languagesToTranslateCheckListBox.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.languagesToTranslateCheckListBox.Appearance.Options.UseFont = true;
-            this.languagesToTranslateCheckListBox.CheckOnClick = true;
-            this.languagesToTranslateCheckListBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.languagesToTranslateCheckListBox.Location = new System.Drawing.Point(12, 100);
-            this.languagesToTranslateCheckListBox.Name = "languagesToTranslateCheckListBox";
-            this.languagesToTranslateCheckListBox.Size = new System.Drawing.Size(460, 299);
-            this.languagesToTranslateCheckListBox.TabIndex = 5;
-            this.languagesToTranslateCheckListBox.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.languagesToTranslateCheckListBox_ItemCheck);
-            this.languagesToTranslateCheckListBox.SelectedIndexChanged += new System.EventHandler(this.languagesToTranslateCheckListBox_SelectedIndexChanged);
-            // 
-            // referenceLanguageGroupBox
-            // 
-            this.referenceLanguageGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.referenceLanguageGroupBox.CueText = null;
-            this.referenceLanguageGroupBox.Location = new System.Drawing.Point(137, 42);
-            this.referenceLanguageGroupBox.Name = "referenceLanguageGroupBox";
-            this.referenceLanguageGroupBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.referenceLanguageGroupBox.Properties.Appearance.Options.UseFont = true;
-            this.referenceLanguageGroupBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.referenceLanguageGroupBox.Properties.DropDownRows = 20;
-            this.referenceLanguageGroupBox.Properties.NullValuePrompt = null;
-            this.referenceLanguageGroupBox.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.referenceLanguageGroupBox.Properties.SelectedIndexChanged += new System.EventHandler(this.referenceLanguageGroupBox_SelectedIndexChanged);
-            this.referenceLanguageGroupBox.Size = new System.Drawing.Size(335, 24);
-            this.referenceLanguageGroupBox.TabIndex = 3;
-            // 
-            // fileGroupTextBox
-            // 
-            this.fileGroupTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fileGroupTextBox.Bold = false;
-            this.fileGroupTextBox.CueText = null;
-            this.fileGroupTextBox.Location = new System.Drawing.Point(137, 12);
-            this.fileGroupTextBox.MaximumSize = new System.Drawing.Size(0, 24);
-            this.fileGroupTextBox.MinimumSize = new System.Drawing.Size(0, 24);
-            this.fileGroupTextBox.Name = "fileGroupTextBox";
-            this.fileGroupTextBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.fileGroupTextBox.Properties.Appearance.Options.UseFont = true;
-            this.fileGroupTextBox.Properties.Mask.EditMask = null;
-            this.fileGroupTextBox.Properties.NullValuePrompt = null;
-            this.fileGroupTextBox.Properties.ReadOnly = true;
-            this.fileGroupTextBox.Size = new System.Drawing.Size(335, 24);
-            this.fileGroupTextBox.TabIndex = 1;
-            this.fileGroupTextBox.TextChanged += new System.EventHandler(this.fileGroupTextBox_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label3.Appearance.Options.UseFont = true;
-            this.label3.Location = new System.Drawing.Point(12, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "L&anguages to translate:";
-            // 
-            // label2
-            // 
-            this.label2.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label2.Appearance.Options.UseFont = true;
-            this.label2.Location = new System.Drawing.Point(12, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "&Reference language:";
-            // 
-            // label1
-            // 
-            this.label1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label1.Appearance.Options.UseFont = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "File group:";
-            // 
-            // buttonTranslate
-            // 
-            this.buttonTranslate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTranslate.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonTranslate.Appearance.Options.UseFont = true;
-            this.buttonTranslate.Location = new System.Drawing.Point(275, 541);
-            this.buttonTranslate.Name = "buttonTranslate";
-            this.buttonTranslate.Size = new System.Drawing.Size(116, 28);
-            this.buttonTranslate.TabIndex = 14;
-            this.buttonTranslate.Text = "Translate now";
-            this.buttonTranslate.WantDrawFocusRectangle = true;
-            this.buttonTranslate.Click += new System.EventHandler(this.buttonTranslate_Click);
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonCancel.Appearance.Options.UseFont = true;
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(397, 541);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 28);
-            this.buttonCancel.TabIndex = 15;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.WantDrawFocusRectangle = true;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.useOnlyExistingTranslationsCheckEdit);
-            this.panelControl1.Controls.Add(this.useExistingTranslationsCheckBox);
-            this.panelControl1.Controls.Add(this.buttonDefault);
-            this.panelControl1.Controls.Add(this.prefixTextBox);
-            this.panelControl1.Controls.Add(this.buttonCancel);
-            this.panelControl1.Controls.Add(this.prefixCheckBox);
-            this.panelControl1.Controls.Add(this.buttonAll);
-            this.panelControl1.Controls.Add(this.buttonTranslate);
-            this.panelControl1.Controls.Add(this.buttonInvert);
-            this.panelControl1.Controls.Add(this.buttonSettings);
-            this.panelControl1.Controls.Add(this.buttonNone);
-            this.panelControl1.Controls.Add(this.label1);
-            this.panelControl1.Controls.Add(this.languagesToTranslateCheckListBox);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.label2);
-            this.panelControl1.Controls.Add(this.referenceLanguageGroupBox);
-            this.panelControl1.Controls.Add(this.label3);
-            this.panelControl1.Controls.Add(this.fileGroupTextBox);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Padding = new System.Windows.Forms.Padding(9);
-            this.panelControl1.Size = new System.Drawing.Size(484, 581);
-            this.panelControl1.TabIndex = 0;
-            // 
-            // useExistingTranslationsCheckBox
-            // 
-            this.useExistingTranslationsCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.useExistingTranslationsCheckBox.Location = new System.Drawing.Point(10, 476);
-            this.useExistingTranslationsCheckBox.Name = "useExistingTranslationsCheckBox";
-            this.useExistingTranslationsCheckBox.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.useExistingTranslationsCheckBox.Properties.Appearance.Options.UseFont = true;
-            this.useExistingTranslationsCheckBox.Properties.AutoWidth = true;
-            this.useExistingTranslationsCheckBox.Properties.Caption = "Use existing translations, if available";
-            this.useExistingTranslationsCheckBox.Size = new System.Drawing.Size(232, 21);
-            this.useExistingTranslationsCheckBox.TabIndex = 12;
-            this.useExistingTranslationsCheckBox.CheckedChanged += new System.EventHandler(this.useExistingTranslationsCheckBox_CheckedChanged);
-            // 
-            // buttonSettings
-            // 
-            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSettings.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.buttonSettings.Appearance.Options.UseFont = true;
-            this.buttonSettings.Location = new System.Drawing.Point(12, 541);
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(75, 28);
-            this.buttonSettings.TabIndex = 16;
-            this.buttonSettings.Text = "Settings";
-            this.buttonSettings.WantDrawFocusRectangle = true;
-            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelControl1.Enabled = false;
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(93, 547);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(18, 17);
-            this.labelControl1.TabIndex = 17;
-            this.labelControl1.Text = "<>";
-            // 
-            // useOnlyExistingTranslationsCheckEdit
-            // 
-            this.useOnlyExistingTranslationsCheckEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.useOnlyExistingTranslationsCheckEdit.Location = new System.Drawing.Point(10, 503);
-            this.useOnlyExistingTranslationsCheckEdit.Name = "useOnlyExistingTranslationsCheckEdit";
-            this.useOnlyExistingTranslationsCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.useOnlyExistingTranslationsCheckEdit.Properties.Appearance.Options.UseFont = true;
-            this.useOnlyExistingTranslationsCheckEdit.Properties.AutoWidth = true;
-            this.useOnlyExistingTranslationsCheckEdit.Properties.Caption = "Use only existing translations, if available, never call translation service";
-            this.useOnlyExistingTranslationsCheckEdit.Size = new System.Drawing.Size(431, 21);
-            this.useOnlyExistingTranslationsCheckEdit.TabIndex = 13;
-            this.useOnlyExistingTranslationsCheckEdit.CheckedChanged += new System.EventHandler(this.useOnlyExistingTranslationsCheckEdit_CheckedChanged);
-            // 
-            // AutoTranslateForm
-            // 
-            this.AcceptButton = this.buttonTranslate;
-            this.Appearance.Options.UseFont = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(484, 581);
-            this.Controls.Add(this.panelControl1);
-            this.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(500, 401);
-            this.Name = "AutoTranslateForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Automatically translate missing languages";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.autoTranslateForm_FormClosing);
-            this.Load += new System.EventHandler(this.autoTranslateForm_Load);
-            this.Shown += new System.EventHandler(this.autoTranslateForm_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.prefixTextBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prefixCheckBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.languagesToTranslateCheckListBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.referenceLanguageGroupBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileGroupTextBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.useExistingTranslationsCheckBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.useOnlyExistingTranslationsCheckEdit.Properties)).EndInit();
-            this.ResumeLayout(false);
-
+			components = new Container();
+			updateUITimer = new System.Windows.Forms.Timer(components);
+			buttonDefault = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			prefixTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+			prefixCheckBox = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+			buttonAll = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			buttonInvert = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			buttonNone = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			languagesToTranslateCheckListBox = new ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl();
+			referenceLanguageGroupBox = new ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit();
+			fileGroupTextBox = new ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit();
+			label3 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			label2 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			label1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			buttonTranslate = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			buttonCancel = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			useOnlyExistingTranslationsCheckEdit = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+			useExistingTranslationsCheckBox = new ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit();
+			buttonSettings = new ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton();
+			labelControl1 = new ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl();
+			tablePanel2 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel3 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel4 = new DevExpress.Utils.Layout.TablePanel();
+			tablePanel5 = new DevExpress.Utils.Layout.TablePanel();
+			((ISupportInitialize)prefixTextBox.Properties).BeginInit();
+			((ISupportInitialize)prefixCheckBox.Properties).BeginInit();
+			((ISupportInitialize)languagesToTranslateCheckListBox).BeginInit();
+			((ISupportInitialize)referenceLanguageGroupBox.Properties).BeginInit();
+			((ISupportInitialize)fileGroupTextBox.Properties).BeginInit();
+			((ISupportInitialize)useOnlyExistingTranslationsCheckEdit.Properties).BeginInit();
+			((ISupportInitialize)useExistingTranslationsCheckBox.Properties).BeginInit();
+			((ISupportInitialize)tablePanel2).BeginInit();
+			tablePanel2.SuspendLayout();
+			((ISupportInitialize)tablePanel3).BeginInit();
+			tablePanel3.SuspendLayout();
+			((ISupportInitialize)tablePanel4).BeginInit();
+			tablePanel4.SuspendLayout();
+			((ISupportInitialize)tablePanel5).BeginInit();
+			tablePanel5.SuspendLayout();
+			SuspendLayout();
+			// 
+			// updateUITimer
+			// 
+			updateUITimer.Tick += updateUITimer_Tick;
+			// 
+			// buttonDefault
+			// 
+			buttonDefault.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonDefault.Appearance.Options.UseFont = true;
+			tablePanel3.SetColumn(buttonDefault, 2);
+			buttonDefault.Dock = DockStyle.Fill;
+			buttonDefault.Location = new Point(334, 0);
+			buttonDefault.Margin = new Padding(0);
+			buttonDefault.Name = "buttonDefault";
+			tablePanel3.SetRow(buttonDefault, 0);
+			buttonDefault.Size = new Size(75, 26);
+			buttonDefault.TabIndex = 2;
+			buttonDefault.Text = "Default";
+			buttonDefault.Click += buttonDefault_Click;
+			// 
+			// prefixTextBox
+			// 
+			prefixTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			tablePanel3.SetColumn(prefixTextBox, 1);
+			prefixTextBox.CueText = null;
+			prefixTextBox.Location = new Point(184, 1);
+			prefixTextBox.Margin = new Padding(0, 0, 3, 0);
+			prefixTextBox.MaximumSize = new Size(0, 24);
+			prefixTextBox.MinimumSize = new Size(0, 24);
+			prefixTextBox.Name = "prefixTextBox";
+			prefixTextBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			prefixTextBox.Properties.Appearance.Options.UseFont = true;
+			prefixTextBox.Properties.Mask.EditMask = null;
+			prefixTextBox.Properties.NullValuePrompt = null;
+			prefixTextBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel3.SetRow(prefixTextBox, 0);
+			prefixTextBox.Size = new Size(147, 24);
+			prefixTextBox.TabIndex = 1;
+			prefixTextBox.TextChanged += prefixTextBox_TextChanged;
+			// 
+			// prefixCheckBox
+			// 
+			prefixCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			tablePanel3.SetColumn(prefixCheckBox, 0);
+			prefixCheckBox.Location = new Point(0, 2);
+			prefixCheckBox.Margin = new Padding(0, 0, 6, 0);
+			prefixCheckBox.Name = "prefixCheckBox";
+			prefixCheckBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			prefixCheckBox.Properties.Appearance.Options.UseFont = true;
+			prefixCheckBox.Properties.AutoWidth = true;
+			prefixCheckBox.Properties.Caption = "Prefix translated texts with:";
+			tablePanel3.SetRow(prefixCheckBox, 0);
+			prefixCheckBox.Size = new Size(178, 21);
+			prefixCheckBox.TabIndex = 0;
+			prefixCheckBox.CheckedChanged += checkBox1_CheckedChanged;
+			// 
+			// buttonAll
+			// 
+			buttonAll.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonAll.Appearance.Options.UseFont = true;
+			tablePanel5.SetColumn(buttonAll, 0);
+			buttonAll.Dock = DockStyle.Fill;
+			buttonAll.Location = new Point(0, 125);
+			buttonAll.Margin = new Padding(0, 0, 9, 0);
+			buttonAll.Name = "buttonAll";
+			tablePanel5.SetRow(buttonAll, 2);
+			buttonAll.Size = new Size(75, 28);
+			buttonAll.TabIndex = 2;
+			buttonAll.Text = "All";
+			buttonAll.Click += buttonAll_Click;
+			// 
+			// buttonInvert
+			// 
+			buttonInvert.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonInvert.Appearance.Options.UseFont = true;
+			tablePanel5.SetColumn(buttonInvert, 2);
+			buttonInvert.Dock = DockStyle.Fill;
+			buttonInvert.Location = new Point(168, 125);
+			buttonInvert.Margin = new Padding(0, 0, 9, 0);
+			buttonInvert.Name = "buttonInvert";
+			tablePanel5.SetRow(buttonInvert, 2);
+			buttonInvert.Size = new Size(75, 28);
+			buttonInvert.TabIndex = 4;
+			buttonInvert.Text = "Flip";
+			buttonInvert.Click += buttonInvert_Click;
+			// 
+			// buttonNone
+			// 
+			buttonNone.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonNone.Appearance.Options.UseFont = true;
+			tablePanel5.SetColumn(buttonNone, 1);
+			buttonNone.Dock = DockStyle.Fill;
+			buttonNone.Location = new Point(84, 125);
+			buttonNone.Margin = new Padding(0, 0, 9, 0);
+			buttonNone.Name = "buttonNone";
+			tablePanel5.SetRow(buttonNone, 2);
+			buttonNone.Size = new Size(75, 28);
+			buttonNone.TabIndex = 3;
+			buttonNone.Text = "None";
+			buttonNone.Click += buttonNone_Click;
+			// 
+			// languagesToTranslateCheckListBox
+			// 
+			languagesToTranslateCheckListBox.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			languagesToTranslateCheckListBox.Appearance.Options.UseFont = true;
+			languagesToTranslateCheckListBox.CheckOnClick = true;
+			tablePanel5.SetColumn(languagesToTranslateCheckListBox, 0);
+			tablePanel5.SetColumnSpan(languagesToTranslateCheckListBox, 4);
+			languagesToTranslateCheckListBox.Dock = DockStyle.Fill;
+			languagesToTranslateCheckListBox.Location = new Point(0, 20);
+			languagesToTranslateCheckListBox.Margin = new Padding(0, 0, 0, 6);
+			languagesToTranslateCheckListBox.Name = "languagesToTranslateCheckListBox";
+			tablePanel5.SetRow(languagesToTranslateCheckListBox, 1);
+			languagesToTranslateCheckListBox.Size = new Size(462, 99);
+			languagesToTranslateCheckListBox.TabIndex = 1;
+			languagesToTranslateCheckListBox.ItemCheck += languagesToTranslateCheckListBox_ItemCheck;
+			languagesToTranslateCheckListBox.SelectedIndexChanged += languagesToTranslateCheckListBox_SelectedIndexChanged;
+			// 
+			// referenceLanguageGroupBox
+			// 
+			referenceLanguageGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			tablePanel2.SetColumn(referenceLanguageGroupBox, 1);
+			referenceLanguageGroupBox.CueText = null;
+			referenceLanguageGroupBox.Location = new Point(136, 40);
+			referenceLanguageGroupBox.Margin = new Padding(0, 0, 0, 6);
+			referenceLanguageGroupBox.MinimumSize = new Size(0, 24);
+			referenceLanguageGroupBox.Name = "referenceLanguageGroupBox";
+			referenceLanguageGroupBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			referenceLanguageGroupBox.Properties.Appearance.Options.UseFont = true;
+			referenceLanguageGroupBox.Properties.Buttons.AddRange(new EditorButton[] { new EditorButton(ButtonPredefines.Combo) });
+			referenceLanguageGroupBox.Properties.DropDownRows = 20;
+			referenceLanguageGroupBox.Properties.NullValuePrompt = null;
+			referenceLanguageGroupBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			referenceLanguageGroupBox.Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
+			referenceLanguageGroupBox.Properties.SelectedIndexChanged += referenceLanguageGroupBox_SelectedIndexChanged;
+			tablePanel2.SetRow(referenceLanguageGroupBox, 1);
+			referenceLanguageGroupBox.Size = new Size(337, 24);
+			referenceLanguageGroupBox.TabIndex = 3;
+			// 
+			// fileGroupTextBox
+			// 
+			fileGroupTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			tablePanel2.SetColumn(fileGroupTextBox, 1);
+			fileGroupTextBox.CueText = null;
+			fileGroupTextBox.Location = new Point(136, 10);
+			fileGroupTextBox.Margin = new Padding(0, 0, 0, 6);
+			fileGroupTextBox.MaximumSize = new Size(0, 24);
+			fileGroupTextBox.MinimumSize = new Size(0, 24);
+			fileGroupTextBox.Name = "fileGroupTextBox";
+			fileGroupTextBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			fileGroupTextBox.Properties.Appearance.Options.UseFont = true;
+			fileGroupTextBox.Properties.Mask.EditMask = null;
+			fileGroupTextBox.Properties.NullValuePrompt = null;
+			fileGroupTextBox.Properties.ReadOnly = true;
+			fileGroupTextBox.Properties.ShowNullValuePrompt = ShowNullValuePromptOptions.EditorFocused | ShowNullValuePromptOptions.EditorReadOnly;
+			tablePanel2.SetRow(fileGroupTextBox, 0);
+			fileGroupTextBox.Size = new Size(337, 24);
+			fileGroupTextBox.TabIndex = 1;
+			fileGroupTextBox.TextChanged += fileGroupTextBox_TextChanged;
+			// 
+			// label3
+			// 
+			label3.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			label3.Appearance.Options.UseFont = true;
+			tablePanel5.SetColumn(label3, 0);
+			tablePanel5.SetColumnSpan(label3, 4);
+			label3.Location = new Point(0, 0);
+			label3.Margin = new Padding(0, 0, 0, 3);
+			label3.Name = "label3";
+			tablePanel5.SetRow(label3, 0);
+			label3.Size = new Size(136, 17);
+			label3.TabIndex = 0;
+			label3.Text = "L&anguages to translate:";
+			// 
+			// label2
+			// 
+			label2.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			label2.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(label2, 0);
+			label2.Location = new Point(11, 43);
+			label2.Margin = new Padding(0, 0, 6, 0);
+			label2.Name = "label2";
+			tablePanel2.SetRow(label2, 1);
+			label2.Size = new Size(119, 17);
+			label2.TabIndex = 2;
+			label2.Text = "&Reference language:";
+			// 
+			// label1
+			// 
+			label1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			label1.Appearance.Options.UseFont = true;
+			tablePanel2.SetColumn(label1, 0);
+			label1.Location = new Point(11, 13);
+			label1.Margin = new Padding(0, 0, 6, 0);
+			label1.Name = "label1";
+			tablePanel2.SetRow(label1, 0);
+			label1.Size = new Size(62, 17);
+			label1.TabIndex = 0;
+			label1.Text = "File group:";
+			// 
+			// buttonTranslate
+			// 
+			buttonTranslate.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonTranslate.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(buttonTranslate, 2);
+			buttonTranslate.Dock = DockStyle.Fill;
+			buttonTranslate.Location = new Point(262, 0);
+			buttonTranslate.Margin = new Padding(0, 0, 9, 0);
+			buttonTranslate.Name = "buttonTranslate";
+			tablePanel4.SetRow(buttonTranslate, 0);
+			buttonTranslate.Size = new Size(116, 28);
+			buttonTranslate.TabIndex = 2;
+			buttonTranslate.Text = "Translate now";
+			buttonTranslate.Click += buttonTranslate_Click;
+			// 
+			// buttonCancel
+			// 
+			buttonCancel.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonCancel.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(buttonCancel, 3);
+			buttonCancel.DialogResult = DialogResult.Cancel;
+			buttonCancel.Dock = DockStyle.Fill;
+			buttonCancel.Location = new Point(387, 0);
+			buttonCancel.Margin = new Padding(0);
+			buttonCancel.Name = "buttonCancel";
+			tablePanel4.SetRow(buttonCancel, 0);
+			buttonCancel.Size = new Size(75, 28);
+			buttonCancel.TabIndex = 3;
+			buttonCancel.Text = "Cancel";
+			// 
+			// useOnlyExistingTranslationsCheckEdit
+			// 
+			useOnlyExistingTranslationsCheckEdit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			tablePanel2.SetColumn(useOnlyExistingTranslationsCheckEdit, 0);
+			tablePanel2.SetColumnSpan(useOnlyExistingTranslationsCheckEdit, 2);
+			useOnlyExistingTranslationsCheckEdit.Location = new Point(11, 291);
+			useOnlyExistingTranslationsCheckEdit.Margin = new Padding(0);
+			useOnlyExistingTranslationsCheckEdit.Name = "useOnlyExistingTranslationsCheckEdit";
+			useOnlyExistingTranslationsCheckEdit.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			useOnlyExistingTranslationsCheckEdit.Properties.Appearance.Options.UseFont = true;
+			useOnlyExistingTranslationsCheckEdit.Properties.AutoWidth = true;
+			useOnlyExistingTranslationsCheckEdit.Properties.Caption = "Use only existing translations, if available, never call translation service";
+			tablePanel2.SetRow(useOnlyExistingTranslationsCheckEdit, 5);
+			useOnlyExistingTranslationsCheckEdit.Size = new Size(432, 21);
+			useOnlyExistingTranslationsCheckEdit.TabIndex = 7;
+			useOnlyExistingTranslationsCheckEdit.CheckedChanged += useOnlyExistingTranslationsCheckEdit_CheckedChanged;
+			// 
+			// useExistingTranslationsCheckBox
+			// 
+			useExistingTranslationsCheckBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+			tablePanel2.SetColumn(useExistingTranslationsCheckBox, 0);
+			tablePanel2.SetColumnSpan(useExistingTranslationsCheckBox, 2);
+			useExistingTranslationsCheckBox.Location = new Point(11, 264);
+			useExistingTranslationsCheckBox.Margin = new Padding(0, 0, 0, 6);
+			useExistingTranslationsCheckBox.Name = "useExistingTranslationsCheckBox";
+			useExistingTranslationsCheckBox.Properties.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			useExistingTranslationsCheckBox.Properties.Appearance.Options.UseFont = true;
+			useExistingTranslationsCheckBox.Properties.AutoWidth = true;
+			useExistingTranslationsCheckBox.Properties.Caption = "Use existing translations, if available";
+			tablePanel2.SetRow(useExistingTranslationsCheckBox, 4);
+			useExistingTranslationsCheckBox.Size = new Size(233, 21);
+			useExistingTranslationsCheckBox.TabIndex = 6;
+			useExistingTranslationsCheckBox.CheckedChanged += useExistingTranslationsCheckBox_CheckedChanged;
+			// 
+			// buttonSettings
+			// 
+			buttonSettings.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			buttonSettings.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(buttonSettings, 0);
+			buttonSettings.Dock = DockStyle.Fill;
+			buttonSettings.Location = new Point(0, 0);
+			buttonSettings.Margin = new Padding(0, 0, 9, 0);
+			buttonSettings.Name = "buttonSettings";
+			tablePanel4.SetRow(buttonSettings, 0);
+			buttonSettings.Size = new Size(75, 28);
+			buttonSettings.TabIndex = 0;
+			buttonSettings.Text = "Settings";
+			buttonSettings.Click += buttonSettings_Click;
+			// 
+			// labelControl1
+			// 
+			labelControl1.Appearance.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			labelControl1.Appearance.Options.UseFont = true;
+			tablePanel4.SetColumn(labelControl1, 1);
+			labelControl1.Dock = DockStyle.Left;
+			labelControl1.Enabled = false;
+			labelControl1.Location = new Point(87, 3);
+			labelControl1.Name = "labelControl1";
+			tablePanel4.SetRow(labelControl1, 0);
+			labelControl1.Size = new Size(18, 22);
+			labelControl1.TabIndex = 1;
+			labelControl1.Text = "<>";
+			// 
+			// tablePanel2
+			// 
+			tablePanel2.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 5F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel2.Controls.Add(tablePanel3);
+			tablePanel2.Controls.Add(tablePanel4);
+			tablePanel2.Controls.Add(tablePanel5);
+			tablePanel2.Controls.Add(useOnlyExistingTranslationsCheckEdit);
+			tablePanel2.Controls.Add(label1);
+			tablePanel2.Controls.Add(useExistingTranslationsCheckBox);
+			tablePanel2.Controls.Add(label2);
+			tablePanel2.Controls.Add(fileGroupTextBox);
+			tablePanel2.Controls.Add(referenceLanguageGroupBox);
+			tablePanel2.Dock = DockStyle.Fill;
+			tablePanel2.Location = new Point(0, 0);
+			tablePanel2.Margin = new Padding(0);
+			tablePanel2.Name = "tablePanel2";
+			tablePanel2.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 18F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel2.Size = new Size(484, 369);
+			tablePanel2.TabIndex = 0;
+			tablePanel2.UseSkinIndents = true;
+			// 
+			// tablePanel3
+			// 
+			tablePanel3.AutoSize = true;
+			tablePanel2.SetColumn(tablePanel3, 0);
+			tablePanel3.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 5F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 150F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel2.SetColumnSpan(tablePanel3, 2);
+			tablePanel3.Controls.Add(prefixCheckBox);
+			tablePanel3.Controls.Add(prefixTextBox);
+			tablePanel3.Controls.Add(buttonDefault);
+			tablePanel3.Dock = DockStyle.Fill;
+			tablePanel3.Location = new Point(11, 232);
+			tablePanel3.Margin = new Padding(0, 0, 0, 6);
+			tablePanel3.Name = "tablePanel3";
+			tablePanel2.SetRow(tablePanel3, 3);
+			tablePanel3.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F) });
+			tablePanel3.Size = new Size(462, 26);
+			tablePanel3.TabIndex = 5;
+			// 
+			// tablePanel4
+			// 
+			tablePanel4.AutoSize = true;
+			tablePanel2.SetColumn(tablePanel4, 0);
+			tablePanel4.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 125F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 75F) });
+			tablePanel2.SetColumnSpan(tablePanel4, 2);
+			tablePanel4.Controls.Add(buttonSettings);
+			tablePanel4.Controls.Add(labelControl1);
+			tablePanel4.Controls.Add(buttonTranslate);
+			tablePanel4.Controls.Add(buttonCancel);
+			tablePanel4.Dock = DockStyle.Fill;
+			tablePanel4.Location = new Point(11, 330);
+			tablePanel4.Margin = new Padding(0);
+			tablePanel4.Name = "tablePanel4";
+			tablePanel2.SetRow(tablePanel4, 7);
+			tablePanel4.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F) });
+			tablePanel4.Size = new Size(462, 28);
+			tablePanel4.TabIndex = 8;
+			// 
+			// tablePanel5
+			// 
+			tablePanel2.SetColumn(tablePanel5, 0);
+			tablePanel5.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 84F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F) });
+			tablePanel2.SetColumnSpan(tablePanel5, 2);
+			tablePanel5.Controls.Add(buttonAll);
+			tablePanel5.Controls.Add(buttonNone);
+			tablePanel5.Controls.Add(buttonInvert);
+			tablePanel5.Controls.Add(languagesToTranslateCheckListBox);
+			tablePanel5.Controls.Add(label3);
+			tablePanel5.Dock = DockStyle.Fill;
+			tablePanel5.Location = new Point(11, 70);
+			tablePanel5.Margin = new Padding(0, 0, 0, 9);
+			tablePanel5.Name = "tablePanel5";
+			tablePanel2.SetRow(tablePanel5, 2);
+			tablePanel5.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 100F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 28F) });
+			tablePanel5.Size = new Size(462, 153);
+			tablePanel5.TabIndex = 4;
+			// 
+			// AutoTranslateForm
+			// 
+			AcceptButton = buttonTranslate;
+			Appearance.Options.UseFont = true;
+			AutoScaleDimensions = new SizeF(7F, 17F);
+			AutoScaleMode = AutoScaleMode.Font;
+			CancelButton = buttonCancel;
+			ClientSize = new Size(484, 369);
+			Controls.Add(tablePanel2);
+			IconOptions.ShowIcon = false;
+			MaximizeBox = false;
+			MinimizeBox = false;
+			MinimumSize = new Size(486, 401);
+			Name = "AutoTranslateForm";
+			ShowInTaskbar = false;
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Automatically translate missing languages";
+			FormClosing += autoTranslateForm_FormClosing;
+			Load += autoTranslateForm_Load;
+			Shown += autoTranslateForm_Shown;
+			((ISupportInitialize)prefixTextBox.Properties).EndInit();
+			((ISupportInitialize)prefixCheckBox.Properties).EndInit();
+			((ISupportInitialize)languagesToTranslateCheckListBox).EndInit();
+			((ISupportInitialize)referenceLanguageGroupBox.Properties).EndInit();
+			((ISupportInitialize)fileGroupTextBox.Properties).EndInit();
+			((ISupportInitialize)useOnlyExistingTranslationsCheckEdit.Properties).EndInit();
+			((ISupportInitialize)useExistingTranslationsCheckBox.Properties).EndInit();
+			((ISupportInitialize)tablePanel2).EndInit();
+			tablePanel2.ResumeLayout(false);
+			tablePanel2.PerformLayout();
+			((ISupportInitialize)tablePanel3).EndInit();
+			tablePanel3.ResumeLayout(false);
+			tablePanel3.PerformLayout();
+			((ISupportInitialize)tablePanel4).EndInit();
+			tablePanel4.ResumeLayout(false);
+			tablePanel4.PerformLayout();
+			((ISupportInitialize)tablePanel5).EndInit();
+			tablePanel5.ResumeLayout(false);
+			tablePanel5.PerformLayout();
+			ResumeLayout(false);
 		}
 
 		#endregion
@@ -384,11 +496,14 @@
 		private ExtendedControlsLibrary.Skinning.CustomListBox.MyCheckedListBoxControl languagesToTranslateCheckListBox;
 		private ExtendedControlsLibrary.Skinning.CustomComboBoxEdit.MyComboBoxEdit referenceLanguageGroupBox;
 		private ExtendedControlsLibrary.Skinning.CustomTextEdit.MyTextEdit fileGroupTextBox;
-		private ExtendedControlsLibrary.Skinning.CustomPanel.MyPanelControl panelControl1;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonDefault;
 		private ExtendedControlsLibrary.Skinning.CustomButton.MySimpleButton buttonSettings;
 		private ExtendedControlsLibrary.Skinning.CustomLabelEdit.MyLabelControl labelControl1;
-        private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit useExistingTranslationsCheckBox;
-        private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit useOnlyExistingTranslationsCheckEdit;
-    }
+		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit useExistingTranslationsCheckBox;
+		private ExtendedControlsLibrary.Skinning.CustomCheckEdit.MyCheckEdit useOnlyExistingTranslationsCheckEdit;
+		private DevExpress.Utils.Layout.TablePanel tablePanel2;
+		private DevExpress.Utils.Layout.TablePanel tablePanel3;
+		private DevExpress.Utils.Layout.TablePanel tablePanel4;
+		private DevExpress.Utils.Layout.TablePanel tablePanel5;
+	}
 }

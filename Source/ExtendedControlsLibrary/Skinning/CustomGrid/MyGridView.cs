@@ -1,11 +1,10 @@
 ﻿namespace ZetaResourceEditor.ExtendedControlsLibrary.Skinning.CustomGrid;
 
-using System.ComponentModel;
 using DevExpress.Utils;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
-using global::ExtendedControlsLibrary.Skinning;
+using System.ComponentModel;
 
 public class MyGridView :
     GridView
@@ -56,7 +55,7 @@ public class MyGridView :
     }
 
     [Localizable(true)]
-    public string EmptyText { get; set; }
+    public string? EmptyText { get; set; }
 
     protected override void RaiseCustomDrawEmptyForeground(CustomDrawEventArgs e)
     {
