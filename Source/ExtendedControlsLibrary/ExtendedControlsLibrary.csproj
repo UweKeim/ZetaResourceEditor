@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net7.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
@@ -20,7 +20,7 @@
     <PackageReference Include="log4net" Version="2.0.15" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="Svg" Version="3.4.4" />
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.3" />
     <PackageReference Include="DevExpress.Win.Design" Version="22.2.6" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Common" Version="1.0.11" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.11" />
