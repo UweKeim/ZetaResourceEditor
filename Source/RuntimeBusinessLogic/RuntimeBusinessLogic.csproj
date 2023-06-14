@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net7.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
@@ -39,7 +39,7 @@
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Logging" Version="1.0.11" />
     <PackageReference Include="Zeta.VoyagerLibrary.Core.Tools" Version="1.0.11" />
     <PackageReference Include="ZetaShortPaths" Version="1.0.31" />
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.3" />
     <PackageReference Include="DevExpress.Win.Design" Version="22.2.6" />
   </ItemGroup>
   <ItemGroup>
